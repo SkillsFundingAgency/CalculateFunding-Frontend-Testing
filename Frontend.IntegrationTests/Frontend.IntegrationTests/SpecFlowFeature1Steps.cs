@@ -24,7 +24,7 @@ namespace Frontend.IntegrationTests
             //driver.Manage().Timeouts().ImplicitWait(TimeSpan.FromSeconds(30));
             driver.Navigate().GoToUrl("https://esfacfsftest-web.azurewebsites.net");
             var header = driver.FindElementById("global-header");
-            ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(@"shot.jpg", ScreenshotImageFormat.Jpeg);
+           // ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(@"shot.jpg", ScreenshotImageFormat.Jpeg);
             Assert.IsNotNull(header);
         }
         
