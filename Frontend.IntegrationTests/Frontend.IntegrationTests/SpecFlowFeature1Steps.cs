@@ -10,6 +10,9 @@ namespace Frontend.IntegrationTests
     [Binding]
     public class SpecFlowFeature1Steps
     {
+        private IWebDriver _driver;
+
+
         [Given(@"I have entered (.*) into the calculator")]
         public void GivenIHaveEnteredIntoTheCalculator(int p0)
         {
@@ -19,11 +22,10 @@ namespace Frontend.IntegrationTests
         [When(@"I press add")]
         public void WhenIPressAdd()
         {
-            var driver = new PhantomJSDriver();
-            driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            driver.Navigate().GoToUrl("https://esfacfsftest-web.azurewebsites.net");
-            var header = driver.FindElementById("global-header");
+
+
+            _driver.Navigate().GoToUrl("https://esfacfsftest-web.azurewebsites.net");
+            var header = _driver.FindElement(By.Id("global-header"));
            // ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(@"shot.jpg", ScreenshotImageFormat.Jpeg);
             Assert.IsNotNull(header);
         }
@@ -32,6 +34,24 @@ namespace Frontend.IntegrationTests
         public void ThenTheResultShouldBeOnTheScreen(int p0)
         {
 
+        }
+
+        [BeforeScenario()]
+        public void BeforeScenario()
+        {
+            _driver = new PhantomJSDriver();
+            _driver.Manage().Window.Maximize();
+           _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+        }
+
+        [AfterScenario()]
+        public void FixtureTearDown()
+        {
+            if (_driver != null)
+            {
+                _driver.Quit();
+                _driver.Dispose();
+            }
         }
     }
 }
