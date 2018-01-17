@@ -21,7 +21,7 @@ namespace Frontend.IntegrationTests
         {
             var driver = new PhantomJSDriver();
             driver.Manage().Window.Maximize();
-            //driver.Manage().Timeouts().ImplicitWait(TimeSpan.FromSeconds(30));
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Navigate().GoToUrl("https://esfacfsftest-web.azurewebsites.net");
             var header = driver.FindElementById("global-header");
            // ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(@"shot.jpg", ScreenshotImageFormat.Jpeg);
