@@ -362,6 +362,57 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
+        [Given(@"I click on a calculation in the displayed list")]
+        public void GivenIClickOnACalculationInTheDisplayedList()
+        {
+            Actions.SearchFilterForTestCalculations();
+            managecalculationpage.FirstCalculationListed.Text.Contains("Test");
+            managecalculationpage.FirstCalculationListed.Click();
+
+        }
+
+        [When(@"The Edit Calculation screen is displayed")]
+        public void WhenTheEditCalculationScreenIsDisplayed()
+        {
+            Thread.Sleep(2000);
+            editcalculationspage.SaveCalculationButton.Should().NotBeNull();
+        }
+
+        [Then(@"The Name of the specification is displayed")]
+        public void ThenTheNameOfTheSpecificationIsDisplayed()
+        {
+            editcalculationspage.CalculationSpecName.Should().NotBeNull();
+        }
+
+        [Then(@"The Description of the specification is displayed")]
+        public void ThenTheDescriptionOfTheSpecificationIsDisplayed()
+        {
+            editcalculationspage.CalculationSpecDescription.Should().NotBeNull();
+        }
+
+        [Then(@"The Build Calculation button is disabled")]
+        public void ThenTheBuildCalculationButtonIsDisabled()
+        {
+            editcalculationspage.BuildCalculationButton.Should().NotBeNull();
+            editcalculationspage.BuildCalculationButton.GetAttribute("enabled");
+        }
+
+        [Then(@"The Save Calculation button is disabled")]
+        public void ThenTheSaveCalculationButtonIsDisabled()
+        {
+            editcalculationspage.SaveCalculationButton.Should().NotBeNull();
+            editcalculationspage.SaveCalculationButton.GetAttribute("disabled");
+        }
+
+        [Then(@"The Publish Calculation button is disabled")]
+        public void ThenThePublishCalculationButtonIsDisabled()
+        {
+            editcalculationspage.PublishCalculationButton.Should().NotBeNull();
+            editcalculationspage.PublishCalculationButton.GetAttribute("disabled");
+            Thread.Sleep(2000);
+        }
+
+
 
         [AfterScenario()]
         public void FixtureTearDown()

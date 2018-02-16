@@ -426,6 +426,38 @@ testRunner.And("the previously selected filter options", ((string)(null)), ((Tec
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Edit Calculation Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35457)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheEditCalculationPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Edit Calculation Page", new string[] {
+                        "Workitem:35457",
+                        "Driver"});
+#line 110
+this.ScenarioSetup(scenarioInfo);
+#line 111
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 112
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 113
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 114
+testRunner.Then("The Name of the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 115
+testRunner.And("The Description of the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 116
+testRunner.And("The Build Calculation button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 117
+testRunner.And("The Save Calculation button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 118
+testRunner.And("The Publish Calculation button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

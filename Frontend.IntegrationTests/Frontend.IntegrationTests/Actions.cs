@@ -120,7 +120,17 @@
 
         }
 
+        public static void SearchFilterForTestCalculations()
+        {
+            ManageCalculationPage managecalculationpage = new ManageCalculationPage();
 
+            managecalculationpage.CalculationSearchField.Clear();
+            managecalculationpage.CalculationSearchField.SendKeys("Test");
+            managecalculationpage.CalculationSearchButton.Click();
+            Thread.Sleep(2000);
+
+
+        }
     }
 
 }

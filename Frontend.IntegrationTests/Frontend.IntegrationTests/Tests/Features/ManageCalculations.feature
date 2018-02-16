@@ -106,3 +106,14 @@ And I click the search button
 Then the list view of calculations updates to display only calculations that comply with the search term entered
 And the previously selected filter options
 
+@Workitem:35457 Driver
+Scenario: Verify the Edit Calculation Page
+Given I have navigated to the Manage Calculations page
+And I click on a calculation in the displayed list
+When The Edit Calculation screen is displayed
+Then The Name of the specification is displayed
+And The Description of the specification is displayed
+And The Build Calculation button is disabled
+And The Save Calculation button is disabled
+And The Publish Calculation button is disabled
+
