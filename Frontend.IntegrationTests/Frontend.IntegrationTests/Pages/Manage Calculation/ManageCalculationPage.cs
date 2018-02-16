@@ -14,6 +14,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Calculation
         [FindsBy(How = How.Id, Using = "SearchTerm")]
         public IWebElement CalculationSearchField { get; set; }
 
+        [FindsBy(How = How.Id, Using = "filter-search-button-image")]
+        public IWebElement CalculationSearchButton { get; set; }
+
         [FindsBy(How = How.Id, Using = "dynamic-results-table-body")]
         public IWebElement CalculationResultsList { get; set; }
 
@@ -68,7 +71,14 @@ namespace Frontend.IntegrationTests.Pages.Manage_Calculation
         [FindsBy(How = How.LinkText, Using = "Show all status")]
         public IWebElement CalculationStatusDropDownDefault { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".material-icons")]
+        public IWebElement RemoveCalculationFilter { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "filter-selected-item")]
+        public IWebElement CalculationFilterBox { get; set; }
         
+
+
 
     }
 }
