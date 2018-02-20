@@ -1,6 +1,7 @@
 ﻿using Frontend.IntegrationTests.Pages;
 using Frontend.IntegrationTests.Pages.Manage_Calculation;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
+using System.Threading;
 
 namespace Frontend.IntegrationTests
 {
@@ -80,6 +81,21 @@ namespace Frontend.IntegrationTests
             homepage.ManagetheSpecification.Click();
             managepecificationpage.SelectSpecification.Click();
             managepoliciespage.CreateSubPolicy.Click();
+
+        }
+
+        public static void ComparePreviousCalculationVersions()
+        {
+            HomePage homepage = new HomePage();
+            ManageCalculationPage managecalculationpage = new ManageCalculationPage();
+            EditCalculationsPage editcalculationspage = new EditCalculationsPage();
+
+            homepage.ManagetheCalculations.Click();
+            Thread.Sleep(5000);
+            managecalculationpage.FirstCalculationListed.Click();
+            Thread.Sleep(2000);
+            editcalculationspage.PreviousCalculationVersionsLink.Click();
+            
 
         }
 

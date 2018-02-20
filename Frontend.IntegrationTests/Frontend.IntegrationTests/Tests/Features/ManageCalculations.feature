@@ -151,3 +151,21 @@ And the results of the compilation is recorded in the output box
 And I click the Save Calculation button
 And I am returned to the manage calculation page
 And a full audit record of my calculation is created
+
+@Workitem:35460 Driver
+Scenario: Verify the Compare Calculation Versions Page
+Given I have navigated to the Manage Calculations page
+And I click on a calculation in the displayed list
+And The Edit Calculation screen is displayed
+When I click the View previous versions link 
+Then I am redirected to the Compare Calculation Versions page
+And a list view of calculation versions is displayed
+
+@Workitem:35460 Driver
+Scenario: Validate Compare Calculation Versions Page Calculation Information
+Given I have navigated to the Compare Calculation Versions page
+Then I can see who created the calculation version as the Author 
+And the date time the version was Created or Updated
+And the calculation version number is displayed
+And the calculation status is displayed
+And the list is sorted in descending order by Updated date

@@ -15,6 +15,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
     {
         ManageCalculationPage managecalculationpage = new ManageCalculationPage();
         EditCalculationsPage editcalculationspage = new EditCalculationsPage();
+        ViewPreviousCalculationsPage viewpreviouscalculationpage = new ViewPreviousCalculationsPage();
 
         [Then(@"the page lists the most recent calculations")]
         public void ThenThePageListsTheMostRecentCalculations()
@@ -152,7 +153,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"All other filters will update")]
         public void ThenAllOtherFiltersWillUpdate()
         {
-           
+
 
         }
 
@@ -422,7 +423,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void WhenIClickTheBuildCalculationButton()
         {
             editcalculationspage.BuildCalculationButton.Click();
-            
+
         }
 
         [Then(@"I am notified that my code is compiling in the output box")]
@@ -494,6 +495,78 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"a full audit record of my calculation is created")]
         public void ThenAFullAuditRecordOfMyCalculationIsCreated()
         {
+
+        }
+
+        [Given(@"The Edit Calculation screen is displayed")]
+        public void GivenTheEditCalculationScreenIsDisplayed()
+        {
+            Thread.Sleep(2000);
+            editcalculationspage.SaveCalculationButton.Should().NotBeNull();
+        }
+
+        [When(@"I click the View previous versions link")]
+        public void WhenIClickTheViewPreviousVersionsLink()
+        {
+            editcalculationspage.PreviousCalculationVersionsLink.Click();
+            Thread.Sleep(2000);
+
+        }
+
+        [Then(@"I am redirected to the Compare Calculation Versions page")]
+        public void ThenIAmRedirectedToTheCompareCalculationVersionsPage()
+        {
+            viewpreviouscalculationpage.ComparePreviousCalculationsButton.Should().NotBeNull();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"a list view of calculation versions is displayed")]
+        public void ThenAListViewOfCalculationVersionsIsDisplayed()
+        {
+            viewpreviouscalculationpage.CompareFirstCheckBox.Should().NotBeNull();
+            Thread.Sleep(2000);
+        }
+
+        [Given(@"I have navigated to the Compare Calculation Versions page")]
+        public void GivenIHaveNavigatedToTheCompareCalculationVersionsPage()
+        {
+            NavigateTo.ComparePreviousCalculationVersions();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I can see who created the calculation version as the Author")]
+        public void ThenICanSeeWhoCreatedTheCalculationVersionAsTheAuthor()
+        {
+            viewpreviouscalculationpage.CalculationVersionAuthor.Should().NotBeNull();
+        }
+
+        [Then(@"the date time the version was Created or Updated")]
+        public void ThenTheDateTimeTheVersionWasCreatedOrUpdated()
+        {
+            viewpreviouscalculationpage.CalculationVersionUpdatedDate.Should().NotBeNull();
+        }
+
+        [Then(@"the calculation version number is displayed")]
+        public void ThenTheCalculationVersionNumberIsDisplayed()
+        {
+            viewpreviouscalculationpage.CalculationVersionId.Should().NotBeNull();
+        }
+
+        [Then(@"the calculation status is displayed")]
+        public void ThenTheCalculationStatusIsDisplayed()
+        {
+            viewpreviouscalculationpage.CalculationVersionStatus.Should().NotBeNull();
+        }
+
+
+        [Then(@"the list is sorted in descending order by Updated date")]
+        public void ThenTheListIsSortedInDescendingOrderByUpdatedDate()
+        {
+            var versionNumber = viewpreviouscalculationpage.CalculationVersionId;
+            string versionId = versionNumber.Text;
+            int calculationVersionId = int.Parse(versionId);
+            calculationVersionId.Should().BeGreaterOrEqualTo(1, "Calculations Are Not Sorted Correctly");
+            Thread.Sleep(2000);
 
         }
 
