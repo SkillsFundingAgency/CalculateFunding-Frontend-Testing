@@ -117,3 +117,37 @@ And The Build Calculation button is disabled
 And The Save Calculation button is disabled
 And The Publish Calculation button is disabled
 
+@Workitem:35457 Driver
+Scenario: Edit and Build the Calculation Visual Basic Code
+Given I have navigated to the Manage Calculations page
+And I click on a calculation in the displayed list
+When The Edit Calculation screen is displayed
+And I have edited the visual basic code
+And I click the Build Calculation button
+Then I am notified that my code is compiling in the output box
+And I am notified that my code has finished compiling in the output box
+And the results of the compilation is recorded in the output box
+
+@Workitem:35457 Driver
+Scenario: Incorrectly Edit and Build a Calculation
+Given I have navigated to the Manage Calculations page
+And I click on a calculation in the displayed list
+When The Edit Calculation screen is displayed
+And I have incorrectly edited the visual basic code
+And I click the Build Calculation button
+Then I am notified that my code is compiling in the output box
+And the error result of the compilation is recorded in the output box
+
+@Workitem:35457 Driver
+Scenario: Edit and Save a New Calculation Version of the Code
+Given I have navigated to the Manage Calculations page
+And I click on a calculation in the displayed list
+When The Edit Calculation screen is displayed
+And I have edited the visual basic code
+And I click the Build Calculation button
+Then I am notified that my code is compiling in the output box
+And I am notified that my code has finished compiling in the output box
+And the results of the compilation is recorded in the output box
+And I click the Save Calculation button
+And I am returned to the manage calculation page
+And a full audit record of my calculation is created

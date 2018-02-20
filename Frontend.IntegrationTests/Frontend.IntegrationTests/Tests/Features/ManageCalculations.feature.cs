@@ -458,6 +458,106 @@ testRunner.And("The Publish Calculation button is disabled", ((string)(null)), (
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit and Build the Calculation Visual Basic Code")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35457)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditAndBuildTheCalculationVisualBasicCode()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit and Build the Calculation Visual Basic Code", new string[] {
+                        "Workitem:35457",
+                        "Driver"});
+#line 121
+this.ScenarioSetup(scenarioInfo);
+#line 122
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 123
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 124
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 125
+testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 126
+testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 127
+testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 128
+testRunner.And("I am notified that my code has finished compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 129
+testRunner.And("the results of the compilation is recorded in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Incorrectly Edit and Build a Calculation")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35457)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void IncorrectlyEditAndBuildACalculation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrectly Edit and Build a Calculation", new string[] {
+                        "Workitem:35457",
+                        "Driver"});
+#line 132
+this.ScenarioSetup(scenarioInfo);
+#line 133
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 134
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 135
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 136
+testRunner.And("I have incorrectly edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 137
+testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 138
+testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 139
+testRunner.And("the error result of the compilation is recorded in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit and Save a New Calculation Version of the Code")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35457)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditAndSaveANewCalculationVersionOfTheCode()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit and Save a New Calculation Version of the Code", new string[] {
+                        "Workitem:35457",
+                        "Driver"});
+#line 142
+this.ScenarioSetup(scenarioInfo);
+#line 143
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 144
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 145
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 146
+testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 147
+testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 148
+testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 149
+testRunner.And("I am notified that my code has finished compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 150
+testRunner.And("the results of the compilation is recorded in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 151
+testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 152
+testRunner.And("I am returned to the manage calculation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 153
+testRunner.And("a full audit record of my calculation is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

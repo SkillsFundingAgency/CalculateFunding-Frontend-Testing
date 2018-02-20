@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using AutoFramework;
 using FluentAssertions;
-using Frontend.IntegrationTests.Pages;
 using Frontend.IntegrationTests.Pages.Manage_Calculation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 //using OpenQA.Selenium.PhantomJS;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Bindings;
 
 namespace Frontend.IntegrationTests.Tests.Steps
 {
@@ -365,9 +360,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Given(@"I click on a calculation in the displayed list")]
         public void GivenIClickOnACalculationInTheDisplayedList()
         {
+            Thread.Sleep(2000);
             Actions.SearchFilterForTestCalculations();
             managecalculationpage.FirstCalculationListed.Text.Contains("Test");
             managecalculationpage.FirstCalculationListed.Click();
+
 
         }
 
@@ -410,6 +407,94 @@ namespace Frontend.IntegrationTests.Tests.Steps
             editcalculationspage.PublishCalculationButton.Should().NotBeNull();
             editcalculationspage.PublishCalculationButton.GetAttribute("disabled");
             Thread.Sleep(2000);
+        }
+
+        [When(@"I have edited the visual basic code")]
+        public void WhenIHaveEditedTheVisualBasicCode()
+        {
+            editcalculationspage.CalculationVBEditor.Should().NotBeNull();
+            editcalculationspage.CalculationVBTextEditor.SendKeys(OpenQA.Selenium.Keys.Control + "A");
+            editcalculationspage.CalculationVBTextEditor.SendKeys("Return Decimal.MinValue + 1");
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I click the Build Calculation button")]
+        public void WhenIClickTheBuildCalculationButton()
+        {
+            editcalculationspage.BuildCalculationButton.Click();
+            
+        }
+
+        [Then(@"I am notified that my code is compiling in the output box")]
+        public void ThenIAmNotifiedThatMyCodeIsCompilingInTheOutputBox()
+        {
+            IWebElement EditCalculationCompiling = Driver._driver.FindElement(By.Id("compiler-response"));
+            string CalculationCompiling = EditCalculationCompiling.Text;
+            CalculationCompiling.Should().Equals("Compiling...");
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am notified that my code has finished compiling in the output box")]
+        public void ThenIAmNotifiedThatMyCodeHasFinishedCompilingInTheOutputBox()
+        {
+            IWebElement EditCalculationCompiled = Driver._driver.FindElement(By.Id("compiler-response"));
+            string CalculationCompiled = EditCalculationCompiled.Text;
+            CalculationCompiled.Should().Equals("Code compiled successfully:");
+            Console.WriteLine(CalculationCompiled);
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the results of the compilation is recorded in the output box")]
+        public void ThenTheResultsOfTheCompilationIsRecordedInTheOutputBox()
+        {
+            IWebElement ValidateCalculationCompile = Driver._driver.FindElement(By.CssSelector("#compiler-response > span:nth-child(1)"));
+            string CalculationCompileResult = ValidateCalculationCompile.Text;
+            CalculationCompileResult.Should().Equals("True");
+            Console.WriteLine(CalculationCompileResult);
+            Thread.Sleep(2000);
+
+        }
+
+        [When(@"I have incorrectly edited the visual basic code")]
+        public void WhenIHaveIncorrectlyEditedTheVisualBasicCode()
+        {
+            editcalculationspage.CalculationVBEditor.Should().NotBeNull();
+            editcalculationspage.CalculationVBTextEditor.SendKeys(OpenQA.Selenium.Keys.Control + "A");
+            editcalculationspage.CalculationVBTextEditor.SendKeys("Return Decimal.MinVa + 1");
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the error result of the compilation is recorded in the output box")]
+        public void ThenTheErrorResultOfTheCompilationIsRecordedInTheOutputBox()
+        {
+            IWebElement ValidateCalculationCompile = Driver._driver.FindElement(By.CssSelector("#compiler-response > span:nth-child(1)"));
+            string CalculationCompileResult = ValidateCalculationCompile.Text;
+            CalculationCompileResult.Should().Equals("False");
+            Console.WriteLine(editcalculationspage.CalculationCompilierMessage.Text);
+            IWebElement savebutton = editcalculationspage.SaveCalculationButton;
+            savebutton.GetAttribute("disabled");
+            Console.WriteLine("The Save Button is Disabled");
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I click the Save Calculation button")]
+        public void ThenIClickTheSaveCalculationButton()
+        {
+            editcalculationspage.SaveCalculationButton.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am returned to the manage calculation page")]
+        public void ThenIAmReturnedToTheManageCalculationPage()
+        {
+            Assert.IsNotNull(managecalculationpage.CalculationSearchField);
+            Thread.Sleep(3000);
+        }
+
+        [Then(@"a full audit record of my calculation is created")]
+        public void ThenAFullAuditRecordOfMyCalculationIsCreated()
+        {
+
         }
 
 

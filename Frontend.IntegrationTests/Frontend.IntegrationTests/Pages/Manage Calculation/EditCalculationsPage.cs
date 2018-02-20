@@ -37,7 +37,18 @@ namespace Frontend.IntegrationTests.Pages.Manage_Calculation
 
         [FindsBy(How = How.CssSelector, Using = ".bannerpublish-status > strong:nth-child(1)")]
         public IWebElement CalculationStatus { get; set; }
-        
+
+        [FindsBy(How = How.CssSelector, Using = "div.monaco-editor:nth-child(1)")]
+        public IWebElement CalculationVBEditor { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "/html/body/main/div/div/div/div[1]/div/div[1]/textarea")]
+        public IWebElement CalculationVBTextEditor { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".compiler-messages")]
+        public IWebElement CalculationCompilierMessage { get; set; }
+
+
+
 
 
 
