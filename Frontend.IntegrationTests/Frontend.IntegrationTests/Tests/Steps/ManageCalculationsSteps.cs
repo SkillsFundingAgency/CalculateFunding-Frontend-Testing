@@ -16,6 +16,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ManageCalculationPage managecalculationpage = new ManageCalculationPage();
         EditCalculationsPage editcalculationspage = new EditCalculationsPage();
         ViewPreviousCalculationsPage viewpreviouscalculationpage = new ViewPreviousCalculationsPage();
+        CompareCalculationsPage comparecalculationspage = new CompareCalculationsPage();
 
         [Then(@"the page lists the most recent calculations")]
         public void ThenThePageListsTheMostRecentCalculations()
@@ -570,6 +571,55 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
+        [Given(@"More than one version of code has been previously saved")]
+        public void GivenMoreThanOneVersionOfCodeHasBeenPreviouslySaved()
+        {
+            var versionNumber = viewpreviouscalculationpage.CalculationVersionId;
+            string versionId = versionNumber.Text;
+            int calculationVersionId = int.Parse(versionId);
+            calculationVersionId.Should().BeGreaterOrEqualTo(2, "There is only One current version of this Calculation");
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I click only one version of the calculation code")]
+        public void WhenIClickOnlyOneVersionOfTheCalculationCode()
+        {
+            viewpreviouscalculationpage.CompareFirstCheckBox.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"The Compare Calculations button remains disabled")]
+        public void ThenTheCompareCalculationsButtonRemainsDisabled()
+        {
+            IWebElement compareCalculationButton = viewpreviouscalculationpage.ComparePreviousCalculationsButton;
+            compareCalculationButton.GetAttribute("disabled");
+            Console.WriteLine("The Compare Calculation Button is Disabled");
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I click to select two versions of the code")]
+        public void WhenIClickToSelectTwoVersionsOfTheCode()
+        {
+            viewpreviouscalculationpage.CompareFirstCheckBox.Click();
+            viewpreviouscalculationpage.CompareSecondCheckBox.Click();
+            Thread.Sleep(1000);
+        }
+
+        [When(@"I click the Compare The Calculations button")]
+        public void WhenIClickTheCompareTheCalculationsButton()
+        {
+            viewpreviouscalculationpage.ComparePreviousCalculationsButton.Click();
+            Thread.Sleep(2000);
+
+        }
+
+        [Then(@"I am redirected to the Calculation Comparison page")]
+        public void ThenIAmRedirectedToTheCalculationComparisonPage()
+        {
+            comparecalculationspage.inlineCodeEditor.Should().NotBeNull();
+            comparecalculationspage.inlineCodeEditorTextArea.Should().NotBeNull();
+            Thread.Sleep(2000);
+        }
 
 
         [AfterScenario()]

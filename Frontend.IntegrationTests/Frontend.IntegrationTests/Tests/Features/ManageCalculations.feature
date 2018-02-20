@@ -169,3 +169,26 @@ And the date time the version was Created or Updated
 And the calculation version number is displayed
 And the calculation status is displayed
 And the list is sorted in descending order by Updated date
+
+@Workitem:36088 Driver
+Scenario: Select One Previous Calculation Code Version from the Compare Calculation Versions page
+Given I have navigated to the Compare Calculation Versions page
+And More than one version of code has been previously saved
+When I click only one version of the calculation code
+Then The Compare Calculations button remains disabled
+
+@Workitem:36088 Driver
+Scenario: Select Two Previous Calculation Code Versions from the Compare Calculation Versions page
+Given I have navigated to the Compare Calculation Versions page
+And More than one version of code has been previously saved
+When I click to select two versions of the code
+And I click the Compare The Calculations button
+Then I am redirected to the Calculation Comparison page
+
+@Workitem:36088 Driver
+Scenario: View the Calculation Comparison Page
+Given I have navigated to the Calculation Comparison page
+Then the status of each version is correctly displayed
+And the date time each version was Created or Updated is displayed
+And the name of the Author of each version is displayed
+And The applicable code for both versions is displayed side by side
