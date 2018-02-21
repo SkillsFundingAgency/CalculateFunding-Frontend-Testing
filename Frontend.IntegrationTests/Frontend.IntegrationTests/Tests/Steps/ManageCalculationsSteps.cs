@@ -621,6 +621,56 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [Given(@"I have navigated to the Calculation Comparison page")]
+        public void GivenIHaveNavigatedToTheCalculationComparisonPage()
+        {
+            NavigateTo.CalculationComparisonPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the status of each version is correctly displayed")]
+        public void ThenTheStatusOfEachVersionIsCorrectlyDisplayed()
+        {
+            comparecalculationspage.leftInlineCodeEditorStatus.Should().NotBeNull();
+            comparecalculationspage.rightInlineCodeEditorStatus.Should().NotBeNull();
+        }
+
+        [Then(@"the date time each version was Created or Updated is displayed")]
+        public void ThenTheDateTimeEachVersionWasCreatedOrUpdatedIsDisplayed()
+        {
+            comparecalculationspage.leftInlineCodeEditorDateTime.Should().NotBeNull();
+            comparecalculationspage.rightInlineCodeEditorDateTime.Should().NotBeNull();
+        }
+
+        [Then(@"the name of the Author of each version is displayed")]
+        public void ThenTheNameOfTheAuthorOfEachVersionIsDisplayed()
+        {
+            comparecalculationspage.leftInlineCodeEditorAuthor.Should().NotBeNull();
+            comparecalculationspage.rightInlineCodeEditorAuthor.Should().NotBeNull();
+        }
+
+        [Then(@"The applicable code for both versions is displayed side by side")]
+        public void ThenTheApplicableCodeForBothVersionsIsDisplayedSideBySide()
+        {
+            comparecalculationspage.inlineCodeEditorTextArea.Should().NotBeNull();
+
+        }
+
+        [Then(@"The Inline Code Editor option can be selected")]
+        public void ThenTheInlineCodeEditorOptionCanBeSelected()
+        {
+            comparecalculationspage.inlineCodeEditor.Click();
+
+        }
+
+        [Then(@"The Back Link can be selected to return to the Previous Calculation Page")]
+        public void ThenTheBackLinkCanBeSelectedToReturnToThePreviousCalculationPage()
+        {
+            comparecalculationspage.compareCalculationsBackLink.Click();
+            Thread.Sleep(2000);
+            viewpreviouscalculationpage.ComparePreviousCalculationsButton.Should().NotBeNull();
+        }
+
 
         [AfterScenario()]
         public void FixtureTearDown()

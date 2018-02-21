@@ -21,7 +21,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Calculation
         public IWebElement inlineCodeEditorTextArea { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".diff-left > span:nth-child(2)")]
-        public IWebElement leftinlineCodeEditorAuthor { get; set; }
+        public IWebElement leftInlineCodeEditorAuthor { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".diff-right > span:nth-child(2)")]
         public IWebElement rightInlineCodeEditorAuthor { get; set; }

@@ -192,3 +192,5 @@ Then the status of each version is correctly displayed
 And the date time each version was Created or Updated is displayed
 And the name of the Author of each version is displayed
 And The applicable code for both versions is displayed side by side
+And The Inline Code Editor option can be selected
+And The Back Link can be selected to return to the Previous Calculation Page
