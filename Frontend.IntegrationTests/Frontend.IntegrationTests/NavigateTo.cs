@@ -1,6 +1,7 @@
 ﻿using Frontend.IntegrationTests.Pages;
 using Frontend.IntegrationTests.Pages.Manage_Calculation;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
+using System.Threading;
 
 namespace Frontend.IntegrationTests
 {
@@ -83,6 +84,39 @@ namespace Frontend.IntegrationTests
 
         }
 
+        public static void ComparePreviousCalculationVersions()
+        {
+            HomePage homepage = new HomePage();
+            ManageCalculationPage managecalculationpage = new ManageCalculationPage();
+            EditCalculationsPage editcalculationspage = new EditCalculationsPage();
+
+            homepage.ManagetheCalculations.Click();
+            Thread.Sleep(5000);
+            managecalculationpage.FirstCalculationListed.Click();
+            Thread.Sleep(2000);
+            editcalculationspage.PreviousCalculationVersionsLink.Click();
+            
+
+        }
+
+        public static void CalculationComparisonPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageCalculationPage managecalculationpage = new ManageCalculationPage();
+            EditCalculationsPage editcalculationspage = new EditCalculationsPage();
+            ViewPreviousCalculationsPage viewpreviouscalculationpage = new ViewPreviousCalculationsPage();
+
+            homepage.ManagetheCalculations.Click();
+            Thread.Sleep(5000);
+            managecalculationpage.FirstCalculationListed.Click();
+            Thread.Sleep(2000);
+            editcalculationspage.PreviousCalculationVersionsLink.Click();
+            Thread.Sleep(2000);
+            viewpreviouscalculationpage.CompareFirstCheckBox.Click();
+            viewpreviouscalculationpage.CompareSecondCheckBox.Click();
+            viewpreviouscalculationpage.ComparePreviousCalculationsButton.Click();
+
+        }
     }
     }
 
