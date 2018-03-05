@@ -1,20 +1,21 @@
 ﻿using Frontend.IntegrationTests.Pages;
 using Frontend.IntegrationTests.Pages.Manage_Calculation;
+using Frontend.IntegrationTests.Pages.Manage_Datasets;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
 using System.Threading;
 
 namespace Frontend.IntegrationTests
 {
-        public static class NavigateTo
+    public static class NavigateTo
+    {
+        public static void ManagetheSpecfication()
         {
-            public static void ManagetheSpecfication()
-            {
-                HomePage homepage = new HomePage();
-                ManageSpecificationPage managepecificationpage = new ManageSpecificationPage();
+            HomePage homepage = new HomePage();
+            ManageSpecificationPage managepecificationpage = new ManageSpecificationPage();
 
-                homepage.ManagetheSpecification.Click();
+            homepage.ManagetheSpecification.Click();
 
-            }
+        }
 
         public static void ManagetheCalculation()
         {
@@ -40,7 +41,7 @@ namespace Frontend.IntegrationTests
         {
             HomePage homepage = new HomePage();
             ManageSpecificationPage managepecificationpage = new ManageSpecificationPage();
-            
+
             homepage.ManagetheSpecification.Click();
             managepecificationpage.SelectSpecification.Click();
 
@@ -95,7 +96,7 @@ namespace Frontend.IntegrationTests
             managecalculationpage.FirstCalculationListed.Click();
             Thread.Sleep(2000);
             editcalculationspage.PreviousCalculationVersionsLink.Click();
-            
+
 
         }
 
@@ -117,6 +118,36 @@ namespace Frontend.IntegrationTests
             viewpreviouscalculationpage.ComparePreviousCalculationsButton.Click();
 
         }
+
+        public static void ManageTheDataPage()
+        {
+            HomePage homepage = new HomePage();
+
+            homepage.ManagetheData.Click();
+            
+        }
+
+        public static void ManageDatasetsPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.manageDataSetsLink.Click();
+
+        }
+
+        public static void SpecifyDatasetRelationshipPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.specifyDataSetRelationshipLink.Click();
+
+        }
+
+
     }
-    }
+}
 

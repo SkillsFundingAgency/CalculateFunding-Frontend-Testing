@@ -80,6 +80,11 @@
     <Compile Include="Pages\Manage Calculation\ViewPreviousCalculationsPage.cs" />
     <Compile Include="Pages\Manage Calculation\EditCalculationsPage.cs" />
     <Compile Include="Pages\Manage Calculation\ManageCalculationPage.cs" />
+    <Compile Include="Pages\Manage Datasets\ChooseDatasetRelationshipPage.cs" />
+    <Compile Include="Pages\Manage Datasets\LoadNewDatasetPage.cs" />
+    <Compile Include="Pages\Manage Datasets\ManageDatasetsPage.cs" />
+    <Compile Include="Pages\Manage Datasets\ManageTheDataPage.cs" />
+    <Compile Include="Pages\Manage Datasets\SpecifyDatasetRelationshipsPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateCalculationPage.cs" />
     <Compile Include="Pages\Manage Specification\CreatePolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateSpecificationPage.cs" />
@@ -96,6 +101,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ManageCalculations.feature</DependentUpon>
     </Compile>
+    <Compile Include="Tests\Features\ManageDatasets.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManageDatasets.feature</DependentUpon>
+    </Compile>
     <Compile Include="Tests\Features\ManageSpecifications.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,6 +113,7 @@
     </Compile>
     <Compile Include="Tests\Steps\HomePageSteps.cs" />
     <Compile Include="Tests\Steps\ManageCalculationsSteps.cs" />
+    <Compile Include="Tests\Steps\ManageDatasetsSteps.cs" />
     <Compile Include="Tests\Steps\ManageSpecificationsSteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +126,10 @@
     <None Include="Tests\Features\ManageCalculations.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ManageCalculations.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\Features\ManageDatasets.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ManageDatasets.feature.cs</LastGenOutput>
     </None>
     <None Include="Tests\Features\ManageSpecifications.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

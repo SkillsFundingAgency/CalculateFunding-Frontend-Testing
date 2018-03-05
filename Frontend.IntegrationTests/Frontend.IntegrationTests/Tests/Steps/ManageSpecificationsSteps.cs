@@ -506,8 +506,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
-        [Then(@"My new Sub Policy is correctly listed")]
-        public void ThenMyNewSubPolicyIsCorrectlyListed()
+        [Then(@"the new Sub Policy is correctly listed")]
+        public void ThentheNewSubPolicyIsCorrectlyListed()
         {
             Thread.Sleep(2000);
             Assert.IsNotNull(managepoliciespage.SubPolicyList);

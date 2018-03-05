@@ -29,6 +29,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.LinkText, Using = "Create calculation specification")]
         public IWebElement CreateCalculation { get; set; }
 
+        [FindsBy(How = How.LinkText, Using = "Choose data type relationship")]
+        public IWebElement Createdatatyperelationship { get; set; }
+
         [FindsBy(How = How.LinkText, Using = ".policy-list-header")]
         public IWebElement PolicyList { get; set; }
 

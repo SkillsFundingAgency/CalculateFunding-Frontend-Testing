@@ -12,7 +12,7 @@ namespace Frontend.IntegrationTests.Pages
     public class ManageDatePage
     {
         private readonly IWebDriver _driver;
-        private const string PageUri = @"https://esfacfsftest-web.azurewebsites.net/data";
+        private const string PageUri = @"https://esfacfsftest-web.azurewebsites.net/datasets";
 
         public ManageDatePage(IWebDriver driver)
         {

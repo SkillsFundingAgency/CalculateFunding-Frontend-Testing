@@ -44,7 +44,7 @@ namespace Frontend.IntegrationTests
             Thread.Sleep(1000);
             String currentURL = Driver._driver.Url;
             Assert.AreEqual("https://esfacfsftest-web.azurewebsites.net/datasets", currentURL);
-            Assert.IsTrue(Driver._driver.Title.Equals("Manage Datasets - Calculate funding"));
+            Assert.IsTrue(Driver._driver.Title.Equals("Manage Data - Calculate funding"));
 
         }
 
