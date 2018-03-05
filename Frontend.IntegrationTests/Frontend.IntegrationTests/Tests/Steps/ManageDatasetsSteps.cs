@@ -22,6 +22,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         SpecifyDatasetRelationshipsPage specifyDatasetRelationshippage = new SpecifyDatasetRelationshipsPage();
         LoadNewDatasetPage loadnewdatasetpage = new LoadNewDatasetPage();
         ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
+        MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
 
         public string newname = "Test Name 008";
         public string descriptiontext = "This is a Description";
@@ -331,6 +332,112 @@ namespace Frontend.IntegrationTests.Tests.Steps
             else throw new InvalidOperationException("Unknown Field");
             Thread.Sleep(2000);
         }
+
+
+        [When(@"I click the option to Map data sources to datasets")]
+        public void WhenIClickTheOptionToMapDataSourcesToDatasets()
+        {
+            managethedatapage.specifyDataSetRelationshipLink.Click();
+            Thread.Sleep(5000);
+        }
+
+        [Then(@"I am presented with the Map data sources to datasets page")]
+        public void ThenIAmPresentedWithTheMapDataSourcesToDatasetsPage()
+        {
+            mapdatasourcestodatasetspage.mapDataSourcesSearchTermField.Should().NotBeNull();
+
+        }
+
+        [Given(@"I have navigated to Map data sources to datasets page")]
+        public void GivenIHaveNavigatedToMapDataSourcesToDatasetsPage()
+        {
+            NavigateTo.MapDataSourcesToDatasetsPage();
+            Thread.Sleep(2000);
+
+        }
+
+        [Then(@"I can see an option to search for a specification")]
+        public void ThenICanSeeAnOptionToSearchForASpecification()
+        {
+            mapdatasourcestodatasetspage.mapDataSourcesSearchTermField.Should().NotBeNull();
+        }
+
+        [Then(@"an option to filter by year")]
+        public void ThenAnOptionToFilterByYear()
+        {
+            mapdatasourcestodatasetspage.mapDataSourcesSpecficationYearDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the default year is preselected")]
+        public void ThenTheDefaultYearIsPreselected()
+        {
+            mapdatasourcestodatasetspage.mapDataSourcesSpecificationYearDropDownDefault.Should().NotBeNull();
+        }
+
+        [Then(@"I am presented with all specifications for that year")]
+        public void ThenIAmPresentedWithAllSpecificationsForThatYear()
+        {
+            mapdatasourcestodatasetspage.mapDataSourcesTotalSpecificationsListed.Should().NotBeNull();
+            string totalnumberofspecifications = mapdatasourcestodatasetspage.mapDataSourcesTotalSpecificationsListed.Text;
+            Console.WriteLine("The Total Number of Specficiations listed for the default year is " + totalnumberofspecifications);
+        }
+
+        [Then(@"the Map Data Source Specification Name is displayed")]
+        public void ThenTheMapDataSourceSpecificationNameIsDisplayed()
+        {
+            mapdatasourcestodatasetspage.mapDataSourcesFirstSpecificationName.Should().NotBeNull();
+        }
+
+        [Then(@"the number of relationships that exist for that specification")]
+        public void ThenTheNumberOfRelationshipsThatExistForThatSpecification()
+        {
+            mapdatasourcestodatasetspage.mapDataSourcesFirstSpecificationRelationships.Should().NotBeNull();
+            IWebElement numberofdatarelationships = mapdatasourcestodatasetspage.mapDataSourcesFirstSpecificationRelationships;
+            string datarelationshipexists = numberofdatarelationships.Text;
+            Console.WriteLine("For the selected Specification " + datarelationshipexists);
+        }
+
+        [Given(@"I have over (.*) spec results listed")]
+        public void GivenIHaveOverSpecResultsListed(int NoOfSpecifications)
+        {
+            IWebElement totalspecificationslisted = mapdatasourcestodatasetspage.mapDataSourcesTotalSpecificationsListed;
+            string totallisted = totalspecificationslisted.Text;
+            int totalnolisted = int.Parse(totallisted);
+            totalnolisted.Should().BeGreaterThan(NoOfSpecifications, "Less than "+ NoOfSpecifications + " are displayed");
+        }
+
+        [Given(@"the list is in ascending alphabetical order")]
+        public void GivenTheListIsInAscendingAlphabeticalOrder()
+        {
+
+        }
+
+        [When(@"I click to navigate to the next page of specifications")]
+        public void WhenIClickToNavigateToTheNextPageOfSpecifications()
+        {
+            mapdatasourcestodatasetspage.mapDataSourcesSecondPage.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"my list view updates with up to the next set of (.*) results")]
+        public void ThenMyListViewUpdatesWithUpToTheNextSetOfResults(int firstspecificationresultlisted)
+        {
+            IWebElement firstspecification = mapdatasourcestodatasetspage.mapDataSourcesFirstSpecificationsListed;
+            string firstspecificationadditionalpage = firstspecification.Text;
+            int additionalpagefirstresult = int.Parse(firstspecificationadditionalpage);
+            additionalpagefirstresult.Should().BeGreaterThan(firstspecificationresultlisted, "Less than " + firstspecificationresultlisted + " are displayed");
+        }
+
+        [Then(@"I am able to navigate to the previous page of (.*) specs")]
+        public void ThenIAmAbleToNavigateToThePreviousPageOfSpecs(int pagetotalreults)
+        {
+            mapdatasourcestodatasetspage.mapDataSounrcesFirstPage.Click();
+            IWebElement lastspecification = mapdatasourcestodatasetspage.mapDataSourcesLastSpecificationsListed;
+            string lastspecificationfirstpage = lastspecification.Text;
+            int lastresult = int.Parse(lastspecificationfirstpage);
+            lastresult.Should().BeLessOrEqualTo(pagetotalreults, "The Results page is displaying incorrectly");
+        }
+
 
 
         [AfterScenario()]

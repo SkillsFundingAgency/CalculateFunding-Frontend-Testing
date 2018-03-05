@@ -137,7 +137,7 @@ namespace Frontend.IntegrationTests
 
         }
 
-        public static void SpecifyDatasetRelationshipPage()
+        public static void MapDataSourcesToDatasetsPage()
         {
             HomePage homepage = new HomePage();
             ManageTheDataPage managethedatapage = new ManageTheDataPage();

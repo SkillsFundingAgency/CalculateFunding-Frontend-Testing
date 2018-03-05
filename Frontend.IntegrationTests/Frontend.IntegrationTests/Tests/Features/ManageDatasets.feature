@@ -96,3 +96,28 @@ Examples:
 | Missing Dataset Name			| High Needs   |         | This is a Description | You must give a unique name for this dataset schema relationship	 |
 | Missing Dataset Description	| High Needs   | Name    |                       | You must provide a description for this new relationship			 |
 
+@Workitem:37469 Driver
+Scenario: Navigate to the Map Data Sources to Datasets Page
+Given I have navigated to the data management option from the service home page
+When I click the option to Map data sources to datasets
+Then I am presented with the Map data sources to datasets page
+
+@Workitem:37469 Driver
+Scenario: View the Map Data Sources to Datasets Page
+Given I have navigated to Map data sources to datasets page
+Then I can see an option to search for a specification
+And an option to filter by year
+And the default year is preselected
+And I am presented with all specifications for that year
+And the Map Data Source Specification Name is displayed 
+And the number of relationships that exist for that specification
+
+@Workitem:37469 Driver
+Scenario: Pagination for the Map Data Sources to Datasets Page 
+Given I have navigated to Map data sources to datasets page
+And I have over 20 spec results listed
+And the list is in ascending alphabetical order
+When I click to navigate to the next page of specifications
+Then my list view updates with up to the next set of 20 results
+And I am able to navigate to the previous page of 20 specs
+
