@@ -48,11 +48,51 @@ Then I am navigated to the load New Dataset page
 @Workitem:36845 Driver
 Scenario: Verify the Dataset Schema Relationship page from the option link
 Given I have selected a valid specification from the Manage Specification page
-When I click the Choose data type relationship link
-Then I am redirected to the Choose Your Data page
+When I click the Create Dataset link
+Then I am redirected to the Create dataset page
 And the Select Dataset Schema Drop Down is displayed
 And the Dataset Schema Name field is displayed
 And the Dataset Description field is displayed
 And the Save Dataset Button is displayed
 And the Cancel Dataset Schema Relationship link is displayed
+
+@Workitem:36845 Driver
+Scenario: Verify the Dataset Schema Relationship page from the Data Type Tab
+Given I have selected a valid specification with no datasets associated
+When I click the Datasets Tab
+Then a link is displayed to choose a data type
+When I click the No Data Type Exists link
+Then I am redirected to the Choose Your Data page
+
+@Workitem:36845 Driver
+Scenario: Create and Save a Dataset Schema Relationship
+Given I have navigated to the Choose Your Data page
+And I have selected a Dataset Schema to relate to the specification
+And I have entered a Dataset Schema Name
+And I have entered a Dataset Description
+When I click the Save Dataset button
+Then I am redirected to a list view of dataset schema relationships for the specification
+And the new dataset is saved and displayed correctly
+
+@Workitem:36845 Driver
+Scenario: Create and Cancel a Dataset Schema Relationship
+Given I have navigated to the Choose Your Data page
+And I have selected a Dataset Schema to relate to the specification
+And I have entered a Dataset Schema Name
+And I have entered a Dataset Description
+When I click the Cancel Dataset
+Then I am navigated back to the Manage Policies page
+
+@Workitem:36845 Driver
+Scenario Outline: Create and Save an incorrect Dataset Schema Relationship
+Given I have navigated to the Choose Your Data page
+And I have missed or duplicated the following details <schema> and <name> and <description>
+When I click the Save Dataset button
+Then the following Dataset Schema Relationship Error should be displayed for FieldName '<DatasetFieldName>' and '<dataseterror>'
+
+Examples: 
+| DatasetFieldName				| schema       | name	 | description           | dataseterror														 |
+| Missing Dataset Schema		|              | Name    | This is a Description | You must assign a dataset for the specification					 |
+| Missing Dataset Name			| High Needs   |         | This is a Description | You must give a unique name for this dataset schema relationship	 |
+| Missing Dataset Description	| High Needs   | Name    |                       | You must provide a description for this new relationship			 |
 

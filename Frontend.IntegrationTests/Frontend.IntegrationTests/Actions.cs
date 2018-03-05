@@ -2,8 +2,10 @@
 {
     using FluentAssertions;
     using Frontend.IntegrationTests.Pages.Manage_Calculation;
+    using Frontend.IntegrationTests.Pages.Manage_Datasets;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Firefox;
+    using OpenQA.Selenium.Support.UI;
     using System;
     using System.Drawing.Imaging;
     using System.Threading;
@@ -129,8 +131,19 @@
             managecalculationpage.CalculationSearchButton.Click();
             Thread.Sleep(2000);
 
+        }
+
+        public static void SelectDatasetDataSchemaDropDown()
+        {
+            ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
+
+            choosedatasetrelationshippage.selectDatasetSchemaDropDown.Click();
+            choosedatasetrelationshippage.selectDatasetSchemaDropDownTextSearch.SendKeys("High Needs");
+            choosedatasetrelationshippage.selectDatasetSchemaDropDown.SendKeys(OpenQA.Selenium.Keys.Enter);
+
+            Thread.Sleep(2000);
+
+        }
 
         }
     }
-
-}

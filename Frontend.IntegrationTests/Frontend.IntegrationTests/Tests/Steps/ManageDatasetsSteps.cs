@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Threading;
 using AutoFramework;
 using FluentAssertions;
+using Frontend.IntegrationTests.Create;
 using Frontend.IntegrationTests.Pages.Manage_Datasets;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -21,6 +22,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         SpecifyDatasetRelationshipsPage specifyDatasetRelationshippage = new SpecifyDatasetRelationshipsPage();
         LoadNewDatasetPage loadnewdatasetpage = new LoadNewDatasetPage();
         ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
+
+        public string newname = "Test Name 008";
+        public string descriptiontext = "This is a Description";
 
 
         [Given(@"I have navigated to the data management option from the service home page")]
@@ -166,15 +170,15 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
-        [When(@"I click the Choose data type relationship link")]
-        public void WhenIClickTheChooseDataTypeRelationshipLink()
+        [When(@"I click the Create Dataset link")]
+        public void WhenIclicktheCreateDatasetlink()
         {
             managepoliciespage.Createdatatyperelationship.Click();
             Thread.Sleep(2000);
         }
 
-        [Then(@"I am redirected to the Choose Your Data page")]
-        public void ThenIAmRedirectedToTheChooseYourDataPage()
+        [Then(@"I am redirected to the Create dataset page")]
+        public void ThenIAmRedirectedToTheCreatedatasetPage()
         {
             choosedatasetrelationshippage.datasetSchemaRelationshipName.Should().NotBeNull();
         }
@@ -207,6 +211,125 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenTheCancelDatasetSchemaRelationshipLinkIsDisplayed()
         {
             choosedatasetrelationshippage.datasetSchemaRelationshipCancelLink.Should().NotBeNull();
+        }
+
+        [Given(@"I have selected a valid specification with no datasets associated")]
+        public void GivenIHaveSelectedAValidSpecificationWithNoDatasetsAssociated()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            managepoliciespage.datasetsTab.Should().NotBeNull();
+
+        }
+
+        [When(@"I click the Datasets Tab")]
+        public void WhenIClickTheDatasetsTab()
+        {
+            managepoliciespage.datasetsTab.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"a link is displayed to choose a data type")]
+        public void ThenALinkIsDisplayedToChooseADataType()
+        {
+            managepoliciespage.datasetsTabNoDatasetsExistLink.Should().NotBeNull();
+        }
+
+        [When(@"I click the No Data Type Exists link")]
+        public void WhenIClickTheNoDataTypeExistsLink()
+        {
+            managepoliciespage.datasetsTabNoDatasetsExistLink.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected to the Choose Your Data page")]
+        public void ThenIAmRedirectedToTheChooseYourDataPage()
+        {
+            choosedatasetrelationshippage.datasetSchemaRelationshipSaveButton.Should().NotBeNull();
+        }
+
+        [Given(@"I have navigated to the Choose Your Data page")]
+        public void GivenIHaveNavigatedToTheChooseYourDataPage()
+        {
+            NavigateTo.CreateDatasetPage();
+            Thread.Sleep(2000);
+        }
+
+        [Given(@"I have selected a Dataset Schema to relate to the specification")]
+        public void GivenIHaveSelectedADatasetSchemaToRelateToTheSpecification()
+        {
+            Actions.SelectDatasetDataSchemaDropDown();
+        }
+
+        [Given(@"I have entered a Dataset Schema Name")]
+        public void GivenIHaveEnteredADatasetSchemaName()
+        {
+            choosedatasetrelationshippage.datasetSchemaRelationshipName.SendKeys(newname);
+        }
+
+        [Given(@"I have entered a Dataset Description")]
+        public void GivenIHaveEnteredADatasetDescription()
+        {
+            choosedatasetrelationshippage.datasetSchemaRelationshipDescription.SendKeys(descriptiontext);
+        }
+
+        [When(@"I click the Save Dataset button")]
+        public void WhenIClickTheSaveDatasetButton()
+        {
+            choosedatasetrelationshippage.datasetSchemaRelationshipSaveButton.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected to a list view of dataset schema relationships for the specification")]
+        public void ThenIAmRedirectedToAListViewOfDatasetSchemaRelationshipsForTheSpecification()
+        {
+            managepoliciespage.datasetsTabNoDatasetsExistLink.Should().NotBeNull();
+        }
+
+        [Then(@"the new dataset is saved and displayed correctly")]
+        public void ThenTheNewDatasetIsSavedAndDisplayedCorrectly()
+        {
+            Driver._driver.FindElement(By.LinkText(newname));
+        }
+
+        [When(@"I click the Cancel Dataset")]
+        public void WhenIClickTheCancelDataset()
+        {
+            choosedatasetrelationshippage.datasetSchemaRelationshipCancelLink.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am navigated back to the Manage Policies page")]
+        public void ThenIAmNavigatedBackToTheManagePoliciesPage()
+        {
+            managepoliciespage.datasetsTab.Should().NotBeNull();
+        }
+
+        [Given(@"I have missed or duplicated the following details (.*) and (.*) and (.*)")]
+        public void GivenIHaveMissedOrDuplicatedTheFollowingDetailsAndAnd(string schema, string name, string description)
+        {
+            choosedatasetrelationshippage.selectDatasetSchemaDropDown.Click();
+            choosedatasetrelationshippage.selectDatasetSchemaDropDownTextSearch.SendKeys(schema);
+            choosedatasetrelationshippage.selectDatasetSchemaDropDown.SendKeys(OpenQA.Selenium.Keys.Enter);
+            choosedatasetrelationshippage.datasetSchemaRelationshipName.SendKeys(name);
+            choosedatasetrelationshippage.datasetSchemaRelationshipDescription.SendKeys(description);
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the following Dataset Schema Relationship Error should be displayed for FieldName '(.*)' and '(.*)'")]
+        public void ThenTheFollowingDatasetSchemaRelationshipErrorShouldBeDisplayedForFieldNameAnd(string DatasetFieldName, string dataseterror)
+        {
+            Thread.Sleep(1000);
+            if (DatasetFieldName == "Missing Dataset Schema")
+                Assert.AreEqual(dataseterror, choosedatasetrelationshippage.createDatasetDatasetSchemaRelationshipError.Text);
+
+            else if (DatasetFieldName == "Missing Dataset Name")
+                Assert.AreEqual(dataseterror, choosedatasetrelationshippage.createDatasetDatasetNameError.Text);
+
+            else if (DatasetFieldName == "Missing Dataset Description")
+                Assert.AreEqual(dataseterror, choosedatasetrelationshippage.createDatasetDatasetDescriptionError.Text);
+
+            else throw new InvalidOperationException("Unknown Field");
+            Thread.Sleep(2000);
         }
 
 

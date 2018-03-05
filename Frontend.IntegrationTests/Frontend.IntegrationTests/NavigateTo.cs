@@ -147,6 +147,20 @@ namespace Frontend.IntegrationTests
 
         }
 
+        public static void CreateDatasetPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageSpecificationPage managepecificationpage = new ManageSpecificationPage();
+            ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
+            ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
+
+            homepage.ManagetheSpecification.Click();
+            managepecificationpage.SelectSpecification.Click();
+            managepoliciespage.Createdatatyperelationship.Click();
+
+        }
+
+
 
     }
 }

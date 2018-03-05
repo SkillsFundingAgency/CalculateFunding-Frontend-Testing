@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Actions.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Create\CreateNewSpecification.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="NavigateTo.cs" />
     <Compile Include="Pages\Home Page\HomePage.cs" />

@@ -246,9 +246,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 50
 testRunner.Given("I have selected a valid specification from the Manage Specification page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 51
-testRunner.When("I click the Choose data type relationship link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I click the Create Dataset link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 52
-testRunner.Then("I am redirected to the Choose Your Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I am redirected to the Create dataset page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 53
 testRunner.And("the Select Dataset Schema Drop Down is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 54
@@ -261,6 +261,171 @@ testRunner.And("the Save Dataset Button is displayed", ((string)(null)), ((TechT
 testRunner.And("the Cancel Dataset Schema Relationship link is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Dataset Schema Relationship page from the Data Type Tab")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36845)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheDatasetSchemaRelationshipPageFromTheDataTypeTab()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Dataset Schema Relationship page from the Data Type Tab", new string[] {
+                        "Workitem:36845",
+                        "Driver"});
+#line 60
+this.ScenarioSetup(scenarioInfo);
+#line 61
+testRunner.Given("I have selected a valid specification with no datasets associated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 62
+testRunner.When("I click the Datasets Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 63
+testRunner.Then("a link is displayed to choose a data type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 64
+testRunner.When("I click the No Data Type Exists link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 65
+testRunner.Then("I am redirected to the Choose Your Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save a Dataset Schema Relationship")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36845)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void CreateAndSaveADatasetSchemaRelationship()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a Dataset Schema Relationship", new string[] {
+                        "Workitem:36845",
+                        "Driver"});
+#line 68
+this.ScenarioSetup(scenarioInfo);
+#line 69
+testRunner.Given("I have navigated to the Choose Your Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 70
+testRunner.And("I have selected a Dataset Schema to relate to the specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 71
+testRunner.And("I have entered a Dataset Schema Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 72
+testRunner.And("I have entered a Dataset Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 73
+testRunner.When("I click the Save Dataset button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 74
+testRunner.Then("I am redirected to a list view of dataset schema relationships for the specificat" +
+                    "ion", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 75
+testRunner.And("the new dataset is saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Cancel a Dataset Schema Relationship")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36845)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void CreateAndCancelADatasetSchemaRelationship()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Cancel a Dataset Schema Relationship", new string[] {
+                        "Workitem:36845",
+                        "Driver"});
+#line 78
+this.ScenarioSetup(scenarioInfo);
+#line 79
+testRunner.Given("I have navigated to the Choose Your Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 80
+testRunner.And("I have selected a Dataset Schema to relate to the specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 81
+testRunner.And("I have entered a Dataset Schema Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 82
+testRunner.And("I have entered a Dataset Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 83
+testRunner.When("I click the Cancel Dataset", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 84
+testRunner.Then("I am navigated back to the Manage Policies page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        public virtual void CreateAndSaveAnIncorrectDatasetSchemaRelationship(string datasetFieldName, string schema, string name, string description, string dataseterror, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Workitem:36845",
+                    "Driver"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incorrect Dataset Schema Relationship", @__tags);
+#line 87
+this.ScenarioSetup(scenarioInfo);
+#line 88
+testRunner.Given("I have navigated to the Choose Your Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 89
+testRunner.And(string.Format("I have missed or duplicated the following details {0} and {1} and {2}", schema, name, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 90
+testRunner.When("I click the Save Dataset button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 91
+testRunner.Then(string.Format("the following Dataset Schema Relationship Error should be displayed for FieldName" +
+                        " \'{0}\' and \'{1}\'", datasetFieldName, dataseterror), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incorrect Dataset Schema Relationship: Missing Dataset Schema")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36845)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Missing Dataset Schema")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:DatasetFieldName", "Missing Dataset Schema")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:schema", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Name")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "This is a Description")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:dataseterror", "You must assign a dataset for the specification")]
+        public virtual void CreateAndSaveAnIncorrectDatasetSchemaRelationship_MissingDatasetSchema()
+        {
+#line 87
+this.CreateAndSaveAnIncorrectDatasetSchemaRelationship("Missing Dataset Schema", "", "Name", "This is a Description", "You must assign a dataset for the specification", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incorrect Dataset Schema Relationship: Missing Dataset Name")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36845)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Missing Dataset Name")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:DatasetFieldName", "Missing Dataset Name")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:schema", "High Needs")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "This is a Description")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:dataseterror", "You must give a unique name for this dataset schema relationship")]
+        public virtual void CreateAndSaveAnIncorrectDatasetSchemaRelationship_MissingDatasetName()
+        {
+#line 87
+this.CreateAndSaveAnIncorrectDatasetSchemaRelationship("Missing Dataset Name", "High Needs", "", "This is a Description", "You must give a unique name for this dataset schema relationship", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incorrect Dataset Schema Relationship: Missing Dataset Descrip" +
+            "tion")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36845)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Missing Dataset Description")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:DatasetFieldName", "Missing Dataset Description")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:schema", "High Needs")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Name")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:dataseterror", "You must provide a description for this new relationship")]
+        public virtual void CreateAndSaveAnIncorrectDatasetSchemaRelationship_MissingDatasetDescription()
+        {
+#line 87
+this.CreateAndSaveAnIncorrectDatasetSchemaRelationship("Missing Dataset Description", "High Needs", "Name", "", "You must provide a description for this new relationship", ((string[])(null)));
+#line hidden
         }
     }
 }

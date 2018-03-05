@@ -26,5 +26,17 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.CssSelector, Using = ".form-submit-container > a:nth-child(2)")]
         public IWebElement datasetSchemaRelationshipCancelLink { get; set; }
 
+        [FindsBy(How = How.Id, Using = "validation-link-for-AssignDatasetSchemaViewModel-DatasetDefinitionId")]
+        public IWebElement createDatasetDatasetSchemaRelationshipError { get; set; }
+
+        [FindsBy(How = How.Id, Using = "validation-link-for-AssignDatasetSchemaViewModel-Name")]
+        public IWebElement createDatasetDatasetNameError { get; set; }
+
+        [FindsBy(How = How.Id, Using = "validation-link-for-AssignDatasetSchemaViewModel-Description")]
+        public IWebElement createDatasetDatasetDescriptionError { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".select2-search__field")]
+        public IWebElement selectDatasetSchemaDropDownTextSearch { get; set; }
+
     }
 }
