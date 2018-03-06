@@ -86,6 +86,7 @@
     <Compile Include="Pages\Manage Datasets\ManageDatasetsPage.cs" />
     <Compile Include="Pages\Manage Datasets\ManageTheDataPage.cs" />
     <Compile Include="Pages\Manage Datasets\MapDataSourcesToDatasetsPage.cs" />
+    <Compile Include="Pages\Manage Datasets\SelectedSpecificationDataSourcePage.cs" />
     <Compile Include="Pages\Manage Datasets\SpecifyDatasetRelationshipsPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateCalculationPage.cs" />
     <Compile Include="Pages\Manage Specification\CreatePolicyPage.cs" />

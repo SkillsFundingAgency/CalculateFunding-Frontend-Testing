@@ -8,6 +8,7 @@ using Frontend.IntegrationTests.Pages.Manage_Datasets;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 //using OpenQA.Selenium.PhantomJS;
 using TechTalk.SpecFlow;
 
@@ -23,9 +24,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
         LoadNewDatasetPage loadnewdatasetpage = new LoadNewDatasetPage();
         ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
         MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
+        SelectedSpecificationDataSourcePage selectedspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
 
         public string newname = "Test Name 008";
         public string descriptiontext = "This is a Description";
+        public static int? totalresults = null;
 
 
         [Given(@"I have navigated to the data management option from the service home page")]
@@ -438,6 +441,77 @@ namespace Frontend.IntegrationTests.Tests.Steps
             lastresult.Should().BeLessOrEqualTo(pagetotalreults, "The Results page is displaying incorrectly");
         }
 
+        [When(@"I enter text in the search specifications field")]
+        public void WhenIEnterTextInTheSearchSpecificationsField()
+        {
+            IWebElement initaltotalallresults = mapdatasourcestodatasetspage.mapDataSourcesTotalSpecificationsListed;
+            string defaulttotal = initaltotalallresults.Text;
+            int initaltotal = int.Parse(defaulttotal);
+            Console.WriteLine("Inital results returned for the selected year was " + initaltotal);
+            ManageDatasetsSteps.totalresults = initaltotal;
+
+            mapdatasourcestodatasetspage.mapDataSourcesSearchTermField.SendKeys("Test");
+        }
+
+        [When(@"click the search button")]
+        public void WhenClickTheSearchButton()
+        {
+            mapdatasourcestodatasetspage.mapDataSourcesSearchTermButton.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the list of results refreshes to display only the results that comply with the search text entered")]
+        public void ThenTheListOfResultsRefreshesToDisplayOnlyTheResultsThatComplyWithTheSearchTextEntered()
+        {
+            IWebElement filteredresults = mapdatasourcestodatasetspage.mapDataSourcesTotalSpecificationsListed;
+            string filteredtotal = filteredresults.Text;
+            int filteredsearchresults = int.Parse(filteredtotal);
+            Console.WriteLine("Filtered results by search term returned for the selected year was " + filteredsearchresults);
+            ManageDatasetsSteps.totalresults.Should().NotBeNull("Previous Steps have not executed correctly");
+            filteredsearchresults.Should().BeLessOrEqualTo(ManageDatasetsSteps.totalresults.Value, "Results have not been filtered correctly by the Search Term");
+
+        }
+
+        [When(@"I choose a different year from the dropdown option")]
+        public void WhenIChooseADifferentYearFromTheDropdownOption()
+        {
+            IWebElement initaltotalallresults = mapdatasourcestodatasetspage.mapDataSourcesTotalSpecificationsListed;
+            string defaulttotal = initaltotalallresults.Text;
+            int initaltotal = int.Parse(defaulttotal);
+            Console.WriteLine("Inital results returned for the selected year was " + initaltotal);
+            ManageDatasetsSteps.totalresults = initaltotal;
+
+            var selectYear = mapdatasourcestodatasetspage.mapDataSourcesSpecficationYearDropDown;
+            var selectElement = new SelectElement(selectYear);
+            selectElement.SelectByValue("1718");
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the list of results refreshes to display only the results that comply with the year selected")]
+        public void ThenTheListOfResultsRefreshesToDisplayOnlyTheResultsThatComplyWithTheYearSelected()
+        {
+            IWebElement filteredresults = mapdatasourcestodatasetspage.mapDataSourcesTotalSpecificationsListed;
+            string filteredtotal = filteredresults.Text;
+            int filteredsearchresults = int.Parse(filteredtotal);
+            Console.WriteLine("Filtered results by a different year returned " + filteredsearchresults + " results");
+            ManageDatasetsSteps.totalresults.Should().NotBeNull("Previous Steps have not executed correctly");
+            filteredsearchresults.Should().BeLessOrEqualTo(ManageDatasetsSteps.totalresults.Value, "Results have not been filtered correctly by the selected year");
+
+        }
+
+        [When(@"I click on a specification name")]
+        public void WhenIClickOnASpecificationName()
+        {
+            mapdatasourcestodatasetspage.mapDataSourcesFirstSpecificationName.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am taken to the specification data relationships page for that specification")]
+        public void ThenIAmTakenToTheSpecificationDataRelationshipsPageForThatSpecification()
+        {
+            selectedspecificationdatasourcepage.specificationDataSourcePageTitle.Should().Equals("Specification Relationships - Calculate funding");
+            Thread.Sleep(2000);
+        }
 
 
         [AfterScenario()]

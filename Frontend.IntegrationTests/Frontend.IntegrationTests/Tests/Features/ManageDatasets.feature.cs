@@ -438,13 +438,13 @@ this.CreateAndSaveAnIncorrectDatasetSchemaRelationship("Missing Dataset Descript
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the Map Data Sources to Datasets Page", new string[] {
                         "Workitem:37469",
                         "Driver"});
-#line 100
-this.ScenarioSetup(scenarioInfo);
 #line 101
-testRunner.Given("I have navigated to the data management option from the service home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 102
-testRunner.When("I click the option to Map data sources to datasets", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the data management option from the service home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 103
+testRunner.When("I click the option to Map data sources to datasets", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 104
 testRunner.Then("I am presented with the Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -460,21 +460,21 @@ testRunner.Then("I am presented with the Map data sources to datasets page", ((s
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View the Map Data Sources to Datasets Page", new string[] {
                         "Workitem:37469",
                         "Driver"});
-#line 106
-this.ScenarioSetup(scenarioInfo);
 #line 107
-testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 108
-testRunner.Then("I can see an option to search for a specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 109
-testRunner.And("an option to filter by year", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I can see an option to search for a specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 110
-testRunner.And("the default year is preselected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("an option to filter by year", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 111
-testRunner.And("I am presented with all specifications for that year", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the default year is preselected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 112
-testRunner.And("the Map Data Source Specification Name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I am presented with all specifications for that year", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 113
+testRunner.And("the Map Data Source Specification Name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 114
 testRunner.And("the number of relationships that exist for that specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -490,20 +490,90 @@ testRunner.And("the number of relationships that exist for that specification", 
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Pagination for the Map Data Sources to Datasets Page", new string[] {
                         "Workitem:37469",
                         "Driver"});
-#line 116
-this.ScenarioSetup(scenarioInfo);
 #line 117
-testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 118
-testRunner.And("I have over 20 spec results listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 119
-testRunner.And("the list is in ascending alphabetical order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have over 20 spec results listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 120
-testRunner.When("I click to navigate to the next page of specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("the list is in ascending alphabetical order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 121
-testRunner.Then("my list view updates with up to the next set of 20 results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I click to navigate to the next page of specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 122
+testRunner.Then("my list view updates with up to the next set of 20 results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 123
 testRunner.And("I am able to navigate to the previous page of 20 specs", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search Specifications listed on the Map data sources to datasets page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37469)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SearchSpecificationsListedOnTheMapDataSourcesToDatasetsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search Specifications listed on the Map data sources to datasets page", new string[] {
+                        "Workitem:37469",
+                        "Driver"});
+#line 126
+this.ScenarioSetup(scenarioInfo);
+#line 127
+testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 128
+testRunner.When("I enter text in the search specifications field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 129
+testRunner.And("click the search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 130
+testRunner.Then("the list of results refreshes to display only the results that comply with the se" +
+                    "arch text entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Filter Specifications listed by Year on the Map data sources to datasets page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37469)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void FilterSpecificationsListedByYearOnTheMapDataSourcesToDatasetsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter Specifications listed by Year on the Map data sources to datasets page", new string[] {
+                        "Workitem:37469",
+                        "Driver"});
+#line 133
+this.ScenarioSetup(scenarioInfo);
+#line 134
+testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 135
+testRunner.When("I choose a different year from the dropdown option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 136
+testRunner.Then("the list of results refreshes to display only the results that comply with the ye" +
+                    "ar selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a Specific Specification from the Map data sources to datasets page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37469)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectASpecificSpecificationFromTheMapDataSourcesToDatasetsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Specific Specification from the Map data sources to datasets page", new string[] {
+                        "Workitem:37469",
+                        "Driver"});
+#line 139
+this.ScenarioSetup(scenarioInfo);
+#line 140
+testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 141
+testRunner.When("I click on a specification name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 142
+testRunner.Then("I am taken to the specification data relationships page for that specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
