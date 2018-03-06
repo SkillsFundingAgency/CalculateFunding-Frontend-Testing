@@ -1,8 +1,14 @@
-﻿using Frontend.IntegrationTests.Pages;
+﻿using AutoFramework;
+using FluentAssertions;
+using Frontend.IntegrationTests.Create;
+using Frontend.IntegrationTests.Pages;
 using Frontend.IntegrationTests.Pages.Manage_Calculation;
 using Frontend.IntegrationTests.Pages.Manage_Datasets;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
+using OpenQA.Selenium;
+using System.Linq;
 using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace Frontend.IntegrationTests
 {
@@ -124,7 +130,7 @@ namespace Frontend.IntegrationTests
             HomePage homepage = new HomePage();
 
             homepage.ManagetheData.Click();
-            
+
         }
 
         public static void ManageDatasetsPage()
@@ -160,7 +166,81 @@ namespace Frontend.IntegrationTests
 
         }
 
+        public static void SpecificationDataNoRelationshipsPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+            MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
 
+            homepage.ManagetheData.Click();
+            managethedatapage.specifyDataSetRelationshipLink.Click();
+            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container > div.specs-relationship-searchresult-container-item"));
+            IWebElement firstAnchorLink = null;
+            foreach (var element in containerElements)
+            {
+                var pElement = element.FindElement(By.TagName("p"));
+                if (pElement != null)
+                {
+                    if(pElement.Text.Contains("No data relationships exist"))
+                    {
+                        var anchorLink = element.FindElement(By.CssSelector("h2 > a"));
+                        if(anchorLink != null)
+                        {
+                            firstAnchorLink = anchorLink;
+                            break;
+                        }
+                    }
+                }
+
+            }
+            Thread.Sleep(1000);
+            if (firstAnchorLink != null)
+            {
+                firstAnchorLink.Click();
+            }
+            else
+            {
+                firstAnchorLink.Should().NotBeNull("unable to find an item with no relationships");
+            }
+        }
+
+        public static void SpecificationDataRelationshipsExistPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+            MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.specifyDataSetRelationshipLink.Click();
+            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container > div.specs-relationship-searchresult-container-item"));
+            IWebElement firstAnchorLink = null;
+            foreach (var element in containerElements)
+            {
+                var pElement = element.FindElement(By.TagName("p"));
+                if (pElement != null)
+                { 
+                    if (Regex.IsMatch(pElement.Text, "\\d data relationships exist"))
+                    {
+                        var anchorLink = element.FindElement(By.CssSelector("h2 > a"));
+                        if (anchorLink != null)
+                        {
+                            firstAnchorLink = anchorLink;
+                            break;
+                        }
+                    }
+                }
+
+            }
+            Thread.Sleep(1000);
+            if (firstAnchorLink != null)
+            {
+                firstAnchorLink.Click();
+            }
+            else
+            {
+                firstAnchorLink.Should().NotBeNull("unable to find an item with relationships");
+            }
+        }
 
     }
 }

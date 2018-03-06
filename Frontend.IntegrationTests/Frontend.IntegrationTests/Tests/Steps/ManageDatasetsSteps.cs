@@ -406,7 +406,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement totalspecificationslisted = mapdatasourcestodatasetspage.mapDataSourcesTotalSpecificationsListed;
             string totallisted = totalspecificationslisted.Text;
             int totalnolisted = int.Parse(totallisted);
-            totalnolisted.Should().BeGreaterThan(NoOfSpecifications, "Less than "+ NoOfSpecifications + " are displayed");
+            totalnolisted.Should().BeGreaterThan(NoOfSpecifications, "Less than " + NoOfSpecifications + " are displayed");
         }
 
         [Given(@"the list is in ascending alphabetical order")]
@@ -511,6 +511,117 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             selectedspecificationdatasourcepage.specificationDataSourcePageTitle.Should().Equals("Specification Relationships - Calculate funding");
             Thread.Sleep(2000);
+        }
+
+        [Given(@"I have navigated to a specification data relationships page without any dataset relationships established")]
+        public void GivenIHaveNavigatedToASpecificationDataRelationshipsPageWithoutAnyDatasetRelationshipsEstablished()
+        {
+            NavigateTo.SpecificationDataNoRelationshipsPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"a message declaring that no dataset relationships have been established is displayed")]
+        public void ThenAMessageDeclaringThatNoDatasetRelationshipsHaveBeenEstablishedIsDisplayed()
+        {
+            IWebElement noDataSourceMapped = selectedspecificationdatasourcepage.specificationNoDataSourceMappedMessage;
+            string noDataSourceMessage = noDataSourceMapped.Text;
+            Console.WriteLine(noDataSourceMessage);
+        }
+
+        [Then(@"instructions on what steps are required to create the relationships is displayed")]
+        public void ThenInstructionsOnWhatStepsAreRequiredToCreateTheRelationshipsIsDisplayed()
+        {
+            IWebElement howToMessage = selectedspecificationdatasourcepage.specificationNoDataSourceMappedHowToMessage;
+            string howToMessageText = howToMessage.Text;
+            Console.WriteLine(howToMessageText);
+
+            IWebElement howToSteps = selectedspecificationdatasourcepage.specificationNoDataSourceMappedHowToSteps;
+            string howToStepsText = howToSteps.Text;
+            Console.WriteLine(howToStepsText);
+
+        }
+
+        [Given(@"I have navigated to a specification data relationships page where dataset relationships exist")]
+        public void GivenIHaveNavigatedToASpecificationDataRelationshipsPageWhereDatasetRelationshipsExist()
+        {
+            NavigateTo.SpecificationDataRelationshipsExistPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the count of data sources established is displayed")]
+        public void ThenTheCountOfDataSourcesEstablishedIsDisplayed()
+        {
+            selectedspecificationdatasourcepage.specificationDataSourceCount.Should().NotBeNull();
+            IWebElement dataSourceCount = selectedspecificationdatasourcepage.specificationDataSourceCount;
+            string dataSourceCountText = dataSourceCount.Text;
+            Console.WriteLine(dataSourceCountText);
+        }
+
+        [Then(@"the Data schema name is displayed")]
+        public void ThenTheDataSchemaNameIsDisplayed()
+        {
+            selectedspecificationdatasourcepage.specificationFirstDataSourceSchemaName.Should().NotBeNull();
+            IWebElement dataSourceSchemaName = selectedspecificationdatasourcepage.specificationFirstDataSourceSchemaName;
+            string dataSourceSchemaNameText = dataSourceSchemaName.Text;
+            Console.WriteLine(dataSourceSchemaNameText);
+        }
+
+        [Then(@"the Data set name is displayed")]
+        public void ThenTheDataSetNameIsDisplayed()
+        {
+            selectedspecificationdatasourcepage.specificationFirstDatasetName.Should().NotBeNull();
+            IWebElement datasetName = selectedspecificationdatasourcepage.specificationFirstDatasetName;
+            string datasetNameText = datasetName.Text;
+            Console.WriteLine(datasetNameText);
+        }
+
+        [Then(@"the Data set description is displayed")]
+        public void ThenTheDataSetDescriptionIsDisplayed()
+        {
+            selectedspecificationdatasourcepage.specificationFirstDatasetDescription.Should().NotBeNull();
+            IWebElement datasetDescription = selectedspecificationdatasourcepage.specificationFirstDatasetDescription;
+            string datasetDescriptionText = datasetDescription.Text;
+            Console.WriteLine(datasetDescriptionText);
+        }
+
+        [When(@"the data set data schema relationship does not have a data source associated")]
+        public void WhenTheDataSetDataSchemaRelationshipDoesNotHaveADataSourceAssociated()
+        {
+            selectedspecificationdatasourcepage.specificationDataSourceMissing.Should().NotBeNull();
+        }
+
+        [Then(@"I am provided with the option to select a data source")]
+        public void ThenIAmProvidedWithTheOptionToSelectADataSource()
+        {
+            IWebElement dataSourceMissing = selectedspecificationdatasourcepage.specificationDataSourceMissing;
+            string dataSourceMissingText = dataSourceMissing.Text;
+            Console.WriteLine("The " + dataSourceMissingText + " link is displayed");
+        }
+
+
+        [When(@"the data set data schema relationship does have a data source associated")]
+        public void WhenTheDataSetDataSchemaRelationshipDoesHaveADataSourceAssociated()
+        {
+
+        }
+
+        [Then(@"the name of the data source is displayed")]
+        public void ThenTheNameOfTheDataSourceIsDisplayed()
+        {
+
+
+        }
+
+        [Then(@"the version of the data source is displayed")]
+        public void ThenTheVersionOfTheDataSourceIsDisplayed()
+        {
+
+        }
+
+        [Then(@"an option to change the data source is displayed")]
+        public void ThenAnOptionToChangeTheDataSourceIsDisplayed()
+        {
+
         }
 
 

@@ -96,7 +96,6 @@ Examples:
 | Missing Dataset Name			| High Needs   |         | This is a Description | You must give a unique name for this dataset schema relationship	 |
 | Missing Dataset Description	| High Needs   | Name    |                       | You must provide a description for this new relationship			 |
 
-
 @Workitem:37469 Driver
 Scenario: Navigate to the Map Data Sources to Datasets Page
 Given I have navigated to the data management option from the service home page
@@ -140,3 +139,31 @@ Scenario: Select a Specific Specification from the Map data sources to datasets 
 Given I have navigated to Map data sources to datasets page
 When I click on a specification name
 Then I am taken to the specification data relationships page for that specification
+
+@Workitem:38550 Driver
+Scenario: Select a Secification that has no dataset relationships associated
+Given I have navigated to a specification data relationships page without any dataset relationships established
+Then a message declaring that no dataset relationships have been established is displayed
+And instructions on what steps are required to create the relationships is displayed
+
+@Workitem:38550 Driver
+Scenario: Select a Specification that does have dataset relationships associated
+Given I have navigated to a specification data relationships page where dataset relationships exist
+Then the count of data sources established is displayed
+And the Data schema name is displayed
+And the Data set name is displayed
+And the Data set description is displayed
+
+@Workitem:38550 Driver
+Scenario: Select a Specification that has a dataset relationships but no Data Schema associated
+Given I have navigated to a specification data relationships page where dataset relationships exist
+When the data set data schema relationship does not have a data source associated
+Then I am provided with the option to select a data source
+
+@Workitem:38550 Driver
+Scenario: Select a Specification that has a dataset relationships and a Data Schema associated
+Given I have navigated to a specification data relationships page where dataset relationships exist
+When the data set data schema relationship does have a data source associated
+Then the name of the data source is displayed
+And the version of the data source is displayed
+And an option to change the data source is displayed
