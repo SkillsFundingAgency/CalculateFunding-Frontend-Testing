@@ -614,13 +614,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"the version of the data source is displayed")]
         public void ThenTheVersionOfTheDataSourceIsDisplayed()
         {
-            //Console writeline int he previous class displays the required information as this info ont he page cannot be seperated out
+            //Console writeline in the previous class displays the required information as this info ont he page cannot be seperated out
         }
 
         [Then(@"an option to change the data source is displayed")]
         public void ThenAnOptionToChangeTheDataSourceIsDisplayed()
         {
-            //Console writeline int he previous class displays the required information as this info ont he page cannot be seperated out
+            //Console writeline in the previous class displays the required information as this info ont he page cannot be seperated out
         }
 
 
