@@ -34,7 +34,7 @@
             Thread.Sleep(2000);
             createspecificationpage.SpecName.SendKeys(newname);
             createspecificationpage.SpecDescription.SendKeys(descriptiontext);
-            var Funding = Driver._driver.FindElement(By.Id("CreateSpecificationViewModel-FundingStreamId"));
+            var Funding = createspecificationpage.FundingStream;
             var selectElement = new SelectElement(Funding);
             selectElement.SelectByText("DSG");
             Thread.Sleep(2000);

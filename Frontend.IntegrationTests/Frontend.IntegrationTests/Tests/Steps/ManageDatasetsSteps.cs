@@ -26,7 +26,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
         SelectedSpecificationDataSourcePage selectedspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
 
-        public string newname = "Test Name 008";
+        public string newname = "Test Name 010";
         public string descriptiontext = "This is a Description";
         public static int? totalresults = null;
         public string datasetinformation = Actions.datasestinfo;
@@ -277,6 +277,19 @@ namespace Frontend.IntegrationTests.Tests.Steps
             choosedatasetrelationshippage.datasetSchemaRelationshipDescription.SendKeys(descriptiontext);
         }
 
+        [Given(@"I have ticked the Use as a list of values in calculations checkbox")]
+        public void GivenIHaveTickedTheUseAsAListOfValuesInCalculationsCheckbox()
+        {
+            choosedatasetrelationshippage.createDatasetusedInDataAggregation.Click();
+        }
+
+        [Given(@"I have ticked the Set as provider data checkbox")]
+        public void GivenIHaveTickedTheSetAsProviderDataCheckbox()
+        {
+            choosedatasetrelationshippage.createDatasetSetAsDataProvider.Click();
+        }
+
+
         [When(@"I click the Save Dataset button")]
         public void WhenIClickTheSaveDatasetButton()
         {
@@ -419,7 +432,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I click to navigate to the next page of specifications")]
         public void WhenIClickToNavigateToTheNextPageOfSpecifications()
         {
-            mapdatasourcestodatasetspage.mapDataSourcesSecondPage.Click();
+            Actions.PaginationSelectPage();
             Thread.Sleep(2000);
         }
 
@@ -435,7 +448,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"I am able to navigate to the previous page of (.*) specs")]
         public void ThenIAmAbleToNavigateToThePreviousPageOfSpecs(int pagetotalreults)
         {
-            mapdatasourcestodatasetspage.mapDataSounrcesFirstPage.Click();
+            Actions.PaginationSelectPage();
             IWebElement lastspecification = mapdatasourcestodatasetspage.mapDataSourcesLastSpecificationsListed;
             string lastspecificationfirstpage = lastspecification.Text;
             int lastresult = int.Parse(lastspecificationfirstpage);

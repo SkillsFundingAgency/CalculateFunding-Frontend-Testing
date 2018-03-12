@@ -75,7 +75,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I click a pagination option")]
         public void WhenIClickAPaginationOption()
         {
-            managecalculationpage.CalculationsPaginationPage2.Click();
+            Actions.PaginationSelectPage();
             Thread.Sleep(2000);
             Assert.IsNotNull(managecalculationpage.CalculationsFirstResult);
         }

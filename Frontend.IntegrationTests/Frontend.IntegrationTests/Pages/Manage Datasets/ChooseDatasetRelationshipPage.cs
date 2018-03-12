@@ -20,10 +20,10 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.Id, Using = "contents")]
         public IWebElement datasetSchemaRelationshipDescription { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".button")]
+        [FindsBy(How = How.Id, Using = "createDatasetButton")]
         public IWebElement datasetSchemaRelationshipSaveButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".form-submit-container > a:nth-child(2)")]
+        [FindsBy(How = How.Id, Using = "cancelLink")]
         public IWebElement datasetSchemaRelationshipCancelLink { get; set; }
 
         [FindsBy(How = How.Id, Using = "validation-link-for-AssignDatasetSchemaViewModel-DatasetDefinitionId")]
@@ -38,5 +38,10 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.CssSelector, Using = ".select2-search__field")]
         public IWebElement selectDatasetSchemaDropDownTextSearch { get; set; }
 
+        [FindsBy(How = How.Id, Using = "usedInDataAggregation")]
+        public IWebElement createDatasetusedInDataAggregation { get; set; }
+
+        [FindsBy(How = How.Id, Using = "isProviderData")]
+        public IWebElement createDatasetSetAsDataProvider { get; set; }
     }
 }

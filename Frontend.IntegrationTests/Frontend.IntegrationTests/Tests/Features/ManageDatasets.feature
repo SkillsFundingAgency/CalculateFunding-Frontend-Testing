@@ -70,6 +70,8 @@ Given I have navigated to the Choose Your Data page
 And I have selected a Dataset Schema to relate to the specification
 And I have entered a Dataset Schema Name
 And I have entered a Dataset Description
+And I have ticked the Use as a list of values in calculations checkbox
+And I have ticked the Set as provider data checkbox
 When I click the Save Dataset button
 Then I am redirected to a list view of dataset schema relationships for the specification
 And the new dataset is saved and displayed correctly
@@ -168,4 +170,3 @@ When the data set data schema relationship does have a data source associated
 Then the name of the data source is displayed
 And the version of the data source is displayed
 And an option to change the data source is displayed
-

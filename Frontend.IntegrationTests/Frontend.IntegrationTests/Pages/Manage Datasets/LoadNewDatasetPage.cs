@@ -26,10 +26,10 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.Id, Using = "save-button")]
         public IWebElement loadDatasetUploadButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".form-submit-container > a:nth-child(2)")]
+        [FindsBy(How = How.Id, Using = "cancelLink")]
         public IWebElement loadDatasetCancelLink { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div.col-sm-9:nth-child(1) > div:nth-child(3) > a:nth-child(1)")]
+        [FindsBy(How = How.Id, Using = "backLink")]
         public IWebElement loadDatasetBackLink { get; set; }
 
 

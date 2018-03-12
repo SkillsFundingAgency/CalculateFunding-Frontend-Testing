@@ -7,7 +7,9 @@
     using OpenQA.Selenium.Firefox;
     using OpenQA.Selenium.Support.UI;
     using System;
+    using System.Collections.Generic;
     using System.Drawing.Imaging;
+    using System.Linq;
     using System.Threading;
     using TechTalk.SpecFlow;
 
@@ -174,8 +176,6 @@
                     firstSelectSourceDatasetLink.Should().NotBeNull("Unable to find an item with no source dataset");
                 }
             }
-
-
         }
 
         public static void SelectSpecificationDataDataSchemaExists()
@@ -209,8 +209,58 @@
                     firstChangeSourceDatasetLink.Should().NotBeNull("Unable to find an item with an existing source dataset");
                 }
             }
+        }
 
+        public static void PaginationSelectPage()
+        {
+            var pagingLinks = Driver._driver.FindElements(By.CssSelector("#dynamic-paging-container a.paging-link"));
+            IWebElement nextLink = null;
+
+            foreach(IWebElement pagingLink in pagingLinks)
+            {
+                if(pagingLink.GetCssValue("display") == "none")
+                {
+                    continue;
+                }
+
+                IWebElement spanTag = null;
+                try
+                {
+                    spanTag  = pagingLink.FindElement(By.TagName("span"));
+                }
+                catch (NoSuchElementException)
+                {
+                    continue;
+                }
+               
+                if(spanTag == null)
+                {
+                    continue;
+                }
+
+                if (string.IsNullOrWhiteSpace(spanTag.Text))
+                {
+                    continue;
+                }
+
+                nextLink = pagingLink;
+                break;
+            }
+            
+            if (nextLink != null)
+            {
+                nextLink.Click();
+                Thread.Sleep(2000);
+            }
+            else
+            {
+                pagingLinks.Should().NotBeNull("Cannot select additional pages as there is only one page of results");
+
+            }
 
         }
+
+
+ 
     }
 }
