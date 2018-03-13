@@ -26,7 +26,8 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.Id, Using = "cancel-link")]
         public IWebElement selectSourceDatasetCancelLink { get; set; }
 
-
+        [FindsBy(How = How.CssSelector, Using = ".row.selectdataset-item-container")]
+        public IWebElement selectSourceDatasetVersionContainer { get; set; }
 
     }
 }

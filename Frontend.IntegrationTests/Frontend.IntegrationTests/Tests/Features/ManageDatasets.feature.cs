@@ -210,6 +210,28 @@ testRunner.And("a link to Load new datasets is displayed", ((string)(null)), ((T
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Manage Dataset List View Pagination")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37113)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateTheManageDatasetListViewPagination()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Manage Dataset List View Pagination", new string[] {
+                        "Workitem:37113",
+                        "Driver"});
+#line 43
+this.ScenarioSetup(scenarioInfo);
+#line 44
+testRunner.Given("I have navigated to the Manage Datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 45
+testRunner.Then("I can navigate to a page of the next 50 data sets", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 46
+testRunner.And("I can navigate to a page of the previous 50 data sets", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select to Load a new Dataset")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37113)]
@@ -219,13 +241,13 @@ testRunner.And("a link to Load new datasets is displayed", ((string)(null)), ((T
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Load a new Dataset", new string[] {
                         "Workitem:37113",
                         "Driver"});
-#line 43
+#line 49
 this.ScenarioSetup(scenarioInfo);
-#line 44
+#line 50
 testRunner.Given("I have navigated to the Manage Datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 45
+#line 51
 testRunner.When("I click the Load a New Dataset button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 46
+#line 52
 testRunner.Then("I am navigated to the load New Dataset page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -241,23 +263,23 @@ testRunner.Then("I am navigated to the load New Dataset page", ((string)(null)),
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Dataset Schema Relationship page from the option link", new string[] {
                         "Workitem:36845",
                         "Driver"});
-#line 49
-this.ScenarioSetup(scenarioInfo);
-#line 50
-testRunner.Given("I have selected a valid specification from the Manage Specification page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 51
-testRunner.When("I click the Create Dataset link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 52
-testRunner.Then("I am redirected to the Create dataset page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 53
-testRunner.And("the Select Dataset Schema Drop Down is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 54
-testRunner.And("the Dataset Schema Name field is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
-testRunner.And("the Dataset Description field is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 56
-testRunner.And("the Save Dataset Button is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have selected a valid specification from the Manage Specification page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 57
+testRunner.When("I click the Create Dataset link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 58
+testRunner.Then("I am redirected to the Create dataset page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 59
+testRunner.And("the Select Dataset Schema Drop Down is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 60
+testRunner.And("the Dataset Schema Name field is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 61
+testRunner.And("the Dataset Description field is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 62
+testRunner.And("the Save Dataset Button is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 63
 testRunner.And("the Cancel Dataset Schema Relationship link is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -273,17 +295,17 @@ testRunner.And("the Cancel Dataset Schema Relationship link is displayed", ((str
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Dataset Schema Relationship page from the Data Type Tab", new string[] {
                         "Workitem:36845",
                         "Driver"});
-#line 60
+#line 66
 this.ScenarioSetup(scenarioInfo);
-#line 61
+#line 67
 testRunner.Given("I have selected a valid specification with no datasets associated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 62
+#line 68
 testRunner.When("I click the Datasets Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 63
+#line 69
 testRunner.Then("a link is displayed to choose a data type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 64
+#line 70
 testRunner.When("I click the No Data Type Exists link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 65
+#line 71
 testRunner.Then("I am redirected to the Choose Your Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -299,26 +321,26 @@ testRunner.Then("I am redirected to the Choose Your Data page", ((string)(null))
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a Dataset Schema Relationship", new string[] {
                         "Workitem:36845",
                         "Driver"});
-#line 68
-this.ScenarioSetup(scenarioInfo);
-#line 69
-testRunner.Given("I have navigated to the Choose Your Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 70
-testRunner.And("I have selected a Dataset Schema to relate to the specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 71
-testRunner.And("I have entered a Dataset Schema Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 72
-testRunner.And("I have entered a Dataset Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 73
-testRunner.And("I have ticked the Use as a list of values in calculations checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 74
-testRunner.And("I have ticked the Set as provider data checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 75
-testRunner.When("I click the Save Dataset button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the Choose Your Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 76
+testRunner.And("I have selected a Dataset Schema to relate to the specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 77
+testRunner.And("I have entered a Dataset Schema Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 78
+testRunner.And("I have entered a Dataset Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+testRunner.And("I have ticked the Use as a list of values in calculations checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
+testRunner.And("I have ticked the Set as provider data checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 81
+testRunner.When("I click the Save Dataset button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 82
 testRunner.Then("I am redirected to a list view of dataset schema relationships for the specificat" +
                     "ion", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 77
+#line 83
 testRunner.And("the new dataset is saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -334,19 +356,19 @@ testRunner.And("the new dataset is saved and displayed correctly", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Cancel a Dataset Schema Relationship", new string[] {
                         "Workitem:36845",
                         "Driver"});
-#line 80
-this.ScenarioSetup(scenarioInfo);
-#line 81
-testRunner.Given("I have navigated to the Choose Your Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 82
-testRunner.And("I have selected a Dataset Schema to relate to the specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 83
-testRunner.And("I have entered a Dataset Schema Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 84
-testRunner.And("I have entered a Dataset Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 85
-testRunner.When("I click the Cancel Dataset", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 86
+this.ScenarioSetup(scenarioInfo);
+#line 87
+testRunner.Given("I have navigated to the Choose Your Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 88
+testRunner.And("I have selected a Dataset Schema to relate to the specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 89
+testRunner.And("I have entered a Dataset Schema Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 90
+testRunner.And("I have entered a Dataset Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 91
+testRunner.When("I click the Cancel Dataset", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 92
 testRunner.Then("I am navigated back to the Manage Policies page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -362,15 +384,15 @@ testRunner.Then("I am navigated back to the Manage Policies page", ((string)(nul
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incorrect Dataset Schema Relationship", @__tags);
-#line 89
+#line 95
 this.ScenarioSetup(scenarioInfo);
-#line 90
+#line 96
 testRunner.Given("I have navigated to the Choose Your Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 91
+#line 97
 testRunner.And(string.Format("I have missed or duplicated the following details {0} and {1} and {2}", schema, name, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 92
+#line 98
 testRunner.When("I click the Save Dataset button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 93
+#line 99
 testRunner.Then(string.Format("the following Dataset Schema Relationship Error should be displayed for FieldName" +
                         " \'{0}\' and \'{1}\'", datasetFieldName, dataseterror), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -390,7 +412,7 @@ testRunner.Then(string.Format("the following Dataset Schema Relationship Error s
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:dataseterror", "You must assign a dataset for the specification")]
         public virtual void CreateAndSaveAnIncorrectDatasetSchemaRelationship_MissingDatasetSchema()
         {
-#line 89
+#line 95
 this.CreateAndSaveAnIncorrectDatasetSchemaRelationship("Missing Dataset Schema", "", "Name", "This is a Description", "You must assign a dataset for the specification", ((string[])(null)));
 #line hidden
         }
@@ -408,7 +430,7 @@ this.CreateAndSaveAnIncorrectDatasetSchemaRelationship("Missing Dataset Schema",
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:dataseterror", "You must give a unique name for this dataset schema relationship")]
         public virtual void CreateAndSaveAnIncorrectDatasetSchemaRelationship_MissingDatasetName()
         {
-#line 89
+#line 95
 this.CreateAndSaveAnIncorrectDatasetSchemaRelationship("Missing Dataset Name", "High Needs", "", "This is a Description", "You must give a unique name for this dataset schema relationship", ((string[])(null)));
 #line hidden
         }
@@ -427,7 +449,7 @@ this.CreateAndSaveAnIncorrectDatasetSchemaRelationship("Missing Dataset Name", "
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:dataseterror", "You must provide a description for this new relationship")]
         public virtual void CreateAndSaveAnIncorrectDatasetSchemaRelationship_MissingDatasetDescription()
         {
-#line 89
+#line 95
 this.CreateAndSaveAnIncorrectDatasetSchemaRelationship("Missing Dataset Description", "High Needs", "Name", "", "You must provide a description for this new relationship", ((string[])(null)));
 #line hidden
         }
@@ -442,13 +464,13 @@ this.CreateAndSaveAnIncorrectDatasetSchemaRelationship("Missing Dataset Descript
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the Map Data Sources to Datasets Page", new string[] {
                         "Workitem:37469",
                         "Driver"});
-#line 102
+#line 108
 this.ScenarioSetup(scenarioInfo);
-#line 103
+#line 109
 testRunner.Given("I have navigated to the data management option from the service home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 104
+#line 110
 testRunner.When("I click the option to Map data sources to datasets", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 105
+#line 111
 testRunner.Then("I am presented with the Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -464,21 +486,21 @@ testRunner.Then("I am presented with the Map data sources to datasets page", ((s
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View the Map Data Sources to Datasets Page", new string[] {
                         "Workitem:37469",
                         "Driver"});
-#line 109
-this.ScenarioSetup(scenarioInfo);
-#line 110
-testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 111
-testRunner.Then("I can see an option to search for a specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 112
-testRunner.And("an option to filter by year", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 113
-testRunner.And("the default year is preselected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 114
-testRunner.And("I am presented with all specifications for that year", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 115
-testRunner.And("the Map Data Source Specification Name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 116
+testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 117
+testRunner.Then("I can see an option to search for a specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 118
+testRunner.And("an option to filter by year", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 119
+testRunner.And("the default year is preselected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 120
+testRunner.And("I am presented with all specifications for that year", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 121
+testRunner.And("the Map Data Source Specification Name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 122
 testRunner.And("the number of relationships that exist for that specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -494,19 +516,19 @@ testRunner.And("the number of relationships that exist for that specification", 
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Pagination for the Map Data Sources to Datasets Page", new string[] {
                         "Workitem:37469",
                         "Driver"});
-#line 119
-this.ScenarioSetup(scenarioInfo);
-#line 120
-testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 121
-testRunner.And("I have over 20 spec results listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 122
-testRunner.And("the list is in ascending alphabetical order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 123
-testRunner.When("I click to navigate to the next page of specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 124
-testRunner.Then("my list view updates with up to the next set of 20 results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 125
+this.ScenarioSetup(scenarioInfo);
+#line 126
+testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 127
+testRunner.And("I have over 20 spec results listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 128
+testRunner.And("the list is in ascending alphabetical order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 129
+testRunner.When("I click to navigate to the next page of specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 130
+testRunner.Then("my list view updates with up to the next set of 20 results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 131
 testRunner.And("I am able to navigate to the previous page of 20 specs", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -522,15 +544,15 @@ testRunner.And("I am able to navigate to the previous page of 20 specs", ((strin
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search Specifications listed on the Map data sources to datasets page", new string[] {
                         "Workitem:37469",
                         "Driver"});
-#line 128
+#line 134
 this.ScenarioSetup(scenarioInfo);
-#line 129
+#line 135
 testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 130
+#line 136
 testRunner.When("I enter text in the search specifications field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 131
+#line 137
 testRunner.And("click the search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 132
+#line 138
 testRunner.Then("the list of results refreshes to display only the results that comply with the se" +
                     "arch text entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -547,13 +569,13 @@ testRunner.Then("the list of results refreshes to display only the results that 
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter Specifications listed by Year on the Map data sources to datasets page", new string[] {
                         "Workitem:37469",
                         "Driver"});
-#line 135
+#line 141
 this.ScenarioSetup(scenarioInfo);
-#line 136
+#line 142
 testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 137
+#line 143
 testRunner.When("I choose a different year from the dropdown option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 138
+#line 144
 testRunner.Then("the list of results refreshes to display only the results that comply with the ye" +
                     "ar selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -570,13 +592,13 @@ testRunner.Then("the list of results refreshes to display only the results that 
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Specific Specification from the Map data sources to datasets page", new string[] {
                         "Workitem:37469",
                         "Driver"});
-#line 141
+#line 147
 this.ScenarioSetup(scenarioInfo);
-#line 142
+#line 148
 testRunner.Given("I have navigated to Map data sources to datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 143
+#line 149
 testRunner.When("I click on a specification name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 144
+#line 150
 testRunner.Then("I am taken to the specification data relationships page for that specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -592,15 +614,15 @@ testRunner.Then("I am taken to the specification data relationships page for tha
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Secification that has no dataset relationships associated", new string[] {
                         "Workitem:38550",
                         "Driver"});
-#line 147
+#line 153
 this.ScenarioSetup(scenarioInfo);
-#line 148
+#line 154
 testRunner.Given("I have navigated to a specification data relationships page without any dataset r" +
                     "elationships established", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 149
+#line 155
 testRunner.Then("a message declaring that no dataset relationships have been established is displa" +
                     "yed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 150
+#line 156
 testRunner.And("instructions on what steps are required to create the relationships is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -616,18 +638,18 @@ testRunner.And("instructions on what steps are required to create the relationsh
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Specification that does have dataset relationships associated", new string[] {
                         "Workitem:38550",
                         "Driver"});
-#line 153
+#line 159
 this.ScenarioSetup(scenarioInfo);
-#line 154
+#line 160
 testRunner.Given("I have navigated to a specification data relationships page where dataset relatio" +
                     "nships exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 155
+#line 161
 testRunner.Then("the count of data sources established is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 156
+#line 162
 testRunner.And("the Data schema name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 157
+#line 163
 testRunner.And("the Data set name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 158
+#line 164
 testRunner.And("the Data set description is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -647,14 +669,14 @@ testRunner.And("the Data set description is displayed", ((string)(null)), ((Tech
                         "Workitem:38550",
                         "Driver",
                         "TBC"});
-#line 161
+#line 167
 this.ScenarioSetup(scenarioInfo);
-#line 162
+#line 168
 testRunner.Given("I have navigated to a specification data relationships page where dataset relatio" +
                     "nships exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 163
+#line 169
 testRunner.When("the data set data schema relationship does not have a data source associated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 164
+#line 170
 testRunner.Then("I am provided with the option to select a data source", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -674,19 +696,173 @@ testRunner.Then("I am provided with the option to select a data source", ((strin
                         "Workitem:38550",
                         "Driver",
                         "TBC"});
-#line 167
+#line 173
 this.ScenarioSetup(scenarioInfo);
-#line 168
+#line 174
 testRunner.Given("I have navigated to a specification data relationships page where dataset relatio" +
                     "nships exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 169
+#line 175
 testRunner.When("the data set data schema relationship does have a data source associated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 170
+#line 176
 testRunner.Then("the name of the data source is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 171
+#line 177
 testRunner.And("the version of the data source is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 172
+#line 178
 testRunner.And("an option to change the data source is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Select Source Dataset Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(38338)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheSelectSourceDatasetPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Select Source Dataset Page", new string[] {
+                        "Workitem:38338",
+                        "Driver"});
+#line 181
+this.ScenarioSetup(scenarioInfo);
+#line 182
+testRunner.Given("I have navigated to the Choose data sources for specifications page where dataset" +
+                    " relationships exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 183
+testRunner.When("I click on the Select Source Dataset option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 184
+testRunner.Then("I am presented with the Select source datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 185
+testRunner.And("the Name of the selected specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 186
+testRunner.And("the schema relationship name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 187
+testRunner.And("a list of datasets within the associated schema is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select Data Source Option to display Data Source Version")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(38338)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectDataSourceOptionToDisplayDataSourceVersion()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select Data Source Option to display Data Source Version", new string[] {
+                        "Workitem:38338",
+                        "Driver"});
+#line 190
+this.ScenarioSetup(scenarioInfo);
+#line 191
+testRunner.Given("I have navigated to the Select Source Dataset", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 192
+testRunner.When("I click a displayed datasets option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 193
+testRunner.Then("that dataset is shown to be selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Select Data Source Version Option is displayed correctly")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(38338)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheSelectDataSourceVersionOptionIsDisplayedCorrectly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Select Data Source Version Option is displayed correctly", new string[] {
+                        "Workitem:38338",
+                        "Driver"});
+#line 196
+this.ScenarioSetup(scenarioInfo);
+#line 197
+testRunner.Given("I have navigated to the Select Source Dataset", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 198
+testRunner.When("I click a displayed datasets option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 199
+testRunner.Then("all the dataset versions that exist are displayed in descending order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 200
+testRunner.And("the first dataset version is preselected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Select Data Source Save Button is Enabled correctly")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(38338)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheSelectDataSourceSaveButtonIsEnabledCorrectly()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Select Data Source Save Button is Enabled correctly", new string[] {
+                        "Workitem:38338",
+                        "Driver"});
+#line 203
+this.ScenarioSetup(scenarioInfo);
+#line 204
+testRunner.Given("I have navigated to the Select Source Dataset", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 205
+testRunner.When("I click a displayed datasets option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 206
+testRunner.Then("the selected dataset version is show to be selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 207
+testRunner.And("the Select source datasets Save data sources button is enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Select Data Source Cancel link")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(38338)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheSelectDataSourceCancelLink()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Select Data Source Cancel link", new string[] {
+                        "Workitem:38338",
+                        "Driver"});
+#line 210
+this.ScenarioSetup(scenarioInfo);
+#line 211
+testRunner.Given("I have navigated to the Select Source Dataset", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 212
+testRunner.When("I click a displayed datasets option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 213
+testRunner.When("I click the Select source datasets cancel link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 214
+testRunner.Then("I redirected to the Specification data relationships page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Save a Dataset Source Selection to Dataset")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(38338)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SaveADatasetSourceSelectionToDataset()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save a Dataset Source Selection to Dataset", new string[] {
+                        "Workitem:38338",
+                        "Driver"});
+#line 217
+this.ScenarioSetup(scenarioInfo);
+#line 218
+testRunner.Given("I have navigated to the Select Source Dataset", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 219
+testRunner.When("I click a displayed datasets option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 220
+testRunner.And("I have selected a data source version", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 221
+testRunner.When("I click the Select source datasets Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 222
+testRunner.Then("The change is saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 223
+testRunner.And("I redirected to the Specification data relationships page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 224
+testRunner.And("the Specification data relationships page displayed a confirmation message for th" +
+                    "e change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

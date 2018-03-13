@@ -242,6 +242,17 @@ namespace Frontend.IntegrationTests
             }
         }
 
+
+        public static void SelectSourceDatasetPage()
+        {
+            SelectedSpecificationDataSourcePage selectspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
+
+            SpecificationDataRelationshipsExistPage();
+            selectspecificationdatasourcepage.specificationDataSourceMissing.Click();
+            Thread.Sleep(2000);
+
+
+        }
     }
 }
 

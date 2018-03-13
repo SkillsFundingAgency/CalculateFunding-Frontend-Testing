@@ -40,6 +40,12 @@ And a count of all data sets returned is displayed
 And a link to Load new datasets is displayed
 
 @Workitem:37113 Driver
+Scenario: Validate the Manage Dataset List View Pagination
+Given I have navigated to the Manage Datasets page
+Then I can navigate to a page of the next 50 data sets
+And I can navigate to a page of the previous 50 data sets
+
+@Workitem:37113 Driver
 Scenario: Select to Load a new Dataset
 Given I have navigated to the Manage Datasets page
 When I click the Load a New Dataset button
@@ -170,3 +176,49 @@ When the data set data schema relationship does have a data source associated
 Then the name of the data source is displayed
 And the version of the data source is displayed
 And an option to change the data source is displayed
+
+@Workitem:38338 Driver
+Scenario: Verify the Select Source Dataset Page
+Given I have navigated to the Choose data sources for specifications page where dataset relationships exist
+When I click on the Select Source Dataset option
+Then I am presented with the Select source datasets page
+And the Name of the selected specification is displayed
+And the schema relationship name is displayed
+And a list of datasets within the associated schema is displayed
+
+@Workitem:38338 Driver
+Scenario: Select Data Source Option to display Data Source Version
+Given I have navigated to the Select Source Dataset
+When I click a displayed datasets option
+Then that dataset is shown to be selected
+
+@Workitem:38338 Driver
+Scenario: Verify the Select Data Source Version Option is displayed correctly
+Given I have navigated to the Select Source Dataset
+When I click a displayed datasets option
+Then all the dataset versions that exist are displayed in descending order
+And the first dataset version is preselected
+
+@Workitem:38338 Driver
+Scenario: Verify the Select Data Source Save Button is Enabled correctly
+Given I have navigated to the Select Source Dataset
+When I click a displayed datasets option
+Then the selected dataset version is show to be selected
+And the Select source datasets Save data sources button is enabled 
+
+@Workitem:38338 Driver
+Scenario: Verify the Select Data Source Cancel link
+Given I have navigated to the Select Source Dataset
+When I click a displayed datasets option
+When I click the Select source datasets cancel link
+Then I redirected to the Specification data relationships page
+
+@Workitem:38338 Driver
+Scenario: Save a Dataset Source Selection to Dataset
+Given I have navigated to the Select Source Dataset
+When I click a displayed datasets option
+And I have selected a data source version
+When I click the Select source datasets Save button
+Then The change is saved
+And I redirected to the Specification data relationships page
+And the Specification data relationships page displayed a confirmation message for the change

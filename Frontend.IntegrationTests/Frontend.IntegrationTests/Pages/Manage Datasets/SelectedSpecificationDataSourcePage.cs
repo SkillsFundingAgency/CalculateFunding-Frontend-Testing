@@ -41,6 +41,18 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.LinkText, Using = "Change source dataset")]
         public IWebElement specificationChangeDataSource { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".alert")]
+        public IWebElement specificationDataSourceAddedAlert { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".alert > span:nth-child(1)")]
+        public IWebElement specificationDataSourceAddedAlertText { get; set; }
+
+        [FindsBy(How = How.Id, Using = "dismiss-link")]
+        public IWebElement specificationDataSourceDismissAlert { get; set; }
+
+        
+
+
 
     }
 }

@@ -25,6 +25,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
         MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
         SelectedSpecificationDataSourcePage selectedspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
+        SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
 
         public string newname = "Test Name 010";
         public string descriptiontext = "This is a Description";
@@ -152,6 +153,28 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenALinkToLoadNewDatasetsIsDisplayed()
         {
             managedatasetpage.loadNewDatasetsButton.Should().NotBeNull();
+        }
+
+        [Then(@"I can navigate to a page of the next (.*) data sets")]
+        public void ThenICanNavigateToAPageOfTheNextDataSets(int endResultListCount)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+            IWebElement endResultCount = managedatasetpage.manageDatasetsEndListItemCount;
+            string endPageResultCount = endResultCount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeGreaterOrEqualTo(endResultListCount, "Less than 50 Results have been returned on this Page");
+        }
+
+        [Then(@"I can navigate to a page of the previous (.*) data sets")]
+        public void ThenICanNavigateToAPageOfThePreviousDataSets(int endResultListCount)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+            IWebElement endResultCount = managedatasetpage.manageDatasetsEndListItemCount;
+            string endPageResultCount = endResultCount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeLessOrEqualTo(endResultListCount, "More than 50 Results are displayed on this Page");
         }
 
         [When(@"I click the Load a New Dataset button")]
@@ -634,6 +657,144 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenAnOptionToChangeTheDataSourceIsDisplayed()
         {
             //Console writeline in the previous class displays the required information as this info ont he page cannot be seperated out
+        }
+
+        [Given(@"I have navigated to the Choose data sources for specifications page where dataset relationships exist")]
+        public void GivenIHaveNavigatedToTheChooseDataSourcesForSpecificationsPageWhereDatasetRelationshipsExist()
+        {
+            NavigateTo.SpecificationDataRelationshipsExistPage();
+            Thread.Sleep(2000);
+            
+        }
+
+        [When(@"I click on the Select Source Dataset option")]
+        public void WhenIClickOnTheSelectSourceDatasetOption()
+        {
+            selectedspecificationdatasourcepage.specificationDataSourceMissing.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am presented with the Select source datasets page")]
+        public void ThenIAmPresentedWithTheSelectSourceDatasetsPage()
+        {
+            selectsourcedatasetspage.selectSourceDatasetSaveButton.Should().NotBeNull();
+        }
+
+        [Then(@"the Name of the selected specification is displayed")]
+        public void ThenTheNameOfTheSelectedSpecificationIsDisplayed()
+        {
+            selectsourcedatasetspage.selectSourceDatasetSpecName.Should().NotBeNull();
+        }
+
+        [Then(@"the schema relationship name is displayed")]
+        public void ThenTheSchemaRelationshipNameIsDisplayed()
+        {
+            selectsourcedatasetspage.selectSourceDatasetSchemaRelationshipName.Should().NotBeNull();
+        }
+
+        [Then(@"a list of datasets within the associated schema is displayed")]
+        public void ThenAListOfDatasetsWithinTheAssociatedSchemaIsDisplayed()
+        {
+            selectsourcedatasetspage.selectSourceDatasetList.Should().NotBeNull();
+        }
+
+        [Given(@"I have navigated to the Select Source Dataset")]
+        public void GivenIHaveNavigatedToTheSelectSourceDataset()
+        {
+            NavigateTo.SelectSourceDatasetPage();
+        }
+
+        [When(@"I click a displayed datasets option")]
+        public void WhenIClickADisplayedDatasetsOption()
+        {
+            var savebuttondisabledtrue = selectsourcedatasetspage.selectSourceDatasetSaveButton.GetAttribute("disabled");
+            savebuttondisabledtrue.Should().NotBeNull();
+            Actions.SelectSourceDatasetsRadioOption();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"that dataset is shown to be selected")]
+        public void ThenThatDatasetIsShownToBeSelected()
+        {
+            IWebElement datasourceverisoncontainer = selectsourcedatasetspage.selectSourceDatasetVersionContainer;
+            IWebElement datasourceexiststext = datasourceverisoncontainer.FindElement(By.CssSelector("h4.heading-small"));
+            datasourceexiststext.Should().NotBeNull();
+            datasourceexiststext.Text.Should().Be("Select data source version");
+            datasourceexiststext.Displayed.Should().BeTrue();
+        }
+
+        [Then(@"all the dataset versions that exist are displayed in descending order")]
+        public void ThenAllTheDatasetVersionsThatExistAreDisplayedInDescendingOrder()
+        {
+            IWebElement datasourceverisoncontainer = selectsourcedatasetspage.selectSourceDatasetVersionContainer;
+            IWebElement datasourceexistsname = datasourceverisoncontainer.FindElement(By.CssSelector(".ds-versions-container label"));
+            datasourceexistsname.Should().NotBeNull();
+            string datasourcename = datasourceexistsname.Text;
+            Console.WriteLine("DataSource Version Name is " + datasourcename);
+        }
+
+        [Then(@"the first dataset version is preselected")]
+        public void ThenTheFirstDatasetVersionIsPreselected()
+        {
+            //Bug 40523
+        }
+
+        [Then(@"the selected dataset version is show to be selected")]
+        public void ThenTheSelectedDatasetVersionIsShowToBeSelected()
+        {
+            var savebuttondisabledtrue = selectsourcedatasetspage.selectSourceDatasetSaveButton.GetAttribute("disabled");
+            savebuttondisabledtrue.Should().NotBeNull();
+            Actions.SelectSourceDatasetVersionRadioOption();
+        }
+
+        [Then(@"the Select source datasets Save data sources button is enabled")]
+        public void ThenTheSelectSourceDatasetsSaveDataSourcesButtonIsEnabled()
+        {
+            var savebuttonenabled = selectsourcedatasetspage.selectSourceDatasetSaveButton.GetAttribute("disabled");
+            savebuttonenabled.Should().BeNull();
+        }
+
+        [When(@"I click the Select source datasets cancel link")]
+        public void WhenIClickTheSelectSourceDatasetsCancelLink()
+        {
+            selectsourcedatasetspage.selectSourceDatasetCancelLink.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I redirected to the Specification data relationships page")]
+        public void ThenIRedirectedToTheSpecificationDataRelationshipsPage()
+        {
+            selectedspecificationdatasourcepage.specificationDataSourceMissing.Should().NotBeNull();
+        }
+
+
+        [When(@"I have selected a data source version")]
+        public void WhenIHaveSelectedADataSourceVersion()
+        {
+            Actions.SelectSourceDatasetVersionRadioOption();
+        }
+
+        [When(@"I click the Select source datasets Save button")]
+        public void WhenIClickTheSelectSourceDatasetsSaveButton()
+        {
+            selectsourcedatasetspage.selectSourceDatasetSaveButton.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"The change is saved")]
+        public void ThenTheChangeIsSaved()
+        {
+            selectedspecificationdatasourcepage.specificationDataSourceAddedAlert.Displayed.Should().BeTrue();
+        }
+
+        [Then(@"the Specification data relationships page displayed a confirmation message for the change")]
+        public void ThenTheSpecificationDataRelationshipsPageDisplayedAConfirmationMessageForTheChange()
+        {
+            var datasourcesavedalert = selectedspecificationdatasourcepage.specificationDataSourceAddedAlertText;
+            string datasourcesavedconfirmation = datasourcesavedalert.Text;
+            Console.WriteLine(datasourcesavedconfirmation);
+            selectedspecificationdatasourcepage.specificationDataSourceDismissAlert.Should().NotBeNull();
+            selectedspecificationdatasourcepage.specificationDataSourceDismissAlert.Click();
         }
 
 

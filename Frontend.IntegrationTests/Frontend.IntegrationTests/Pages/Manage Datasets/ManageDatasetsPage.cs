@@ -47,7 +47,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.CssSelector, Using = "div.dataset-searchresult-container:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > span:nth-child(2)")]
         public IWebElement manageDatasetsFirstResultStatus { get; set; }
 
-        [FindsBy(How = How.Id, Using = "endItemNumber")]
+        [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > span:nth-child(3)")]
         public IWebElement manageDatasetsEndListItemCount { get; set; }
 
         [FindsBy(How = How.Id, Using = "startItemNumber")]
