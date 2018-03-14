@@ -10,7 +10,7 @@ namespace Frontend.IntegrationTests.Pages
     class ViewResultsPage
     {
         private readonly IWebDriver _driver;
-        private const string PageUri = @"https://esfacfsftest-web.azurewebsites.net/results/index";
+        private const string PageUri = @"https://esfacfsfTest-web.azurewebsites.net/results/index";
 
         public ViewResultsPage(IWebDriver driver)
         {

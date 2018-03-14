@@ -9,6 +9,7 @@ using OpenQA.Selenium;
 using System.Linq;
 using System.Threading;
 using System.Text.RegularExpressions;
+using Frontend.IntegrationTests.Pages.View_Results;
 
 namespace Frontend.IntegrationTests
 {
@@ -163,6 +164,15 @@ namespace Frontend.IntegrationTests
             homepage.ManagetheSpecification.Click();
             managepecificationpage.SelectSpecification.Click();
             managepoliciespage.Createdatatyperelationship.Click();
+
+        }
+
+        public static void ViewResultsPage()
+        {
+            HomePage homepage = new HomePage();
+            ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+
+            homepage.ViewtheResults.Click();
 
         }
 

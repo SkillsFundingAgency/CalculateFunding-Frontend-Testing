@@ -26,6 +26,7 @@ namespace Frontend.IntegrationTests
         {
             //NavigateTo.ManagetheSpecfication();
             Driver._driver.FindElement(By.LinkText(LinkOption)).Click();
+            Thread.Sleep(2000);
         }
 
         [Then(@"I am redirected to the Manage Specification page")]
