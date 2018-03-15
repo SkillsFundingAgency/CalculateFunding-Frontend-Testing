@@ -47,7 +47,8 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.CssSelector, Using = "a.paging-link:nth-child(1)")]
         public IWebElement providerResultsPagePreviousSetPagination { get; set; }
 
-
+        [FindsBy(How = How.CssSelector, Using = "div.row:nth-child(4)")]
+        public IWebElement providerResultsPageFilterContainer { get; set; }
 
 
     }

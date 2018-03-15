@@ -43,3 +43,39 @@ Scenario: Select a Provider from the View Provider Results Page
 Given I have navigated to the View Provider Results Page
 When I click a provider
 Then I am redirected to the View provider allocations page for the selected provider
+
+@Workitem:37468 Driver
+Scenario: Verify the Search option on the View Provider Results Page
+Given I have navigated to the View Provider Results Page
+When I enter text in the Search Provider field
+And click the Search Provider button
+Then the list of displayed providers refreshes to display only the providers that comply with the search text entered
+
+@Workitem:37468 Driver
+Scenario Outline: Verify the Search option on the View Provider Results Page using specific information
+Given I have navigated to the View Provider Results Page
+When I enter text in the Search Provider field that matches or contains <text>
+And click the Search Provider button
+Then the list of displayed providers refreshes to display only the providers that comply with the search text entered
+
+Examples: 
+	 | SearchType					| text						|
+	 | UPIN							| 506770					|
+	 | UKPRN						| 506960					|
+	 | URN							| 144331					|
+	 | EstablishmentNumber			| 10062846					|
+	 | ProviderName					| Aldington Primary School	|
+	 | PartialUPIN					| 677						|
+	 | PartialUKPRN					| 6960						|
+	 | PartialURN					| 44						|
+	 | PartialEstablishmentNumber	| 00628						|
+	 | PartialProviderName			| Alexandra					|
+
+
+@Workitem:37468 Driver
+Scenario: Verify the Search option on the View Provider Results Page when additional filters are applied
+Given I have navigated to the View Provider Results Page
+And I have selected one or more filter options from the top navigation pane
+When I enter text in the Search Provider field
+And click the Search Provider button
+Then the list of displayed providers refreshes to display only the providers that comply with the search text & filters selected

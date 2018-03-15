@@ -21,6 +21,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
         ViewProviderAllocationsPage viewproviderallocationspage = new ViewProviderAllocationsPage();
 
+        public string searchtext = "Primary";
+
 
         [Then(@"I am navigated to a page displaying providers")]
         public void ThenIAmNavigatedToAPageDisplayingProviders()
@@ -200,6 +202,72 @@ namespace Frontend.IntegrationTests.Tests.Steps
             viewproviderallocationspage.providerAllocationsPageNavigationTab.Should().NotBeNull();
 
         }
+
+        [When(@"I enter text in the Search Provider field")]
+        public void WhenIEnterTextInTheSearchProviderField()
+        {
+            IWebElement providertotalResultCount = viewproviderresultspage.providerResultsPageTotalResult;
+            string totalPageResultCount = providertotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("Total Default Provider Results displayed is " + totalPageCount);
+            viewproviderresultspage.providerResultspageSearch.SendKeys(searchtext);
+
+        }
+
+        [When(@"click the Search Provider button")]
+        public void WhenClickTheSearchProviderButton()
+        {
+            viewproviderresultspage.providerResultspageSearchButton.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the list of displayed providers refreshes to display only the providers that comply with the search text entered")]
+        public void ThenTheListOfDisplayedProvidersRefreshesToDisplayOnlyTheProvidersThatComplyWithTheSearchTextEntered()
+        {
+            IWebElement providertotalResultCount = viewproviderresultspage.providerResultsPageTotalResult;
+            string totalPageResultCount = providertotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("Total Provider Results filtered by Search is " + totalPageCount);
+            totalPageCount.Should().BeGreaterOrEqualTo(1, "Search returned no results");
+        }
+
+        [When(@"I enter text in the Search Provider field that matches or contains (.*)")]
+        public void WhenIEnterTextInTheSearchProviderFieldThatMatchesOrContains(string text)
+        {
+            IWebElement providertotalResultCount = viewproviderresultspage.providerResultsPageTotalResult;
+            string totalPageResultCount = providertotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("Total Default Provider Results displayed is " + totalPageCount);
+            viewproviderresultspage.providerResultspageSearch.SendKeys(text);
+        }
+
+        [Given(@"I have selected one or more filter options from the top navigation pane")]
+        public void GivenIHaveSelectedOneOrMoreFilterOptionsFromTheTopNavigationPane()
+        {
+            IWebElement filtercontainer = viewproviderresultspage.providerResultsPageFilterContainer;
+            IWebElement providertypefilter = filtercontainer.FindElement(By.CssSelector("button"));
+            providertypefilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providertypeselected = selectfilteroption.Text;
+            Console.WriteLine("Provider Type Filter Option selected = " + providertypeselected);
+            selectfilteroption.Click();
+            viewproviderresultspage.providerResultspageSearch.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the list of displayed providers refreshes to display only the providers that comply with the search text & filters selected")]
+        public void ThenTheListOfDisplayedProvidersRefreshesToDisplayOnlyTheProvidersThatComplyWithTheSearchTextFiltersSelected()
+        {
+            IWebElement providertotalResultCount = viewproviderresultspage.providerResultsPageTotalResult;
+            string totalPageResultCount = providertotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("Total Provider Results filtered by Search is " + totalPageCount);
+            totalPageCount.Should().BeGreaterOrEqualTo(1, "Search returned no results");
+        }
+
+
+
 
 
         [AfterScenario()]

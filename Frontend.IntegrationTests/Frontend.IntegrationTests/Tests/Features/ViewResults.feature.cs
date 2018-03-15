@@ -213,6 +213,246 @@ testRunner.Then("I am redirected to the View provider allocations page for the s
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Search option on the View Provider Results Page", new string[] {
+                        "Workitem:37468",
+                        "Driver"});
+#line 48
+this.ScenarioSetup(scenarioInfo);
+#line 49
+testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 50
+testRunner.When("I enter text in the Search Provider field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 51
+testRunner.And("click the Search Provider button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
+testRunner.Then("the list of displayed providers refreshes to display only the providers that comp" +
+                    "ly with the search text entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation(string searchType, string text, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Workitem:37468",
+                    "Driver"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Search option on the View Provider Results Page using specific informa" +
+                    "tion", @__tags);
+#line 55
+this.ScenarioSetup(scenarioInfo);
+#line 56
+testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 57
+testRunner.When(string.Format("I enter text in the Search Provider field that matches or contains {0}", text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 58
+testRunner.And("click the Search Provider button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 59
+testRunner.Then("the list of displayed providers refreshes to display only the providers that comp" +
+                    "ly with the search text entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page using specific informa" +
+            "tion: UPIN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "UPIN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SearchType", "UPIN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "506770")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_UPIN()
+        {
+#line 55
+this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("UPIN", "506770", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page using specific informa" +
+            "tion: UKPRN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "UKPRN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SearchType", "UKPRN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "506960")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_UKPRN()
+        {
+#line 55
+this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("UKPRN", "506960", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page using specific informa" +
+            "tion: URN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "URN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SearchType", "URN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "144331")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_URN()
+        {
+#line 55
+this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("URN", "144331", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page using specific informa" +
+            "tion: EstablishmentNumber")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "EstablishmentNumber")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SearchType", "EstablishmentNumber")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "10062846")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_EstablishmentNumber()
+        {
+#line 55
+this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("EstablishmentNumber", "10062846", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page using specific informa" +
+            "tion: ProviderName")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "ProviderName")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SearchType", "ProviderName")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "Aldington Primary School")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_ProviderName()
+        {
+#line 55
+this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("ProviderName", "Aldington Primary School", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page using specific informa" +
+            "tion: PartialUPIN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "PartialUPIN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SearchType", "PartialUPIN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "677")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_PartialUPIN()
+        {
+#line 55
+this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("PartialUPIN", "677", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page using specific informa" +
+            "tion: PartialUKPRN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "PartialUKPRN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SearchType", "PartialUKPRN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "6960")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_PartialUKPRN()
+        {
+#line 55
+this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("PartialUKPRN", "6960", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page using specific informa" +
+            "tion: PartialURN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "PartialURN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SearchType", "PartialURN")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "44")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_PartialURN()
+        {
+#line 55
+this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("PartialURN", "44", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page using specific informa" +
+            "tion: PartialEstablishmentNumber")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "PartialEstablishmentNumber")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SearchType", "PartialEstablishmentNumber")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "00628")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_PartialEstablishmentNumber()
+        {
+#line 55
+this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("PartialEstablishmentNumber", "00628", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page using specific informa" +
+            "tion: PartialProviderName")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "PartialProviderName")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SearchType", "PartialProviderName")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "Alexandra")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_PartialProviderName()
+        {
+#line 55
+this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("PartialProviderName", "Alexandra", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Search option on the View Provider Results Page when additional filter" +
+            "s are applied")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageWhenAdditionalFiltersAreApplied()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Search option on the View Provider Results Page when additional filter" +
+                    "s are applied", new string[] {
+                        "Workitem:37468",
+                        "Driver"});
+#line 76
+this.ScenarioSetup(scenarioInfo);
+#line 77
+testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 78
+testRunner.And("I have selected one or more filter options from the top navigation pane", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+testRunner.When("I enter text in the Search Provider field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 80
+testRunner.And("click the Search Provider button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 81
+testRunner.Then("the list of displayed providers refreshes to display only the providers that comp" +
+                    "ly with the search text & filters selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
