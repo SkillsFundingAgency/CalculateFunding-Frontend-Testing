@@ -79,3 +79,19 @@ And I have selected one or more filter options from the top navigation pane
 When I enter text in the Search Provider field
 And click the Search Provider button
 Then the list of displayed providers refreshes to display only the providers that comply with the search text & filters selected
+
+@Workitem:37467 Driver
+Scenario: Select a Provider to display the Provider Allocation page
+Given I have navigated to the View Provider Results Page
+When I click on a listed provider
+Then I am navigated to the View Provider Allocation page
+And the relevant provider information is displayed
+And a drop down option is displayed to select a year with the default year pre selected
+And a drop down option is displayed to select a specification where the default is blank
+
+@Workitem:37467 Driver
+Scenario: Verify the Provider Allocations Page tab options
+Given I have navigated to the View Provider Allocations Page
+Then the default view is the tab displaying the allocation lines
+And a selectable tab is available to display the calculation results
+And no results are listed by default as no specification has been selected

@@ -171,10 +171,28 @@ namespace Frontend.IntegrationTests
         {
             HomePage homepage = new HomePage();
             ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+            ViewProviderAllocationsPage viewproviderallocationspage = new ViewProviderAllocationsPage();
 
             homepage.ViewtheResults.Click();
 
+
         }
+
+        public static void ViewProviderAllocationsPage()
+        {
+            HomePage homepage = new HomePage();
+            ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+
+            homepage.ViewtheResults.Click();
+            IWebElement providerresultslistcontainer = viewproviderresultspage.providerResultspageResultListContainer;
+            IWebElement providernamelink = providerresultslistcontainer.FindElement(By.TagName("a"));
+            providernamelink.Should().NotBeNull();
+            providernamelink.Click();
+
+
+        }
+
+
 
         public static void SpecificationDataNoRelationshipsPage()
         {

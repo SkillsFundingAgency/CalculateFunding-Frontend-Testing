@@ -267,6 +267,138 @@ namespace Frontend.IntegrationTests.Tests.Steps
         }
 
 
+        [When(@"I click on a listed provider")]
+        public void WhenIClickOnAListedProvider()
+        {
+            IWebElement providerresultslistcontainer = viewproviderresultspage.providerResultspageResultListContainer;
+            IWebElement providernamelink = providerresultslistcontainer.FindElement(By.TagName("a"));
+            providernamelink.Should().NotBeNull();
+            providernamelink.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am navigated to the View Provider Allocation page")]
+        public void ThenIAmNavigatedToTheViewProviderAllocationPage()
+        {
+            viewproviderallocationspage.providerAllocationsPageNavigationTab.Should().NotBeNull();
+        }
+
+        [Then(@"the relevant provider information is displayed")]
+        public void ThenTheRelevantProviderInformationIsDisplayed()
+        {
+            IWebElement providernamedisplayed = viewproviderallocationspage.providerAllocationsPageProviderInfoContainer;
+            IWebElement providername = providernamedisplayed.FindElement(By.TagName("h1"));
+            providername.Should().NotBeNull();
+            providername.Displayed.Should().BeTrue();
+            string provider = providername.Text;
+            Console.WriteLine("The Provider Name " + provider + " is displayed");
+
+            IWebElement providerinfocontainer = viewproviderallocationspage.providerAllocationsPageProviderInfoContainer;
+            var propertyElements = providerinfocontainer.FindElements(By.CssSelector("p.hero-text:nth-child(3)"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("span"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+
+            IWebElement providerinfolocalauth = viewproviderallocationspage.providerAllocationsPageProviderInfoContainer;
+            IWebElement localauthinfo = providerinfolocalauth.FindElement(By.CssSelector(".col-xs-9 > div:nth-child(5)"));
+            localauthinfo.Should().NotBeNull();
+            string localauthname = localauthinfo.Text;
+            localauthname.Should().NotBeNullOrEmpty("value element does not exist");
+            Console.WriteLine(localauthname);
+
+            IWebElement providerinfotype = viewproviderallocationspage.providerAllocationsPageProviderInfoContainer;
+            var providerinfotypeElements = providerinfotype.FindElements(By.CssSelector(".col-xs-9 > div:nth-child(6)"));
+            List<IWebElement> providerinfotypeElementList = new List<IWebElement>(providerinfotypeElements);
+            providerinfotypeElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < providerinfotypeElementList.Count; i++)
+            {
+                IWebElement currentElement = providerinfotypeElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("span"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+
+
+            IWebElement providerinfodateopened = viewproviderallocationspage.providerAllocationsPageProviderInfoContainer;
+            IWebElement dateopenedinfo = providerinfodateopened.FindElement(By.CssSelector(".col-xs-9 > div:nth-child(7)"));
+            dateopenedinfo.Should().NotBeNull();
+            string dateopenedtext = dateopenedinfo.Text;
+            dateopenedtext.Should().NotBeNullOrEmpty("value element does not exist");
+            Console.WriteLine(dateopenedtext);
+
+
+        }
+
+        [Then(@"a drop down option is displayed to select a year with the default year pre selected")]
+        public void ThenADropDownOptionIsDisplayedToSelectAYearWithTheDefaultYearPreSelected()
+        {
+            IWebElement academicyeardropdown = viewproviderallocationspage.providerAllocationsPageAcademicYearDropDown;
+            academicyeardropdown.Should().NotBeNull();
+            academicyeardropdown.Displayed.Should().BeTrue();
+            IWebElement defaultyearselected = academicyeardropdown.FindElement(By.CssSelector("#PeriodId > option:nth-child(2)"));
+            defaultyearselected.Should().NotBeNull();
+            string defaultyeardisplayed = defaultyearselected.Text;
+            Console.WriteLine("The Default Year displayed is " + defaultyeardisplayed);
+        }
+
+        [Then(@"a drop down option is displayed to select a specification where the default is blank")]
+        public void ThenADropDownOptionIsDisplayedToSelectASpecificationWhereTheDefaultIsBlank()
+        {
+            IWebElement specificationdropdown = viewproviderallocationspage.providerAllocationsPageSpecificationDropDown;
+            specificationdropdown.Should().NotBeNull();
+            specificationdropdown.Displayed.Should().BeTrue();
+            IWebElement defaultspecificationblank = specificationdropdown.FindElement(By.CssSelector("#SpecificationId > option:nth-child(1)"));
+            string specificationblank = defaultspecificationblank.Text;
+            specificationblank.Should().BeNullOrEmpty();
+        }
+
+
+        [Given(@"I have navigated to the View Provider Allocations Page")]
+        public void GivenIHaveNavigatedToTheViewProviderAllocationsPage()
+        {
+            NavigateTo.ViewProviderAllocationsPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the default view is the tab displaying the allocation lines")]
+        public void ThenTheDefaultViewIsTheTabDisplayingTheAllocationLines()
+        {
+            viewproviderallocationspage.providerAllocationsPageAllocationTab.Should().NotBeNull();
+
+        }
+
+        [Then(@"a selectable tab is available to display the calculation results")]
+        public void ThenASelectableTabIsAvailableToDisplayTheCalculationResults()
+        {
+            viewproviderallocationspage.providerAllocationsPageCalculationTab.Should().NotBeNull();
+        }
+
+        [Then(@"no results are listed by default as no specification has been selected")]
+        public void ThenNoResultsAreListedByDefaultAsNoSpecificationHasBeenSelected()
+        {
+            IWebElement viewresultscontainer = viewproviderallocationspage.providerAllocationsPageProviderPolicyContainer;
+            IWebElement viewresultsmessage = viewresultscontainer.FindElement(By.TagName("p"));
+            string noresultsdisplayedmessage = viewresultsmessage.Text;
+            Console.WriteLine(noresultsdisplayedmessage);
+
+
+        }
 
 
 
