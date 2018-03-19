@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Actions.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Create\CreateNewSpecification.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="NavigateTo.cs" />
     <Compile Include="Pages\Home Page\HomePage.cs" />
@@ -80,11 +81,21 @@
     <Compile Include="Pages\Manage Calculation\ViewPreviousCalculationsPage.cs" />
     <Compile Include="Pages\Manage Calculation\EditCalculationsPage.cs" />
     <Compile Include="Pages\Manage Calculation\ManageCalculationPage.cs" />
+    <Compile Include="Pages\Manage Datasets\ChooseDatasetRelationshipPage.cs" />
+    <Compile Include="Pages\Manage Datasets\LoadNewDatasetPage.cs" />
+    <Compile Include="Pages\Manage Datasets\ManageDatasetsPage.cs" />
+    <Compile Include="Pages\Manage Datasets\ManageTheDataPage.cs" />
+    <Compile Include="Pages\Manage Datasets\MapDataSourcesToDatasetsPage.cs" />
+    <Compile Include="Pages\Manage Datasets\SelectedSpecificationDataSourcePage.cs" />
+    <Compile Include="Pages\Manage Datasets\SelectSourceDatasetsPage.cs" />
+    <Compile Include="Pages\Manage Datasets\SpecifyDatasetRelationshipsPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateCalculationPage.cs" />
     <Compile Include="Pages\Manage Specification\CreatePolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateSpecificationPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateSubPolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\ManagePoliciesPage.cs" />
+    <Compile Include="Pages\View Results\ViewProviderAllocationsPage.cs" />
+    <Compile Include="Pages\View Results\ViewProviderResultsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Features\HomePage.feature.cs">
       <AutoGen>True</AutoGen>
@@ -96,14 +107,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ManageCalculations.feature</DependentUpon>
     </Compile>
+    <Compile Include="Tests\Features\ManageDatasets.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManageDatasets.feature</DependentUpon>
+    </Compile>
     <Compile Include="Tests\Features\ManageSpecifications.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ManageSpecifications.feature</DependentUpon>
     </Compile>
+    <Compile Include="Tests\Features\ViewResults.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewResults.feature</DependentUpon>
+    </Compile>
     <Compile Include="Tests\Steps\HomePageSteps.cs" />
     <Compile Include="Tests\Steps\ManageCalculationsSteps.cs" />
+    <Compile Include="Tests\Steps\ManageDatasetsSteps.cs" />
     <Compile Include="Tests\Steps\ManageSpecificationsSteps.cs" />
+    <Compile Include="Tests\Steps\ViewResultsSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -116,9 +139,17 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ManageCalculations.feature.cs</LastGenOutput>
     </None>
+    <None Include="Tests\Features\ManageDatasets.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ManageDatasets.feature.cs</LastGenOutput>
+    </None>
     <None Include="Tests\Features\ManageSpecifications.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ManageSpecifications.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\Features\ViewResults.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ViewResults.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

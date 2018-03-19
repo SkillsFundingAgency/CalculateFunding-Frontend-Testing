@@ -1,20 +1,28 @@
-﻿using Frontend.IntegrationTests.Pages;
+﻿using AutoFramework;
+using FluentAssertions;
+using Frontend.IntegrationTests.Create;
+using Frontend.IntegrationTests.Pages;
 using Frontend.IntegrationTests.Pages.Manage_Calculation;
+using Frontend.IntegrationTests.Pages.Manage_Datasets;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
+using OpenQA.Selenium;
+using System.Linq;
 using System.Threading;
+using System.Text.RegularExpressions;
+using Frontend.IntegrationTests.Pages.View_Results;
 
 namespace Frontend.IntegrationTests
 {
-        public static class NavigateTo
+    public static class NavigateTo
+    {
+        public static void ManagetheSpecfication()
         {
-            public static void ManagetheSpecfication()
-            {
-                HomePage homepage = new HomePage();
-                ManageSpecificationPage managepecificationpage = new ManageSpecificationPage();
+            HomePage homepage = new HomePage();
+            ManageSpecificationPage managepecificationpage = new ManageSpecificationPage();
 
-                homepage.ManagetheSpecification.Click();
+            homepage.ManagetheSpecification.Click();
 
-            }
+        }
 
         public static void ManagetheCalculation()
         {
@@ -40,7 +48,7 @@ namespace Frontend.IntegrationTests
         {
             HomePage homepage = new HomePage();
             ManageSpecificationPage managepecificationpage = new ManageSpecificationPage();
-            
+
             homepage.ManagetheSpecification.Click();
             managepecificationpage.SelectSpecification.Click();
 
@@ -95,7 +103,7 @@ namespace Frontend.IntegrationTests
             managecalculationpage.FirstCalculationListed.Click();
             Thread.Sleep(2000);
             editcalculationspage.PreviousCalculationVersionsLink.Click();
-            
+
 
         }
 
@@ -117,6 +125,162 @@ namespace Frontend.IntegrationTests
             viewpreviouscalculationpage.ComparePreviousCalculationsButton.Click();
 
         }
+
+        public static void ManageTheDataPage()
+        {
+            HomePage homepage = new HomePage();
+
+            homepage.ManagetheData.Click();
+
+        }
+
+        public static void ManageDatasetsPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.manageDataSetsLink.Click();
+
+        }
+
+        public static void MapDataSourcesToDatasetsPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.specifyDataSetRelationshipLink.Click();
+
+        }
+
+        public static void CreateDatasetPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageSpecificationPage managepecificationpage = new ManageSpecificationPage();
+            ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
+            ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
+
+            homepage.ManagetheSpecification.Click();
+            managepecificationpage.SelectSpecification.Click();
+            managepoliciespage.Createdatatyperelationship.Click();
+
+        }
+
+        public static void ViewResultsPage()
+        {
+            HomePage homepage = new HomePage();
+            ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+            ViewProviderAllocationsPage viewproviderallocationspage = new ViewProviderAllocationsPage();
+
+            homepage.ViewtheResults.Click();
+
+
+        }
+
+        public static void ViewProviderAllocationsPage()
+        {
+            HomePage homepage = new HomePage();
+            ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+
+            homepage.ViewtheResults.Click();
+            IWebElement providerresultslistcontainer = viewproviderresultspage.providerResultspageResultListContainer;
+            IWebElement providernamelink = providerresultslistcontainer.FindElement(By.TagName("a"));
+            providernamelink.Should().NotBeNull();
+            providernamelink.Click();
+
+
+        }
+
+
+
+        public static void SpecificationDataNoRelationshipsPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+            MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.specifyDataSetRelationshipLink.Click();
+            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container > div.specs-relationship-searchresult-container-item"));
+            IWebElement firstAnchorLink = null;
+            foreach (var element in containerElements)
+            {
+                var pElement = element.FindElement(By.TagName("p"));
+                if (pElement != null)
+                {
+                    if(pElement.Text.Contains("No data relationships exist"))
+                    {
+                        var anchorLink = element.FindElement(By.CssSelector("h2 > a"));
+                        if(anchorLink != null)
+                        {
+                            firstAnchorLink = anchorLink;
+                            break;
+                        }
+                    }
+                }
+
+            }
+            Thread.Sleep(1000);
+            if (firstAnchorLink != null)
+            {
+                firstAnchorLink.Click();
+            }
+            else
+            {
+                firstAnchorLink.Should().NotBeNull("unable to find an item with no relationships");
+            }
+        }
+
+        public static void SpecificationDataRelationshipsExistPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+            MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.specifyDataSetRelationshipLink.Click();
+            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container > div.specs-relationship-searchresult-container-item"));
+            IWebElement firstAnchorLink = null;
+            foreach (var element in containerElements)
+            {
+                var pElement = element.FindElement(By.TagName("p"));
+                if (pElement != null)
+                { 
+                    if (Regex.IsMatch(pElement.Text, "\\d data relationships exist"))
+                    {
+                        var anchorLink = element.FindElement(By.CssSelector("h2 > a"));
+                        if (anchorLink != null)
+                        {
+                            firstAnchorLink = anchorLink;
+                            break;
+                        }
+                    }
+                }
+
+            }
+            Thread.Sleep(1000);
+            if (firstAnchorLink != null)
+            {
+                firstAnchorLink.Click();
+            }
+            else
+            {
+                firstAnchorLink.Should().NotBeNull("unable to find an item with relationships");
+            }
+        }
+
+
+        public static void SelectSourceDatasetPage()
+        {
+            SelectedSpecificationDataSourcePage selectspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
+
+            SpecificationDataRelationshipsExistPage();
+            selectspecificationdatasourcepage.specificationDataSourceMissing.Click();
+            Thread.Sleep(2000);
+
+
+        }
     }
-    }
+}
 

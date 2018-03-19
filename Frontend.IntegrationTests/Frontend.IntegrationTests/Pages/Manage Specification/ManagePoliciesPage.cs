@@ -29,6 +29,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.LinkText, Using = "Create calculation specification")]
         public IWebElement CreateCalculation { get; set; }
 
+        [FindsBy(How = How.LinkText, Using = "Create dataset")]
+        public IWebElement Createdatatyperelationship { get; set; }
+
         [FindsBy(How = How.LinkText, Using = ".policy-list-header")]
         public IWebElement PolicyList { get; set; }
 
@@ -37,6 +40,15 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
 
         [FindsBy(How = How.LinkText, Using = " .subpolicy-list-header")]
         public IWebElement SubPolicyList { get; set; }
+
+        [FindsBy(How = How.Id, Using = "nav-dataset-tab")]
+        public IWebElement datasetsTab { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "No datasets exist, create a dataset")]
+        public IWebElement datasetsTabNoDatasetsExistLink { get; set; }
+
+        
+
     }
 }
 

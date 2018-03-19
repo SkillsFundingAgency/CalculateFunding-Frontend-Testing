@@ -15,22 +15,22 @@ namespace Frontend.IntegrationTests
     [FindsBy(How = How.Id, Using = "proposition-name")]
     public IWebElement Header { get; set; }
 
-    [FindsBy(How = How.LinkText, Using = "Manage the Specification")]
+    [FindsBy(How = How.LinkText, Using = "Specifications")]
     public IWebElement ManagetheSpecification { get; set; }
 
-    [FindsBy(How = How.LinkText, Using = "Manage the Data")]
+    [FindsBy(How = How.LinkText, Using = "Manage data")]
     public IWebElement ManagetheData { get; set; }
 
-    [FindsBy(How = How.LinkText, Using = "Manage the tests")]
+    [FindsBy(How = How.LinkText, Using = "Quality assurance")]
     public IWebElement ManagetheTests { get; set; }
 
-    [FindsBy(How = How.LinkText, Using = "Manage the Calculations")]
+    [FindsBy(How = How.LinkText, Using = "Calculations")]
     public IWebElement ManagetheCalculations { get; set; }
 
-    [FindsBy(How = How.LinkText, Using = "View the Results")]
+    [FindsBy(How = How.LinkText, Using = "View results")]
     public IWebElement ViewtheResults { get; set; }
 
-    [FindsBy(How = How.LinkText, Using = "Publish the results")]
+    [FindsBy(How = How.LinkText, Using = "Release funding")]
     public IWebElement Publishtheresults { get; set; }
     }
 }

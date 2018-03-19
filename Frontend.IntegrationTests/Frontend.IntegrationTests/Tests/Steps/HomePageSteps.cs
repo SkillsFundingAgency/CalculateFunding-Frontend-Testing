@@ -26,6 +26,7 @@ namespace Frontend.IntegrationTests
         {
             //NavigateTo.ManagetheSpecfication();
             Driver._driver.FindElement(By.LinkText(LinkOption)).Click();
+            Thread.Sleep(2000);
         }
 
         [Then(@"I am redirected to the Manage Specification page")]
@@ -44,7 +45,7 @@ namespace Frontend.IntegrationTests
             Thread.Sleep(1000);
             String currentURL = Driver._driver.Url;
             Assert.AreEqual("https://esfacfsftest-web.azurewebsites.net/datasets", currentURL);
-            Assert.IsTrue(Driver._driver.Title.Equals("Manage Datasets - Calculate funding"));
+            Assert.IsTrue(Driver._driver.Title.Equals("Manage Data - Calculate funding"));
 
         }
 
@@ -72,8 +73,8 @@ namespace Frontend.IntegrationTests
         {
             Thread.Sleep(1000);
             String currentURL = Driver._driver.Url;
-            Assert.AreEqual("https://esfacfsftest-web.azurewebsites.net/results/view", currentURL);
-            Assert.IsTrue(Driver._driver.Title.Equals("View the Results - Calculate funding"));
+            Assert.AreEqual("https://esfacfsftest-web.azurewebsites.net/results/index", currentURL);
+            Assert.IsTrue(Driver._driver.Title.Equals("View provider results - Calculate funding"));
 
         }
 

@@ -2,10 +2,14 @@
 {
     using FluentAssertions;
     using Frontend.IntegrationTests.Pages.Manage_Calculation;
+    using Frontend.IntegrationTests.Pages.Manage_Datasets;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Firefox;
+    using OpenQA.Selenium.Support.UI;
     using System;
+    using System.Collections.Generic;
     using System.Drawing.Imaging;
+    using System.Linq;
     using System.Threading;
     using TechTalk.SpecFlow;
 
@@ -19,8 +23,9 @@
         public static string Specificationvalue { get; set; }
         public static string Allocationlinevalue { get; set; }
         public static string Calculationstatusvalue { get; set; }
+        public static string datasestinfo { get; set; }
 
-        
+
 
 
         [BeforeScenario(new string[] { "Driver" })]
@@ -129,8 +134,196 @@
             managecalculationpage.CalculationSearchButton.Click();
             Thread.Sleep(2000);
 
+        }
+
+        public static void SelectDatasetDataSchemaDropDown()
+        {
+            ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
+
+            choosedatasetrelationshippage.selectDatasetSchemaDropDown.Click();
+            choosedatasetrelationshippage.selectDatasetSchemaDropDownTextSearch.SendKeys("High Needs");
+            choosedatasetrelationshippage.selectDatasetSchemaDropDown.SendKeys(OpenQA.Selenium.Keys.Enter);
+
+            Thread.Sleep(2000);
 
         }
-    }
 
+        public static void SelectSpecificationDataNoDataSchemaAssociated()
+        {
+            var containerElements = Driver._driver.FindElements(By.CssSelector("#top > main:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"));
+            IWebElement firstSelectSourceDatasetLink = null;
+            foreach (var element in containerElements)
+            {
+                var aelement = element.FindElement(By.TagName("a"));
+                if (aelement != null)
+                {
+                    if (aelement.Text.Contains("Select source dataset"))
+                    {
+                        {
+                            firstSelectSourceDatasetLink = aelement;
+                            break;
+                        }
+                    }
+
+                }
+                Thread.Sleep(1000);
+                if (firstSelectSourceDatasetLink != null)
+                {
+                    firstSelectSourceDatasetLink.Click();
+                }
+                else
+                {
+                    firstSelectSourceDatasetLink.Should().NotBeNull("Unable to find an item with no source dataset");
+                }
+            }
+        }
+
+        public static void SelectSpecificationDataDataSchemaExists()
+        {
+            var containerElements = Driver._driver.FindElements(By.CssSelector("#top > main:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"));
+            IWebElement firstChangeSourceDatasetLink = null;
+            foreach (var element in containerElements)
+            {
+                var aelement = element.FindElement(By.TagName("a"));
+                if (aelement != null)
+                {
+                    if (aelement.Text.Contains("Change source dataset"))
+                    {
+                        var anchorLink = element.FindElement(By.CssSelector("p > a"));
+                        if (anchorLink != null)
+                        {
+                            firstChangeSourceDatasetLink = anchorLink;
+                            break;
+                        }
+                    }
+
+                }
+                Thread.Sleep(1000);
+                if (firstChangeSourceDatasetLink != null)
+                {
+                    string datasestinfoline = firstChangeSourceDatasetLink.Text;
+                    datasestinfo = datasestinfoline;
+                }
+                else
+                {
+                    firstChangeSourceDatasetLink.Should().NotBeNull("Unable to find an item with an existing source dataset");
+                }
+            }
+        }
+
+        public static void PaginationSelectPage()
+        {
+            var pagingLinks = Driver._driver.FindElements(By.CssSelector("#dynamic-paging-container a.paging-link"));
+            IWebElement nextLink = null;
+
+            foreach(IWebElement pagingLink in pagingLinks)
+            {
+                if(pagingLink.GetCssValue("display") == "none")
+                {
+                    continue;
+                }
+
+                IWebElement spanTag = null;
+                try
+                {
+                    spanTag  = pagingLink.FindElement(By.TagName("span"));
+                }
+                catch (NoSuchElementException)
+                {
+                    continue;
+                }
+               
+                if(spanTag == null)
+                {
+                    continue;
+                }
+
+                if (string.IsNullOrWhiteSpace(spanTag.Text))
+                {
+                    continue;
+                }
+
+                nextLink = pagingLink;
+                break;
+            }
+            
+            if (nextLink != null)
+            {
+                nextLink.Click();
+                Thread.Sleep(2000);
+            }
+            else
+            {
+                pagingLinks.Should().NotBeNull("Cannot select additional pages as there is only one page of results");
+
+            }
+
+        }
+
+        public static void SelectSourceDatasetsRadioOption()
+        {
+            SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
+
+            var containerElements = Driver._driver.FindElements(By.ClassName("selectdataset-item-name"));
+            IWebElement firstSelectSourceDatasetRadio = containerElements.FirstOrDefault();
+                
+                if (firstSelectSourceDatasetRadio != null)
+                {
+                    firstSelectSourceDatasetRadio.Click();
+                }
+                else
+                {
+                    firstSelectSourceDatasetRadio.Should().NotBeNull("Unable to find source dataset option");
+                }
+        }
+
+        public static void SelectSourceDatasetVersionRadioOption()
+        {
+            SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
+
+            var containerElements = Driver._driver.FindElements(By.ClassName("selectdataset-item-datasetversion"));
+            IWebElement firstSelectSourceDatasetVersionRadio = containerElements.FirstOrDefault();
+
+            if (firstSelectSourceDatasetVersionRadio != null)
+            {
+                firstSelectSourceDatasetVersionRadio.Click();
+            }
+            else
+            {
+                firstSelectSourceDatasetVersionRadio.Should().NotBeNull("Unable to find source dataset option");
+            }
+        }
+
+        public static void SelectSpecificationProviderAllocationPage()
+        {
+            var containerElements = Driver._driver.FindElements(By.Id("SpecificationId"));
+            IWebElement firstSelectSpecification = null;
+            foreach (var element in containerElements)
+            {
+                var aelement = element.FindElement(By.TagName("option"));
+                if (aelement != null)
+                {
+                    if (aelement.Text.Contains("Test for Publish"))
+                    {
+                        {
+                            firstSelectSpecification = aelement;
+
+                            break;
+                        }
+                    }
+
+                }
+                Thread.Sleep(1000);
+                if (firstSelectSpecification != null)
+                {
+                    firstSelectSpecification.Click();
+                }
+                else
+                {
+                    firstSelectSpecification.Should().NotBeNull("No Specifications exist for the academic year selected");
+                }
+            }
+        }
+
+    }
 }

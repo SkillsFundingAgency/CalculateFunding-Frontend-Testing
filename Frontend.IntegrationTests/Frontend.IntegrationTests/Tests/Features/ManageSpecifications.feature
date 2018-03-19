@@ -85,7 +85,7 @@ Scenario: Select to Create a New Policy
 	Given I have successfully navigated to the Manage Policies Page
 	When I click on the Create Policy Button
 	Then I am redirected to the Create Policy Page
-
+	
 @Workitem:35397 Driver
 Scenario: Create and Save a new Policy
 	Given I have successfully navigated to the Create Policy Page
@@ -190,7 +190,7 @@ Scenario: Create and Save a new Sub Policy
 	And I enter a Sub Policy Description
 	And I click the Save Sub Policy button
 	Then I am redirected to the Manage Policies Page
-	And My new Sub Policy is correctly listed
+	And the new Sub Policy is correctly listed
 	And A Full Audit record is created
 
 @Workitem:35402 Driver
