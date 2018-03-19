@@ -31,7 +31,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
 
         }
-        
+
         [Then(@"the name of the provider is displayed")]
         public void ThenTheNameOfTheProviderIsDisplayed()
         {
@@ -43,7 +43,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine(providername);
 
         }
-        
+
         [Then(@"all the relevant provider details are displayed")]
         public void ThenAllTheRelevantProviderDetailsAreDisplayed()
         {
@@ -52,7 +52,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
             propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
 
-            for(int i = 0; i < propertyElementList.Count; i++)
+            for (int i = 0; i < propertyElementList.Count; i++)
             {
                 IWebElement currentElement = propertyElementList[i];
                 currentElement.Should().NotBeNull("element {0} is null", i);
@@ -63,9 +63,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
                 Console.WriteLine(currentElement.Text);
             }
-            
+
         }
-        
+
         [Then(@"the list is displayed by provider name in ascending order")]
         public void ThenTheListIsDisplayedByProviderNameInAscendingOrder()
         {
@@ -398,6 +398,124 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine(noresultsdisplayedmessage);
 
 
+        }
+
+
+        [When(@"I choose a specification from the drop down")]
+        public void WhenIChooseASpecificationFromTheDropDown()
+        {
+            //Actions.SelectSpecificationProviderAllocationPage();
+            //Thread.Sleep(2000);
+
+            
+            IWebElement specificationdropdown = viewproviderallocationspage.providerAllocationsPageSpecificationDropDown;
+            specificationdropdown.Should().NotBeNull();
+            specificationdropdown.Displayed.Should().BeTrue();
+            IWebElement selectspecification = specificationdropdown.FindElement(By.CssSelector("#SpecificationId > option:nth-child(2)"));
+            specificationdropdown.Should().NotBeNull("No Specifications exist for the year selected");
+            selectspecification.Click();
+            Thread.Sleep(2000);
+            
+        }
+
+        [When(@"I am on the allocation view")]
+        public void WhenIAmOnTheAllocationView()
+        {
+            viewproviderallocationspage.providerAllocationsPageAllocationTab.Should().NotBeNull();
+        }
+
+        [Then(@"the results are updated according to the year and spec selected")]
+        public void ThenTheResultsAreUpdatedAccordingToTheYearAndSpecSelected()
+        {
+            IWebElement academicyeardropdown = viewproviderallocationspage.providerAllocationsPageAcademicYearDropDown;
+            academicyeardropdown.Should().NotBeNull();
+            academicyeardropdown.Displayed.Should().BeTrue();
+            IWebElement defaultyearselected = academicyeardropdown.FindElement(By.CssSelector("#PeriodId > option:nth-child(2)"));
+            defaultyearselected.Should().NotBeNull();
+            string defaultyeardisplayed = defaultyearselected.Text;
+            Console.WriteLine("The Default Year displayed is " + defaultyeardisplayed);
+
+            IWebElement viewresultscontainer = viewproviderallocationspage.providerAllocationsPageProviderPolicyContainer;
+            IWebElement allocationsresulttable = viewresultscontainer.FindElement(By.CssSelector(".table"));
+            allocationsresulttable.Should().NotBeNull();
+            allocationsresulttable.Displayed.Should().BeTrue();
+        }
+
+        [Then(@"I can see a list of Allocation names and the subtotals against the Allocation names")]
+        public void ThenICanSeeAListOfAllocationNamesAndTheSubtotalsAgainstTheAllocationNames()
+        {
+            IWebElement viewresultscontainer = viewproviderallocationspage.providerAllocationsPageProviderPolicyContainer;
+            var allocationsresults = viewresultscontainer.FindElements(By.CssSelector(".table"));
+            List<IWebElement> allocationElementList = new List<IWebElement>(allocationsresults);
+            allocationElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < allocationElementList.Count; i++)
+            {
+                IWebElement currentElement = allocationElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("tr"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Given(@"I am on the Allocation view")]
+        public void GivenIAmOnTheAllocationView()
+        {
+            viewproviderallocationspage.providerAllocationsPageAllocationTab.Should().NotBeNull();
+        }
+
+        [When(@"I choose a new year from the drop dwon option")]
+        public void WhenIChooseANewYearFromTheDropDwonOption()
+        {
+            IWebElement academicyeardropdown = viewproviderallocationspage.providerAllocationsPageAcademicYearDropDown;
+            academicyeardropdown.Should().NotBeNull();
+            academicyeardropdown.Displayed.Should().BeTrue();
+            IWebElement newyearselected = academicyeardropdown.FindElement(By.CssSelector("#PeriodId > option:nth-child(3)"));
+            newyearselected.Should().NotBeNull();
+            newyearselected.Click();
+            Thread.Sleep(2000);
+            string defaultyeardisplayed = newyearselected.Text;
+            Console.WriteLine("The Selected Year displayed is " + defaultyeardisplayed);
+        }
+
+        [When(@"I choose to view the Calculation Tab")]
+        public void WhenIChooseToViewTheCalculationTab()
+        {
+            viewproviderallocationspage.providerAllocationsPageCalculationTab.Should().NotBeNull();
+            viewproviderallocationspage.providerAllocationsPageCalculationTab.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I can see a list of Calculation names and the subtotals against the Calculation names")]
+        public void ThenICanSeeAListOfCalculationNamesAndTheSubtotalsAgainstTheCalculationNames()
+        {
+            IWebElement viewresultscontainer = viewproviderallocationspage.providerAllocationsPageProviderPolicyContainer;
+            var calculationresults = viewresultscontainer.FindElements(By.CssSelector(".table"));
+            List<IWebElement> allocationElementList = new List<IWebElement>(calculationresults);
+            allocationElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < allocationElementList.Count; i++)
+            {
+                IWebElement currentElement = allocationElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("tr"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"a selectable tab is available to display the allocation results")]
+        public void ThenASelectableTabIsAvailableToDisplayTheAllocationResults()
+        {
+            viewproviderallocationspage.providerAllocationsPageAllocationTab.Should().NotBeNull();
+            viewproviderallocationspage.providerAllocationsPageAllocationTab.Displayed.Should().BeTrue();
         }
 
 

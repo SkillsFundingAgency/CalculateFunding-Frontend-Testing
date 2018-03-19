@@ -294,5 +294,36 @@
             }
         }
 
+        public static void SelectSpecificationProviderAllocationPage()
+        {
+            var containerElements = Driver._driver.FindElements(By.Id("SpecificationId"));
+            IWebElement firstSelectSpecification = null;
+            foreach (var element in containerElements)
+            {
+                var aelement = element.FindElement(By.TagName("option"));
+                if (aelement != null)
+                {
+                    if (aelement.Text.Contains("Test for Publish"))
+                    {
+                        {
+                            firstSelectSpecification = aelement;
+
+                            break;
+                        }
+                    }
+
+                }
+                Thread.Sleep(1000);
+                if (firstSelectSpecification != null)
+                {
+                    firstSelectSpecification.Click();
+                }
+                else
+                {
+                    firstSelectSpecification.Should().NotBeNull("No Specifications exist for the academic year selected");
+                }
+            }
+        }
+
     }
 }

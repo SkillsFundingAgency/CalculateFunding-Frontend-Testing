@@ -507,6 +507,148 @@ testRunner.And("no results are listed by default as no specification has been se
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select Specification to display the associated allocation results")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37467)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectSpecificationToDisplayTheAssociatedAllocationResults()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select Specification to display the associated allocation results", new string[] {
+                        "Workitem:37467",
+                        "Driver"});
+#line 100
+this.ScenarioSetup(scenarioInfo);
+#line 101
+testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 102
+testRunner.When("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 103
+testRunner.And("I am on the allocation view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 104
+testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 105
+testRunner.And("I can see a list of Allocation names and the subtotals against the Allocation nam" +
+                    "es", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a new academic year and specification to display the associated allocation" +
+            " results")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37467)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectANewAcademicYearAndSpecificationToDisplayTheAssociatedAllocationResults()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a new academic year and specification to display the associated allocation" +
+                    " results", new string[] {
+                        "Workitem:37467",
+                        "Driver"});
+#line 108
+this.ScenarioSetup(scenarioInfo);
+#line 109
+testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 110
+testRunner.And("I am on the Allocation view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 111
+testRunner.When("I choose a new year from the drop dwon option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 112
+testRunner.And("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 113
+testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 114
+testRunner.And("I can see a list of Allocation names and the subtotals against the Allocation nam" +
+                    "es", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Calculations tab and a Specification to display the associated calcula" +
+            "tion results")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37467)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectTheCalculationsTabAndASpecificationToDisplayTheAssociatedCalculationResults()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the Calculations tab and a Specification to display the associated calcula" +
+                    "tion results", new string[] {
+                        "Workitem:37467",
+                        "Driver"});
+#line 117
+this.ScenarioSetup(scenarioInfo);
+#line 118
+testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 119
+testRunner.When("I choose to view the Calculation Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 120
+testRunner.And("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 121
+testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 122
+testRunner.And("I can see a list of Calculation names and the subtotals against the Calculation n" +
+                    "ames", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Provider Allocations Page Calculation tab")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37467)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheProviderAllocationsPageCalculationTab()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Provider Allocations Page Calculation tab", new string[] {
+                        "Workitem:37467",
+                        "Driver"});
+#line 125
+this.ScenarioSetup(scenarioInfo);
+#line 126
+testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 127
+testRunner.When("I choose to view the Calculation Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 128
+testRunner.Then("a selectable tab is available to display the allocation results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 129
+testRunner.And("no results are listed by default as no specification has been selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a new academic year and specification to display the associated calculatio" +
+            "n results")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37467)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectANewAcademicYearAndSpecificationToDisplayTheAssociatedCalculationResults()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a new academic year and specification to display the associated calculatio" +
+                    "n results", new string[] {
+                        "Workitem:37467",
+                        "Driver"});
+#line 132
+this.ScenarioSetup(scenarioInfo);
+#line 133
+testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 134
+testRunner.When("I choose a new year from the drop dwon option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 135
+testRunner.And("I choose to view the Calculation Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 136
+testRunner.And("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 137
+testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 138
+testRunner.And("I can see a list of Calculation names and the subtotals against the Calculation n" +
+                    "ames", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

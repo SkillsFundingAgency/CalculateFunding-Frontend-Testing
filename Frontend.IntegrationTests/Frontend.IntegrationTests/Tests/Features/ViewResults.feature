@@ -95,3 +95,44 @@ Given I have navigated to the View Provider Allocations Page
 Then the default view is the tab displaying the allocation lines
 And a selectable tab is available to display the calculation results
 And no results are listed by default as no specification has been selected
+
+@Workitem:37467 Driver
+Scenario: Select Specification to display the associated allocation results
+Given I have navigated to the View Provider Allocations Page
+When I choose a specification from the drop down
+And I am on the allocation view
+Then the results are updated according to the year and spec selected
+And I can see a list of Allocation names and the subtotals against the Allocation names
+
+@Workitem:37467 Driver
+Scenario: Select a new academic year and specification to display the associated allocation results
+Given I have navigated to the View Provider Allocations Page
+And I am on the Allocation view
+When I choose a new year from the drop dwon option
+And I choose a specification from the drop down
+Then the results are updated according to the year and spec selected
+And I can see a list of Allocation names and the subtotals against the Allocation names
+
+@Workitem:37467 Driver
+Scenario: Select the Calculations tab and a Specification to display the associated calculation results
+Given I have navigated to the View Provider Allocations Page
+When I choose to view the Calculation Tab
+And I choose a specification from the drop down
+Then the results are updated according to the year and spec selected
+And I can see a list of Calculation names and the subtotals against the Calculation names
+
+@Workitem:37467 Driver
+Scenario: Verify the Provider Allocations Page Calculation tab
+Given I have navigated to the View Provider Allocations Page
+When I choose to view the Calculation Tab
+Then a selectable tab is available to display the allocation results
+And no results are listed by default as no specification has been selected
+
+@Workitem:37467 Driver
+Scenario: Select a new academic year and specification to display the associated calculation results
+Given I have navigated to the View Provider Allocations Page
+When I choose a new year from the drop dwon option
+And I choose to view the Calculation Tab
+And I choose a specification from the drop down
+Then the results are updated according to the year and spec selected
+And I can see a list of Calculation names and the subtotals against the Calculation names
