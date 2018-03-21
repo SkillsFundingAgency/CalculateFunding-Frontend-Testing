@@ -404,18 +404,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I choose a specification from the drop down")]
         public void WhenIChooseASpecificationFromTheDropDown()
         {
-            //Actions.SelectSpecificationProviderAllocationPage();
-            //Thread.Sleep(2000);
-
-            
-            IWebElement specificationdropdown = viewproviderallocationspage.providerAllocationsPageSpecificationDropDown;
-            specificationdropdown.Should().NotBeNull();
-            specificationdropdown.Displayed.Should().BeTrue();
-            IWebElement selectspecification = specificationdropdown.FindElement(By.CssSelector("#SpecificationId > option:nth-child(2)"));
-            specificationdropdown.Should().NotBeNull("No Specifications exist for the year selected");
-            selectspecification.Click();
-            Thread.Sleep(2000);
-            
+            Actions.SelectSpecificationProviderAllocationPage();
+            Thread.Sleep(2000);                      
         }
 
         [When(@"I am on the allocation view")]
@@ -434,6 +424,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             defaultyearselected.Should().NotBeNull();
             string defaultyeardisplayed = defaultyearselected.Text;
             Console.WriteLine("The Default Year displayed is " + defaultyeardisplayed);
+            Thread.Sleep(2000);
 
             IWebElement viewresultscontainer = viewproviderallocationspage.providerAllocationsPageProviderPolicyContainer;
             IWebElement allocationsresulttable = viewresultscontainer.FindElement(By.CssSelector(".table"));
@@ -468,8 +459,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             viewproviderallocationspage.providerAllocationsPageAllocationTab.Should().NotBeNull();
         }
 
-        [When(@"I choose a new year from the drop dwon option")]
-        public void WhenIChooseANewYearFromTheDropDwonOption()
+        [When(@"I choose a new year from the drop down option")]
+        public void WhenIChooseANewYearFromTheDropDownOption()
         {
             IWebElement academicyeardropdown = viewproviderallocationspage.providerAllocationsPageAcademicYearDropDown;
             academicyeardropdown.Should().NotBeNull();
@@ -478,6 +469,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
             newyearselected.Should().NotBeNull();
             newyearselected.Click();
             Thread.Sleep(2000);
+            academicyeardropdown = viewproviderallocationspage.providerAllocationsPageAcademicYearDropDown;
+            academicyeardropdown.Should().NotBeNull();
+            academicyeardropdown.Displayed.Should().BeTrue();
+            newyearselected = academicyeardropdown.FindElement(By.CssSelector("#PeriodId > option:nth-child(3)"));
+            newyearselected.Should().NotBeNull();
             string defaultyeardisplayed = newyearselected.Text;
             Console.WriteLine("The Selected Year displayed is " + defaultyeardisplayed);
         }

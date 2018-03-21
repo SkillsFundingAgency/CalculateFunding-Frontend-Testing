@@ -8,7 +8,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
     {
         public ManageTheDataPage()
         {
-        PageFactory.InitElements(Driver._driver, this);
+            PageFactory.InitElements(Driver._driver, this);
         }
 
         [FindsBy(How = How.Id, Using = "manageDatasourcesLink")]

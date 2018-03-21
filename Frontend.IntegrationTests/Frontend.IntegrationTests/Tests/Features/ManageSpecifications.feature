@@ -6,7 +6,7 @@
 @Workitem:35394 Driver
 Scenario: View Current list of Specifications
 	Given I have successfully navigated to the Home Page
-	When I select Manage the Specification
+	When I select Specifications
 	Then I am redirected to the Manage Specification page
 	And The Default Specification Year is displayed correctly
 	And A list of Specifications is displayed for the default year

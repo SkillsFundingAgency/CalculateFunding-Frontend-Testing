@@ -99,7 +99,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.When("I select Manage the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I select Specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
  testRunner.Then("I am redirected to the Manage Specification page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11

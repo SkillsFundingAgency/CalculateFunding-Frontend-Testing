@@ -7,7 +7,7 @@
 @Workitem:35473 Driver
 Scenario: View Current list of Calculations
 Given I have successfully navigated to the Home Page
-When I select Manage the Calculations
+When I select Calculations
 Then I am redirected to the Manage Calculations page
 And the page lists the most recent calculations
 

@@ -554,7 +554,7 @@ testRunner.Given("I have navigated to the View Provider Allocations Page", ((str
 #line 110
 testRunner.And("I am on the Allocation view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 111
-testRunner.When("I choose a new year from the drop dwon option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I choose a new year from the drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 112
 testRunner.And("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 113
@@ -636,7 +636,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 133
 testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 134
-testRunner.When("I choose a new year from the drop dwon option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I choose a new year from the drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 135
 testRunner.And("I choose to view the Calculation Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 136

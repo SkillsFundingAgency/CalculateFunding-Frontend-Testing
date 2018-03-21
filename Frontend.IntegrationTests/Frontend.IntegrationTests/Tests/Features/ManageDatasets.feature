@@ -4,7 +4,7 @@
 @Workitem:38307 Driver
 Scenario: View the Manage Data Landing page
 Given I have successfully navigated to the Home Page
-When I select Manage the Data
+When I select Manage data
 Then I am redirected to the Manage Data page
 And I am presented the Manage Datasets option
 And a description of the Manage Datasets option

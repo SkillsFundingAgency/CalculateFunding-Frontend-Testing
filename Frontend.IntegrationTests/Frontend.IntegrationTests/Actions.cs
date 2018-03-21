@@ -296,22 +296,24 @@
 
         public static void SelectSpecificationProviderAllocationPage()
         {
-            var containerElements = Driver._driver.FindElements(By.Id("SpecificationId"));
+            var containerElements = Driver._driver.FindElement(By.Id("SpecificationId"));
             IWebElement firstSelectSpecification = null;
-            foreach (var element in containerElements)
+            if (containerElements != null)
             {
-                var aelement = element.FindElement(By.TagName("option"));
-                if (aelement != null)
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
                 {
-                    if (aelement.Text.Contains("Test for Publish"))
+                    if (optionelement != null)
                     {
+                        if (!string.IsNullOrWhiteSpace(optionelement.GetAttribute("value")))
                         {
-                            firstSelectSpecification = aelement;
+
+                            firstSelectSpecification = optionelement;
 
                             break;
                         }
-                    }
 
+                    }
                 }
                 Thread.Sleep(1000);
                 if (firstSelectSpecification != null)
@@ -322,6 +324,10 @@
                 {
                     firstSelectSpecification.Should().NotBeNull("No Specifications exist for the academic year selected");
                 }
+            }
+            else
+            {
+                firstSelectSpecification.Should().NotBeNull("No Specifications exist for the academic year selected");
             }
         }
 
