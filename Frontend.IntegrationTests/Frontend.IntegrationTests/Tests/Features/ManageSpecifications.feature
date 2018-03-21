@@ -173,7 +173,6 @@ Examples:
 	 | CalculationFieldname   | name | policy      | allocation      | description | calcerror                                       |
 	 | MissingCalcName        |      | Test Spec03 | DSG Allocations | Error1      | You must give a unique calculation name         |
 	 | MissingCalcPolicy      | Test |             | DSG Allocations | Error2      | You must select a policy or subpolicy           |
-	 | MissingCalcAllocation  | Test | Test Spec03 |                 | Error3      | You must select an allocation line              |
 	 | MissingCalcDescription | Test | Test Spec03 | DSG Allocations |			   | You must give a description for the calculation |
 
 @Workitem:35402 Driver

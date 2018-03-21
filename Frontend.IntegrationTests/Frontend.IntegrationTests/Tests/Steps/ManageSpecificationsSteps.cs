@@ -22,8 +22,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         CreateSpecificationPage createspecificationpage = new CreateSpecificationPage();
         CreateSubPolicyPage createsubpolicypage = new CreateSubPolicyPage();
         ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
-        public string nametext = "Test Spec03";
-        public string newname = "Test Name 004";
+        public string nametext = "test spec 003";
+        public string newname = "Test Name 008";
         public string descriptiontext = "This is a Description";
 
 
@@ -53,7 +53,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I change the Select A Year drop down to a different year")]
         public void WhenIChangeTheSelectAYearDropDownToADifferentYear()
         {
-            var selectYear = Driver._driver.FindElement(By.Id("select-spec-year"));
+            var selectYear = managespecficationpage.SelectYear;
             var selectElement = new SelectElement(selectYear);
             selectElement.SelectByValue("1718");
             Thread.Sleep(2000);
@@ -86,7 +86,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Given(@"I have selected an academic year")]
         public void GivenIHaveSelectedAnAcademicYear()
         {
-            var selectYear = Driver._driver.FindElement(By.Id("select-spec-year"));
+            var selectYear = managespecficationpage.SelectYear;
             var selectElement = new SelectElement(selectYear);
             selectElement.SelectByValue("1819");
         }
@@ -128,7 +128,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I choose a specification Funding Stream")]
         public void WhenIChooseASpecificationFundingStream()
         {
-            var Funding = Driver._driver.FindElement(By.Id("CreateSpecificationViewModel-FundingStreamId"));
+            var Funding = createspecificationpage.FundingStream;
             var selectElement = new SelectElement(Funding);
             selectElement.SelectByText("DSG");
         }
@@ -192,7 +192,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void GivenIHaveMissedTheField(String name, String funding, String description)
         {
             createspecificationpage.SpecName.SendKeys(name);
-            var Funding = Driver._driver.FindElement(By.Id("CreateSpecificationViewModel-FundingStreamId"));
+            var Funding = createspecificationpage.FundingStream;
             var selectElement = new SelectElement(Funding);
             selectElement.SelectByText(funding);
             createspecificationpage.SpecDescription.SendKeys(description);
@@ -367,15 +367,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I choose a Policy or sub policy")]
         public void WhenIChooseAPolicyOrSubPolicy()
         {
-            var policydropdown = Driver._driver.FindElement(By.Id("CreateCalculationViewModel-PolicyId"));
-            var selectElement = new SelectElement(policydropdown);
-            selectElement.SelectByText(nametext);
+            Actions.CreateCalculationSpecificationpageSelectPolicyOrSubpolicyDropDown();
         }
 
         [When(@"I choose an Allocation Line")]
         public void WhenIChooseAnAllocationLine()
         {
-            var allocation = Driver._driver.FindElement(By.Id("CreateCalculationViewModel-AllocationLineId"));
+            var allocation = createcalculationpage.CalculationAllocationLine;
             var selectElement = new SelectElement(allocation);
             selectElement.SelectByText("DSG Allocations");
         }
@@ -422,11 +420,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             createcalculationpage.CalculationName.SendKeys(name);
 
-            var policydropdown = Driver._driver.FindElement(By.Id("CreateCalculationViewModel-PolicyId"));
+            var policydropdown = createcalculationpage.SelectPolicy_SubPolicy;
             var selectElement = new SelectElement(policydropdown);
             selectElement.SelectByText(policy);
 
-            var allocationdropdown = Driver._driver.FindElement(By.Id("CreateCalculationViewModel-AllocationLineId"));
+            var allocationdropdown = createcalculationpage.CalculationAllocationLine;
             var selectElement01 = new SelectElement(allocationdropdown);
             selectElement01.SelectByText(allocation);
 
@@ -487,7 +485,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I choose a Policy from the dropdown")]
         public void WhenIChooseAPolicyFromTheDropdown()
         {
-            var policydropdown = Driver._driver.FindElement(By.Id("CreateSubPolicyViewModel-ParentPolicyId"));
+            var policydropdown = createsubpolicypage.SelectPolicy;
             var selectElement = new SelectElement(policydropdown);
             selectElement.SelectByText(nametext);
         }
@@ -533,7 +531,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void GivenAndIHaveMissedTheSubPolicyFieldAndTestSpecAndDescription(string name, string policy, string description)
         {
             createsubpolicypage.SubPolicyName.SendKeys(name);
-            var policydropdown = Driver._driver.FindElement(By.Id("CreateSubPolicyViewModel-ParentPolicyId"));
+            var policydropdown = createsubpolicypage.SelectPolicy;
             var selectElement = new SelectElement(policydropdown);
             selectElement.SelectByText(policy);
             createsubpolicypage.SubPolicyDescription.SendKeys(description);

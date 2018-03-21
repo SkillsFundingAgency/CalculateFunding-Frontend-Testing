@@ -331,5 +331,43 @@
             }
         }
 
+        public static void CreateCalculationSpecificationpageSelectPolicyOrSubpolicyDropDown()
+        {
+            var containerElements = Driver._driver.FindElement(By.Id("CreateCalculationViewModel-PolicyId"));
+            IWebElement firstSelectPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (!string.IsNullOrWhiteSpace(optionelement.GetAttribute("value")))
+                        {
+
+                            firstSelectPolicy = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectPolicy != null)
+                {
+                    firstSelectPolicy.Click();
+                }
+                else
+                {
+                    firstSelectPolicy.Should().NotBeNull("No Specifications exist for the academic year selected");
+                }
+            }
+            else
+            {
+                firstSelectPolicy.Should().NotBeNull("No Specifications exist for the academic year selected");
+            }
+        }
+
+
     }
 }

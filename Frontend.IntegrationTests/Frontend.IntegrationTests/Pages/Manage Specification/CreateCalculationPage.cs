@@ -20,7 +20,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "CreateCalculationViewModel-PolicyId")]
         public IWebElement SelectPolicy_SubPolicy { get; set; }
 
-        [FindsBy(How = How.Id, Using = "CreateCalculationViewModel-AllocationLineId")]
+        [FindsBy(How = How.Id, Using = "CreateCalculationViewModel_AllocationLineId")]
         public IWebElement CalculationAllocationLine { get; set; }
 
         [FindsBy(How = How.Id, Using = "save-button")]
@@ -29,16 +29,16 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "cancel-link")]
         public IWebElement CancelCalculation { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "You must give a unique calculation name")]
+        [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-Name")]
         public IWebElement CalculationNameError { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "You must select a policy or subpolicy")]
+        [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-PolicyId")]
         public IWebElement CalculationPolicyError { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "You must select an allocation line")]
         public IWebElement CalculationAllocationError { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "You must give a description for the calculation")]
+        [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-Description")]
         public IWebElement CalculationDescriptionError { get; set; }
 
 
