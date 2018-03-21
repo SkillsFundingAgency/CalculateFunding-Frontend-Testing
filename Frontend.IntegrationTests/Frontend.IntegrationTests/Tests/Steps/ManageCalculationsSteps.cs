@@ -53,7 +53,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Assert.IsNotNull(managecalculationpage.CalculationsPageTotal);
             Assert.IsNotNull(managecalculationpage.CalculationsTotalResults);
 
-            IWebElement CalculationTotal = Driver._driver.FindElement(By.XPath("/html/body/main/div/div/div[3]/div[1]/div[2]/strong"));
+            IWebElement CalculationTotal = managecalculationpage.CalculationsTotalResults;
             string CalculationTotalValue = CalculationTotal.Text;
             int CalculationTotalNo = int.Parse(CalculationTotalValue);
             //Fluent Assertions
@@ -66,10 +66,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"The the correct pagination options are displayed")]
         public void ThenTheTheCorrectPaginationOptionsAreDisplayed()
         {
-            Assert.IsNotNull(managecalculationpage.CalculationsPaginationPage2);
-            Assert.IsNotNull(managecalculationpage.CalculationsPaginationPage3);
-            Assert.IsNotNull(managecalculationpage.CalculationsPaginationPage4);
-
+            IWebElement paginationoptionsdisplayed = managecalculationpage.CalculationPaginationOptions;
+            paginationoptionsdisplayed.Should().NotBeNull();
         }
 
         [When(@"I click a pagination option")]
@@ -83,7 +81,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"My list refreshes to display the selected page of calculations")]
         public void ThenMyListRefreshesToDisplayTheSelectedPageOfCalculations()
         {
-            IWebElement FirstPageResult = Driver._driver.FindElement(By.XPath("/html/body/main/div/div/div[3]/div[1]/div[2]/span[1]"));
+            IWebElement FirstPageResult = managecalculationpage.CalculationsFirstResult;
             string FirstCalculationValue = FirstPageResult.Text;
             int CalculationPageFirstNo = int.Parse(FirstCalculationValue);
             //Fluent Assertions
@@ -140,6 +138,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             managecalculationpage.AcademicYearDropDownDefault.Should().Equals("Select year");
             managecalculationpage.FundingStreamDropDownDefault.Should().Equals("Select funding stream");
             managecalculationpage.CalculationStatusDropDownDefault.Should().Equals("Show all status");
+            Actions.CalculationTotalResult();
+            Console.WriteLine("The total number of calculations listed is " + Actions.CalculationTotalValue);
             Thread.Sleep(2000);
         }
 
@@ -167,21 +167,23 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"a total count of all filtered results is displayed above the list of results")]
         public void ThenATotalCountOfAllFilteredResultsIsDisplayedAboveTheListOfResults()
         {
-            IWebElement CalculationTotal = Driver._driver.FindElement(By.XPath("/html/body/main/div/div/div[3]/div[1]/div[2]/strong"));
+            //IWebElement CalculationTotal = managecalculationpage.CalculationsTotalResults;
+            IWebElement CalculationTotal = Driver._driver.FindElement(By.CssSelector("#dynamic-rownavigation-container > strong:nth-child(4)"));
             string CalculationTotalValue = CalculationTotal.Text;
-            CalculationTotalValue.Should().NotBeNullOrEmpty();
-            //Actions.CalculationTotalResult.CalculationTotalValue.Should().NotBeNullOrEmpty();
-
+            int totalvalue = int.Parse(CalculationTotalValue);
+            totalvalue.Should().BeGreaterOrEqualTo(1, "Total Results for the filtered selection have not been displayed correctly");
+            Console.WriteLine("The New Filtered list of calculations total is " + totalvalue);
         }
 
         [Then(@"a count of the specific filter results is displayed")]
         public void ThenACountOfTheSpecificFilterResultsIsDisplayed()
         {
-            IWebElement selectedFiterOption = Driver._driver.FindElement(By.ClassName("filter-selected-item"));
-            string selectedFilter = selectedFiterOption.Text;
+            IWebElement calculationFilterOption = managecalculationpage.CalculationFilterBox;
+            string selectedFilter = calculationFilterOption.Text;
             IWebElement Period1819 = Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)"));
             string PeriodTextValue = Period1819.Text;
-            selectedFiterOption.Should().Equals(PeriodTextValue);
+            calculationFilterOption.Should().Equals(PeriodTextValue);
+            Console.WriteLine(PeriodTextValue);
 
         }
 
@@ -194,6 +196,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I choose to filter my list by funding stream")]
         public void WhenIChooseToFilterMyListByFundingStream()
         {
+            Actions.CalculationTotalResult();
+            Console.WriteLine("The total number of calculations listed is " + Actions.CalculationTotalValue);
             Actions.SelectCalculationFundingStream();
             managecalculationpage.FundingStreamDropDownDefault.Should().Equals(Actions.Fundingstreamvalue);
             Thread.Sleep(2000);
@@ -211,11 +215,16 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement FundingStream = Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)"));
             string FundingTextValue = FundingStream.Text;
             selectedFiterOption.Should().Equals(FundingTextValue);
+
+            Actions.CalculationTotalResult();
+            Console.WriteLine("The new filtered total for the list of calculations is " + Actions.CalculationTotalValue);
         }
 
         [When(@"I choose to filter my list by policy")]
         public void WhenIChooseToFilterMyListByPolicy()
         {
+            Actions.CalculationTotalResult();
+            Console.WriteLine("The total number of calculations listed is " + Actions.CalculationTotalValue);
             Actions.SelectCalculationSpecification();
             managecalculationpage.SpecNameDropDownDefault.Should().Equals(Actions.Specificationvalue);
             Thread.Sleep(2000);
@@ -233,11 +242,16 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement PolicySchedule = Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(3) > div:nth-child(2) > button:nth-child(1)"));
             string PolicyScheduleTextValue = PolicySchedule.Text;
             selectedFiterOption.Should().Equals(PolicyScheduleTextValue);
+
+            Actions.CalculationTotalResult();
+            Console.WriteLine("The new filtered total for the list of calculations is " + Actions.CalculationTotalValue);
         }
 
         [When(@"I choose to filter my list by Status")]
         public void WhenIChooseToFilterMyListByStatus()
         {
+            Actions.CalculationTotalResult();
+            Console.WriteLine("The total number of calculations listed is " + Actions.CalculationTotalValue);
             Actions.SelectCalculationStatus();
             managecalculationpage.CalculationStatusDropDownDefault.Should().Equals(Actions.Calculationstatusvalue);
             Thread.Sleep(2000);
@@ -255,11 +269,16 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement PolicyStatus = Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(4) > div:nth-child(2) > button:nth-child(1)"));
             string PolicyStatusTextValue = PolicyStatus.Text;
             selectedFiterOption.Should().Equals(PolicyStatusTextValue);
+
+            Actions.CalculationTotalResult();
+            Console.WriteLine("The new filtered total for the list of calculations is " + Actions.CalculationTotalValue);
         }
 
         [When(@"I choose to filter my list by Allocation Lines")]
         public void WhenIChooseToFilterMyListByAllocationLines()
         {
+            Actions.CalculationTotalResult();
+            Console.WriteLine("The total number of calculations listed is " + Actions.CalculationTotalValue);
             Actions.SelectCalculationAllocationLine();
             managecalculationpage.AllocationLineDropDownDefault.Should().Equals(Actions.Allocationlinevalue);
             Thread.Sleep(2000);
@@ -277,6 +296,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement AllocationLine = Driver._driver.FindElement(By.CssSelector("#filter-container > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)"));
             string AllocationLineTextValue = AllocationLine.Text;
             selectedFiterOption.Should().Equals(AllocationLineTextValue);
+
+            Actions.CalculationTotalResult();
+            Console.WriteLine("The new filtered total for the list of calculations is " + Actions.CalculationTotalValue);
         }
 
         [Given(@"ONE or MORE filter Options have previously been selected")]
@@ -287,6 +309,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Actions.SelectCalculationYear();
             managecalculationpage.AcademicYearDropDownDefault.Should().Equals(Actions.PeriodTextValue);
             managecalculationpage.CalculationStatusDropDownDefault.Should().Equals(Actions.Calculationstatusvalue);
+            Actions.CalculationTotalResult();
+            Console.WriteLine("The total number of calculations listed is " + Actions.CalculationTotalValue);
             Thread.Sleep(2000);
 
         }
