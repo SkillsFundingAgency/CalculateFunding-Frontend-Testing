@@ -27,7 +27,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         SelectedSpecificationDataSourcePage selectedspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
         SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
 
-        public string newname = "Test Name 010";
+        public string newname = "Test Name 018";
         public string descriptiontext = "This is a Description";
         public static int? totalresults = null;
         public string datasetinformation = Actions.datasestinfo;
@@ -329,7 +329,29 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"the new dataset is saved and displayed correctly")]
         public void ThenTheNewDatasetIsSavedAndDisplayedCorrectly()
         {
-            Driver._driver.FindElement(By.LinkText(newname));
+            var datasetelements = Driver._driver.FindElements(By.CssSelector(".view-dataset .datasetschemaassigned-list-title-container span"));
+            IWebElement createddataset = null;
+            foreach (var element in datasetelements)
+            {
+                if (element.Text.Contains(newname))
+                {
+                    {
+                        createddataset = element;
+                        break;
+                    }
+                }
+
+            }
+
+            Thread.Sleep(1000);
+            if (createddataset != null)
+            {
+                Console.WriteLine("The New Dataset " + newname + " was Saved correctly");
+            }
+            else
+            {
+                createddataset.Should().NotBeNull("Unable to find dataset " + newname + " within the list view");
+            }
         }
 
         [When(@"I click the Cancel Dataset")]
@@ -664,7 +686,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             NavigateTo.SpecificationDataRelationshipsExistPage();
             Thread.Sleep(2000);
-            
+
         }
 
         [When(@"I click on the Select Source Dataset option")]
@@ -795,6 +817,27 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine(datasourcesavedconfirmation);
             selectedspecificationdatasourcepage.specificationDataSourceDismissAlert.Should().NotBeNull();
             selectedspecificationdatasourcepage.specificationDataSourceDismissAlert.Click();
+        }
+
+        [Given(@"I have navigated to the Change source dataset")]
+        public void GivenIHaveNavigatedToTheChangeSourceDataset()
+        {
+            NavigateTo.ChangeSourceDatasetPage();
+        }
+
+        [When(@"I click a different displayed datasets option")]
+        public void WhenIClickADifferentDisplayedDatasetsOption()
+        {
+            var savebuttondisabledtrue = selectsourcedatasetspage.selectSourceDatasetSaveButton.GetAttribute("disabled");
+            savebuttondisabledtrue.Should().NotBeNull();
+            Actions.SelectNewSourceDatasetsRadioOption();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I have selected the new data source version")]
+        public void WhenIHaveSelectedTheNewDataSourceVersion()
+        {
+            Actions.SelectNewSourceDatasetVersionRadioOption();
         }
 
 

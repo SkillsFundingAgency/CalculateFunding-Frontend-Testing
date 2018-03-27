@@ -284,12 +284,46 @@
                 }
         }
 
+        public static void SelectNewSourceDatasetsRadioOption()
+        {
+            SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
+
+            var containerElements = Driver._driver.FindElements(By.ClassName("selectdataset-item-name"));
+            IWebElement firstSelectSourceDatasetRadio = containerElements.LastOrDefault();
+
+            if (firstSelectSourceDatasetRadio != null)
+            {
+                firstSelectSourceDatasetRadio.Click();
+            }
+            else
+            {
+                firstSelectSourceDatasetRadio.Should().NotBeNull("Unable to find source dataset option");
+            }
+        }
+
         public static void SelectSourceDatasetVersionRadioOption()
         {
             SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
 
             var containerElements = Driver._driver.FindElements(By.ClassName("selectdataset-item-datasetversion"));
             IWebElement firstSelectSourceDatasetVersionRadio = containerElements.FirstOrDefault();
+
+            if (firstSelectSourceDatasetVersionRadio != null)
+            {
+                firstSelectSourceDatasetVersionRadio.Click();
+            }
+            else
+            {
+                firstSelectSourceDatasetVersionRadio.Should().NotBeNull("Unable to find source dataset option");
+            }
+        }
+
+        public static void SelectNewSourceDatasetVersionRadioOption()
+        {
+            SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
+
+            var containerElements = Driver._driver.FindElements(By.ClassName("selectdataset-item-datasetversion"));
+            IWebElement firstSelectSourceDatasetVersionRadio = containerElements.LastOrDefault();
 
             if (firstSelectSourceDatasetVersionRadio != null)
             {
