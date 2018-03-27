@@ -6,7 +6,7 @@
 @Workitem:35394 Driver
 Scenario: View Current list of Specifications
 	Given I have successfully navigated to the Home Page
-	When I select Manage the Specification
+	When I select Specifications
 	Then I am redirected to the Manage Specification page
 	And The Default Specification Year is displayed correctly
 	And A list of Specifications is displayed for the default year
@@ -173,7 +173,6 @@ Examples:
 	 | CalculationFieldname   | name | policy      | allocation      | description | calcerror                                       |
 	 | MissingCalcName        |      | Test Spec03 | DSG Allocations | Error1      | You must give a unique calculation name         |
 	 | MissingCalcPolicy      | Test |             | DSG Allocations | Error2      | You must select a policy or subpolicy           |
-	 | MissingCalcAllocation  | Test | Test Spec03 |                 | Error3      | You must select an allocation line              |
 	 | MissingCalcDescription | Test | Test Spec03 | DSG Allocations |			   | You must give a description for the calculation |
 
 @Workitem:35402 Driver

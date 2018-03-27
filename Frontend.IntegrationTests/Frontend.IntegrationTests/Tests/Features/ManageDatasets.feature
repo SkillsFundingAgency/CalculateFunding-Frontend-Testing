@@ -4,7 +4,7 @@
 @Workitem:38307 Driver
 Scenario: View the Manage Data Landing page
 Given I have successfully navigated to the Home Page
-When I select Manage the Data
+When I select Manage data
 Then I am redirected to the Manage Data page
 And I am presented the Manage Datasets option
 And a description of the Manage Datasets option
@@ -71,13 +71,45 @@ When I click the No Data Type Exists link
 Then I am redirected to the Choose Your Data page
 
 @Workitem:36845 Driver
-Scenario: Create and Save a Dataset Schema Relationship
+Scenario: Create and Save a Dataset Schema Relationship where Provider Data is Set and is used as a list of values in calculations
 Given I have navigated to the Choose Your Data page
 And I have selected a Dataset Schema to relate to the specification
 And I have entered a Dataset Schema Name
 And I have entered a Dataset Description
 And I have ticked the Use as a list of values in calculations checkbox
 And I have ticked the Set as provider data checkbox
+When I click the Save Dataset button
+Then I am redirected to a list view of dataset schema relationships for the specification
+And the new dataset is saved and displayed correctly
+
+@Workitem:36845 Driver
+Scenario: Create and Save a Dataset Schema Relationship where Provider Data is Set
+Given I have navigated to the Choose Your Data page
+And I have selected a Dataset Schema to relate to the specification
+And I have entered a Dataset Schema Name
+And I have entered a Dataset Description
+And I have ticked the Set as provider data checkbox
+When I click the Save Dataset button
+Then I am redirected to a list view of dataset schema relationships for the specification
+And the new dataset is saved and displayed correctly
+
+@Workitem:36845 Driver
+Scenario: Create and Save a Dataset Schema Relationship where the dataset is used as a list of values in calculations
+Given I have navigated to the Choose Your Data page
+And I have selected a Dataset Schema to relate to the specification
+And I have entered a Dataset Schema Name
+And I have entered a Dataset Description
+And I have ticked the Use as a list of values in calculations checkbox
+When I click the Save Dataset button
+Then I am redirected to a list view of dataset schema relationships for the specification
+And the new dataset is saved and displayed correctly
+
+@Workitem:36845 Driver
+Scenario: Create and Save a Dataset Schema Relationship
+Given I have navigated to the Choose Your Data page
+And I have selected a Dataset Schema to relate to the specification
+And I have entered a Dataset Schema Name
+And I have entered a Dataset Description
 When I click the Save Dataset button
 Then I am redirected to a list view of dataset schema relationships for the specification
 And the new dataset is saved and displayed correctly
@@ -100,7 +132,7 @@ Then the following Dataset Schema Relationship Error should be displayed for Fie
 
 Examples: 
 | DatasetFieldName				| schema       | name	 | description           | dataseterror														 |
-| Missing Dataset Schema		|              | Name    | This is a Description | You must assign a dataset for the specification					 |
+| Missing Dataset Schema		| ZZZZ         | Name    | This is a Description | You must assign a dataset for the specification					 |
 | Missing Dataset Name			| High Needs   |         | This is a Description | You must give a unique name for this dataset schema relationship	 |
 | Missing Dataset Description	| High Needs   | Name    |                       | You must provide a description for this new relationship			 |
 
@@ -218,6 +250,16 @@ Scenario: Save a Dataset Source Selection to Dataset
 Given I have navigated to the Select Source Dataset
 When I click a displayed datasets option
 And I have selected a data source version
+When I click the Select source datasets Save button
+Then The change is saved
+And I redirected to the Specification data relationships page
+And the Specification data relationships page displayed a confirmation message for the change
+
+@Workitem:38338 Driver
+Scenario: Change and Save a Dataset Source Selection to Dataset
+Given I have navigated to the Change source dataset
+When I click a different displayed datasets option
+And I have selected the new data source version
 When I click the Select source datasets Save button
 Then The change is saved
 And I redirected to the Specification data relationships page

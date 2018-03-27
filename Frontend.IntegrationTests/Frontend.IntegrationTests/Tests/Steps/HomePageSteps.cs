@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading;
 using AutoFramework;
+using FluentAssertions;
 using Frontend.IntegrationTests.Pages;
+using Frontend.IntegrationTests.Pages.Manage_Calculation;
+using Frontend.IntegrationTests.Pages.Manage_Datasets;
+using Frontend.IntegrationTests.Pages.View_Results;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 //using OpenQA.Selenium.PhantomJS;
 using OpenQA.Selenium.Firefox;
 using TechTalk.SpecFlow;
@@ -14,10 +20,15 @@ namespace Frontend.IntegrationTests
     public class HomePageSteps
 
     {
+        ManageSpecificationPage managespecificationpage = new ManageSpecificationPage();
+        ManageTheDataPage managethedatapage = new ManageTheDataPage();
+        ManageCalculationPage managecalculationpage = new ManageCalculationPage();
+        ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+
         [Given(@"I have successfully navigated to the Home Page")]
         public void IhavesuccessfullynavigatedtotheHomePage()
         {
-            Actions.InitializeHomePage();
+            //Driver is initiated within the Feature Sceanrio
             Thread.Sleep(1000);
         }
 
@@ -33,9 +44,8 @@ namespace Frontend.IntegrationTests
         public void IamredirectedtotheManageSpecificationpage()
         {
             Thread.Sleep(1000);
-            Assert.IsNotNull(new ManageSpecificationPage().SelectYear);
-            ((ITakesScreenshot)Driver._driver).GetScreenshot().SaveAsFile(@"C:\Users\Richard\Documents\Work\ESFA Allocations\ESFA Selenium Screenshots\Manage Spec Screenshot.jpg", ScreenshotImageFormat.Jpeg);
-
+            managespecificationpage.CreateSpecification.Should().NotBeNull();
+            
         }
 
 
@@ -43,9 +53,7 @@ namespace Frontend.IntegrationTests
         public void ThenIAmRedirectedToTheManageDataPage()
         {
             Thread.Sleep(1000);
-            String currentURL = Driver._driver.Url;
-            Assert.AreEqual("https://esfacfsftest-web.azurewebsites.net/datasets", currentURL);
-            Assert.IsTrue(Driver._driver.Title.Equals("Manage Data - Calculate funding"));
+            managethedatapage.manageDataSetsLink.Should().NotBeNull();
 
         }
 
@@ -63,8 +71,7 @@ namespace Frontend.IntegrationTests
         public void ThenIAmRedirectedToTheManageCalculationsPage()
         {
             Thread.Sleep(1000);
-            String currentURL = Driver._driver.Url;
-            Assert.AreEqual("https://esfacfsftest-web.azurewebsites.net/calcs", currentURL);
+            managecalculationpage.CalculationSearchField.Should().NotBeNull();
 
         }
 
@@ -72,9 +79,7 @@ namespace Frontend.IntegrationTests
         public void ThenIAmRedirectedToTheViewTheResultsPage()
         {
             Thread.Sleep(1000);
-            String currentURL = Driver._driver.Url;
-            Assert.AreEqual("https://esfacfsftest-web.azurewebsites.net/results/index", currentURL);
-            Assert.IsTrue(Driver._driver.Title.Equals("View provider results - Calculate funding"));
+            viewproviderresultspage.providerResultspageSearch.Should().NotBeNull();
 
         }
 

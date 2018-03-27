@@ -11,7 +11,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
             PageFactory.InitElements(Driver._driver, this);
         }
 
-        [FindsBy(How = How.LinkText, Using = "Create Policy")]
+        [FindsBy(How = How.LinkText, Using = "Create policy")]
         public IWebElement CreatePolicyButton { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "No policies exists, create a policy")]

@@ -71,12 +71,9 @@
     <Compile Include="Driver.cs" />
     <Compile Include="NavigateTo.cs" />
     <Compile Include="Pages\Home Page\HomePage.cs" />
-    <Compile Include="Pages\Home Page\ManageCalcPage.cs" />
-    <Compile Include="Pages\Home Page\ManageDatePage.cs" />
     <Compile Include="Pages\Home Page\ManageSpecificationPage.cs" />
     <Compile Include="Pages\Home Page\ManageTestsPage.cs" />
     <Compile Include="Pages\Home Page\PublishResultsPage.cs" />
-    <Compile Include="Pages\Home Page\ViewResultsPage.cs" />
     <Compile Include="Pages\Manage Calculation\CompareCalculationsPage.cs" />
     <Compile Include="Pages\Manage Calculation\ViewPreviousCalculationsPage.cs" />
     <Compile Include="Pages\Manage Calculation\EditCalculationsPage.cs" />

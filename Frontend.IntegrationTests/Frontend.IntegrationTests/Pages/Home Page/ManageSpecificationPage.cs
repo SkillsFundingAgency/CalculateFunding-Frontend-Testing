@@ -31,7 +31,7 @@ namespace Frontend.IntegrationTests.Pages
         [FindsBy(How = How.ClassName, Using = "selected")]
         public IWebElement DefaultYear { get; set; }
 
-        [FindsBy(How = How.PartialLinkText, Using = "Test Spec")]
+        [FindsBy(How = How.PartialLinkText, Using = "Test")]
         public IWebElement SelectSpecification { get; set; }
 
 

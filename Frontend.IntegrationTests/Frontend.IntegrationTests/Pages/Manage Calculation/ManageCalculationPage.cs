@@ -38,23 +38,17 @@ namespace Frontend.IntegrationTests.Pages.Manage_Calculation
         [FindsBy(How = How.CssSelector, Using = "#dynamic-results-table-body > tr:nth-child(1) > td:nth-child(1) > a:nth-child(1)")]
         public IWebElement FirstCalculationListed { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "/html/body/main/div/div/div[3]/div[1]/div[2]/strong")]
+        [FindsBy(How = How.Id, Using = "totalResults")]
         public IWebElement CalculationsTotalResults { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "/html/body/main/div/div/div[3]/div[1]/div[2]/span[2]")]
+        [FindsBy(How = How.Id, Using = "endItemNumber")]
         public IWebElement CalculationsPageTotal { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "/html/body/main/div/div/div[3]/div[1]/div[2]/span[1]")]
+        [FindsBy(How = How.Id, Using = "startItemNumber")]
         public IWebElement CalculationsFirstResult { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "#dynamic-paging-container > span:nth-child(2) > a:nth-child(4) > span:nth-child(1)")]
-        public IWebElement CalculationsPaginationPage2 { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "a.paging-link:nth-child(6) > span:nth-child(1)")]
-        public IWebElement CalculationsPaginationPage3 { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "a.paging-link:nth-child(8) > span:nth-child(1)")]
-        public IWebElement CalculationsPaginationPage4 { get; set; }
+        [FindsBy(How = How.Id, Using = "dynamic-paging-container")]
+        public IWebElement CalculationPaginationOptions { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "Select specification name")]
         public IWebElement SpecNameDropDownDefault { get; set; }

@@ -47,20 +47,27 @@
 
         public static void CalculationTotalResult()
         {
+            ManageCalculationPage managecalculationpage = new ManageCalculationPage();
+
             IWebElement CalculationTotal = Driver._driver.FindElement(By.XPath("/html/body/main/div/div/div[3]/div[1]/div[2]/strong"));
+            //IWebElement CalculationTotal = managecalculationpage.CalculationsTotalResults;
             CalculationTotalValue = CalculationTotal.Text;
 
         }
 
         public static void SelectCalculationYear()
         {
-            Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(1) > div:nth-child(2)")).Click();
+            ManageCalculationPage managecalculationpage = new ManageCalculationPage();
+
+            IWebElement academicyeardropdown = Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)"));
+            academicyeardropdown.Click();
             Thread.Sleep(2000);
-            IWebElement Period1819 = Driver._driver.FindElement(By.CssSelector(".open > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1) > label:nth-child(1) > input:nth-child(1)"));
+            IWebElement Period = Driver._driver.FindElement(By.CssSelector(".open > ul:nth-child(2)"));
+            IWebElement Period1819 = Period.FindElement(By.TagName("input"));
             PeriodTextValue = Period1819.Text;
             Period1819.Click();
             Thread.Sleep(2000);
-            Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(1) > div:nth-child(2)")).Click();
+            managecalculationpage.CalculationSearchField.Click();
 
         }
 
@@ -277,6 +284,23 @@
                 }
         }
 
+        public static void SelectNewSourceDatasetsRadioOption()
+        {
+            SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
+
+            var containerElements = Driver._driver.FindElements(By.ClassName("selectdataset-item-name"));
+            IWebElement firstSelectSourceDatasetRadio = containerElements.LastOrDefault();
+
+            if (firstSelectSourceDatasetRadio != null)
+            {
+                firstSelectSourceDatasetRadio.Click();
+            }
+            else
+            {
+                firstSelectSourceDatasetRadio.Should().NotBeNull("Unable to find source dataset option");
+            }
+        }
+
         public static void SelectSourceDatasetVersionRadioOption()
         {
             SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
@@ -294,24 +318,43 @@
             }
         }
 
+        public static void SelectNewSourceDatasetVersionRadioOption()
+        {
+            SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
+
+            var containerElements = Driver._driver.FindElements(By.ClassName("selectdataset-item-datasetversion"));
+            IWebElement firstSelectSourceDatasetVersionRadio = containerElements.LastOrDefault();
+
+            if (firstSelectSourceDatasetVersionRadio != null)
+            {
+                firstSelectSourceDatasetVersionRadio.Click();
+            }
+            else
+            {
+                firstSelectSourceDatasetVersionRadio.Should().NotBeNull("Unable to find source dataset option");
+            }
+        }
+
         public static void SelectSpecificationProviderAllocationPage()
         {
-            var containerElements = Driver._driver.FindElements(By.Id("SpecificationId"));
+            var containerElements = Driver._driver.FindElement(By.Id("SpecificationId"));
             IWebElement firstSelectSpecification = null;
-            foreach (var element in containerElements)
+            if (containerElements != null)
             {
-                var aelement = element.FindElement(By.TagName("option"));
-                if (aelement != null)
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
                 {
-                    if (aelement.Text.Contains("Test for Publish"))
+                    if (optionelement != null)
                     {
+                        if (!string.IsNullOrWhiteSpace(optionelement.GetAttribute("value")))
                         {
-                            firstSelectSpecification = aelement;
+
+                            firstSelectSpecification = optionelement;
 
                             break;
                         }
-                    }
 
+                    }
                 }
                 Thread.Sleep(1000);
                 if (firstSelectSpecification != null)
@@ -323,7 +366,49 @@
                     firstSelectSpecification.Should().NotBeNull("No Specifications exist for the academic year selected");
                 }
             }
+            else
+            {
+                firstSelectSpecification.Should().NotBeNull("No Specifications exist for the academic year selected");
+            }
         }
+
+        public static void CreateCalculationSpecificationpageSelectPolicyOrSubpolicyDropDown()
+        {
+            var containerElements = Driver._driver.FindElement(By.Id("CreateCalculationViewModel-PolicyId"));
+            IWebElement firstSelectPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (!string.IsNullOrWhiteSpace(optionelement.GetAttribute("value")))
+                        {
+
+                            firstSelectPolicy = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectPolicy != null)
+                {
+                    firstSelectPolicy.Click();
+                }
+                else
+                {
+                    firstSelectPolicy.Should().NotBeNull("No Specifications exist for the academic year selected");
+                }
+            }
+            else
+            {
+                firstSelectPolicy.Should().NotBeNull("No Specifications exist for the academic year selected");
+            }
+        }
+
 
     }
 }

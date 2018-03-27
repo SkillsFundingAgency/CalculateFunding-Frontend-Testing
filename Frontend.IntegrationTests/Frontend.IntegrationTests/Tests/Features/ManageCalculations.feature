@@ -7,7 +7,7 @@
 @Workitem:35473 Driver
 Scenario: View Current list of Calculations
 Given I have successfully navigated to the Home Page
-When I select Manage the Calculations
+When I select Calculations
 Then I am redirected to the Manage Calculations page
 And the page lists the most recent calculations
 
@@ -46,7 +46,6 @@ And a total count of all filtered results is displayed above the list of results
 And a count of the specific filter results is displayed
 And the filter options are sorted in descending order by the count of results
 
-
 @Workitem:36090 Driver
 Scenario: Select to Filter the Calculations Page by Funding Stream
 Given I have navigated to the Manage Calculations page
@@ -70,7 +69,6 @@ Scenario: Select to Filter the Calculations Page by Allocation Line
 Given I have navigated to the Manage Calculations page
 When I choose to filter my list by Allocation Lines
 Then the list view of calculations updates to display only calculations for the selected Allocation Lines
-
 
 @Workitem:36090 Driver
 Scenario: Deselect Filter options on the Calculations Page
@@ -107,7 +105,6 @@ When I enter text in the search field
 And I click the search button
 Then the list view of calculations updates to display only calculations that comply with the search term entered
 And the previously selected filter options
-
 
 @Workitem:35457 Driver
 Scenario: Verify the Edit Calculation Page
@@ -155,7 +152,6 @@ And I click the Save Calculation button
 And I am returned to the manage calculation page
 And a full audit record of my calculation is created
 
-
 @Workitem:35460 Driver
 Scenario: Verify the Compare Calculation Versions Page
 Given I have navigated to the Manage Calculations page
@@ -188,7 +184,6 @@ And More than one version of code has been previously saved
 When I click to select two versions of the code
 And I click the Compare The Calculations button
 Then I am redirected to the Calculation Comparison page
-
 
 @Workitem:36088 Driver
 Scenario: View the Calculation Comparison Page

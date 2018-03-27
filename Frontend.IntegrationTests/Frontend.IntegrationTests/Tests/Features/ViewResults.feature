@@ -108,7 +108,7 @@ And I can see a list of Allocation names and the subtotals against the Allocatio
 Scenario: Select a new academic year and specification to display the associated allocation results
 Given I have navigated to the View Provider Allocations Page
 And I am on the Allocation view
-When I choose a new year from the drop dwon option
+When I choose a new year from the drop down option
 And I choose a specification from the drop down
 Then the results are updated according to the year and spec selected
 And I can see a list of Allocation names and the subtotals against the Allocation names
@@ -131,7 +131,7 @@ And no results are listed by default as no specification has been selected
 @Workitem:37467 Driver
 Scenario: Select a new academic year and specification to display the associated calculation results
 Given I have navigated to the View Provider Allocations Page
-When I choose a new year from the drop dwon option
+When I choose a new year from the drop down option
 And I choose to view the Calculation Tab
 And I choose a specification from the drop down
 Then the results are updated according to the year and spec selected
