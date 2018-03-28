@@ -91,6 +91,7 @@
     <Compile Include="Pages\Manage Specification\CreateSpecificationPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateSubPolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\ManagePoliciesPage.cs" />
+    <Compile Include="Pages\Quality Assurance\TestScenarioListPage.cs" />
     <Compile Include="Pages\View Results\ViewProviderAllocationsPage.cs" />
     <Compile Include="Pages\View Results\ViewProviderResultsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,6 +115,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ManageSpecifications.feature</DependentUpon>
     </Compile>
+    <Compile Include="Tests\Features\QualityAssuranceTests.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QualityAssuranceTests.feature</DependentUpon>
+    </Compile>
     <Compile Include="Tests\Features\ViewResults.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -123,6 +129,7 @@
     <Compile Include="Tests\Steps\ManageCalculationsSteps.cs" />
     <Compile Include="Tests\Steps\ManageDatasetsSteps.cs" />
     <Compile Include="Tests\Steps\ManageSpecificationsSteps.cs" />
+    <Compile Include="Tests\Steps\QualityAssuranceTestsSteps.cs" />
     <Compile Include="Tests\Steps\ViewResultsSteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +150,10 @@
     <None Include="Tests\Features\ManageSpecifications.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ManageSpecifications.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\Features\QualityAssuranceTests.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>QualityAssuranceTests.feature.cs</LastGenOutput>
     </None>
     <None Include="Tests\Features\ViewResults.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

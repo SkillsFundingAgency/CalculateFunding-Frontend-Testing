@@ -13,6 +13,7 @@ using OpenQA.Selenium.Support.UI;
 //using OpenQA.Selenium.PhantomJS;
 using OpenQA.Selenium.Firefox;
 using TechTalk.SpecFlow;
+using Frontend.IntegrationTests.Pages.Quality_Assurance;
 
 namespace Frontend.IntegrationTests
 {
@@ -24,6 +25,7 @@ namespace Frontend.IntegrationTests
         ManageTheDataPage managethedatapage = new ManageTheDataPage();
         ManageCalculationPage managecalculationpage = new ManageCalculationPage();
         ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+        TestScenarioListPage testscenariolistpage = new TestScenarioListPage();
 
         [Given(@"I have successfully navigated to the Home Page")]
         public void IhavesuccessfullynavigatedtotheHomePage()
@@ -61,9 +63,7 @@ namespace Frontend.IntegrationTests
         public void ThenIAmRedirectedToTheManageTestsPage()
         {
             Thread.Sleep(1000);
-            String currentURL = Driver._driver.Url;
-            Assert.AreEqual("https://esfacfsftest-web.azurewebsites.net/tests/manage", currentURL);
-            Assert.IsTrue(Driver._driver.Title.Equals("Manage the Tests - Calculate funding"));
+            testscenariolistpage.testScenarioPageCreateQATestButton.Should().NotBeNull();
 
         }
 
