@@ -222,3 +222,14 @@ Examples:
 	 | SubPolicyNameMissing			|              | Test Spec03	 | Description | You must give a unique policy name				|
 	 | SubPolicyPolicyMissing		| Test Spec 02 |				 | Description | You must select a policy						|
      | SubPolicyDescriptionMissing	| Test Spec 03 | Test Spec03	 |			   | You must give a description for the subpolicy	|
+
+
+@Workitem:40075 Driver
+Scenario: Create and Save a new Calculation Specification without selecting an Allocation Line
+Given I have successfully navigated to the Create Calculation Specification for Policy Page
+When I enter a Calculation Name
+And I choose a Policy or sub policy
+And I enter a Calculation Description
+And I click the Save Calculation button
+Then I am redirected to the Manage Policies Page
+And My new Calculation is correctly listed
