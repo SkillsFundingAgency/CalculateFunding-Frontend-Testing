@@ -136,3 +136,11 @@ And I choose to view the Calculation Tab
 And I choose a specification from the drop down
 Then the results are updated according to the year and spec selected
 And I can see a list of Calculation names and the subtotals against the Calculation names
+
+@Workitem:40480 Driver
+Scenario: Verify the Content for missing provider references returns No data found
+Given I have successfully navigated to the Home Page
+When I select View results
+Then I am navigated to a page displaying providers
+And the name of the provider is displayed
+And where a provider record has a 0 value the content No data found is displayed

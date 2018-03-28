@@ -405,7 +405,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void WhenIChooseASpecificationFromTheDropDown()
         {
             Actions.SelectSpecificationProviderAllocationPage();
-            Thread.Sleep(2000);                      
+            Thread.Sleep(2000);
         }
 
         [When(@"I am on the allocation view")]
@@ -512,6 +512,44 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             viewproviderallocationspage.providerAllocationsPageAllocationTab.Should().NotBeNull();
             viewproviderallocationspage.providerAllocationsPageAllocationTab.Displayed.Should().BeTrue();
+        }
+
+
+        [Then(@"where a provider record has a (.*) value the content No data found is displayed")]
+        public void ThenWhereAProviderRecordHasAValueTheContentNoDataFoundIsDisplayed(int zerovalueproviderrecord)
+        {
+            var containerElements = Driver._driver.FindElement(By.CssSelector("div.providers-searchresult-container:nth-child(1)"));
+            IWebElement firstNoDatafoundRecord = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("p"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains("No data found"))
+                        {
+
+                            firstNoDatafoundRecord = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+
+                Thread.Sleep(1000);
+                if (firstNoDatafoundRecord != null)
+                {
+                    string zeroproviderrecord = firstNoDatafoundRecord.Text;
+                    Console.WriteLine("The following Provider record has a zero value: " + zeroproviderrecord);
+                }
+                else
+                {
+                    firstNoDatafoundRecord.Should().NotBeNull("Unable to find an item with No Data Found Provider Record");
+                }
+            }
+
         }
 
 
