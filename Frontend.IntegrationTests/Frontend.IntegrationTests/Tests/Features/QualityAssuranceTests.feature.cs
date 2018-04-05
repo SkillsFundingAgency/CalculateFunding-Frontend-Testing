@@ -201,6 +201,245 @@ testRunner.And("the date time the test scenario was last updated is displayed", 
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("View the Quality Assurance Create quality assurance test page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ViewTheQualityAssuranceCreateQualityAssuranceTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View the Quality Assurance Create quality assurance test page", new string[] {
+                        "Workitem:",
+                        "36667",
+                        "Driver"});
+#line 43
+this.ScenarioSetup(scenarioInfo);
+#line 44
+testRunner.Given("I have successfully navigated to the Quality Assurance Test Scenario List Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 45
+testRunner.When("I click the Create QA Test Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 46
+testRunner.Then("I am redirected to the Create quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Quality Assurance Create quality assurance test page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheQualityAssuranceCreateQualityAssuranceTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Quality Assurance Create quality assurance test page", new string[] {
+                        "Workitem:",
+                        "36667",
+                        "Driver"});
+#line 49
+this.ScenarioSetup(scenarioInfo);
+#line 50
+testRunner.Given("I have successfully navigated to the Create quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 51
+testRunner.Then("there is a field displayed where I can name my test scenario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 52
+testRunner.And("there is a field displayed where I can describe my test scenario", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
+testRunner.And("there is an option to select the specification my test is linked to", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
+testRunner.And("there is a monaco text editor field displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 55
+testRunner.And("there is a disabled option to select to validate the test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 56
+testRunner.And("the save option is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Enable Valiadate QA Test Button on the Create quality assurance test page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EnableValiadateQATestButtonOnTheCreateQualityAssuranceTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Enable Valiadate QA Test Button on the Create quality assurance test page", new string[] {
+                        "Workitem:",
+                        "36667",
+                        "Driver"});
+#line 59
+this.ScenarioSetup(scenarioInfo);
+#line 60
+testRunner.Given("I have successfully navigated to the Create quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 61
+testRunner.When("I have choosen a specification from the drop down to link my test to", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 62
+testRunner.And("I have entered a Test Name for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 63
+testRunner.And("I have entered a description for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 64
+testRunner.And("I have entered a text in the Test Scenario editor for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 65
+testRunner.Then("the Valiadate QA Test Button should be Enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Valiadate New QA Test script on the Create quality assurance test page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValiadateNewQATestScriptOnTheCreateQualityAssuranceTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valiadate New QA Test script on the Create quality assurance test page", new string[] {
+                        "Workitem:",
+                        "36667",
+                        "Driver"});
+#line 68
+this.ScenarioSetup(scenarioInfo);
+#line 69
+testRunner.Given("I have successfully navigated to the Create quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 70
+testRunner.When("I have choosen a specification from the drop down to link my test to", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 71
+testRunner.And("I have entered a Test Name for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 72
+testRunner.And("I have entered a description for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 73
+testRunner.And("I have entered a text in the Test Scenario editor for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 74
+testRunner.Then("the Valiadate QA Test Button should be Enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 75
+testRunner.When("I click the Validate QA Test Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 76
+testRunner.Then("I am notified that the code being verified is in progress", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 77
+testRunner.And("I am notified that the code being verified is complete", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Valiadate an incorrect QA Test script on the Create quality assurance test page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValiadateAnIncorrectQATestScriptOnTheCreateQualityAssuranceTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valiadate an incorrect QA Test script on the Create quality assurance test page", new string[] {
+                        "Workitem:",
+                        "36667",
+                        "Driver"});
+#line 80
+this.ScenarioSetup(scenarioInfo);
+#line 81
+testRunner.Given("I have successfully navigated to the Create quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 82
+testRunner.And("I have completed the required QA Test Scenario fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 83
+testRunner.When("I enter incorrect text in to the Test Scenario editor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 84
+testRunner.And("I click the Validate QA Test Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 85
+testRunner.Then("I am notified that the Test has not validated successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 86
+testRunner.And("an appropriate error message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 87
+testRunner.And("the save option remains disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Valiadate a New QA Test script without a Test Name or Description")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValiadateANewQATestScriptWithoutATestNameOrDescription()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valiadate a New QA Test script without a Test Name or Description", new string[] {
+                        "Workitem:",
+                        "36667",
+                        "Driver"});
+#line 90
+this.ScenarioSetup(scenarioInfo);
+#line 91
+testRunner.Given("I have successfully navigated to the Create quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 92
+testRunner.When("I have choosen a specification from the drop down to link my test to", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 93
+testRunner.And("I have entered a text in the Test Scenario editor for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 94
+testRunner.Then("the Valiadate QA Test Button should be Enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 95
+testRunner.When("I click the Validate QA Test Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 96
+testRunner.Then("I am notified that the code being verified is in progress", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 97
+testRunner.And("I am notified that the code being verified is complete", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Valiadate New QA Test script without a specification selected")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValiadateNewQATestScriptWithoutASpecificationSelected()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valiadate New QA Test script without a specification selected", new string[] {
+                        "Workitem:",
+                        "36667",
+                        "Driver"});
+#line 100
+this.ScenarioSetup(scenarioInfo);
+#line 101
+testRunner.Given("I have successfully navigated to the Create quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 102
+testRunner.When("I have entered a Test Name for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 103
+testRunner.And("I have entered a description for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 104
+testRunner.Then("the Validate QA Test Button remains disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Save a New QA Test script without a Test Name or Description")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SaveANewQATestScriptWithoutATestNameOrDescription()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save a New QA Test script without a Test Name or Description", new string[] {
+                        "Workitem:",
+                        "36667",
+                        "Driver"});
+#line 107
+this.ScenarioSetup(scenarioInfo);
+#line 108
+testRunner.Given("I have successfully navigated to the Create quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 109
+testRunner.When("I have choosen a specific specification my code will validate against", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 110
+testRunner.And("I have entered a valid test text in the Test Scenario editor for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 111
+testRunner.And("I click the Validate QA Test Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 112
+testRunner.Then("I am notified my test scenario has validated successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 113
+testRunner.When("I click the Enabled Save Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 114
+testRunner.Then("an error message is displayed to to notify that a Test Name has not been entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 115
+testRunner.And("an error message is displayed to to notify that a Test Description has not been e" +
+                    "ntered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

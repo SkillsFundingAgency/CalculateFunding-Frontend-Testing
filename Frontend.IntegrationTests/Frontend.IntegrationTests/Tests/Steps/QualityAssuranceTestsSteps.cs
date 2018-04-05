@@ -20,6 +20,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
     public class QualityAssuranceTestsSteps
     {
         TestScenarioListPage testscenariolistpage = new TestScenarioListPage();
+        CreateQATestPage createqatestpage = new CreateQATestPage();
+
+        public string qatestname = "QA Test RW0001";
+        public string qatestdescription = "This is a QA Test Description";
+        public string testgherkingiven = "Given the field 'UPIN' in the dataset 'AB Test Dataset 2403-01-001' is equal to 11";
+        public string testgherkinand = "And the provider is '105154'";
+        public string testgherkinthen = "Then the result for 'AB High Needs Calc 002' is greater than the field 'UPIN' in the dataset 'AB Test Dataset 2403-01-001'";
 
 
         [Then(@"a Search Tests funciton is displayed")]
@@ -103,44 +110,278 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"the description of the test scenario is displayed")]
         public void ThenTheDescriptionOfTheTestScenarioIsDisplayed()
         {
-            IWebElement testscenarioresultitemcontainer = testscenariolistpage.testScenarioPageFirstTestScenarioContainer;
-            var propertyElements = testscenarioresultitemcontainer.FindElements(By.CssSelector("test-scenario-item-property-container"));
-            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
-            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
-
-           for (int i = 0; i < propertyElementList.Count; i++)
-            {
-                IWebElement currentElement = propertyElementList[i];
-                currentElement.Should().NotBeNull("element {0} is null", i);
-
-                IWebElement valueElement = currentElement.FindElement(By.TagName("span"));
-
-                valueElement.Should().NotBeNull("value element {0} is null", i);
-                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
-                Console.WriteLine(currentElement.Text);
-            }
+            IWebElement testscenariodescription = testscenariolistpage.testScenarioPageFirstTestScenarioDescription;
+            string scenariodescription = testscenariodescription.Text;
+            Console.WriteLine("First Test Scenario Description displayed is " + scenariodescription);
         }
 
         [Then(@"the current status of the test scenario is displayed")]
         public void ThenTheCurrentStatusOfTheTestScenarioIsDisplayed()
         {
-
+            IWebElement testscenariostatus = testscenariolistpage.testScenarioPageFirstTestScenarioStatus;
+            string scenariostatus = testscenariostatus.Text;
+            scenariostatus.Should().NotBeNull();
+            Console.WriteLine("First Test Scenario Status displayed is " + scenariostatus);
         }
 
         [Then(@"the specification that the test is associated with is displayed")]
         public void ThenTheSpecificationThatTheTestIsAssociatedWithIsDisplayed()
         {
-
+            IWebElement testscenariospec = testscenariolistpage.testScenarioPageFirstTestScenarioSpecification;
+            string scenariospec = testscenariospec.Text;
+            scenariospec.Should().NotBeNull();
+            Console.WriteLine("First Test Scenario Status displayed is " + scenariospec);
         }
 
         [Then(@"the date time the test scenario was last updated is displayed")]
         public void ThenTheDateTimeTheTestScenarioWasLastUpdatedIsDisplayed()
         {
+            IWebElement testscenariolastupdated = testscenariolistpage.testScenarioPageFirstTestScenarioLastUpdated;
+            string scenariolastupdated = testscenariolastupdated.Text;
+            scenariolastupdated.Should().NotBeNull();
+            Console.WriteLine("First Test Scenario Updated Date is " + scenariolastupdated);
+        }
 
+        [Given(@"I have successfully navigated to the Quality Assurance Test Scenario List Page")]
+        public void GivenIHaveSuccessfullyNavigatedToTheQualityAssuranceTestScenarioListPage()
+        {
+            NavigateTo.TestScenarioListPage();
+            testscenariolistpage.testScenarioPageCreateQATestButton.Should().NotBeNull();
+            testscenariolistpage.testScenarioPageCreateQATestButton.Displayed.Should().BeTrue();
+        }
+
+        [When(@"I click the Create QA Test Button")]
+        public void WhenIClickTheCreateQATestButton()
+        {
+            testscenariolistpage.testScenarioPageCreateQATestButton.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected to the Create quality assurance test page")]
+        public void ThenIAmRedirectedToTheCreateQualityAssuranceTestPage()
+        {
+            createqatestpage.createQATestName.Should().NotBeNull();
         }
 
 
+        [Given(@"I have successfully navigated to the Create quality assurance test page")]
+        public void GivenIHaveSuccessfullyNavigatedToTheCreateQualityAssuranceTestPage()
+        {
+            NavigateTo.CreateQATestPage();
+            Thread.Sleep(2000);
+        }
 
+        [Then(@"there is a field displayed where I can name my test scenario")]
+        public void ThenThereIsAFieldDisplayedWhereICanNameMyTestScenario()
+        {
+            createqatestpage.createQATestName.Should().NotBeNull();
+        }
+
+        [Then(@"there is a field displayed where I can describe my test scenario")]
+        public void ThenThereIsAFieldDisplayedWhereICanDescribeMyTestScenario()
+        {
+            createqatestpage.createQATestDescription.Should().NotBeNull();
+        }
+
+        [Then(@"there is an option to select the specification my test is linked to")]
+        public void ThenThereIsAnOptionToSelectTheSpecificationMyTestIsLinkedTo()
+        {
+            createqatestpage.createQATestSelectSpecification.Should().NotBeNull();
+        }
+
+        [Then(@"there is a monaco text editor field displayed")]
+        public void ThenThereIsAMonacoTextEditorFieldDisplayed()
+        {
+            createqatestpage.createQATestScenario.Should().NotBeNull();
+        }
+
+        [Then(@"there is a disabled option to select to validate the test")]
+        public void ThenThereIsADisabledOptionToSelectToValidateTheTest()
+        {
+            createqatestpage.createQATestValidateQATestButton.Should().NotBeNull();
+            createqatestpage.createQATestValidateQATestButton.Enabled.Should().BeFalse();
+        }
+
+        [Then(@"the save option is disabled")]
+        public void ThenTheSaveOptionIsDisabled()
+        {
+            createqatestpage.createQATestCreateQATestButton.Enabled.Should().BeFalse();
+        }
+
+        [When(@"I have choosen a specification from the drop down to link my test to")]
+        public void WhenIHaveChoosenASpecificationFromTheDropDownToLinkMyTestTo()
+        {
+            createqatestpage.createQATestSelectSpecification.Click();
+            createqatestpage.createQATestSelectSpecification.SendKeys("Y");
+        }
+
+        [When(@"I have entered a Test Name for my QA Test")]
+        public void WhenIHaveEnteredATestNameForMyQATest()
+        {
+            createqatestpage.createQATestName.Click();
+            createqatestpage.createQATestName.SendKeys(qatestname);
+        }
+
+        [When(@"I have entered a description for my QA Test")]
+        public void WhenIHaveEnteredADescriptionForMyQATest()
+        {
+            createqatestpage.createQATestDescription.Click();
+            createqatestpage.createQATestDescription.SendKeys(qatestdescription);
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I have entered a text in the Test Scenario editor for my QA Test")]
+        public void WhenIHaveEnteredATextInTheTestScenarioEditorForMyQATest()
+        {
+            createqatestpage.createQATestBuildMonacoEditorTextbox.Should().NotBeNull();
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys("This is Test Code");
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Valiadate QA Test Button should be Enabled")]
+        public void ThenTheValiadateQATestButtonShouldBeEnabled()
+        {
+            createqatestpage.createQATestValidateQATestButton.Should().NotBeNull();
+            createqatestpage.createQATestValidateQATestButton.Enabled.Should().BeTrue();
+
+        }
+
+        [When(@"I click the Validate QA Test Button")]
+        public void WhenIClickTheValidateQATestButton()
+        {
+            createqatestpage.createQATestValidateQATestButton.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am notified that the code being verified is in progress")]
+        public void ThenIAmNotifiedThatTheCodeBeingVerifiedIsInProgress()
+        {
+            IWebElement validatingtext = createqatestpage.createQATestBuildBuildOutputText;
+            string validatingtextmessage = validatingtext.Text;
+            Console.WriteLine("The Build Output validating in progress message shows is " + validatingtextmessage);
+        }
+
+        [Then(@"I am notified that the code being verified is complete")]
+        public void ThenIAmNotifiedThatTheCodeBeingVerifiedIsComplete()
+        {
+            Thread.Sleep(5000);
+            IWebElement validatingtext = createqatestpage.createQATestBuildBuildOutputText;
+            string validatingtextmessage = validatingtext.Text;
+            Console.WriteLine("The Build Output validation completed message shows is " + validatingtextmessage);
+        }
+
+        [Given(@"I have completed the required QA Test Scenario fields")]
+        public void GivenIHaveCompletedTheRequiredQATestScenarioFields()
+        {
+            createqatestpage.createQATestSelectSpecification.Click();
+            createqatestpage.createQATestSelectSpecification.SendKeys("Y");
+            createqatestpage.createQATestName.Click();
+            createqatestpage.createQATestName.SendKeys(qatestname);
+            createqatestpage.createQATestDescription.Click();
+            createqatestpage.createQATestDescription.SendKeys(qatestdescription);
+            Thread.Sleep(2000);
+
+        }
+
+        [When(@"I enter incorrect text in to the Test Scenario editor")]
+        public void WhenIEnterIncorrectTextInToTheTestScenarioEditor()
+        {
+            createqatestpage.createQATestBuildMonacoEditorTextbox.Should().NotBeNull();
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys("This is Incorrect Test Code");
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am notified that the Test has not validated successfully")]
+        public void ThenIAmNotifiedThatTheTestHasNotValidatedSuccessfully()
+        {
+            Thread.Sleep(5000);
+            IWebElement validatingtext = createqatestpage.createQATestBuildBuildOutputText;
+            string validatingtextmessage = validatingtext.Text;
+            validatingtextmessage.Should().NotBeNullOrWhiteSpace();
+            validatingtextmessage.Should().Contain("Test validated successfully: false");
+
+        }
+
+        [Then(@"an appropriate error message is displayed")]
+        public void ThenAnAppropriateErrorMessageIsDisplayed()
+        {
+            IWebElement validatingtext = createqatestpage.createQATestBuildBuildOutputText;
+            string validatingtextmessage = validatingtext.Text;
+            Console.WriteLine("The Build Output failed validation message is " + validatingtextmessage);
+        }
+
+        [Then(@"the save option remains disabled")]
+        public void ThenTheSaveOptionRemainsDisabled()
+        {
+            createqatestpage.createQATestCreateQATestButton.Enabled.Should().BeFalse();
+        }
+
+        [Then(@"the Validate QA Test Button remains disabled")]
+        public void ThenTheValidateQATestButtonRemainsDisabled()
+        {
+            createqatestpage.createQATestValidateQATestButton.Should().NotBeNull();
+            createqatestpage.createQATestValidateQATestButton.Enabled.Should().BeFalse();
+        }
+
+
+        [When(@"I have choosen a specific specification my code will validate against")]
+        public void WhenIHaveChoosenASpecificSpecificationMyCodeWillValidateAgainst()
+        {
+            createqatestpage.createQATestSelectSpecification.Click();
+            createqatestpage.createQATestSelectSpecification.SendKeys("AB Test 2403-002");
+                        
+        }
+
+        [When(@"I have entered a valid test text in the Test Scenario editor for my QA Test")]
+        public void WhenIHaveEnteredAValidTestTextInTheTestScenarioEditorForMyQATest()
+        {
+            createqatestpage.createQATestBuildMonacoEditorTextbox.Should().NotBeNull();
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(testgherkingiven);
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Enter);
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(testgherkinand);
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Enter);
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(testgherkinthen);
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Enter);
+
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am notified my test scenario has validated successfully")]
+        public void ThenIAmNotifiedMyTestScenarioHasValidatedSuccessfully()
+        {
+            Thread.Sleep(5000);
+            IWebElement validatingtext = createqatestpage.createQATestBuildBuildOutputText;
+            string validatingtextmessage = validatingtext.Text;
+            validatingtextmessage.Should().NotBeNullOrWhiteSpace();
+            validatingtextmessage.Should().Contain("Test validated successfully: true");
+            Console.WriteLine("The Build Output Sucess validation message is " + validatingtextmessage);
+        }
+
+        [When(@"I click the Enabled Save Button")]
+        public void WhenIClickTheEnabledSaveButton()
+        {
+            createqatestpage.createQATestCreateQATestButton.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"an error message is displayed to to notify that a Test Name has not been entered")]
+        public void ThenAnErrorMessageIsDisplayedToToNotifyThatATestNameHasNotBeenEntered()
+        {
+            IWebElement missingnameerror = createqatestpage.createQATestMissingNameError;
+            missingnameerror.Displayed.Should().BeTrue();
+            string missingnametext = missingnameerror.Text;
+            Console.WriteLine("Missing Name Error displayed is " + missingnametext);
+            
+        }
+
+        [Then(@"an error message is displayed to to notify that a Test Description has not been entered")]
+        public void ThenAnErrorMessageIsDisplayedToToNotifyThatATestDescriptionHasNotBeenEntered()
+        {
+            IWebElement missingdescriptionerror = createqatestpage.createQATestMissingDescriptionError;
+            missingdescriptionerror.Displayed.Should().BeTrue();
+            string missingdescriptiontext = missingdescriptionerror.Text;
+            Console.WriteLine("Missing Description Error displayed is " + missingdescriptiontext);
+        }
 
 
 
