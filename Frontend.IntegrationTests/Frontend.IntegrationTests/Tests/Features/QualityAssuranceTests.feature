@@ -113,3 +113,16 @@ Then I am notified my test scenario has validated successfully
 When I click the Enabled Save Button
 Then an error message is displayed to to notify that a Test Name has not been entered
 And an error message is displayed to to notify that a Test Description has not been entered
+
+@Workitem: 36667 Driver
+Scenario: Save a New Valid QA Test script
+Given I have successfully navigated to the Create quality assurance test page
+When I have choosen a specific specification my code will validate against
+And I have entered a Test Name for my QA Test
+And I have entered a description for my QA Test
+And I have entered a valid test text in the Test Scenario editor for my QA Test
+And I click the Validate QA Test Button
+Then I am notified my test scenario has validated successfully
+When I click the Enabled Save Button
+Then I am notified that my test has saved successfully
+And my test is visible in the list view

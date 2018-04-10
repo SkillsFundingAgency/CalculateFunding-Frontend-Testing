@@ -440,6 +440,43 @@ testRunner.And("an error message is displayed to to notify that a Test Descripti
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Save a New Valid QA Test script")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SaveANewValidQATestScript()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save a New Valid QA Test script", new string[] {
+                        "Workitem:",
+                        "36667",
+                        "Driver"});
+#line 118
+this.ScenarioSetup(scenarioInfo);
+#line 119
+testRunner.Given("I have successfully navigated to the Create quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 120
+testRunner.When("I have choosen a specific specification my code will validate against", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 121
+testRunner.And("I have entered a Test Name for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 122
+testRunner.And("I have entered a description for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 123
+testRunner.And("I have entered a valid test text in the Test Scenario editor for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 124
+testRunner.And("I click the Validate QA Test Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 125
+testRunner.Then("I am notified my test scenario has validated successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 126
+testRunner.When("I click the Enabled Save Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 127
+testRunner.Then("I am notified that my test has saved successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 128
+testRunner.And("my test is visible in the list view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

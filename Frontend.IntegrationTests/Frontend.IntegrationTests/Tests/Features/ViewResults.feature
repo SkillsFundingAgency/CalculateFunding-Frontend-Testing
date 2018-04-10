@@ -9,6 +9,7 @@ So that I can ensure the funding calculated for that provider is correct before 
 Scenario: Verify the View Provider Results Page Results list
 Given I have successfully navigated to the Home Page
 When I select View results
+And I click on the View provider results option
 Then I am navigated to a page displaying providers
 And the name of the provider is displayed
 And all the relevant provider details are displayed

@@ -103,12 +103,14 @@ testRunner.Given("I have successfully navigated to the Home Page", ((string)(nul
 #line 11
 testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
-testRunner.Then("I am navigated to a page displaying providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I click on the View provider results option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
-testRunner.And("the name of the provider is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I am navigated to a page displaying providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 14
-testRunner.And("all the relevant provider details are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the name of the provider is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
+testRunner.And("all the relevant provider details are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
 testRunner.And("the list is displayed by provider name in ascending order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -124,15 +126,15 @@ testRunner.And("the list is displayed by provider name in ascending order", ((st
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View Provider Results Page Search and Filter Options", new string[] {
                         "Workitem:37466",
                         "Driver"});
-#line 18
-this.ScenarioSetup(scenarioInfo);
 #line 19
-testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 20
-testRunner.Then("the list displays up to 50 providers per page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 21
-testRunner.And("an option to filter by search is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("the list displays up to 50 providers per page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 22
+testRunner.And("an option to filter by search is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
 testRunner.And("options are displayed to filter the results by specific fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -148,17 +150,17 @@ testRunner.And("options are displayed to filter the results by specific fields",
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View Provider Results Page Pagination", new string[] {
                         "Workitem:37466",
                         "Driver"});
-#line 25
-this.ScenarioSetup(scenarioInfo);
 #line 26
-testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 27
-testRunner.And("I have over 50 providers with results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 28
-testRunner.When("I click to navigate to the next page of 50 providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I have over 50 providers with results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
-testRunner.Then("my list view displays the next 50 results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I click to navigate to the next page of 50 providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 30
+testRunner.Then("my list view displays the next 50 results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 31
 testRunner.And("I am able to navigate to the previous page of 50 providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -174,19 +176,19 @@ testRunner.And("I am able to navigate to the previous page of 50 providers", ((s
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View Provider Results Page Pagination Next and Previous options", new string[] {
                         "Workitem:37466",
                         "Driver"});
-#line 33
-this.ScenarioSetup(scenarioInfo);
 #line 34
-testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 35
-testRunner.And("I have over 200 providers with results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 36
-testRunner.When("I click the Next option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I have over 200 providers with results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 37
-testRunner.Then("my list view displays the next 200 results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I click the Next option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 38
-testRunner.When("I click the Previous option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("my list view displays the next 200 results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 39
+testRunner.When("I click the Previous option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 40
 testRunner.Then("my list view displays the previous 200 results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -202,13 +204,13 @@ testRunner.Then("my list view displays the previous 200 results", ((string)(null
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider from the View Provider Results Page", new string[] {
                         "Workitem:37466",
                         "Driver"});
-#line 42
-this.ScenarioSetup(scenarioInfo);
 #line 43
-testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 44
-testRunner.When("I click a provider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 45
+testRunner.When("I click a provider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 46
 testRunner.Then("I am redirected to the View provider allocations page for the selected provider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -224,15 +226,15 @@ testRunner.Then("I am redirected to the View provider allocations page for the s
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Search option on the View Provider Results Page", new string[] {
                         "Workitem:37468",
                         "Driver"});
-#line 48
-this.ScenarioSetup(scenarioInfo);
 #line 49
-testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 50
-testRunner.When("I enter text in the Search Provider field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 51
-testRunner.And("click the Search Provider button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I enter text in the Search Provider field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 52
+testRunner.And("click the Search Provider button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
 testRunner.Then("the list of displayed providers refreshes to display only the providers that comp" +
                     "ly with the search text entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -250,15 +252,15 @@ testRunner.Then("the list of displayed providers refreshes to display only the p
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Search option on the View Provider Results Page using specific informa" +
                     "tion", @__tags);
-#line 55
-this.ScenarioSetup(scenarioInfo);
 #line 56
-testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 57
-testRunner.When(string.Format("I enter text in the Search Provider field that matches or contains {0}", text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 58
-testRunner.And("click the Search Provider button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When(string.Format("I enter text in the Search Provider field that matches or contains {0}", text), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 59
+testRunner.And("click the Search Provider button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 60
 testRunner.Then("the list of displayed providers refreshes to display only the providers that comp" +
                     "ly with the search text entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -276,7 +278,7 @@ testRunner.Then("the list of displayed providers refreshes to display only the p
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "506770")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_UPIN()
         {
-#line 55
+#line 56
 this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("UPIN", "506770", ((string[])(null)));
 #line hidden
         }
@@ -292,7 +294,7 @@ this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "506960")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_UKPRN()
         {
-#line 55
+#line 56
 this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("UKPRN", "506960", ((string[])(null)));
 #line hidden
         }
@@ -308,7 +310,7 @@ this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "144331")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_URN()
         {
-#line 55
+#line 56
 this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("URN", "144331", ((string[])(null)));
 #line hidden
         }
@@ -324,7 +326,7 @@ this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "10062846")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_EstablishmentNumber()
         {
-#line 55
+#line 56
 this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("EstablishmentNumber", "10062846", ((string[])(null)));
 #line hidden
         }
@@ -340,7 +342,7 @@ this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "Aldington Primary School")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_ProviderName()
         {
-#line 55
+#line 56
 this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("ProviderName", "Aldington Primary School", ((string[])(null)));
 #line hidden
         }
@@ -356,7 +358,7 @@ this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "677")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_PartialUPIN()
         {
-#line 55
+#line 56
 this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("PartialUPIN", "677", ((string[])(null)));
 #line hidden
         }
@@ -372,7 +374,7 @@ this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "6960")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_PartialUKPRN()
         {
-#line 55
+#line 56
 this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("PartialUKPRN", "6960", ((string[])(null)));
 #line hidden
         }
@@ -388,7 +390,7 @@ this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "44")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_PartialURN()
         {
-#line 55
+#line 56
 this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("PartialURN", "44", ((string[])(null)));
 #line hidden
         }
@@ -404,7 +406,7 @@ this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "00628")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_PartialEstablishmentNumber()
         {
-#line 55
+#line 56
 this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("PartialEstablishmentNumber", "00628", ((string[])(null)));
 #line hidden
         }
@@ -420,7 +422,7 @@ this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "Alexandra")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_PartialProviderName()
         {
-#line 55
+#line 56
 this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("PartialProviderName", "Alexandra", ((string[])(null)));
 #line hidden
         }
@@ -437,17 +439,17 @@ this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("
                     "s are applied", new string[] {
                         "Workitem:37468",
                         "Driver"});
-#line 76
-this.ScenarioSetup(scenarioInfo);
 #line 77
-testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 78
-testRunner.And("I have selected one or more filter options from the top navigation pane", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 79
-testRunner.When("I enter text in the Search Provider field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I have selected one or more filter options from the top navigation pane", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 80
-testRunner.And("click the Search Provider button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I enter text in the Search Provider field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 81
+testRunner.And("click the Search Provider button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 82
 testRunner.Then("the list of displayed providers refreshes to display only the providers that comp" +
                     "ly with the search text & filters selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -464,20 +466,20 @@ testRunner.Then("the list of displayed providers refreshes to display only the p
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider to display the Provider Allocation page", new string[] {
                         "Workitem:37467",
                         "Driver"});
-#line 84
-this.ScenarioSetup(scenarioInfo);
 #line 85
-testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 86
-testRunner.When("I click on a listed provider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the View Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 87
-testRunner.Then("I am navigated to the View Provider Allocation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I click on a listed provider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 88
-testRunner.And("the relevant provider information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I am navigated to the View Provider Allocation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 89
+testRunner.And("the relevant provider information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 90
 testRunner.And("a drop down option is displayed to select a year with the default year pre select" +
                     "ed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 90
+#line 91
 testRunner.And("a drop down option is displayed to select a specification where the default is bl" +
                     "ank", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -494,15 +496,15 @@ testRunner.And("a drop down option is displayed to select a specification where 
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Provider Allocations Page tab options", new string[] {
                         "Workitem:37467",
                         "Driver"});
-#line 93
-this.ScenarioSetup(scenarioInfo);
 #line 94
-testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 95
-testRunner.Then("the default view is the tab displaying the allocation lines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 96
-testRunner.And("a selectable tab is available to display the calculation results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("the default view is the tab displaying the allocation lines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 97
+testRunner.And("a selectable tab is available to display the calculation results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 98
 testRunner.And("no results are listed by default as no specification has been selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -518,17 +520,17 @@ testRunner.And("no results are listed by default as no specification has been se
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select Specification to display the associated allocation results", new string[] {
                         "Workitem:37467",
                         "Driver"});
-#line 100
-this.ScenarioSetup(scenarioInfo);
 #line 101
-testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 102
-testRunner.When("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 103
-testRunner.And("I am on the allocation view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 104
-testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I am on the allocation view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 105
+testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 106
 testRunner.And("I can see a list of Allocation names and the subtotals against the Allocation nam" +
                     "es", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -547,19 +549,19 @@ testRunner.And("I can see a list of Allocation names and the subtotals against t
                     " results", new string[] {
                         "Workitem:37467",
                         "Driver"});
-#line 108
-this.ScenarioSetup(scenarioInfo);
 #line 109
-testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 110
-testRunner.And("I am on the Allocation view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 111
-testRunner.When("I choose a new year from the drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I am on the Allocation view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 112
-testRunner.And("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I choose a new year from the drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 113
-testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 114
+testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 115
 testRunner.And("I can see a list of Allocation names and the subtotals against the Allocation nam" +
                     "es", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -578,17 +580,17 @@ testRunner.And("I can see a list of Allocation names and the subtotals against t
                     "tion results", new string[] {
                         "Workitem:37467",
                         "Driver"});
-#line 117
-this.ScenarioSetup(scenarioInfo);
 #line 118
-testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 119
-testRunner.When("I choose to view the Calculation Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 120
-testRunner.And("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I choose to view the Calculation Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 121
-testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 122
+testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 123
 testRunner.And("I can see a list of Calculation names and the subtotals against the Calculation n" +
                     "ames", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -605,15 +607,15 @@ testRunner.And("I can see a list of Calculation names and the subtotals against 
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Provider Allocations Page Calculation tab", new string[] {
                         "Workitem:37467",
                         "Driver"});
-#line 125
-this.ScenarioSetup(scenarioInfo);
 #line 126
-testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 127
-testRunner.When("I choose to view the Calculation Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 128
-testRunner.Then("a selectable tab is available to display the allocation results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I choose to view the Calculation Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 129
+testRunner.Then("a selectable tab is available to display the allocation results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 130
 testRunner.And("no results are listed by default as no specification has been selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -631,19 +633,19 @@ testRunner.And("no results are listed by default as no specification has been se
                     "n results", new string[] {
                         "Workitem:37467",
                         "Driver"});
-#line 132
-this.ScenarioSetup(scenarioInfo);
 #line 133
-testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 134
-testRunner.When("I choose a new year from the drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the View Provider Allocations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 135
-testRunner.And("I choose to view the Calculation Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I choose a new year from the drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 136
-testRunner.And("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the Calculation Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 137
-testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I choose a specification from the drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 138
+testRunner.Then("the results are updated according to the year and spec selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 139
 testRunner.And("I can see a list of Calculation names and the subtotals against the Calculation n" +
                     "ames", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -660,17 +662,17 @@ testRunner.And("I can see a list of Calculation names and the subtotals against 
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Content for missing provider references returns No data found", new string[] {
                         "Workitem:40480",
                         "Driver"});
-#line 141
-this.ScenarioSetup(scenarioInfo);
 #line 142
-testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 143
-testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 144
-testRunner.Then("I am navigated to a page displaying providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 145
-testRunner.And("the name of the provider is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I am navigated to a page displaying providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 146
+testRunner.And("the name of the provider is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 147
 testRunner.And("where a provider record has a 0 value the content No data found is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

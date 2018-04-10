@@ -24,7 +24,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         public string qatestname = "QA Test RW0001";
         public string qatestdescription = "This is a QA Test Description";
-        public string testgherkingiven = "Given the field 'UPIN' in the dataset 'AB Test Dataset 2403-01-001' is equal to 11";
+        public string testgherkingiven = "Given the field 'UPIN' in the dataset 'AB Test Dataset 2403-01-001' is equal to 12";
         public string testgherkinand = "And the provider is '105154'";
         public string testgherkinthen = "Then the result for 'AB High Needs Calc 002' is greater than the field 'UPIN' in the dataset 'AB Test Dataset 2403-01-001'";
 
@@ -328,8 +328,10 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void WhenIHaveChoosenASpecificSpecificationMyCodeWillValidateAgainst()
         {
             createqatestpage.createQATestSelectSpecification.Click();
-            createqatestpage.createQATestSelectSpecification.SendKeys("AB Test 2403-002");
-                        
+            var selectSpec = createqatestpage.createQATestSelectSpecification;
+            var selectElement = new SelectElement(selectSpec);
+            selectElement.SelectByText("AB Test 2403-002");
+            Thread.Sleep(2000);
         }
 
         [When(@"I have entered a valid test text in the Test Scenario editor for my QA Test")]
@@ -349,11 +351,15 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"I am notified my test scenario has validated successfully")]
         public void ThenIAmNotifiedMyTestScenarioHasValidatedSuccessfully()
         {
-            Thread.Sleep(5000);
+            //Thread.Sleep(5000);
+            string validatedmessagetext = "Test validated successfully: true";
+            WebDriverWait wait = new WebDriverWait(Driver._driver, TimeSpan.FromSeconds(60));
+            wait.Until(d => createqatestpage.createQATestBuildBuildOutputText.Text.Contains(validatedmessagetext));
+
             IWebElement validatingtext = createqatestpage.createQATestBuildBuildOutputText;
             string validatingtextmessage = validatingtext.Text;
             validatingtextmessage.Should().NotBeNullOrWhiteSpace();
-            validatingtextmessage.Should().Contain("Test validated successfully: true");
+            validatingtextmessage.Should().Contain(validatedmessagetext);
             Console.WriteLine("The Build Output Sucess validation message is " + validatingtextmessage);
         }
 
@@ -381,6 +387,18 @@ namespace Frontend.IntegrationTests.Tests.Steps
             missingdescriptionerror.Displayed.Should().BeTrue();
             string missingdescriptiontext = missingdescriptionerror.Text;
             Console.WriteLine("Missing Description Error displayed is " + missingdescriptiontext);
+        }
+
+        [Then(@"I am notified that my test has saved successfully")]
+        public void ThenIAmNotifiedThatMyTestHasSavedSuccessfully()
+        {
+
+        }
+
+        [Then(@"my test is visible in the list view")]
+        public void ThenMyTestIsVisibleInTheListView()
+        {
+
         }
 
 

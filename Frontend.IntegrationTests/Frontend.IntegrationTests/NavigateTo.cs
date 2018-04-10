@@ -173,10 +173,11 @@ namespace Frontend.IntegrationTests
             HomePage homepage = new HomePage();
             ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
             ViewProviderAllocationsPage viewproviderallocationspage = new ViewProviderAllocationsPage();
+            ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
 
             homepage.ViewtheResults.Click();
-
-
+            viewresultsoptionspage.viewResultsOptionsViewProviderResults.Click();
+            Thread.Sleep(2000);
         }
 
         public static void ViewProviderAllocationsPage()

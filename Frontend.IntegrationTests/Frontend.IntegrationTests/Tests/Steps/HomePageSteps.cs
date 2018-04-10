@@ -25,6 +25,7 @@ namespace Frontend.IntegrationTests
         ManageTheDataPage managethedatapage = new ManageTheDataPage();
         ManageCalculationPage managecalculationpage = new ManageCalculationPage();
         ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+        ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
         TestScenarioListPage testscenariolistpage = new TestScenarioListPage();
 
         [Given(@"I have successfully navigated to the Home Page")]
@@ -75,13 +76,13 @@ namespace Frontend.IntegrationTests
 
         }
 
-        [Then(@"I am redirected to the View the Results page")]
-        public void ThenIAmRedirectedToTheViewTheResultsPage()
+        [Then(@"I am redirected to the View the Results Options page")]
+        public void ThenIAmRedirectedToTheViewTheResultsOptionsPage()
         {
             Thread.Sleep(1000);
-            viewproviderresultspage.providerResultspageSearch.Should().NotBeNull();
-
+            viewresultsoptionspage.viewResultsOptionsViewCalculationResults.Should().NotBeNull();
         }
+
 
         [Then(@"I am redirected to the Publish the Results page")]
         public void ThenIAmRedirectedToThePublishTheResultsPage()

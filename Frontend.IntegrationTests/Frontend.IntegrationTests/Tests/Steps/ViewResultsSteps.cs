@@ -20,9 +20,16 @@ namespace Frontend.IntegrationTests.Tests.Steps
     {
         ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
         ViewProviderAllocationsPage viewproviderallocationspage = new ViewProviderAllocationsPage();
+        ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
 
         public string searchtext = "Primary";
 
+        [When(@"I click on the View provider results option")]
+        public void WhenIClickOnTheViewProviderResultsOption()
+        {
+            viewresultsoptionspage.viewResultsOptionsViewProviderResults.Click();
+            Thread.Sleep(2000);
+        }
 
         [Then(@"I am navigated to a page displaying providers")]
         public void ThenIAmNavigatedToAPageDisplayingProviders()
@@ -36,7 +43,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenTheNameOfTheProviderIsDisplayed()
         {
             IWebElement providerresultslistcontainer = viewproviderresultspage.providerResultspageResultListContainer;
-            IWebElement providernameexists = providerresultslistcontainer.FindElement(By.CssSelector("h4.heading-small"));
+            IWebElement providernameexists = providerresultslistcontainer.FindElement(By.CssSelector("div.provider-item-header"));
             providernameexists.Should().NotBeNull();
             providernameexists.Displayed.Should().BeTrue();
             string providername = providernameexists.Text;
