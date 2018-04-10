@@ -29,7 +29,7 @@ Scenario: Select Manage The Calculation Page
 Scenario: Select View the Results Page
 	Given I have successfully navigated to the Home Page
 	When I select View results
-	Then I am redirected to the View the Results page
+	Then I am redirected to the View the Results Options page
 
 @workitem:35383 Driver
 Scenario: Select Publish the Results Page

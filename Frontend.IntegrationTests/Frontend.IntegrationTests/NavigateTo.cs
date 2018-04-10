@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading;
 using System.Text.RegularExpressions;
 using Frontend.IntegrationTests.Pages.View_Results;
+using Frontend.IntegrationTests.Pages.Quality_Assurance;
 
 namespace Frontend.IntegrationTests
 {
@@ -172,10 +173,11 @@ namespace Frontend.IntegrationTests
             HomePage homepage = new HomePage();
             ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
             ViewProviderAllocationsPage viewproviderallocationspage = new ViewProviderAllocationsPage();
+            ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
 
             homepage.ViewtheResults.Click();
-
-
+            viewresultsoptionspage.viewResultsOptionsViewProviderResults.Click();
+            Thread.Sleep(2000);
         }
 
         public static void ViewProviderAllocationsPage()
@@ -288,6 +290,26 @@ namespace Frontend.IntegrationTests
 
             SpecificationDataRelationshipsExistPage();
             selectspecificationdatasourcepage.specificationChangeDataSource.Click();
+            Thread.Sleep(2000);
+        }
+
+        public static void TestScenarioListPage()
+        {
+            HomePage homepage = new HomePage();
+            TestScenarioListPage testscenariolistpage = new TestScenarioListPage();
+
+            homepage.ManagetheTests.Click();
+            Thread.Sleep(2000);
+        }
+
+        public static void CreateQATestPage()
+        {
+            HomePage homepage = new HomePage();
+            TestScenarioListPage testscenariolistpage = new TestScenarioListPage();
+
+            homepage.ManagetheTests.Click();
+            Thread.Sleep(2000);
+            testscenariolistpage.testScenarioPageCreateQATestButton.Click();
             Thread.Sleep(2000);
         }
     }
