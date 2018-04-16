@@ -4,6 +4,7 @@ using System.Threading;
 using AutoFramework;
 using FluentAssertions;
 using Frontend.IntegrationTests.Create;
+using Frontend.IntegrationTests.Helpers;
 using Frontend.IntegrationTests.Pages.Manage_Datasets;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -27,7 +28,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         SelectedSpecificationDataSourcePage selectedspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
         SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
 
-        public string newname = "Test Name 018";
+        public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
         public static int? totalresults = null;
         public string datasetinformation = Actions.datasestinfo;
@@ -291,7 +292,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Given(@"I have entered a Dataset Schema Name")]
         public void GivenIHaveEnteredADatasetSchemaName()
         {
-            choosedatasetrelationshippage.datasetSchemaRelationshipName.SendKeys(newname);
+            choosedatasetrelationshippage.datasetSchemaRelationshipName.SendKeys(newname + TestDataUtils.RandomString(6));
         }
 
         [Given(@"I have entered a Dataset Description")]

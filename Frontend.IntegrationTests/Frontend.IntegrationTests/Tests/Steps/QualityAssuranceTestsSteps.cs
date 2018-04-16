@@ -5,6 +5,7 @@ using System.Threading;
 using AutoFramework;
 using FluentAssertions;
 using Frontend.IntegrationTests.Create;
+using Frontend.IntegrationTests.Helpers;
 using Frontend.IntegrationTests.Pages.Manage_Datasets;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
 using Frontend.IntegrationTests.Pages.Quality_Assurance;
@@ -22,7 +23,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         TestScenarioListPage testscenariolistpage = new TestScenarioListPage();
         CreateQATestPage createqatestpage = new CreateQATestPage();
 
-        public string qatestname = "QA Test RW0001";
+        public string qatestname = "QA Test RW ";
         public string qatestdescription = "This is a QA Test Description";
         public string testgherkingiven = "Given the field 'UPIN' in the dataset 'AB Test Dataset 2403-01-001' is equal to 12";
         public string testgherkinand = "And the provider is '105154'";
@@ -219,7 +220,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void WhenIHaveEnteredATestNameForMyQATest()
         {
             createqatestpage.createQATestName.Click();
-            createqatestpage.createQATestName.SendKeys(qatestname);
+            createqatestpage.createQATestName.SendKeys(qatestname + TestDataUtils.RandomString(6));
         }
 
         [When(@"I have entered a description for my QA Test")]
@@ -276,7 +277,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             createqatestpage.createQATestSelectSpecification.Click();
             createqatestpage.createQATestSelectSpecification.SendKeys("Y");
             createqatestpage.createQATestName.Click();
-            createqatestpage.createQATestName.SendKeys(qatestname);
+            createqatestpage.createQATestName.SendKeys(qatestname + TestDataUtils.RandomString(6));
             createqatestpage.createQATestDescription.Click();
             createqatestpage.createQATestDescription.SendKeys(qatestdescription);
             Thread.Sleep(2000);

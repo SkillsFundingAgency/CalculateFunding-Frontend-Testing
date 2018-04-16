@@ -677,6 +677,34 @@ testRunner.And("where a provider record has a 0 value the content No data found 
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the View Results landing page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39519)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheViewResultsLandingPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View Results landing page", new string[] {
+                        "Workitem:39519",
+                        "Driver"});
+#line 150
+this.ScenarioSetup(scenarioInfo);
+#line 151
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 152
+testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 153
+testRunner.Then("I am presented the View Results landing page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 154
+testRunner.And("An option is displayed view the View provider results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 155
+testRunner.And("An option is displayed view the View QA test results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 156
+testRunner.And("An option is displayed view the View calculation results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

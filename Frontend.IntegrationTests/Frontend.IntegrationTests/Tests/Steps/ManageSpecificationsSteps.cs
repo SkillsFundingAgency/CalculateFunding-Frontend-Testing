@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using AutoFramework;
+using Frontend.IntegrationTests.Helpers;
 using Frontend.IntegrationTests.Pages;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -23,7 +24,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         CreateSubPolicyPage createsubpolicypage = new CreateSubPolicyPage();
         ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
         public string nametext = "test spec 003";
-        public string newname = "Test Name 008";
+        public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
 
 
@@ -116,7 +117,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Name")]
         public void WhenIEnterAName()
         {
-            createspecificationpage.SpecName.SendKeys(newname);
+            createspecificationpage.SpecName.SendKeys(newname + TestDataUtils.RandomString(6));
         }
 
         [When(@"I enter a Description")]
@@ -273,7 +274,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Policy Name")]
         public void WhenIEnterAPolicyName()
         {
-            createpolicypage.PolicyName.SendKeys(newname);
+            createpolicypage.PolicyName.SendKeys(newname + TestDataUtils.RandomString(6));
         }
 
         [When(@"I enter a Policy Description")]
@@ -361,7 +362,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Calculation Name")]
         public void WhenIEnterACalculationName()
         {
-            createcalculationpage.CalculationName.SendKeys(newname);
+            createcalculationpage.CalculationName.SendKeys(newname + TestDataUtils.RandomString(6));
         }
 
         [When(@"I choose a Policy or sub policy")]
@@ -479,7 +480,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Sub Policy Name")]
         public void WhenIEnterASubPolicyName()
         {
-            createsubpolicypage.SubPolicyName.SendKeys(newname);
+            createsubpolicypage.SubPolicyName.SendKeys(newname + TestDataUtils.RandomString(6));
         }
 
         [When(@"I choose a Policy from the dropdown")]

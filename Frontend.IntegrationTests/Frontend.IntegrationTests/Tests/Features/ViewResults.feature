@@ -145,3 +145,12 @@ When I select View results
 Then I am navigated to a page displaying providers
 And the name of the provider is displayed
 And where a provider record has a 0 value the content No data found is displayed
+
+@Workitem:39519 Driver
+Scenario: Verify the View Results landing page
+Given I have successfully navigated to the Home Page
+When I select View results
+Then I am presented the View Results landing page
+And An option is displayed view the View provider results page
+And An option is displayed view the View QA test results page
+And An option is displayed view the View calculation results page

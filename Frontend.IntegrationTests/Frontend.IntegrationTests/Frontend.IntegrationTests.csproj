@@ -69,6 +69,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Create\CreateNewSpecification.cs" />
     <Compile Include="Driver.cs" />
+    <Compile Include="Helpers\TestDataUtils.cs" />
     <Compile Include="NavigateTo.cs" />
     <Compile Include="Pages\Home Page\HomePage.cs" />
     <Compile Include="Pages\Home Page\ManageSpecificationPage.cs" />
@@ -174,9 +175,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

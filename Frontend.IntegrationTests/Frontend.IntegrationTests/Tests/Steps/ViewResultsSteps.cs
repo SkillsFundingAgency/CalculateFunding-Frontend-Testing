@@ -560,6 +560,33 @@ namespace Frontend.IntegrationTests.Tests.Steps
         }
 
 
+        [Then(@"I am presented the View Results landing page")]
+        public void ThenIAmPresentedTheViewResultsLandingPage()
+        {
+            Thread.Sleep(2000);
+            viewresultsoptionspage.viewResultsOptionsViewCalculationResults.Should().NotBeNull();
+            viewresultsoptionspage.viewResultsOptionsViewProviderResults.Should().NotBeNull();
+            viewresultsoptionspage.viewResultsOptionsViewQATestResults.Should().NotBeNull();
+        }
+
+        [Then(@"An option is displayed view the View provider results page")]
+        public void ThenAnOptionIsDisplayedViewTheViewProviderResultsPage()
+        {
+            viewresultsoptionspage.viewResultsOptionsViewProviderResults.Displayed.Should().BeTrue();
+        }
+
+        [Then(@"An option is displayed view the View QA test results page")]
+        public void ThenAnOptionIsDisplayedViewTheViewQATestResultsPage()
+        {
+            viewresultsoptionspage.viewResultsOptionsViewQATestResults.Displayed.Should().BeTrue();
+        }
+
+        [Then(@"An option is displayed view the View calculation results page")]
+        public void ThenAnOptionIsDisplayedViewTheViewCalculationResultsPage()
+        {
+            viewresultsoptionspage.viewResultsOptionsViewCalculationResults.Displayed.Should().BeTrue();
+        }
+
 
         [AfterScenario()]
         public void FixtureTearDown()
