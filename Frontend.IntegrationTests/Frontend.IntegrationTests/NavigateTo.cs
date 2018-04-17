@@ -184,8 +184,11 @@ namespace Frontend.IntegrationTests
         {
             HomePage homepage = new HomePage();
             ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+            ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
 
             homepage.ViewtheResults.Click();
+            viewresultsoptionspage.viewResultsOptionsViewProviderResults.Click();
+            Thread.Sleep(2000);
             IWebElement providerresultslistcontainer = viewproviderresultspage.providerResultspageResultListContainer;
             IWebElement providernamelink = providerresultslistcontainer.FindElement(By.TagName("a"));
             providernamelink.Should().NotBeNull();

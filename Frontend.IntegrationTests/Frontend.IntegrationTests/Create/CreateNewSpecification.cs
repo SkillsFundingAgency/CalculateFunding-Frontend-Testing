@@ -2,6 +2,7 @@
 {
     using AutoFramework;
     using FluentAssertions;
+    using Frontend.IntegrationTests.Helpers;
     using Frontend.IntegrationTests.Pages;
     using Frontend.IntegrationTests.Pages.Manage_Calculation;
     using Frontend.IntegrationTests.Pages.Manage_Specification;
@@ -26,13 +27,13 @@
             CreateSpecificationPage createspecificationpage = new CreateSpecificationPage();
             CreateCalculationPage createcalculationpage = new CreateCalculationPage();
 
-            string newname = "Test Name 005";
+            string newname = "Test Name ";
             string descriptiontext = "This is a Description";
 
             NavigateTo.CreatetheSpecfication();
             Assert.IsNotNull(createcalculationpage.CalculationName);
             Thread.Sleep(2000);
-            createspecificationpage.SpecName.SendKeys(newname);
+            createspecificationpage.SpecName.SendKeys(newname + TestDataUtils.RandomString(4));
             createspecificationpage.SpecDescription.SendKeys(descriptiontext);
             var Funding = createspecificationpage.FundingStream;
             var selectElement = new SelectElement(Funding);
@@ -41,7 +42,7 @@
             createspecificationpage.SaveSpecification.Click();
             Thread.Sleep(2000);
             Assert.IsNotNull(managespecficationpage.SelectYear);
-            Driver._driver.FindElement(By.LinkText(newname)).Click();
+            Driver._driver.FindElement(By.PartialLinkText(newname)).Click();
             Thread.Sleep(1000);
 
         }

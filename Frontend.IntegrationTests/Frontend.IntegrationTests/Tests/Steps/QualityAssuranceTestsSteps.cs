@@ -236,7 +236,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             createqatestpage.createQATestBuildMonacoEditorTextbox.Should().NotBeNull();
             createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys("This is Test Code");
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
         }
 
         [Then(@"the Valiadate QA Test Button should be Enabled")]
@@ -328,10 +328,14 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I have choosen a specific specification my code will validate against")]
         public void WhenIHaveChoosenASpecificSpecificationMyCodeWillValidateAgainst()
         {
+            /*
             createqatestpage.createQATestSelectSpecification.Click();
             var selectSpec = createqatestpage.createQATestSelectSpecification;
             var selectElement = new SelectElement(selectSpec);
             selectElement.SelectByText("AB Test 2403-002");
+            */
+            Actions.SelectQATestSpecificationDropdownOption();
+            createqatestpage.createQATestDescription.Click();
             Thread.Sleep(2000);
         }
 
@@ -346,7 +350,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(testgherkinthen);
             createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Enter);
 
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
         }
 
         [Then(@"I am notified my test scenario has validated successfully")]

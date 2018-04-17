@@ -669,10 +669,12 @@ testRunner.Given("I have successfully navigated to the Home Page", ((string)(nul
 #line 144
 testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 145
-testRunner.Then("I am navigated to a page displaying providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I click on the View provider results option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 146
-testRunner.And("the name of the provider is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I am navigated to a page displaying providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 147
+testRunner.And("the name of the provider is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 148
 testRunner.And("where a provider record has a 0 value the content No data found is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -688,19 +690,19 @@ testRunner.And("where a provider record has a 0 value the content No data found 
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View Results landing page", new string[] {
                         "Workitem:39519",
                         "Driver"});
-#line 150
-this.ScenarioSetup(scenarioInfo);
 #line 151
-testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 152
-testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 153
-testRunner.Then("I am presented the View Results landing page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 154
-testRunner.And("An option is displayed view the View provider results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I am presented the View Results landing page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 155
-testRunner.And("An option is displayed view the View QA test results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("An option is displayed view the View provider results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 156
+testRunner.And("An option is displayed view the View QA test results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 157
 testRunner.And("An option is displayed view the View calculation results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

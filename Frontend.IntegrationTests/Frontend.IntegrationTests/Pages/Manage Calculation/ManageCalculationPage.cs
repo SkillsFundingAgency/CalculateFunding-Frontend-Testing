@@ -38,7 +38,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Calculation
         [FindsBy(How = How.CssSelector, Using = "#dynamic-results-table-body > tr:nth-child(1) > td:nth-child(1) > a:nth-child(1)")]
         public IWebElement FirstCalculationListed { get; set; }
 
-        [FindsBy(How = How.Id, Using = "totalResults")]
+        [FindsBy(How = How.CssSelector, Using = "#dynamic-paging-container #totalResults")]
         public IWebElement CalculationsTotalResults { get; set; }
 
         [FindsBy(How = How.Id, Using = "endItemNumber")]

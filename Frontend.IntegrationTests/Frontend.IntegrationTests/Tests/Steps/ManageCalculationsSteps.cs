@@ -49,14 +49,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"there is greater than (.*) calculations")]
         public void WhenThereIsGreaterThanCalculations(int NoOfCalcs)
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
             Assert.IsNotNull(managecalculationpage.CalculationsPageTotal);
             Assert.IsNotNull(managecalculationpage.CalculationsTotalResults);
 
             IWebElement CalculationTotal = managecalculationpage.CalculationsTotalResults;
             string CalculationTotalValue = CalculationTotal.Text;
             int CalculationTotalNo = int.Parse(CalculationTotalValue);
-            //Fluent Assertions
             CalculationTotalNo.Should().BeGreaterThan(NoOfCalcs, "Less than 50 Calculations Displayed");
             Thread.Sleep(2000);
 
@@ -425,14 +424,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             editcalculationspage.SaveCalculationButton.Should().NotBeNull();
             editcalculationspage.SaveCalculationButton.GetAttribute("disabled");
-        }
-
-        [Then(@"The Publish Calculation button is disabled")]
-        public void ThenThePublishCalculationButtonIsDisabled()
-        {
-            editcalculationspage.PublishCalculationButton.Should().NotBeNull();
-            editcalculationspage.PublishCalculationButton.GetAttribute("disabled");
-            Thread.Sleep(2000);
         }
 
         [When(@"I have edited the visual basic code")]

@@ -153,7 +153,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenMyNewSpecificationIsCorrectlyListed()
         {
             Thread.Sleep(2000);
-            Driver._driver.FindElement(By.LinkText(newname));
+            Driver._driver.FindElement(By.PartialLinkText(newname));
             Thread.Sleep(1000);
         }
 
@@ -177,7 +177,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter an Existing Specification Name")]
         public void WhenIEnterAnExistingSpecificationName()
         {
-            createspecificationpage.SpecName.SendKeys(nametext);
+            createspecificationpage.SpecName.SendKeys("Test");
             Thread.Sleep(2000);
         }
 
@@ -296,7 +296,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenMyNewPolicyIsCorrectlyListed()
         {
             Thread.Sleep(2000);
-            Driver._driver.FindElement(By.LinkText(newname));
+            Driver._driver.FindElement(By.PartialLinkText(newname));
             Thread.Sleep(1000);
         }
 
@@ -307,6 +307,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
             createpolicypage.CancelPolicy.Click();
             Thread.Sleep(1000);
         }
+
+        [When(@"I enter an existing Policy Name")]
+        public void WhenIEnterAnExistingPolicyName()
+        {
+            createpolicypage.PolicyName.SendKeys("Test");
+        }
+
 
         [Then(@"A Unique Policy Name Error is Displayed")]
         public void ThenAUniquePolicyNameErrorIsDisplayed()
@@ -408,6 +415,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [When(@"I enter an Existing Calculation Name")]
+        public void WhenIEnterAnExistingCalculationName()
+        {
+            createcalculationpage.CalculationName.SendKeys("Test");
+        }
+
+
         [Then(@"A Unique Calculation Name Error is Displayed")]
         public void ThenAUniqueCalculationNameErrorIsDisplayed()
         {
@@ -486,9 +500,12 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I choose a Policy from the dropdown")]
         public void WhenIChooseAPolicyFromTheDropdown()
         {
-            var policydropdown = createsubpolicypage.SelectPolicy;
-            var selectElement = new SelectElement(policydropdown);
-            selectElement.SelectByText(nametext);
+            //var policydropdown = createsubpolicypage.SelectPolicy;
+            //var selectElement = new SelectElement(policydropdown);
+            //selectElement.SelectByText(nametext);
+            Actions.SelectPolicyForSubPolicyCreationDropdownOption();
+            createsubpolicypage.SubPolicyDescription.Click();
+            Thread.Sleep(2000);
         }
 
         [When(@"I enter a Sub Policy Description")]
@@ -520,6 +537,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [When(@"I enter a Sub Policy Name that already exists")]
+        public void WhenIEnterASubPolicyNameThatAlreadyExists()
+        {
+            createsubpolicypage.SubPolicyName.SendKeys("test");
+        }
+
+
         [Then(@"A Unique Sub Policy Name Error is Displayed")]
         public void ThenAUniqueSubPolicyNameErrorIsDisplayed()
         {
@@ -528,17 +552,23 @@ namespace Frontend.IntegrationTests.Tests.Steps
         }
 
 
-        [Given(@"And I have missed the Sub Policy field (.*) and (.*) and (.*)")]
-        public void GivenAndIHaveMissedTheSubPolicyFieldAndTestSpecAndDescription(string name, string policy, string description)
+        [Given(@"And I have missed the Sub Policy field (.*) and (.*)")]
+        public void GivenAndIHaveMissedTheSubPolicyFieldAndTestSpecAndDescription(string name, string description)
         {
             createsubpolicypage.SubPolicyName.SendKeys(name);
-            var policydropdown = createsubpolicypage.SelectPolicy;
-            var selectElement = new SelectElement(policydropdown);
-            selectElement.SelectByText(policy);
             createsubpolicypage.SubPolicyDescription.SendKeys(description);
             Thread.Sleep(2000);
 
         }
+
+        [Given(@"I choose a Policy from the dropdown")]
+        public void GivenIChooseAPolicyFromTheDropdown()
+        {
+            Actions.SelectPolicyForSubPolicyCreationDropdownOption();
+            createsubpolicypage.SubPolicyDescription.Click();
+            Thread.Sleep(2000);
+        }
+
 
         [Then(@"the following Sub Policy Error should be displayed for FieldName '(.*)' and '(.*)'")]
         public void ThenTheFollowingSubPolicyErrorShouldBeDisplayedForFieldNameAnd(string SubPolicyFieldname, string subpolicyerror)
@@ -547,15 +577,20 @@ namespace Frontend.IntegrationTests.Tests.Steps
             if (SubPolicyFieldname == "SubPolicyNameMissing")
                 Assert.AreEqual(subpolicyerror, createsubpolicypage.SubPolicyMissingNameErrorText.Text);
 
-            else if (SubPolicyFieldname == "SubPolicyPolicyMissing")
-                Assert.AreEqual(subpolicyerror, createsubpolicypage.SubPolicyMissingPolicyErrorText.Text);
-
             else if (SubPolicyFieldname == "SubPolicyDescriptionMissing")
                 Assert.AreEqual(subpolicyerror, createsubpolicypage.SubPolicyMissingDescriptionErrorText.Text);
 
             else throw new InvalidOperationException("Unknown Field");
             Thread.Sleep(2000);
         }
+
+        [Then(@"a Sub Policy Missing Policy Error should be displayed")]
+        public void ThenASubPolicyMissingPolicyErrorShouldBeDisplayed()
+        {
+            Assert.IsNotNull(createsubpolicypage.SubPolicyMissingPolicyErrorText.Text);
+            Thread.Sleep(2000);
+        }
+
 
         [AfterScenario()]
         public void FixtureTearDown()

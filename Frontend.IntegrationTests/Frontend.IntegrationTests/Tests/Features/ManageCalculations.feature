@@ -115,7 +115,6 @@ Then The Name of the specification is displayed
 And The Description of the specification is displayed
 And The Build Calculation button is disabled
 And The Save Calculation button is disabled
-And The Publish Calculation button is disabled
 
 @Workitem:35457 Driver
 Scenario: Edit and Build the Calculation Visual Basic Code

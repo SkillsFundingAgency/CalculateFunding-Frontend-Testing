@@ -142,6 +142,7 @@ And I can see a list of Calculation names and the subtotals against the Calculat
 Scenario: Verify the Content for missing provider references returns No data found
 Given I have successfully navigated to the Home Page
 When I select View results
+And I click on the View provider results option
 Then I am navigated to a page displaying providers
 And the name of the provider is displayed
 And where a provider record has a 0 value the content No data found is displayed

@@ -178,7 +178,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             viewproviderresultspage.providerResultsPagePreviousSetPagination.Should().NotBeNull();
             viewproviderresultspage.providerResultsPagePreviousSetPagination.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
         }
 
         [Then(@"my list view displays the previous (.*) results")]

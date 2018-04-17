@@ -3,6 +3,8 @@
     using FluentAssertions;
     using Frontend.IntegrationTests.Pages.Manage_Calculation;
     using Frontend.IntegrationTests.Pages.Manage_Datasets;
+    using Frontend.IntegrationTests.Pages.Manage_Specification;
+    using Frontend.IntegrationTests.Pages.Quality_Assurance;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Firefox;
     using OpenQA.Selenium.Support.UI;
@@ -410,5 +412,84 @@
         }
 
 
+        public static void SelectPolicyForSubPolicyCreationDropdownOption()
+        {
+            CreateSubPolicyPage createsubpolicypage = new CreateSubPolicyPage();
+
+            var containerElements = Driver._driver.FindElement(By.Id("CreateSubPolicyViewModel-ParentPolicyId"));
+            IWebElement firstSelectPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (!string.IsNullOrWhiteSpace(optionelement.GetAttribute("value")))
+                        {
+
+                            firstSelectPolicy = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectPolicy != null)
+                {
+                    firstSelectPolicy.Click();
+                }
+                else
+                {
+                    firstSelectPolicy.Should().NotBeNull("No Policy exists that can be selected");
+                }
+            }
+            else
+            {
+                firstSelectPolicy.Should().NotBeNull("No Policy exists that can be selected");
+            }
+        }
+
+        public static void SelectQATestSpecificationDropdownOption()
+        {
+            CreateQATestPage createqatestpage = new CreateQATestPage();
+
+            var containerElements = createqatestpage.createQATestSelectSpecification;
+            IWebElement firstSelectSpec = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (!string.IsNullOrWhiteSpace(optionelement.GetAttribute("value")))
+                        {
+
+                            firstSelectSpec = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectSpec != null)
+                {
+                    firstSelectSpec.Click();
+                }
+                else
+                {
+                    firstSelectSpec.Should().NotBeNull("No Policy exists that can be selected");
+                }
+            }
+            else
+            {
+                firstSelectSpec.Should().NotBeNull("No Policy exists that can be selected");
+            }
+        }
+
     }
 }
+

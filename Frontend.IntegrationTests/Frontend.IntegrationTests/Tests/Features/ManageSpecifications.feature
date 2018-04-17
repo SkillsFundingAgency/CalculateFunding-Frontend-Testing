@@ -104,10 +104,11 @@ Scenario: Create and Cancel a new Policy
 	And I click the Cancel Policy Button
 	Then I am redirected to the Manage Policies Page
 
+
 @Workitem:35397 Driver
 Scenario: Create and Save a new Policy with an Existing Specification Name
 	Given I have successfully navigated to the Create Policy Page
-	When I enter a Policy Name
+	When I enter an existing Policy Name
 	And I enter a Policy Description
 	And I click the Save Policy button
 	Then A Unique Policy Name Error is Displayed
@@ -155,7 +156,7 @@ Scenario: Create and Cancel a new Calculation Specification
 @Workitem:35401 Driver
 Scenario: Create and Save a new Calculation Specification with an Existing Name
 	Given I have successfully navigated to the Create Calculation Specification for Policy Page
-	When I enter a Calculation Name
+	When I enter an Existing Calculation Name
 	And I choose a Policy or sub policy
 	And I choose an Allocation Line
 	And I enter a Calculation Description
@@ -204,7 +205,7 @@ Scenario: Create and Cancel a new Sub Policy
 @Workitem:35402 Driver
 Scenario: Create and Save a new Sub Policy with an Existing Name
 	Given I have successfully navigated to the Create Sub Policy Page
-	When I enter a Sub Policy Name
+	When I enter a Sub Policy Name that already exists
 	And I choose a Policy from the dropdown
 	And I enter a Sub Policy Description
 	And I click the Save Sub Policy button
@@ -213,16 +214,23 @@ Scenario: Create and Save a new Sub Policy with an Existing Name
 @Workitem:35402 Driver
 Scenario Outline: Create and Save an incomplete Sub Policy
 	Given I have successfully navigated to the Create Sub Policy Page
-	And  And I have missed the Sub Policy field <name> and <policy> and <description>
+	And  And I have missed the Sub Policy field <name> and <description>
+	And I choose a Policy from the dropdown
 	When I click the Save Sub Policy button
 	Then the following Sub Policy Error should be displayed for FieldName '<SubPolicyFieldname>' and '<subpolicyerror>'
 
 Examples: 
-	 | SubPolicyFieldname			| name         | policy			 | description | subpolicyerror									|
-	 | SubPolicyNameMissing			|              | Test Spec03	 | Description | You must give a unique policy name				|
-	 | SubPolicyPolicyMissing		| Test Spec 02 |				 | Description | You must select a policy						|
-     | SubPolicyDescriptionMissing	| Test Spec 03 | Test Spec03	 |			   | You must give a description for the subpolicy	|
-
+	 | SubPolicyFieldname			| name         | description | subpolicyerror									|
+	 | SubPolicyNameMissing			|              | Description | You must give a unique policy name				|
+     | SubPolicyDescriptionMissing	| Test Spec 03 |	         | You must give a description for the subpolicy	|
+	 
+@Workitem:35402 Driver
+Scenario: Create and Save an incomplete Sub Policy without selecting a Policy
+	Given I have successfully navigated to the Create Sub Policy Page
+	When I enter a Sub Policy Name
+	And I enter a Sub Policy Description
+	And I click the Save Sub Policy button
+	Then a Sub Policy Missing Policy Error should be displayed
 
 @Workitem:40075 Driver
 Scenario: Create and Save a new Calculation Specification without selecting an Allocation Line
