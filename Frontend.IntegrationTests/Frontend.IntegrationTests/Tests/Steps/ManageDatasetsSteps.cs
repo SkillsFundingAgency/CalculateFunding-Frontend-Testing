@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using AutoFramework;
 using FluentAssertions;
@@ -292,7 +293,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Given(@"I have entered a Dataset Schema Name")]
         public void GivenIHaveEnteredADatasetSchemaName()
         {
-            choosedatasetrelationshippage.datasetSchemaRelationshipName.SendKeys(newname + TestDataUtils.RandomString(6));
+            var randomName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["DatasetSchemaName"] = randomName;
+            choosedatasetrelationshippage.datasetSchemaRelationshipName.SendKeys(randomName);
         }
 
         [Given(@"I have entered a Dataset Description")]
@@ -330,11 +333,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"the new dataset is saved and displayed correctly")]
         public void ThenTheNewDatasetIsSavedAndDisplayedCorrectly()
         {
+            var datasetName = ScenarioContext.Current["DatasetSchemaName"];
+            string datasetCreated = datasetName.ToString();
             var datasetelements = Driver._driver.FindElements(By.CssSelector(".view-dataset .datasetschemaassigned-list-title-container span"));
             IWebElement createddataset = null;
             foreach (var element in datasetelements)
             {
-                if (element.Text.Contains(newname))
+                if (element.Text.Contains(datasetCreated))
                 {
                     {
                         createddataset = element;
@@ -347,11 +352,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(1000);
             if (createddataset != null)
             {
-                Console.WriteLine("The New Dataset " + newname + " was Saved correctly");
+                Console.WriteLine("The New Dataset " + datasetCreated + " was Saved correctly");
             }
             else
             {
-                createddataset.Should().NotBeNull("Unable to find dataset " + newname + " within the list view");
+                createddataset.Should().NotBeNull("Unable to find dataset " + datasetCreated + " within the list view");
             }
         }
 

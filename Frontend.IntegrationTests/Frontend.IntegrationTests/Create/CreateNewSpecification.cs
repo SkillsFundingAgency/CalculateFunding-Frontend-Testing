@@ -33,7 +33,9 @@
             NavigateTo.CreatetheSpecfication();
             Assert.IsNotNull(createcalculationpage.CalculationName);
             Thread.Sleep(2000);
-            createspecificationpage.SpecName.SendKeys(newname + TestDataUtils.RandomString(4));
+            var randomSpecName = newname + TestDataUtils.RandomString(4);
+            ScenarioContext.Current["SpecificationName"] = randomSpecName;
+            createspecificationpage.SpecName.SendKeys(randomSpecName);
             createspecificationpage.SpecDescription.SendKeys(descriptiontext);
             var Funding = createspecificationpage.FundingStream;
             var selectElement = new SelectElement(Funding);
@@ -42,7 +44,9 @@
             createspecificationpage.SaveSpecification.Click();
             Thread.Sleep(2000);
             Assert.IsNotNull(managespecficationpage.SelectYear);
-            Driver._driver.FindElement(By.PartialLinkText(newname)).Click();
+            var specName = ScenarioContext.Current["SpecificationName"];
+            string specCreated = specName.ToString();
+            Driver._driver.FindElement(By.LinkText(specCreated)).Click();
             Thread.Sleep(1000);
 
         }

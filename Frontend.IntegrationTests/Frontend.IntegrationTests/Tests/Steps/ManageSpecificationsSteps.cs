@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using AutoFramework;
+using FluentAssertions;
 using Frontend.IntegrationTests.Helpers;
 using Frontend.IntegrationTests.Pages;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
@@ -117,7 +118,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Name")]
         public void WhenIEnterAName()
         {
-            createspecificationpage.SpecName.SendKeys(newname + TestDataUtils.RandomString(6));
+            var randomSpecName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["SpecificationName"] = randomSpecName;
+            createspecificationpage.SpecName.SendKeys(randomSpecName);
         }
 
         [When(@"I enter a Description")]
@@ -153,7 +156,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenMyNewSpecificationIsCorrectlyListed()
         {
             Thread.Sleep(2000);
-            Driver._driver.FindElement(By.PartialLinkText(newname));
+            var specificationName = ScenarioContext.Current["SpecificationName"];
+            string specificationCreated = specificationName.ToString();
+            Driver._driver.FindElement(By.LinkText(specificationCreated));
             Thread.Sleep(1000);
         }
 
@@ -274,7 +279,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Policy Name")]
         public void WhenIEnterAPolicyName()
         {
-            createpolicypage.PolicyName.SendKeys(newname + TestDataUtils.RandomString(6));
+            var randomPolicyName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["PolicyName"] = randomPolicyName;
+            createpolicypage.PolicyName.SendKeys(randomPolicyName);
         }
 
         [When(@"I enter a Policy Description")]
@@ -296,7 +303,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenMyNewPolicyIsCorrectlyListed()
         {
             Thread.Sleep(2000);
-            Driver._driver.FindElement(By.PartialLinkText(newname));
+            var polcyNameName = ScenarioContext.Current["PolicyName"];
+            string policyCreated = polcyNameName.ToString();
+            Driver._driver.FindElement(By.LinkText(policyCreated));
             Thread.Sleep(1000);
         }
 
@@ -369,7 +378,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Calculation Name")]
         public void WhenIEnterACalculationName()
         {
-            createcalculationpage.CalculationName.SendKeys(newname + TestDataUtils.RandomString(6));
+            var randomCalculationName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["CalculationName"] = randomCalculationName;
+            createcalculationpage.CalculationName.SendKeys(randomCalculationName);
         }
 
         [When(@"I choose a Policy or sub policy")]
@@ -405,6 +416,31 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             Thread.Sleep(2000);
             Assert.IsNotNull(managepoliciespage.CalculationList);
+            var calculationName = ScenarioContext.Current["CalculationName"];
+            string calculationCreated = calculationName.ToString();
+            var calcelements = Driver._driver.FindElements(By.Id("calculation-results-table"));
+            IWebElement createdcalculation = null;
+            foreach (var element in calcelements)
+            {
+                if (element.Text.Contains(calculationCreated))
+                {
+                    {
+                        createdcalculation = element;
+                        break;
+                    }
+                }
+
+            }
+
+            Thread.Sleep(1000);
+            if (createdcalculation != null)
+            {
+                Console.WriteLine("The New Calculation " + calculationCreated + " was Saved correctly");
+            }
+            else
+            {
+                createdcalculation.Should().NotBeNull("Unable to find dataset " + calculationCreated + " within the list view");
+            }
             Thread.Sleep(2000);
         }
 
@@ -494,15 +530,14 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Sub Policy Name")]
         public void WhenIEnterASubPolicyName()
         {
-            createsubpolicypage.SubPolicyName.SendKeys(newname + TestDataUtils.RandomString(6));
+            var randomSubPolicyName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["SubPolicyName"] = randomSubPolicyName;
+            createsubpolicypage.SubPolicyName.SendKeys(randomSubPolicyName);
         }
 
         [When(@"I choose a Policy from the dropdown")]
         public void WhenIChooseAPolicyFromTheDropdown()
-        {
-            //var policydropdown = createsubpolicypage.SelectPolicy;
-            //var selectElement = new SelectElement(policydropdown);
-            //selectElement.SelectByText(nametext);
+        {            
             Actions.SelectPolicyForSubPolicyCreationDropdownOption();
             createsubpolicypage.SubPolicyDescription.Click();
             Thread.Sleep(2000);
@@ -527,6 +562,32 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             Thread.Sleep(2000);
             Assert.IsNotNull(managepoliciespage.SubPolicyList);
+            var subPolicyName = ScenarioContext.Current["SubPolicyName"];
+            string subPolicyCreated = subPolicyName.ToString();
+            var subpolicyelements = Driver._driver.FindElements(By.CssSelector(".policy-list"));
+            IWebElement createdsubpolicy = null;
+            foreach (var element in subpolicyelements)
+            {
+                if (element.Text.Contains(subPolicyCreated))
+                {
+                    {
+                        createdsubpolicy = element;
+                        break;
+                    }
+                }
+
+            }
+
+            Thread.Sleep(1000);
+            if (createdsubpolicy != null)
+            {
+                Console.WriteLine("The New Sub Policy " + subPolicyCreated + " was Saved correctly");
+            }
+            else
+            {
+                createdsubpolicy.Should().NotBeNull("Unable to find Sub Policy " + subPolicyCreated + " within the list view");
+            }
+
             Thread.Sleep(2000);
         }
 
