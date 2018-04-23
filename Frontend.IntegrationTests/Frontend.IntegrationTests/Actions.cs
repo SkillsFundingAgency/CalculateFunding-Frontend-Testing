@@ -1,6 +1,7 @@
 ﻿namespace AutoFramework
 {
     using FluentAssertions;
+    using Frontend.IntegrationTests.Pages;
     using Frontend.IntegrationTests.Pages.Manage_Calculation;
     using Frontend.IntegrationTests.Pages.Manage_Datasets;
     using Frontend.IntegrationTests.Pages.Manage_Specification;
@@ -489,6 +490,46 @@
                 firstSelectSpec.Should().NotBeNull("No Policy exists that can be selected");
             }
         }
+
+        public static void SelectExistingSpecificationManageSpecificationPage()
+        {
+            ManageSpecificationPage manaespecficationpage = new ManageSpecificationPage();
+
+            var containerElements = manaespecficationpage.SpecificationList;
+            IWebElement SelectFirstSpec = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (!string.IsNullOrWhiteSpace(optionelement.GetAttribute("id")))
+                        {
+
+                            SelectFirstSpec = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstSpec != null)
+                {
+                    SelectFirstSpec.Click();
+                }
+                else
+                {
+                    SelectFirstSpec.Should().NotBeNull("No specification was successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstSpec.Should().NotBeNull("No specification was successfully selected");
+            }
+        }
+
 
     }
 }

@@ -24,7 +24,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
         CreateSpecificationPage createspecificationpage = new CreateSpecificationPage();
         CreateSubPolicyPage createsubpolicypage = new CreateSubPolicyPage();
         ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
-        public string nametext = "test spec 003";
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
 
@@ -226,7 +225,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I click to view an existing Specification")]
         public void WhenIClickToViewAnExistingSpecification()
         {
-            Driver._driver.FindElement(By.LinkText(nametext)).Click();
+            Thread.Sleep(2000);
+            Actions.SelectExistingSpecificationManageSpecificationPage();
             Thread.Sleep(2000);
         }
 

@@ -22,7 +22,7 @@ namespace Frontend.IntegrationTests.Pages
         [FindsBy(How = How.Id, Using = "create-specification-button")]
         public IWebElement CreateSpecification { get; set; }
 
-        [FindsBy(How = How.Id, Using = " esfa-list")]
+        [FindsBy(How = How.Id, Using = "esfa-list")]
         public IWebElement SpecificationList { get; set; }
 
         [FindsBy(How = How.Id, Using = "create-specification-button-noneexists")]
@@ -34,25 +34,5 @@ namespace Frontend.IntegrationTests.Pages
         [FindsBy(How = How.PartialLinkText, Using = "Test")]
         public IWebElement SelectSpecification { get; set; }
 
-
-
     } 
 }
-
-        /*
-    {
-        private readonly IWebDriver _driver;
-        private const string PageUri = @"https://esfacfsftest-web.azurewebsites.net/specs";
- 
-        public ManageSpecificationPage(IWebDriver driver)
-        {
-            _driver = driver;
-        }
-
-        public static ManageSpecificationPage NavigateTo(IWebDriver driver)
-        {
-            driver.Navigate().GoToUrl(PageUri);
-
-            return new ManageSpecificationPage(driver);
-        }
-    */
