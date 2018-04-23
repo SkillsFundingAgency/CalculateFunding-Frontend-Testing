@@ -131,11 +131,12 @@ Scenario: Select to Create Calculation Specification
 	When I click the Create calculation specification
 	Then I am redirected to the Create Calculation Specification for Policy Page
 
-@Workitem:35401 Driver
-Scenario: Create and Save a new Calculation Specification
+@Workitem:35401, 40012 Driver
+Scenario: Create and Save a new Calculation Specification with Calculation Type Funding
 	Given I have successfully navigated to the Create Calculation Specification for Policy Page
 	When I enter a Calculation Name
 	And I choose a Policy or sub policy
+	And I choose funding calculation type
 	And I choose an Allocation Line
 	And I enter a Calculation Description
 	And I click the Save Calculation button
@@ -143,38 +144,65 @@ Scenario: Create and Save a new Calculation Specification
 	And My new Calculation is correctly listed
 	And A Full Audit record is created
 
-@Workitem:35401 Driver
+@Workitem:35401, 40012 Driver
+Scenario: Create and Save a new Calculation Specification with Calculation Type Number
+	Given I have successfully navigated to the Create Calculation Specification for Policy Page
+	When I enter a Calculation Name
+	And I choose a Policy or sub policy
+	And I choose Number calculation type
+	And I enter a Calculation Description
+	And I click the Save Calculation button
+	Then I am redirected to the Manage Policies Page
+	And My new Calculation is correctly listed
+	And A Full Audit record is created
+
+@Workitem:35401, 40012 Driver
 Scenario: Create and Cancel a new Calculation Specification
 	Given I have successfully navigated to the Create Calculation Specification for Policy Page
 	When I enter a Calculation Name
 	And I choose a Policy or sub policy
+	And I choose funding calculation type
 	And I choose an Allocation Line
 	And I enter a Calculation Description
 	And I click the Cancel Calculation button
 	Then I am redirected to the Manage Policies Page
 
-@Workitem:35401 Driver
+@Workitem:35401, 40012 Driver
 Scenario: Create and Save a new Calculation Specification with an Existing Name
 	Given I have successfully navigated to the Create Calculation Specification for Policy Page
 	When I enter an Existing Calculation Name
 	And I choose a Policy or sub policy
+	And I choose funding calculation type
 	And I choose an Allocation Line
 	And I enter a Calculation Description
 	And I click the Save Calculation button
 	Then A Unique Calculation Name Error is Displayed
 
-@Workitem:35401 Driver
+@Workitem:35401, 40012 Driver
+Scenario: Create and Save a new Calculation Specification without selecting a Calc Type
+	Given I have successfully navigated to the Create Calculation Specification for Policy Page
+	When I enter an Existing Calculation Name
+	And I choose a Policy or sub policy
+	And I enter a Calculation Description
+	And I click the Save Calculation button
+	Then A Calculation Type Error is Displayed
+
+
+@Workitem:35401, 40012 Driver
 Scenario Outline: Create and Save an incomplete Calculation Specification
 	Given I have successfully navigated to the Create Calculation Specification for Policy Page
-	And I have missed the calculation field <name> and <policy> and <allocation> and <description>
+	And I have missed the calculation field <name> and <policy> and <type> and <allocation> and <description>
 	When I click the Save Calculation button
 	Then the following Calculation Error should be displayed for FieldName '<CalculationFieldname>' and '<calcerror>'
 
 Examples: 
-	 | CalculationFieldname   | name | policy      | allocation      | description | calcerror                                       |
-	 | MissingCalcName        |      | Test Spec03 | DSG Allocations | Error1      | You must give a unique calculation name         |
-	 | MissingCalcPolicy      | Test |             | DSG Allocations | Error2      | You must select a policy or subpolicy           |
-	 | MissingCalcDescription | Test | Test Spec03 | DSG Allocations |			   | You must give a description for the calculation |
+	 | CalculationFieldname   | name	| policy      | type    | allocation	  | description  | calcerror									   |
+	 | MissingCalcName		  |			| Test Spec03 | Funding | DSG Allocations | Error1       | You must give a unique calculation name         |
+	 | MissingCalcPolicy      | TestXYZ |             | Funding | DSG Allocations | Error2       | You must select a policy or subpolicy           |
+	 | MissingCalcDescription | TestXYZ	| Test Spec03 | Funding | DSG Allocations |				 | You must give a description for the calculation |
+	 | MissingCalcName		  |			| Test Spec03 | Number	|				  | Error1       | You must give a unique calculation name         |
+	 | MissingCalcPolicy      | TestXYZ	|             | Number	|				  | Error2       | You must select a policy or subpolicy           |
+	 | MissingCalcDescription | TestXYZ	| Test Spec03 | Number	|				  |				 | You must give a description for the calculation |
 
 @Workitem:35402 Driver
 Scenario: Select to Create a Sub Policy
@@ -232,11 +260,12 @@ Scenario: Create and Save an incomplete Sub Policy without selecting a Policy
 	And I click the Save Sub Policy button
 	Then a Sub Policy Missing Policy Error should be displayed
 
-@Workitem:40075 Driver
+@Workitem:40075, 40012 Driver
 Scenario: Create and Save a new Calculation Specification without selecting an Allocation Line
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
 When I enter a Calculation Name
 And I choose a Policy or sub policy
+And I choose Number calculation type
 And I enter a Calculation Description
 And I click the Save Calculation button
 Then I am redirected to the Manage Policies Page

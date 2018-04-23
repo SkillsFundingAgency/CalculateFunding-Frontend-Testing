@@ -20,7 +20,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "CreateCalculationViewModel-PolicyId")]
         public IWebElement SelectPolicy_SubPolicy { get; set; }
 
-        [FindsBy(How = How.Id, Using = "CreateCalculationViewModel_AllocationLineId")]
+        [FindsBy(How = How.Id, Using = "AllocationLines")]
         public IWebElement CalculationAllocationLine { get; set; }
 
         [FindsBy(How = How.Id, Using = "save-button")]
@@ -41,6 +41,12 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-Description")]
         public IWebElement CalculationDescriptionError { get; set; }
 
+        [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-CalculationType")]
+        public IWebElement CalculationTypeError { get; set; }
+        
+
+        [FindsBy(How = How.Id, Using = "CalculationTypes")]
+        public IWebElement CalculationTypeDropDown { get; set; }
 
 
     }

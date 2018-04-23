@@ -389,6 +389,22 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Actions.CreateCalculationSpecificationpageSelectPolicyOrSubpolicyDropDown();
         }
 
+        [When(@"I choose funding calculation type")]
+        public void WhenIChooseFundingCalculationType()
+        {
+            var calctype = createcalculationpage.CalculationTypeDropDown;
+            var selectElement = new SelectElement(calctype);
+            selectElement.SelectByValue("Funding");
+        }
+
+        [When(@"I choose Number calculation type")]
+        public void WhenIChooseNumberCalculationType()
+        {
+            var calctype = createcalculationpage.CalculationTypeDropDown;
+            var selectElement = new SelectElement(calctype);
+            selectElement.SelectByValue("Number");
+        }
+
         [When(@"I choose an Allocation Line")]
         public void WhenIChooseAnAllocationLine()
         {
@@ -418,7 +434,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Assert.IsNotNull(managepoliciespage.CalculationList);
             var calculationName = ScenarioContext.Current["CalculationName"];
             string calculationCreated = calculationName.ToString();
-            var calcelements = Driver._driver.FindElements(By.Id("calculation-results-table"));
+            var calcelements = Driver._driver.FindElements(By.CssSelector(".policy-list"));
             IWebElement createdcalculation = null;
             foreach (var element in calcelements)
             {
@@ -465,15 +481,27 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [Then(@"A Calculation Type Error is Displayed")]
+        public void ThenACalculationTypeErrorIsDisplayed()
+        {
+            createcalculationpage.CalculationTypeError.Should().NotBeNull();
+            Thread.Sleep(2000);
+        }
 
-        [Given(@"I have missed the calculation field (.*) and (.*) and (.*) and (.*)")]
-        public void GivenIHaveMissedTheCalculationField(string name, string policy, string allocation, string description)
+
+
+        [Given(@"I have missed the calculation field (.*) and (.*) and (.*) and (.*) and (.*)")]
+        public void GivenIHaveMissedTheCalculationField(string name, string policy, string type, string allocation, string description)
         {
             createcalculationpage.CalculationName.SendKeys(name);
 
             var policydropdown = createcalculationpage.SelectPolicy_SubPolicy;
             var selectElement = new SelectElement(policydropdown);
             selectElement.SelectByText(policy);
+
+            var calctype = createcalculationpage.CalculationTypeDropDown;
+            var selecttypeElement = new SelectElement(calctype);
+            selecttypeElement.SelectByValue(type);
 
             var allocationdropdown = createcalculationpage.CalculationAllocationLine;
             var selectElement01 = new SelectElement(allocationdropdown);
