@@ -32,9 +32,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.Id, Using = "loadNewDatasetsButton")]
         public IWebElement loadNewDatasetsButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div.dataset-searchresult-container:nth-child(2)")]
+        [FindsBy(How = How.CssSelector, Using = "div.col-xs-12:nth-child(3) > div:nth-child(3)")]
         public IWebElement manageDatasetsListView { get; set; }
-        
+
         [FindsBy(How = How.CssSelector, Using = "div.dataset-searchresult-container:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2) > span:nth-child(2)")]
         public IWebElement manageDatasetsFirstResultLastUpdated { get; set; }
 
@@ -55,6 +55,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
 
         [FindsBy(How = How.Id, Using = "totalResults")]
         public IWebElement manageDatasetsTotalResultCount { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "Download")]
+        public IWebElement manageDatasetsDownloadLink { get; set; }
 
 
 

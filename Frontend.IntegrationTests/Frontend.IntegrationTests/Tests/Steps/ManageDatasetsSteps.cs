@@ -846,6 +846,53 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Actions.SelectNewSourceDatasetVersionRadioOption();
         }
 
+        [Then(@"an option to download the datasource is displayed")]
+        public void ThenAnOptionToDownloadTheDatasourceIsDisplayed()
+        {
+            var downloadlinks = Driver._driver.FindElements(By.LinkText("Download"));
+            IWebElement downloadoption = downloadlinks.FirstOrDefault();
+            downloadoption.Should().NotBeNull();
+        }
+
+        [Given(@"The page displays a list view of all data sets that have been uploaded")]
+        public void GivenThePageDisplaysAListViewOfAllDataSetsThatHaveBeenUploaded()
+        {
+            managedatasetpage.manageDatasetsListView.Should().NotBeNull();
+        }
+
+        [Given(@"An option to download the datasource is displayed")]
+        public void GivenAnOptionToDownloadTheDatasourceIsDisplayed()
+        {
+            var downloadlinks = Driver._driver.FindElements(By.LinkText("Download"));
+            IWebElement downloadoption = downloadlinks.FirstOrDefault();
+            downloadoption.Should().NotBeNull();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I click the Download link for a Data Source")]
+        public void WhenIClickTheDownloadLinkForADataSource()
+        {
+            IWebElement firstdatasource = managedatasetpage.manageDatasetsFirstResultName;
+            string datasourcename = firstdatasource.Text;
+            Console.WriteLine(datasourcename + " is the first data source listed");
+            Actions.SelectManageDataPageDataSourceDownloadoption();
+        }
+
+        [Then(@"The Download reddirect URL from Blog storage is correctly genrated")]
+        public void ThenTheDownloadReddirectURLFromBlogStorageIsCorrectlyGenrated()
+        {
+            //Validation for this step is carried out within Actions.SelectManageDataPageDataSourceDownloadoption();
+            //See redirected Blob URL in the Test Output row
+        }
+
+        [Then(@"The HTTP Status Code is reurned as OK")]
+        public void ThenTheHTTPStatusCodeIsReurnedAsOK()
+        {
+            //Validation for this step is carried out within Actions.SelectManageDataPageDataSourceDownloadoption();
+            //See the "File downloaded successfully. Filename = " Test Output row
+        }
+
+
 
         [AfterScenario()]
         public void FixtureTearDown()

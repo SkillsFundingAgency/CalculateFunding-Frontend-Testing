@@ -13,6 +13,8 @@
     using System.Collections.Generic;
     using System.Drawing.Imaging;
     using System.Linq;
+    using System.Net;
+    using System.Net.Http;
     using System.Threading;
     using TechTalk.SpecFlow;
 
@@ -226,9 +228,9 @@
             var pagingLinks = Driver._driver.FindElements(By.CssSelector("#dynamic-paging-container a.paging-link"));
             IWebElement nextLink = null;
 
-            foreach(IWebElement pagingLink in pagingLinks)
+            foreach (IWebElement pagingLink in pagingLinks)
             {
-                if(pagingLink.GetCssValue("display") == "none")
+                if (pagingLink.GetCssValue("display") == "none")
                 {
                     continue;
                 }
@@ -236,14 +238,14 @@
                 IWebElement spanTag = null;
                 try
                 {
-                    spanTag  = pagingLink.FindElement(By.TagName("span"));
+                    spanTag = pagingLink.FindElement(By.TagName("span"));
                 }
                 catch (NoSuchElementException)
                 {
                     continue;
                 }
-               
-                if(spanTag == null)
+
+                if (spanTag == null)
                 {
                     continue;
                 }
@@ -256,7 +258,7 @@
                 nextLink = pagingLink;
                 break;
             }
-            
+
             if (nextLink != null)
             {
                 nextLink.Click();
@@ -276,15 +278,15 @@
 
             var containerElements = Driver._driver.FindElements(By.ClassName("selectdataset-item-name"));
             IWebElement firstSelectSourceDatasetRadio = containerElements.FirstOrDefault();
-                
-                if (firstSelectSourceDatasetRadio != null)
-                {
-                    firstSelectSourceDatasetRadio.Click();
-                }
-                else
-                {
-                    firstSelectSourceDatasetRadio.Should().NotBeNull("Unable to find source dataset option");
-                }
+
+            if (firstSelectSourceDatasetRadio != null)
+            {
+                firstSelectSourceDatasetRadio.Click();
+            }
+            else
+            {
+                firstSelectSourceDatasetRadio.Should().NotBeNull("Unable to find source dataset option");
+            }
         }
 
         public static void SelectNewSourceDatasetsRadioOption()
@@ -527,6 +529,77 @@
             else
             {
                 SelectFirstSpec.Should().NotBeNull("No specification was successfully selected");
+            }
+        }
+
+        public static void SelectManageDataPageDataSourceDownloadoption()
+        {
+            ManageDatasetsPage managedatasetpage = new ManageDatasetsPage();
+
+            var containerElements = managedatasetpage.manageDatasetsListView;
+            IWebElement SelectFirstDownloadlink = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains("Download"))
+                        {
+
+                            SelectFirstDownloadlink = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstDownloadlink != null)
+                {
+                    var downloadurl = SelectFirstDownloadlink.GetAttribute("href");
+                    downloadurl.Should().NotBeNullOrWhiteSpace();
+
+                    HttpClientHandler httpClientHandler = new HttpClientHandler();
+                    httpClientHandler.AllowAutoRedirect = false;
+                    Uri redirectedBlobUrl;
+
+                    using (HttpClient client = new HttpClient(httpClientHandler))
+                    {
+                        client.BaseAddress = new Uri(Config.BaseURL);
+
+                        HttpResponseMessage response = client.GetAsync(downloadurl).Result;
+                        response.Should().NotBeNull();
+                        response.StatusCode.Should().Be(HttpStatusCode.Redirect);
+
+                        redirectedBlobUrl = response.Headers.Location;
+                        redirectedBlobUrl.AbsoluteUri.Should().NotBeNullOrWhiteSpace();
+                        Console.WriteLine("Redirected blob URL: {0}", redirectedBlobUrl);
+                    }
+
+                    using (HttpClient client = new HttpClient())
+                    {
+                        HttpResponseMessage downloadFileResponse = client.GetAsync(redirectedBlobUrl.AbsoluteUri).Result;
+
+                        downloadFileResponse.Should().NotBeNull();
+                        downloadFileResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+
+                        IEnumerable<string> filenameHeaders;
+                        downloadFileResponse.Headers.TryGetValues("x-ms-meta-filename", out filenameHeaders);
+                        string filename = filenameHeaders.FirstOrDefault();
+
+                        Console.WriteLine("File downloaded successfully. Filename = {0}", filename);
+                    }
+                }
+                else
+                {
+                    SelectFirstDownloadlink.Should().NotBeNull("No Download link could be successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstDownloadlink.Should().NotBeNull("No Download link could be successfully selected");
             }
         }
 

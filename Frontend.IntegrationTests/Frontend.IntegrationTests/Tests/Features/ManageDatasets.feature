@@ -264,3 +264,19 @@ When I click the Select source datasets Save button
 Then The change is saved
 And I redirected to the Specification data relationships page
 And the Specification data relationships page displayed a confirmation message for the change
+
+@Workitem:47000 Driver
+Scenario: Verify Manage data sources Download data source option
+Given I have navigated to the Manage Datasets page
+Then the page displays a list view of all data sets that have been uploaded
+And My list is in descending order from the most recent dataset
+And an option to download the datasource is displayed
+
+@Workitem:47000 Driver
+Scenario: Select the Download data source option on the Manage data sources page
+Given I have navigated to the Manage Datasets page
+And The page displays a list view of all data sets that have been uploaded
+And An option to download the datasource is displayed
+When I click the Download link for a Data Source
+Then The Download reddirect URL from Blog storage is correctly genrated
+And The HTTP Status Code is reurned as OK
