@@ -5,6 +5,7 @@ using FluentAssertions;
 using Frontend.IntegrationTests.Helpers;
 using Frontend.IntegrationTests.Pages;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
+using Frontend.IntegrationTests.Create;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 //using OpenQA.Selenium.PhantomJS;
@@ -12,6 +13,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Bindings;
+using System.Collections.Generic;
 
 namespace Frontend.IntegrationTests.Tests.Steps
 {
@@ -565,7 +567,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         [When(@"I choose a Policy from the dropdown")]
         public void WhenIChooseAPolicyFromTheDropdown()
-        {            
+        {
             Actions.SelectPolicyForSubPolicyCreationDropdownOption();
             createsubpolicypage.SubPolicyDescription.Click();
             Thread.Sleep(2000);
@@ -678,6 +680,105 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             Assert.IsNotNull(createsubpolicypage.SubPolicyMissingPolicyErrorText.Text);
             Thread.Sleep(2000);
+        }
+
+        [Given(@"I have created a new specification")]
+        public void GivenIHaveCreatedANewSpecification()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            Thread.Sleep(2000);
+        }
+
+        [Given(@"redirected to the Manage Specificaiton Page")]
+        public void GivenRedirectedToTheManageSpecificaitonPage()
+        {
+            managepoliciespage.datasetsTab.Should().NotBeNull();
+            managepoliciespage.datasetsTab.Displayed.Should().BeTrue();
+        }
+
+        [When(@"I choose to view the datasets tab")]
+        public void WhenIChooseToViewTheDatasetsTab()
+        {
+            managepoliciespage.datasetsTab.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"No alert about provider datasets is displayed")]
+        public void ThenNoAlertAboutProviderDatasetsIsDisplayed()
+        {
+            var providerwarning = Driver._driver.FindElements(By.CssSelector(".provider-datasets-warning-container"));
+
+            if (providerwarning.Count > 0)
+            {
+                Console.WriteLine("Provider Data Warning Message is Displayed in Error");
+            }
+            else
+            {
+                Console.WriteLine("Provider Data Warning Message is Not Displayed");
+            }
+        }
+
+
+        [When(@"I choose to create a new dataset without setting as Provider Data")]
+        public void WhenIChooseToCreateANewDatasetWithoutSettingAsProviderData()
+        {
+            ManageSpecificationCreateNewDataset.CreateANewDataset();
+        }
+
+        [When(@"I am redirected to the DataSet page")]
+        public void WhenIAmRedirectedToTheDataSetPage()
+        {
+            managepoliciespage.datasetsTab.Should().NotBeNull();
+        }
+
+        [Then(@"the new dataset has been saved and displayed correctly")]
+        public void ThenTheNewDatasetHasBeenSavedAndDisplayedCorrectly()
+        {
+            var datasetName = ScenarioContext.Current["DatasetSchemaName"];
+            string datasetCreated = datasetName.ToString();
+            var datasetelements = Driver._driver.FindElements(By.CssSelector(".view-dataset .datasetschemaassigned-list-title-container span"));
+            IWebElement createddataset = null;
+            foreach (var element in datasetelements)
+            {
+                if (element.Text.Contains(datasetCreated))
+                {
+                    {
+                        createddataset = element;
+                        break;
+                    }
+                }
+
+            }
+
+            Thread.Sleep(1000);
+            if (createddataset != null)
+            {
+                Console.WriteLine("The New Dataset " + datasetCreated + " was Saved correctly");
+            }
+            else
+            {
+                createddataset.Should().NotBeNull("Unable to find dataset " + datasetCreated + " within the list view");
+            }
+
+            Thread.Sleep(1000);
+
+        }
+
+
+        [Then(@"An Alert that No dataset has been set as provider data should be displayed")]
+        public void ThenAnAlertThatNoDatasetHasBeenSetAsProviderDataShouldBeDisplayed()
+        {
+            IWebElement datasetwarning = managepoliciespage.providerdatasetswarningcontainer;
+            datasetwarning.Should().NotBeNull();
+            string datasetwraningtext = datasetwarning.Text;
+            Console.WriteLine("The following Dataset Warning Message was displayed " + datasetwraningtext);
+
+        }
+
+        [When(@"I choose to create a new dataset set as Provider Data")]
+        public void WhenIChooseToCreateANewDatasetSetAsProviderData()
+        {
+            ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
         }
 
 

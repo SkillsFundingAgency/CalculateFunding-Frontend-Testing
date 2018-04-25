@@ -82,6 +82,8 @@
     <Compile Include="Actions.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Create\CreateNewSpecification.cs" />
+    <Compile Include="Create\ManageSpecificationCreateNewDataset.cs" />
+    <Compile Include="Create\ManageSpecificationCreateNewProviderDataset.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Helpers\TestDataUtils.cs" />
     <Compile Include="NavigateTo.cs" />

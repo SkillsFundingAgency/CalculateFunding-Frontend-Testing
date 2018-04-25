@@ -33,7 +33,7 @@
             NavigateTo.CreatetheSpecfication();
             Assert.IsNotNull(createcalculationpage.CalculationName);
             Thread.Sleep(2000);
-            var randomSpecName = newname + TestDataUtils.RandomString(4);
+            var randomSpecName = newname + TestDataUtils.RandomString(6);
             ScenarioContext.Current["SpecificationName"] = randomSpecName;
             createspecificationpage.SpecName.SendKeys(randomSpecName);
             createspecificationpage.SpecDescription.SendKeys(descriptiontext);
@@ -46,6 +46,7 @@
             Assert.IsNotNull(managespecficationpage.SelectYear);
             var specName = ScenarioContext.Current["SpecificationName"];
             string specCreated = specName.ToString();
+            Console.WriteLine(specCreated + " has been created successfully");
             Driver._driver.FindElement(By.LinkText(specCreated)).Click();
             Thread.Sleep(1000);
 
