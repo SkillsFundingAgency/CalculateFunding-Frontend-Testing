@@ -36,6 +36,12 @@ And I am presented a filter option to select ONE or MORE allocation lines
 And the filters are defaulted to show all calculations that are specified
 
 @Workitem:36090 Driver
+Scenario: Verify the Calculations Results Displayed on the Calculations Page
+Given I have navigated to the Manage Calculations page
+Then I am presented with a list of Calculation results
+And the appropriate information is displayed for each calculation
+
+@Workitem:36090 Driver
 Scenario: Select to Filter the Calculations Page by Academic Year
 Given I have navigated to the Manage Calculations page
 And the filters are defaulted to show all calculations that are specified
@@ -115,7 +121,6 @@ Then The Name of the specification is displayed
 And The Description of the specification is displayed
 And The Build Calculation button is disabled
 And The Save Calculation button is disabled
-And The Publish Calculation button is disabled
 
 @Workitem:35457 Driver
 Scenario: Edit and Build the Calculation Visual Basic Code

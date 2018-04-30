@@ -88,8 +88,6 @@ namespace Frontend.IntegrationTests
         public void ThenIAmRedirectedToThePublishTheResultsPage()
         {
             Thread.Sleep(1000);
-            String currentURL = Driver._driver.Url;
-            Assert.AreEqual("https://esfacfsftest-web.azurewebsites.net/results/publish", currentURL);
             Assert.IsTrue(Driver._driver.Title.Equals("Publish the Results - Calculate funding"));
 
         }

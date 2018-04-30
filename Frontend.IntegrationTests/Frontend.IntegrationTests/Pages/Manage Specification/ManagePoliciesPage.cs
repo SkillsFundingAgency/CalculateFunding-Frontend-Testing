@@ -47,7 +47,10 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.LinkText, Using = "No datasets exist, create a dataset")]
         public IWebElement datasetsTabNoDatasetsExistLink { get; set; }
 
-        
+        [FindsBy(How = How.CssSelector, Using = ".provider-datasets-warning-container")]
+        public IWebElement providerdatasetswarningcontainer { get; set; }
+
+
 
     }
 }

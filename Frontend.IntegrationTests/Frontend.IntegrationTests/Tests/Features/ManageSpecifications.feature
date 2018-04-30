@@ -5,67 +5,67 @@
 
 @Workitem:35394 Driver
 Scenario: View Current list of Specifications
-	Given I have successfully navigated to the Home Page
-	When I select Specifications
-	Then I am redirected to the Manage Specification page
-	And The Default Specification Year is displayed correctly
-	And A list of Specifications is displayed for the default year
+Given I have successfully navigated to the Home Page
+When I select Specifications
+Then I am redirected to the Manage Specification page
+And The Default Specification Year is displayed correctly
+And A list of Specifications is displayed for the default year
 
 @Workitem:35394 Driver
 Scenario: Change Current list of Specifications by Year
-	Given I have successfully navigated to the Manage Specification Page
-	When I change the Select A Year drop down to a different year
-	Then the list of specifications refreshes to display the selected years specifications
+Given I have successfully navigated to the Manage Specification Page
+When I change the Select A Year drop down to a different year
+Then the list of specifications refreshes to display the selected years specifications
 
 @Workitem:35394 Driver
 Scenario: No Specifications for a given Year
-	Given I have successfully navigated to the Manage Specification Page
-	When I change the Select A Year drop down to a different year
-	And The selected Year has no specifications
-	Then the list of specifications refreshes to display no visable specifications
+Given I have successfully navigated to the Manage Specification Page
+When I change the Select A Year drop down to a different year
+And The selected Year has no specifications
+Then the list of specifications refreshes to display no visable specifications
 
 @Workitem:35384 Driver
 Scenario: Select to Create a New Specifications for a given Year
-	Given I have successfully navigated to the Manage Specification Page
-	And I have selected an academic year
-	When I click on the Create a Specification Button
-	Then I am redirected to the Create Specification Page
+Given I have successfully navigated to the Manage Specification Page
+And I have selected an academic year
+When I click on the Create a Specification Button
+Then I am redirected to the Create Specification Page
 
 @Workitem:35384 Driver
 Scenario: Create and Save a new Specification
-	Given I have successfully navigated to the Create Specification Page
-	When I enter a Name
-	And I enter a Description
-	And I choose a specification Funding Stream
-	And I click the Save button
-	Then I am redirected to the Manage Specification Page
-	And My new specification is correctly listed
-	And A Full Audit record is created
+Given I have successfully navigated to the Create Specification Page
+When I enter a Name
+And I enter a Description
+And I choose a specification Funding Stream
+And I click the Save button
+Then I am redirected to the Manage Specification Page
+And My new specification is correctly listed
+And A Full Audit record is created
 
 @Workitem:35384 Driver
 Scenario: Create and Cancel a new Specification
-	Given I have successfully navigated to the Create Specification Page
-	When I enter a Name
-	And I enter a Description
-	And I choose a specification Funding Stream
-	And I click the Cancel button
-	Then I am redirected to the Manage Specification Page
+Given I have successfully navigated to the Create Specification Page
+When I enter a Name
+And I enter a Description
+And I choose a specification Funding Stream
+And I click the Cancel button
+Then I am redirected to the Manage Specification Page
 
 @Workitem:35384 Driver
 Scenario: Create a new Specification with an Existing Specification Name
-	Given I have successfully navigated to the Create Specification Page
-	When I enter an Existing Specification Name
-	And I enter a Description
-	And I choose a specification Funding Stream
-	And I click the Save button
-	Then A Unique Specification Name Error is Displayed
+Given I have successfully navigated to the Create Specification Page
+When I enter an Existing Specification Name
+And I enter a Description
+And I choose a specification Funding Stream
+And I click the Save button
+Then A Unique Specification Name Error is Displayed
 
 @Workitem:35384 Driver
 Scenario Outline: Create and Save an incomplete Specification
-	Given I have successfully navigated to the Create Specification Page
-	And I have missed the field <name> and <funding> and <description>
-	When I click the Save button
-	Then the following Specification Error should be displayed for FieldName '<SpecFieldName>' and '<error>'
+Given I have successfully navigated to the Create Specification Page
+And I have missed the field <name> and <funding> and <description>
+When I click the Save button
+Then the following Specification Error should be displayed for FieldName '<SpecFieldName>' and '<error>'
 
 Examples: 
 	 | SpecFieldName			| name         | funding | description           | error											 |
@@ -75,49 +75,50 @@ Examples:
 
 @Workitem:35397 Driver
 Scenario: View Current List of Policies
-	Given I have successfully navigated to the Manage Specification Page
-	When I click to view an existing Specification
-	Then I am redirected to the Manage Policies Page
-	And A list of Policies is displayed
+Given I have successfully navigated to the Manage Specification Page
+When I click to view an existing Specification
+Then I am redirected to the Manage Policies Page
+And A list of Policies is displayed
 
 @Workitem:35397 Driver
 Scenario: Select to Create a New Policy
-	Given I have successfully navigated to the Manage Policies Page
-	When I click on the Create Policy Button
-	Then I am redirected to the Create Policy Page
+Given I have successfully navigated to the Manage Policies Page
+When I click on the Create Policy Button
+Then I am redirected to the Create Policy Page
 	
 @Workitem:35397 Driver
 Scenario: Create and Save a new Policy
-	Given I have successfully navigated to the Create Policy Page
-	When I enter a Policy Name
-	And I enter a Policy Description
-	And I click the Save Policy button
-	Then I am redirected to the Manage Policies Page
-	And My new policy is correctly listed
-	And A Full Audit record is created
+Given I have successfully navigated to the Create Policy Page
+When I enter a Policy Name
+And I enter a Policy Description
+And I click the Save Policy button
+Then I am redirected to the Manage Policies Page
+And My new policy is correctly listed
+And A Full Audit record is created
 
 @Workitem:35397 Driver
 Scenario: Create and Cancel a new Policy
-	Given I have successfully navigated to the Create Policy Page
-	When I enter a Policy Name
-	And I enter a Policy Description
-	And I click the Cancel Policy Button
-	Then I am redirected to the Manage Policies Page
+Given I have successfully navigated to the Create Policy Page
+When I enter a Policy Name
+And I enter a Policy Description
+And I click the Cancel Policy Button
+Then I am redirected to the Manage Policies Page
+
 
 @Workitem:35397 Driver
 Scenario: Create and Save a new Policy with an Existing Specification Name
-	Given I have successfully navigated to the Create Policy Page
-	When I enter a Policy Name
-	And I enter a Policy Description
-	And I click the Save Policy button
-	Then A Unique Policy Name Error is Displayed
+Given I have successfully navigated to the Create Policy Page
+When I enter an existing Policy Name
+And I enter a Policy Description
+And I click the Save Policy button
+Then A Unique Policy Name Error is Displayed
 
 @Workitem:35397 Driver
 Scenario Outline: Create and Save an incomplete Policy
-	Given I have successfully navigated to the Create Policy Page
-	And I have missed the policy field <name> and <description>
-	When I click the Save Policy button
-	Then the following Policy Error should be displayed for FieldName '<policyfieldname>' and '<policyerror>'
+Given I have successfully navigated to the Create Policy Page
+And I have missed the policy field <name> and <description>
+When I click the Save Policy button
+Then the following Policy Error should be displayed for FieldName '<policyfieldname>' and '<policyerror>'
 
 	Examples: 
 	 | policyfieldname     | name        | description           | policyerror                                |
@@ -126,110 +127,173 @@ Scenario Outline: Create and Save an incomplete Policy
 
 @Workitem:35401 Driver
 Scenario: Select to Create Calculation Specification
-	Given I have successfully navigated to the Manage Policies Page
-	When I click the Create calculation specification
-	Then I am redirected to the Create Calculation Specification for Policy Page
+Given I have successfully navigated to the Manage Policies Page
+When I click the Create calculation specification
+Then I am redirected to the Create Calculation Specification for Policy Page
 
-@Workitem:35401 Driver
-Scenario: Create and Save a new Calculation Specification
-	Given I have successfully navigated to the Create Calculation Specification for Policy Page
-	When I enter a Calculation Name
-	And I choose a Policy or sub policy
-	And I choose an Allocation Line
-	And I enter a Calculation Description
-	And I click the Save Calculation button
-	Then I am redirected to the Manage Policies Page
-	And My new Calculation is correctly listed
-	And A Full Audit record is created
-
-@Workitem:35401 Driver
-Scenario: Create and Cancel a new Calculation Specification
-	Given I have successfully navigated to the Create Calculation Specification for Policy Page
-	When I enter a Calculation Name
-	And I choose a Policy or sub policy
-	And I choose an Allocation Line
-	And I enter a Calculation Description
-	And I click the Cancel Calculation button
-	Then I am redirected to the Manage Policies Page
-
-@Workitem:35401 Driver
-Scenario: Create and Save a new Calculation Specification with an Existing Name
-	Given I have successfully navigated to the Create Calculation Specification for Policy Page
-	When I enter a Calculation Name
-	And I choose a Policy or sub policy
-	And I choose an Allocation Line
-	And I enter a Calculation Description
-	And I click the Save Calculation button
-	Then A Unique Calculation Name Error is Displayed
-
-@Workitem:35401 Driver
-Scenario Outline: Create and Save an incomplete Calculation Specification
-	Given I have successfully navigated to the Create Calculation Specification for Policy Page
-	And I have missed the calculation field <name> and <policy> and <allocation> and <description>
-	When I click the Save Calculation button
-	Then the following Calculation Error should be displayed for FieldName '<CalculationFieldname>' and '<calcerror>'
-
-Examples: 
-	 | CalculationFieldname   | name | policy      | allocation      | description | calcerror                                       |
-	 | MissingCalcName        |      | Test Spec03 | DSG Allocations | Error1      | You must give a unique calculation name         |
-	 | MissingCalcPolicy      | Test |             | DSG Allocations | Error2      | You must select a policy or subpolicy           |
-	 | MissingCalcDescription | Test | Test Spec03 | DSG Allocations |			   | You must give a description for the calculation |
-
-@Workitem:35402 Driver
-Scenario: Select to Create a Sub Policy
-	Given I have successfully navigated to the Manage Policies Page
-	When I click the select Create sub policy
-	Then I am redirected to the Create a Sub Policy Page
-
-@Workitem:35402 Driver
-Scenario: Create and Save a new Sub Policy
-	Given I have successfully navigated to the Create Sub Policy Page
-	When I enter a Sub Policy Name
-	And I choose a Policy from the dropdown
-	And I enter a Sub Policy Description
-	And I click the Save Sub Policy button
-	Then I am redirected to the Manage Policies Page
-	And the new Sub Policy is correctly listed
-	And A Full Audit record is created
-
-@Workitem:35402 Driver
-Scenario: Create and Cancel a new Sub Policy
-	Given I have successfully navigated to the Create Sub Policy Page
-	When I enter a Sub Policy Name
-	And I choose a Policy from the dropdown
-	And I enter a Sub Policy Description
-	And I click the Cancel Sub Policy button
-	Then I am redirected to the Manage Specification Page
-
-@Workitem:35402 Driver
-Scenario: Create and Save a new Sub Policy with an Existing Name
-	Given I have successfully navigated to the Create Sub Policy Page
-	When I enter a Sub Policy Name
-	And I choose a Policy from the dropdown
-	And I enter a Sub Policy Description
-	And I click the Save Sub Policy button
-	Then A Unique Sub Policy Name Error is Displayed
-
-@Workitem:35402 Driver
-Scenario Outline: Create and Save an incomplete Sub Policy
-	Given I have successfully navigated to the Create Sub Policy Page
-	And  And I have missed the Sub Policy field <name> and <policy> and <description>
-	When I click the Save Sub Policy button
-	Then the following Sub Policy Error should be displayed for FieldName '<SubPolicyFieldname>' and '<subpolicyerror>'
-
-Examples: 
-	 | SubPolicyFieldname			| name         | policy			 | description | subpolicyerror									|
-	 | SubPolicyNameMissing			|              | Test Spec03	 | Description | You must give a unique policy name				|
-	 | SubPolicyPolicyMissing		| Test Spec 02 |				 | Description | You must select a policy						|
-     | SubPolicyDescriptionMissing	| Test Spec 03 | Test Spec03	 |			   | You must give a description for the subpolicy	|
-
-
-@Workitem:40075 Driver
-Scenario: Create and Save a new Calculation Specification without selecting an Allocation Line
+@Workitem:35401, 40012 Driver
+Scenario: Create and Save a new Calculation Specification with Calculation Type Funding
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
 When I enter a Calculation Name
 And I choose a Policy or sub policy
+And I choose funding calculation type
+And I choose an Allocation Line
 And I enter a Calculation Description
 And I click the Save Calculation button
 Then I am redirected to the Manage Policies Page
 And My new Calculation is correctly listed
+And A Full Audit record is created
+
+@Workitem:35401, 40012 Driver
+Scenario: Create and Save a new Calculation Specification with Calculation Type Number
+Given I have successfully navigated to the Create Calculation Specification for Policy Page
+When I enter a Calculation Name
+And I choose a Policy or sub policy
+And I choose Number calculation type
+And I enter a Calculation Description
+And I click the Save Calculation button
+Then I am redirected to the Manage Policies Page
+And My new Calculation is correctly listed
+And A Full Audit record is created
+
+@Workitem:35401, 40012 Driver
+Scenario: Create and Cancel a new Calculation Specification
+Given I have successfully navigated to the Create Calculation Specification for Policy Page
+When I enter a Calculation Name
+And I choose a Policy or sub policy
+And I choose funding calculation type
+And I choose an Allocation Line
+And I enter a Calculation Description
+And I click the Cancel Calculation button
+Then I am redirected to the Manage Policies Page
+
+@Workitem:35401, 40012 Driver
+Scenario: Create and Save a new Calculation Specification with an Existing Name
+Given I have successfully navigated to the Create Calculation Specification for Policy Page
+When I enter an Existing Calculation Name
+And I choose a Policy or sub policy
+And I choose funding calculation type
+And I choose an Allocation Line
+And I enter a Calculation Description
+And I click the Save Calculation button
+Then A Unique Calculation Name Error is Displayed
+
+@Workitem:35401, 40012 Driver
+Scenario: Create and Save a new Calculation Specification without selecting a Calc Type
+Given I have successfully navigated to the Create Calculation Specification for Policy Page
+When I enter an Existing Calculation Name
+And I choose a Policy or sub policy
+And I enter a Calculation Description
+And I click the Save Calculation button
+Then A Calculation Type Error is Displayed
+
+
+@Workitem:35401, 40012 Driver
+Scenario Outline: Create and Save an incomplete Calculation Specification
+Given I have successfully navigated to the Create Calculation Specification for Policy Page
+And I have missed the calculation field <name> and <policy> and <type> and <allocation> and <description>
+When I click the Save Calculation button
+Then the following Calculation Error should be displayed for FieldName '<CalculationFieldname>' and '<calcerror>'
+
+Examples: 
+	 | CalculationFieldname   | name	| policy      | type    | allocation	  | description  | calcerror									   |
+	 | MissingCalcName		  |			| Test Spec03 | Funding | DSG Allocations | Error1       | You must give a unique calculation name         |
+	 | MissingCalcPolicy      | TestXYZ |             | Funding | DSG Allocations | Error2       | You must select a policy or subpolicy           |
+	 | MissingCalcDescription | TestXYZ	| Test Spec03 | Funding | DSG Allocations |				 | You must give a description for the calculation |
+	 | MissingCalcName		  |			| Test Spec03 | Number	|				  | Error1       | You must give a unique calculation name         |
+	 | MissingCalcPolicy      | TestXYZ	|             | Number	|				  | Error2       | You must select a policy or subpolicy           |
+	 | MissingCalcDescription | TestXYZ	| Test Spec03 | Number	|				  |				 | You must give a description for the calculation |
+
+@Workitem:35402 Driver
+Scenario: Select to Create a Sub Policy
+Given I have successfully navigated to the Manage Policies Page
+When I click the select Create sub policy
+Then I am redirected to the Create a Sub Policy Page
+
+@Workitem:35402 Driver
+Scenario: Create and Save a new Sub Policy
+Given I have successfully navigated to the Create Sub Policy Page
+When I enter a Sub Policy Name
+And I choose a Policy from the dropdown
+And I enter a Sub Policy Description
+And I click the Save Sub Policy button
+Then I am redirected to the Manage Policies Page
+And the new Sub Policy is correctly listed
+And A Full Audit record is created
+
+@Workitem:35402 Driver
+Scenario: Create and Cancel a new Sub Policy
+Given I have successfully navigated to the Create Sub Policy Page
+When I enter a Sub Policy Name
+And I choose a Policy from the dropdown
+And I enter a Sub Policy Description
+And I click the Cancel Sub Policy button
+Then I am redirected to the Manage Specification Page
+
+@Workitem:35402 Driver
+Scenario: Create and Save a new Sub Policy with an Existing Name
+Given I have successfully navigated to the Create Sub Policy Page
+When I enter a Sub Policy Name that already exists
+And I choose a Policy from the dropdown
+And I enter a Sub Policy Description
+And I click the Save Sub Policy button
+Then A Unique Sub Policy Name Error is Displayed
+
+@Workitem:35402 Driver
+Scenario Outline: Create and Save an incomplete Sub Policy
+Given I have successfully navigated to the Create Sub Policy Page
+And  And I have missed the Sub Policy field <name> and <description>
+And I choose a Policy from the dropdown
+When I click the Save Sub Policy button
+Then the following Sub Policy Error should be displayed for FieldName '<SubPolicyFieldname>' and '<subpolicyerror>'
+
+Examples: 
+	 | SubPolicyFieldname			| name         | description | subpolicyerror									|
+	 | SubPolicyNameMissing			|              | Description | You must give a unique policy name				|
+     | SubPolicyDescriptionMissing	| Test Spec 03 |	         | You must give a description for the subpolicy	|
+	 
+@Workitem:35402 Driver
+Scenario: Create and Save an incomplete Sub Policy without selecting a Policy
+Given I have successfully navigated to the Create Sub Policy Page
+When I enter a Sub Policy Name
+And I enter a Sub Policy Description
+And I click the Save Sub Policy button
+Then a Sub Policy Missing Policy Error should be displayed
+
+@Workitem:40075, 40012 Driver
+Scenario: Create and Save a new Calculation Specification without selecting an Allocation Line
+Given I have successfully navigated to the Create Calculation Specification for Policy Page
+When I enter a Calculation Name
+And I choose a Policy or sub policy
+And I choose Number calculation type
+And I enter a Calculation Description
+And I click the Save Calculation button
+Then I am redirected to the Manage Policies Page
+And My new Calculation is correctly listed
+
+@Workitem:40032 Driver
+Scenario: Create a New Specification and no alert about provider datasets is displayed
+Given I have created a new specification
+And redirected to the Manage Specificaiton Page
+When I choose to view the datasets tab
+Then No alert about provider datasets is displayed
+
+@Workitem:40032 Driver
+Scenario: Create a New Specification and Dataset without marking as provider data should display an Alert
+Given I have created a new specification
+And redirected to the Manage Specificaiton Page
+When I choose to view the datasets tab
+And I choose to create a new dataset without setting as Provider Data
+And I am redirected to the DataSet page
+Then the new dataset has been saved and displayed correctly
+And An Alert that No dataset has been set as provider data should be displayed
+
+@Workitem:40032 Driver
+Scenario: Create a New Specification and New Dataset marked as provider data set should not display an Alert
+Given I have created a new specification
+And redirected to the Manage Specificaiton Page
+When I choose to view the datasets tab
+And I choose to create a new dataset set as Provider Data
+And I am redirected to the DataSet page
+Then the new dataset has been saved and displayed correctly
+And No alert about provider datasets is displayed

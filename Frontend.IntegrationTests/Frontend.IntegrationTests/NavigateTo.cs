@@ -184,8 +184,11 @@ namespace Frontend.IntegrationTests
         {
             HomePage homepage = new HomePage();
             ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+            ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
 
             homepage.ViewtheResults.Click();
+            viewresultsoptionspage.viewResultsOptionsViewProviderResults.Click();
+            Thread.Sleep(2000);
             IWebElement providerresultslistcontainer = viewproviderresultspage.providerResultspageResultListContainer;
             IWebElement providernamelink = providerresultslistcontainer.FindElement(By.TagName("a"));
             providernamelink.Should().NotBeNull();
@@ -311,6 +314,16 @@ namespace Frontend.IntegrationTests
             Thread.Sleep(2000);
             testscenariolistpage.testScenarioPageCreateQATestButton.Click();
             Thread.Sleep(2000);
+        }
+
+        public static void ViewQATestResults()
+        {
+            HomePage homepage = new HomePage();
+            ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
+           
+            homepage.ViewtheResults.Click();
+            viewresultsoptionspage.viewResultsOptionsViewQATestResults.Click();
+            Thread.Sleep(20000);
         }
     }
 }

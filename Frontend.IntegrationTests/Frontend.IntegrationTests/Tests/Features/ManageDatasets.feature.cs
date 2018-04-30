@@ -998,6 +998,58 @@ testRunner.And("the Specification data relationships page displayed a confirmati
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify Manage data sources Download data source option")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(47000)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyManageDataSourcesDownloadDataSourceOption()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Manage data sources Download data source option", new string[] {
+                        "Workitem:47000",
+                        "Driver"});
+#line 269
+this.ScenarioSetup(scenarioInfo);
+#line 270
+testRunner.Given("I have navigated to the Manage Datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 271
+testRunner.Then("the page displays a list view of all data sets that have been uploaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 272
+testRunner.And("My list is in descending order from the most recent dataset", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 273
+testRunner.And("an option to download the datasource is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Download data source option on the Manage data sources page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(47000)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectTheDownloadDataSourceOptionOnTheManageDataSourcesPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the Download data source option on the Manage data sources page", new string[] {
+                        "Workitem:47000",
+                        "Driver"});
+#line 276
+this.ScenarioSetup(scenarioInfo);
+#line 277
+testRunner.Given("I have navigated to the Manage Datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 278
+testRunner.And("The page displays a list view of all data sets that have been uploaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 279
+testRunner.And("An option to download the datasource is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 280
+testRunner.When("I click the Download link for a Data Source", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 281
+testRunner.Then("The Download reddirect URL from Blog storage is correctly genrated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 282
+testRunner.And("The HTTP Status Code is reurned as OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -5,6 +5,7 @@ using System.Threading;
 using AutoFramework;
 using FluentAssertions;
 using Frontend.IntegrationTests.Create;
+using Frontend.IntegrationTests.Helpers;
 using Frontend.IntegrationTests.Pages.Manage_Datasets;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
 using Frontend.IntegrationTests.Pages.Quality_Assurance;
@@ -22,7 +23,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         TestScenarioListPage testscenariolistpage = new TestScenarioListPage();
         CreateQATestPage createqatestpage = new CreateQATestPage();
 
-        public string qatestname = "QA Test RW0001";
+        public string qatestname = "QA Test RW ";
         public string qatestdescription = "This is a QA Test Description";
         public string testgherkingiven = "Given the field 'UPIN' in the dataset 'AB Test Dataset 2403-01-001' is equal to 12";
         public string testgherkinand = "And the provider is '105154'";
@@ -218,8 +219,10 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I have entered a Test Name for my QA Test")]
         public void WhenIHaveEnteredATestNameForMyQATest()
         {
+            var randomQATestName = qatestname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["QATestName"] = randomQATestName;
             createqatestpage.createQATestName.Click();
-            createqatestpage.createQATestName.SendKeys(qatestname);
+            createqatestpage.createQATestName.SendKeys(randomQATestName);
         }
 
         [When(@"I have entered a description for my QA Test")]
@@ -235,7 +238,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             createqatestpage.createQATestBuildMonacoEditorTextbox.Should().NotBeNull();
             createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys("This is Test Code");
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
         }
 
         [Then(@"the Valiadate QA Test Button should be Enabled")]
@@ -276,7 +279,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             createqatestpage.createQATestSelectSpecification.Click();
             createqatestpage.createQATestSelectSpecification.SendKeys("Y");
             createqatestpage.createQATestName.Click();
-            createqatestpage.createQATestName.SendKeys(qatestname);
+            createqatestpage.createQATestName.SendKeys(qatestname + TestDataUtils.RandomString(6));
             createqatestpage.createQATestDescription.Click();
             createqatestpage.createQATestDescription.SendKeys(qatestdescription);
             Thread.Sleep(2000);
@@ -327,10 +330,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I have choosen a specific specification my code will validate against")]
         public void WhenIHaveChoosenASpecificSpecificationMyCodeWillValidateAgainst()
         {
-            createqatestpage.createQATestSelectSpecification.Click();
-            var selectSpec = createqatestpage.createQATestSelectSpecification;
-            var selectElement = new SelectElement(selectSpec);
-            selectElement.SelectByText("AB Test 2403-002");
+            Actions.SelectQATestSpecificationDropdownOption();
+            createqatestpage.createQATestDescription.Click();
             Thread.Sleep(2000);
         }
 
@@ -345,7 +346,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(testgherkinthen);
             createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Enter);
 
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
         }
 
         [Then(@"I am notified my test scenario has validated successfully")]
@@ -392,13 +393,37 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"I am notified that my test has saved successfully")]
         public void ThenIAmNotifiedThatMyTestHasSavedSuccessfully()
         {
-
+            
         }
 
         [Then(@"my test is visible in the list view")]
         public void ThenMyTestIsVisibleInTheListView()
         {
+            var testName = ScenarioContext.Current["QATestName"];
+            string qaTestCreated = testName.ToString();
+            var qatestelements = Driver._driver.FindElements(By.CssSelector("div.test-scenario-searchresult-container:nth-child(3)"));
+            IWebElement createdqatest = null;
+            foreach (var element in qatestelements)
+            {
+                if (element.Text.Contains(qaTestCreated))
+                {
+                    {
+                        createdqatest = element;
+                        break;
+                    }
+                }
 
+            }
+
+            Thread.Sleep(1000);
+            if (createdqatest != null)
+            {
+                Console.WriteLine("The QA Test " + qaTestCreated + " was Saved correctly");
+            }
+            else
+            {
+                createdqatest.Should().NotBeNull("Unable to find the QA Test " + qaTestCreated + " within the list view");
+            }
         }
 
 

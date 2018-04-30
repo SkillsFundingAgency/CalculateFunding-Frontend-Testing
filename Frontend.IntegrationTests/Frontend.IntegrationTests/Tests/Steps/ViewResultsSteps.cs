@@ -21,6 +21,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
         ViewProviderAllocationsPage viewproviderallocationspage = new ViewProviderAllocationsPage();
         ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
+        ViewQATestResultsPage viewqatestresultspage = new ViewQATestResultsPage();
 
         public string searchtext = "Primary";
 
@@ -178,7 +179,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             viewproviderresultspage.providerResultsPagePreviousSetPagination.Should().NotBeNull();
             viewproviderresultspage.providerResultsPagePreviousSetPagination.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
         }
 
         [Then(@"my list view displays the previous (.*) results")]
@@ -559,6 +560,243 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
+
+        [Then(@"I am presented the View Results landing page")]
+        public void ThenIAmPresentedTheViewResultsLandingPage()
+        {
+            Thread.Sleep(2000);
+            viewresultsoptionspage.viewResultsOptionsViewCalculationResults.Should().NotBeNull();
+            viewresultsoptionspage.viewResultsOptionsViewProviderResults.Should().NotBeNull();
+            viewresultsoptionspage.viewResultsOptionsViewQATestResults.Should().NotBeNull();
+        }
+
+        [Then(@"An option is displayed view the View provider results page")]
+        public void ThenAnOptionIsDisplayedViewTheViewProviderResultsPage()
+        {
+            viewresultsoptionspage.viewResultsOptionsViewProviderResults.Displayed.Should().BeTrue();
+        }
+
+        [Then(@"An option is displayed view the View QA test results page")]
+        public void ThenAnOptionIsDisplayedViewTheViewQATestResultsPage()
+        {
+            viewresultsoptionspage.viewResultsOptionsViewQATestResults.Displayed.Should().BeTrue();
+        }
+
+        [Then(@"An option is displayed view the View calculation results page")]
+        public void ThenAnOptionIsDisplayedViewTheViewCalculationResultsPage()
+        {
+            viewresultsoptionspage.viewResultsOptionsViewCalculationResults.Displayed.Should().BeTrue();
+        }
+
+        [When(@"I click on the View QA test results option")]
+        public void WhenIClickOnTheViewQATestResultsOption()
+        {
+            viewresultsoptionspage.viewResultsOptionsViewQATestResults.Should().NotBeNull();
+            viewresultsoptionspage.viewResultsOptionsViewQATestResults.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am naviagted to the View QA test results page")]
+        public void ThenIAmNaviagtedToTheViewQATestResultsPage()
+        {
+            viewqatestresultspage.viewQATestResultspageSearch.Should().NotBeNull();
+        }
+
+        [Given(@"I have navigated to the view all test results screen")]
+        public void GivenIHaveNavigatedToTheViewAllTestResultsScreen()
+        {
+            NavigateTo.ViewQATestResults();
+        }
+
+        [Then(@"the Search QA Test option is displayed")]
+        public void ThenTheSearchQATestOptionIsDisplayed()
+        {
+            viewqatestresultspage.viewQATestResultspageSearch.Should().NotBeNull();
+        }
+
+        [Then(@"the Select Period drop down option is displayed")]
+        public void ThenTheSelectPeriodDropDownOptionIsDisplayed()
+        {
+            viewqatestresultspage.viewQATestResultspageYearDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the Select Specification drop down option is displayed")]
+        public void ThenTheSelectSpecificationDropDownOptionIsDisplayed()
+        {
+            viewqatestresultspage.viewQATestResultspageSpecificationDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"a list of QA Test Results listed by Test is displayed with the correct column headers")]
+        public void ThenAListOfQATestResultsListedByTestIsDisplayedWithTheCorrectColumnHeaders()
+        {
+            viewqatestresultspage.viewQATestResultspageQATestResultList.Should().NotBeNull();
+
+            IWebElement providerresultitemcontainer = viewqatestresultspage.viewQATestResultspageQATestResultList;
+            var propertyElements = providerresultitemcontainer.FindElements(By.CssSelector("#calculation-results-table > thead:nth-child(1) > tr:nth-child(1)"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("th"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine("The following headers were displayed correctly: " + currentElement.Text);
+            }
+        }
+
+        [Then(@"I am presented with a list of QA Test results")]
+        public void ThenIAmPresentedWithAListOfQATestResults()
+        {
+            viewqatestresultspage.viewQATestResultspageQATestResultTable.Should().NotBeNull();
+        }
+
+        [Then(@"the appropriate information is displayed for each QA Test")]
+        public void ThenTheAppropriateInformationIsDisplayedForEachQATest()
+        {
+            IWebElement providerresultitemcontainer = viewqatestresultspage.viewQATestResultspageQATestResultTable;
+            var propertyElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-table-body > tr:nth-child(1)"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("td"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine("The following information was displayed correctly for each QA Test: " + currentElement.Text);
+            }
+        }
+
+        [Given(@"I have over (.*) QA Tests displayed")]
+        public void GivenIHaveOverQATestsDisplayed(int totaltestresults)
+        {
+            IWebElement qatestresultcount = viewqatestresultspage.viewQATestResultspagetotalResults;
+            string endPageResultCount = qatestresultcount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeGreaterOrEqualTo(totaltestresults, "Less than 50 QA Test Results are available");
+            Console.WriteLine("Total Page Results Displayed is " + qatestresultcount.Text);
+        }
+
+        [When(@"I click to navigate to the next page of (.*) QA Test Results")]
+        public void WhenIClickToNavigateToTheNextPageOfQATestResults(int totaltestresults)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"my list view updates to display the next set of (.*) Results")]
+        public void ThenMyListViewUpdatesToDisplayTheNextSetOfResults(int totaltestresults)
+        {
+            IWebElement qatestresultfirstrecord = viewqatestresultspage.viewQATestResultspagestartItemNumber;
+            string firstPageResultCount = qatestresultfirstrecord.Text;
+            int firstPageCount = int.Parse(firstPageResultCount);
+            firstPageCount.Should().BeGreaterOrEqualTo(totaltestresults, "The next 50 Results have been displayed Incorrectly");
+            Console.WriteLine("First Page Results Displayed is " + qatestresultfirstrecord.Text);
+        }
+
+        [Then(@"I am able to navigate to the previous page of (.*) Results")]
+        public void ThenIAmAbleToNavigateToThePreviousPageOfResults(int totaltestresults)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+            IWebElement qatestresultcount = viewqatestresultspage.viewQATestResultspageendItemNumber;
+            string endPageResultCount = qatestresultcount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeLessOrEqualTo(totaltestresults, "The previous 50 Results have been displayed Incorrectly");
+            Console.WriteLine("Total Page Results Displayed is " + qatestresultcount.Text);
+        }
+
+        [When(@"I choose to search for an existing QA Test")]
+        public void WhenIChooseToSearchForAnExistingQATest()
+        {
+            Actions.SearchQATestResultsPageByQATestName();
+            Thread.Sleep(6000);
+        }
+
+        [Then(@"The list of QA Test Results is updated to display the correct QA Test")]
+        public void ThenTheListOfQATestResultsIsUpdatedToDisplayTheCorrectQATest()
+        {
+            string testName = ScenarioContext.Current["QATestName"] as string;
+            testName.Should().NotBeNullOrEmpty();
+
+            ViewQATestResultsPage viewqatestresultspage = new ViewQATestResultsPage();
+
+            var containerElements = viewqatestresultspage.viewQATestResultspageQATestResultTable;
+            IWebElement SelectFirstTest = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.CssSelector("td a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null && optionelement.Text == testName)
+                    {
+
+                        SelectFirstTest = optionelement;
+                        Console.WriteLine(testName + " QA Test Result correctly found");
+
+                        break;
+
+
+                    }
+                }
+                Thread.Sleep(1000);
+
+                SelectFirstTest.Should().NotBeNull("Unable to find the result " + testName);
+
+            }
+            else
+            {
+                SelectFirstTest.Should().NotBeNull("No QA Test was successfully found");
+            }
+        }
+
+        [When(@"I change the selected QA Test period drop down to (.*)")]
+        public void WhenIChangeTheSelectedQATestPeriodDropDownTo(string year)
+        {
+            var selectYear = viewqatestresultspage.viewQATestResultspageYearDropDown;
+            var selectElement = new SelectElement(selectYear);
+            selectElement.SelectByValue(year);
+            Thread.Sleep(20000);
+        }
+
+        [Then(@"the list of QA Test Results refreshes to display the selected years QA Tests")]
+        public void ThenTheListOfQATestResultsRefreshesToDisplayTheSelectedYearsQATests()
+        {
+            IWebElement qatestresultcount = viewqatestresultspage.viewQATestResultspagetotalResults;
+            string endPageResultCount = qatestresultcount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeGreaterOrEqualTo(0, "The selected years results have not been returned correctly");
+            Console.WriteLine("The total results displayed on for the selected year is: " + endPageCount);
+        }
+
+        [When(@"I change the selected QA Test specificaiton drop down to (.*)")]
+        public void WhenIChangeTheSelectedQATestSpecificaitonDropDownToYPLearnerResponsive(string specification)
+        {
+            var selectSpecification = viewqatestresultspage.viewQATestResultspageSpecificationDropDown;
+            selectSpecification.Click();
+            var selectElement = new SelectElement(selectSpecification);
+            selectElement.SelectByText(specification);
+            Thread.Sleep(20000);
+        }
+
+        [Then(@"the list of QA Test Results refreshes to display the selected specifications QA Tests")]
+        public void ThenTheListOfQATestResultsRefreshesToDisplayTheSelectedSpecificationsQATests()
+        {
+            IWebElement qatestresultcount = viewqatestresultspage.viewQATestResultspagetotalResults;
+            string endPageResultCount = qatestresultcount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeGreaterOrEqualTo(0, "The selected specifications results have not been returned correctly");
+            Console.WriteLine("The total results displayed on for the selected specification is: " + endPageCount);
+        }
 
 
         [AfterScenario()]

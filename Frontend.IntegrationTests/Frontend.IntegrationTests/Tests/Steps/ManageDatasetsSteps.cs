@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using AutoFramework;
 using FluentAssertions;
 using Frontend.IntegrationTests.Create;
+using Frontend.IntegrationTests.Helpers;
 using Frontend.IntegrationTests.Pages.Manage_Datasets;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -27,7 +29,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         SelectedSpecificationDataSourcePage selectedspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
         SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
 
-        public string newname = "Test Name 018";
+        public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
         public static int? totalresults = null;
         public string datasetinformation = Actions.datasestinfo;
@@ -291,7 +293,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Given(@"I have entered a Dataset Schema Name")]
         public void GivenIHaveEnteredADatasetSchemaName()
         {
-            choosedatasetrelationshippage.datasetSchemaRelationshipName.SendKeys(newname);
+            var randomName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["DatasetSchemaName"] = randomName;
+            choosedatasetrelationshippage.datasetSchemaRelationshipName.SendKeys(randomName);
         }
 
         [Given(@"I have entered a Dataset Description")]
@@ -329,11 +333,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"the new dataset is saved and displayed correctly")]
         public void ThenTheNewDatasetIsSavedAndDisplayedCorrectly()
         {
+            var datasetName = ScenarioContext.Current["DatasetSchemaName"];
+            string datasetCreated = datasetName.ToString();
             var datasetelements = Driver._driver.FindElements(By.CssSelector(".view-dataset .datasetschemaassigned-list-title-container span"));
             IWebElement createddataset = null;
             foreach (var element in datasetelements)
             {
-                if (element.Text.Contains(newname))
+                if (element.Text.Contains(datasetCreated))
                 {
                     {
                         createddataset = element;
@@ -346,11 +352,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(1000);
             if (createddataset != null)
             {
-                Console.WriteLine("The New Dataset " + newname + " was Saved correctly");
+                Console.WriteLine("The New Dataset " + datasetCreated + " was Saved correctly");
             }
             else
             {
-                createddataset.Should().NotBeNull("Unable to find dataset " + newname + " within the list view");
+                createddataset.Should().NotBeNull("Unable to find dataset " + datasetCreated + " within the list view");
             }
         }
 
@@ -839,6 +845,53 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             Actions.SelectNewSourceDatasetVersionRadioOption();
         }
+
+        [Then(@"an option to download the datasource is displayed")]
+        public void ThenAnOptionToDownloadTheDatasourceIsDisplayed()
+        {
+            var downloadlinks = Driver._driver.FindElements(By.LinkText("Download"));
+            IWebElement downloadoption = downloadlinks.FirstOrDefault();
+            downloadoption.Should().NotBeNull();
+        }
+
+        [Given(@"The page displays a list view of all data sets that have been uploaded")]
+        public void GivenThePageDisplaysAListViewOfAllDataSetsThatHaveBeenUploaded()
+        {
+            managedatasetpage.manageDatasetsListView.Should().NotBeNull();
+        }
+
+        [Given(@"An option to download the datasource is displayed")]
+        public void GivenAnOptionToDownloadTheDatasourceIsDisplayed()
+        {
+            var downloadlinks = Driver._driver.FindElements(By.LinkText("Download"));
+            IWebElement downloadoption = downloadlinks.FirstOrDefault();
+            downloadoption.Should().NotBeNull();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I click the Download link for a Data Source")]
+        public void WhenIClickTheDownloadLinkForADataSource()
+        {
+            IWebElement firstdatasource = managedatasetpage.manageDatasetsFirstResultName;
+            string datasourcename = firstdatasource.Text;
+            Console.WriteLine(datasourcename + " is the first data source listed");
+            Actions.SelectManageDataPageDataSourceDownloadoption();
+        }
+
+        [Then(@"The Download reddirect URL from Blog storage is correctly genrated")]
+        public void ThenTheDownloadReddirectURLFromBlogStorageIsCorrectlyGenrated()
+        {
+            //Validation for this step is carried out within Actions.SelectManageDataPageDataSourceDownloadoption();
+            //See redirected Blob URL in the Test Output row
+        }
+
+        [Then(@"The HTTP Status Code is reurned as OK")]
+        public void ThenTheHTTPStatusCodeIsReurnedAsOK()
+        {
+            //Validation for this step is carried out within Actions.SelectManageDataPageDataSourceDownloadoption();
+            //See the "File downloaded successfully. Filename = " Test Output row
+        }
+
 
 
         [AfterScenario()]

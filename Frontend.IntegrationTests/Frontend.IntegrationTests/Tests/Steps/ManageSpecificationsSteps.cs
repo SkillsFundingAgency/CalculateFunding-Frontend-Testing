@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Threading;
 using AutoFramework;
+using FluentAssertions;
+using Frontend.IntegrationTests.Helpers;
 using Frontend.IntegrationTests.Pages;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
+using Frontend.IntegrationTests.Create;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 //using OpenQA.Selenium.PhantomJS;
@@ -10,6 +13,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Bindings;
+using System.Collections.Generic;
 
 namespace Frontend.IntegrationTests.Tests.Steps
 {
@@ -22,8 +26,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         CreateSpecificationPage createspecificationpage = new CreateSpecificationPage();
         CreateSubPolicyPage createsubpolicypage = new CreateSubPolicyPage();
         ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
-        public string nametext = "test spec 003";
-        public string newname = "Test Name 008";
+        public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
 
 
@@ -63,7 +66,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenTheListOfSpecificationsRefreshesToDisplayTheSelectedYearsSpecifications()
         {
             Assert.IsNotNull(managespecficationpage.SpecificationList);
-            ((ITakesScreenshot)Driver._driver).GetScreenshot().SaveAsFile(@"C:\Users\Richard\Documents\Work\ESFA Allocations\ESFA Selenium Screenshots\Manage Spec Screenshot.jpg", ScreenshotImageFormat.Jpeg);
             Thread.Sleep(2000);
         }
 
@@ -116,7 +118,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Name")]
         public void WhenIEnterAName()
         {
-            createspecificationpage.SpecName.SendKeys(newname);
+            var randomSpecName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["SpecificationName"] = randomSpecName;
+            createspecificationpage.SpecName.SendKeys(randomSpecName);
         }
 
         [When(@"I enter a Description")]
@@ -152,7 +156,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenMyNewSpecificationIsCorrectlyListed()
         {
             Thread.Sleep(2000);
-            Driver._driver.FindElement(By.LinkText(newname));
+            var specificationName = ScenarioContext.Current["SpecificationName"];
+            string specificationCreated = specificationName.ToString();
+            Driver._driver.FindElement(By.LinkText(specificationCreated));
             Thread.Sleep(1000);
         }
 
@@ -176,7 +182,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter an Existing Specification Name")]
         public void WhenIEnterAnExistingSpecificationName()
         {
-            createspecificationpage.SpecName.SendKeys(nametext);
+            createspecificationpage.SpecName.SendKeys("Test");
             Thread.Sleep(2000);
         }
 
@@ -220,7 +226,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I click to view an existing Specification")]
         public void WhenIClickToViewAnExistingSpecification()
         {
-            Driver._driver.FindElement(By.LinkText(nametext)).Click();
+            Thread.Sleep(2000);
+            Actions.SelectExistingSpecificationManageSpecificationPage();
             Thread.Sleep(2000);
         }
 
@@ -273,7 +280,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Policy Name")]
         public void WhenIEnterAPolicyName()
         {
-            createpolicypage.PolicyName.SendKeys(newname);
+            var randomPolicyName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["PolicyName"] = randomPolicyName;
+            createpolicypage.PolicyName.SendKeys(randomPolicyName);
         }
 
         [When(@"I enter a Policy Description")]
@@ -295,7 +304,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenMyNewPolicyIsCorrectlyListed()
         {
             Thread.Sleep(2000);
-            Driver._driver.FindElement(By.LinkText(newname));
+            var polcyNameName = ScenarioContext.Current["PolicyName"];
+            string policyCreated = polcyNameName.ToString();
+            Driver._driver.FindElement(By.LinkText(policyCreated));
             Thread.Sleep(1000);
         }
 
@@ -306,6 +317,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
             createpolicypage.CancelPolicy.Click();
             Thread.Sleep(1000);
         }
+
+        [When(@"I enter an existing Policy Name")]
+        public void WhenIEnterAnExistingPolicyName()
+        {
+            createpolicypage.PolicyName.SendKeys("Test");
+        }
+
 
         [Then(@"A Unique Policy Name Error is Displayed")]
         public void ThenAUniquePolicyNameErrorIsDisplayed()
@@ -361,13 +379,31 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Calculation Name")]
         public void WhenIEnterACalculationName()
         {
-            createcalculationpage.CalculationName.SendKeys(newname);
+            var randomCalculationName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["CalculationName"] = randomCalculationName;
+            createcalculationpage.CalculationName.SendKeys(randomCalculationName);
         }
 
         [When(@"I choose a Policy or sub policy")]
         public void WhenIChooseAPolicyOrSubPolicy()
         {
             Actions.CreateCalculationSpecificationpageSelectPolicyOrSubpolicyDropDown();
+        }
+
+        [When(@"I choose funding calculation type")]
+        public void WhenIChooseFundingCalculationType()
+        {
+            var calctype = createcalculationpage.CalculationTypeDropDown;
+            var selectElement = new SelectElement(calctype);
+            selectElement.SelectByValue("Funding");
+        }
+
+        [When(@"I choose Number calculation type")]
+        public void WhenIChooseNumberCalculationType()
+        {
+            var calctype = createcalculationpage.CalculationTypeDropDown;
+            var selectElement = new SelectElement(calctype);
+            selectElement.SelectByValue("Number");
         }
 
         [When(@"I choose an Allocation Line")]
@@ -397,6 +433,31 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             Thread.Sleep(2000);
             Assert.IsNotNull(managepoliciespage.CalculationList);
+            var calculationName = ScenarioContext.Current["CalculationName"];
+            string calculationCreated = calculationName.ToString();
+            var calcelements = Driver._driver.FindElements(By.CssSelector(".policy-list"));
+            IWebElement createdcalculation = null;
+            foreach (var element in calcelements)
+            {
+                if (element.Text.Contains(calculationCreated))
+                {
+                    {
+                        createdcalculation = element;
+                        break;
+                    }
+                }
+
+            }
+
+            Thread.Sleep(1000);
+            if (createdcalculation != null)
+            {
+                Console.WriteLine("The New Calculation " + calculationCreated + " was Saved correctly");
+            }
+            else
+            {
+                createdcalculation.Should().NotBeNull("Unable to find dataset " + calculationCreated + " within the list view");
+            }
             Thread.Sleep(2000);
         }
 
@@ -407,6 +468,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [When(@"I enter an Existing Calculation Name")]
+        public void WhenIEnterAnExistingCalculationName()
+        {
+            createcalculationpage.CalculationName.SendKeys("Test");
+        }
+
+
         [Then(@"A Unique Calculation Name Error is Displayed")]
         public void ThenAUniqueCalculationNameErrorIsDisplayed()
         {
@@ -414,15 +482,27 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [Then(@"A Calculation Type Error is Displayed")]
+        public void ThenACalculationTypeErrorIsDisplayed()
+        {
+            createcalculationpage.CalculationTypeError.Should().NotBeNull();
+            Thread.Sleep(2000);
+        }
 
-        [Given(@"I have missed the calculation field (.*) and (.*) and (.*) and (.*)")]
-        public void GivenIHaveMissedTheCalculationField(string name, string policy, string allocation, string description)
+
+
+        [Given(@"I have missed the calculation field (.*) and (.*) and (.*) and (.*) and (.*)")]
+        public void GivenIHaveMissedTheCalculationField(string name, string policy, string type, string allocation, string description)
         {
             createcalculationpage.CalculationName.SendKeys(name);
 
             var policydropdown = createcalculationpage.SelectPolicy_SubPolicy;
             var selectElement = new SelectElement(policydropdown);
             selectElement.SelectByText(policy);
+
+            var calctype = createcalculationpage.CalculationTypeDropDown;
+            var selecttypeElement = new SelectElement(calctype);
+            selecttypeElement.SelectByValue(type);
 
             var allocationdropdown = createcalculationpage.CalculationAllocationLine;
             var selectElement01 = new SelectElement(allocationdropdown);
@@ -479,15 +559,17 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter a Sub Policy Name")]
         public void WhenIEnterASubPolicyName()
         {
-            createsubpolicypage.SubPolicyName.SendKeys(newname);
+            var randomSubPolicyName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["SubPolicyName"] = randomSubPolicyName;
+            createsubpolicypage.SubPolicyName.SendKeys(randomSubPolicyName);
         }
 
         [When(@"I choose a Policy from the dropdown")]
         public void WhenIChooseAPolicyFromTheDropdown()
         {
-            var policydropdown = createsubpolicypage.SelectPolicy;
-            var selectElement = new SelectElement(policydropdown);
-            selectElement.SelectByText(nametext);
+            Actions.SelectPolicyForSubPolicyCreationDropdownOption();
+            createsubpolicypage.SubPolicyDescription.Click();
+            Thread.Sleep(2000);
         }
 
         [When(@"I enter a Sub Policy Description")]
@@ -509,6 +591,32 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             Thread.Sleep(2000);
             Assert.IsNotNull(managepoliciespage.SubPolicyList);
+            var subPolicyName = ScenarioContext.Current["SubPolicyName"];
+            string subPolicyCreated = subPolicyName.ToString();
+            var subpolicyelements = Driver._driver.FindElements(By.CssSelector(".policy-list"));
+            IWebElement createdsubpolicy = null;
+            foreach (var element in subpolicyelements)
+            {
+                if (element.Text.Contains(subPolicyCreated))
+                {
+                    {
+                        createdsubpolicy = element;
+                        break;
+                    }
+                }
+
+            }
+
+            Thread.Sleep(1000);
+            if (createdsubpolicy != null)
+            {
+                Console.WriteLine("The New Sub Policy " + subPolicyCreated + " was Saved correctly");
+            }
+            else
+            {
+                createdsubpolicy.Should().NotBeNull("Unable to find Sub Policy " + subPolicyCreated + " within the list view");
+            }
+
             Thread.Sleep(2000);
         }
 
@@ -519,6 +627,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [When(@"I enter a Sub Policy Name that already exists")]
+        public void WhenIEnterASubPolicyNameThatAlreadyExists()
+        {
+            createsubpolicypage.SubPolicyName.SendKeys("test");
+        }
+
+
         [Then(@"A Unique Sub Policy Name Error is Displayed")]
         public void ThenAUniqueSubPolicyNameErrorIsDisplayed()
         {
@@ -527,17 +642,23 @@ namespace Frontend.IntegrationTests.Tests.Steps
         }
 
 
-        [Given(@"And I have missed the Sub Policy field (.*) and (.*) and (.*)")]
-        public void GivenAndIHaveMissedTheSubPolicyFieldAndTestSpecAndDescription(string name, string policy, string description)
+        [Given(@"And I have missed the Sub Policy field (.*) and (.*)")]
+        public void GivenAndIHaveMissedTheSubPolicyFieldAndTestSpecAndDescription(string name, string description)
         {
             createsubpolicypage.SubPolicyName.SendKeys(name);
-            var policydropdown = createsubpolicypage.SelectPolicy;
-            var selectElement = new SelectElement(policydropdown);
-            selectElement.SelectByText(policy);
             createsubpolicypage.SubPolicyDescription.SendKeys(description);
             Thread.Sleep(2000);
 
         }
+
+        [Given(@"I choose a Policy from the dropdown")]
+        public void GivenIChooseAPolicyFromTheDropdown()
+        {
+            Actions.SelectPolicyForSubPolicyCreationDropdownOption();
+            createsubpolicypage.SubPolicyDescription.Click();
+            Thread.Sleep(2000);
+        }
+
 
         [Then(@"the following Sub Policy Error should be displayed for FieldName '(.*)' and '(.*)'")]
         public void ThenTheFollowingSubPolicyErrorShouldBeDisplayedForFieldNameAnd(string SubPolicyFieldname, string subpolicyerror)
@@ -546,15 +667,119 @@ namespace Frontend.IntegrationTests.Tests.Steps
             if (SubPolicyFieldname == "SubPolicyNameMissing")
                 Assert.AreEqual(subpolicyerror, createsubpolicypage.SubPolicyMissingNameErrorText.Text);
 
-            else if (SubPolicyFieldname == "SubPolicyPolicyMissing")
-                Assert.AreEqual(subpolicyerror, createsubpolicypage.SubPolicyMissingPolicyErrorText.Text);
-
             else if (SubPolicyFieldname == "SubPolicyDescriptionMissing")
                 Assert.AreEqual(subpolicyerror, createsubpolicypage.SubPolicyMissingDescriptionErrorText.Text);
 
             else throw new InvalidOperationException("Unknown Field");
             Thread.Sleep(2000);
         }
+
+        [Then(@"a Sub Policy Missing Policy Error should be displayed")]
+        public void ThenASubPolicyMissingPolicyErrorShouldBeDisplayed()
+        {
+            Assert.IsNotNull(createsubpolicypage.SubPolicyMissingPolicyErrorText.Text);
+            Thread.Sleep(2000);
+        }
+
+        [Given(@"I have created a new specification")]
+        public void GivenIHaveCreatedANewSpecification()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            Thread.Sleep(2000);
+        }
+
+        [Given(@"redirected to the Manage Specificaiton Page")]
+        public void GivenRedirectedToTheManageSpecificaitonPage()
+        {
+            managepoliciespage.datasetsTab.Should().NotBeNull();
+            managepoliciespage.datasetsTab.Displayed.Should().BeTrue();
+        }
+
+        [When(@"I choose to view the datasets tab")]
+        public void WhenIChooseToViewTheDatasetsTab()
+        {
+            managepoliciespage.datasetsTab.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"No alert about provider datasets is displayed")]
+        public void ThenNoAlertAboutProviderDatasetsIsDisplayed()
+        {
+            var providerwarning = Driver._driver.FindElements(By.CssSelector(".provider-datasets-warning-container"));
+
+            if (providerwarning.Count > 0)
+            {
+                Console.WriteLine("Provider Data Warning Message is Displayed in Error");
+            }
+            else
+            {
+                Console.WriteLine("Provider Data Warning Message is Not Displayed");
+            }
+        }
+
+
+        [When(@"I choose to create a new dataset without setting as Provider Data")]
+        public void WhenIChooseToCreateANewDatasetWithoutSettingAsProviderData()
+        {
+            ManageSpecificationCreateNewDataset.CreateANewDataset();
+        }
+
+        [When(@"I am redirected to the DataSet page")]
+        public void WhenIAmRedirectedToTheDataSetPage()
+        {
+            managepoliciespage.datasetsTab.Should().NotBeNull();
+        }
+
+        [Then(@"the new dataset has been saved and displayed correctly")]
+        public void ThenTheNewDatasetHasBeenSavedAndDisplayedCorrectly()
+        {
+            var datasetName = ScenarioContext.Current["DatasetSchemaName"];
+            string datasetCreated = datasetName.ToString();
+            var datasetelements = Driver._driver.FindElements(By.CssSelector(".view-dataset .datasetschemaassigned-list-title-container span"));
+            IWebElement createddataset = null;
+            foreach (var element in datasetelements)
+            {
+                if (element.Text.Contains(datasetCreated))
+                {
+                    {
+                        createddataset = element;
+                        break;
+                    }
+                }
+
+            }
+
+            Thread.Sleep(1000);
+            if (createddataset != null)
+            {
+                Console.WriteLine("The New Dataset " + datasetCreated + " was Saved correctly");
+            }
+            else
+            {
+                createddataset.Should().NotBeNull("Unable to find dataset " + datasetCreated + " within the list view");
+            }
+
+            Thread.Sleep(1000);
+
+        }
+
+
+        [Then(@"An Alert that No dataset has been set as provider data should be displayed")]
+        public void ThenAnAlertThatNoDatasetHasBeenSetAsProviderDataShouldBeDisplayed()
+        {
+            IWebElement datasetwarning = managepoliciespage.providerdatasetswarningcontainer;
+            datasetwarning.Should().NotBeNull();
+            string datasetwraningtext = datasetwarning.Text;
+            Console.WriteLine("The following Dataset Warning Message was displayed " + datasetwraningtext);
+
+        }
+
+        [When(@"I choose to create a new dataset set as Provider Data")]
+        public void WhenIChooseToCreateANewDatasetSetAsProviderData()
+        {
+            ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
+        }
+
 
         [AfterScenario()]
         public void FixtureTearDown()
