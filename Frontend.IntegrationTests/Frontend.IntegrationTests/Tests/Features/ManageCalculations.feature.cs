@@ -187,6 +187,28 @@ testRunner.And("the filters are defaulted to show all calculations that are spec
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Calculations Results Displayed on the Calculations Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheCalculationsResultsDisplayedOnTheCalculationsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Calculations Results Displayed on the Calculations Page", new string[] {
+                        "Workitem:36090",
+                        "Driver"});
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 40
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 41
+testRunner.Then("I am presented with a list of Calculation results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 42
+testRunner.And("the appropriate information is displayed for each calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select to Filter the Calculations Page by Academic Year")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
@@ -196,23 +218,23 @@ testRunner.And("the filters are defaulted to show all calculations that are spec
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Filter the Calculations Page by Academic Year", new string[] {
                         "Workitem:36090",
                         "Driver"});
-#line 39
-this.ScenarioSetup(scenarioInfo);
-#line 40
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 41
-testRunner.And("the filters are defaulted to show all calculations that are specified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 42
-testRunner.When("I chosen to select the academic year filter option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 43
-testRunner.Then("All other filters will update", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 44
-testRunner.And("display only those options that return results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 45
-testRunner.And("a total count of all filtered results is displayed above the list of results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 46
-testRunner.And("a count of the specific filter results is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 47
+testRunner.And("the filters are defaulted to show all calculations that are specified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 48
+testRunner.When("I chosen to select the academic year filter option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 49
+testRunner.Then("All other filters will update", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 50
+testRunner.And("display only those options that return results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+testRunner.And("a total count of all filtered results is displayed above the list of results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
+testRunner.And("a count of the specific filter results is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
 testRunner.And("the filter options are sorted in descending order by the count of results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -228,13 +250,13 @@ testRunner.And("the filter options are sorted in descending order by the count o
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Filter the Calculations Page by Funding Stream", new string[] {
                         "Workitem:36090",
                         "Driver"});
-#line 50
+#line 56
 this.ScenarioSetup(scenarioInfo);
-#line 51
+#line 57
 testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 52
+#line 58
 testRunner.When("I choose to filter my list by funding stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 53
+#line 59
 testRunner.Then("the list view of calculations updates to display only calculations for the select" +
                     "ed funding streams", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -251,13 +273,13 @@ testRunner.Then("the list view of calculations updates to display only calculati
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Filter the Calculations Page by Policy Specification", new string[] {
                         "Workitem:36090",
                         "Driver"});
-#line 56
+#line 62
 this.ScenarioSetup(scenarioInfo);
-#line 57
+#line 63
 testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 58
+#line 64
 testRunner.When("I choose to filter my list by policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 59
+#line 65
 testRunner.Then("the list view of calculations updates to display only calculations for the select" +
                     "ed policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -274,13 +296,13 @@ testRunner.Then("the list view of calculations updates to display only calculati
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Filter the Calculations Page by Status", new string[] {
                         "Workitem:36090",
                         "Driver"});
-#line 62
+#line 68
 this.ScenarioSetup(scenarioInfo);
-#line 63
+#line 69
 testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 64
+#line 70
 testRunner.When("I choose to filter my list by Status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 65
+#line 71
 testRunner.Then("the list view of calculations updates to display only calculations for the select" +
                     "ed Status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -297,13 +319,13 @@ testRunner.Then("the list view of calculations updates to display only calculati
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Filter the Calculations Page by Allocation Line", new string[] {
                         "Workitem:36090",
                         "Driver"});
-#line 68
+#line 74
 this.ScenarioSetup(scenarioInfo);
-#line 69
+#line 75
 testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 70
+#line 76
 testRunner.When("I choose to filter my list by Allocation Lines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 71
+#line 77
 testRunner.Then("the list view of calculations updates to display only calculations for the select" +
                     "ed Allocation Lines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -320,23 +342,23 @@ testRunner.Then("the list view of calculations updates to display only calculati
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deselect Filter options on the Calculations Page", new string[] {
                         "Workitem:36090",
                         "Driver"});
-#line 74
-this.ScenarioSetup(scenarioInfo);
-#line 75
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 76
-testRunner.And("ONE or MORE filter Options have previously been selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 77
-testRunner.When("I deselect one or more filter options", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 78
-testRunner.Then("All other filters will update", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 79
-testRunner.And("display only those options that return results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 80
-testRunner.And("a total count of all filtered results is displayed above the list of results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 81
-testRunner.And("a count of the specific filter results is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 82
+testRunner.And("ONE or MORE filter Options have previously been selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 83
+testRunner.When("I deselect one or more filter options", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 84
+testRunner.Then("All other filters will update", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 85
+testRunner.And("display only those options that return results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 86
+testRunner.And("a total count of all filtered results is displayed above the list of results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 87
+testRunner.And("a count of the specific filter results is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 88
 testRunner.And("the filter options are sorted in descending order by the count of results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -352,17 +374,17 @@ testRunner.And("the filter options are sorted in descending order by the count o
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select To Filter the Calculations Page by the Search Option", new string[] {
                         "Workitem:37014",
                         "Driver"});
-#line 85
+#line 91
 this.ScenarioSetup(scenarioInfo);
-#line 86
+#line 92
 testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 87
+#line 93
 testRunner.And("No additional filter options have been selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 88
+#line 94
 testRunner.When("I enter text in the search field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 89
+#line 95
 testRunner.And("I click the search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 90
+#line 96
 testRunner.Then("the list view of calculations updates to display only calculations that comply wi" +
                     "th the search term entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -379,17 +401,17 @@ testRunner.Then("the list view of calculations updates to display only calculati
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select To Filter the Calculations Page Using an Exact Calculation Name", new string[] {
                         "Workitem:37014",
                         "Driver"});
-#line 93
+#line 99
 this.ScenarioSetup(scenarioInfo);
-#line 94
+#line 100
 testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 95
+#line 101
 testRunner.And("No additional filter options have been selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 96
+#line 102
 testRunner.When("the text i enter into a search matches a calculation name exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 97
+#line 103
 testRunner.And("I click the search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 98
+#line 104
 testRunner.Then("the list view of calculations updates to display the specfic search calculation o" +
                     "nly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -408,20 +430,20 @@ testRunner.Then("the list view of calculations updates to display the specfic se
                     "re In Place", new string[] {
                         "Workitem:37014",
                         "Driver"});
-#line 101
+#line 107
 this.ScenarioSetup(scenarioInfo);
-#line 102
+#line 108
 testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 103
+#line 109
 testRunner.And("ONE or MORE filter Options have previously been selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 104
+#line 110
 testRunner.When("I enter text in the search field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 105
+#line 111
 testRunner.And("I click the search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 106
+#line 112
 testRunner.Then("the list view of calculations updates to display only calculations that comply wi" +
                     "th the search term entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 107
+#line 113
 testRunner.And("the previously selected filter options", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -437,21 +459,21 @@ testRunner.And("the previously selected filter options", ((string)(null)), ((Tec
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Edit Calculation Page", new string[] {
                         "Workitem:35457",
                         "Driver"});
-#line 110
-this.ScenarioSetup(scenarioInfo);
-#line 111
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 112
-testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 113
-testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 114
-testRunner.Then("The Name of the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 115
-testRunner.And("The Description of the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 116
-testRunner.And("The Build Calculation button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 117
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 118
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 119
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 120
+testRunner.Then("The Name of the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 121
+testRunner.And("The Description of the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 122
+testRunner.And("The Build Calculation button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 123
 testRunner.And("The Save Calculation button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -467,23 +489,23 @@ testRunner.And("The Save Calculation button is disabled", ((string)(null)), ((Te
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit and Build the Calculation Visual Basic Code", new string[] {
                         "Workitem:35457",
                         "Driver"});
-#line 120
-this.ScenarioSetup(scenarioInfo);
-#line 121
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 122
-testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 123
-testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 124
-testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 125
-testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 126
-testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+this.ScenarioSetup(scenarioInfo);
 #line 127
-testRunner.And("I am notified that my code has finished compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 128
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 129
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 130
+testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 131
+testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 132
+testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 133
+testRunner.And("I am notified that my code has finished compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 134
 testRunner.And("the results of the compilation is recorded in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -499,21 +521,21 @@ testRunner.And("the results of the compilation is recorded in the output box", (
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrectly Edit and Build a Calculation", new string[] {
                         "Workitem:35457",
                         "Driver"});
-#line 131
-this.ScenarioSetup(scenarioInfo);
-#line 132
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 133
-testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 134
-testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 135
-testRunner.And("I have incorrectly edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 136
-testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 137
-testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+this.ScenarioSetup(scenarioInfo);
 #line 138
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 139
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 140
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 141
+testRunner.And("I have incorrectly edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 142
+testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 143
+testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 144
 testRunner.And("the error result of the compilation is recorded in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -529,29 +551,29 @@ testRunner.And("the error result of the compilation is recorded in the output bo
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit and Save a New Calculation Version of the Code", new string[] {
                         "Workitem:35457",
                         "Driver"});
-#line 141
-this.ScenarioSetup(scenarioInfo);
-#line 142
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 143
-testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 144
-testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 145
-testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 146
-testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 147
-testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+this.ScenarioSetup(scenarioInfo);
 #line 148
-testRunner.And("I am notified that my code has finished compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 149
-testRunner.And("the results of the compilation is recorded in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 150
-testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 151
-testRunner.And("I am returned to the manage calculation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 152
+testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 153
+testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 154
+testRunner.And("I am notified that my code has finished compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 155
+testRunner.And("the results of the compilation is recorded in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 156
+testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 157
+testRunner.And("I am returned to the manage calculation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 158
 testRunner.And("a full audit record of my calculation is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -567,19 +589,19 @@ testRunner.And("a full audit record of my calculation is created", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Compare Calculation Versions Page", new string[] {
                         "Workitem:35460",
                         "Driver"});
-#line 155
-this.ScenarioSetup(scenarioInfo);
-#line 156
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 157
-testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 158
-testRunner.And("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 159
-testRunner.When("I click the View previous versions link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 160
-testRunner.Then("I am redirected to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 161
+this.ScenarioSetup(scenarioInfo);
+#line 162
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 163
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 164
+testRunner.And("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 165
+testRunner.When("I click the View previous versions link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 166
+testRunner.Then("I am redirected to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 167
 testRunner.And("a list view of calculation versions is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -595,19 +617,19 @@ testRunner.And("a list view of calculation versions is displayed", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Compare Calculation Versions Page Calculation Information", new string[] {
                         "Workitem:35460",
                         "Driver"});
-#line 164
-this.ScenarioSetup(scenarioInfo);
-#line 165
-testRunner.Given("I have navigated to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 166
-testRunner.Then("I can see who created the calculation version as the Author", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 167
-testRunner.And("the date time the version was Created or Updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 168
-testRunner.And("the calculation version number is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 169
-testRunner.And("the calculation status is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 170
+this.ScenarioSetup(scenarioInfo);
+#line 171
+testRunner.Given("I have navigated to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 172
+testRunner.Then("I can see who created the calculation version as the Author", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 173
+testRunner.And("the date time the version was Created or Updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 174
+testRunner.And("the calculation version number is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 175
+testRunner.And("the calculation status is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 176
 testRunner.And("the list is sorted in descending order by Updated date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -625,15 +647,15 @@ testRunner.And("the list is sorted in descending order by Updated date", ((strin
                     "s page", new string[] {
                         "Workitem:36088",
                         "Driver"});
-#line 173
+#line 179
 this.ScenarioSetup(scenarioInfo);
-#line 174
+#line 180
 testRunner.Given("I have navigated to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 175
+#line 181
 testRunner.And("More than one version of code has been previously saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 176
+#line 182
 testRunner.When("I click only one version of the calculation code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 177
+#line 183
 testRunner.Then("The Compare Calculations button remains disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -651,17 +673,17 @@ testRunner.Then("The Compare Calculations button remains disabled", ((string)(nu
                     "ns page", new string[] {
                         "Workitem:36088",
                         "Driver"});
-#line 180
+#line 186
 this.ScenarioSetup(scenarioInfo);
-#line 181
+#line 187
 testRunner.Given("I have navigated to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 182
+#line 188
 testRunner.And("More than one version of code has been previously saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 183
+#line 189
 testRunner.When("I click to select two versions of the code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 184
+#line 190
 testRunner.And("I click the Compare The Calculations button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 185
+#line 191
 testRunner.Then("I am redirected to the Calculation Comparison page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -677,21 +699,21 @@ testRunner.Then("I am redirected to the Calculation Comparison page", ((string)(
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View the Calculation Comparison Page", new string[] {
                         "Workitem:36088",
                         "Driver"});
-#line 188
-this.ScenarioSetup(scenarioInfo);
-#line 189
-testRunner.Given("I have navigated to the Calculation Comparison page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 190
-testRunner.Then("the status of each version is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 191
-testRunner.And("the date time each version was Created or Updated is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 192
-testRunner.And("the name of the Author of each version is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 193
-testRunner.And("The applicable code for both versions is displayed side by side", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 194
-testRunner.And("The Inline Code Editor option can be selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 195
+testRunner.Given("I have navigated to the Calculation Comparison page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 196
+testRunner.Then("the status of each version is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 197
+testRunner.And("the date time each version was Created or Updated is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 198
+testRunner.And("the name of the Author of each version is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 199
+testRunner.And("The applicable code for both versions is displayed side by side", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 200
+testRunner.And("The Inline Code Editor option can be selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 201
 testRunner.And("The Back Link can be selected to return to the Previous Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

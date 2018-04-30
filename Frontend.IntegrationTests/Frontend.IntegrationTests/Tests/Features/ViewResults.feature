@@ -155,3 +155,65 @@ Then I am presented the View Results landing page
 And An option is displayed view the View provider results page
 And An option is displayed view the View QA test results page
 And An option is displayed view the View calculation results page
+
+@Workitem:39520 Driver
+Scenario: Navigate to the View QA test results Page
+Given I have successfully navigated to the Home Page
+When I select View results
+Then I am presented the View Results landing page
+When I click on the View QA test results option
+Then I am naviagted to the View QA test results page
+
+@Workitem:39520 Driver
+Scenario: Verify the View QA test results Page
+Given I have navigated to the view all test results screen
+Then the Search QA Test option is displayed
+And the Select Period drop down option is displayed
+And the Select Specification drop down option is displayed
+And a list of QA Test Results listed by Test is displayed with the correct column headers
+
+@Workitem:39520 Driver
+Scenario: Verify the QA test results displayed on the View QA Test Results Page
+Given I have navigated to the view all test results screen
+Then I am presented with a list of QA Test results
+And the appropriate information is displayed for each QA Test
+
+@Workitem:39520 Driver
+Scenario: Verify the View QA test results Page Pagination
+Given I have navigated to the view all test results screen
+And I have over 50 QA Tests displayed
+When I click to navigate to the next page of 50 QA Test Results
+Then my list view updates to display the next set of 50 Results
+And I am able to navigate to the previous page of 50 Results
+
+@Workitem:39520 Driver
+Scenario: Search Option to filter the View QA test results Page
+Given I have navigated to the view all test results screen
+When I choose to search for an existing QA Test
+Then The list of QA Test Results is updated to display the correct QA Test
+
+@Workitem:39520 Driver
+Scenario Outline: Change Current list of QA Tests by Year
+Given I have navigated to the view all test results screen
+When I change the selected QA Test period drop down to <year>
+Then the list of QA Test Results refreshes to display the selected years QA Tests
+
+Examples: 
+	 | year |
+	 | 1819	|
+	 | 1718	|
+	 | 1617	|
+	 
+@Workitem:39520 Driver
+Scenario Outline: Change Current list of QA Tests by Specification
+Given I have navigated to the view all test results screen
+When I change the selected QA Test specificaiton drop down to <specification>
+Then the list of QA Test Results refreshes to display the selected specifications QA Tests
+
+Examples: 
+	 | specification                                   | 
+	 | YP 201718 16-19 Learner Responsive              | 
+	 | YP 201718 Academies 16-18                       | 
+	 | YP 201718 Non Formula Funded Activity Academies | 
+	 | YP 201718 School Sixth Form                     | 
+	 | Adam Spec 001								   |

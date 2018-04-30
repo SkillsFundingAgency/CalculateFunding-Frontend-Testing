@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using AutoFramework;
 using FluentAssertions;
@@ -685,6 +686,36 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
             viewpreviouscalculationpage.ComparePreviousCalculationsButton.Should().NotBeNull();
         }
+
+        [Then(@"I am presented with a list of Calculation results")]
+        public void ThenIAmPresentedWithAListOfCalculationResults()
+        {
+            managecalculationpage.CalculationResultsList.Should().NotBeNull();
+            managecalculationpage.CalculationResultsList.Displayed.Should().BeTrue();
+        }
+
+        [Then(@"the appropriate information is displayed for each calculation")]
+        public void ThenTheAppropriateInformationIsDisplayedForEachCalculation()
+        {
+            IWebElement providerresultitemcontainer = managecalculationpage.CalculationResultsList;
+            var propertyElements = providerresultitemcontainer.FindElements(By.CssSelector("#dynamic-results-table-body > tr:nth-child(1)"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("td"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine("The following information was displayed correctly for each calculation: " + currentElement.Text);
+            }
+        }
+        
+
 
 
         [AfterScenario()]

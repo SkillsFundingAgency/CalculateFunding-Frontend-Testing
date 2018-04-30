@@ -66,7 +66,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenTheListOfSpecificationsRefreshesToDisplayTheSelectedYearsSpecifications()
         {
             Assert.IsNotNull(managespecficationpage.SpecificationList);
-            ((ITakesScreenshot)Driver._driver).GetScreenshot().SaveAsFile(@"C:\Users\Richard\Documents\Work\ESFA Allocations\ESFA Selenium Screenshots\Manage Spec Screenshot.jpg", ScreenshotImageFormat.Jpeg);
             Thread.Sleep(2000);
         }
 

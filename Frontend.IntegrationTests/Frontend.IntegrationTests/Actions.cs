@@ -6,6 +6,7 @@
     using Frontend.IntegrationTests.Pages.Manage_Datasets;
     using Frontend.IntegrationTests.Pages.Manage_Specification;
     using Frontend.IntegrationTests.Pages.Quality_Assurance;
+    using Frontend.IntegrationTests.Pages.View_Results;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Firefox;
     using OpenQA.Selenium.Support.UI;
@@ -600,6 +601,50 @@
             else
             {
                 SelectFirstDownloadlink.Should().NotBeNull("No Download link could be successfully selected");
+            }
+        }
+
+
+        public static void SearchQATestResultsPageByQATestName()
+        {
+            ViewQATestResultsPage viewqatestresultspage = new ViewQATestResultsPage();
+
+            var containerElements = viewqatestresultspage.viewQATestResultspageQATestResultTable;
+            IWebElement SelectFirstTest = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.CssSelector("td a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        
+                            SelectFirstTest = optionelement;
+
+                            break;
+                        
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstTest != null)
+                {
+                    string firsttestname = SelectFirstTest.Text;
+                    ScenarioContext.Current["QATestName"] = firsttestname;
+                    firsttestname.Should().NotBeNullOrEmpty();
+                    Console.WriteLine("QA Test searched for: " + firsttestname);
+                    viewqatestresultspage.viewQATestResultspageSearch.SendKeys(firsttestname);
+                    viewqatestresultspage.viewQATestResultspageSearchButton.Click();
+
+                }
+                else
+                {
+                    SelectFirstTest.Should().NotBeNull("No QA Test was successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstTest.Should().NotBeNull("No QA Test was successfully found");
             }
         }
 

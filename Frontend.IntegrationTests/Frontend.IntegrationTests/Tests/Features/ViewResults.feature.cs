@@ -707,6 +707,288 @@ testRunner.And("An option is displayed view the View calculation results page", 
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Navigate to the View QA test results Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void NavigateToTheViewQATestResultsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the View QA test results Page", new string[] {
+                        "Workitem:39520",
+                        "Driver"});
+#line 160
+this.ScenarioSetup(scenarioInfo);
+#line 161
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 162
+testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 163
+testRunner.Then("I am presented the View Results landing page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 164
+testRunner.When("I click on the View QA test results option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 165
+testRunner.Then("I am naviagted to the View QA test results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the View QA test results Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheViewQATestResultsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View QA test results Page", new string[] {
+                        "Workitem:39520",
+                        "Driver"});
+#line 168
+this.ScenarioSetup(scenarioInfo);
+#line 169
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 170
+testRunner.Then("the Search QA Test option is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 171
+testRunner.And("the Select Period drop down option is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 172
+testRunner.And("the Select Specification drop down option is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 173
+testRunner.And("a list of QA Test Results listed by Test is displayed with the correct column hea" +
+                    "ders", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the QA test results displayed on the View QA Test Results Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheQATestResultsDisplayedOnTheViewQATestResultsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the QA test results displayed on the View QA Test Results Page", new string[] {
+                        "Workitem:39520",
+                        "Driver"});
+#line 176
+this.ScenarioSetup(scenarioInfo);
+#line 177
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 178
+testRunner.Then("I am presented with a list of QA Test results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 179
+testRunner.And("the appropriate information is displayed for each QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the View QA test results Page Pagination")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheViewQATestResultsPagePagination()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View QA test results Page Pagination", new string[] {
+                        "Workitem:39520",
+                        "Driver"});
+#line 182
+this.ScenarioSetup(scenarioInfo);
+#line 183
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 184
+testRunner.And("I have over 50 QA Tests displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 185
+testRunner.When("I click to navigate to the next page of 50 QA Test Results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 186
+testRunner.Then("my list view updates to display the next set of 50 Results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 187
+testRunner.And("I am able to navigate to the previous page of 50 Results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search Option to filter the View QA test results Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SearchOptionToFilterTheViewQATestResultsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search Option to filter the View QA test results Page", new string[] {
+                        "Workitem:39520",
+                        "Driver"});
+#line 190
+this.ScenarioSetup(scenarioInfo);
+#line 191
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 192
+testRunner.When("I choose to search for an existing QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 193
+testRunner.Then("The list of QA Test Results is updated to display the correct QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        public virtual void ChangeCurrentListOfQATestsByYear(string year, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Workitem:39520",
+                    "Driver"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Change Current list of QA Tests by Year", @__tags);
+#line 196
+this.ScenarioSetup(scenarioInfo);
+#line 197
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 198
+testRunner.When(string.Format("I change the selected QA Test period drop down to {0}", year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 199
+testRunner.Then("the list of QA Test Results refreshes to display the selected years QA Tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Year: 1819")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "1819")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "1819")]
+        public virtual void ChangeCurrentListOfQATestsByYear_1819()
+        {
+#line 196
+this.ChangeCurrentListOfQATestsByYear("1819", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Year: 1718")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "1718")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "1718")]
+        public virtual void ChangeCurrentListOfQATestsByYear_1718()
+        {
+#line 196
+this.ChangeCurrentListOfQATestsByYear("1718", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Year: 1617")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "1617")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "1617")]
+        public virtual void ChangeCurrentListOfQATestsByYear_1617()
+        {
+#line 196
+this.ChangeCurrentListOfQATestsByYear("1617", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void ChangeCurrentListOfQATestsBySpecification(string specification, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Workitem:39520",
+                    "Driver"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Change Current list of QA Tests by Specification", @__tags);
+#line 208
+this.ScenarioSetup(scenarioInfo);
+#line 209
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 210
+testRunner.When(string.Format("I change the selected QA Test specificaiton drop down to {0}", specification), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 211
+testRunner.Then("the list of QA Test Results refreshes to display the selected specifications QA T" +
+                    "ests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: YP 201718 16-19 Learner Respons" +
+            "ive")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "YP 201718 16-19 Learner Responsive")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "YP 201718 16-19 Learner Responsive")]
+        public virtual void ChangeCurrentListOfQATestsBySpecification_YP20171816_19LearnerResponsive()
+        {
+#line 208
+this.ChangeCurrentListOfQATestsBySpecification("YP 201718 16-19 Learner Responsive", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: YP 201718 Academies 16-18")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "YP 201718 Academies 16-18")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "YP 201718 Academies 16-18")]
+        public virtual void ChangeCurrentListOfQATestsBySpecification_YP201718Academies16_18()
+        {
+#line 208
+this.ChangeCurrentListOfQATestsBySpecification("YP 201718 Academies 16-18", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: YP 201718 Non Formula Funded Ac" +
+            "tivity Academies")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "YP 201718 Non Formula Funded Activity Academies")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "YP 201718 Non Formula Funded Activity Academies")]
+        public virtual void ChangeCurrentListOfQATestsBySpecification_YP201718NonFormulaFundedActivityAcademies()
+        {
+#line 208
+this.ChangeCurrentListOfQATestsBySpecification("YP 201718 Non Formula Funded Activity Academies", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: YP 201718 School Sixth Form")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "YP 201718 School Sixth Form")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "YP 201718 School Sixth Form")]
+        public virtual void ChangeCurrentListOfQATestsBySpecification_YP201718SchoolSixthForm()
+        {
+#line 208
+this.ChangeCurrentListOfQATestsBySpecification("YP 201718 School Sixth Form", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: Adam Spec 001")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Adam Spec 001")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "Adam Spec 001")]
+        public virtual void ChangeCurrentListOfQATestsBySpecification_AdamSpec001()
+        {
+#line 208
+this.ChangeCurrentListOfQATestsBySpecification("Adam Spec 001", ((string[])(null)));
+#line hidden
+        }
     }
 }
 #pragma warning restore

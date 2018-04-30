@@ -315,6 +315,16 @@ namespace Frontend.IntegrationTests
             testscenariolistpage.testScenarioPageCreateQATestButton.Click();
             Thread.Sleep(2000);
         }
+
+        public static void ViewQATestResults()
+        {
+            HomePage homepage = new HomePage();
+            ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
+           
+            homepage.ViewtheResults.Click();
+            viewresultsoptionspage.viewResultsOptionsViewQATestResults.Click();
+            Thread.Sleep(20000);
+        }
     }
 }
 
