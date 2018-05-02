@@ -989,6 +989,288 @@ this.ChangeCurrentListOfQATestsBySpecification("YP 201718 School Sixth Form", ((
 this.ChangeCurrentListOfQATestsBySpecification("Adam Spec 001", ((string[])(null)));
 #line hidden
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Navigate to View the test results of all providers for a single test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void NavigateToViewTheTestResultsOfAllProvidersForASingleTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to View the test results of all providers for a single test", new string[] {
+                        "Workitem:39522",
+                        "Driver"});
+#line 223
+this.ScenarioSetup(scenarioInfo);
+#line 224
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 225
+testRunner.When("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 226
+testRunner.Then("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the View test results of all providers for a single test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheViewTestResultsOfAllProvidersForASingleTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View test results of all providers for a single test", new string[] {
+                        "Workitem:39522",
+                        "Driver"});
+#line 229
+this.ScenarioSetup(scenarioInfo);
+#line 230
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 231
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 232
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 233
+testRunner.Then("A Search Filter option is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 234
+testRunner.And("A Provider Type Filter drop Down is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 235
+testRunner.And("A Provider Sub Type Filter drop down is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 236
+testRunner.And("A Local Authority Filter drop down is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the View test results of all providers for a single test Pagination")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheViewTestResultsOfAllProvidersForASingleTestPagination()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View test results of all providers for a single test Pagination", new string[] {
+                        "Workitem:39522",
+                        "Driver"});
+#line 239
+this.ScenarioSetup(scenarioInfo);
+#line 240
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 241
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 242
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 243
+testRunner.Then("the page lists up to the first 50 Providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 244
+testRunner.When("there are more than 50 Providers returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 245
+testRunner.And("I click to navigate to the next page of 50 providers test results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 246
+testRunner.Then("my page list view displays the next 50 test results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 247
+testRunner.And("I am able to navigate to the previous page of 50 providers test results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate Provider Info on the View test results of all providers for a single tes" +
+            "t page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateProviderInfoOnTheViewTestResultsOfAllProvidersForASingleTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Provider Info on the View test results of all providers for a single tes" +
+                    "t page", new string[] {
+                        "Workitem:39522",
+                        "Driver"});
+#line 250
+this.ScenarioSetup(scenarioInfo);
+#line 251
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 252
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 253
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 254
+testRunner.Then("The name of the provider for the single test is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 255
+testRunner.And("all the relevant provider details for the single are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate Provider Test Result on the View test results of all providers for a sin" +
+            "gle test page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateProviderTestResultOnTheViewTestResultsOfAllProvidersForASingleTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Provider Test Result on the View test results of all providers for a sin" +
+                    "gle test page", new string[] {
+                        "Workitem:39522",
+                        "Driver"});
+#line 258
+this.ScenarioSetup(scenarioInfo);
+#line 259
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 260
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 261
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 262
+testRunner.Then("The name of the provider for the single test is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 263
+testRunner.And("the QA Test Result for the provider is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate Selected QA Test Info on the View test results of all providers for a si" +
+            "ngle test page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateSelectedQATestInfoOnTheViewTestResultsOfAllProvidersForASingleTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Selected QA Test Info on the View test results of all providers for a si" +
+                    "ngle test page", new string[] {
+                        "Workitem:39522",
+                        "Driver"});
+#line 266
+this.ScenarioSetup(scenarioInfo);
+#line 267
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 268
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 269
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 270
+testRunner.Then("details of the Test selected are displayed on the page correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate Search Results on the View test results of all providers for a single te" +
+            "st page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateSearchResultsOnTheViewTestResultsOfAllProvidersForASingleTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Search Results on the View test results of all providers for a single te" +
+                    "st page", new string[] {
+                        "Workitem:39522",
+                        "Driver"});
+#line 273
+this.ScenarioSetup(scenarioInfo);
+#line 274
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 275
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 276
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 277
+testRunner.And("I decide to filter my results by using the search filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 278
+testRunner.Then("the Provider Results list is refreshed to display only the providers that comply " +
+                    "with the filter selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate Provider Type Filtered Results on the View test results of all providers" +
+            " for a single test page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateProviderTypeFilteredResultsOnTheViewTestResultsOfAllProvidersForASingleTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Provider Type Filtered Results on the View test results of all providers" +
+                    " for a single test page", new string[] {
+                        "Workitem:39522",
+                        "Driver"});
+#line 281
+this.ScenarioSetup(scenarioInfo);
+#line 282
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 283
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 284
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 285
+testRunner.And("I decide to filter my results by using the Provider Type Filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 286
+testRunner.Then("the Provider Results list is refreshed to display only the providers that comply " +
+                    "with the filter selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate Provider Sub Type Filtered Results on the View test results of all provi" +
+            "ders for a single test page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateProviderSubTypeFilteredResultsOnTheViewTestResultsOfAllProvidersForASingleTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Provider Sub Type Filtered Results on the View test results of all provi" +
+                    "ders for a single test page", new string[] {
+                        "Workitem:39522",
+                        "Driver"});
+#line 289
+this.ScenarioSetup(scenarioInfo);
+#line 290
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 291
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 292
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 293
+testRunner.And("I decide to filter my results by using the Provider Sub Type Filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 294
+testRunner.Then("the Provider Results list is refreshed to display only the providers that comply " +
+                    "with the filter selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate Local Authority Filtered Results on the View test results of all provide" +
+            "rs for a single test page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateLocalAuthorityFilteredResultsOnTheViewTestResultsOfAllProvidersForASingleTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Local Authority Filtered Results on the View test results of all provide" +
+                    "rs for a single test page", new string[] {
+                        "Workitem:39522",
+                        "Driver"});
+#line 297
+this.ScenarioSetup(scenarioInfo);
+#line 298
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 299
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 300
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 301
+testRunner.And("I decide to filter my results by using the Local Authority Filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 302
+testRunner.Then("the Provider Results list is refreshed to display only the providers that comply " +
+                    "with the filter selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

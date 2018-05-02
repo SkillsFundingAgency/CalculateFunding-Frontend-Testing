@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using AutoFramework;
 using FluentAssertions;
@@ -22,8 +23,10 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ViewProviderAllocationsPage viewproviderallocationspage = new ViewProviderAllocationsPage();
         ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
         ViewQATestResultsPage viewqatestresultspage = new ViewQATestResultsPage();
+        ViewTestResultsAllProvidersSingleTest viewtestresultsallproviders = new ViewTestResultsAllProvidersSingleTest();
 
         public string searchtext = "Primary";
+        public string provider = "Academy";
 
         [When(@"I click on the View provider results option")]
         public void WhenIClickOnTheViewProviderResultsOption()
@@ -48,7 +51,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             providernameexists.Should().NotBeNull();
             providernameexists.Displayed.Should().BeTrue();
             string providername = providernameexists.Text;
-            Console.WriteLine(providername);
+            Console.WriteLine("The Provider Name Displayed is: " + providername);
 
         }
 
@@ -797,6 +800,293 @@ namespace Frontend.IntegrationTests.Tests.Steps
             endPageCount.Should().BeGreaterOrEqualTo(0, "The selected specifications results have not been returned correctly");
             Console.WriteLine("The total results displayed on for the selected specification is: " + endPageCount);
         }
+
+        [When(@"I choose a QA Test from the displayed list of tests")]
+        public void WhenIChooseAQATestFromTheDisplayedListOfTests()
+        {
+            Actions.SelectQATestResultByQATestName();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected to the selected QA Test results for all providers page")]
+        public void ThenIAmRedirectedToTheSelectedQATestResultsForAllProvidersPage()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSearchField.Should().NotBeNull();
+        }
+
+        [Given(@"I choose a QA Test from the displayed list of tests")]
+        public void GivenIChooseAQATestFromTheDisplayedListOfTests()
+        {
+            Actions.SelectQATestResultByQATestName();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I am redirected to the selected QA Test results for all providers page")]
+        public void WhenIAmRedirectedToTheSelectedQATestResultsForAllProvidersPage()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSearchField.Should().NotBeNull();
+        }
+
+        [Then(@"A Search Filter option is correctly displayed")]
+        public void ThenASearchFilterOptionIsCorrectlyDisplayed()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSearchField.Should().NotBeNull();
+        }
+
+        [Then(@"A Provider Type Filter drop Down is correctly displayed")]
+        public void ThenAProviderTypeFilterDropDownIsCorrectlyDisplayed()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSelectProviderType.Should().NotBeNull();
+        }
+
+        [Then(@"A Provider Sub Type Filter drop down is correctly displayed")]
+        public void ThenAProviderSubTypeFilterDropDownIsCorrectlyDisplayed()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType.Should().NotBeNull();
+        }
+
+        [Then(@"A Local Authority Filter drop down is correctly displayed")]
+        public void ThenALocalAuthorityFilterDropDownIsCorrectlyDisplayed()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSelectLocalAuthority.Should().NotBeNull();
+        }
+
+
+        [Then(@"the page lists up to the first (.*) Providers")]
+        public void ThenThePageListsUpToTheFirstProviders(int endPageListCount)
+        {
+            IWebElement testresultsallprovidersResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListEndCount;
+            string endPageResultCount = testresultsallprovidersResultCount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeLessOrEqualTo(endPageListCount, "More than 50 Results are displayed on this Page");
+            Console.WriteLine("Total Page Results Displayed is " + testresultsallprovidersResultCount.Text);
+        }
+
+        [When(@"there are more than (.*) Providers returned")]
+        public void WhenThereAreMoreThanProvidersReturned(int totalPageListCount)
+        {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            totalPageCount.Should().BeGreaterOrEqualTo(totalPageListCount, "Less than " + totalPageListCount + "Results are displayed on this Page");
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+        }
+
+        [When(@"I click to navigate to the next page of (.*) providers test results")]
+        public void WhenIClickToNavigateToTheNextPageOfProvidersTestResults(int p0)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"my page list view displays the next (.*) test results")]
+        public void ThenMyPageListViewDisplaysTheNextTestResults(int endPageListCount)
+        {
+            IWebElement testresultsallprovidersResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListEndCount;
+            string endPageResultCount = testresultsallprovidersResultCount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeGreaterOrEqualTo(endPageListCount, "Less than 50 Results are displayed on this Page");
+            Console.WriteLine("Total Page Results Displayed is " + testresultsallprovidersResultCount.Text);
+        }
+
+        [Then(@"I am able to navigate to the previous page of (.*) providers test results")]
+        public void ThenIAmAbleToNavigateToThePreviousPageOfProvidersTestResults(int endPageListCount)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+
+            IWebElement testresultsallprovidersResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListEndCount;
+            string endPageResultCount = testresultsallprovidersResultCount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeLessOrEqualTo(endPageListCount, "More than 50 Results are displayed on this Page");
+            Console.WriteLine("Total Page Results Displayed is " + testresultsallprovidersResultCount.Text);
+
+        }
+
+
+        [Then(@"The name of the provider for the single test is displayed")]
+        public void ThenTheNameOfTheProviderForTheSingleTestIsDisplayed()
+        {
+            IWebElement providerresultslistcontainer = viewtestresultsallproviders.singleTestProviderResultsProviderResultsList;
+            IWebElement providernameexists = providerresultslistcontainer.FindElement(By.CssSelector("div.provider-item-header a"));
+            providernameexists.Should().NotBeNull();
+            providernameexists.Displayed.Should().BeTrue();
+            string providername = providernameexists.Text;
+            Console.WriteLine("The Provider Name Displayed is: " + providername);
+        }
+
+        [Then(@"all the relevant provider details for the single are displayed")]
+        public void ThenAllTheRelevantProviderDetailsForTheSingleAreDisplayed()
+        {
+            IWebElement providerresultitemcontainer = viewtestresultsallproviders.singleTestProviderResultsProviderResultsListContainer;
+            var propertyElements = providerresultitemcontainer.FindElements(By.CssSelector("span.provider-item-property"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("span"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+
+        [Then(@"the QA Test Result for the provider is displayed")]
+        public void ThenTheQATestResultForTheProviderIsDisplayed()
+        {
+            IWebElement providerresultslistcontainer = viewtestresultsallproviders.singleTestProviderResultsProviderResultsList;
+            IWebElement providerresultexists = providerresultslistcontainer.FindElement(By.CssSelector("div.provider-item-header span"));
+            providerresultexists.Should().NotBeNull();
+            providerresultexists.Displayed.Should().BeTrue();
+            string providerresult = providerresultexists.Text;
+            Console.WriteLine("The QA Test Result for this Provider is: " + providerresult);
+        }
+
+
+        [Then(@"details of the Test selected are displayed on the page correctly")]
+        public void ThenDetailsOfTheTestSelectedAreDisplayedOnThePageCorrectly()
+        {
+            IWebElement providerresultitemcontainer = viewtestresultsallproviders.singleTestProviderResultsQATestInfo;
+            var propertyElements = providerresultitemcontainer.FindElements(By.CssSelector("p.alert__message"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("span"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine("Selected QA Test Details displayed are: " + currentElement.Text);
+            }
+        }
+
+        [When(@"I decide to filter my results by using the search filter")]
+        public void WhenIDecideToFilterMyResultsByUsingTheSearchFilter()
+        {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+            ScenarioContext.Current["totalResults"] = totalPageResultCount;
+
+            viewtestresultsallproviders.singleTestProviderResultsSearchField.SendKeys(searchtext);
+            viewtestresultsallproviders.singleTestProviderResultsSearchButton.Click();
+            Thread.Sleep(5000);
+        }
+
+
+        [Then(@"the Provider Results list is refreshed to display only the providers that comply with the filter selected")]
+        public void ThenTheProviderResultsListIsRefreshedToDisplayOnlyTheProvidersThatComplyWithTheFilterSelected()
+        {
+            string totalPageListCount = ScenarioContext.Current["totalResults"] as string;
+            int initialTotalPageCount = int.Parse(totalPageListCount);
+
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int newTotalPageCount = int.Parse(totalPageResultCount);
+            newTotalPageCount.Should().BeLessOrEqualTo(initialTotalPageCount, "More than the initial unfiltered result count of " + initialTotalPageCount + " are being displayed on this Page");
+            Console.WriteLine("The New Filtered Total results returned is " + newTotalPageCount);
+        }
+
+
+        [When(@"I decide to filter my results by using the Provider Type Filter")]
+        public void WhenIDecideToFilterMyResultsByUsingTheProviderTypeFilter()
+        {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+            ScenarioContext.Current["totalResults"] = totalPageResultCount;
+
+            IWebElement selectProviderDropdown = viewtestresultsallproviders.singleTestProviderResultsSelectProviderType;
+            selectProviderDropdown.Click();
+            var selectProviderOption = Driver._driver.FindElements(By.CssSelector(".open > ul > li"));
+            IWebElement firstProviderOption = selectProviderOption.FirstOrDefault();
+
+            if (firstProviderOption != null)
+            {
+                firstProviderOption.Click();
+                string selectedProviderOption = firstProviderOption.Text;
+                Thread.Sleep(2000);
+                viewtestresultsallproviders.singleTestProviderResultsSelectProviderType.Click();
+                Console.WriteLine("Provider Option selected is: " + selectedProviderOption);
+            }
+            else
+            {
+                firstProviderOption.Should().NotBeNull("Unable to find Provider Option to select");
+            }
+
+        }
+
+
+        [When(@"I decide to filter my results by using the Provider Sub Type Filter")]
+        public void WhenIDecideToFilterMyResultsByUsingTheProviderSubTypeFilter()
+        {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+            ScenarioContext.Current["totalResults"] = totalPageResultCount;
+
+            IWebElement selectProviderSubDropdown = viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType;
+            selectProviderSubDropdown.Click();
+            var selectProviderSubOption = Driver._driver.FindElements(By.CssSelector(".open > ul > li"));
+            IWebElement firstProviderSubOption = selectProviderSubOption.FirstOrDefault();
+
+            if (firstProviderSubOption != null)
+            {
+                firstProviderSubOption.Click();
+                string selectedProviderSubOption = firstProviderSubOption.Text;
+                Thread.Sleep(2000);
+                viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType.Click();
+                Console.WriteLine("Provider Sub Type Option selected is: " + selectedProviderSubOption);
+            }
+            else
+            {
+                firstProviderSubOption.Should().NotBeNull("Unable to find Provider Sub Type Option to select");
+            }
+
+        }
+
+
+        [When(@"I decide to filter my results by using the Local Authority Filter")]
+        public void WhenIDecideToFilterMyResultsByUsingTheLocalAuthorityFilter()
+        {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+            ScenarioContext.Current["totalResults"] = totalPageResultCount;
+
+            IWebElement selectLocalAuthDropdown = viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType;
+            selectLocalAuthDropdown.Click();
+            var selectLocalAuthOption = Driver._driver.FindElements(By.CssSelector(".open > ul > li"));
+            IWebElement firstLocalAuthOption = selectLocalAuthOption.FirstOrDefault();
+
+            if (firstLocalAuthOption != null)
+            {
+                firstLocalAuthOption.Click();
+                string selectedLocalAuthOption = firstLocalAuthOption.Text;
+                Thread.Sleep(2000);
+                viewtestresultsallproviders.singleTestProviderResultsSelectLocalAuthority.Click();
+                Console.WriteLine("Provider Sub Type Option selected is: " + selectedLocalAuthOption);
+            }
+            else
+            {
+                firstLocalAuthOption.Should().NotBeNull("Unable to find Local Authority Option to select");
+            }
+        }
+
 
 
         [AfterScenario()]

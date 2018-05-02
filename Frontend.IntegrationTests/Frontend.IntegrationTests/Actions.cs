@@ -649,6 +649,47 @@
         }
 
 
+        public static void SelectQATestResultByQATestName()
+        {
+            ViewQATestResultsPage viewqatestresultspage = new ViewQATestResultsPage();
+
+            var containerElements = viewqatestresultspage.viewQATestResultspageQATestResultTable;
+            IWebElement SelectFirstTest = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.CssSelector("td a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+
+                        SelectFirstTest = optionelement;
+
+                        break;
+
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstTest != null)
+                {
+                    string firsttestname = SelectFirstTest.Text;
+                    firsttestname.Should().NotBeNullOrEmpty();
+                    Console.WriteLine("QA Test selected: " + firsttestname);
+                    SelectFirstTest.Click();
+                    
+                }
+                else
+                {
+                    SelectFirstTest.Should().NotBeNull("No QA Test was successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstTest.Should().NotBeNull("No QA Test was successfully found");
+            }
+        }
+
     }
 }
 

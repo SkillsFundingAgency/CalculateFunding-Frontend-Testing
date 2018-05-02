@@ -217,3 +217,86 @@ Examples:
 	 | YP 201718 Non Formula Funded Activity Academies | 
 	 | YP 201718 School Sixth Form                     | 
 	 | Adam Spec 001								   |
+
+
+@Workitem:39522 Driver
+Scenario: Navigate to View the test results of all providers for a single test
+Given I have navigated to the view all test results screen
+When I choose a QA Test from the displayed list of tests
+Then I am redirected to the selected QA Test results for all providers page
+
+@Workitem:39522 Driver
+Scenario: Verify the View test results of all providers for a single test
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then A Search Filter option is correctly displayed
+And A Provider Type Filter drop Down is correctly displayed
+And A Provider Sub Type Filter drop down is correctly displayed
+And A Local Authority Filter drop down is correctly displayed
+
+@Workitem:39522 Driver
+Scenario: Verify the View test results of all providers for a single test Pagination
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then the page lists up to the first 50 Providers
+When there are more than 50 Providers returned
+And I click to navigate to the next page of 50 providers test results
+Then my page list view displays the next 50 test results
+And I am able to navigate to the previous page of 50 providers test results
+
+@Workitem:39522 Driver
+Scenario: Validate Provider Info on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then The name of the provider for the single test is displayed
+And all the relevant provider details for the single are displayed
+
+@Workitem:39522 Driver
+Scenario: Validate Provider Test Result on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then The name of the provider for the single test is displayed
+And the QA Test Result for the provider is displayed
+
+@Workitem:39522 Driver
+Scenario: Validate Selected QA Test Info on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then details of the Test selected are displayed on the page correctly
+
+@Workitem:39522 Driver
+Scenario: Validate Search Results on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+And I decide to filter my results by using the search filter
+Then the Provider Results list is refreshed to display only the providers that comply with the filter selected
+
+@Workitem:39522 Driver
+Scenario: Validate Provider Type Filtered Results on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+And I decide to filter my results by using the Provider Type Filter
+Then the Provider Results list is refreshed to display only the providers that comply with the filter selected
+
+@Workitem:39522 Driver
+Scenario: Validate Provider Sub Type Filtered Results on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+And I decide to filter my results by using the Provider Sub Type Filter
+Then the Provider Results list is refreshed to display only the providers that comply with the filter selected
+
+@Workitem:39522 Driver
+Scenario: Validate Local Authority Filtered Results on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+And I decide to filter my results by using the Local Authority Filter
+Then the Provider Results list is refreshed to display only the providers that comply with the filter selected
