@@ -1088,6 +1088,108 @@ namespace Frontend.IntegrationTests.Tests.Steps
         }
 
 
+        [Given(@"I have navigated to the Provider results for an Individual Provider Page")]
+        public void GivenIHaveNavigatedToTheProviderResultsForAnIndividualProviderPage()
+        {
+            NavigateTo.ViewProviderAllocationsPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"a tab is displayed to show the Allocation Line results")]
+        public void ThenATabIsDisplayedToShowTheAllocationLineResults()
+        {
+            viewproviderallocationspage.providerAllocationsPageAllocationTab.Should().NotBeNull();
+
+        }
+
+        [Then(@"a tab is displayed to show the Calculation results")]
+        public void ThenATabIsDisplayedToShowTheCalculationResults()
+        {
+            viewproviderallocationspage.providerAllocationsPageCalculationTab.Should().NotBeNull();
+        }
+
+        [Then(@"a tab is displayed to show the Test results")]
+        public void ThenATabIsDisplayedToShowTheTestResults()
+        {
+            viewproviderallocationspage.providerAllocationsPageTestTab.Should().NotBeNull();
+        }
+
+        [Then(@"the drop down option to select an academic year is displayed")]
+        public void ThenTheDropDownOptionToSelectAnAcademicYearIsDisplayed()
+        {
+            viewproviderallocationspage.providerAllocationsPageAcademicYearDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the drop down option to select a specification is displayed")]
+        public void ThenTheDropDownOptionToSelectASpecificationIsDisplayed()
+        {
+            viewproviderallocationspage.providerAllocationsPageSpecificationDropDown.Should().NotBeNull();
+        }
+
+
+
+        [Given(@"I have created a New Specification")]
+        public void GivenIHaveCreatedANewSpecification()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+        }
+
+        [Given(@"I have created a New Policy for that Specification")]
+        public void GivenIHaveCreatedANewPolicyForThatSpecification()
+        {
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+        }
+
+        [Given(@"I have created a New Calculation Specification for that Specification")]
+        public void GivenIHaveCreatedANewCalculationSpecificationForThatSpecification()
+        {
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+        }
+
+        [Given(@"I have create a New Dataset for that Specificaton")]
+        public void GivenIHaveCreateANewDatasetForThatSpecificaton()
+        {
+            ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
+        }
+
+        [When(@"I edit the New Calculation for that Specification")]
+        public void WhenIEditTheNewCalculationForThatSpecification()
+        {
+            EditNewCalculaton.EditANewCalculaton();
+
+        }
+
+
+        [When(@"I have specified a data Source Relationship for the Specification")]
+        public void WhenIHaveSpecifiedADataSourceRelationshipForTheSpecification()
+        {
+
+        }
+
+        [When(@"I have created a New Test for the Specification")]
+        public void WhenIHaveCreatedANewTestForTheSpecification()
+        {
+
+        }
+
+        [When(@"I then select the appropriate Provider from the View provider results list page")]
+        public void WhenIThenSelectTheAppropriateProviderFromTheViewProviderResultsListPage()
+        {
+
+        }
+
+        [Then(@"I can select the New Specification from the View provider results for an Individual Provider Page")]
+        public void ThenICanSelectTheNewSpecificationFromTheViewProviderResultsForAnIndividualProviderPage()
+        {
+
+        }
+
+        [Then(@"I can click on the Test Tab to view the Test result for the Individual Provider and Specification")]
+        public void ThenICanClickOnTheTestTabToViewTheTestResultForTheIndividualProviderAndSpecification()
+        {
+
+        }
+
 
         [AfterScenario()]
         public void FixtureTearDown()

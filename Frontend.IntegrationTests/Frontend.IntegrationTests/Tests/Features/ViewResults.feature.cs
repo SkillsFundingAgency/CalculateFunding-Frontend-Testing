@@ -1271,6 +1271,94 @@ testRunner.Then("the Provider Results list is refreshed to display only the prov
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Navigate to the View provider results for an Individual Provider Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void NavigateToTheViewProviderResultsForAnIndividualProviderPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the View provider results for an Individual Provider Page", new string[] {
+                        "Workitem:39523",
+                        "Driver"});
+#line 305
+this.ScenarioSetup(scenarioInfo);
+#line 306
+testRunner.Given("I have navigated to the Provider results for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 307
+testRunner.Then("a tab is displayed to show the Allocation Line results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 308
+testRunner.And("a tab is displayed to show the Calculation results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 309
+testRunner.And("a tab is displayed to show the Test results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the View provider results for an Individual Provider Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheViewProviderResultsForAnIndividualProviderPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View provider results for an Individual Provider Page", new string[] {
+                        "Workitem:39523",
+                        "Driver"});
+#line 312
+this.ScenarioSetup(scenarioInfo);
+#line 313
+testRunner.Given("I have navigated to the Provider results for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 314
+testRunner.Then("the drop down option to select an academic year is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 315
+testRunner.And("the drop down option to select a specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 316
+testRunner.And("the relevant provider information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Pa" +
+            "ssed")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Provider Test results for an Individual Provider with a result of Pa" +
+                    "ssed", new string[] {
+                        "Workitem:39523",
+                        "Driver"});
+#line 319
+this.ScenarioSetup(scenarioInfo);
+#line 320
+testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 321
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 322
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 323
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 324
+testRunner.When("I edit the New Calculation for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 325
+testRunner.And("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 326
+testRunner.And("I have created a New Test for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 327
+testRunner.And("I then select the appropriate Provider from the View provider results list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 328
+testRunner.Then("I can select the New Specification from the View provider results for an Individu" +
+                    "al Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 329
+testRunner.And("I can click on the Test Tab to view the Test result for the Individual Provider a" +
+                    "nd Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

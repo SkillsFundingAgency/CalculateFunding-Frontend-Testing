@@ -300,3 +300,30 @@ And I choose a QA Test from the displayed list of tests
 When I am redirected to the selected QA Test results for all providers page
 And I decide to filter my results by using the Local Authority Filter
 Then the Provider Results list is refreshed to display only the providers that comply with the filter selected
+
+@Workitem:39523 Driver
+Scenario: Navigate to the View provider results for an Individual Provider Page
+Given I have navigated to the Provider results for an Individual Provider Page
+Then a tab is displayed to show the Allocation Line results
+And a tab is displayed to show the Calculation results
+And a tab is displayed to show the Test results
+
+@Workitem:39523 Driver
+Scenario: Verify the View provider results for an Individual Provider Page
+Given I have navigated to the Provider results for an Individual Provider Page
+Then the drop down option to select an academic year is displayed
+And the drop down option to select a specification is displayed
+And the relevant provider information is displayed
+
+@Workitem:39523 Driver
+Scenario: Validate the Provider Test results for an Individual Provider with a result of Passed
+Given I have created a New Specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I have create a New Dataset for that Specificaton
+When I edit the New Calculation for that Specification
+And I have specified a data Source Relationship for the Specification
+And I have created a New Test for the Specification
+And I then select the appropriate Provider from the View provider results list page
+Then I can select the New Specification from the View provider results for an Individual Provider Page
+And I can click on the Test Tab to view the Test result for the Individual Provider and Specification

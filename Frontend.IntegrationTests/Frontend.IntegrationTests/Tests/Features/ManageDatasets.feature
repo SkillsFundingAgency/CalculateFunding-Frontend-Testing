@@ -229,7 +229,6 @@ Scenario: Verify the Select Data Source Version Option is displayed correctly
 Given I have navigated to the Select Source Dataset
 When I click a displayed datasets option
 Then all the dataset versions that exist are displayed in descending order
-And the first dataset version is preselected
 
 @Workitem:38338 Driver
 Scenario: Verify the Select Data Source Save Button is Enabled correctly

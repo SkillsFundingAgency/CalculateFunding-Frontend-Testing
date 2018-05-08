@@ -27,7 +27,7 @@ namespace Frontend.IntegrationTests.Create
             ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
 
             string newname = "Test Dataset Name ";
-            string descriptiontext = "This is a Datset Description";
+            string descriptiontext = "This is a Datset Description for: ";
 
             managepoliciespage.Createdatatyperelationship.Should().NotBeNull();
             managepoliciespage.Createdatatyperelationship.Click();
@@ -36,7 +36,7 @@ namespace Frontend.IntegrationTests.Create
             var randomDatasetName = newname + TestDataUtils.RandomString(6);
             ScenarioContext.Current["DatasetSchemaName"] = randomDatasetName;
             choosedatasetrelationshippage.datasetSchemaRelationshipName.SendKeys(randomDatasetName);
-            choosedatasetrelationshippage.datasetSchemaRelationshipDescription.SendKeys(descriptiontext);
+            choosedatasetrelationshippage.datasetSchemaRelationshipDescription.SendKeys(descriptiontext + randomDatasetName);
             choosedatasetrelationshippage.datasetSchemaRelationshipSaveButton.Click();
             Thread.Sleep(2000);
             managepoliciespage.datasetsTab.Should().NotBeNull();

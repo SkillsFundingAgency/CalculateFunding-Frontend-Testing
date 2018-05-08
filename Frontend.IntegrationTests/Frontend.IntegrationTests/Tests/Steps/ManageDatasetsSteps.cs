@@ -761,11 +761,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine("DataSource Version Name is " + datasourcename);
         }
 
-        [Then(@"the first dataset version is preselected")]
-        public void ThenTheFirstDatasetVersionIsPreselected()
-        {
-            //Bug 40523
-        }
 
         [Then(@"the selected dataset version is show to be selected")]
         public void ThenTheSelectedDatasetVersionIsShowToBeSelected()
