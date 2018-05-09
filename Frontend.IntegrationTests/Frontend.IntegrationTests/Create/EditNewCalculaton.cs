@@ -38,16 +38,18 @@ namespace Frontend.IntegrationTests.Create
             Thread.Sleep(2000);
             editcalculationspage.SaveCalculationButton.Should().NotBeNull();
 
+            Thread.Sleep(2000);
+            var datasetName = ScenarioContext.Current["DatasetSchemaName"];
             editcalculationspage.CalculationVBEditor.Should().NotBeNull();
-            editcalculationspage.CalculationVBTextEditor.Click();
             editcalculationspage.CalculationVBTextEditor.SendKeys(OpenQA.Selenium.Keys.Control + "A");
-            editcalculationspage.CalculationVBTextEditor.SendKeys("Return Datasets.HighNeedsStudentNumberCY.HighNeedsStudents1619 + 10");
+            editcalculationspage.CalculationVBTextEditor.SendKeys("Return Datasets." + datasetName + ".HighNeedsStudents1619 + 10");
+            Thread.Sleep(2000);
             editcalculationspage.BuildCalculationButton.Click();
-
             Thread.Sleep(4000);
+
             IWebElement EditCalculationCompiled = Driver._driver.FindElement(By.Id("compiler-response"));
             string CalculationCompiled = EditCalculationCompiled.Text;
-            CalculationCompiled.Should().Equals("Code compiled successfully:");
+            CalculationCompiled.Should().Be("Code compiled successfully: true");
             Console.WriteLine(CalculationCompiled);
             
             editcalculationspage.SaveCalculationButton.Click();

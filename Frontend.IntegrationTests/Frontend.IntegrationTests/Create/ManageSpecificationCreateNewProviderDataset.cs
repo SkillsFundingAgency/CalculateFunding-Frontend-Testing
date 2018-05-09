@@ -26,7 +26,7 @@ namespace Frontend.IntegrationTests.Create
             ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
             ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
 
-            string newname = "Test Dataset Name ";
+            string newname = "TestDatasetName";
             string descriptiontext = "This is a Datset Description for: ";
 
             managepoliciespage.Createdatatyperelationship.Should().NotBeNull();

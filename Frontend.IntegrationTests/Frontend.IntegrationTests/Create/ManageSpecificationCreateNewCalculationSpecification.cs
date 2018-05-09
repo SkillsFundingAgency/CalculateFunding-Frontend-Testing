@@ -49,7 +49,7 @@ namespace Frontend.IntegrationTests.Create
             var specCalcName = ScenarioContext.Current["SpecCalcName"];
             string specCalcCreated = specCalcName.ToString();
             Console.WriteLine(specCalcCreated + " has been created successfully");
-            Thread.Sleep(1000);
+            Thread.Sleep(5000);
 
         }
 

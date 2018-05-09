@@ -1152,24 +1152,22 @@ namespace Frontend.IntegrationTests.Tests.Steps
             ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
         }
 
+        [When(@"I have specified a data Source Relationship for the Specification")]
+        public void WhenIHaveSpecifiedADataSourceRelationshipForTheSpecification()
+        {
+            CreateDataSourceMapping.CreateADataSourceMapping();
+        }
+
         [When(@"I edit the New Calculation for that Specification")]
         public void WhenIEditTheNewCalculationForThatSpecification()
         {
             EditNewCalculaton.EditANewCalculaton();
-
-        }
-
-
-        [When(@"I have specified a data Source Relationship for the Specification")]
-        public void WhenIHaveSpecifiedADataSourceRelationshipForTheSpecification()
-        {
-
         }
 
         [When(@"I have created a New Test for the Specification")]
         public void WhenIHaveCreatedANewTestForTheSpecification()
         {
-
+            CreateNewQATest.CreateANewQATest();
         }
 
         [When(@"I then select the appropriate Provider from the View provider results list page")]
@@ -1189,6 +1187,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
 
         }
+
+
 
 
         [AfterScenario()]

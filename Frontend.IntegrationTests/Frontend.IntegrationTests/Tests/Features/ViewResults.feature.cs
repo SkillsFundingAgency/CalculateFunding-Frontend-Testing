@@ -1343,9 +1343,9 @@ testRunner.And("I have created a New Calculation Specification for that Specific
 #line 323
 testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 324
-testRunner.When("I edit the New Calculation for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 325
-testRunner.And("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I edit the New Calculation for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 326
 testRunner.And("I have created a New Test for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 327

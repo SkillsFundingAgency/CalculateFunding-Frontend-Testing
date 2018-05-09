@@ -81,6 +81,8 @@
   <ItemGroup>
     <Compile Include="Actions.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Create\CreateDataSourceMapping.cs" />
+    <Compile Include="Create\CreateNewQATest.cs" />
     <Compile Include="Create\CreateNewSpecification.cs" />
     <Compile Include="Create\EditNewCalculaton.cs" />
     <Compile Include="Create\ManageSpecificationCreateNewCalculationSpecification.cs" />

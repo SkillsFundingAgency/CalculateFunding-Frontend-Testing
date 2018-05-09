@@ -321,8 +321,8 @@ Given I have created a New Specification
 And I have created a New Policy for that Specification
 And I have created a New Calculation Specification for that Specification
 And I have create a New Dataset for that Specificaton
-When I edit the New Calculation for that Specification
-And I have specified a data Source Relationship for the Specification
+When I have specified a data Source Relationship for the Specification
+And I edit the New Calculation for that Specification
 And I have created a New Test for the Specification
 And I then select the appropriate Provider from the View provider results list page
 Then I can select the New Specification from the View provider results for an Individual Provider Page

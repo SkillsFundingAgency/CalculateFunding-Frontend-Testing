@@ -47,6 +47,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.CssSelector, Using = "#dynamic-results-container > div.specs-relationship-searchresult-container-item")]
         public IWebElement mapDataSourcesSpecificationRelationshipResultsList { get; set; }
 
+        [FindsBy(How = How.Id, Using = "dynamic-results-container")]
+        public IWebElement mapDataSourcesResultListContainer { get; set; }
+
 
 
     }
