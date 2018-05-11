@@ -22,7 +22,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "CreateSpecificationViewModel-Description")]
         public IWebElement SpecDescription { get; set; }
 
-        [FindsBy(How = How.Id, Using = "CreateSpecificationViewModel-FundingStreamId")]
+        [FindsBy(How = How.CssSelector, Using = ".select2-selection")]
         public IWebElement FundingStream { get; set; }
 
         [FindsBy(How = How.Id, Using = "save-button")]

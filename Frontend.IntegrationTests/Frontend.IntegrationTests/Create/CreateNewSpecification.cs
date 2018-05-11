@@ -37,9 +37,8 @@
             ScenarioContext.Current["SpecificationName"] = randomSpecName;
             createspecificationpage.SpecName.SendKeys(randomSpecName);
             createspecificationpage.SpecDescription.SendKeys(descriptiontext + randomSpecName);
-            var Funding = createspecificationpage.FundingStream;
-            var selectElement = new SelectElement(Funding);
-            selectElement.SelectByText("DSG Allocations");
+            createspecificationpage.FundingStream.Click();
+            createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
             Thread.Sleep(2000);
             createspecificationpage.SaveSpecification.Click();
             Thread.Sleep(2000);

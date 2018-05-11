@@ -58,7 +58,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = managespecficationpage.SelectYear;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("1718");
+            selectElement.SelectByValue("FY2017181");
             Thread.Sleep(2000);
         }
 
@@ -90,7 +90,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = managespecficationpage.SelectYear;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("1819");
+            selectElement.SelectByValue("FY2017181");
         }
 
         [When(@"I click on the Create a Specification Button")]
@@ -132,9 +132,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I choose a specification Funding Stream")]
         public void WhenIChooseASpecificationFundingStream()
         {
-            var Funding = createspecificationpage.FundingStream;
-            var selectElement = new SelectElement(Funding);
-            selectElement.SelectByText("DSG");
+            createspecificationpage.FundingStream.Click();
+            createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
         }
 
         [When(@"I click the Save button")]
@@ -411,7 +410,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var allocation = createcalculationpage.CalculationAllocationLine;
             var selectElement = new SelectElement(allocation);
-            selectElement.SelectByText("DSG Allocations");
+            selectElement.SelectByText("16-19 high level learners programme Funding");
         }
 
         [When(@"I enter a Calculation Description")]
