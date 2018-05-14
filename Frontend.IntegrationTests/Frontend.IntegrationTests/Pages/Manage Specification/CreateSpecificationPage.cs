@@ -42,29 +42,17 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
 
         [FindsBy(How = How.LinkText, Using = "You must give a description for the specification")]
         public IWebElement SpecDescriptionErrorText { get; set; }
+
+        [FindsBy(How = How.Id, Using = "CreateSpecificationViewModel-FundingPeriodId")]
+        public IWebElement SpecFundingPeriod { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "You must select at least one funding stream")]
+        public IWebElement SpecFundingStreamErrorText { get; set; }
+
+
+
     }
 }
 
 
 
-/*
-{
-    private readonly IWebDriver _driver;
-    private const string PageUri = @"https://esfacfsftest-web.azurewebsites.net/specs/createSpecification/1819";
-
-    public CreateSpecificationPage(IWebDriver driver)
-    {
-        _driver = driver;
-    }
-
-    public static CreateSpecificationPage NavigateTo(IWebDriver driver)
-    {
-        driver.Navigate().GoToUrl(PageUri);
-
-        return new CreateSpecificationPage(driver);
-    }
-
-}
-
-}
-*/

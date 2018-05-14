@@ -38,7 +38,7 @@ namespace Frontend.IntegrationTests.Pages.Quality_Assurance
         [FindsBy(How = How.CssSelector, Using = ".build-output")]
         public IWebElement createQATestBuildOutputWindow { get; set; }
         
-        [FindsBy(How = How.XPath, Using = "/html/body/main/div/div/div/form/div[5]/div[1]/div/div[1]/textarea")]
+        [FindsBy(How = How.XPath, Using = "/html/body/main/div/div/div/form/div[5]/div[2]/div/div[1]/textarea")]
         public IWebElement createQATestBuildMonacoEditorTextbox { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".build-output > div:nth-child(1)")]
