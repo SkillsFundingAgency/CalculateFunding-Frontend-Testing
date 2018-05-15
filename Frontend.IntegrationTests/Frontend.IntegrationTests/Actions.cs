@@ -773,6 +773,115 @@
                 }
             }
         }
+
+        public static void SelectProviderWhereQATestResultMarkedPassed()
+        {
+            ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+
+            var containerElements = viewproviderresultspage.providerResultspageResultListContainer;
+            IWebElement firstPassedProvider = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.CssSelector(".provider-item-header"));
+                if (options != null)
+                {
+                    foreach (var headerelement in options)
+                    {
+                        IWebElement passedElement = null;
+                        try
+                        {
+                            passedElement = headerelement.FindElement(By.CssSelector(".flag--success"));
+                        }
+                        catch (NoSuchElementException)
+                        {
+                        }
+
+                        if (passedElement != null)
+                        {
+                            var anchorLink = headerelement.FindElement(By.CssSelector("h4 a"));
+                            if (anchorLink != null)
+                            {
+                                firstPassedProvider = anchorLink;
+
+                                break;
+
+                            }
+
+                        }
+
+                    }
+                    if (firstPassedProvider != null)
+                    {
+                        firstPassedProvider.Click();
+                        Thread.Sleep(2000);
+                    }
+                    else
+                    {
+                        firstPassedProvider.Should().NotBeNull("No Provider has a result of Passed within this list of results");
+                    }
+                }
+                else
+                {
+                    firstPassedProvider.Should().NotBeNull("No Provider exists that can be selected");
+                }
+            }
+        }
+
+
+        public static void SelectProviderWhereQATestResultMarkedFailed()
+        {
+            ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+
+            var containerElements = viewproviderresultspage.providerResultspageResultListContainer;
+            IWebElement firstFailedProvider = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.CssSelector(".provider-item-header"));
+                if (options != null)
+                {
+                    foreach (var headerelement in options)
+                    {
+                        IWebElement passedElement = null;
+                        try
+                        {
+                            passedElement = headerelement.FindElement(By.CssSelector(".flag--urgent"));
+                        }
+                        catch (NoSuchElementException)
+                        {
+                        }
+
+                        if (passedElement != null)
+                        {
+                            var anchorLink = headerelement.FindElement(By.CssSelector("h4 a"));
+                            if (anchorLink != null)
+                            {
+                                firstFailedProvider = anchorLink;
+
+                                break;
+
+                            }
+
+                        }
+
+                    }
+                    if (firstFailedProvider != null)
+                    {
+                        firstFailedProvider.Click();
+                        Thread.Sleep(2000);
+                    }
+                    else
+                    {
+                        firstFailedProvider.Should().NotBeNull("No Provider has a result of Passed within this list of results");
+                    }
+                }
+                else
+                {
+                    firstFailedProvider.Should().NotBeNull("No Provider exists that can be selected");
+                }
+            }
+        }
+
+
     }
 }
 

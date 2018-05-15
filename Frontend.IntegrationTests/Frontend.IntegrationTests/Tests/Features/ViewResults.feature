@@ -327,3 +327,11 @@ And I have created a New Test for the Specification
 And I then select the appropriate Provider from the View provider results list page
 Then I can select the New Specification from the View provider results for an Individual Provider Page
 And I can click on the Test Tab to view the Test result for the Individual Provider and Specification
+
+@Workitem:39522 Driver
+Scenario: Check Passed Result on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then the Provider List of Test results for the selected QA Test is displayed
+And a Provider where the QA Test has Passed can be selected to display the specific QA Test Result
