@@ -1325,12 +1325,14 @@ testRunner.And("the relevant provider information is displayed", ((string)(null)
             "ssed")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassed()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Provider Test results for an Individual Provider with a result of Pa" +
                     "ssed", new string[] {
                         "Workitem:39523",
+                        "39517",
                         "Driver"});
 #line 319
 this.ScenarioSetup(scenarioInfo);
@@ -1349,13 +1351,17 @@ testRunner.And("I edit the New Calculation for that Specification", ((string)(nu
 #line 326
 testRunner.And("I have created a New Test for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 327
-testRunner.And("I then select the appropriate Provider from the View provider results list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I then select the appropriate Test from the View provider results list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 328
-testRunner.Then("I can select the New Specification from the View provider results for an Individu" +
-                    "al Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I can select the Provider with a Passed Test Result from the View provider result" +
+                    "s for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 329
 testRunner.And("I can click on the Test Tab to view the Test result for the Individual Provider a" +
                     "nd Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 330
+testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 331
+testRunner.And("the QA Test Results for the Prpovider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1364,27 +1370,114 @@ testRunner.And("I can click on the Test Tab to view the Test result for the Indi
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Passed Result on the View test results of all providers for a single test p" +
             "age")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void CheckPassedResultOnTheViewTestResultsOfAllProvidersForASingleTestPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Passed Result on the View test results of all providers for a single test p" +
                     "age", new string[] {
-                        "Workitem:39522",
+                        "Workitem:39523",
+                        "39517",
                         "Driver"});
-#line 332
-this.ScenarioSetup(scenarioInfo);
-#line 333
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 334
-testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 335
-testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 336
-testRunner.Then("the Provider List of Test results for the selected QA Test is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 337
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 338
+testRunner.Then("the Provider List of Test results for the selected QA Test is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 339
 testRunner.And("a Provider where the QA Test has Passed can be selected to display the specific Q" +
                     "A Test Result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 340
+testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 341
+testRunner.And("the QA Test Results for the Prpovider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Fa" +
+            "iled")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Provider Test results for an Individual Provider with a result of Fa" +
+                    "iled", new string[] {
+                        "Workitem:39523",
+                        "39517",
+                        "Driver"});
+#line 344
+this.ScenarioSetup(scenarioInfo);
+#line 345
+testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 346
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 347
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 348
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 349
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 350
+testRunner.And("I edit the New Calculation for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 351
+testRunner.And("I have created a New Test for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 352
+testRunner.And("I then select the appropriate Test from the View provider results list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 353
+testRunner.Then("I can select the Provider with a Failed Test Result from the View provider result" +
+                    "s for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 354
+testRunner.And("I can click on the Test Tab to view the Test result for the Individual Provider a" +
+                    "nd Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 355
+testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 356
+testRunner.And("the QA Test Results for the Prpovider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Check Failed Result on the View test results of all providers for a single test p" +
+            "age")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void CheckFailedResultOnTheViewTestResultsOfAllProvidersForASingleTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Failed Result on the View test results of all providers for a single test p" +
+                    "age", new string[] {
+                        "Workitem:39523",
+                        "39517",
+                        "Driver"});
+#line 359
+this.ScenarioSetup(scenarioInfo);
+#line 360
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 361
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 362
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 363
+testRunner.Then("the Provider List of Test results for the selected QA Test is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 364
+testRunner.And("a Provider where the QA Test has Failed can be selected to display the specific Q" +
+                    "A Test Result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 365
+testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 366
+testRunner.And("the QA Test Results for the Prpovider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

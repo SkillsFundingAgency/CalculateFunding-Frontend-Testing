@@ -1171,8 +1171,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             CreateNewQATest.CreateANewQATest();
         }
 
-        [When(@"I then select the appropriate Provider from the View provider results list page")]
-        public void WhenIThenSelectTheAppropriateProviderFromTheViewProviderResultsListPage()
+        [When(@"I then select the appropriate Test from the View provider results list page")]
+        public void WhenIThenSelectTheAppropriateTestFromTheViewProviderResultsListPage()
         {
             homepage.Header.Click();
             Thread.Sleep(2000);
@@ -1184,17 +1184,15 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Driver._driver.FindElement(By.LinkText(qaTestcreated)).Should().NotBeNull();
             Driver._driver.FindElement(By.LinkText(qaTestcreated)).Click();
             Thread.Sleep(2000);
-
-
-
         }
 
-        [Then(@"I can select the New Specification from the View provider results for an Individual Provider Page")]
-        public void ThenICanSelectTheNewSpecificationFromTheViewProviderResultsForAnIndividualProviderPage()
+        [Then(@"I can select the Provider with a Passed Test Result from the View provider results for an Individual Provider Page")]
+        public void ThenICanSelectTheProviderWithAPassedTestResultFromTheViewProviderResultsForAnIndividualProviderPage()
         {
             Actions.SelectProviderWhereQATestResultMarkedPassed();
             Thread.Sleep(2000);
         }
+
 
         [Then(@"I can click on the Test Tab to view the Test result for the Individual Provider and Specification")]
         public void ThenICanClickOnTheTestTabToViewTheTestResultForTheIndividualProviderAndSpecification()
@@ -1219,6 +1217,54 @@ namespace Frontend.IntegrationTests.Tests.Steps
             viewproviderallocationspage.providerAllocationsPageTestTab.Should().NotBeNull();
             viewproviderallocationspage.providerAllocationsPageTestTab.Click();
         }
+
+        [Then(@"the QA Test Coverage for the Provider is displayed correctly")]
+        public void ThenTheQATestCoverageForTheProviderIsDisplayedCorrectly()
+        {
+            var providerresultitemcontainer = viewproviderallocationspage.providerAllocationsPageTestTabResultsAlert;
+            string providerresults = providerresultitemcontainer.Text;
+            Console.WriteLine("The Test Result Coverage for this QA Test is: " + providerresults);
+        }
+
+
+
+        [Then(@"the QA Test Results for the Prpovider are displayed correctly")]
+        public void ThenTheQATestResultsForThePrpoviderAreDisplayedCorrectly()
+        {
+            IWebElement viewresultscontainer = viewproviderallocationspage.providerAllocationsPageTestTabSearchResultsContainer;
+            var allocationsresults = viewresultscontainer.FindElements(By.CssSelector(".table"));
+            List<IWebElement> allocationElementList = new List<IWebElement>(allocationsresults);
+            allocationElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < allocationElementList.Count; i++)
+            {
+                IWebElement currentElement = allocationElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("tr"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"I can select the Provider with a Failed Test Result from the View provider results for an Individual Provider Page")]
+        public void ThenICanSelectTheProviderWithAFailedTestResultFromTheViewProviderResultsForAnIndividualProviderPage()
+        {
+            Actions.SelectProviderWhereQATestResultMarkedFailed();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"a Provider where the QA Test has Failed can be selected to display the specific QA Test Result")]
+        public void ThenAProviderWhereTheQATestHasFailedCanBeSelectedToDisplayTheSpecificQATestResult()
+        {
+            Actions.SelectProviderWhereQATestResultMarkedFailed();
+            Thread.Sleep(2000);
+            viewproviderallocationspage.providerAllocationsPageTestTab.Should().NotBeNull();
+            viewproviderallocationspage.providerAllocationsPageTestTab.Click();
+        }
+
 
 
 

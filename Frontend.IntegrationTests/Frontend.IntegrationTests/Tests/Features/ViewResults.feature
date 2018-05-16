@@ -315,7 +315,7 @@ Then the drop down option to select an academic year is displayed
 And the drop down option to select a specification is displayed
 And the relevant provider information is displayed
 
-@Workitem:39523 Driver
+@Workitem:39523 39517 Driver
 Scenario: Validate the Provider Test results for an Individual Provider with a result of Passed
 Given I have created a New Specification
 And I have created a New Policy for that Specification
@@ -324,14 +324,43 @@ And I have create a New Dataset for that Specificaton
 When I have specified a data Source Relationship for the Specification
 And I edit the New Calculation for that Specification
 And I have created a New Test for the Specification
-And I then select the appropriate Provider from the View provider results list page
-Then I can select the New Specification from the View provider results for an Individual Provider Page
+And I then select the appropriate Test from the View provider results list page
+Then I can select the Provider with a Passed Test Result from the View provider results for an Individual Provider Page
 And I can click on the Test Tab to view the Test result for the Individual Provider and Specification
+And the QA Test Coverage for the Provider is displayed correctly
+And the QA Test Results for the Prpovider are displayed correctly
 
-@Workitem:39522 Driver
+@Workitem:39523 39517 Driver
 Scenario: Check Passed Result on the View test results of all providers for a single test page
 Given I have navigated to the view all test results screen
 And I choose a QA Test from the displayed list of tests
 When I am redirected to the selected QA Test results for all providers page
 Then the Provider List of Test results for the selected QA Test is displayed
 And a Provider where the QA Test has Passed can be selected to display the specific QA Test Result
+And the QA Test Coverage for the Provider is displayed correctly
+And the QA Test Results for the Prpovider are displayed correctly
+
+@Workitem:39523 39517 Driver
+Scenario: Validate the Provider Test results for an Individual Provider with a result of Failed
+Given I have created a New Specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I have create a New Dataset for that Specificaton
+When I have specified a data Source Relationship for the Specification
+And I edit the New Calculation for that Specification
+And I have created a New Test for the Specification
+And I then select the appropriate Test from the View provider results list page
+Then I can select the Provider with a Failed Test Result from the View provider results for an Individual Provider Page
+And I can click on the Test Tab to view the Test result for the Individual Provider and Specification
+And the QA Test Coverage for the Provider is displayed correctly
+And the QA Test Results for the Prpovider are displayed correctly
+
+@Workitem:39523 39517 Driver
+Scenario: Check Failed Result on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then the Provider List of Test results for the selected QA Test is displayed
+And a Provider where the QA Test has Failed can be selected to display the specific QA Test Result
+And the QA Test Coverage for the Provider is displayed correctly
+And the QA Test Results for the Prpovider are displayed correctly

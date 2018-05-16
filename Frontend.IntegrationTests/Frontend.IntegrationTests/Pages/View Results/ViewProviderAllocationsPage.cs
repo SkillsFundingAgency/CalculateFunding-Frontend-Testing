@@ -38,7 +38,8 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.CssSelector, Using = "div.provider-test-scenario-searchresult-container:nth-child(3)")]
         public IWebElement providerAllocationsPageTestTabSearchResultsContainer { get; set; }
 
-
+        [FindsBy(How = How.CssSelector, Using = "#provider-scenario-results > div:nth-child(1)")]
+        public IWebElement providerAllocationsPageTestTabResultsAlert { get; set; }
 
     }
 }

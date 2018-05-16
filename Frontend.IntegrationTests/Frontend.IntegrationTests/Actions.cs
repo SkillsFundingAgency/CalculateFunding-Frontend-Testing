@@ -812,6 +812,9 @@
                     }
                     if (firstPassedProvider != null)
                     {
+                        string firstPassedName = firstPassedProvider.Text;
+                        firstPassedName.Should().NotBeNullOrEmpty();
+                        Console.WriteLine("The Provider where the selected QA Test has Passed is: " + firstPassedName);
                         firstPassedProvider.Click();
                         Thread.Sleep(2000);
                     }
@@ -866,12 +869,15 @@
                     }
                     if (firstFailedProvider != null)
                     {
+                        string firstFailedName = firstFailedProvider.Text;
+                        firstFailedName.Should().NotBeNullOrEmpty();
+                        Console.WriteLine("The Provider where the selected QA Test has Failed is: " + firstFailedName);
                         firstFailedProvider.Click();
                         Thread.Sleep(2000);
                     }
                     else
                     {
-                        firstFailedProvider.Should().NotBeNull("No Provider has a result of Passed within this list of results");
+                        firstFailedProvider.Should().NotBeNull("No Provider has a result of Failed within this list of results");
                     }
                 }
                 else
