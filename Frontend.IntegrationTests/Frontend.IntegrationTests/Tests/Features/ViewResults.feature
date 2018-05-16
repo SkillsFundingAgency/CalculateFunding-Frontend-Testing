@@ -156,7 +156,7 @@ And An option is displayed view the View provider results page
 And An option is displayed view the View QA test results page
 And An option is displayed view the View calculation results page
 
-@Workitem:39520 Driver
+@Workitem:39520 40039 Driver
 Scenario: Navigate to the View QA test results Page
 Given I have successfully navigated to the Home Page
 When I select View results
@@ -164,7 +164,7 @@ Then I am presented the View Results landing page
 When I click on the View QA test results option
 Then I am naviagted to the View QA test results page
 
-@Workitem:39520 Driver
+@Workitem:39520 40039 Driver
 Scenario: Verify the View QA test results Page
 Given I have navigated to the view all test results screen
 Then the Search QA Test option is displayed
@@ -172,7 +172,7 @@ And the Select Period drop down option is displayed
 And the Select Specification drop down option is displayed
 And a list of QA Test Results listed by Test is displayed with the correct column headers
 
-@Workitem:39520 Driver
+@Workitem:39520 40039 Driver
 Scenario: Verify the QA test results displayed on the View QA Test Results Page
 Given I have navigated to the view all test results screen
 Then I am presented with a list of QA Test results
@@ -328,7 +328,7 @@ And I then select the appropriate Test from the View provider results list page
 Then I can select the Provider with a Passed Test Result from the View provider results for an Individual Provider Page
 And I can click on the Test Tab to view the Test result for the Individual Provider and Specification
 And the QA Test Coverage for the Provider is displayed correctly
-And the QA Test Results for the Prpovider are displayed correctly
+And the QA Test Results for the Provider are displayed correctly
 
 @Workitem:39523 39517 Driver
 Scenario: Check Passed Result on the View test results of all providers for a single test page
@@ -338,7 +338,7 @@ When I am redirected to the selected QA Test results for all providers page
 Then the Provider List of Test results for the selected QA Test is displayed
 And a Provider where the QA Test has Passed can be selected to display the specific QA Test Result
 And the QA Test Coverage for the Provider is displayed correctly
-And the QA Test Results for the Prpovider are displayed correctly
+And the QA Test Results for the Provider are displayed correctly
 
 @Workitem:39523 39517 Driver
 Scenario: Validate the Provider Test results for an Individual Provider with a result of Failed
@@ -353,7 +353,7 @@ And I then select the appropriate Test from the View provider results list page
 Then I can select the Provider with a Failed Test Result from the View provider results for an Individual Provider Page
 And I can click on the Test Tab to view the Test result for the Individual Provider and Specification
 And the QA Test Coverage for the Provider is displayed correctly
-And the QA Test Results for the Prpovider are displayed correctly
+And the QA Test Results for the Provider are displayed correctly
 
 @Workitem:39523 39517 Driver
 Scenario: Check Failed Result on the View test results of all providers for a single test page
@@ -363,4 +363,42 @@ When I am redirected to the selected QA Test results for all providers page
 Then the Provider List of Test results for the selected QA Test is displayed
 And a Provider where the QA Test has Failed can be selected to display the specific QA Test Result
 And the QA Test Coverage for the Provider is displayed correctly
-And the QA Test Results for the Prpovider are displayed correctly
+And the QA Test Results for the Provider are displayed correctly
+
+@Workitem:48412 Driver
+Scenario: Navigate to View calculation results Page
+Given I have successfully navigated to the Home Page
+When I select View results
+And I click on the View calculation results option
+Then I am redirected to the View calculation results Page
+
+@Workitem:48412 Driver
+Scenario: Verify the View calculation results Page Filter options
+Given I have successfully navigated to the View Calculation Page
+Then the Search option filter is displayed correctly
+And the Allocation Line Dropdown option is displayed correctly
+And the Funding Period Dropdown option is displayed correctly
+And the Funding Stream Dropdown option is displayed correctly
+And the Specificaiton Name Dropdown option is displayed correctly
+And the Calculation Status Dropdown option is displayed correctly
+
+@Workitem:48412 Driver
+Scenario: Verify the View calculation results Pagination options
+Given I have successfully navigated to the View Calculation Page
+And I have over 50 calculations
+When I click to navigate to the next page of 50 calculations
+Then my list view displays the next 50 calculations
+And I am able to navigate to the previous page of 50 calculations
+
+@Workitem:48412 Driver
+Scenario: Validate the Displayed Results for each Calculation on the View calculation results Page
+Given I have successfully navigated to the View Calculation Page
+Then a list of calculations is displayed with the correct column headers
+And the appropriate calculation information is displayed in the list
+
+@Workitem:48412 Driver
+Scenario: Filter the Displayed Calculation Results by Funding Period
+Given I have successfully navigated to the View Calculation Page
+When I choose to filter the results by Funding Period
+Then the calculation results are updated accordingly
+And the appropriate calculation information is displayed in the list

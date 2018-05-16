@@ -712,11 +712,13 @@ testRunner.And("An option is displayed view the View calculation results page", 
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Navigate to the View QA test results Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40039")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void NavigateToTheViewQATestResultsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the View QA test results Page", new string[] {
                         "Workitem:39520",
+                        "40039",
                         "Driver"});
 #line 160
 this.ScenarioSetup(scenarioInfo);
@@ -738,11 +740,13 @@ testRunner.Then("I am naviagted to the View QA test results page", ((string)(nul
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the View QA test results Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40039")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void VerifyTheViewQATestResultsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View QA test results Page", new string[] {
                         "Workitem:39520",
+                        "40039",
                         "Driver"});
 #line 168
 this.ScenarioSetup(scenarioInfo);
@@ -765,11 +769,13 @@ testRunner.And("a list of QA Test Results listed by Test is displayed with the c
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the QA test results displayed on the View QA Test Results Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40039")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void VerifyTheQATestResultsDisplayedOnTheViewQATestResultsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the QA test results displayed on the View QA Test Results Page", new string[] {
                         "Workitem:39520",
+                        "40039",
                         "Driver"});
 #line 176
 this.ScenarioSetup(scenarioInfo);
@@ -1361,7 +1367,7 @@ testRunner.And("I can click on the Test Tab to view the Test result for the Indi
 #line 330
 testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 331
-testRunner.And("the QA Test Results for the Prpovider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the QA Test Results for the Provider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1396,7 +1402,7 @@ testRunner.And("a Provider where the QA Test has Passed can be selected to displ
 #line 340
 testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 341
-testRunner.And("the QA Test Results for the Prpovider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the QA Test Results for the Provider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1442,7 +1448,7 @@ testRunner.And("I can click on the Test Tab to view the Test result for the Indi
 #line 355
 testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 356
-testRunner.And("the QA Test Results for the Prpovider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the QA Test Results for the Provider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1477,7 +1483,135 @@ testRunner.And("a Provider where the QA Test has Failed can be selected to displ
 #line 365
 testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 366
-testRunner.And("the QA Test Results for the Prpovider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the QA Test Results for the Provider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Navigate to View calculation results Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(48412)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void NavigateToViewCalculationResultsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to View calculation results Page", new string[] {
+                        "Workitem:48412",
+                        "Driver"});
+#line 369
+this.ScenarioSetup(scenarioInfo);
+#line 370
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 371
+testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 372
+testRunner.And("I click on the View calculation results option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 373
+testRunner.Then("I am redirected to the View calculation results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the View calculation results Page Filter options")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(48412)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheViewCalculationResultsPageFilterOptions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View calculation results Page Filter options", new string[] {
+                        "Workitem:48412",
+                        "Driver"});
+#line 376
+this.ScenarioSetup(scenarioInfo);
+#line 377
+testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 378
+testRunner.Then("the Search option filter is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 379
+testRunner.And("the Allocation Line Dropdown option is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 380
+testRunner.And("the Funding Period Dropdown option is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 381
+testRunner.And("the Funding Stream Dropdown option is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 382
+testRunner.And("the Specificaiton Name Dropdown option is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 383
+testRunner.And("the Calculation Status Dropdown option is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the View calculation results Pagination options")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(48412)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheViewCalculationResultsPaginationOptions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View calculation results Pagination options", new string[] {
+                        "Workitem:48412",
+                        "Driver"});
+#line 386
+this.ScenarioSetup(scenarioInfo);
+#line 387
+testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 388
+testRunner.And("I have over 50 calculations", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 389
+testRunner.When("I click to navigate to the next page of 50 calculations", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 390
+testRunner.Then("my list view displays the next 50 calculations", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 391
+testRunner.And("I am able to navigate to the previous page of 50 calculations", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Displayed Results for each Calculation on the View calculation resul" +
+            "ts Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(48412)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateTheDisplayedResultsForEachCalculationOnTheViewCalculationResultsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Displayed Results for each Calculation on the View calculation resul" +
+                    "ts Page", new string[] {
+                        "Workitem:48412",
+                        "Driver"});
+#line 394
+this.ScenarioSetup(scenarioInfo);
+#line 395
+testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 396
+testRunner.Then("a list of calculations is displayed with the correct column headers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 397
+testRunner.And("the appropriate calculation information is displayed in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Filter the Displayed Calculation Results by Funding Period")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(48412)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void FilterTheDisplayedCalculationResultsByFundingPeriod()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter the Displayed Calculation Results by Funding Period", new string[] {
+                        "Workitem:48412",
+                        "Driver"});
+#line 400
+this.ScenarioSetup(scenarioInfo);
+#line 401
+testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 402
+testRunner.When("I choose to filter the results by Funding Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 403
+testRunner.Then("the calculation results are updated accordingly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 404
+testRunner.And("the appropriate calculation information is displayed in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -25,6 +25,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
         ViewQATestResultsPage viewqatestresultspage = new ViewQATestResultsPage();
         ViewTestResultsAllProvidersSingleTest viewtestresultsallproviders = new ViewTestResultsAllProvidersSingleTest();
+        ViewCalculationResultPage viewcalculationresultpage = new ViewCalculationResultPage();
 
         public string searchtext = "Primary";
         public string provider = "Academy";
@@ -1228,8 +1229,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
 
 
-        [Then(@"the QA Test Results for the Prpovider are displayed correctly")]
-        public void ThenTheQATestResultsForThePrpoviderAreDisplayedCorrectly()
+        [Then(@"the QA Test Results for the Provider are displayed correctly")]
+        public void ThenTheQATestResultsForTheProviderAreDisplayedCorrectly()
         {
             IWebElement viewresultscontainer = viewproviderallocationspage.providerAllocationsPageTestTabSearchResultsContainer;
             var allocationsresults = viewresultscontainer.FindElements(By.CssSelector(".table"));
@@ -1263,6 +1264,188 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
             viewproviderallocationspage.providerAllocationsPageTestTab.Should().NotBeNull();
             viewproviderallocationspage.providerAllocationsPageTestTab.Click();
+        }
+
+        [When(@"I click on the View calculation results option")]
+        public void WhenIClickOnTheViewCalculationResultsOption()
+        {
+            viewresultsoptionspage.viewResultsOptionsViewCalculationResults.Should().NotBeNull();
+            viewresultsoptionspage.viewResultsOptionsViewCalculationResults.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected to the View calculation results Page")]
+        public void ThenIAmRedirectedToTheViewCalculationResultsPage()
+        {
+            viewcalculationresultpage.viewcalculationPageSearchField.Should().NotBeNull();
+        }
+
+
+        [Given(@"I have successfully navigated to the View Calculation Page")]
+        public void GivenIHaveSuccessfullyNavigatedToTheViewCalculationPage()
+        {
+            NavigateTo.ViewCalculationResultsPage();
+        }
+
+        [Then(@"the Search option filter is displayed correctly")]
+        public void ThenTheSearchOptionFilterIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageSearchField.Should().NotBeNull();
+        }
+
+        [Then(@"the Allocation Line Dropdown option is displayed correctly")]
+        public void ThenTheAllocationLineDropdownOptionIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageAllocationLineDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the Funding Period Dropdown option is displayed correctly")]
+        public void ThenTheFundingPeriodDropdownOptionIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageFundingPeriodDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the Funding Stream Dropdown option is displayed correctly")]
+        public void ThenTheFundingStreamDropdownOptionIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageFundingStreamDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the Specificaiton Name Dropdown option is displayed correctly")]
+        public void ThenTheSpecificaitonNameDropdownOptionIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageSpecnameDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the Calculation Status Dropdown option is displayed correctly")]
+        public void ThenTheCalculationStatusDropdownOptionIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageCalculationStatusDropDown.Should().NotBeNull();
+        }
+
+        [Given(@"I have over (.*) calculations")]
+        public void GivenIHaveOverCalculations(int totalItemCount)
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+
+            if (totalPageCount < totalItemCount)
+            {
+                Assert.Inconclusive("Only 1 page of results is displayed as the Total results returned is less than " + totalItemCount);
+
+            }
+            else
+            {
+                Console.WriteLine("The Total results returned is " + totalPageCount);
+            }
+        }
+
+        [When(@"I click to navigate to the next page of (.*) calculations")]
+        public void WhenIClickToNavigateToTheNextPageOfCalculations(int endItemCount)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"my list view displays the next (.*) calculations")]
+        public void ThenMyListViewDisplaysTheNextCalculations(int startItemCount)
+        {
+            IWebElement calculationstartResultCount = viewcalculationresultpage.viewcalculationPageStartItemCount;
+            string startPageResultCount = calculationstartResultCount.Text;
+            int startPageCount = int.Parse(startPageResultCount);
+            startPageCount.Should().BeGreaterOrEqualTo(startItemCount, "Less than " + startItemCount + "Results are displayed on this Page");
+
+        }
+
+        [Then(@"I am able to navigate to the previous page of (.*) calculations")]
+        public void ThenIAmAbleToNavigateToThePreviousPageOfCalculations(int endItemCount)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+
+            IWebElement calculationendResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationendResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            totalPageCount.Should().BeLessOrEqualTo(endItemCount, "Less than " + endItemCount + "Results are displayed on this Page");
+
+        }
+
+        [Then(@"a list of calculations is displayed with the correct column headers")]
+        public void ThenAListOfCalculationsIsDisplayedWithTheCorrectColumnHeaders()
+        {
+            IWebElement calculationsResultTable = viewcalculationresultpage.viewcalculationPageCalculationResultsTable;
+            calculationsResultTable.Should().NotBeNull();
+            var calculationHeaders = calculationsResultTable.FindElements(By.CssSelector("tr th"));
+            List<IWebElement> calculationheaderText = new List<IWebElement>(calculationHeaders);
+            calculationheaderText.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < calculationheaderText.Count; i++)
+            {
+                IWebElement currentElement = calculationheaderText[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                currentElement.Should().NotBeNull("value element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"the appropriate calculation information is displayed in the list")]
+        public void ThenTheAppropriateCalculationInformationIsDisplayedInTheList()
+        {
+            IWebElement viewresultscontainer = viewcalculationresultpage.viewcalculationPageCalculationResultsListContainer;
+            var calculationresults = viewresultscontainer.FindElements(By.CssSelector("#dynamic-results-table-body > tr:nth-child(1)"));
+            List<IWebElement> calculationElementList = new List<IWebElement>(calculationresults);
+            calculationElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < calculationElementList.Count; i++)
+            {
+                IWebElement currentElement = calculationElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("td"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [When(@"I choose to filter the results by Funding Period")]
+        public void WhenIChooseToFilterTheResultsByFundingPeriod()
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            ScenarioContext.Current["TotalResultCount"] = totalPageCount;
+            Console.WriteLine("The Total Number of Calculations displayed is: " + totalPageCount);
+
+            IWebElement filtercontainer = viewcalculationresultpage.viewcalculationPageFundingPeriodDropDown;
+            IWebElement fundingperiodfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingperiodfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providertypeselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Period Filter Option selected = " + providertypeselected);
+            selectfilteroption.Click();
+            Thread.Sleep(2000);
+            fundingperiodfilter.Click();
+            Thread.Sleep(2000);
+
+        }
+
+        [Then(@"the calculation results are updated accordingly")]
+        public void ThenTheCalculationResultsAreUpdatedAccordingly()
+        {
+            IWebElement newcalculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string newtotalPageResultCount = newcalculationtotalResultCount.Text;
+            int newtotalPageCount = int.Parse(newtotalPageResultCount);
+            var unfilteredpagecount = ScenarioContext.Current["TotalResultCount"];
+            string unfilteredpagecountext = unfilteredpagecount.ToString();
+            int originalpagecount = int.Parse(unfilteredpagecountext);
+            newtotalPageCount.Should().BeLessOrEqualTo(originalpagecount, "there has been an error in filtering the results by Funding Period");
+            Console.WriteLine("The new Filtered Total of Calculations displayed is: " + newtotalPageCount);
         }
 
 

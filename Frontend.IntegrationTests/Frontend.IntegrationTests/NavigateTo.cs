@@ -325,6 +325,17 @@ namespace Frontend.IntegrationTests
             viewresultsoptionspage.viewResultsOptionsViewQATestResults.Click();
             Thread.Sleep(5000);
         }
+
+
+        public static void ViewCalculationResultsPage()
+        {
+            HomePage homepage = new HomePage();
+            ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
+
+            homepage.ViewtheResults.Click();
+            viewresultsoptionspage.viewResultsOptionsViewCalculationResults.Click();
+            Thread.Sleep(5000);
+        }
     }
 }
 
