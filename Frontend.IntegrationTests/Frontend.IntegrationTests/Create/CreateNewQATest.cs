@@ -66,9 +66,9 @@ namespace Frontend.IntegrationTests.Create
             Thread.Sleep(4000);
             createqatestpage.createQATestCreateQATestButton.Click();
             Thread.Sleep(4000);
-            IAlert alert = Driver._driver.SwitchTo().Alert();
-            alert.Accept();
-            Thread.Sleep(4000);
+            //IAlert alert = Driver._driver.SwitchTo().Alert();
+            //alert.Accept();
+            //Thread.Sleep(4000);
             createqatestpage.createQATestBackButton.Click();
             Thread.Sleep(4000);
             testscenariolistpage.testScenarioPageCreateQATestButton.Should().NotBeNull();

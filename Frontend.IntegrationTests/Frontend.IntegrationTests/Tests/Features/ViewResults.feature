@@ -402,3 +402,31 @@ Given I have successfully navigated to the View Calculation Page
 When I choose to filter the results by Funding Period
 Then the calculation results are updated accordingly
 And the appropriate calculation information is displayed in the list
+
+@Workitem:48412 Driver
+Scenario: Filter the Displayed Calculation Results by Funding Stream
+Given I have successfully navigated to the View Calculation Page
+When I choose to filter the results by Funding Stream
+Then the calculation results are updated accordingly
+And the appropriate calculation information is displayed in the list
+
+@Workitem:48412 Driver
+Scenario: Filter the Displayed Calculation Results by Spec Name
+Given I have successfully navigated to the View Calculation Page
+When I choose to filter the results by Spec Name
+Then the calculation results are updated accordingly
+And the appropriate calculation information is displayed in the list
+
+@Workitem:48412 Driver
+Scenario: Filter the Displayed Calculation Results by Calculation Status
+Given I have successfully navigated to the View Calculation Page
+When I choose to filter the results by Calculation Status
+Then the calculation results are updated accordingly
+And the appropriate calculation information is displayed in the list
+
+@Workitem:48412 Driver
+Scenario: Filter the Displayed Calculation Results by Allocation Line
+Given I have successfully navigated to the View Calculation Page
+When I choose to filter the results by Allocation Line
+Then the calculation results are updated accordingly
+And the appropriate calculation information is displayed in the list

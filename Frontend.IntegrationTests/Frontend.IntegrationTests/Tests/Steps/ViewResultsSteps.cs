@@ -1449,6 +1449,95 @@ namespace Frontend.IntegrationTests.Tests.Steps
         }
 
 
+        [When(@"I choose to filter the results by Funding Stream")]
+        public void WhenIChooseToFilterTheResultsByFundingStream()
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            ScenarioContext.Current["TotalResultCount"] = totalPageCount;
+            Console.WriteLine("The Total Number of Calculations displayed is: " + totalPageCount);
+
+            IWebElement filtercontainer = viewcalculationresultpage.viewcalculationPageFundingStreamDropDown;
+            IWebElement fundingstreamfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingstreamfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providertypeselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Stream Filter Option selected = " + providertypeselected);
+            selectfilteroption.Click();
+            Thread.Sleep(2000);
+            fundingstreamfilter.Click();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I choose to filter the results by Spec Name")]
+        public void WhenIChooseToFilterTheResultsBySpecName()
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            ScenarioContext.Current["TotalResultCount"] = totalPageCount;
+            Console.WriteLine("The Total Number of Calculations displayed is: " + totalPageCount);
+
+            IWebElement filtercontainer = viewcalculationresultpage.viewcalculationPageSpecnameDropDown;
+            IWebElement specnamefilter = filtercontainer.FindElement(By.CssSelector("button"));
+            specnamefilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providertypeselected = selectfilteroption.Text;
+            Console.WriteLine("Spec Name Filter Option selected = " + providertypeselected);
+            selectfilteroption.Click();
+            Thread.Sleep(2000);
+            specnamefilter.Click();
+            Thread.Sleep(2000);
+        }
+
+
+        [When(@"I choose to filter the results by Calculation Status")]
+        public void WhenIChooseToFilterTheResultsByCalculationStatus()
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            ScenarioContext.Current["TotalResultCount"] = totalPageCount;
+            Console.WriteLine("The Total Number of Calculations displayed is: " + totalPageCount);
+
+            IWebElement filtercontainer = viewcalculationresultpage.viewcalculationPageCalculationStatusDropDown;
+            IWebElement calcstatusfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            calcstatusfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providertypeselected = selectfilteroption.Text;
+            Console.WriteLine("Calculation Status Filter Option selected = " + providertypeselected);
+            selectfilteroption.Click();
+            Thread.Sleep(2000);
+            calcstatusfilter.Click();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I choose to filter the results by Allocation Line")]
+        public void WhenIChooseToFilterTheResultsByAllocationLine()
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            ScenarioContext.Current["TotalResultCount"] = totalPageCount;
+            Console.WriteLine("The Total Number of Calculations displayed is: " + totalPageCount);
+
+            IWebElement filtercontainer = viewcalculationresultpage.viewcalculationPageAllocationLineDropDown;
+            IWebElement allocationlinefilter = filtercontainer.FindElement(By.CssSelector("button"));
+            allocationlinefilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providertypeselected = selectfilteroption.Text;
+            Console.WriteLine("Allocation Line Filter Option selected = " + providertypeselected);
+            selectfilteroption.Click();
+            Thread.Sleep(2000);
+            allocationlinefilter.Click();
+            Thread.Sleep(2000);
+        }
+
 
 
         [AfterScenario()]
