@@ -22,6 +22,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
     {
         TestScenarioListPage testscenariolistpage = new TestScenarioListPage();
         CreateQATestPage createqatestpage = new CreateQATestPage();
+        EditQATestPage editqatestpage = new EditQATestPage();
 
         public string qatestname = "QA Test RW ";
         public string qatestdescription = "This is a QA Test Description";
@@ -425,6 +426,232 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 createdqatest.Should().NotBeNull("Unable to find the QA Test " + qaTestCreated + " within the list view");
             }
         }
+
+        [When(@"I choose to select an Existing QA Test from the list displayed")]
+        public void WhenIChooseToSelectAnExistingQATestFromTheListDisplayed()
+        {
+            IWebElement testscenarioname = testscenariolistpage.testScenarioPageFirstTestScenarioName;
+            string scenarioname = testscenarioname.Text;
+            scenarioname.Should().NotBeNull();
+            Console.WriteLine("First Test Scenario Name selected to edit is " + scenarioname);
+
+            testscenarioname.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected to the Edit quality assurance test page")]
+        public void ThenIAmRedirectedToTheEditQualityAssuranceTestPage()
+        {
+            editqatestpage.editQATestName.Should().NotBeNull();
+        }
+
+        [Then(@"the associated Specification name is displayed")]
+        public void ThenTheAssociatedSpecificationNameIsDisplayed()
+        {
+            IWebElement editQATestAssocSpec = editqatestpage.editQATestAssocSpecification;
+            editQATestAssocSpec.Should().NotBeNull();
+            string editQATestSpecText = editQATestAssocSpec.Text;
+            Console.WriteLine("The Specification Associated to this QA Test is: " + editQATestSpecText);
+        }
+
+        [Then(@"the Edit QA Test Name field is displayed")]
+        public void ThenTheEditQATestNameFieldIsDisplayed()
+        {
+            editqatestpage.editQATestName.Should().NotBeNull();
+        }
+
+        [Then(@"the Edit Description field is displayed")]
+        public void ThenTheEditDescriptionFieldIsDisplayed()
+        {
+            editqatestpage.editQATestDescription.Should().NotBeNull();
+        }
+
+        [Then(@"the existing QA Test code is displayed in the Monaco Text Editor")]
+        public void ThenTheExistingQATestCodeIsDisplayedInTheMonacoTextEditor()
+        {
+            editqatestpage.editQATestMonacoEditorConatiner.Should().NotBeNull();
+        }
+
+
+        [Given(@"I have successfully navigated to the Edit quality assurance test page")]
+        public void GivenIHaveSuccessfullyNavigatedToTheEditQualityAssuranceTestPage()
+        {
+            NavigateTo.EditQATestPage();
+            Thread.Sleep(4000);
+        }
+
+        [When(@"I update the existing Test Name")]
+        public void WhenIUpdateTheExistingTestName()
+        {
+            string editedname = "QA Test Name ";
+
+            var randomQAEditName = editedname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["QAEditedName"] = randomQAEditName;
+
+            IWebElement testName = editqatestpage.editQATestName;
+            testName.SendKeys(OpenQA.Selenium.Keys.Control + "A");
+            testName.SendKeys(randomQAEditName + " Edited");
+            Thread.Sleep(2000);
+        }
+
+        [When(@"select to Save the change")]
+        public void WhenSelectToSaveTheChange()
+        {
+            editqatestpage.editQATestSaveButton.Click();
+            Thread.Sleep(4000);
+        }
+
+        [Then(@"the Test Name is updated")]
+        public void ThenTheTestNameIsUpdated()
+        {
+            var newTestName = ScenarioContext.Current["QAEditedName"];
+            string newTestNameText = newTestName.ToString();
+            Console.WriteLine("Updated Test Name for this QA Test is: " + newTestNameText);
+            Thread.Sleep(4000);
+        }
+
+        [Then(@"I am presented with confirmation of the change")]
+        public void ThenIAmPresentedWithConfirmationOfTheChange()
+        {
+            IWebElement savedAlert = editqatestpage.editQATestSavedAlert;
+            savedAlert.Should().NotBeNull();
+            var savedMessage = savedAlert.FindElement(By.CssSelector("p"));
+            string saveMessageText = savedMessage.Text;
+            Console.WriteLine("Confirmation Message displayed: " + saveMessageText);
+        }
+
+        [When(@"I update the existing Test Description")]
+        public void WhenIUpdateTheExistingTestDescription()
+        {
+            string editeddesc = "This is an Updated Test Description ";
+
+            var randomQAEditDesc = editeddesc + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["QAEditedDesc"] = randomQAEditDesc;
+
+            IWebElement testName = editqatestpage.editQATestDescription;
+            testName.SendKeys(OpenQA.Selenium.Keys.Control + "A");
+            testName.SendKeys(randomQAEditDesc + " Edited");
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Test Description is updated")]
+        public void ThenTheTestDescriptionIsUpdated()
+        {
+            var newTestDesc = ScenarioContext.Current["QAEditedDesc"];
+            string newTestDescText = newTestDesc.ToString();
+            Console.WriteLine("Updated Test Name for this QA Test is: " + newTestDescText);
+        }
+
+        [When(@"I Update the existing Test")]
+        public void WhenIUpdateTheExistingTest()
+        {
+            var randomnumerics = TestDataNumericUtils.RandomString(2);
+            string testUpdate = randomnumerics + "'";
+
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Control + "A");
+            Thread.Sleep(1000);
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.End);
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Backspace);
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Backspace);
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Backspace);
+            Thread.Sleep(1000);
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(testUpdate);
+        }
+
+        [When(@"I Validate the Test")]
+        public void WhenIValidateTheTest()
+        {
+            editqatestpage.editQATestValidateButton.Click();
+            Thread.Sleep(4000);
+
+            string validatedmessagetext = "Test validated successfully: true";
+            WebDriverWait wait = new WebDriverWait(Driver._driver, TimeSpan.FromSeconds(60));
+            wait.Until(d => editqatestpage.editQATestBuildOutputText.Text.Contains(validatedmessagetext));
+
+            IWebElement validatingtext = editqatestpage.editQATestBuildOutputText;
+            string validatingtextmessage = validatingtext.Text;
+            validatingtextmessage.Should().NotBeNullOrWhiteSpace();
+            validatingtextmessage.Should().Contain(validatedmessagetext);
+            Console.WriteLine("The Build Output Sucess validation message is " + validatingtextmessage);
+
+        }
+
+        [When(@"I Update the existing Test Incorrectly")]
+        public void WhenIUpdateTheExistingTestIncorrectly()
+        {
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Control + "A");
+            Thread.Sleep(1000);
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys("This is Not Valid Gherkin Test Script");
+
+
+        }
+
+        [When(@"I Validate the Incorrect Test")]
+        public void WhenIValidateTheIncorrectTest()
+        {
+            editqatestpage.editQATestValidateButton.Click();
+            Thread.Sleep(4000);
+
+        }
+
+        [Then(@"I am presented with a failed validation message")]
+        public void ThenIAmPresentedWithAFailedValidationMessage()
+        {
+            string invalidatedmessagetext = "Test validated successfully: false";
+            WebDriverWait wait = new WebDriverWait(Driver._driver, TimeSpan.FromSeconds(60));
+            wait.Until(d => editqatestpage.editQATestBuildOutputText.Text.Contains(invalidatedmessagetext));
+            IWebElement validatingtext = editqatestpage.editQATestBuildOutputText;
+            string validatingtextmessage = validatingtext.Text;
+            validatingtextmessage.Should().NotBeNullOrWhiteSpace();
+            validatingtextmessage.Should().Contain(invalidatedmessagetext);
+            Console.WriteLine("The Build Output Sucess validation message is " + invalidatedmessagetext);
+        }
+
+
+        [When(@"I Incorrectly update the existing Test Name")]
+        public void WhenIIncorrectlyUpdateTheExistingTestName()
+        {
+            editqatestpage.editQATestName.Clear();
+        }
+
+        [Then(@"An Enter a unique name Error is displayed")]
+        public void ThenAnEnterAUniqueNameErrorIsDisplayed()
+        {
+            IWebElement errorName = editqatestpage.editQATestNameError;
+            errorName.Should().NotBeNull();
+            string errorNameText = errorName.Text;
+            Console.WriteLine("Error Message Displayed: " + errorNameText);
+
+        }
+
+        [When(@"I Incorrectly update the existing Test Description")]
+        public void WhenIIncorrectlyUpdateTheExistingTestDescription()
+        {
+            editqatestpage.editQATestDescription.Clear();
+        }
+
+        [Then(@"An Enter a description Error is displayed")]
+        public void ThenAnEnterADescriptionErrorIsDisplayed()
+        {
+            IWebElement errorDesc = editqatestpage.editQATestDescriptionError;
+            errorDesc.Should().NotBeNull();
+            string errorDescText = errorDesc.Text;
+            Console.WriteLine("Error Message Displayed: " + errorDescText);
+        }
+
+        [When(@"I click on the Back link")]
+        public void WhenIClickOnTheBackLink()
+        {
+            editqatestpage.editQATestBackLink.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected back to the Quality Assurance Test Scenario List Page")]
+        public void ThenIAmRedirectedBackToTheQualityAssuranceTestScenarioListPage()
+        {
+            testscenariolistpage.testScenarioPageCreateQATestButton.Should().NotBeNull();
+        }
+
 
 
 

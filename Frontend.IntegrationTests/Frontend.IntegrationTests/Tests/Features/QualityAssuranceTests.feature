@@ -126,3 +126,65 @@ Then I am notified my test scenario has validated successfully
 When I click the Enabled Save Button
 Then I am notified that my test has saved successfully
 And my test is visible in the list view
+
+@Workitem: 36691 Driver
+Scenario: View the Edit quality assurance test page
+Given I have successfully navigated to the Quality Assurance Test Scenario List Page
+When I choose to select an Existing QA Test from the list displayed
+Then I am redirected to the Edit quality assurance test page
+And the associated Specification name is displayed
+And the Edit QA Test Name field is displayed
+And the Edit Description field is displayed
+And the existing QA Test code is displayed in the Monaco Text Editor
+
+@Workitem: 36691 Driver
+Scenario: Edit the Name of an Existing quality assurance test
+Given I have successfully navigated to the Edit quality assurance test page
+When I update the existing Test Name
+And select to Save the change
+Then the Test Name is updated
+And I am presented with confirmation of the change
+
+@Workitem: 36691 Driver
+Scenario: Edit the Description of an Existing quality assurance test
+Given I have successfully navigated to the Edit quality assurance test page
+When I update the existing Test Description
+And select to Save the change
+Then the Test Description is updated
+And I am presented with confirmation of the change
+
+@Workitem: 36691 Driver
+Scenario: Edit the Test for an Existing quality assurance test
+Given I have successfully navigated to the Edit quality assurance test page
+When I Update the existing Test
+And I Validate the Test
+And select to Save the change
+Then I am presented with confirmation of the change
+
+@Workitem: 36691 Driver
+Scenario: Edit the Test Incorrectly for an Existing quality assurance test
+Given I have successfully navigated to the Edit quality assurance test page
+When I Update the existing Test Incorrectly
+And I Validate the Incorrect Test
+Then I am presented with a failed validation message
+
+@Workitem: 36691 Driver
+Scenario: Incorrectly Edit the Name of an Existing quality assurance test
+Given I have successfully navigated to the Edit quality assurance test page
+When I Incorrectly update the existing Test Name
+And select to Save the change
+Then An Enter a unique name Error is displayed
+
+@Workitem: 36691 Driver
+Scenario: Incorrectly Edit the Description of an Existing quality assurance test
+Given I have successfully navigated to the Edit quality assurance test page
+When I Incorrectly update the existing Test Description
+And select to Save the change
+Then An Enter a description Error is displayed
+
+@Workitem: 36691 Driver
+Scenario: Cancel an Edit to an Existing quality assurance test
+Given I have successfully navigated to the Edit quality assurance test page
+When I update the existing Test Name
+And I click on the Back link
+Then I am redirected back to the Quality Assurance Test Scenario List Page
