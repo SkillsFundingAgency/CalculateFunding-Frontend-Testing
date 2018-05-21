@@ -154,7 +154,7 @@
             ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
 
             choosedatasetrelationshippage.selectDatasetSchemaDropDown.Click();
-            choosedatasetrelationshippage.selectDatasetSchemaDropDownTextSearch.SendKeys("High Needs");
+            choosedatasetrelationshippage.selectDatasetSchemaDropDownTextSearch.SendKeys("High Needs Student Numbers");
             choosedatasetrelationshippage.selectDatasetSchemaDropDown.SendKeys(OpenQA.Selenium.Keys.Enter);
 
             Thread.Sleep(2000);
@@ -494,6 +494,48 @@
             }
         }
 
+        public static void SelectSpecifiedSpecificationCreateQATestPage()
+        {
+            CreateQATestPage createqatestpage = new CreateQATestPage();
+
+            var specName = ScenarioContext.Current["SpecificationName"];
+            string specCreated = specName.ToString();
+
+            var containerElements = createqatestpage.createQATestSelectSpecification;
+            IWebElement firstSelectSpec = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains(specCreated))
+                        {
+
+                            firstSelectSpec = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectSpec != null)
+                {
+                    firstSelectSpec.Click();
+                }
+                else
+                {
+                    firstSelectSpec.Should().NotBeNull("No Policy exists that can be selected");
+                }
+            }
+            else
+            {
+                firstSelectSpec.Should().NotBeNull("No Policy exists that can be selected");
+            }
+        }
+
         public static void SelectExistingSpecificationManageSpecificationPage()
         {
             ManageSpecificationPage manaespecficationpage = new ManageSpecificationPage();
@@ -618,11 +660,11 @@
                 {
                     if (optionelement != null)
                     {
-                        
-                            SelectFirstTest = optionelement;
 
-                            break;
-                        
+                        SelectFirstTest = optionelement;
+
+                        break;
+
 
                     }
                 }
@@ -645,6 +687,203 @@
             else
             {
                 SelectFirstTest.Should().NotBeNull("No QA Test was successfully found");
+            }
+        }
+
+
+        public static void SelectQATestResultByQATestName()
+        {
+            ViewQATestResultsPage viewqatestresultspage = new ViewQATestResultsPage();
+
+            var containerElements = viewqatestresultspage.viewQATestResultspageQATestResultTable;
+            IWebElement SelectFirstTest = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.CssSelector("td a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+
+                        SelectFirstTest = optionelement;
+
+                        break;
+
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstTest != null)
+                {
+                    string firsttestname = SelectFirstTest.Text;
+                    firsttestname.Should().NotBeNullOrEmpty();
+                    Console.WriteLine("QA Test selected: " + firsttestname);
+                    SelectFirstTest.Click();
+
+                }
+                else
+                {
+                    SelectFirstTest.Should().NotBeNull("No QA Test was successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstTest.Should().NotBeNull("No QA Test was successfully found");
+            }
+        }
+
+
+        public static void MapDataSourcesToDatasetsForSpecification()
+        {
+            {
+                MapDataSourcesToDatasetsPage mapdatasourcestodatasetpage = new MapDataSourcesToDatasetsPage();
+                var specName = ScenarioContext.Current["SpecificationName"];
+                string specCreated = specName.ToString();
+
+                var containerElements = mapdatasourcestodatasetpage.mapDataSourcesResultListContainer;
+                IWebElement SelectFirstSpec = null;
+                if (containerElements != null)
+                {
+                    var options = containerElements.FindElements(By.CssSelector("h2 a"));
+                    foreach (var optionelement in options)
+                    {
+                        if (optionelement != null)
+                        {
+                            SelectFirstSpec = optionelement;
+                            break;
+                        }
+                    }
+                    Thread.Sleep(1000);
+                    if (SelectFirstSpec != null)
+                    {
+                        string firstspecname = SelectFirstSpec.Text;
+                        firstspecname.Should().NotBeNullOrEmpty();
+                        firstspecname.Should().Be(specCreated, "Specification Selected does not match the specifically created Specification for this Test");
+                        Console.WriteLine("Specification Selected selected: " + firstspecname);
+                        SelectFirstSpec.Click();
+                    }
+                    else
+                    {
+                        SelectFirstSpec.Should().NotBeNull("No Specification was successfully selected");
+                    }
+                }
+                else
+                {
+                    SelectFirstSpec.Should().NotBeNull("No Specification was successfully found");
+                }
+            }
+        }
+
+        public static void SelectProviderWhereQATestResultMarkedPassed()
+        {
+            ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+
+            var containerElements = viewproviderresultspage.providerResultspageResultListContainer;
+            IWebElement firstPassedProvider = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.CssSelector(".provider-item-header"));
+                if (options != null)
+                {
+                    foreach (var headerelement in options)
+                    {
+                        IWebElement passedElement = null;
+                        try
+                        {
+                            passedElement = headerelement.FindElement(By.CssSelector(".flag--success"));
+                        }
+                        catch (NoSuchElementException)
+                        {
+                        }
+
+                        if (passedElement != null)
+                        {
+                            var anchorLink = headerelement.FindElement(By.CssSelector("h4 a"));
+                            if (anchorLink != null)
+                            {
+                                firstPassedProvider = anchorLink;
+
+                                break;
+
+                            }
+
+                        }
+
+                    }
+                    if (firstPassedProvider != null)
+                    {
+                        string firstPassedName = firstPassedProvider.Text;
+                        firstPassedName.Should().NotBeNullOrEmpty();
+                        Console.WriteLine("The Provider where the selected QA Test has Passed is: " + firstPassedName);
+                        firstPassedProvider.Click();
+                        Thread.Sleep(2000);
+                    }
+                    else
+                    {
+                        firstPassedProvider.Should().NotBeNull("No Provider has a result of Passed within this list of results");
+                    }
+                }
+                else
+                {
+                    firstPassedProvider.Should().NotBeNull("No Provider exists that can be selected");
+                }
+            }
+        }
+
+
+        public static void SelectProviderWhereQATestResultMarkedFailed()
+        {
+            ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
+
+            var containerElements = viewproviderresultspage.providerResultspageResultListContainer;
+            IWebElement firstFailedProvider = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.CssSelector(".provider-item-header"));
+                if (options != null)
+                {
+                    foreach (var headerelement in options)
+                    {
+                        IWebElement passedElement = null;
+                        try
+                        {
+                            passedElement = headerelement.FindElement(By.CssSelector(".flag--urgent"));
+                        }
+                        catch (NoSuchElementException)
+                        {
+                        }
+
+                        if (passedElement != null)
+                        {
+                            var anchorLink = headerelement.FindElement(By.CssSelector("h4 a"));
+                            if (anchorLink != null)
+                            {
+                                firstFailedProvider = anchorLink;
+
+                                break;
+
+                            }
+
+                        }
+
+                    }
+                    if (firstFailedProvider != null)
+                    {
+                        string firstFailedName = firstFailedProvider.Text;
+                        firstFailedName.Should().NotBeNullOrEmpty();
+                        Console.WriteLine("The Provider where the selected QA Test has Failed is: " + firstFailedName);
+                        firstFailedProvider.Click();
+                        Thread.Sleep(2000);
+                    }
+                    else
+                    {
+                        firstFailedProvider.Should().NotBeNull("No Provider has a result of Failed within this list of results");
+                    }
+                }
+                else
+                {
+                    firstFailedProvider.Should().NotBeNull("No Provider exists that can be selected");
+                }
             }
         }
 

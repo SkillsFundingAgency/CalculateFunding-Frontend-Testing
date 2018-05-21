@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using AutoFramework;
 using FluentAssertions;
@@ -18,12 +19,16 @@ namespace Frontend.IntegrationTests.Tests.Steps
     [Binding]
     public class ViewResultsSteps
     {
+        HomePage homepage = new HomePage();
         ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
         ViewProviderAllocationsPage viewproviderallocationspage = new ViewProviderAllocationsPage();
         ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
         ViewQATestResultsPage viewqatestresultspage = new ViewQATestResultsPage();
+        ViewTestResultsAllProvidersSingleTest viewtestresultsallproviders = new ViewTestResultsAllProvidersSingleTest();
+        ViewCalculationResultPage viewcalculationresultpage = new ViewCalculationResultPage();
 
         public string searchtext = "Primary";
+        public string provider = "Academy";
 
         [When(@"I click on the View provider results option")]
         public void WhenIClickOnTheViewProviderResultsOption()
@@ -48,7 +53,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             providernameexists.Should().NotBeNull();
             providernameexists.Displayed.Should().BeTrue();
             string providername = providernameexists.Text;
-            Console.WriteLine(providername);
+            Console.WriteLine("The Provider Name Displayed is: " + providername);
 
         }
 
@@ -797,6 +802,742 @@ namespace Frontend.IntegrationTests.Tests.Steps
             endPageCount.Should().BeGreaterOrEqualTo(0, "The selected specifications results have not been returned correctly");
             Console.WriteLine("The total results displayed on for the selected specification is: " + endPageCount);
         }
+
+        [When(@"I choose a QA Test from the displayed list of tests")]
+        public void WhenIChooseAQATestFromTheDisplayedListOfTests()
+        {
+            Actions.SelectQATestResultByQATestName();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected to the selected QA Test results for all providers page")]
+        public void ThenIAmRedirectedToTheSelectedQATestResultsForAllProvidersPage()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSearchField.Should().NotBeNull();
+        }
+
+        [Given(@"I choose a QA Test from the displayed list of tests")]
+        public void GivenIChooseAQATestFromTheDisplayedListOfTests()
+        {
+            Actions.SelectQATestResultByQATestName();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I am redirected to the selected QA Test results for all providers page")]
+        public void WhenIAmRedirectedToTheSelectedQATestResultsForAllProvidersPage()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSearchField.Should().NotBeNull();
+        }
+
+        [Then(@"A Search Filter option is correctly displayed")]
+        public void ThenASearchFilterOptionIsCorrectlyDisplayed()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSearchField.Should().NotBeNull();
+        }
+
+        [Then(@"A Provider Type Filter drop Down is correctly displayed")]
+        public void ThenAProviderTypeFilterDropDownIsCorrectlyDisplayed()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSelectProviderType.Should().NotBeNull();
+        }
+
+        [Then(@"A Provider Sub Type Filter drop down is correctly displayed")]
+        public void ThenAProviderSubTypeFilterDropDownIsCorrectlyDisplayed()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType.Should().NotBeNull();
+        }
+
+        [Then(@"A Local Authority Filter drop down is correctly displayed")]
+        public void ThenALocalAuthorityFilterDropDownIsCorrectlyDisplayed()
+        {
+            viewtestresultsallproviders.singleTestProviderResultsSelectLocalAuthority.Should().NotBeNull();
+        }
+
+
+        [Then(@"the page lists up to the first (.*) Providers")]
+        public void ThenThePageListsUpToTheFirstProviders(int endPageListCount)
+        {
+            IWebElement testresultsallprovidersResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListEndCount;
+            string endPageResultCount = testresultsallprovidersResultCount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeLessOrEqualTo(endPageListCount, "More than 50 Results are displayed on this Page");
+            Console.WriteLine("Total Page Results Displayed is " + testresultsallprovidersResultCount.Text);
+        }
+
+        [When(@"there are more than (.*) Providers returned")]
+        public void WhenThereAreMoreThanProvidersReturned(int totalPageListCount)
+        {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            totalPageCount.Should().BeGreaterOrEqualTo(totalPageListCount, "Less than " + totalPageListCount + "Results are displayed on this Page");
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+        }
+
+        [When(@"I click to navigate to the next page of (.*) providers test results")]
+        public void WhenIClickToNavigateToTheNextPageOfProvidersTestResults(int p0)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"my page list view displays the next (.*) test results")]
+        public void ThenMyPageListViewDisplaysTheNextTestResults(int endPageListCount)
+        {
+            IWebElement testresultsallprovidersResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListEndCount;
+            string endPageResultCount = testresultsallprovidersResultCount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeGreaterOrEqualTo(endPageListCount, "Less than 50 Results are displayed on this Page");
+            Console.WriteLine("Total Page Results Displayed is " + testresultsallprovidersResultCount.Text);
+        }
+
+        [Then(@"I am able to navigate to the previous page of (.*) providers test results")]
+        public void ThenIAmAbleToNavigateToThePreviousPageOfProvidersTestResults(int endPageListCount)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+
+            IWebElement testresultsallprovidersResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListEndCount;
+            string endPageResultCount = testresultsallprovidersResultCount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeLessOrEqualTo(endPageListCount, "More than 50 Results are displayed on this Page");
+            Console.WriteLine("Total Page Results Displayed is " + testresultsallprovidersResultCount.Text);
+
+        }
+
+
+        [Then(@"The name of the provider for the single test is displayed")]
+        public void ThenTheNameOfTheProviderForTheSingleTestIsDisplayed()
+        {
+            IWebElement providerresultslistcontainer = viewtestresultsallproviders.singleTestProviderResultsProviderResultsList;
+            IWebElement providernameexists = providerresultslistcontainer.FindElement(By.CssSelector("div.provider-item-header a"));
+            providernameexists.Should().NotBeNull();
+            providernameexists.Displayed.Should().BeTrue();
+            string providername = providernameexists.Text;
+            Console.WriteLine("The Provider Name Displayed is: " + providername);
+        }
+
+        [Then(@"all the relevant provider details for the single are displayed")]
+        public void ThenAllTheRelevantProviderDetailsForTheSingleAreDisplayed()
+        {
+            IWebElement providerresultitemcontainer = viewtestresultsallproviders.singleTestProviderResultsProviderResultsListContainer;
+            var propertyElements = providerresultitemcontainer.FindElements(By.CssSelector("span.provider-item-property"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("span"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+
+        [Then(@"the QA Test Result for the provider is displayed")]
+        public void ThenTheQATestResultForTheProviderIsDisplayed()
+        {
+            IWebElement providerresultslistcontainer = viewtestresultsallproviders.singleTestProviderResultsProviderResultsList;
+            IWebElement providerresultexists = providerresultslistcontainer.FindElement(By.CssSelector("div.provider-item-header span"));
+            providerresultexists.Should().NotBeNull();
+            providerresultexists.Displayed.Should().BeTrue();
+            string providerresult = providerresultexists.Text;
+            Console.WriteLine("The QA Test Result for this Provider is: " + providerresult);
+        }
+
+
+        [Then(@"details of the Test selected are displayed on the page correctly")]
+        public void ThenDetailsOfTheTestSelectedAreDisplayedOnThePageCorrectly()
+        {
+            IWebElement providerresultitemcontainer = viewtestresultsallproviders.singleTestProviderResultsQATestInfo;
+            var propertyElements = providerresultitemcontainer.FindElements(By.CssSelector("p.alert__message"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("span"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine("Selected QA Test Details displayed are: " + currentElement.Text);
+            }
+        }
+
+        [When(@"I decide to filter my results by using the search filter")]
+        public void WhenIDecideToFilterMyResultsByUsingTheSearchFilter()
+        {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+            ScenarioContext.Current["totalResults"] = totalPageResultCount;
+
+            viewtestresultsallproviders.singleTestProviderResultsSearchField.SendKeys(searchtext);
+            viewtestresultsallproviders.singleTestProviderResultsSearchButton.Click();
+            Thread.Sleep(5000);
+        }
+
+
+        [Then(@"the Provider Results list is refreshed to display only the providers that comply with the filter selected")]
+        public void ThenTheProviderResultsListIsRefreshedToDisplayOnlyTheProvidersThatComplyWithTheFilterSelected()
+        {
+            string totalPageListCount = ScenarioContext.Current["totalResults"] as string;
+            int initialTotalPageCount = int.Parse(totalPageListCount);
+
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int newTotalPageCount = int.Parse(totalPageResultCount);
+            newTotalPageCount.Should().BeLessOrEqualTo(initialTotalPageCount, "More than the initial unfiltered result count of " + initialTotalPageCount + " are being displayed on this Page");
+            Console.WriteLine("The New Filtered Total results returned is " + newTotalPageCount);
+        }
+
+
+        [When(@"I decide to filter my results by using the Provider Type Filter")]
+        public void WhenIDecideToFilterMyResultsByUsingTheProviderTypeFilter()
+        {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+            ScenarioContext.Current["totalResults"] = totalPageResultCount;
+
+            IWebElement selectProviderDropdown = viewtestresultsallproviders.singleTestProviderResultsSelectProviderType;
+            selectProviderDropdown.Click();
+            var selectProviderOption = Driver._driver.FindElements(By.CssSelector(".open > ul > li"));
+            IWebElement firstProviderOption = selectProviderOption.FirstOrDefault();
+
+            if (firstProviderOption != null)
+            {
+                firstProviderOption.Click();
+                string selectedProviderOption = firstProviderOption.Text;
+                Thread.Sleep(2000);
+                viewtestresultsallproviders.singleTestProviderResultsSelectProviderType.Click();
+                Console.WriteLine("Provider Option selected is: " + selectedProviderOption);
+            }
+            else
+            {
+                firstProviderOption.Should().NotBeNull("Unable to find Provider Option to select");
+            }
+
+        }
+
+
+        [When(@"I decide to filter my results by using the Provider Sub Type Filter")]
+        public void WhenIDecideToFilterMyResultsByUsingTheProviderSubTypeFilter()
+        {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+            ScenarioContext.Current["totalResults"] = totalPageResultCount;
+
+            IWebElement selectProviderSubDropdown = viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType;
+            selectProviderSubDropdown.Click();
+            var selectProviderSubOption = Driver._driver.FindElements(By.CssSelector(".open > ul > li"));
+            IWebElement firstProviderSubOption = selectProviderSubOption.FirstOrDefault();
+
+            if (firstProviderSubOption != null)
+            {
+                firstProviderSubOption.Click();
+                string selectedProviderSubOption = firstProviderSubOption.Text;
+                Thread.Sleep(2000);
+                viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType.Click();
+                Console.WriteLine("Provider Sub Type Option selected is: " + selectedProviderSubOption);
+            }
+            else
+            {
+                firstProviderSubOption.Should().NotBeNull("Unable to find Provider Sub Type Option to select");
+            }
+
+        }
+
+
+        [When(@"I decide to filter my results by using the Local Authority Filter")]
+        public void WhenIDecideToFilterMyResultsByUsingTheLocalAuthorityFilter()
+        {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+            ScenarioContext.Current["totalResults"] = totalPageResultCount;
+
+            IWebElement selectLocalAuthDropdown = viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType;
+            selectLocalAuthDropdown.Click();
+            var selectLocalAuthOption = Driver._driver.FindElements(By.CssSelector(".open > ul > li"));
+            IWebElement firstLocalAuthOption = selectLocalAuthOption.FirstOrDefault();
+
+            if (firstLocalAuthOption != null)
+            {
+                firstLocalAuthOption.Click();
+                string selectedLocalAuthOption = firstLocalAuthOption.Text;
+                Thread.Sleep(2000);
+                viewtestresultsallproviders.singleTestProviderResultsSelectLocalAuthority.Click();
+                Console.WriteLine("Provider Sub Type Option selected is: " + selectedLocalAuthOption);
+            }
+            else
+            {
+                firstLocalAuthOption.Should().NotBeNull("Unable to find Local Authority Option to select");
+            }
+        }
+
+
+        [Given(@"I have navigated to the Provider results for an Individual Provider Page")]
+        public void GivenIHaveNavigatedToTheProviderResultsForAnIndividualProviderPage()
+        {
+            NavigateTo.ViewProviderAllocationsPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"a tab is displayed to show the Allocation Line results")]
+        public void ThenATabIsDisplayedToShowTheAllocationLineResults()
+        {
+            viewproviderallocationspage.providerAllocationsPageAllocationTab.Should().NotBeNull();
+
+        }
+
+        [Then(@"a tab is displayed to show the Calculation results")]
+        public void ThenATabIsDisplayedToShowTheCalculationResults()
+        {
+            viewproviderallocationspage.providerAllocationsPageCalculationTab.Should().NotBeNull();
+        }
+
+        [Then(@"a tab is displayed to show the Test results")]
+        public void ThenATabIsDisplayedToShowTheTestResults()
+        {
+            viewproviderallocationspage.providerAllocationsPageTestTab.Should().NotBeNull();
+        }
+
+        [Then(@"the drop down option to select an academic year is displayed")]
+        public void ThenTheDropDownOptionToSelectAnAcademicYearIsDisplayed()
+        {
+            viewproviderallocationspage.providerAllocationsPageAcademicYearDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the drop down option to select a specification is displayed")]
+        public void ThenTheDropDownOptionToSelectASpecificationIsDisplayed()
+        {
+            viewproviderallocationspage.providerAllocationsPageSpecificationDropDown.Should().NotBeNull();
+        }
+
+
+
+        [Given(@"I have created a New Specification")]
+        public void GivenIHaveCreatedANewSpecification()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+        }
+
+        [Given(@"I have created a New Policy for that Specification")]
+        public void GivenIHaveCreatedANewPolicyForThatSpecification()
+        {
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+        }
+
+        [Given(@"I have created a New Calculation Specification for that Specification")]
+        public void GivenIHaveCreatedANewCalculationSpecificationForThatSpecification()
+        {
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+        }
+
+        [Given(@"I have create a New Dataset for that Specificaton")]
+        public void GivenIHaveCreateANewDatasetForThatSpecificaton()
+        {
+            ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
+        }
+
+        [When(@"I have specified a data Source Relationship for the Specification")]
+        public void WhenIHaveSpecifiedADataSourceRelationshipForTheSpecification()
+        {
+            CreateDataSourceMapping.CreateADataSourceMapping();
+        }
+
+        [When(@"I edit the New Calculation for that Specification")]
+        public void WhenIEditTheNewCalculationForThatSpecification()
+        {
+            EditNewCalculaton.EditANewCalculaton();
+        }
+
+        [When(@"I have created a New Test for the Specification")]
+        public void WhenIHaveCreatedANewTestForTheSpecification()
+        {
+            CreateNewQATest.CreateANewQATest();
+        }
+
+        [When(@"I then select the appropriate Test from the View provider results list page")]
+        public void WhenIThenSelectTheAppropriateTestFromTheViewProviderResultsListPage()
+        {
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+
+            NavigateTo.ViewQATestResults();
+
+            var qaTestName = ScenarioContext.Current["QATestName"];
+            string qaTestcreated = qaTestName.ToString();
+            Driver._driver.FindElement(By.LinkText(qaTestcreated)).Should().NotBeNull();
+            Driver._driver.FindElement(By.LinkText(qaTestcreated)).Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I can select the Provider with a Passed Test Result from the View provider results for an Individual Provider Page")]
+        public void ThenICanSelectTheProviderWithAPassedTestResultFromTheViewProviderResultsForAnIndividualProviderPage()
+        {
+            Actions.SelectProviderWhereQATestResultMarkedPassed();
+            Thread.Sleep(2000);
+        }
+
+
+        [Then(@"I can click on the Test Tab to view the Test result for the Individual Provider and Specification")]
+        public void ThenICanClickOnTheTestTabToViewTheTestResultForTheIndividualProviderAndSpecification()
+        {
+            viewproviderallocationspage.providerAllocationsPageTestTab.Should().NotBeNull();
+            viewproviderallocationspage.providerAllocationsPageTestTab.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Provider List of Test results for the selected QA Test is displayed")]
+        public void ThenTheProviderListOfTestResultsForTheSelectedQATestIsDisplayed()
+        {
+            Thread.Sleep(2000);
+            viewproviderresultspage.providerResultspageResultListContainer.Should().NotBeNull();
+        }
+
+        [Then(@"a Provider where the QA Test has Passed can be selected to display the specific QA Test Result")]
+        public void ThenAProviderWhereTheQATestHasPassedCanBeSelectedToDisplayTheSpecificQATestResult()
+        {
+            Actions.SelectProviderWhereQATestResultMarkedPassed();
+            Thread.Sleep(2000);
+            viewproviderallocationspage.providerAllocationsPageTestTab.Should().NotBeNull();
+            viewproviderallocationspage.providerAllocationsPageTestTab.Click();
+        }
+
+        [Then(@"the QA Test Coverage for the Provider is displayed correctly")]
+        public void ThenTheQATestCoverageForTheProviderIsDisplayedCorrectly()
+        {
+            var providerresultitemcontainer = viewproviderallocationspage.providerAllocationsPageTestTabResultsAlert;
+            string providerresults = providerresultitemcontainer.Text;
+            Console.WriteLine("The Test Result Coverage for this QA Test is: " + providerresults);
+        }
+
+
+
+        [Then(@"the QA Test Results for the Provider are displayed correctly")]
+        public void ThenTheQATestResultsForTheProviderAreDisplayedCorrectly()
+        {
+            IWebElement viewresultscontainer = viewproviderallocationspage.providerAllocationsPageTestTabSearchResultsContainer;
+            var allocationsresults = viewresultscontainer.FindElements(By.CssSelector(".table"));
+            List<IWebElement> allocationElementList = new List<IWebElement>(allocationsresults);
+            allocationElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < allocationElementList.Count; i++)
+            {
+                IWebElement currentElement = allocationElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("tr"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"I can select the Provider with a Failed Test Result from the View provider results for an Individual Provider Page")]
+        public void ThenICanSelectTheProviderWithAFailedTestResultFromTheViewProviderResultsForAnIndividualProviderPage()
+        {
+            Actions.SelectProviderWhereQATestResultMarkedFailed();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"a Provider where the QA Test has Failed can be selected to display the specific QA Test Result")]
+        public void ThenAProviderWhereTheQATestHasFailedCanBeSelectedToDisplayTheSpecificQATestResult()
+        {
+            Actions.SelectProviderWhereQATestResultMarkedFailed();
+            Thread.Sleep(2000);
+            viewproviderallocationspage.providerAllocationsPageTestTab.Should().NotBeNull();
+            viewproviderallocationspage.providerAllocationsPageTestTab.Click();
+        }
+
+        [When(@"I click on the View calculation results option")]
+        public void WhenIClickOnTheViewCalculationResultsOption()
+        {
+            viewresultsoptionspage.viewResultsOptionsViewCalculationResults.Should().NotBeNull();
+            viewresultsoptionspage.viewResultsOptionsViewCalculationResults.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected to the View calculation results Page")]
+        public void ThenIAmRedirectedToTheViewCalculationResultsPage()
+        {
+            viewcalculationresultpage.viewcalculationPageSearchField.Should().NotBeNull();
+        }
+
+
+        [Given(@"I have successfully navigated to the View Calculation Page")]
+        public void GivenIHaveSuccessfullyNavigatedToTheViewCalculationPage()
+        {
+            NavigateTo.ViewCalculationResultsPage();
+        }
+
+        [Then(@"the Search option filter is displayed correctly")]
+        public void ThenTheSearchOptionFilterIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageSearchField.Should().NotBeNull();
+        }
+
+        [Then(@"the Allocation Line Dropdown option is displayed correctly")]
+        public void ThenTheAllocationLineDropdownOptionIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageAllocationLineDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the Funding Period Dropdown option is displayed correctly")]
+        public void ThenTheFundingPeriodDropdownOptionIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageFundingPeriodDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the Funding Stream Dropdown option is displayed correctly")]
+        public void ThenTheFundingStreamDropdownOptionIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageFundingStreamDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the Specificaiton Name Dropdown option is displayed correctly")]
+        public void ThenTheSpecificaitonNameDropdownOptionIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageSpecnameDropDown.Should().NotBeNull();
+        }
+
+        [Then(@"the Calculation Status Dropdown option is displayed correctly")]
+        public void ThenTheCalculationStatusDropdownOptionIsDisplayedCorrectly()
+        {
+            viewcalculationresultpage.viewcalculationPageCalculationStatusDropDown.Should().NotBeNull();
+        }
+
+        [Given(@"I have over (.*) calculations")]
+        public void GivenIHaveOverCalculations(int totalItemCount)
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+
+            if (totalPageCount < totalItemCount)
+            {
+                Assert.Inconclusive("Only 1 page of results is displayed as the Total results returned is less than " + totalItemCount);
+
+            }
+            else
+            {
+                Console.WriteLine("The Total results returned is " + totalPageCount);
+            }
+        }
+
+        [When(@"I click to navigate to the next page of (.*) calculations")]
+        public void WhenIClickToNavigateToTheNextPageOfCalculations(int endItemCount)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"my list view displays the next (.*) calculations")]
+        public void ThenMyListViewDisplaysTheNextCalculations(int startItemCount)
+        {
+            IWebElement calculationstartResultCount = viewcalculationresultpage.viewcalculationPageStartItemCount;
+            string startPageResultCount = calculationstartResultCount.Text;
+            int startPageCount = int.Parse(startPageResultCount);
+            startPageCount.Should().BeGreaterOrEqualTo(startItemCount, "Less than " + startItemCount + "Results are displayed on this Page");
+
+        }
+
+        [Then(@"I am able to navigate to the previous page of (.*) calculations")]
+        public void ThenIAmAbleToNavigateToThePreviousPageOfCalculations(int endItemCount)
+        {
+            Actions.PaginationSelectPage();
+            Thread.Sleep(2000);
+
+            IWebElement calculationendResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationendResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            totalPageCount.Should().BeLessOrEqualTo(endItemCount, "Less than " + endItemCount + "Results are displayed on this Page");
+
+        }
+
+        [Then(@"a list of calculations is displayed with the correct column headers")]
+        public void ThenAListOfCalculationsIsDisplayedWithTheCorrectColumnHeaders()
+        {
+            IWebElement calculationsResultTable = viewcalculationresultpage.viewcalculationPageCalculationResultsTable;
+            calculationsResultTable.Should().NotBeNull();
+            var calculationHeaders = calculationsResultTable.FindElements(By.CssSelector("tr th"));
+            List<IWebElement> calculationheaderText = new List<IWebElement>(calculationHeaders);
+            calculationheaderText.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < calculationheaderText.Count; i++)
+            {
+                IWebElement currentElement = calculationheaderText[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                currentElement.Should().NotBeNull("value element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"the appropriate calculation information is displayed in the list")]
+        public void ThenTheAppropriateCalculationInformationIsDisplayedInTheList()
+        {
+            IWebElement viewresultscontainer = viewcalculationresultpage.viewcalculationPageCalculationResultsListContainer;
+            var calculationresults = viewresultscontainer.FindElements(By.CssSelector("#dynamic-results-table-body > tr:nth-child(1)"));
+            List<IWebElement> calculationElementList = new List<IWebElement>(calculationresults);
+            calculationElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < calculationElementList.Count; i++)
+            {
+                IWebElement currentElement = calculationElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+
+                IWebElement valueElement = currentElement.FindElement(By.TagName("td"));
+
+                valueElement.Should().NotBeNull("value element {0} is null", i);
+                valueElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [When(@"I choose to filter the results by Funding Period")]
+        public void WhenIChooseToFilterTheResultsByFundingPeriod()
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            ScenarioContext.Current["TotalResultCount"] = totalPageCount;
+            Console.WriteLine("The Total Number of Calculations displayed is: " + totalPageCount);
+
+            IWebElement filtercontainer = viewcalculationresultpage.viewcalculationPageFundingPeriodDropDown;
+            IWebElement fundingperiodfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingperiodfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providertypeselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Period Filter Option selected = " + providertypeselected);
+            selectfilteroption.Click();
+            Thread.Sleep(2000);
+            fundingperiodfilter.Click();
+            Thread.Sleep(2000);
+
+        }
+
+        [Then(@"the calculation results are updated accordingly")]
+        public void ThenTheCalculationResultsAreUpdatedAccordingly()
+        {
+            IWebElement newcalculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string newtotalPageResultCount = newcalculationtotalResultCount.Text;
+            int newtotalPageCount = int.Parse(newtotalPageResultCount);
+            var unfilteredpagecount = ScenarioContext.Current["TotalResultCount"];
+            string unfilteredpagecountext = unfilteredpagecount.ToString();
+            int originalpagecount = int.Parse(unfilteredpagecountext);
+            newtotalPageCount.Should().BeLessOrEqualTo(originalpagecount, "there has been an error in filtering the results by Funding Period");
+            Console.WriteLine("The new Filtered Total of Calculations displayed is: " + newtotalPageCount);
+        }
+
+
+        [When(@"I choose to filter the results by Funding Stream")]
+        public void WhenIChooseToFilterTheResultsByFundingStream()
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            ScenarioContext.Current["TotalResultCount"] = totalPageCount;
+            Console.WriteLine("The Total Number of Calculations displayed is: " + totalPageCount);
+
+            IWebElement filtercontainer = viewcalculationresultpage.viewcalculationPageFundingStreamDropDown;
+            IWebElement fundingstreamfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingstreamfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providertypeselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Stream Filter Option selected = " + providertypeselected);
+            selectfilteroption.Click();
+            Thread.Sleep(2000);
+            fundingstreamfilter.Click();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I choose to filter the results by Spec Name")]
+        public void WhenIChooseToFilterTheResultsBySpecName()
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            ScenarioContext.Current["TotalResultCount"] = totalPageCount;
+            Console.WriteLine("The Total Number of Calculations displayed is: " + totalPageCount);
+
+            IWebElement filtercontainer = viewcalculationresultpage.viewcalculationPageSpecnameDropDown;
+            IWebElement specnamefilter = filtercontainer.FindElement(By.CssSelector("button"));
+            specnamefilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providertypeselected = selectfilteroption.Text;
+            Console.WriteLine("Spec Name Filter Option selected = " + providertypeselected);
+            selectfilteroption.Click();
+            Thread.Sleep(2000);
+            specnamefilter.Click();
+            Thread.Sleep(2000);
+        }
+
+
+        [When(@"I choose to filter the results by Calculation Status")]
+        public void WhenIChooseToFilterTheResultsByCalculationStatus()
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            ScenarioContext.Current["TotalResultCount"] = totalPageCount;
+            Console.WriteLine("The Total Number of Calculations displayed is: " + totalPageCount);
+
+            IWebElement filtercontainer = viewcalculationresultpage.viewcalculationPageCalculationStatusDropDown;
+            IWebElement calcstatusfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            calcstatusfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providertypeselected = selectfilteroption.Text;
+            Console.WriteLine("Calculation Status Filter Option selected = " + providertypeselected);
+            selectfilteroption.Click();
+            Thread.Sleep(2000);
+            calcstatusfilter.Click();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I choose to filter the results by Allocation Line")]
+        public void WhenIChooseToFilterTheResultsByAllocationLine()
+        {
+            IWebElement calculationtotalResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            ScenarioContext.Current["TotalResultCount"] = totalPageCount;
+            Console.WriteLine("The Total Number of Calculations displayed is: " + totalPageCount);
+
+            IWebElement filtercontainer = viewcalculationresultpage.viewcalculationPageAllocationLineDropDown;
+            IWebElement allocationlinefilter = filtercontainer.FindElement(By.CssSelector("button"));
+            allocationlinefilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providertypeselected = selectfilteroption.Text;
+            Console.WriteLine("Allocation Line Filter Option selected = " + providertypeselected);
+            selectfilteroption.Click();
+            Thread.Sleep(2000);
+            allocationlinefilter.Click();
+            Thread.Sleep(2000);
+        }
+
 
 
         [AfterScenario()]

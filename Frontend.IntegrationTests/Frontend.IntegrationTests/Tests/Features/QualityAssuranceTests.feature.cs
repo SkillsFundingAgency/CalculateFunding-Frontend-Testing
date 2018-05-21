@@ -477,6 +477,218 @@ testRunner.And("my test is visible in the list view", ((string)(null)), ((TechTa
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("View the Edit quality assurance test page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ViewTheEditQualityAssuranceTestPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View the Edit quality assurance test page", new string[] {
+                        "Workitem:",
+                        "36691",
+                        "Driver"});
+#line 131
+this.ScenarioSetup(scenarioInfo);
+#line 132
+testRunner.Given("I have successfully navigated to the Quality Assurance Test Scenario List Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 133
+testRunner.When("I choose to select an Existing QA Test from the list displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 134
+testRunner.Then("I am redirected to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 135
+testRunner.And("the associated Specification name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 136
+testRunner.And("the Edit QA Test Name field is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 137
+testRunner.And("the Edit Description field is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 138
+testRunner.And("the existing QA Test code is displayed in the Monaco Text Editor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit the Name of an Existing quality assurance test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditTheNameOfAnExistingQualityAssuranceTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit the Name of an Existing quality assurance test", new string[] {
+                        "Workitem:",
+                        "36691",
+                        "Driver"});
+#line 141
+this.ScenarioSetup(scenarioInfo);
+#line 142
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 143
+testRunner.When("I update the existing Test Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 144
+testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 145
+testRunner.Then("the Test Name is updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 146
+testRunner.And("I am presented with confirmation of the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit the Description of an Existing quality assurance test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditTheDescriptionOfAnExistingQualityAssuranceTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit the Description of an Existing quality assurance test", new string[] {
+                        "Workitem:",
+                        "36691",
+                        "Driver"});
+#line 149
+this.ScenarioSetup(scenarioInfo);
+#line 150
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 151
+testRunner.When("I update the existing Test Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 152
+testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 153
+testRunner.Then("the Test Description is updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 154
+testRunner.And("I am presented with confirmation of the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit the Test for an Existing quality assurance test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditTheTestForAnExistingQualityAssuranceTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit the Test for an Existing quality assurance test", new string[] {
+                        "Workitem:",
+                        "36691",
+                        "Driver"});
+#line 157
+this.ScenarioSetup(scenarioInfo);
+#line 158
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 159
+testRunner.When("I Update the existing Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 160
+testRunner.And("I Validate the Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 161
+testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 162
+testRunner.Then("I am presented with confirmation of the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit the Test Incorrectly for an Existing quality assurance test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditTheTestIncorrectlyForAnExistingQualityAssuranceTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit the Test Incorrectly for an Existing quality assurance test", new string[] {
+                        "Workitem:",
+                        "36691",
+                        "Driver"});
+#line 165
+this.ScenarioSetup(scenarioInfo);
+#line 166
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 167
+testRunner.When("I Update the existing Test Incorrectly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 168
+testRunner.And("I Validate the Incorrect Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 169
+testRunner.Then("I am presented with a failed validation message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Incorrectly Edit the Name of an Existing quality assurance test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void IncorrectlyEditTheNameOfAnExistingQualityAssuranceTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrectly Edit the Name of an Existing quality assurance test", new string[] {
+                        "Workitem:",
+                        "36691",
+                        "Driver"});
+#line 172
+this.ScenarioSetup(scenarioInfo);
+#line 173
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 174
+testRunner.When("I Incorrectly update the existing Test Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 175
+testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 176
+testRunner.Then("An Enter a unique name Error is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Incorrectly Edit the Description of an Existing quality assurance test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void IncorrectlyEditTheDescriptionOfAnExistingQualityAssuranceTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrectly Edit the Description of an Existing quality assurance test", new string[] {
+                        "Workitem:",
+                        "36691",
+                        "Driver"});
+#line 179
+this.ScenarioSetup(scenarioInfo);
+#line 180
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 181
+testRunner.When("I Incorrectly update the existing Test Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 182
+testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 183
+testRunner.Then("An Enter a description Error is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Cancel an Edit to an Existing quality assurance test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void CancelAnEditToAnExistingQualityAssuranceTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cancel an Edit to an Existing quality assurance test", new string[] {
+                        "Workitem:",
+                        "36691",
+                        "Driver"});
+#line 186
+this.ScenarioSetup(scenarioInfo);
+#line 187
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 188
+testRunner.When("I update the existing Test Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 189
+testRunner.And("I click on the Back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 190
+testRunner.Then("I am redirected back to the Quality Assurance Test Scenario List Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

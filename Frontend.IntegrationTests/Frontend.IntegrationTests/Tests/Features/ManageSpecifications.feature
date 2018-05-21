@@ -36,17 +36,18 @@ Scenario: Create and Save a new Specification
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
 And I enter a Description
+And I choose a specification Funding Period
 And I choose a specification Funding Stream
 And I click the Save button
 Then I am redirected to the Manage Specification Page
 And My new specification is correctly listed
-And A Full Audit record is created
 
 @Workitem:35384 Driver
 Scenario: Create and Cancel a new Specification
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
 And I enter a Description
+And I choose a specification Funding Period
 And I choose a specification Funding Stream
 And I click the Cancel button
 Then I am redirected to the Manage Specification Page
@@ -56,22 +57,33 @@ Scenario: Create a new Specification with an Existing Specification Name
 Given I have successfully navigated to the Create Specification Page
 When I enter an Existing Specification Name
 And I enter a Description
+And I choose a specification Funding Period
 And I choose a specification Funding Stream
 And I click the Save button
 Then A Unique Specification Name Error is Displayed
 
 @Workitem:35384 Driver
+Scenario: Create & Save an Incomplete Specification with no Funding Stream Selected
+Given I have successfully navigated to the Create Specification Page
+When I enter an Existing Specification Name
+And I choose a specification Funding Period
+And I enter a Description
+And I click the Save button
+Then A Unique Funding Stream Error is Displayed
+
+@Workitem:35384 Driver
 Scenario Outline: Create and Save an incomplete Specification
 Given I have successfully navigated to the Create Specification Page
-And I have missed the field <name> and <funding> and <description>
+And I have missed the field <name> and <description>
+And I choose a specification Funding Period
+And I choose a specification Funding Stream
 When I click the Save button
 Then the following Specification Error should be displayed for FieldName '<SpecFieldName>' and '<error>'
 
 Examples: 
-	 | SpecFieldName			| name         | funding | description           | error											 |
-	 | Missing Spec Name		|              | DSG     | This is a Description | You must give a unique specification name		 |
-	 | Missing Spec Funding		| Test Spec 02 |         | This is a Description | You must select at least one funding stream		 |
-	 | Missing Spec Description	| Test Spec 03 | DSG     |                       | You must give a description for the specification |
+	 | SpecFieldName			| name         | description           | error												|
+	 | Missing Spec Name		|              | This is a Description | You must give a unique specification name			|
+	 | Missing Spec Description	| Test Spec 03 |                       | You must give a description for the specification	|
 
 @Workitem:35397 Driver
 Scenario: View Current List of Policies
@@ -94,7 +106,6 @@ And I enter a Policy Description
 And I click the Save Policy button
 Then I am redirected to the Manage Policies Page
 And My new policy is correctly listed
-And A Full Audit record is created
 
 @Workitem:35397 Driver
 Scenario: Create and Cancel a new Policy
@@ -103,7 +114,6 @@ When I enter a Policy Name
 And I enter a Policy Description
 And I click the Cancel Policy Button
 Then I am redirected to the Manage Policies Page
-
 
 @Workitem:35397 Driver
 Scenario: Create and Save a new Policy with an Existing Specification Name
@@ -142,7 +152,7 @@ And I enter a Calculation Description
 And I click the Save Calculation button
 Then I am redirected to the Manage Policies Page
 And My new Calculation is correctly listed
-And A Full Audit record is created
+
 
 @Workitem:35401, 40012 Driver
 Scenario: Create and Save a new Calculation Specification with Calculation Type Number
@@ -154,7 +164,6 @@ And I enter a Calculation Description
 And I click the Save Calculation button
 Then I am redirected to the Manage Policies Page
 And My new Calculation is correctly listed
-And A Full Audit record is created
 
 @Workitem:35401, 40012 Driver
 Scenario: Create and Cancel a new Calculation Specification
@@ -189,20 +198,32 @@ Then A Calculation Type Error is Displayed
 
 
 @Workitem:35401, 40012 Driver
-Scenario Outline: Create and Save an incomplete Calculation Specification
+Scenario Outline: Create and Save an incomplete Funding Calculation Specification
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
 And I have missed the calculation field <name> and <policy> and <type> and <allocation> and <description>
 When I click the Save Calculation button
 Then the following Calculation Error should be displayed for FieldName '<CalculationFieldname>' and '<calcerror>'
 
 Examples: 
-	 | CalculationFieldname   | name	| policy      | type    | allocation	  | description  | calcerror									   |
-	 | MissingCalcName		  |			| Test Spec03 | Funding | DSG Allocations | Error1       | You must give a unique calculation name         |
-	 | MissingCalcPolicy      | TestXYZ |             | Funding | DSG Allocations | Error2       | You must select a policy or subpolicy           |
-	 | MissingCalcDescription | TestXYZ	| Test Spec03 | Funding | DSG Allocations |				 | You must give a description for the calculation |
-	 | MissingCalcName		  |			| Test Spec03 | Number	|				  | Error1       | You must give a unique calculation name         |
-	 | MissingCalcPolicy      | TestXYZ	|             | Number	|				  | Error2       | You must select a policy or subpolicy           |
-	 | MissingCalcDescription | TestXYZ	| Test Spec03 | Number	|				  |				 | You must give a description for the calculation |
+	 | CalculationFieldname			 | name		| policy      | type    | allocation		  | description  | calcerror									   |
+	 | MissingCalcFundingName		 |			| Test		  | Funding | Additional Funding  | Error1       | You must give a unique calculation name         |
+	 | MissingCalcFundingPolicy      | TestXYZ	|             | Funding | Additional Funding  | Error2       | You must select a policy or subpolicy           |
+	 | MissingCalcFundingDescription | TestXYZ	| Test		  | Funding | Additional Funding  |				 | You must give a description for the calculation |
+	 | MissingCalcFundingAllocation  | TestXYZ	| Test		  | Funding |					  |	Error3		 | You must select an allocation line			   |
+
+
+@Workitem:35401, 40012 Driver
+Scenario Outline: Create and Save an incomplete Number Calculation Specification
+Given I have successfully navigated to the Create Calculation Specification for Policy Page
+And I have not completed the following calculation fields <name> and <policy> and <type> and <description>
+When I click the Save Calculation button
+Then the following Number Calculation Error should be displayed for FieldName '<CalculationFieldname>' and '<calcerror>'
+
+Examples: 
+	 | CalculationFieldname			| name		| policy      | type    | description  | calcerror										 |
+	 | MissingCalcNumberName		|			| Test		  | Number	| Error1       | You must give a unique calculation name         |
+	 | MissingCalcNumberPolicy      | TestXYZ	|             | Number	| Error2       | You must select a policy or subpolicy           |
+	 | MissingCalcNumberDescription | TestXYZ	| Test		  | Number	| 			   | You must give a description for the calculation |
 
 @Workitem:35402 Driver
 Scenario: Select to Create a Sub Policy
@@ -219,7 +240,6 @@ And I enter a Sub Policy Description
 And I click the Save Sub Policy button
 Then I am redirected to the Manage Policies Page
 And the new Sub Policy is correctly listed
-And A Full Audit record is created
 
 @Workitem:35402 Driver
 Scenario: Create and Cancel a new Sub Policy
@@ -265,11 +285,11 @@ Scenario: Create and Save a new Calculation Specification without selecting an A
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
 When I enter a Calculation Name
 And I choose a Policy or sub policy
-And I choose Number calculation type
+And I choose funding calculation type
 And I enter a Calculation Description
 And I click the Save Calculation button
-Then I am redirected to the Manage Policies Page
-And My new Calculation is correctly listed
+Then A Unique Allocation Error is Displayed
+
 
 @Workitem:40032 Driver
 Scenario: Create a New Specification and no alert about provider datasets is displayed

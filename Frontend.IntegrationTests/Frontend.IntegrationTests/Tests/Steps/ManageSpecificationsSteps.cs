@@ -58,7 +58,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = managespecficationpage.SelectYear;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("1718");
+            selectElement.SelectByValue("FY2017181");
             Thread.Sleep(2000);
         }
 
@@ -90,7 +90,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = managespecficationpage.SelectYear;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("1819");
+            selectElement.SelectByValue("FY2017181");
         }
 
         [When(@"I click on the Create a Specification Button")]
@@ -132,9 +132,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I choose a specification Funding Stream")]
         public void WhenIChooseASpecificationFundingStream()
         {
-            var Funding = createspecificationpage.FundingStream;
-            var selectElement = new SelectElement(Funding);
-            selectElement.SelectByText("DSG");
+            createspecificationpage.FundingStream.Click();
+            createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
         }
 
         [When(@"I click the Save button")]
@@ -163,12 +162,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
         }
 
 
-        [Then(@"A Full Audit record is created")]
-        public void ThenAFullAuditRecordIsCreated()
-        {
-
-        }
-
         [When(@"I click the Cancel button")]
         public void WhenIClickTheCancelButton()
         {
@@ -194,13 +187,10 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
-        [Given(@"I have missed the field (.*) and (.*) and (.*)")]
-        public void GivenIHaveMissedTheField(String name, String funding, String description)
+        [Given(@"I have missed the field (.*) and (.*)")]
+        public void GivenIHaveMissedTheField(String name, String description)
         {
             createspecificationpage.SpecName.SendKeys(name);
-            var Funding = createspecificationpage.FundingStream;
-            var selectElement = new SelectElement(Funding);
-            selectElement.SelectByText(funding);
             createspecificationpage.SpecDescription.SendKeys(description);
             Thread.Sleep(2000);
         }
@@ -211,9 +201,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(1000);
             if (SpecFieldName == "Missing Spec Name")
                 Assert.AreEqual(error, createspecificationpage.SpecNameErrorText.Text);
-
-            else if (SpecFieldName == "Missing Spec Funding")
-                Assert.AreEqual(error, createspecificationpage.SpecFundingErrorText.Text);
 
             else if (SpecFieldName == "Missing Spec Description")
                 Assert.AreEqual(error, createspecificationpage.SpecDescriptionErrorText.Text);
@@ -411,7 +398,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var allocation = createcalculationpage.CalculationAllocationLine;
             var selectElement = new SelectElement(allocation);
-            selectElement.SelectByText("DSG Allocations");
+            selectElement.SelectByText("16-19 high level learners programme Funding");
         }
 
         [When(@"I enter a Calculation Description")]
@@ -513,20 +500,56 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
+        [Given(@"I have not completed the following calculation fields (.*) and (.*) and (.*) and (.*)")]
+        public void GivenIHaveNotCompletedTheFollowingCalculationFields(string name, string policy, string type, string description)
+        {
+            createcalculationpage.CalculationName.SendKeys(name);
+
+            var policydropdown = createcalculationpage.SelectPolicy_SubPolicy;
+            var selectElement = new SelectElement(policydropdown);
+            selectElement.SelectByText(policy);
+
+            var calctype = createcalculationpage.CalculationTypeDropDown;
+            var selecttypeElement = new SelectElement(calctype);
+            selecttypeElement.SelectByValue(type);
+
+            createcalculationpage.CalculationDescription.SendKeys(description);
+            Thread.Sleep(2000);
+        }
+
+
         [Then(@"the following Calculation Error should be displayed for FieldName '(.*)' and '(.*)'")]
         public void ThenTheFollowingCalculationErrorShouldBeDisplayedForFieldNameAnd(string CalculationFieldname, string calcerror)
         {
             Thread.Sleep(1000);
-            if (CalculationFieldname == "MissingCalcName")
+            if (CalculationFieldname == "MissingCalcFundingName")
                 Assert.AreEqual(calcerror, createcalculationpage.CalculationNameError.Text);
 
-            else if (CalculationFieldname == "MissingCalcPolicy")
+            else if (CalculationFieldname == "MissingCalcFundingPolicy")
                 Assert.AreEqual(calcerror, createcalculationpage.CalculationPolicyError.Text);
 
-            else if (CalculationFieldname == "MissingCalcAllocation")
+            else if (CalculationFieldname == "MissingCalcFundingAllocation")
                 Assert.AreEqual(calcerror, createcalculationpage.CalculationAllocationError.Text);
 
-            else if (CalculationFieldname == "MissingCalcDescription")
+            else if (CalculationFieldname == "MissingCalcFundingDescription")
+                Assert.AreEqual(calcerror, createcalculationpage.CalculationDescriptionError.Text);
+
+            else throw new InvalidOperationException("Unknown Field");
+            Thread.Sleep(2000);
+
+        }
+
+        [Then(@"the following Number Calculation Error should be displayed for FieldName '(.*)' and '(.*)'")]
+        public void ThenTheFollowingNumberCalculationErrorShouldBeDisplayedForFieldNameAnd(string CalculationFieldname, string calcerror)
+        {
+            Thread.Sleep(1000);
+            if (CalculationFieldname == "MissingCalcNumberName")
+                Assert.AreEqual(calcerror, createcalculationpage.CalculationNameError.Text);
+
+            else if (CalculationFieldname == "MissingCalcNumberPolicy")
+                Assert.AreEqual(calcerror, createcalculationpage.CalculationPolicyError.Text);
+
+            else if (CalculationFieldname == "MissingCalcNumberDescription")
                 Assert.AreEqual(calcerror, createcalculationpage.CalculationDescriptionError.Text);
 
             else throw new InvalidOperationException("Unknown Field");
@@ -778,6 +801,49 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void WhenIChooseToCreateANewDatasetSetAsProviderData()
         {
             ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
+        }
+
+        [Then(@"A Unique Allocation Error is Displayed")]
+        public void ThenAUniqueAllocationErrorIsDisplayed()
+        {
+            IWebElement allocationError =  createcalculationpage.CalculationAllocationError;
+            allocationError.Should().NotBeNull();
+            string allocationErrorText = allocationError.Text;
+            Console.WriteLine("The following Allocation Warning Message was displayed " + allocationErrorText);
+        }
+
+        [When(@"I choose a specification Funding Period")]
+        public void WhenIChooseASpecificationFundingPeriod()
+        {
+            var selectYear = createspecificationpage.SpecFundingPeriod;
+            var selectElement = new SelectElement(selectYear);
+            selectElement.SelectByValue("AY2017181");
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"A Unique Funding Stream Error is Displayed")]
+        public void ThenAUniqueFundingStreamErrorIsDisplayed()
+        {
+            IWebElement noFundingStream = createspecificationpage.SpecFundingStreamErrorText;
+            noFundingStream.Should().NotBeNull();
+            string noFundingStreamError = noFundingStream.Text;
+            Console.WriteLine("The following Funding Stream Warning Message was displayed " + noFundingStreamError);
+        }
+
+        [Given(@"I choose a specification Funding Period")]
+        public void GivenIChooseASpecificationFundingPeriod()
+        {
+            var selectYear = createspecificationpage.SpecFundingPeriod;
+            var selectElement = new SelectElement(selectYear);
+            selectElement.SelectByValue("AY2017181");
+            Thread.Sleep(2000);
+        }
+
+        [Given(@"I choose a specification Funding Stream")]
+        public void GivenIChooseASpecificationFundingStream()
+        {
+            createspecificationpage.FundingStream.Click();
+            createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
         }
 
 

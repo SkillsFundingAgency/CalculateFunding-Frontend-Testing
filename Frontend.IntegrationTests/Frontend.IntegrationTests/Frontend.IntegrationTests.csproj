@@ -81,7 +81,12 @@
   <ItemGroup>
     <Compile Include="Actions.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Create\CreateDataSourceMapping.cs" />
+    <Compile Include="Create\CreateNewQATest.cs" />
     <Compile Include="Create\CreateNewSpecification.cs" />
+    <Compile Include="Create\EditNewCalculaton.cs" />
+    <Compile Include="Create\ManageSpecificationCreateNewCalculationSpecification.cs" />
+    <Compile Include="Create\ManageSpecificationCreateNewPolicy.cs" />
     <Compile Include="Create\ManageSpecificationCreateNewDataset.cs" />
     <Compile Include="Create\ManageSpecificationCreateNewProviderDataset.cs" />
     <Compile Include="Driver.cs" />
@@ -109,7 +114,10 @@
     <Compile Include="Pages\Manage Specification\CreateSubPolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\ManagePoliciesPage.cs" />
     <Compile Include="Pages\Quality Assurance\CreateQATestPage.cs" />
+    <Compile Include="Pages\Quality Assurance\EditQATestPage.cs" />
     <Compile Include="Pages\Quality Assurance\TestScenarioListPage.cs" />
+    <Compile Include="Pages\View Results\ViewCalculationResultPage.cs" />
+    <Compile Include="Pages\View Results\ViewTestResultsAllProvidersSingleTest.cs" />
     <Compile Include="Pages\View Results\ViewProviderAllocationsPage.cs" />
     <Compile Include="Pages\View Results\ViewProviderResultsPage.cs" />
     <Compile Include="Pages\View Results\ViewQATestResultsPage.cs" />

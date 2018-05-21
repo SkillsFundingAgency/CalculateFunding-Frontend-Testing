@@ -11,6 +11,7 @@ using System.Threading;
 using System.Text.RegularExpressions;
 using Frontend.IntegrationTests.Pages.View_Results;
 using Frontend.IntegrationTests.Pages.Quality_Assurance;
+using System;
 
 namespace Frontend.IntegrationTests
 {
@@ -323,8 +324,39 @@ namespace Frontend.IntegrationTests
            
             homepage.ViewtheResults.Click();
             viewresultsoptionspage.viewResultsOptionsViewQATestResults.Click();
-            Thread.Sleep(20000);
+            Thread.Sleep(5000);
         }
+
+
+        public static void ViewCalculationResultsPage()
+        {
+            HomePage homepage = new HomePage();
+            ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
+
+            homepage.ViewtheResults.Click();
+            viewresultsoptionspage.viewResultsOptionsViewCalculationResults.Click();
+            Thread.Sleep(5000);
+        }
+
+        public static void EditQATestPage()
+        {
+            HomePage homepage = new HomePage();
+            TestScenarioListPage testscenariolistpage = new TestScenarioListPage();
+            EditQATestPage editqatestpage = new EditQATestPage();
+
+            homepage.ManagetheTests.Click();
+            Thread.Sleep(4000);
+
+            IWebElement testscenarioname = testscenariolistpage.testScenarioPageFirstTestScenarioName;
+            string scenarioname = testscenarioname.Text;
+            scenarioname.Should().NotBeNull();
+            Console.WriteLine("First Test Scenario Name selected to edit is " + scenarioname);
+
+            testscenarioname.Click();
+            Thread.Sleep(2000);
+
+        }
+
     }
 }
 

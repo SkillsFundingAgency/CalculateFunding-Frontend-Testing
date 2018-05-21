@@ -200,15 +200,15 @@ testRunner.When("I enter a Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(n
 #line 38
 testRunner.And("I enter a Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 39
-testRunner.And("I choose a specification Funding Stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose a specification Funding Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
-testRunner.And("I click the Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose a specification Funding Stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
-testRunner.Then("I am redirected to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I click the Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 42
-testRunner.And("My new specification is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I am redirected to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 43
-testRunner.And("A Full Audit record is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("My new specification is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -232,10 +232,12 @@ testRunner.When("I enter a Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(n
 #line 49
 testRunner.And("I enter a Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 50
-testRunner.And("I choose a specification Funding Stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose a specification Funding Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
-testRunner.And("I click the Cancel button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose a specification Funding Stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
+testRunner.And("I click the Cancel button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
 testRunner.Then("I am redirected to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -251,25 +253,55 @@ testRunner.Then("I am redirected to the Manage Specification Page", ((string)(nu
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new Specification with an Existing Specification Name", new string[] {
                         "Workitem:35384",
                         "Driver"});
-#line 55
-this.ScenarioSetup(scenarioInfo);
 #line 56
-testRunner.Given("I have successfully navigated to the Create Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 57
-testRunner.When("I enter an Existing Specification Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have successfully navigated to the Create Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 58
-testRunner.And("I enter a Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I enter an Existing Specification Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 59
-testRunner.And("I choose a specification Funding Stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I enter a Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 60
-testRunner.And("I click the Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose a specification Funding Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 61
+testRunner.And("I choose a specification Funding Stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 62
+testRunner.And("I click the Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 63
 testRunner.Then("A Unique Specification Name Error is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        public virtual void CreateAndSaveAnIncompleteSpecification(string specFieldName, string name, string funding, string description, string error, string[] exampleTags)
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create & Save an Incomplete Specification with no Funding Stream Selected")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35384)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void CreateSaveAnIncompleteSpecificationWithNoFundingStreamSelected()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create & Save an Incomplete Specification with no Funding Stream Selected", new string[] {
+                        "Workitem:35384",
+                        "Driver"});
+#line 66
+this.ScenarioSetup(scenarioInfo);
+#line 67
+testRunner.Given("I have successfully navigated to the Create Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 68
+testRunner.When("I enter an Existing Specification Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 69
+testRunner.And("I choose a specification Funding Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 70
+testRunner.And("I enter a Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 71
+testRunner.And("I click the Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 72
+testRunner.Then("A Unique Funding Stream Error is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        public virtual void CreateAndSaveAnIncompleteSpecification(string specFieldName, string name, string description, string error, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Workitem:35384",
@@ -279,15 +311,19 @@ testRunner.Then("A Unique Specification Name Error is Displayed", ((string)(null
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incomplete Specification", @__tags);
-#line 64
+#line 75
 this.ScenarioSetup(scenarioInfo);
-#line 65
+#line 76
 testRunner.Given("I have successfully navigated to the Create Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 66
-testRunner.And(string.Format("I have missed the field {0} and {1} and {2}", name, funding, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 67
+#line 77
+testRunner.And(string.Format("I have missed the field {0} and {1}", name, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 78
+testRunner.And("I choose a specification Funding Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 79
+testRunner.And("I choose a specification Funding Stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 80
 testRunner.When("I click the Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 68
+#line 81
 testRunner.Then(string.Format("the following Specification Error should be displayed for FieldName \'{0}\' and \'{1" +
                         "}\'", specFieldName, error), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -302,31 +338,12 @@ testRunner.Then(string.Format("the following Specification Error should be displ
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Missing Spec Name")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecFieldName", "Missing Spec Name")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:funding", "DSG")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "This is a Description")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:error", "You must give a unique specification name")]
         public virtual void CreateAndSaveAnIncompleteSpecification_MissingSpecName()
         {
-#line 64
-this.CreateAndSaveAnIncompleteSpecification("Missing Spec Name", "", "DSG", "This is a Description", "You must give a unique specification name", ((string[])(null)));
-#line hidden
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Specification: Missing Spec Funding")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35384)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Missing Spec Funding")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecFieldName", "Missing Spec Funding")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Test Spec 02")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:funding", "")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "This is a Description")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:error", "You must select at least one funding stream")]
-        public virtual void CreateAndSaveAnIncompleteSpecification_MissingSpecFunding()
-        {
-#line 64
-this.CreateAndSaveAnIncompleteSpecification("Missing Spec Funding", "Test Spec 02", "", "This is a Description", "You must select at least one funding stream", ((string[])(null)));
+#line 75
+this.CreateAndSaveAnIncompleteSpecification("Missing Spec Name", "", "This is a Description", "You must give a unique specification name", ((string[])(null)));
 #line hidden
         }
         
@@ -338,13 +355,12 @@ this.CreateAndSaveAnIncompleteSpecification("Missing Spec Funding", "Test Spec 0
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Missing Spec Description")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SpecFieldName", "Missing Spec Description")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "Test Spec 03")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:funding", "DSG")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:error", "You must give a description for the specification")]
         public virtual void CreateAndSaveAnIncompleteSpecification_MissingSpecDescription()
         {
-#line 64
-this.CreateAndSaveAnIncompleteSpecification("Missing Spec Description", "Test Spec 03", "DSG", "", "You must give a description for the specification", ((string[])(null)));
+#line 75
+this.CreateAndSaveAnIncompleteSpecification("Missing Spec Description", "Test Spec 03", "", "You must give a description for the specification", ((string[])(null)));
 #line hidden
         }
         
@@ -358,15 +374,15 @@ this.CreateAndSaveAnIncompleteSpecification("Missing Spec Description", "Test Sp
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View Current List of Policies", new string[] {
                         "Workitem:35397",
                         "Driver"});
-#line 77
+#line 89
 this.ScenarioSetup(scenarioInfo);
-#line 78
+#line 90
 testRunner.Given("I have successfully navigated to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 79
+#line 91
 testRunner.When("I click to view an existing Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 80
+#line 92
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 81
+#line 93
 testRunner.And("A list of Policies is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -382,13 +398,13 @@ testRunner.And("A list of Policies is displayed", ((string)(null)), ((TechTalk.S
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Create a New Policy", new string[] {
                         "Workitem:35397",
                         "Driver"});
-#line 84
+#line 96
 this.ScenarioSetup(scenarioInfo);
-#line 85
+#line 97
 testRunner.Given("I have successfully navigated to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 86
+#line 98
 testRunner.When("I click on the Create Policy Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 87
+#line 99
 testRunner.Then("I am redirected to the Create Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -404,22 +420,20 @@ testRunner.Then("I am redirected to the Create Policy Page", ((string)(null)), (
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a new Policy", new string[] {
                         "Workitem:35397",
                         "Driver"});
-#line 90
+#line 102
 this.ScenarioSetup(scenarioInfo);
-#line 91
+#line 103
 testRunner.Given("I have successfully navigated to the Create Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 92
+#line 104
 testRunner.When("I enter a Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 93
+#line 105
 testRunner.And("I enter a Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 94
+#line 106
 testRunner.And("I click the Save Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 95
+#line 107
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 96
+#line 108
 testRunner.And("My new policy is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 97
-testRunner.And("A Full Audit record is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -434,17 +448,17 @@ testRunner.And("A Full Audit record is created", ((string)(null)), ((TechTalk.Sp
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Cancel a new Policy", new string[] {
                         "Workitem:35397",
                         "Driver"});
-#line 100
+#line 111
 this.ScenarioSetup(scenarioInfo);
-#line 101
+#line 112
 testRunner.Given("I have successfully navigated to the Create Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 102
+#line 113
 testRunner.When("I enter a Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 103
+#line 114
 testRunner.And("I enter a Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 104
+#line 115
 testRunner.And("I click the Cancel Policy Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 105
+#line 116
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -460,17 +474,17 @@ testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)),
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a new Policy with an Existing Specification Name", new string[] {
                         "Workitem:35397",
                         "Driver"});
-#line 109
+#line 119
 this.ScenarioSetup(scenarioInfo);
-#line 110
+#line 120
 testRunner.Given("I have successfully navigated to the Create Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 111
+#line 121
 testRunner.When("I enter an existing Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 112
+#line 122
 testRunner.And("I enter a Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 113
+#line 123
 testRunner.And("I click the Save Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 114
+#line 124
 testRunner.Then("A Unique Policy Name Error is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -486,15 +500,15 @@ testRunner.Then("A Unique Policy Name Error is Displayed", ((string)(null)), ((T
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incomplete Policy", @__tags);
-#line 117
+#line 127
 this.ScenarioSetup(scenarioInfo);
-#line 118
+#line 128
 testRunner.Given("I have successfully navigated to the Create Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 119
+#line 129
 testRunner.And(string.Format("I have missed the policy field {0} and {1}", name, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 120
+#line 130
 testRunner.When("I click the Save Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 121
+#line 131
 testRunner.Then(string.Format("the following Policy Error should be displayed for FieldName \'{0}\' and \'{1}\'", policyfieldname, policyerror), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -512,7 +526,7 @@ testRunner.Then(string.Format("the following Policy Error should be displayed fo
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policyerror", "You must give a unique policy name")]
         public virtual void CreateAndSaveAnIncompletePolicy_MissingName()
         {
-#line 117
+#line 127
 this.CreateAndSaveAnIncompletePolicy("Missing Name", "", "This is a Description", "You must give a unique policy name", ((string[])(null)));
 #line hidden
         }
@@ -529,7 +543,7 @@ this.CreateAndSaveAnIncompletePolicy("Missing Name", "", "This is a Description"
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policyerror", "You must give a description for the policy")]
         public virtual void CreateAndSaveAnIncompletePolicy_MissingDescription()
         {
-#line 117
+#line 127
 this.CreateAndSaveAnIncompletePolicy("Missing Description", "Policy Name", "", "You must give a description for the policy", ((string[])(null)));
 #line hidden
         }
@@ -544,13 +558,13 @@ this.CreateAndSaveAnIncompletePolicy("Missing Description", "Policy Name", "", "
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Create Calculation Specification", new string[] {
                         "Workitem:35401",
                         "Driver"});
-#line 129
+#line 139
 this.ScenarioSetup(scenarioInfo);
-#line 130
+#line 140
 testRunner.Given("I have successfully navigated to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 131
+#line 141
 testRunner.When("I click the Create calculation specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 132
+#line 142
 testRunner.Then("I am redirected to the Create Calculation Specification for Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -567,29 +581,27 @@ testRunner.Then("I am redirected to the Create Calculation Specification for Pol
                         "Workitem:35401,",
                         "40012",
                         "Driver"});
-#line 135
+#line 145
 this.ScenarioSetup(scenarioInfo);
-#line 136
+#line 146
 testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
                     "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 137
+#line 147
 testRunner.When("I enter a Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 138
+#line 148
 testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 139
+#line 149
 testRunner.And("I choose funding calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 140
+#line 150
 testRunner.And("I choose an Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 141
+#line 151
 testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 142
+#line 152
 testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 143
+#line 153
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 144
+#line 154
 testRunner.And("My new Calculation is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 145
-testRunner.And("A Full Audit record is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -605,27 +617,25 @@ testRunner.And("A Full Audit record is created", ((string)(null)), ((TechTalk.Sp
                         "Workitem:35401,",
                         "40012",
                         "Driver"});
-#line 148
+#line 158
 this.ScenarioSetup(scenarioInfo);
-#line 149
+#line 159
 testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
                     "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 150
+#line 160
 testRunner.When("I enter a Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 151
+#line 161
 testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 152
+#line 162
 testRunner.And("I choose Number calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 153
+#line 163
 testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 154
+#line 164
 testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 155
+#line 165
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 156
+#line 166
 testRunner.And("My new Calculation is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 157
-testRunner.And("A Full Audit record is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -641,24 +651,24 @@ testRunner.And("A Full Audit record is created", ((string)(null)), ((TechTalk.Sp
                         "Workitem:35401,",
                         "40012",
                         "Driver"});
-#line 160
+#line 169
 this.ScenarioSetup(scenarioInfo);
-#line 161
+#line 170
 testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
                     "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 162
+#line 171
 testRunner.When("I enter a Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 163
+#line 172
 testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 164
+#line 173
 testRunner.And("I choose funding calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 165
+#line 174
 testRunner.And("I choose an Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 166
+#line 175
 testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 167
+#line 176
 testRunner.And("I click the Cancel Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 168
+#line 177
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -675,24 +685,24 @@ testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)),
                         "Workitem:35401,",
                         "40012",
                         "Driver"});
-#line 171
+#line 180
 this.ScenarioSetup(scenarioInfo);
-#line 172
+#line 181
 testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
                     "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 173
+#line 182
 testRunner.When("I enter an Existing Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 174
+#line 183
 testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 175
+#line 184
 testRunner.And("I choose funding calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 176
+#line 185
 testRunner.And("I choose an Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 177
+#line 186
 testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 178
+#line 187
 testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 179
+#line 188
 testRunner.Then("A Unique Calculation Name Error is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -709,26 +719,26 @@ testRunner.Then("A Unique Calculation Name Error is Displayed", ((string)(null))
                         "Workitem:35401,",
                         "40012",
                         "Driver"});
-#line 182
+#line 191
 this.ScenarioSetup(scenarioInfo);
-#line 183
+#line 192
 testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
                     "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 184
+#line 193
 testRunner.When("I enter an Existing Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 185
+#line 194
 testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 186
+#line 195
 testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 187
+#line 196
 testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 188
+#line 197
 testRunner.Then("A Calculation Type Error is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        public virtual void CreateAndSaveAnIncompleteCalculationSpecification(string calculationFieldname, string name, string policy, string type, string allocation, string description, string calcerror, string[] exampleTags)
+        public virtual void CreateAndSaveAnIncompleteFundingCalculationSpecification(string calculationFieldname, string name, string policy, string type, string allocation, string description, string calcerror, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Workitem:35401,",
@@ -738,17 +748,17 @@ testRunner.Then("A Calculation Type Error is Displayed", ((string)(null)), ((Tec
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incomplete Calculation Specification", @__tags);
-#line 192
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incomplete Funding Calculation Specification", @__tags);
+#line 201
 this.ScenarioSetup(scenarioInfo);
-#line 193
+#line 202
 testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
                     "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 194
+#line 203
 testRunner.And(string.Format("I have missed the calculation field {0} and {1} and {2} and {3} and {4}", name, policy, type, allocation, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 195
+#line 204
 testRunner.When("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 196
+#line 205
 testRunner.Then(string.Format("the following Calculation Error should be displayed for FieldName \'{0}\' and \'{1}\'" +
                         "", calculationFieldname, calcerror), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -756,122 +766,174 @@ testRunner.Then(string.Format("the following Calculation Error should be display
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Calculation Specification: Variant 0")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Funding Calculation Specification: MissingCalcFundi" +
+            "ngName")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40012")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 0")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcName")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "MissingCalcFundingName")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcFundingName")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policy", "Test Spec03")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policy", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:type", "Funding")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:allocation", "DSG Allocations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:allocation", "Additional Funding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "Error1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "You must give a unique calculation name")]
-        public virtual void CreateAndSaveAnIncompleteCalculationSpecification_Variant0()
+        public virtual void CreateAndSaveAnIncompleteFundingCalculationSpecification_MissingCalcFundingName()
         {
-#line 192
-this.CreateAndSaveAnIncompleteCalculationSpecification("MissingCalcName", "", "Test Spec03", "Funding", "DSG Allocations", "Error1", "You must give a unique calculation name", ((string[])(null)));
+#line 201
+this.CreateAndSaveAnIncompleteFundingCalculationSpecification("MissingCalcFundingName", "", "Test", "Funding", "Additional Funding", "Error1", "You must give a unique calculation name", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Calculation Specification: Variant 1")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Funding Calculation Specification: MissingCalcFundi" +
+            "ngPolicy")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40012")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 1")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcPolicy")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "MissingCalcFundingPolicy")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcFundingPolicy")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "TestXYZ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policy", "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:type", "Funding")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:allocation", "DSG Allocations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:allocation", "Additional Funding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "Error2")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "You must select a policy or subpolicy")]
-        public virtual void CreateAndSaveAnIncompleteCalculationSpecification_Variant1()
+        public virtual void CreateAndSaveAnIncompleteFundingCalculationSpecification_MissingCalcFundingPolicy()
         {
-#line 192
-this.CreateAndSaveAnIncompleteCalculationSpecification("MissingCalcPolicy", "TestXYZ", "", "Funding", "DSG Allocations", "Error2", "You must select a policy or subpolicy", ((string[])(null)));
+#line 201
+this.CreateAndSaveAnIncompleteFundingCalculationSpecification("MissingCalcFundingPolicy", "TestXYZ", "", "Funding", "Additional Funding", "Error2", "You must select a policy or subpolicy", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Calculation Specification: Variant 2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Funding Calculation Specification: MissingCalcFundi" +
+            "ngDescription")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40012")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 2")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcDescription")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "MissingCalcFundingDescription")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcFundingDescription")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "TestXYZ")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policy", "Test Spec03")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policy", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:type", "Funding")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:allocation", "DSG Allocations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:allocation", "Additional Funding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "You must give a description for the calculation")]
-        public virtual void CreateAndSaveAnIncompleteCalculationSpecification_Variant2()
+        public virtual void CreateAndSaveAnIncompleteFundingCalculationSpecification_MissingCalcFundingDescription()
         {
-#line 192
-this.CreateAndSaveAnIncompleteCalculationSpecification("MissingCalcDescription", "TestXYZ", "Test Spec03", "Funding", "DSG Allocations", "", "You must give a description for the calculation", ((string[])(null)));
+#line 201
+this.CreateAndSaveAnIncompleteFundingCalculationSpecification("MissingCalcFundingDescription", "TestXYZ", "Test", "Funding", "Additional Funding", "", "You must give a description for the calculation", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Calculation Specification: Variant 3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Funding Calculation Specification: MissingCalcFundi" +
+            "ngAllocation")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40012")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 3")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcName")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policy", "Test Spec03")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:type", "Number")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "MissingCalcFundingAllocation")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcFundingAllocation")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "TestXYZ")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policy", "Test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:type", "Funding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:allocation", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "Error3")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "You must select an allocation line")]
+        public virtual void CreateAndSaveAnIncompleteFundingCalculationSpecification_MissingCalcFundingAllocation()
+        {
+#line 201
+this.CreateAndSaveAnIncompleteFundingCalculationSpecification("MissingCalcFundingAllocation", "TestXYZ", "Test", "Funding", "", "Error3", "You must select an allocation line", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void CreateAndSaveAnIncompleteNumberCalculationSpecification(string calculationFieldname, string name, string policy, string type, string description, string calcerror, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Workitem:35401,",
+                    "40012",
+                    "Driver"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incomplete Number Calculation Specification", @__tags);
+#line 216
+this.ScenarioSetup(scenarioInfo);
+#line 217
+testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
+                    "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 218
+testRunner.And(string.Format("I have not completed the following calculation fields {0} and {1} and {2} and {3}" +
+                        "", name, policy, type, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 219
+testRunner.When("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 220
+testRunner.Then(string.Format("the following Number Calculation Error should be displayed for FieldName \'{0}\' an" +
+                        "d \'{1}\'", calculationFieldname, calcerror), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Number Calculation Specification: MissingCalcNumber" +
+            "Name")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40012")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "MissingCalcNumberName")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcNumberName")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policy", "Test")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:type", "Number")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "Error1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "You must give a unique calculation name")]
-        public virtual void CreateAndSaveAnIncompleteCalculationSpecification_Variant3()
+        public virtual void CreateAndSaveAnIncompleteNumberCalculationSpecification_MissingCalcNumberName()
         {
-#line 192
-this.CreateAndSaveAnIncompleteCalculationSpecification("MissingCalcName", "", "Test Spec03", "Number", "", "Error1", "You must give a unique calculation name", ((string[])(null)));
+#line 216
+this.CreateAndSaveAnIncompleteNumberCalculationSpecification("MissingCalcNumberName", "", "Test", "Number", "Error1", "You must give a unique calculation name", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Calculation Specification: Variant 4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Number Calculation Specification: MissingCalcNumber" +
+            "Policy")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40012")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 4")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcPolicy")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "MissingCalcNumberPolicy")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcNumberPolicy")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "TestXYZ")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policy", "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:type", "Number")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:allocation", "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "Error2")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "You must select a policy or subpolicy")]
-        public virtual void CreateAndSaveAnIncompleteCalculationSpecification_Variant4()
+        public virtual void CreateAndSaveAnIncompleteNumberCalculationSpecification_MissingCalcNumberPolicy()
         {
-#line 192
-this.CreateAndSaveAnIncompleteCalculationSpecification("MissingCalcPolicy", "TestXYZ", "", "Number", "", "Error2", "You must select a policy or subpolicy", ((string[])(null)));
+#line 216
+this.CreateAndSaveAnIncompleteNumberCalculationSpecification("MissingCalcNumberPolicy", "TestXYZ", "", "Number", "Error2", "You must select a policy or subpolicy", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Calculation Specification: Variant 5")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save an incomplete Number Calculation Specification: MissingCalcNumber" +
+            "Description")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40012")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Variant 5")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcDescription")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "MissingCalcNumberDescription")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:CalculationFieldname", "MissingCalcNumberDescription")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:name", "TestXYZ")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policy", "Test Spec03")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:policy", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:type", "Number")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:allocation", "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:description", "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "You must give a description for the calculation")]
-        public virtual void CreateAndSaveAnIncompleteCalculationSpecification_Variant5()
+        public virtual void CreateAndSaveAnIncompleteNumberCalculationSpecification_MissingCalcNumberDescription()
         {
-#line 192
-this.CreateAndSaveAnIncompleteCalculationSpecification("MissingCalcDescription", "TestXYZ", "Test Spec03", "Number", "", "", "You must give a description for the calculation", ((string[])(null)));
+#line 216
+this.CreateAndSaveAnIncompleteNumberCalculationSpecification("MissingCalcNumberDescription", "TestXYZ", "Test", "Number", "", "You must give a description for the calculation", ((string[])(null)));
 #line hidden
         }
         
@@ -885,13 +947,13 @@ this.CreateAndSaveAnIncompleteCalculationSpecification("MissingCalcDescription",
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Create a Sub Policy", new string[] {
                         "Workitem:35402",
                         "Driver"});
-#line 208
+#line 229
 this.ScenarioSetup(scenarioInfo);
-#line 209
+#line 230
 testRunner.Given("I have successfully navigated to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 210
+#line 231
 testRunner.When("I click the select Create sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 211
+#line 232
 testRunner.Then("I am redirected to the Create a Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -907,24 +969,22 @@ testRunner.Then("I am redirected to the Create a Sub Policy Page", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a new Sub Policy", new string[] {
                         "Workitem:35402",
                         "Driver"});
-#line 214
+#line 235
 this.ScenarioSetup(scenarioInfo);
-#line 215
+#line 236
 testRunner.Given("I have successfully navigated to the Create Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 216
+#line 237
 testRunner.When("I enter a Sub Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 217
+#line 238
 testRunner.And("I choose a Policy from the dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 218
+#line 239
 testRunner.And("I enter a Sub Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 219
+#line 240
 testRunner.And("I click the Save Sub Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 220
+#line 241
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 221
+#line 242
 testRunner.And("the new Sub Policy is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 222
-testRunner.And("A Full Audit record is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -939,19 +999,19 @@ testRunner.And("A Full Audit record is created", ((string)(null)), ((TechTalk.Sp
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Cancel a new Sub Policy", new string[] {
                         "Workitem:35402",
                         "Driver"});
-#line 225
+#line 245
 this.ScenarioSetup(scenarioInfo);
-#line 226
+#line 246
 testRunner.Given("I have successfully navigated to the Create Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 227
+#line 247
 testRunner.When("I enter a Sub Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 228
+#line 248
 testRunner.And("I choose a Policy from the dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 229
+#line 249
 testRunner.And("I enter a Sub Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 230
+#line 250
 testRunner.And("I click the Cancel Sub Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 231
+#line 251
 testRunner.Then("I am redirected to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -967,19 +1027,19 @@ testRunner.Then("I am redirected to the Manage Specification Page", ((string)(nu
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a new Sub Policy with an Existing Name", new string[] {
                         "Workitem:35402",
                         "Driver"});
-#line 234
+#line 254
 this.ScenarioSetup(scenarioInfo);
-#line 235
+#line 255
 testRunner.Given("I have successfully navigated to the Create Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 236
+#line 256
 testRunner.When("I enter a Sub Policy Name that already exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 237
+#line 257
 testRunner.And("I choose a Policy from the dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 238
+#line 258
 testRunner.And("I enter a Sub Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 239
+#line 259
 testRunner.And("I click the Save Sub Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 240
+#line 260
 testRunner.Then("A Unique Sub Policy Name Error is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -995,17 +1055,17 @@ testRunner.Then("A Unique Sub Policy Name Error is Displayed", ((string)(null)),
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incomplete Sub Policy", @__tags);
-#line 243
+#line 263
 this.ScenarioSetup(scenarioInfo);
-#line 244
+#line 264
 testRunner.Given("I have successfully navigated to the Create Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 245
+#line 265
 testRunner.And(string.Format("And I have missed the Sub Policy field {0} and {1}", name, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 246
+#line 266
 testRunner.And("I choose a Policy from the dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 247
+#line 267
 testRunner.When("I click the Save Sub Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 248
+#line 268
 testRunner.Then(string.Format("the following Sub Policy Error should be displayed for FieldName \'{0}\' and \'{1}\'", subPolicyFieldname, subpolicyerror), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1023,7 +1083,7 @@ testRunner.Then(string.Format("the following Sub Policy Error should be displaye
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:subpolicyerror", "You must give a unique policy name")]
         public virtual void CreateAndSaveAnIncompleteSubPolicy_SubPolicyNameMissing()
         {
-#line 243
+#line 263
 this.CreateAndSaveAnIncompleteSubPolicy("SubPolicyNameMissing", "", "Description", "You must give a unique policy name", ((string[])(null)));
 #line hidden
         }
@@ -1040,7 +1100,7 @@ this.CreateAndSaveAnIncompleteSubPolicy("SubPolicyNameMissing", "", "Description
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:subpolicyerror", "You must give a description for the subpolicy")]
         public virtual void CreateAndSaveAnIncompleteSubPolicy_SubPolicyDescriptionMissing()
         {
-#line 243
+#line 263
 this.CreateAndSaveAnIncompleteSubPolicy("SubPolicyDescriptionMissing", "Test Spec 03", "", "You must give a description for the subpolicy", ((string[])(null)));
 #line hidden
         }
@@ -1055,17 +1115,17 @@ this.CreateAndSaveAnIncompleteSubPolicy("SubPolicyDescriptionMissing", "Test Spe
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incomplete Sub Policy without selecting a Policy", new string[] {
                         "Workitem:35402",
                         "Driver"});
-#line 256
+#line 276
 this.ScenarioSetup(scenarioInfo);
-#line 257
+#line 277
 testRunner.Given("I have successfully navigated to the Create Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 258
+#line 278
 testRunner.When("I enter a Sub Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 259
+#line 279
 testRunner.And("I enter a Sub Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 260
+#line 280
 testRunner.And("I click the Save Sub Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 261
+#line 281
 testRunner.Then("a Sub Policy Missing Policy Error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1084,25 +1144,23 @@ testRunner.Then("a Sub Policy Missing Policy Error should be displayed", ((strin
                         "Workitem:40075,",
                         "40012",
                         "Driver"});
-#line 264
+#line 284
 this.ScenarioSetup(scenarioInfo);
-#line 265
+#line 285
 testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
                     "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 266
+#line 286
 testRunner.When("I enter a Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 267
+#line 287
 testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 268
-testRunner.And("I choose Number calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 269
+#line 288
+testRunner.And("I choose funding calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 289
 testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 270
+#line 290
 testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 271
-testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 272
-testRunner.And("My new Calculation is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 291
+testRunner.Then("A Unique Allocation Error is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1117,15 +1175,15 @@ testRunner.And("My new Calculation is correctly listed", ((string)(null)), ((Tec
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a New Specification and no alert about provider datasets is displayed", new string[] {
                         "Workitem:40032",
                         "Driver"});
-#line 275
+#line 295
 this.ScenarioSetup(scenarioInfo);
-#line 276
+#line 296
 testRunner.Given("I have created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 277
+#line 297
 testRunner.And("redirected to the Manage Specificaiton Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 278
+#line 298
 testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 279
+#line 299
 testRunner.Then("No alert about provider datasets is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1143,21 +1201,21 @@ testRunner.Then("No alert about provider datasets is displayed", ((string)(null)
                     "splay an Alert", new string[] {
                         "Workitem:40032",
                         "Driver"});
-#line 282
+#line 302
 this.ScenarioSetup(scenarioInfo);
-#line 283
+#line 303
 testRunner.Given("I have created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 284
+#line 304
 testRunner.And("redirected to the Manage Specificaiton Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 285
+#line 305
 testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 286
+#line 306
 testRunner.And("I choose to create a new dataset without setting as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 287
+#line 307
 testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 288
+#line 308
 testRunner.Then("the new dataset has been saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 289
+#line 309
 testRunner.And("An Alert that No dataset has been set as provider data should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1175,21 +1233,21 @@ testRunner.And("An Alert that No dataset has been set as provider data should be
                     " display an Alert", new string[] {
                         "Workitem:40032",
                         "Driver"});
-#line 292
+#line 312
 this.ScenarioSetup(scenarioInfo);
-#line 293
+#line 313
 testRunner.Given("I have created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 294
+#line 314
 testRunner.And("redirected to the Manage Specificaiton Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 295
+#line 315
 testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 296
+#line 316
 testRunner.And("I choose to create a new dataset set as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 297
+#line 317
 testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 298
+#line 318
 testRunner.Then("the new dataset has been saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 299
+#line 319
 testRunner.And("No alert about provider datasets is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

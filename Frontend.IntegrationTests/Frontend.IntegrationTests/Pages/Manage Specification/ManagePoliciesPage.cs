@@ -32,7 +32,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.LinkText, Using = "Create dataset")]
         public IWebElement Createdatatyperelationship { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = ".policy-list-header")]
+        [FindsBy(How = How.LinkText, Using = ".policy-list")]
         public IWebElement PolicyList { get; set; }
 
         [FindsBy(How = How.LinkText, Using = " .calculation-table > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)")]

@@ -29,7 +29,7 @@ namespace Frontend.IntegrationTests.Pages.Quality_Assurance
         [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > strong:nth-child(4)")]
         public IWebElement testScenarioPageTotalResultCount { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div.test-scenario-searchresult-container:nth-child(3) > div:nth-child(1)")]
+        [FindsBy(How = How.CssSelector, Using = "div.test-scenario-searchresult-container:nth-child(3)")]
         public IWebElement testScenarioPageScenarioListContainer { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "div.test-scenario-searchresult-container:nth-child(3) > div:nth-child(1) > div:nth-child(1)")]

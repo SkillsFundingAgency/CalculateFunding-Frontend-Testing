@@ -27,8 +27,8 @@
             CreateSpecificationPage createspecificationpage = new CreateSpecificationPage();
             CreateCalculationPage createcalculationpage = new CreateCalculationPage();
 
-            string newname = "Test Name ";
-            string descriptiontext = "This is a Description";
+            string newname = "Test Spec Name ";
+            string descriptiontext = "This is a Description for: ";
 
             NavigateTo.CreatetheSpecfication();
             Assert.IsNotNull(createcalculationpage.CalculationName);
@@ -36,10 +36,9 @@
             var randomSpecName = newname + TestDataUtils.RandomString(6);
             ScenarioContext.Current["SpecificationName"] = randomSpecName;
             createspecificationpage.SpecName.SendKeys(randomSpecName);
-            createspecificationpage.SpecDescription.SendKeys(descriptiontext);
-            var Funding = createspecificationpage.FundingStream;
-            var selectElement = new SelectElement(Funding);
-            selectElement.SelectByText("DSG");
+            createspecificationpage.SpecDescription.SendKeys(descriptiontext + randomSpecName);
+            createspecificationpage.FundingStream.Click();
+            createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
             Thread.Sleep(2000);
             createspecificationpage.SaveSpecification.Click();
             Thread.Sleep(2000);

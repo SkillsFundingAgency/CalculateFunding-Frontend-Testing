@@ -156,7 +156,7 @@ And An option is displayed view the View provider results page
 And An option is displayed view the View QA test results page
 And An option is displayed view the View calculation results page
 
-@Workitem:39520 Driver
+@Workitem:39520 40039 Driver
 Scenario: Navigate to the View QA test results Page
 Given I have successfully navigated to the Home Page
 When I select View results
@@ -164,7 +164,7 @@ Then I am presented the View Results landing page
 When I click on the View QA test results option
 Then I am naviagted to the View QA test results page
 
-@Workitem:39520 Driver
+@Workitem:39520 40039 Driver
 Scenario: Verify the View QA test results Page
 Given I have navigated to the view all test results screen
 Then the Search QA Test option is displayed
@@ -172,7 +172,7 @@ And the Select Period drop down option is displayed
 And the Select Specification drop down option is displayed
 And a list of QA Test Results listed by Test is displayed with the correct column headers
 
-@Workitem:39520 Driver
+@Workitem:39520 40039 Driver
 Scenario: Verify the QA test results displayed on the View QA Test Results Page
 Given I have navigated to the view all test results screen
 Then I am presented with a list of QA Test results
@@ -217,3 +217,216 @@ Examples:
 	 | YP 201718 Non Formula Funded Activity Academies | 
 	 | YP 201718 School Sixth Form                     | 
 	 | Adam Spec 001								   |
+
+
+@Workitem:39522 Driver
+Scenario: Navigate to View the test results of all providers for a single test
+Given I have navigated to the view all test results screen
+When I choose a QA Test from the displayed list of tests
+Then I am redirected to the selected QA Test results for all providers page
+
+@Workitem:39522 Driver
+Scenario: Verify the View test results of all providers for a single test
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then A Search Filter option is correctly displayed
+And A Provider Type Filter drop Down is correctly displayed
+And A Provider Sub Type Filter drop down is correctly displayed
+And A Local Authority Filter drop down is correctly displayed
+
+@Workitem:39522 Driver
+Scenario: Verify the View test results of all providers for a single test Pagination
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then the page lists up to the first 50 Providers
+When there are more than 50 Providers returned
+And I click to navigate to the next page of 50 providers test results
+Then my page list view displays the next 50 test results
+And I am able to navigate to the previous page of 50 providers test results
+
+@Workitem:39522 Driver
+Scenario: Validate Provider Info on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then The name of the provider for the single test is displayed
+And all the relevant provider details for the single are displayed
+
+@Workitem:39522 Driver
+Scenario: Validate Provider Test Result on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then The name of the provider for the single test is displayed
+And the QA Test Result for the provider is displayed
+
+@Workitem:39522 Driver
+Scenario: Validate Selected QA Test Info on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then details of the Test selected are displayed on the page correctly
+
+@Workitem:39522 Driver
+Scenario: Validate Search Results on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+And I decide to filter my results by using the search filter
+Then the Provider Results list is refreshed to display only the providers that comply with the filter selected
+
+@Workitem:39522 Driver
+Scenario: Validate Provider Type Filtered Results on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+And I decide to filter my results by using the Provider Type Filter
+Then the Provider Results list is refreshed to display only the providers that comply with the filter selected
+
+@Workitem:39522 Driver
+Scenario: Validate Provider Sub Type Filtered Results on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+And I decide to filter my results by using the Provider Sub Type Filter
+Then the Provider Results list is refreshed to display only the providers that comply with the filter selected
+
+@Workitem:39522 Driver
+Scenario: Validate Local Authority Filtered Results on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+And I decide to filter my results by using the Local Authority Filter
+Then the Provider Results list is refreshed to display only the providers that comply with the filter selected
+
+@Workitem:39523 Driver
+Scenario: Navigate to the View provider results for an Individual Provider Page
+Given I have navigated to the Provider results for an Individual Provider Page
+Then a tab is displayed to show the Allocation Line results
+And a tab is displayed to show the Calculation results
+And a tab is displayed to show the Test results
+
+@Workitem:39523 Driver
+Scenario: Verify the View provider results for an Individual Provider Page
+Given I have navigated to the Provider results for an Individual Provider Page
+Then the drop down option to select an academic year is displayed
+And the drop down option to select a specification is displayed
+And the relevant provider information is displayed
+
+@Workitem:39523 39517 Driver
+Scenario: Validate the Provider Test results for an Individual Provider with a result of Passed
+Given I have created a New Specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I have create a New Dataset for that Specificaton
+When I have specified a data Source Relationship for the Specification
+And I edit the New Calculation for that Specification
+And I have created a New Test for the Specification
+And I then select the appropriate Test from the View provider results list page
+Then I can select the Provider with a Passed Test Result from the View provider results for an Individual Provider Page
+And I can click on the Test Tab to view the Test result for the Individual Provider and Specification
+And the QA Test Coverage for the Provider is displayed correctly
+And the QA Test Results for the Provider are displayed correctly
+
+@Workitem:39523 39517 Driver
+Scenario: Check Passed Result on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then the Provider List of Test results for the selected QA Test is displayed
+And a Provider where the QA Test has Passed can be selected to display the specific QA Test Result
+And the QA Test Coverage for the Provider is displayed correctly
+And the QA Test Results for the Provider are displayed correctly
+
+@Workitem:39523 39517 Driver
+Scenario: Validate the Provider Test results for an Individual Provider with a result of Failed
+Given I have created a New Specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I have create a New Dataset for that Specificaton
+When I have specified a data Source Relationship for the Specification
+And I edit the New Calculation for that Specification
+And I have created a New Test for the Specification
+And I then select the appropriate Test from the View provider results list page
+Then I can select the Provider with a Failed Test Result from the View provider results for an Individual Provider Page
+And I can click on the Test Tab to view the Test result for the Individual Provider and Specification
+And the QA Test Coverage for the Provider is displayed correctly
+And the QA Test Results for the Provider are displayed correctly
+
+@Workitem:39523 39517 Driver
+Scenario: Check Failed Result on the View test results of all providers for a single test page
+Given I have navigated to the view all test results screen
+And I choose a QA Test from the displayed list of tests
+When I am redirected to the selected QA Test results for all providers page
+Then the Provider List of Test results for the selected QA Test is displayed
+And a Provider where the QA Test has Failed can be selected to display the specific QA Test Result
+And the QA Test Coverage for the Provider is displayed correctly
+And the QA Test Results for the Provider are displayed correctly
+
+@Workitem:48412 Driver
+Scenario: Navigate to View calculation results Page
+Given I have successfully navigated to the Home Page
+When I select View results
+And I click on the View calculation results option
+Then I am redirected to the View calculation results Page
+
+@Workitem:48412 Driver
+Scenario: Verify the View calculation results Page Filter options
+Given I have successfully navigated to the View Calculation Page
+Then the Search option filter is displayed correctly
+And the Allocation Line Dropdown option is displayed correctly
+And the Funding Period Dropdown option is displayed correctly
+And the Funding Stream Dropdown option is displayed correctly
+And the Specificaiton Name Dropdown option is displayed correctly
+And the Calculation Status Dropdown option is displayed correctly
+
+@Workitem:48412 Driver
+Scenario: Verify the View calculation results Pagination options
+Given I have successfully navigated to the View Calculation Page
+And I have over 50 calculations
+When I click to navigate to the next page of 50 calculations
+Then my list view displays the next 50 calculations
+And I am able to navigate to the previous page of 50 calculations
+
+@Workitem:48412 Driver
+Scenario: Validate the Displayed Results for each Calculation on the View calculation results Page
+Given I have successfully navigated to the View Calculation Page
+Then a list of calculations is displayed with the correct column headers
+And the appropriate calculation information is displayed in the list
+
+@Workitem:48412 Driver
+Scenario: Filter the Displayed Calculation Results by Funding Period
+Given I have successfully navigated to the View Calculation Page
+When I choose to filter the results by Funding Period
+Then the calculation results are updated accordingly
+And the appropriate calculation information is displayed in the list
+
+@Workitem:48412 Driver
+Scenario: Filter the Displayed Calculation Results by Funding Stream
+Given I have successfully navigated to the View Calculation Page
+When I choose to filter the results by Funding Stream
+Then the calculation results are updated accordingly
+And the appropriate calculation information is displayed in the list
+
+@Workitem:48412 Driver
+Scenario: Filter the Displayed Calculation Results by Spec Name
+Given I have successfully navigated to the View Calculation Page
+When I choose to filter the results by Spec Name
+Then the calculation results are updated accordingly
+And the appropriate calculation information is displayed in the list
+
+@Workitem:48412 Driver
+Scenario: Filter the Displayed Calculation Results by Calculation Status
+Given I have successfully navigated to the View Calculation Page
+When I choose to filter the results by Calculation Status
+Then the calculation results are updated accordingly
+And the appropriate calculation information is displayed in the list
+
+@Workitem:48412 Driver
+Scenario: Filter the Displayed Calculation Results by Allocation Line
+Given I have successfully navigated to the View Calculation Page
+When I choose to filter the results by Allocation Line
+Then the calculation results are updated accordingly
+And the appropriate calculation information is displayed in the list
