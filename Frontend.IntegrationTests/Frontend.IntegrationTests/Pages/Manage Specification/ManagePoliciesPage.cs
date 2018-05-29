@@ -50,6 +50,16 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.CssSelector, Using = ".provider-datasets-warning-container")]
         public IWebElement providerdatasetswarningcontainer { get; set; }
 
+        [FindsBy(How = How.LinkText, Using = "Edit specification")]
+        public IWebElement editSpecification { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".hero-title")]
+        public IWebElement specificationName { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "p.hero-description:nth-child(4)")]
+        public IWebElement specificationFundingPeriod { get; set; }
+
+
 
 
     }

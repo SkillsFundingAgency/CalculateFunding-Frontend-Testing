@@ -28,6 +28,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
         EditPolicyPage editpolicypage = new EditPolicyPage();
         EditSubPolicyPage editsubpolicypage = new EditSubPolicyPage();
+        EditSpecificationPage editspecificationpage = new EditSpecificationPage();
 
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
@@ -1375,6 +1376,153 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
             Console.WriteLine("The Sub Policy has been successfully associated to Policy " + addSpecPolicyCreated);
         }
+
+        [Given(@"I have navigated to the Manage Policies Page")]
+        public void GivenIHaveNavigatedToTheManagePoliciesPage()
+        {
+            managepoliciespage.CreatePolicyButton.Should().NotBeNull();
+        }
+
+        [Then(@"the Manage Policies Policy List displays the Edit Specification option")]
+        public void ThenTheManagePoliciesPolicyListDisplaysTheEditSpecificationOption()
+        {
+            managepoliciespage.editSpecification.Should().NotBeNull();
+        }
+
+
+        [Given(@"I have navigated to the Edit Specification Page")]
+        public void GivenIHaveNavigatedToTheEditSpecificationPage()
+        {
+            NavigateTo.EditSpecificationPage();
+        }
+
+        [When(@"I update the Specification Name")]
+        public void WhenIUpdateTheSpecificationName()
+        {
+            string editspecificationname = "Test Specification Edited Name ";
+
+            var randomEditSpecificationName = editspecificationname + TestDataNumericUtils.RandomNumerics(6);
+            ScenarioContext.Current["EditSpecificationName"] = randomEditSpecificationName;
+
+            editspecificationpage.editSpecificationName.Clear();
+            editspecificationpage.editSpecificationName.SendKeys(randomEditSpecificationName);
+        }
+
+        [When(@"click the Update Specification Button")]
+        public void WhenClickTheUpdateSpecificationButton()
+        {
+            editspecificationpage.editSpecificationSaveButton.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Specification is correctly updated")]
+        public void ThenTheSpecificationIsCorrectlyUpdated()
+        {
+            var editSpecName = ScenarioContext.Current["EditSpecificationName"];
+            string editSpecNameCreated = editSpecName.ToString();
+
+            IWebElement specTitleName = managepoliciespage.specificationName;
+            string specName = specTitleName.Text;
+
+            specName.Contains(editSpecNameCreated);
+            specTitleName.Text.Should().Be(editSpecNameCreated, "Edit Spec Name has not been saved correctly");
+            Console.WriteLine("The Edits Specification Name is: " + specName);
+
+        }
+
+        [When(@"I update the Specification Description")]
+        public void WhenIUpdateTheSpecificationDescription()
+        {
+            string editspecificationdescription = "Test Specification Edited Description ";
+
+            var randomEditSpecificationDesc = editspecificationdescription + TestDataNumericUtils.RandomNumerics(6);
+            ScenarioContext.Current["EditSpecificationName"] = randomEditSpecificationDesc;
+
+            editspecificationpage.editSpecificationName.Clear();
+            editspecificationpage.editSpecificationName.SendKeys(randomEditSpecificationDesc);
+        }
+
+        [When(@"I update the Specification Funding period")]
+        public void WhenIUpdateTheSpecificationFundingPeriod()
+        {
+            var selectYear = editspecificationpage.editSpecificationFundingPeriodDropdown;
+            var selectElement = new SelectElement(selectYear);
+            selectElement.SelectByValue("FY2017181");
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Specification Funding Period has correctly updated")]
+        public void ThenTheSpecificationFundingPeriodHasCorrectlyUpdated()
+        {
+            IWebElement managePolicyFundingPeriod = managepoliciespage.specificationFundingPeriod;
+            managePolicyFundingPeriod.Should().NotBeNull();
+            string updatedFundingPeriod = managePolicyFundingPeriod.Text;
+            Console.WriteLine("The Funding Period was successfully updated to: " + updatedFundingPeriod);
+
+        }
+
+
+        [When(@"I delete the existing Specification Funding stream")]
+        public void WhenIDeleteTheExistingSpecificationFundingStream()
+        {
+            editspecificationpage.editSpecificationFundingStreamRemove.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"an Alert is displayed warning that no Funding Streams are associated to the specification")]
+        public void ThenAnAlertIsDisplayedWarningThatNoFundingStreamsAreAssociatedToTheSpecification()
+        {           
+            IWebElement noFundingStreamAlert = editspecificationpage.editSpecificationFundingStreamRemovedAlert;
+            noFundingStreamAlert.Should().NotBeNull();
+            string noFundingStreamAlertText = noFundingStreamAlert.Text;
+            Console.WriteLine(noFundingStreamAlertText);
+        }
+
+        [When(@"I choose (.*) New Funding Streams")]
+        public void WhenIChooseNewFundingStreams(string p0)
+        {
+            SelectElement selectElement = new SelectElement(editspecificationpage.editSpecificationFundingStreamContainer);
+            var options = selectElement.Options;
+
+            int? maximumItems = null;
+            int parsedInt;
+            if (int.TryParse(p0, out parsedInt))
+            {
+                if (parsedInt > 0)
+                {
+                    maximumItems = parsedInt;
+                }
+            }
+
+            for (int i = 0; i < options.Count; i++)
+            {
+                if (maximumItems != null && maximumItems.HasValue && i >= maximumItems.Value)
+                {
+                    break;
+                }
+
+                IWebElement optionElement = options[i];
+                string optionElementText = optionElement.Text;
+                Console.WriteLine(optionElementText);
+
+                editspecificationpage.editSpecificationFundingStream.Click();
+                editspecificationpage.editSpecFundingStreamTextField.SendKeys(OpenQA.Selenium.Keys.Shift + optionElementText);
+                Thread.Sleep(2000);
+                editspecificationpage.editSpecificationFundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
+
+
+            }
+
+        }
+
+
+        [When(@"I click the Cancel option")]
+        public void WhenIClickTheCancelOption()
+        {
+            editspecificationpage.editSpecificationCancelLink.Click();
+            Thread.Sleep(2000);
+        }
+
 
 
         [AfterScenario()]

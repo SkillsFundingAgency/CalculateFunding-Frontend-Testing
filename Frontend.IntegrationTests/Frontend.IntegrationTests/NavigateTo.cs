@@ -456,6 +456,19 @@ namespace Frontend.IntegrationTests
                 firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
             }
         }
+
+        public static void EditSpecificationPage()
+        {
+            ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
+
+            CreateNewSpecification.CreateANewSpecification();
+            managepoliciespage.editSpecification.Should().NotBeNull();
+            managepoliciespage.editSpecification.Click();
+            Thread.Sleep(2000);
+
+        }
+
+
     }
 }
 

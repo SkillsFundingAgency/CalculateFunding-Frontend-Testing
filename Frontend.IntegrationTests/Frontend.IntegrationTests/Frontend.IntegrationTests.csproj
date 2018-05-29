@@ -115,6 +115,7 @@
     <Compile Include="Pages\Manage Specification\CreateSpecificationPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateSubPolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\Edit PolicyPage.cs" />
+    <Compile Include="Pages\Manage Specification\EditSpecificationPage.cs" />
     <Compile Include="Pages\Manage Specification\EditSubPolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\ManagePoliciesPage.cs" />
     <Compile Include="Pages\Quality Assurance\CreateQATestPage.cs" />

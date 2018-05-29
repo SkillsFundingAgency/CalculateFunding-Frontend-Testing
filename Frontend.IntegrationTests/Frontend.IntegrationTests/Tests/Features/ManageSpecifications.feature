@@ -442,3 +442,80 @@ Given I have navigated to the Edit Sub Policy Page
 When I update the Sub Policy Name
 And I choose to click the Back Link
 Then I am redirected back to the Manage Polices Page
+
+@Workitem:49593 Driver
+Scenario: Verify Edit Specification Option within Manage Policies Page
+Given I have created a New Specification
+And I have navigated to the Manage Policies Page
+Then the Manage Policies Policy List displays the Edit Specification option
+
+@Workitem:49593 Driver
+Scenario: Successfully Edit an Existing Specification Name
+Given I have navigated to the Edit Specification Page
+When I update the Specification Name
+And click the Update Specification Button
+Then I am redirected back to the Manage Polices Page
+And the Specification is correctly updated
+
+@Workitem:49593 Driver
+Scenario: Successfully Edit an Existing Specification Description
+Given I have navigated to the Edit Specification Page
+When I update the Specification Description
+And click the Update Specification Button
+Then I am redirected back to the Manage Polices Page
+
+@Workitem:49593 Driver
+Scenario: Successfully Edit an Existing Specification Funding period
+Given I have navigated to the Edit Specification Page
+When I update the Specification Funding period
+And click the Update Specification Button
+Then I am redirected back to the Manage Polices Page
+And the Specification Funding Period has correctly updated
+
+@Workitem:49593 Driver
+Scenario: Successfully Edit an Existing Specification Funding stream
+Given I have navigated to the Edit Specification Page
+When I delete the existing Specification Funding stream
+Then an Alert is displayed warning that no Funding Streams are associated to the specification
+When I choose 2 New Funding Streams
+And click the Update Specification Button
+Then I am redirected back to the Manage Polices Page
+
+@Workitem:49593 Driver
+Scenario: Successfully Edit an Existing Specification for Multiple Funding streams
+Given I have navigated to the Edit Specification Page
+When I delete the existing Specification Funding stream
+Then an Alert is displayed warning that no Funding Streams are associated to the specification
+When I choose 5 New Funding Streams
+And click the Update Specification Button
+Then I am redirected back to the Manage Polices Page
+
+@Workitem:49593 Driver
+Scenario: Successfully Edit an Existing Specification for All Funding streams
+Given I have navigated to the Edit Specification Page
+When I delete the existing Specification Funding stream
+Then an Alert is displayed warning that no Funding Streams are associated to the specification
+When I choose All New Funding Streams
+And click the Update Specification Button
+Then I am redirected back to the Manage Polices Page
+
+@Workitem:49593 Driver
+Scenario: Cancel an Edit to an Existing Specification
+Given I have navigated to the Edit Specification Page
+When I update the Specification Name
+And I click the Cancel option
+Then I am redirected back to the Manage Polices Page
+
+@Workitem:49593 Driver
+Scenario: Successfully Edit an Existing Specification for All fields
+Given I have navigated to the Edit Specification Page
+When I delete the existing Specification Funding stream
+Then an Alert is displayed warning that no Funding Streams are associated to the specification
+When I choose 2 New Funding Streams
+And I update the Specification Funding period
+And I update the Specification Description
+And I update the Specification Name
+And click the Update Specification Button
+Then I am redirected back to the Manage Polices Page
+And the Specification is correctly updated
+And the Specification Funding Period has correctly updated
