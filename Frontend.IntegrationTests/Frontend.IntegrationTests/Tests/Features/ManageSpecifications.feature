@@ -43,6 +43,17 @@ Then I am redirected to the Manage Specification Page
 And My new specification is correctly listed
 
 @Workitem:35384 Driver
+Scenario: Create and Save a new Specification selecting a different Funding Period
+Given I have successfully navigated to the Create Specification Page
+When I enter a Name
+And I enter a Description
+And I choose a different specification Funding Period
+And I choose a specification Funding Stream
+And I click the Save button
+Then I am redirected to the Manage Specification Page
+And My new specification is correctly listed
+
+@Workitem:35384 Driver
 Scenario: Create and Cancel a new Specification
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -317,3 +328,117 @@ And I choose to create a new dataset set as Provider Data
 And I am redirected to the DataSet page
 Then the new dataset has been saved and displayed correctly
 And No alert about provider datasets is displayed
+
+@Workitem:49358 Driver
+Scenario: Create and Save a new Specification with 2 Funding Streams selected
+Given I have successfully navigated to the Create Specification Page
+When I enter a Name
+And I enter a Description
+And I choose a specification Funding Period
+And I choose 2 specification Funding Streams
+And I click the Save button
+Then I am redirected to the Manage Specification Page
+And My new specification is correctly listed
+
+@Workitem:49358 Driver
+Scenario: Create and Save a new Specification with 5 Funding Streams selected
+Given I have successfully navigated to the Create Specification Page
+When I enter a Name
+And I enter a Description
+And I choose a specification Funding Period
+And I choose 5 specification Funding Streams
+And I click the Save button
+Then I am redirected to the Manage Specification Page
+And My new specification is correctly listed
+
+@Workitem:49358 Driver
+Scenario: Create and Save a new Specification with ALL Funding Streams selected
+Given I have successfully navigated to the Create Specification Page
+When I enter a Name
+And I enter a Description
+And I choose a specification Funding Period
+And I choose All specification Funding Streams
+And I click the Save button
+Then I am redirected to the Manage Specification Page
+And My new specification is correctly listed
+
+@Workitem:49358 Driver
+Scenario: Create a new Specification with 2 Funding Streams selected then removed
+Given I have successfully navigated to the Create Specification Page
+When I enter a Name
+And I enter a Description
+And I choose a specification Funding Period
+And I choose 2 specification Funding Streams
+And I then select to remove a Funding Stream
+Then the selected funding stream is removed from the new Specification
+
+@Workitem:49359 Driver
+Scenario: Verify Edit Policy Option within Manage Policies Page
+Given I have created a New Specification
+And I have created a New Policy for that Specification
+Then the Manage Policies Policy List displays the Edit Policy option
+
+@Workitem:49360 Driver
+Scenario: Verify Edit Sub Policy Option within Manage Policies Page
+Given I have created a New Specification
+And I have created a New Policy for that Specification
+And I have created a New Sub Policy for that Specification
+Then the Manage Policies Policy List displays the Edit Sub Policy option
+
+@Workitem:49359 Driver
+Scenario: Successfully Edit an Existing Policies Policy Name
+Given I have navigated to the Edit Policy Page
+When I update the Policy Name
+And click the Update Button
+Then I am redirected back to the Manage Polices Page
+And the Policy Name is correctly updated
+
+@Workitem:49359 Driver
+Scenario: Successfully Edit an Existing Policies Policy Description
+Given I have navigated to the Edit Policy Page
+When I update the Policy Description
+And click the Update Button
+Then I am redirected back to the Manage Polices Page
+And the Policy Description is correctly updated
+
+@Workitem:49359 Driver
+Scenario: Cancel an Edit to an Existing Policy 
+Given I have navigated to the Edit Policy Page
+When I update the Policy Name
+And I choose to click the Back Link
+Then I am redirected back to the Manage Polices Page
+
+@Workitem:49360 Driver
+Scenario: Successfully Edit an Existing Sub Policies Name
+Given I have navigated to the Edit Sub Policy Page
+When I update the Sub Policy Name
+And click the Update Button
+Then I am redirected back to the Manage Polices Page
+And the Sub Policy Name is correctly updated
+
+@Workitem:49360 Driver
+Scenario: Successfully Edit an Existing Sub Policies Description
+Given I have navigated to the Edit Sub Policy Page
+When I update the Sub Policy Description
+And click the Update Button
+Then I am redirected back to the Manage Polices Page
+And the Sub Policy Description is correctly updated
+
+@Workitem:49360 Driver
+Scenario: Successfully Edit an Existing Sub Policies Associated Policy
+Given I have created a New Specification
+And I have created a New Policy for that Specification
+And I have created a New Sub Policy for that Specification
+And I then create an additional Policy for the Specification
+And I have selected to Edit the Sub Policy
+When I update the Sub Policies associated Policy
+And click the Update Button
+Then I am redirected back to the Manage Polices Page
+And the Sub Policy is shown as associated to the selected Policy
+
+@Workitem:49360 Driver
+Scenario: Cancel an Edit to an Existing Sub Policy 
+Given I have navigated to the Edit Sub Policy Page
+When I update the Sub Policy Name
+And I choose to click the Back Link
+Then I am redirected back to the Manage Polices Page

@@ -26,6 +26,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         CreateSpecificationPage createspecificationpage = new CreateSpecificationPage();
         CreateSubPolicyPage createsubpolicypage = new CreateSubPolicyPage();
         ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
+        EditPolicyPage editpolicypage = new EditPolicyPage();
+        EditSubPolicyPage editsubpolicypage = new EditSubPolicyPage();
+
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
 
@@ -806,7 +809,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"A Unique Allocation Error is Displayed")]
         public void ThenAUniqueAllocationErrorIsDisplayed()
         {
-            IWebElement allocationError =  createcalculationpage.CalculationAllocationError;
+            IWebElement allocationError = createcalculationpage.CalculationAllocationError;
             allocationError.Should().NotBeNull();
             string allocationErrorText = allocationError.Text;
             Console.WriteLine("The following Allocation Warning Message was displayed " + allocationErrorText);
@@ -820,6 +823,16 @@ namespace Frontend.IntegrationTests.Tests.Steps
             selectElement.SelectByValue("AY2017181");
             Thread.Sleep(2000);
         }
+
+        [When(@"I choose a different specification Funding Period")]
+        public void WhenIChooseADifferentSpecificationFundingPeriod()
+        {
+            var selectYear = createspecificationpage.SpecFundingPeriod;
+            var selectElement = new SelectElement(selectYear);
+            selectElement.SelectByValue("FY2017181");
+            Thread.Sleep(2000);
+        }
+
 
         [Then(@"A Unique Funding Stream Error is Displayed")]
         public void ThenAUniqueFundingStreamErrorIsDisplayed()
@@ -844,6 +857,523 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             createspecificationpage.FundingStream.Click();
             createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
+        }
+
+        [When(@"I choose (.*) specification Funding Streams")]
+        public void WhenIChooseSpecificationFundingStreams(string p0)
+        {
+            SelectElement selectElement = new SelectElement(createspecificationpage.SpecFundingStreamOptionContainer);
+            var options = selectElement.Options;
+
+            int? maximumItems = null;
+            int parsedInt;
+            if (int.TryParse(p0, out parsedInt))
+            {
+                if (parsedInt > 0)
+                {
+                    maximumItems = parsedInt;
+                }
+            }
+
+            for (int i = 0; i < options.Count; i++)
+            {
+                if (maximumItems != null && maximumItems.HasValue && i >= maximumItems.Value)
+                {
+                    break;
+                }
+
+                IWebElement optionElement = options[i];
+                string optionElementText = optionElement.Text;
+                Console.WriteLine(optionElementText);
+
+                createspecificationpage.FundingStream.Click();
+                createspecificationpage.SpecFundingStreamTextField.SendKeys(OpenQA.Selenium.Keys.Shift + optionElementText);
+                Thread.Sleep(2000);
+                createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
+
+
+            }
+
+        }
+
+
+        [When(@"I then select to remove a Funding Stream")]
+        public void WhenIThenSelectToRemoveAFundingStream()
+        {
+            createspecificationpage.SpecFundingStreamRemoveOption.Click();
+            Thread.Sleep(2000);
+            createspecificationpage.FundingStream.Click();
+        }
+
+        [Then(@"the selected funding stream is removed from the new Specification")]
+        public void ThenTheSelectedFundingStreamIsRemovedFromTheNewSpecification()
+        {
+            IWebElement fundingStream = createspecificationpage.SpecFundingStreamFirstSelected;
+            string remainingFundingStream = fundingStream.Text;
+            Console.WriteLine("The remaining Funding Stream is: " + remainingFundingStream);
+        }
+
+        [Then(@"the Manage Policies Policy List displays the Edit Policy option")]
+        public void ThenTheManagePoliciesPolicyListDisplaysTheEditPolicyOption()
+        {
+            IWebElement policyList = managepoliciespage.PolicyList;
+            policyList.Should().NotBeNull();
+
+            var containerElements = policyList;
+            IWebElement firstSelectEditPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        firstSelectEditPolicy = optionelement;
+
+                        break;
+
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectEditPolicy != null)
+                {
+                    firstSelectEditPolicy.Click();
+                    Thread.Sleep(2000);
+                    editpolicypage.editPolicyName.Should().NotBeNull();
+                }
+                else
+                {
+                    firstSelectEditPolicy.Should().NotBeNull("No Edit Policy Option exist for the Policy selected");
+                }
+            }
+            else
+            {
+                firstSelectEditPolicy.Should().NotBeNull("No Edit Policy Option exists");
+            }
+        }
+
+
+        [Given(@"I have created a New Sub Policy for that Specification")]
+        public void GivenIHaveCreatedANewSubPolicyForThatSpecification()
+        {
+            ManageSpecificationCreateNewSubPolicy.CreateANewSpecificationSubPolicy();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Manage Policies Policy List displays the Edit Sub Policy option")]
+        public void ThenTheManagePoliciesPolicyListDisplaysTheEditSubPolicyOption()
+        {
+            IWebElement subpolicyList = managepoliciespage.SubPolicyList;
+            subpolicyList.Should().NotBeNull();
+
+            var containerElements = subpolicyList;
+            IWebElement firstSelectEditSubPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        firstSelectEditSubPolicy = optionelement;
+
+                        break;
+
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectEditSubPolicy != null)
+                {
+                    firstSelectEditSubPolicy.Click();
+                    Thread.Sleep(2000);
+                    editsubpolicypage.editSubPolicyName.Should().NotBeNull();
+                }
+                else
+                {
+                    firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exist for the Policy selected");
+                }
+            }
+            else
+            {
+                firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
+            }
+        }
+
+        [Given(@"I have navigated to the Edit Policy Page")]
+        public void GivenIHaveNavigatedToTheEditPolicyPage()
+        {
+            NavigateTo.EditSpecificationPolicyPage();
+
+            editpolicypage.editPolicyDescription.Should().NotBeNull();
+            editpolicypage.editPolicyUpdateButton.Should().NotBeNull();
+            editpolicypage.editPolicyBackLink.Should().NotBeNull();
+        }
+
+        [When(@"I update the Policy Name")]
+        public void WhenIUpdateThePolicyName()
+        {
+            string editedname = "Test Policy Edited Name ";
+
+            var randomEditPolicyName = editedname + TestDataNumericUtils.RandomNumerics(6);
+            ScenarioContext.Current["EditPolicyName"] = randomEditPolicyName;
+
+            editpolicypage.editPolicyName.Clear();
+            editpolicypage.editPolicyName.SendKeys(randomEditPolicyName);
+
+        }
+
+        [When(@"click the Update Button")]
+        public void WhenClickTheUpdateButton()
+        {
+            editpolicypage.editPolicyUpdateButton.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected back to the Manage Polices Page")]
+        public void ThenIAmRedirectedBackToTheManagePolicesPage()
+        {
+            managepoliciespage.CreatePolicyButton.Should().NotBeNull();
+        }
+
+        [Then(@"the Policy Name is correctly updated")]
+        public void ThenThePolicyNameIsCorrectlyUpdated()
+        {
+            var editedPolicyName = ScenarioContext.Current["EditPolicyName"];
+            string editedPolicyCreated = editedPolicyName.ToString();
+
+            IWebElement policyList = managepoliciespage.PolicyList;
+            policyList.Should().NotBeNull();
+
+            var containerElements = policyList;
+            IWebElement firstSelectEditPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("h2"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+
+                        if (optionelement.Text.Contains(editedPolicyCreated))
+                        {
+                            {
+                                firstSelectEditPolicy = optionelement;
+
+                                break;
+                            }
+                        }
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectEditPolicy != null)
+                {
+                    string updatedPolicyName = firstSelectEditPolicy.Text;
+                    Console.WriteLine("The Specification Policy name has been updated to: " + updatedPolicyName);
+
+                }
+                else
+                {
+                    firstSelectEditPolicy.Should().NotBeNull("Edit Policy Name has is not displayed correctly");
+                }
+            }
+            else
+            {
+                firstSelectEditPolicy.Should().NotBeNull("Edit Policy Name has Failed");
+            }
+        }
+
+
+        [When(@"I update the Policy Description")]
+        public void WhenIUpdateThePolicyDescription()
+        {
+            string editdescription = "This is an Edited Description ";
+
+            var randomEditPolicyDesc = editdescription + TestDataNumericUtils.RandomNumerics(6);
+            ScenarioContext.Current["EditPolicyDesc"] = randomEditPolicyDesc;
+
+            editpolicypage.editPolicyDescription.Clear();
+            editpolicypage.editPolicyDescription.SendKeys(randomEditPolicyDesc);
+        }
+
+        [Then(@"the Policy Description is correctly updated")]
+        public void ThenThePolicyDescriptionIsCorrectlyUpdated()
+        {
+            var editedPolicyDesc = ScenarioContext.Current["EditPolicyDesc"];
+            string updatedPolicyDesc = editedPolicyDesc.ToString();
+
+            IWebElement policyList = managepoliciespage.PolicyList;
+            policyList.Should().NotBeNull();
+
+            var containerElements = policyList;
+            IWebElement firstSelectEditPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("p"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+
+                        if (optionelement.Text.Contains(updatedPolicyDesc))
+                        {
+                            {
+                                firstSelectEditPolicy = optionelement;
+
+                                break;
+                            }
+                        }
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectEditPolicy != null)
+                {
+                    string updatedDescription = firstSelectEditPolicy.Text;
+                    Console.WriteLine("The Specification Policy Description has been updated to: " + updatedDescription);
+
+                }
+                else
+                {
+                    firstSelectEditPolicy.Should().NotBeNull("Edit Policy Name has is not displayed correctly");
+                }
+            }
+            else
+            {
+                firstSelectEditPolicy.Should().NotBeNull("Edit Policy Name has Failed");
+            }
+        }
+
+
+        [When(@"I choose to click the Back Link")]
+        public void WhenIChooseToClickTheBackLink()
+        {
+            editpolicypage.editPolicyBackLink.Click();
+            Thread.Sleep(2000);
+        }
+
+
+        [Given(@"I have navigated to the Edit Sub Policy Page")]
+        public void GivenIHaveNavigatedToTheEditSubPolicyPage()
+        {
+            NavigateTo.EditSpecificationSubPolicyPage();
+        }
+
+        [When(@"I update the Sub Policy Name")]
+        public void WhenIUpdateTheSubPolicyName()
+        {
+            string editsubpolicyname = "Test Sub Policy Edited Name ";
+
+            var randomEditSubPolicyName = editsubpolicyname + TestDataNumericUtils.RandomNumerics(6);
+            ScenarioContext.Current["EditSubPolicyName"] = randomEditSubPolicyName;
+
+            editsubpolicypage.editSubPolicyName.Clear();
+            editsubpolicypage.editSubPolicyName.SendKeys(randomEditSubPolicyName);
+        }
+
+        [Then(@"the Sub Policy Name is correctly updated")]
+        public void ThenTheSubPolicyNameIsCorrectlyUpdated()
+        {
+            var editedSubPolicyName = ScenarioContext.Current["EditSubPolicyName"];
+            string editedSubPolicyCreated = editedSubPolicyName.ToString();
+
+            IWebElement policyList = managepoliciespage.PolicyList;
+            policyList.Should().NotBeNull();
+
+            var containerElements = policyList;
+            IWebElement firstSelectEditSubPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("h2"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+
+                        if (optionelement.Text.Contains(editedSubPolicyCreated))
+                        {
+                            {
+                                firstSelectEditSubPolicy = optionelement;
+
+                                break;
+                            }
+                        }
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectEditSubPolicy != null)
+                {
+                    string updatedSubPolicyName = firstSelectEditSubPolicy.Text;
+                    Console.WriteLine("The Specification Sub Policy name has been updated to: " + updatedSubPolicyName);
+
+                }
+                else
+                {
+                    firstSelectEditSubPolicy.Should().NotBeNull("Edit Sub Policy Name has is not displayed correctly");
+                }
+            }
+            else
+            {
+                firstSelectEditSubPolicy.Should().NotBeNull("Edit Sub Policy Name has Failed");
+            }
+        }
+
+
+        [When(@"I update the Sub Policy Description")]
+        public void WhenIUpdateTheSubPolicyDescription()
+        {
+            string editdescription = "This is an Edited Description ";
+
+            var randomEditSubPolicyDesc = editdescription + TestDataNumericUtils.RandomNumerics(6);
+            ScenarioContext.Current["EditSubPolicyDesc"] = randomEditSubPolicyDesc;
+
+            editsubpolicypage.editSubPolicyDesc.Clear();
+            editsubpolicypage.editSubPolicyDesc.SendKeys(randomEditSubPolicyDesc);
+        }
+
+        [Then(@"the Sub Policy Description is correctly updated")]
+        public void ThenTheSubPolicyDescriptionIsCorrectlyUpdated()
+        {
+            var editedSubPolicyDesc = ScenarioContext.Current["EditSubPolicyDesc"];
+            string updatedSubPolicyDesc = editedSubPolicyDesc.ToString();
+
+            IWebElement policyList = managepoliciespage.PolicyList;
+            policyList.Should().NotBeNull();
+
+            var containerElements = policyList;
+            IWebElement firstSelectEditPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("p"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+
+                        if (optionelement.Text.Contains(updatedSubPolicyDesc))
+                        {
+                            {
+                                firstSelectEditPolicy = optionelement;
+
+                                break;
+                            }
+                        }
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectEditPolicy != null)
+                {
+                    string updatedDescription = firstSelectEditPolicy.Text;
+                    Console.WriteLine("The Specification Sub Policy Description has been updated to: " + updatedDescription);
+
+                }
+                else
+                {
+                    firstSelectEditPolicy.Should().NotBeNull("Edit Sub Policy Name has is not displayed correctly");
+                }
+            }
+            else
+            {
+                firstSelectEditPolicy.Should().NotBeNull("Edit Sub Policy Name has Failed");
+            }
+        }
+
+
+        [Given(@"I then create an additional Policy for the Specification")]
+        public void GivenIThenCreateAnAdditionalPolicyForTheSpecification()
+        {
+            ManageSpecificationCreateNewAddPolicy.CreateAddNewSpecificationPolicy();
+        }
+
+        [Given(@"I have selected to Edit the Sub Policy")]
+        public void GivenIHaveSelectedToEditTheSubPolicy()
+        {
+            IWebElement subpolicyList = managepoliciespage.SubPolicyList;
+            subpolicyList.Should().NotBeNull();
+
+            var containerElements = subpolicyList;
+            IWebElement firstSelectEditSubPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        firstSelectEditSubPolicy = optionelement;
+
+                        break;
+
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectEditSubPolicy != null)
+                {
+                    firstSelectEditSubPolicy.Click();
+                    Thread.Sleep(2000);
+                    editsubpolicypage.editSubPolicyName.Should().NotBeNull();
+                }
+                else
+                {
+                    firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exist for the Policy selected");
+                }
+            }
+            else
+            {
+                firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
+            }
+        }
+
+
+        [When(@"I update the Sub Policies associated Policy")]
+        public void WhenIUpdateTheSubPoliciesAssociatedPolicy()
+        {
+            var addSpecPolicyName = ScenarioContext.Current["AddSpecPolicyName"];
+            string addSpecPolicyCreated = addSpecPolicyName.ToString();
+
+            var containerElements = Driver._driver.FindElement(By.Id("EditSubPolicyViewModel-ParentPolicyId"));
+            IWebElement firstSelectPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains(addSpecPolicyCreated))
+                        {
+                            {
+                                firstSelectPolicy = optionelement;
+                                break;
+                            }
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectPolicy != null)
+                {
+                    firstSelectPolicy.Click();
+                }
+                else
+                {
+                    firstSelectPolicy.Should().NotBeNull("No Policy exists that can be selected");
+                }
+            }
+            else
+            {
+                firstSelectPolicy.Should().NotBeNull("No Policy exists that can be selected");
+            }
+        }
+
+        [Then(@"the Sub Policy is shown as associated to the selected Policy")]
+        public void ThenTheSubPolicyIsShownAsAssociatedToTheSelectedPolicy()
+        {
+            var addSpecPolicyName = ScenarioContext.Current["AddSpecPolicyName"];
+            string addSpecPolicyCreated = addSpecPolicyName.ToString();
+
+            Console.WriteLine("The Sub Policy has been successfully associated to Policy " + addSpecPolicyCreated);
         }
 
 

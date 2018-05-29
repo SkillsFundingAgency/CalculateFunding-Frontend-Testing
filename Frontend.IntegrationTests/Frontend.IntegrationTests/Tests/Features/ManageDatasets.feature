@@ -142,7 +142,6 @@ Given I have navigated to the data management option from the service home page
 When I click the option to Map data sources to datasets
 Then I am presented with the Map data sources to datasets page
 
-
 @Workitem:37469 Driver
 Scenario: View the Map Data Sources to Datasets Page
 Given I have navigated to Map data sources to datasets page

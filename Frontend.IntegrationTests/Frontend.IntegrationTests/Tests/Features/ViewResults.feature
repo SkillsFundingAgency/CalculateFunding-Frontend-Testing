@@ -199,10 +199,10 @@ When I change the selected QA Test period drop down to <year>
 Then the list of QA Test Results refreshes to display the selected years QA Tests
 
 Examples: 
-	 | year |
-	 | 1819	|
-	 | 1718	|
-	 | 1617	|
+	 | year			|
+	 | AY2018191	|
+	 | FY2017181	|
+	 | FY2018191	|
 	 
 @Workitem:39520 Driver
 Scenario Outline: Change Current list of QA Tests by Specification
@@ -216,8 +216,6 @@ Examples:
 	 | YP 201718 Academies 16-18                       | 
 	 | YP 201718 Non Formula Funded Activity Academies | 
 	 | YP 201718 School Sixth Form                     | 
-	 | Adam Spec 001								   |
-
 
 @Workitem:39522 Driver
 Scenario: Navigate to View the test results of all providers for a single test

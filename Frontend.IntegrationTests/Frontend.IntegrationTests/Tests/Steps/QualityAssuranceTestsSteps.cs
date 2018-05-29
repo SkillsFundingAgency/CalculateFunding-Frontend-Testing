@@ -545,7 +545,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I Update the existing Test")]
         public void WhenIUpdateTheExistingTest()
         {
-            var randomnumerics = TestDataNumericUtils.RandomString(2);
+            var randomnumerics = TestDataNumericUtils.RandomNumerics(2);
             string testUpdate = randomnumerics + "'";
 
             createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Control + "A");

@@ -88,7 +88,9 @@
     <Compile Include="Create\ManageSpecificationCreateNewCalculationSpecification.cs" />
     <Compile Include="Create\ManageSpecificationCreateNewPolicy.cs" />
     <Compile Include="Create\ManageSpecificationCreateNewDataset.cs" />
+    <Compile Include="Create\ManageSpecificationCreateNewAddPolicy.cs" />
     <Compile Include="Create\ManageSpecificationCreateNewProviderDataset.cs" />
+    <Compile Include="Create\ManageSpecificationCreateNewSubPolicy.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Helpers\TestDataUtils.cs" />
     <Compile Include="NavigateTo.cs" />
@@ -112,6 +114,8 @@
     <Compile Include="Pages\Manage Specification\CreatePolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateSpecificationPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateSubPolicyPage.cs" />
+    <Compile Include="Pages\Manage Specification\Edit PolicyPage.cs" />
+    <Compile Include="Pages\Manage Specification\EditSubPolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\ManagePoliciesPage.cs" />
     <Compile Include="Pages\Quality Assurance\CreateQATestPage.cs" />
     <Compile Include="Pages\Quality Assurance\EditQATestPage.cs" />
