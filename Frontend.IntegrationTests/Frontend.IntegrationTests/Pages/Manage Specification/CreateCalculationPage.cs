@@ -29,19 +29,19 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "cancel-link")]
         public IWebElement CancelCalculation { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "You must give a unique calculation name")]
+        [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-Name")]
         public IWebElement CalculationNameError { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "You must select a policy or subpolicy")]
+        [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-PolicyId")]
         public IWebElement CalculationPolicyError { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "You must select an allocation line")]
+        [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-AllocationLineId")]
         public IWebElement CalculationAllocationError { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "You must give a description for the calculation")]
+        [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-Description")]
         public IWebElement CalculationDescriptionError { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "You must select a calculation type")]
+        [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-CalculationType")]
         public IWebElement CalculationTypeError { get; set; }
         
         [FindsBy(How = How.Id, Using = "CalculationTypes")]

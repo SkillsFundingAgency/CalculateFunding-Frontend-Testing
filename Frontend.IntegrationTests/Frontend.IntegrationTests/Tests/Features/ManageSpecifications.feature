@@ -65,7 +65,8 @@ Then I am redirected to the Manage Specification Page
 
 @Workitem:35384 Driver
 Scenario: Create a new Specification with an Existing Specification Name
-Given I have successfully navigated to the Create Specification Page
+Given A Specification has been previously created with a Unique Name
+And I have successfully navigated to the Create Specification Page
 When I enter an Existing Specification Name
 And I enter a Description
 And I choose a specification Funding Period
@@ -92,9 +93,10 @@ When I click the Save button
 Then the following Specification Error should be displayed for FieldName '<SpecFieldName>' and '<error>'
 
 Examples: 
-	 | SpecFieldName			| name         | description           | error												|
-	 | Missing Spec Name		|              | This is a Description | You must give a unique specification name			|
-	 | Missing Spec Description	| Test Spec 03 |                       | You must give a description for the specification	|
+	 | SpecFieldName			| name         | description           | error					|
+	 | Missing Spec Name		|              | This is a Description | Enter a unique name	|
+	 | Missing Spec Description	| Test Spec 03 |                       | Enter a description	|
+
 
 @Workitem:35397 Driver
 Scenario: View Current List of Policies
@@ -128,7 +130,8 @@ Then I am redirected to the Manage Policies Page
 
 @Workitem:35397 Driver
 Scenario: Create and Save a new Policy with an Existing Specification Name
-Given I have successfully navigated to the Create Policy Page
+Given A Policy has been previously created with a Unique Policy Name
+And I have successfully navigated to the Create Policy Page for the previously created specification
 When I enter an existing Policy Name
 And I enter a Policy Description
 And I click the Save Policy button
@@ -142,9 +145,10 @@ When I click the Save Policy button
 Then the following Policy Error should be displayed for FieldName '<policyfieldname>' and '<policyerror>'
 
 	Examples: 
-	 | policyfieldname     | name        | description           | policyerror                                |
-	 | Missing Name        |             | This is a Description | You must give a unique policy name         |
-	 | Missing Description | Policy Name |                       | You must give a description for the policy |
+	 | policyfieldname     | name        | description           | policyerror         |
+	 | Missing Name        |             | This is a Description | Enter a name        |
+	 | Missing Description | Policy Name |                       | Enter a description |
+
 
 @Workitem:35401 Driver
 Scenario: Select to Create Calculation Specification
@@ -163,7 +167,6 @@ And I enter a Calculation Description
 And I click the Save Calculation button
 Then I am redirected to the Manage Policies Page
 And My new Calculation is correctly listed
-
 
 @Workitem:35401, 40012 Driver
 Scenario: Create and Save a new Calculation Specification with Calculation Type Number
@@ -189,7 +192,8 @@ Then I am redirected to the Manage Policies Page
 
 @Workitem:35401, 40012 Driver
 Scenario: Create and Save a new Calculation Specification with an Existing Name
-Given I have successfully navigated to the Create Calculation Specification for Policy Page
+Given A Calculation Specification has been previously created with a Unique Name
+And I have successfully navigated to the Create Calculation Specification Page
 When I enter an Existing Calculation Name
 And I choose a Policy or sub policy
 And I choose funding calculation type
@@ -217,11 +221,10 @@ Then the following Calculation Error should be displayed for FieldName '<Calcula
 
 Examples: 
 	 | CalculationFieldname			 | name		| policy      | type    | allocation		  | description  | calcerror									   |
-	 | MissingCalcFundingName		 |			| Test		  | Funding | Additional Funding  | Error1       | You must give a unique calculation name         |
-	 | MissingCalcFundingPolicy      | TestXYZ	|             | Funding | Additional Funding  | Error2       | You must select a policy or subpolicy           |
-	 | MissingCalcFundingDescription | TestXYZ	| Test		  | Funding | Additional Funding  |				 | You must give a description for the calculation |
-	 | MissingCalcFundingAllocation  | TestXYZ	| Test		  | Funding |					  |	Error3		 | You must select an allocation line			   |
-
+	 | MissingCalcFundingName		 |			| Test		  | Funding | Additional Funding  | Error1       | Enter a unique name						|
+	 | MissingCalcFundingPolicy      | TestXYZ	|             | Funding | Additional Funding  | Error2       | Select a policy or Select a subpolicy    |
+	 | MissingCalcFundingDescription | TestXYZ	| Test		  | Funding | Additional Funding  |				 | Enter a description						|
+	 | MissingCalcFundingAllocation  | TestXYZ	| Test		  | Funding |					  |	Error3		 | Select an allocation line				|
 
 @Workitem:35401, 40012 Driver
 Scenario Outline: Create and Save an incomplete Number Calculation Specification
@@ -231,10 +234,10 @@ When I click the Save Calculation button
 Then the following Number Calculation Error should be displayed for FieldName '<CalculationFieldname>' and '<calcerror>'
 
 Examples: 
-	 | CalculationFieldname			| name		| policy      | type    | description  | calcerror										 |
-	 | MissingCalcNumberName		|			| Test		  | Number	| Error1       | You must give a unique calculation name         |
-	 | MissingCalcNumberPolicy      | TestXYZ	|             | Number	| Error2       | You must select a policy or subpolicy           |
-	 | MissingCalcNumberDescription | TestXYZ	| Test		  | Number	| 			   | You must give a description for the calculation |
+	 | CalculationFieldname			| name		| policy      | type    | description  | calcerror								|
+	 | MissingCalcNumberName		|			| Test		  | Number	| Error1       | Enter a unique name					|
+	 | MissingCalcNumberPolicy      | TestXYZ	|             | Number	| Error2       | Select a policy or Select a subpolicy  |
+	 | MissingCalcNumberDescription | TestXYZ	| Test		  | Number	| 			   | Enter a description					|
 
 @Workitem:35402 Driver
 Scenario: Select to Create a Sub Policy
@@ -263,7 +266,8 @@ Then I am redirected to the Manage Specification Page
 
 @Workitem:35402 Driver
 Scenario: Create and Save a new Sub Policy with an Existing Name
-Given I have successfully navigated to the Create Sub Policy Page
+Given A Sub Policy has been previously created with a Unique Name
+And I have successfully navigated to the Create Sub Policy Page for the same Specification
 When I enter a Sub Policy Name that already exists
 And I choose a Policy from the dropdown
 And I enter a Sub Policy Description
@@ -279,9 +283,9 @@ When I click the Save Sub Policy button
 Then the following Sub Policy Error should be displayed for FieldName '<SubPolicyFieldname>' and '<subpolicyerror>'
 
 Examples: 
-	 | SubPolicyFieldname			| name         | description | subpolicyerror									|
-	 | SubPolicyNameMissing			|              | Description | You must give a unique policy name				|
-     | SubPolicyDescriptionMissing	| Test Spec 03 |	         | You must give a description for the subpolicy	|
+	 | SubPolicyFieldname			| name         | description | subpolicyerror		|
+	 | SubPolicyNameMissing			|              | Description | Enter a name			|
+     | SubPolicyDescriptionMissing	| Test Spec 03 |	         | Enter a description	|
 	 
 @Workitem:35402 Driver
 Scenario: Create and Save an incomplete Sub Policy without selecting a Policy

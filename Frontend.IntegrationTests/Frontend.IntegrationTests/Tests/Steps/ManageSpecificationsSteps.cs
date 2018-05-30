@@ -29,6 +29,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         EditPolicyPage editpolicypage = new EditPolicyPage();
         EditSubPolicyPage editsubpolicypage = new EditSubPolicyPage();
         EditSpecificationPage editspecificationpage = new EditSpecificationPage();
+        HomePage homepage = new HomePage();
 
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
@@ -111,6 +112,15 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [Given(@"A Specification has been previously created with a Unique Name")]
+        public void GivenASpecificationHasBeenPreviouslyCreatedWithAUniqueName()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+        }
+
+
         [Given(@"I have successfully navigated to the Create Specification Page")]
         public void GivenIHaveSuccessfullyNavigatedToTheCreateSpecificationPage()
         {
@@ -172,22 +182,24 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
             createspecificationpage.CancelSpecification.Click();
             Thread.Sleep(2000);
-
-
         }
 
         [When(@"I enter an Existing Specification Name")]
         public void WhenIEnterAnExistingSpecificationName()
         {
-            createspecificationpage.SpecName.SendKeys("Test");
-            Thread.Sleep(2000);
+            var specName = ScenarioContext.Current["SpecificationName"];
+            string specCreated = specName.ToString();
+
+            createspecificationpage.SpecName.SendKeys(specCreated);
+            Console.WriteLine("The Existing Specification Name entered was: " + specCreated);
         }
 
         [Then(@"A Unique Specification Name Error is Displayed")]
         public void ThenAUniqueSpecificationNameErrorIsDisplayed()
         {
             Assert.IsNotNull(createspecificationpage.SpecNameError);
-            Assert.IsNotNull(createspecificationpage.SpecNameErrorText.Text);
+            string specNameError = createspecificationpage.SpecNameError.Text;
+            Console.WriteLine("The following error message was correctly displayed: " + specNameError);
             Thread.Sleep(2000);
         }
 
@@ -204,10 +216,10 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             Thread.Sleep(1000);
             if (SpecFieldName == "Missing Spec Name")
-                Assert.AreEqual(error, createspecificationpage.SpecNameErrorText.Text);
+                Assert.AreEqual(error, createspecificationpage.SpecNameError.Text);
 
             else if (SpecFieldName == "Missing Spec Description")
-                Assert.AreEqual(error, createspecificationpage.SpecDescriptionErrorText.Text);
+                Assert.AreEqual(error, createspecificationpage.SpecDescriptionError.Text);
 
             else throw new InvalidOperationException("Unknown Field");
             Thread.Sleep(2000);
@@ -259,6 +271,23 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Assert.IsNotNull(createpolicypage.PolicyName);
             Thread.Sleep(1000);
         }
+
+        [Given(@"A Policy has been previously created with a Unique Policy Name")]
+        public void GivenAPolicyHasBeenPreviouslyCreatedWithAUniquePolicyName()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            Thread.Sleep(2000);
+        }
+
+        [Given(@"I have successfully navigated to the Create Policy Page for the previously created specification")]
+        public void GivenIHaveSuccessfullyNavigatedToTheCreatePolicyPageForThePreviouslyCreatedSpecification()
+        {
+            managepoliciespage.CreatePolicyButton.Click();
+            Thread.Sleep(2000);
+        }
+
+
 
         [Given(@"I have successfully navigated to the Create Policy Page")]
         public void GivenIHaveSuccessfullyNavigatedToTheCreatePolicyPage()
@@ -312,7 +341,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter an existing Policy Name")]
         public void WhenIEnterAnExistingPolicyName()
         {
-            createpolicypage.PolicyName.SendKeys("Test");
+            var specPolicyName = ScenarioContext.Current["SpecPolicyName"];
+            string specPolicyCreated = specPolicyName.ToString();
+
+            createpolicypage.PolicyName.SendKeys(specPolicyCreated);
+            Console.WriteLine("The Existing Policy Name entered was: " + specPolicyCreated);
         }
 
 
@@ -320,6 +353,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenAUniquePolicyNameErrorIsDisplayed()
         {
             Assert.IsNotNull(createpolicypage.PolicyNameErrorText.Text);
+            string policyNameError = createpolicypage.PolicyNameErrorText.Text;
+            Console.WriteLine("The following Error message was displayed: " + policyNameError);
             Thread.Sleep(2000);
         }
 
@@ -426,7 +461,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Assert.IsNotNull(managepoliciespage.CalculationList);
             var calculationName = ScenarioContext.Current["CalculationName"];
             string calculationCreated = calculationName.ToString();
-            var calcelements = Driver._driver.FindElements(By.CssSelector(".policy-list"));
+
+            var calcelements = Driver._driver.FindElements(By.CssSelector(".cf"));
             IWebElement createdcalculation = null;
             foreach (var element in calcelements)
             {
@@ -459,10 +495,29 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [Given(@"A Calculation Specification has been previously created with a Unique Name")]
+        public void GivenACalculationSpecificationHasBeenPreviouslyCreatedWithAUniqueName()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+        }
+
+        [Given(@"I have successfully navigated to the Create Calculation Specification Page")]
+        public void GivenIHaveSuccessfullyNavigatedToTheCreateCalculationSpecificationPage()
+        {
+            managepoliciespage.CreateCalculation.Click();
+            Thread.Sleep(2000);
+        }
+
         [When(@"I enter an Existing Calculation Name")]
         public void WhenIEnterAnExistingCalculationName()
         {
-            createcalculationpage.CalculationName.SendKeys("Test");
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+
+            createcalculationpage.CalculationName.SendKeys(specCalcCreated);
+            Console.WriteLine("The Existing Calculation Name entered was: " + specCalcCreated);
         }
 
 
@@ -470,6 +525,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenAUniqueCalculationNameErrorIsDisplayed()
         {
             Assert.IsNotNull(createcalculationpage.CalculationNameError.Text);
+            string calcSpecificationNameError = createcalculationpage.CalculationNameError.Text;
+            Console.WriteLine("The Following Error Message was displayed: " + calcSpecificationNameError);
             Thread.Sleep(2000);
         }
 
@@ -620,7 +677,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Assert.IsNotNull(managepoliciespage.SubPolicyList);
             var subPolicyName = ScenarioContext.Current["SubPolicyName"];
             string subPolicyCreated = subPolicyName.ToString();
-            var subpolicyelements = Driver._driver.FindElements(By.CssSelector(".policy-list"));
+
+            var subpolicyelements = Driver._driver.FindElements(By.CssSelector(".cf"));
             IWebElement createdsubpolicy = null;
             foreach (var element in subpolicyelements)
             {
@@ -654,10 +712,31 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [Given(@"A Sub Policy has been previously created with a Unique Name")]
+        public void GivenASubPolicyHasBeenPreviouslyCreatedWithAUniqueName()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewSubPolicy.CreateANewSpecificationSubPolicy();
+        }
+
+        [Given(@"I have successfully navigated to the Create Sub Policy Page for the same Specification")]
+        public void GivenIHaveSuccessfullyNavigatedToTheCreateSubPolicyPageForTheSameSpecification()
+        {
+            managepoliciespage.CreateSubPolicy.Click();
+            Thread.Sleep(2000);
+        }
+
+
+
         [When(@"I enter a Sub Policy Name that already exists")]
         public void WhenIEnterASubPolicyNameThatAlreadyExists()
         {
-            createsubpolicypage.SubPolicyName.SendKeys("test");
+            var specPolicyName = ScenarioContext.Current["SpecSubPolicyName"];
+            string specSubPolicyCreated = specPolicyName.ToString();
+
+            createsubpolicypage.SubPolicyName.SendKeys(specSubPolicyCreated);
+            Console.WriteLine("The Existing Sub Policy Name entered was: " + specSubPolicyCreated);
         }
 
 
@@ -665,6 +744,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenAUniqueSubPolicyNameErrorIsDisplayed()
         {
             Assert.IsNotNull(createsubpolicypage.SubPolicyMissingNameErrorText.Text);
+            string subPolicyNameError = createsubpolicypage.SubPolicyMissingNameErrorText.Text;
+            Console.WriteLine("THe following error was displayed: " + subPolicyNameError);
             Thread.Sleep(2000);
         }
 
@@ -813,6 +894,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement allocationError = createcalculationpage.CalculationAllocationError;
             allocationError.Should().NotBeNull();
             string allocationErrorText = allocationError.Text;
+            allocationError.Text.Should().Be("Select an allocation line", "Error Message is Incorrect");
             Console.WriteLine("The following Allocation Warning Message was displayed " + allocationErrorText);
         }
 
@@ -838,9 +920,10 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"A Unique Funding Stream Error is Displayed")]
         public void ThenAUniqueFundingStreamErrorIsDisplayed()
         {
-            IWebElement noFundingStream = createspecificationpage.SpecFundingStreamErrorText;
+            IWebElement noFundingStream = createspecificationpage.SpecFundingStreamError;
             noFundingStream.Should().NotBeNull();
             string noFundingStreamError = noFundingStream.Text;
+            noFundingStream.Text.Should().Be("Select at least one funding stream", "Correct Error Message is not displayed");
             Console.WriteLine("The following Funding Stream Warning Message was displayed " + noFundingStreamError);
         }
 
@@ -924,7 +1007,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("a"));
+                var options = containerElements.FindElements(By.TagName("i"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -965,6 +1048,12 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"the Manage Policies Policy List displays the Edit Sub Policy option")]
         public void ThenTheManagePoliciesPolicyListDisplaysTheEditSubPolicyOption()
         {
+            IWebElement editSubPolicy = Driver._driver.FindElement(By.CssSelector(".data-subpolicy-editlink-icon > i:nth-child(1)"));
+            editSubPolicy.Should().NotBeNull();
+            editSubPolicy.Click();
+            Thread.Sleep(2000);
+
+            /*
             IWebElement subpolicyList = managepoliciespage.SubPolicyList;
             subpolicyList.Should().NotBeNull();
 
@@ -972,7 +1061,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditSubPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("a"));
+                var options = containerElements.FindElements(By.TagName("i"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -1000,6 +1089,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             {
                 firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
             }
+            */
         }
 
         [Given(@"I have navigated to the Edit Policy Page")]
@@ -1051,7 +1141,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("h2"));
+                var options = containerElements.FindElements(By.TagName("span"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -1111,7 +1201,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("p"));
+                var options = containerElements.FindElements(By.TagName("td"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -1185,7 +1275,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditSubPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("h2"));
+                var options = containerElements.FindElements(By.TagName("span"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -1245,7 +1335,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("p"));
+                var options = containerElements.FindElements(By.TagName("td"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -1292,6 +1382,12 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement subpolicyList = managepoliciespage.SubPolicyList;
             subpolicyList.Should().NotBeNull();
 
+            IWebElement editSubPolicy = Driver._driver.FindElement(By.CssSelector(".data-subpolicy-editlink-icon > i:nth-child(1)"));
+            editSubPolicy.Should().NotBeNull();
+            editSubPolicy.Click();
+            Thread.Sleep(2000);
+
+            /*
             var containerElements = subpolicyList;
             IWebElement firstSelectEditSubPolicy = null;
             if (containerElements != null)
@@ -1324,6 +1420,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             {
                 firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
             }
+            */
         }
 
 

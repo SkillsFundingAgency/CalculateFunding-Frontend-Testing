@@ -375,7 +375,7 @@ namespace Frontend.IntegrationTests
             IWebElement firstSelectEditPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("a"));
+                var options = containerElements.FindElements(By.TagName("i"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -419,7 +419,12 @@ namespace Frontend.IntegrationTests
             ManageSpecificationCreateNewSubPolicy.CreateANewSpecificationSubPolicy();
 
             Thread.Sleep(2000);
+            IWebElement editSubPolicy = Driver._driver.FindElement(By.CssSelector(".data-subpolicy-editlink-icon > i:nth-child(1)"));
+            editSubPolicy.Should().NotBeNull();
+            editSubPolicy.Click();
+            Thread.Sleep(2000);
 
+            /*
             IWebElement subpolicyList = managepoliciespage.SubPolicyList;
             subpolicyList.Should().NotBeNull();
 
@@ -427,7 +432,7 @@ namespace Frontend.IntegrationTests
             IWebElement firstSelectEditSubPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("a"));
+                var options = containerElements.FindElements(By.TagName("i"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -455,6 +460,7 @@ namespace Frontend.IntegrationTests
             {
                 firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
             }
+            */
         }
 
         public static void EditSpecificationPage()
