@@ -32,13 +32,13 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.LinkText, Using = "Create dataset")]
         public IWebElement Createdatatyperelationship { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = ".policy-list")]
+        [FindsBy(How = How.CssSelector, Using = ".policy-list")]
         public IWebElement PolicyList { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = " .calculation-table > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)")]
+        [FindsBy(How = How.CssSelector, Using = " .calculation-table > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)")]
         public IWebElement CalculationList { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = " .subpolicy-list-header")]
+        [FindsBy(How = How.CssSelector, Using = ".subpolicy-list-header")]
         public IWebElement SubPolicyList { get; set; }
 
         [FindsBy(How = How.Id, Using = "nav-dataset-tab")]
@@ -49,6 +49,16 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
 
         [FindsBy(How = How.CssSelector, Using = ".provider-datasets-warning-container")]
         public IWebElement providerdatasetswarningcontainer { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "Edit specification")]
+        public IWebElement editSpecification { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".hero-title")]
+        public IWebElement specificationName { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "p.hero-description:nth-child(4)")]
+        public IWebElement specificationFundingPeriod { get; set; }
+
 
 
 

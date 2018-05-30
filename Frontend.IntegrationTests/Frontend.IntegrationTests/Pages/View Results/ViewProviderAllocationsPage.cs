@@ -17,7 +17,7 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.CssSelector, Using = ".col-xs-9")]
         public IWebElement providerAllocationsPageProviderInfoContainer { get; set; }
 
-        [FindsBy(How = How.Id, Using = "PeriodId")]
+        [FindsBy(How = How.Id, Using = "FundingPeriodId")]
         public IWebElement providerAllocationsPageAcademicYearDropDown { get; set; }
 
         [FindsBy(How = How.Id, Using = "SpecificationId")]

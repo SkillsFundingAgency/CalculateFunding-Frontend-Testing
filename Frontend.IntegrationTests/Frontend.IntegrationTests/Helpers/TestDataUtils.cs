@@ -21,7 +21,7 @@ namespace Frontend.IntegrationTests.Helpers
     class TestDataNumericUtils
     {
         private static Random random = new Random();
-        public static string RandomString(int length)
+        public static string RandomNumerics(int length)
         {
             const string chars = "0123456789";
             return new string(Enumerable.Repeat(chars, length)
@@ -33,7 +33,7 @@ namespace Frontend.IntegrationTests.Helpers
     class TestDataAlphaUtils
     {
         private static Random random = new Random();
-        public static string RandomString(int length)
+        public static string RandomAlphas(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             return new string(Enumerable.Repeat(chars, length)

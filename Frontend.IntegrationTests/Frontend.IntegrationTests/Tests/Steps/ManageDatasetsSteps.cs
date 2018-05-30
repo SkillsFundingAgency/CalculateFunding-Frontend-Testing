@@ -548,7 +548,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
             var selectYear = mapdatasourcestodatasetspage.mapDataSourcesSpecficationYearDropDown;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("1718");
+            selectElement.SelectByValue("FY2017181");
             Thread.Sleep(2000);
         }
 

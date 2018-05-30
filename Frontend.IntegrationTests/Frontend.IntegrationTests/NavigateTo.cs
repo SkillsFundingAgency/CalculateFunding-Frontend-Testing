@@ -215,10 +215,10 @@ namespace Frontend.IntegrationTests
                 var pElement = element.FindElement(By.TagName("p"));
                 if (pElement != null)
                 {
-                    if(pElement.Text.Contains("No data relationships exist"))
+                    if (pElement.Text.Contains("No data relationships exist"))
                     {
                         var anchorLink = element.FindElement(By.CssSelector("h2 > a"));
-                        if(anchorLink != null)
+                        if (anchorLink != null)
                         {
                             firstAnchorLink = anchorLink;
                             break;
@@ -252,7 +252,7 @@ namespace Frontend.IntegrationTests
             {
                 var pElement = element.FindElement(By.TagName("p"));
                 if (pElement != null)
-                { 
+                {
                     if (Regex.IsMatch(pElement.Text, "\\d data relationships exist"))
                     {
                         var anchorLink = element.FindElement(By.CssSelector("h2 > a"));
@@ -321,7 +321,7 @@ namespace Frontend.IntegrationTests
         {
             HomePage homepage = new HomePage();
             ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
-           
+
             homepage.ViewtheResults.Click();
             viewresultsoptionspage.viewResultsOptionsViewQATestResults.Click();
             Thread.Sleep(5000);
@@ -356,6 +356,118 @@ namespace Frontend.IntegrationTests
             Thread.Sleep(2000);
 
         }
+
+        public static void EditSpecificationPolicyPage()
+        {
+            HomePage homepage = new HomePage();
+            ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
+            EditPolicyPage editpolicypage = new EditPolicyPage();
+
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+
+            Thread.Sleep(2000);
+
+            IWebElement policyList = managepoliciespage.PolicyList;
+            policyList.Should().NotBeNull();
+
+            var containerElements = policyList;
+            IWebElement firstSelectEditPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        firstSelectEditPolicy = optionelement;
+
+                        break;
+
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectEditPolicy != null)
+                {
+                    firstSelectEditPolicy.Click();
+                    Thread.Sleep(2000);
+                    editpolicypage.editPolicyName.Should().NotBeNull();
+                }
+                else
+                {
+                    firstSelectEditPolicy.Should().NotBeNull("No Edit Policy Option exist for the Policy selected");
+                }
+            }
+            else
+            {
+                firstSelectEditPolicy.Should().NotBeNull("No Edit Policy Option exists");
+            }
+
+            Thread.Sleep(2000);
+
+        }
+
+        public static void EditSpecificationSubPolicyPage()
+        {
+            HomePage homepage = new HomePage();
+            ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
+            EditSubPolicyPage editsubpolicypage = new EditSubPolicyPage();
+
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewSubPolicy.CreateANewSpecificationSubPolicy();
+
+            Thread.Sleep(2000);
+
+            IWebElement subpolicyList = managepoliciespage.SubPolicyList;
+            subpolicyList.Should().NotBeNull();
+
+            var containerElements = subpolicyList;
+            IWebElement firstSelectEditSubPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        firstSelectEditSubPolicy = optionelement;
+
+                        break;
+
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectEditSubPolicy != null)
+                {
+                    firstSelectEditSubPolicy.Click();
+                    Thread.Sleep(2000);
+                    editsubpolicypage.editSubPolicyName.Should().NotBeNull();
+                }
+                else
+                {
+                    firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exist for the Policy selected");
+                }
+            }
+            else
+            {
+                firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
+            }
+        }
+
+        public static void EditSpecificationPage()
+        {
+            ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
+
+            CreateNewSpecification.CreateANewSpecification();
+            managepoliciespage.editSpecification.Should().NotBeNull();
+            managepoliciespage.editSpecification.Click();
+            Thread.Sleep(2000);
+
+        }
+
 
     }
 }

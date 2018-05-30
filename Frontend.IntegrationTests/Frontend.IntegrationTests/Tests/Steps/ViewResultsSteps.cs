@@ -478,14 +478,14 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement academicyeardropdown = viewproviderallocationspage.providerAllocationsPageAcademicYearDropDown;
             academicyeardropdown.Should().NotBeNull();
             academicyeardropdown.Displayed.Should().BeTrue();
-            IWebElement newyearselected = academicyeardropdown.FindElement(By.CssSelector("#PeriodId > option:nth-child(3)"));
+            IWebElement newyearselected = academicyeardropdown.FindElement(By.CssSelector("#FundingPeriodId > option:nth-child(4)"));
             newyearselected.Should().NotBeNull();
             newyearselected.Click();
             Thread.Sleep(2000);
             academicyeardropdown = viewproviderallocationspage.providerAllocationsPageAcademicYearDropDown;
             academicyeardropdown.Should().NotBeNull();
             academicyeardropdown.Displayed.Should().BeTrue();
-            newyearselected = academicyeardropdown.FindElement(By.CssSelector("#PeriodId > option:nth-child(3)"));
+            newyearselected = academicyeardropdown.FindElement(By.CssSelector("#FundingPeriodId > option:nth-child(4)"));
             newyearselected.Should().NotBeNull();
             string defaultyeardisplayed = newyearselected.Text;
             Console.WriteLine("The Selected Year displayed is " + defaultyeardisplayed);
