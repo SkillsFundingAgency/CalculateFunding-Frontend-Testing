@@ -421,20 +421,27 @@ testRunner.Then("the Validate QA Test Button remains disabled", ((string)(null))
 #line 107
 this.ScenarioSetup(scenarioInfo);
 #line 108
-testRunner.Given("I have successfully navigated to the Create quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 109
-testRunner.When("I have choosen a specific specification my code will validate against", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 110
-testRunner.And("I have entered a valid test text in the Test Scenario editor for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 111
-testRunner.And("I click the Validate QA Test Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 112
-testRunner.Then("I am notified my test scenario has validated successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 113
-testRunner.When("I click the Enabled Save Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I edit the New Calculation for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 114
-testRunner.Then("an error message is displayed to to notify that a Test Name has not been entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I have created a Test for the Specified Specification missing a Name and Descript" +
+                    "ion", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 115
+testRunner.Then("I am notified my test scenario has validated successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 116
+testRunner.When("I click the Enabled Save Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 117
+testRunner.Then("an error message is displayed to to notify that a Test Name has not been entered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 118
 testRunner.And("an error message is displayed to to notify that a Test Description has not been e" +
                     "ntered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -452,28 +459,28 @@ testRunner.And("an error message is displayed to to notify that a Test Descripti
                         "Workitem:",
                         "36667",
                         "Driver"});
-#line 118
-this.ScenarioSetup(scenarioInfo);
-#line 119
-testRunner.Given("I have successfully navigated to the Create quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 120
-testRunner.When("I have choosen a specific specification my code will validate against", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 121
-testRunner.And("I have entered a Test Name for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 122
-testRunner.And("I have entered a description for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 123
-testRunner.And("I have entered a valid test text in the Test Scenario editor for my QA Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 124
-testRunner.And("I click the Validate QA Test Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 125
-testRunner.Then("I am notified my test scenario has validated successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 126
-testRunner.When("I click the Enabled Save Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 127
-testRunner.Then("I am notified that my test has saved successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I edit the New Calculation for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 128
-testRunner.And("my test is visible in the list view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a Test for the Specified Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 129
+testRunner.Then("I am notified my test scenario has validated successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 130
+testRunner.When("I click the Enabled Save Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 131
+testRunner.Then("I am redirected to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -489,21 +496,21 @@ testRunner.And("my test is visible in the list view", ((string)(null)), ((TechTa
                         "Workitem:",
                         "36691",
                         "Driver"});
-#line 131
-this.ScenarioSetup(scenarioInfo);
-#line 132
-testRunner.Given("I have successfully navigated to the Quality Assurance Test Scenario List Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 133
-testRunner.When("I choose to select an Existing QA Test from the list displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 134
-testRunner.Then("I am redirected to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+this.ScenarioSetup(scenarioInfo);
 #line 135
-testRunner.And("the associated Specification name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have successfully navigated to the Quality Assurance Test Scenario List Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 136
-testRunner.And("the Edit QA Test Name field is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I choose to select an Existing QA Test from the list displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 137
-testRunner.And("the Edit Description field is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I am redirected to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 138
+testRunner.And("the associated Specification name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 139
+testRunner.And("the Edit QA Test Name field is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 140
+testRunner.And("the Edit Description field is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 141
 testRunner.And("the existing QA Test code is displayed in the Monaco Text Editor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -520,17 +527,17 @@ testRunner.And("the existing QA Test code is displayed in the Monaco Text Editor
                         "Workitem:",
                         "36691",
                         "Driver"});
-#line 141
-this.ScenarioSetup(scenarioInfo);
-#line 142
-testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 143
-testRunner.When("I update the existing Test Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 144
-testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 145
-testRunner.Then("the Test Name is updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 146
+testRunner.When("I update the existing Test Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 147
+testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 148
+testRunner.Then("the Test Name is updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 149
 testRunner.And("I am presented with confirmation of the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -547,17 +554,17 @@ testRunner.And("I am presented with confirmation of the change", ((string)(null)
                         "Workitem:",
                         "36691",
                         "Driver"});
-#line 149
-this.ScenarioSetup(scenarioInfo);
-#line 150
-testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 151
-testRunner.When("I update the existing Test Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 152
-testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 153
-testRunner.Then("the Test Description is updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 154
+testRunner.When("I update the existing Test Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 155
+testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 156
+testRunner.Then("the Test Description is updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 157
 testRunner.And("I am presented with confirmation of the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -574,17 +581,17 @@ testRunner.And("I am presented with confirmation of the change", ((string)(null)
                         "Workitem:",
                         "36691",
                         "Driver"});
-#line 157
-this.ScenarioSetup(scenarioInfo);
-#line 158
-testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 159
-testRunner.When("I Update the existing Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 160
-testRunner.And("I Validate the Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 161
-testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 162
+testRunner.When("I Update the existing Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 163
+testRunner.And("I Validate the Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 164
+testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 165
 testRunner.Then("I am presented with confirmation of the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -601,15 +608,15 @@ testRunner.Then("I am presented with confirmation of the change", ((string)(null
                         "Workitem:",
                         "36691",
                         "Driver"});
-#line 165
-this.ScenarioSetup(scenarioInfo);
-#line 166
-testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 167
-testRunner.When("I Update the existing Test Incorrectly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 168
-testRunner.And("I Validate the Incorrect Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 169
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 170
+testRunner.When("I Update the existing Test Incorrectly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 171
+testRunner.And("I Validate the Incorrect Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 172
 testRunner.Then("I am presented with a failed validation message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -626,15 +633,15 @@ testRunner.Then("I am presented with a failed validation message", ((string)(nul
                         "Workitem:",
                         "36691",
                         "Driver"});
-#line 172
-this.ScenarioSetup(scenarioInfo);
-#line 173
-testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 174
-testRunner.When("I Incorrectly update the existing Test Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 175
-testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 176
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 177
+testRunner.When("I Incorrectly update the existing Test Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 178
+testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 179
 testRunner.Then("An Enter a unique name Error is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -651,15 +658,15 @@ testRunner.Then("An Enter a unique name Error is displayed", ((string)(null)), (
                         "Workitem:",
                         "36691",
                         "Driver"});
-#line 179
-this.ScenarioSetup(scenarioInfo);
-#line 180
-testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 181
-testRunner.When("I Incorrectly update the existing Test Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 182
-testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 183
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 184
+testRunner.When("I Incorrectly update the existing Test Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 185
+testRunner.And("select to Save the change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 186
 testRunner.Then("An Enter a description Error is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -676,15 +683,15 @@ testRunner.Then("An Enter a description Error is displayed", ((string)(null)), (
                         "Workitem:",
                         "36691",
                         "Driver"});
-#line 186
-this.ScenarioSetup(scenarioInfo);
-#line 187
-testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 188
-testRunner.When("I update the existing Test Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 189
-testRunner.And("I click on the Back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 190
+testRunner.Given("I have successfully navigated to the Edit quality assurance test page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 191
+testRunner.When("I update the existing Test Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 192
+testRunner.And("I click on the Back link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 193
 testRunner.Then("I am redirected back to the Quality Assurance Test Scenario List Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

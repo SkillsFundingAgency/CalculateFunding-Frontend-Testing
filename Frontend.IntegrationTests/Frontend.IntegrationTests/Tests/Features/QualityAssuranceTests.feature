@@ -105,10 +105,13 @@ Then the Validate QA Test Button remains disabled
 
 @Workitem: 36667 Driver
 Scenario: Save a New QA Test script without a Test Name or Description
-Given I have successfully navigated to the Create quality assurance test page
-When I have choosen a specific specification my code will validate against
-And I have entered a valid test text in the Test Scenario editor for my QA Test
-And I click the Validate QA Test Button
+Given I have created a New Specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I have create a New Dataset for that Specificaton
+When I have specified a data Source Relationship for the Specification
+And I edit the New Calculation for that Specification
+And I have created a Test for the Specified Specification missing a Name and Description
 Then I am notified my test scenario has validated successfully
 When I click the Enabled Save Button
 Then an error message is displayed to to notify that a Test Name has not been entered
@@ -116,16 +119,16 @@ And an error message is displayed to to notify that a Test Description has not b
 
 @Workitem: 36667 Driver
 Scenario: Save a New Valid QA Test script
-Given I have successfully navigated to the Create quality assurance test page
-When I have choosen a specific specification my code will validate against
-And I have entered a Test Name for my QA Test
-And I have entered a description for my QA Test
-And I have entered a valid test text in the Test Scenario editor for my QA Test
-And I click the Validate QA Test Button
+Given I have created a New Specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I have create a New Dataset for that Specificaton
+When I have specified a data Source Relationship for the Specification
+And I edit the New Calculation for that Specification
+And I have created a Test for the Specified Specification
 Then I am notified my test scenario has validated successfully
 When I click the Enabled Save Button
-Then I am notified that my test has saved successfully
-And my test is visible in the list view
+Then I am redirected to the Edit quality assurance test page
 
 @Workitem: 36691 Driver
 Scenario: View the Edit quality assurance test page

@@ -82,6 +82,8 @@
     <Compile Include="Actions.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Create\CreateDataSourceMapping.cs" />
+    <Compile Include="Create\ValidateQATest_MissingFields.cs" />
+    <Compile Include="Create\ValidateQATest.cs" />
     <Compile Include="Create\CreateNewQATest.cs" />
     <Compile Include="Create\CreateNewSpecification.cs" />
     <Compile Include="Create\EditNewCalculaton.cs" />

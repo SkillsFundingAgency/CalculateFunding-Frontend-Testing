@@ -68,12 +68,22 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
 
         [When(@"I have over (.*) Test Scenarios listed")]
-        public void WhenIHaveOverTestScenariosListed(int totalpagecount)
+        public void WhenIHaveOverTestScenariosListed(int totalItemCount)
         {
             IWebElement testscenarioLastResultCount = testscenariolistpage.testScenarioPageTotalResultCount;
             string testscenarioLastResult = testscenarioLastResultCount.Text;
-            int totalpagescenariocount = int.Parse(testscenarioLastResult);
-            totalpagescenariocount.Should().BeGreaterThan(totalpagecount, "Less than 50 Test Scenarios are displayed");
+            int totalPageCount = int.Parse(testscenarioLastResult);
+
+            if (totalPageCount < totalItemCount)
+            {
+                Assert.Inconclusive("Only 1 page of results is displayed as the Total results returned is less than " + totalItemCount);
+
+            }
+            else
+            {
+                Console.WriteLine("The Total results returned is " + totalPageCount);
+            }
+
         }
 
         [When(@"I click to navigate to the next page of (.*) test scenarios")]
@@ -213,8 +223,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I have choosen a specification from the drop down to link my test to")]
         public void WhenIHaveChoosenASpecificationFromTheDropDownToLinkMyTestTo()
         {
-            createqatestpage.createQATestSelectSpecification.Click();
-            createqatestpage.createQATestSelectSpecification.SendKeys("Y");
+            Actions.SelectSpecificationCreateQATestPage();
         }
 
         [When(@"I have entered a Test Name for my QA Test")]
@@ -277,8 +286,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Given(@"I have completed the required QA Test Scenario fields")]
         public void GivenIHaveCompletedTheRequiredQATestScenarioFields()
         {
-            createqatestpage.createQATestSelectSpecification.Click();
-            createqatestpage.createQATestSelectSpecification.SendKeys("Y");
+            Actions.SelectSpecificationCreateQATestPage();
             createqatestpage.createQATestName.Click();
             createqatestpage.createQATestName.SendKeys(qatestname + TestDataUtils.RandomString(6));
             createqatestpage.createQATestDescription.Click();
@@ -298,7 +306,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"I am notified that the Test has not validated successfully")]
         public void ThenIAmNotifiedThatTheTestHasNotValidatedSuccessfully()
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
             IWebElement validatingtext = createqatestpage.createQATestBuildBuildOutputText;
             string validatingtextmessage = validatingtext.Text;
             validatingtextmessage.Should().NotBeNullOrWhiteSpace();
@@ -350,6 +358,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(4000);
         }
 
+        [When(@"I have created a Test for the Specified Specification")]
+        public void WhenIHaveCreatedATestForTheSpecifiedSpecification()
+        {
+            ValidateNewQATest.ValidateANewQATest();
+        }
+
+
         [Then(@"I am notified my test scenario has validated successfully")]
         public void ThenIAmNotifiedMyTestScenarioHasValidatedSuccessfully()
         {
@@ -372,6 +387,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [When(@"I have created a Test for the Specified Specification missing a Name and Description")]
+        public void WhenIHaveCreatedATestForTheSpecifiedSpecificationMissingANameAndDescription()
+        {
+            ValidateQATestMissingFields.ValidateANewQATestMissingFields();
+        }
+
+
         [Then(@"an error message is displayed to to notify that a Test Name has not been entered")]
         public void ThenAnErrorMessageIsDisplayedToToNotifyThatATestNameHasNotBeenEntered()
         {
@@ -389,42 +411,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             missingdescriptionerror.Displayed.Should().BeTrue();
             string missingdescriptiontext = missingdescriptionerror.Text;
             Console.WriteLine("Missing Description Error displayed is " + missingdescriptiontext);
-        }
-
-        [Then(@"I am notified that my test has saved successfully")]
-        public void ThenIAmNotifiedThatMyTestHasSavedSuccessfully()
-        {
-            
-        }
-
-        [Then(@"my test is visible in the list view")]
-        public void ThenMyTestIsVisibleInTheListView()
-        {
-            var testName = ScenarioContext.Current["QATestName"];
-            string qaTestCreated = testName.ToString();
-            var qatestelements = Driver._driver.FindElements(By.CssSelector("div.test-scenario-searchresult-container:nth-child(3)"));
-            IWebElement createdqatest = null;
-            foreach (var element in qatestelements)
-            {
-                if (element.Text.Contains(qaTestCreated))
-                {
-                    {
-                        createdqatest = element;
-                        break;
-                    }
-                }
-
-            }
-
-            Thread.Sleep(1000);
-            if (createdqatest != null)
-            {
-                Console.WriteLine("The QA Test " + qaTestCreated + " was Saved correctly");
-            }
-            else
-            {
-                createdqatest.Should().NotBeNull("Unable to find the QA Test " + qaTestCreated + " within the list view");
-            }
         }
 
         [When(@"I choose to select an Existing QA Test from the list displayed")]

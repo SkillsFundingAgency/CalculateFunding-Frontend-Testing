@@ -35,14 +35,22 @@
             Thread.Sleep(2000);
             var randomSpecName = newname + TestDataUtils.RandomString(6);
             ScenarioContext.Current["SpecificationName"] = randomSpecName;
+
             createspecificationpage.SpecName.SendKeys(randomSpecName);
             createspecificationpage.SpecDescription.SendKeys(descriptiontext + randomSpecName);
+            var selectYear = createspecificationpage.SpecFundingPeriod;
+            var selectElement = new SelectElement(selectYear);
+            selectElement.SelectByValue("AY2017181");
             createspecificationpage.FundingStream.Click();
             createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
             Thread.Sleep(2000);
             createspecificationpage.SaveSpecification.Click();
             Thread.Sleep(2000);
+
             Assert.IsNotNull(managespecficationpage.SelectYear);
+            managespecficationpage.SearchSpecificationButton.Click();
+            Thread.Sleep(2000);
+
             var specName = ScenarioContext.Current["SpecificationName"];
             string specCreated = specName.ToString();
             Console.WriteLine(specCreated + " has been created successfully");

@@ -42,6 +42,7 @@ And a link to Load new datasets is displayed
 @Workitem:37113 Driver
 Scenario: Validate the Manage Dataset List View Pagination
 Given I have navigated to the Manage Datasets page
+When More than 50 Results are available
 Then I can navigate to a page of the next 50 data sets
 And I can navigate to a page of the previous 50 data sets
 
@@ -132,9 +133,10 @@ Then the following Dataset Schema Relationship Error should be displayed for Fie
 
 Examples: 
 | DatasetFieldName				| schema       | name	 | description           | dataseterror														 |
-| Missing Dataset Schema		| ZZZZ         | Name    | This is a Description | You must assign a dataset for the specification					 |
-| Missing Dataset Name			| High Needs   |         | This is a Description | You must give a unique name for this dataset schema relationship	 |
-| Missing Dataset Description	| High Needs   | Name    |                       | You must provide a description for this new relationship			 |
+| Missing Dataset Schema		| ZZZZ         | Name    | This is a Description | Enter a data schema	 |
+| Missing Dataset Name			| High Needs   |         | This is a Description | Enter a unique name	 |
+| Missing Dataset Description	| High Needs   | Name    |                       | Enter a description	 |
+
 
 @Workitem:37469 Driver
 Scenario: Navigate to the Map Data Sources to Datasets Page
@@ -267,7 +269,6 @@ And the Specification data relationships page displayed a confirmation message f
 Scenario: Verify Manage data sources Download data source option
 Given I have navigated to the Manage Datasets page
 Then the page displays a list view of all data sets that have been uploaded
-And My list is in descending order from the most recent dataset
 And an option to download the datasource is displayed
 
 @Workitem:47000 Driver
@@ -276,5 +277,5 @@ Given I have navigated to the Manage Datasets page
 And The page displays a list view of all data sets that have been uploaded
 And An option to download the datasource is displayed
 When I click the Download link for a Data Source
-Then The Download reddirect URL from Blog storage is correctly genrated
+Then The Download reddirect URL from Blogstorage is correctly generated
 And The HTTP Status Code is reurned as OK

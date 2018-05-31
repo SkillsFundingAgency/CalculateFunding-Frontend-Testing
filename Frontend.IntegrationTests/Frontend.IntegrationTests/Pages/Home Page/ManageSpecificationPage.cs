@@ -19,7 +19,7 @@ namespace Frontend.IntegrationTests.Pages
         [FindsBy(How = How.Id, Using = "select-spec-year")]
         public IWebElement SelectYear { get; set; }
 
-        [FindsBy(How = How.Id, Using = "create-specification-button")]
+        [FindsBy(How = How.CssSelector, Using = ".banner-floating-link-container > a:nth-child(1)")]
         public IWebElement CreateSpecification { get; set; }
 
         [FindsBy(How = How.Id, Using = "esfa-list")]
@@ -33,6 +33,14 @@ namespace Frontend.IntegrationTests.Pages
 
         [FindsBy(How = How.PartialLinkText, Using = "Test Spec")]
         public IWebElement SelectSpecification { get; set; }
+
+        [FindsBy(How = How.Id, Using = "SearchTerm")]
+        public IWebElement SearchSpecification { get; set; }
+
+        [FindsBy(How = How.Id, Using = "filter-search-button-image")]
+        public IWebElement SearchSpecificationButton { get; set; }
+
+
 
     } 
 }

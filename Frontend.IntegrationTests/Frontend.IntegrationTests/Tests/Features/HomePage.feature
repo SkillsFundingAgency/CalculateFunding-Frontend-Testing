@@ -34,5 +34,5 @@ Scenario: Select View the Results Page
 @workitem:35383 Driver
 Scenario: Select Publish the Results Page
 	Given I have successfully navigated to the Home Page
-	When I select Release funding
+	When I select Approve funding
 	Then I am redirected to the Publish the Results page

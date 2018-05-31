@@ -29,16 +29,16 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.CssSelector, Using = "div.row:nth-child(5) > div:nth-child(4) > div:nth-child(2) > button:nth-child(1)")]
         public IWebElement manageDataSetsStatusDropDown { get; set; }
 
-        [FindsBy(How = How.Id, Using = "loadNewDatasetsButton")]
+        [FindsBy(How = How.Id, Using = "loadNewDatasourcefileButton")]
         public IWebElement loadNewDatasetsButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div.col-xs-12:nth-child(3) > div:nth-child(3)")]
+        [FindsBy(How = How.CssSelector, Using = "div.dataset-searchresult-container:nth-child(1)")]
         public IWebElement manageDatasetsListView { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div.dataset-searchresult-container:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2) > span:nth-child(2)")]
+        [FindsBy(How = How.CssSelector, Using = "div.dataset-searchresult-container:nth-child(1) > div:nth-child(1) > div:nth-child(3) > span:nth-child(2) > span:nth-child(2)")]
         public IWebElement manageDatasetsFirstResultLastUpdated { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div.dataset-searchresult-container:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2) > span:nth-child(2)")]
+        [FindsBy(How = How.CssSelector, Using = "div.dataset-searchresult-container:nth-child(1) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2) > span:nth-child(2)")]
         public IWebElement manageDatasetsSecondResultLastUpdated { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "div.dataset-searchresult-container:nth-child(1) > div:nth-child(1) > div:nth-child(1)")]
@@ -50,10 +50,10 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > span:nth-child(3)")]
         public IWebElement manageDatasetsEndListItemCount { get; set; }
 
-        [FindsBy(How = How.Id, Using = "startItemNumber")]
+        [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > span:nth-child(2)")]
         public IWebElement manageDatasetsFirstListItemCount { get; set; }
 
-        [FindsBy(How = How.Id, Using = "totalResults")]
+        [FindsBy(How = How.CssSelector, Using = "#totalResultsCount")]
         public IWebElement manageDatasetsTotalResultCount { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "Download")]

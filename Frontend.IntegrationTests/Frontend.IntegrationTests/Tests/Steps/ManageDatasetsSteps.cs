@@ -157,6 +157,26 @@ namespace Frontend.IntegrationTests.Tests.Steps
             managedatasetpage.loadNewDatasetsButton.Should().NotBeNull();
         }
 
+        [When(@"More than (.*) Results are available")]
+        public void WhenMoreThanResultsAreAvailable(int totalItemCount)
+        {
+            IWebElement datasetTotal = managedatasetpage.manageDatasetsTotalResultCount;
+            string datasetTotalValue = datasetTotal.Text;
+            int totalPageCount = int.Parse(datasetTotalValue);
+
+            if (totalPageCount < totalItemCount)
+            {
+                Assert.Inconclusive("Only 1 page of results is displayed as the Total results returned is less than " + totalItemCount);
+
+            }
+            else
+            {
+                Console.WriteLine("The Total results returned is " + totalPageCount);
+            }
+
+        }
+
+
         [Then(@"I can navigate to a page of the next (.*) data sets")]
         public void ThenICanNavigateToAPageOfTheNextDataSets(int endResultListCount)
         {
@@ -335,7 +355,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var datasetName = ScenarioContext.Current["DatasetSchemaName"];
             string datasetCreated = datasetName.ToString();
-            var datasetelements = Driver._driver.FindElements(By.CssSelector(".view-dataset .datasetschemaassigned-list-title-container span"));
+            var datasetelements = Driver._driver.FindElements(By.CssSelector(".dataset-assigned-list"));
             IWebElement createddataset = null;
             foreach (var element in datasetelements)
             {
@@ -873,8 +893,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Actions.SelectManageDataPageDataSourceDownloadoption();
         }
 
-        [Then(@"The Download reddirect URL from Blog storage is correctly genrated")]
-        public void ThenTheDownloadReddirectURLFromBlogStorageIsCorrectlyGenrated()
+        [Then(@"The Download reddirect URL from Blogstorage is correctly generated")]
+        public void ThenTheDownloadReddirectURLFromBlogstorageIsCorrectlyGenerated()
         {
             //Validation for this step is carried out within Actions.SelectManageDataPageDataSourceDownloadoption();
             //See redirected Blob URL in the Test Output row

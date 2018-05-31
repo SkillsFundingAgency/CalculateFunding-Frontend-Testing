@@ -494,6 +494,45 @@
             }
         }
 
+        public static void SelectSpecificationCreateQATestPage()
+        {
+            CreateQATestPage createqatestpage = new CreateQATestPage();
+
+            var containerElements = createqatestpage.createQATestSelectSpecification;
+            IWebElement firstSelectSpec = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains("Test Spec Name"))
+                        {
+
+                            firstSelectSpec = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectSpec != null)
+                {
+                    firstSelectSpec.Click();
+                }
+                else
+                {
+                    firstSelectSpec.Should().NotBeNull("No Policy exists that can be selected");
+                }
+            }
+            else
+            {
+                firstSelectSpec.Should().NotBeNull("No Policy exists that can be selected");
+            }
+        }
+
         public static void SelectSpecifiedSpecificationCreateQATestPage()
         {
             CreateQATestPage createqatestpage = new CreateQATestPage();

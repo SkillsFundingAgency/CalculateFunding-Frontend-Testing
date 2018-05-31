@@ -208,14 +208,14 @@ namespace Frontend.IntegrationTests
 
             homepage.ManagetheData.Click();
             managethedatapage.specifyDataSetRelationshipLink.Click();
-            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container > div.specs-relationship-searchresult-container-item"));
+            var containerElements = Driver._driver.FindElements(By.Id("dynamic-results-container"));
             IWebElement firstAnchorLink = null;
             foreach (var element in containerElements)
             {
                 var pElement = element.FindElement(By.TagName("p"));
                 if (pElement != null)
                 {
-                    if (pElement.Text.Contains("No data relationships exist"))
+                    if (pElement.Text.Contains("No data sources mapped to datasets"))
                     {
                         var anchorLink = element.FindElement(By.CssSelector("h2 > a"));
                         if (anchorLink != null)
@@ -246,14 +246,14 @@ namespace Frontend.IntegrationTests
 
             homepage.ManagetheData.Click();
             managethedatapage.specifyDataSetRelationshipLink.Click();
-            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container > div.specs-relationship-searchresult-container-item"));
+            var containerElements = Driver._driver.FindElements(By.Id("dynamic-results-container"));
             IWebElement firstAnchorLink = null;
             foreach (var element in containerElements)
             {
                 var pElement = element.FindElement(By.TagName("p"));
                 if (pElement != null)
                 {
-                    if (Regex.IsMatch(pElement.Text, "\\d data relationships exist"))
+                    if (Regex.IsMatch(pElement.Text, "\\d data source mapped to dataset"))
                     {
                         var anchorLink = element.FindElement(By.CssSelector("h2 > a"));
                         if (anchorLink != null)
