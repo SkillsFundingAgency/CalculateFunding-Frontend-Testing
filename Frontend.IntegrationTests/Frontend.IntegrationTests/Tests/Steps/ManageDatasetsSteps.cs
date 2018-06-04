@@ -19,6 +19,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
     [Binding]
     public class ManageDatasetsSteps
     {
+        HomePage homepage = new HomePage();
         ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
         ManageDatasetsPage managedatasetpage = new ManageDatasetsPage();
         ManageTheDataPage managethedatapage = new ManageTheDataPage();
@@ -626,6 +627,17 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
+        [Given(@"I have already created a Specification with the appropruiate dataset & schema associated")]
+        public void GivenIHaveAlreadyCreatedASpecificationWithTheAppropruiateDatasetSchemaAssociated()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
+            CreateDataSourceMapping.CreateADataSourceMapping();
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+        }
+
+
         [Given(@"I have navigated to a specification data relationships page where dataset relationships exist")]
         public void GivenIHaveNavigatedToASpecificationDataRelationshipsPageWhereDatasetRelationshipsExist()
         {
@@ -707,12 +719,21 @@ namespace Frontend.IntegrationTests.Tests.Steps
             //Console writeline in the previous class displays the required information as this info ont he page cannot be seperated out
         }
 
+        [Given(@"I have already created a Specification with the appropruiate dataset associated")]
+        public void GivenIHaveAlreadyCreatedASpecificationWithTheAppropruiateDatasetAssociated()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+        }
+
+
         [Given(@"I have navigated to the Choose data sources for specifications page where dataset relationships exist")]
         public void GivenIHaveNavigatedToTheChooseDataSourcesForSpecificationsPageWhereDatasetRelationshipsExist()
         {
             NavigateTo.SpecificationDataRelationshipsExistPage();
             Thread.Sleep(2000);
-
         }
 
         [When(@"I click on the Select Source Dataset option")]

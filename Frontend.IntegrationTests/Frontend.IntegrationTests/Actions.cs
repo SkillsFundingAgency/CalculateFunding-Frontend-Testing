@@ -714,7 +714,9 @@
                     ScenarioContext.Current["QATestName"] = firsttestname;
                     firsttestname.Should().NotBeNullOrEmpty();
                     Console.WriteLine("QA Test searched for: " + firsttestname);
-                    viewqatestresultspage.viewQATestResultspageSearch.SendKeys(firsttestname);
+
+                    string testCreatedID = SelectFirstTest.Text.Replace("QA Test Name ", "");
+                    viewqatestresultspage.viewQATestResultspageSearch.SendKeys(testCreatedID);
                     viewqatestresultspage.viewQATestResultspageSearchButton.Click();
 
                 }

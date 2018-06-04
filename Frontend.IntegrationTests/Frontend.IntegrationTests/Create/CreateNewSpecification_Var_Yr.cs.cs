@@ -16,11 +16,11 @@
     using TechTalk.SpecFlow;
 
     [Binding]
-    public static class CreateNewSpecification
+    public static class CreateNewSpecification_VarYr
 
     {
 
-        public static void CreateANewSpecification()
+        public static void CreateANewSpecification_VarYr()
 
         {
             ManageSpecificationPage managespecficationpage = new ManageSpecificationPage();
@@ -40,8 +40,10 @@
             createspecificationpage.SpecDescription.SendKeys(descriptiontext + randomSpecName);
             var selectYear = createspecificationpage.SpecFundingPeriod;
 
+            var specYear = ScenarioContext.Current["SpecificationYear"];
+            string specAcYear = specYear.ToString();
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("AY2017181");
+            selectElement.SelectByValue(specAcYear);
             createspecificationpage.FundingStream.Click();
             createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
             Thread.Sleep(2000);

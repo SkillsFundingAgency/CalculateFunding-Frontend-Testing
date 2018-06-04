@@ -190,21 +190,24 @@ And instructions on what steps are required to create the relationships is displ
 
 @Workitem:38550 Driver
 Scenario: Select a Specification that does have dataset relationships associated
-Given I have navigated to a specification data relationships page where dataset relationships exist
+Given I have already created a Specification with the appropruiate dataset associated
+And I have navigated to a specification data relationships page where dataset relationships exist
 Then the count of data sources established is displayed
 And the Data schema name is displayed
 And the Data set name is displayed
 And the Data set description is displayed
 
-@Workitem:38550 Driver TBC
+@Workitem:38550 Driver
 Scenario: Select a Specification that has a dataset relationships but no Data Schema associated
-Given I have navigated to a specification data relationships page where dataset relationships exist
+Given I have already created a Specification with the appropruiate dataset associated
+And I have navigated to a specification data relationships page where dataset relationships exist
 When the data set data schema relationship does not have a data source associated
 Then I am provided with the option to select a data source
 
-@Workitem:38550 Driver TBC
+@Workitem:38550 Driver
 Scenario: Select a Specification that has a dataset relationships and a Data Schema associated
-Given I have navigated to a specification data relationships page where dataset relationships exist
+Given I have already created a Specification with the appropruiate dataset & schema associated
+And I have navigated to a specification data relationships page where dataset relationships exist
 When the data set data schema relationship does have a data source associated
 Then the name of the data source is displayed
 And the version of the data source is displayed
@@ -212,7 +215,8 @@ And an option to change the data source is displayed
 
 @Workitem:38338 Driver
 Scenario: Verify the Select Source Dataset Page
-Given I have navigated to the Choose data sources for specifications page where dataset relationships exist
+Given I have already created a Specification with the appropruiate dataset associated
+And I have navigated to the Choose data sources for specifications page where dataset relationships exist
 When I click on the Select Source Dataset option
 Then I am presented with the Select source datasets page
 And the Name of the selected specification is displayed
@@ -221,33 +225,38 @@ And a list of datasets within the associated schema is displayed
 
 @Workitem:38338 Driver
 Scenario: Select Data Source Option to display Data Source Version
-Given I have navigated to the Select Source Dataset
+Given I have already created a Specification with the appropruiate dataset associated
+And I have navigated to the Select Source Dataset
 When I click a displayed datasets option
 Then that dataset is shown to be selected
 
 @Workitem:38338 Driver
 Scenario: Verify the Select Data Source Version Option is displayed correctly
-Given I have navigated to the Select Source Dataset
+Given I have already created a Specification with the appropruiate dataset associated
+And I have navigated to the Select Source Dataset
 When I click a displayed datasets option
 Then all the dataset versions that exist are displayed in descending order
 
 @Workitem:38338 Driver
 Scenario: Verify the Select Data Source Save Button is Enabled correctly
-Given I have navigated to the Select Source Dataset
+Given I have already created a Specification with the appropruiate dataset associated
+And I have navigated to the Select Source Dataset
 When I click a displayed datasets option
 Then the selected dataset version is show to be selected
 And the Select source datasets Save data sources button is enabled 
 
 @Workitem:38338 Driver
 Scenario: Verify the Select Data Source Cancel link
-Given I have navigated to the Select Source Dataset
+Given I have already created a Specification with the appropruiate dataset associated
+And I have navigated to the Select Source Dataset
 When I click a displayed datasets option
 When I click the Select source datasets cancel link
 Then I redirected to the Specification data relationships page
 
 @Workitem:38338 Driver
 Scenario: Save a Dataset Source Selection to Dataset
-Given I have navigated to the Select Source Dataset
+Given I have already created a Specification with the appropruiate dataset associated
+And I have navigated to the Select Source Dataset
 When I click a displayed datasets option
 And I have selected a data source version
 When I click the Select source datasets Save button
@@ -257,7 +266,8 @@ And the Specification data relationships page displayed a confirmation message f
 
 @Workitem:38338 Driver
 Scenario: Change and Save a Dataset Source Selection to Dataset
-Given I have navigated to the Change source dataset
+Given I have already created a Specification with the appropruiate dataset & schema associated
+And I have navigated to the Change source dataset
 When I click a different displayed datasets option
 And I have selected the new data source version
 When I click the Select source datasets Save button

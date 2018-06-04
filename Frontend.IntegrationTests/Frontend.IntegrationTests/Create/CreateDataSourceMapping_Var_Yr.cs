@@ -18,9 +18,9 @@ namespace Frontend.IntegrationTests.Create
 {
 
     [Binding]
-    public static class CreateDataSourceMapping
+    public static class CreateDataSourceMapping_VarYr
     {
-        public static void CreateADataSourceMapping()
+        public static void CreateADataSourceMapping_VarYr()
 
         {
             HomePage homepage = new HomePage();
@@ -38,9 +38,12 @@ namespace Frontend.IntegrationTests.Create
             string specCreated = specName.ToString();
             string specCreatedID = specName.ToString().Replace("Test Spec Name ","");
 
+            var specYear = ScenarioContext.Current["SpecificationYear"];
+            string specAcYear = specYear.ToString();
+
             var selectYear = mapdatasourcestodatasetpage.mapDataSourcesSpecficationYearDropDown;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("AY2017181");
+            selectElement.SelectByValue(specAcYear);
             Thread.Sleep(2000);
 
             mapdatasourcestodatasetpage.mapDataSourcesSearchTermField.SendKeys(specCreatedID);

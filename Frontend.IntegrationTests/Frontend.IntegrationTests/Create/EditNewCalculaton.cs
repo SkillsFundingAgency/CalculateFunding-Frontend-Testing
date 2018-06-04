@@ -45,7 +45,7 @@ namespace Frontend.IntegrationTests.Create
             editcalculationspage.CalculationVBTextEditor.SendKeys("Return Datasets." + datasetName + ".HighNeedsStudents1619 + 10");
             Thread.Sleep(2000);
             editcalculationspage.BuildCalculationButton.Click();
-            Thread.Sleep(6000);
+            Thread.Sleep(10000);
 
             IWebElement EditCalculationCompiled = Driver._driver.FindElement(By.Id("compiler-response"));
             string CalculationCompiled = EditCalculationCompiled.Text;

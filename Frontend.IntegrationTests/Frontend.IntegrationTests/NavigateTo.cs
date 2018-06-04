@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using Frontend.IntegrationTests.Pages.View_Results;
 using Frontend.IntegrationTests.Pages.Quality_Assurance;
 using System;
+using TechTalk.SpecFlow;
 
 namespace Frontend.IntegrationTests
 {
@@ -208,11 +209,11 @@ namespace Frontend.IntegrationTests
 
             homepage.ManagetheData.Click();
             managethedatapage.specifyDataSetRelationshipLink.Click();
-            var containerElements = Driver._driver.FindElements(By.Id("dynamic-results-container"));
+            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container .specs-relationship-searchresult-container-item"));
             IWebElement firstAnchorLink = null;
             foreach (var element in containerElements)
             {
-                var pElement = element.FindElement(By.TagName("p"));
+                var pElement = element.FindElement(By.CssSelector("p"));
                 if (pElement != null)
                 {
                     if (pElement.Text.Contains("No data sources mapped to datasets"))
@@ -243,14 +244,24 @@ namespace Frontend.IntegrationTests
             HomePage homepage = new HomePage();
             ManageTheDataPage managethedatapage = new ManageTheDataPage();
             MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
-
+            
             homepage.ManagetheData.Click();
             managethedatapage.specifyDataSetRelationshipLink.Click();
-            var containerElements = Driver._driver.FindElements(By.Id("dynamic-results-container"));
+            Thread.Sleep(5000);
+
+            var specName = ScenarioContext.Current["SpecificationName"];
+            string specCreated = specName.ToString();
+            string specCreatedID = specName.ToString().Replace("Test Spec Name ", "");
+
+            mapdatasourcestodatasetspage.mapDataSourcesSearchTermField.SendKeys(specCreatedID);
+            mapdatasourcestodatasetspage.mapDataSourcesSearchTermButton.Click();
+            Thread.Sleep(2000);
+            
+            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container .specs-relationship-searchresult-container-item"));
             IWebElement firstAnchorLink = null;
             foreach (var element in containerElements)
             {
-                var pElement = element.FindElement(By.TagName("p"));
+                var pElement = element.FindElement(By.CssSelector("p"));
                 if (pElement != null)
                 {
                     if (Regex.IsMatch(pElement.Text, "\\d data source mapped to dataset"))
