@@ -928,7 +928,49 @@
             }
         }
 
+        public static void SelectManageDataPageDataSourceUpdateOption()
+        {
+            ManageDatasetsPage managedatasetpage = new ManageDatasetsPage();
 
+            var containerElements = managedatasetpage.manageDatasetsListView;
+            IWebElement SelectFirstUpdatelink = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains("Update"))
+                        {
+
+                            SelectFirstUpdatelink = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstUpdatelink != null)
+                {
+                    SelectFirstUpdatelink.Click();
+                    Thread.Sleep(2000);
+                }
+                else
+                {
+                    SelectFirstUpdatelink.Should().NotBeNull("No Update link could be successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstUpdatelink.Should().NotBeNull("No Update link could be successfully selected");
+            }
+        }
     }
 }
+
+
+
+
 

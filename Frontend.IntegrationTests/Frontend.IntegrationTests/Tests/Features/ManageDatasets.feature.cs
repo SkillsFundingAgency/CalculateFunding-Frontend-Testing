@@ -1066,6 +1066,116 @@ testRunner.And("The HTTP Status Code is reurned as OK", ((string)(null)), ((Tech
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Upload option on the Manage Datasets page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36846)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheUploadOptionOnTheManageDatasetsPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Upload option on the Manage Datasets page", new string[] {
+                        "Workitem:36846",
+                        "Driver"});
+#line 294
+this.ScenarioSetup(scenarioInfo);
+#line 295
+testRunner.Given("I have navigated to the Manage Datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 296
+testRunner.Then("the page displays a list view of all data sets that have been uploaded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 297
+testRunner.And("an option to update the datasource is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("View the Update data source page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36846)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ViewTheUpdateDataSourcePage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View the Update data source page", new string[] {
+                        "Workitem:36846",
+                        "Driver"});
+#line 300
+this.ScenarioSetup(scenarioInfo);
+#line 301
+testRunner.Given("I have navigated to the Manage Datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 302
+testRunner.When("I click on the Update Link for a Dataset", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 303
+testRunner.Then("I am sucessfully redirected to the Update data source page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Update data source page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36846)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheUpdateDataSourcePage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Update data source page", new string[] {
+                        "Workitem:36846",
+                        "Driver"});
+#line 306
+this.ScenarioSetup(scenarioInfo);
+#line 307
+testRunner.Given("I have navigated to the Manage Datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 308
+testRunner.And("I have selected a Dataset to Update", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 309
+testRunner.Then("I am sucessfully redirected to the Update data source page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 310
+testRunner.And("the selected Dataset information is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 311
+testRunner.And("an opion to update the Description is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 312
+testRunner.And("an option to add a Change note is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 313
+testRunner.And("a Browser for file button is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 314
+testRunner.And("an Update Dataset Button is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 315
+testRunner.And("a Cancel change link is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Successfully Cancel an Update to an Existing data source")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36846)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SuccessfullyCancelAnUpdateToAnExistingDataSource()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Cancel an Update to an Existing data source", new string[] {
+                        "Workitem:36846",
+                        "Driver"});
+#line 318
+this.ScenarioSetup(scenarioInfo);
+#line 319
+testRunner.Given("I have navigated to the Manage Datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 320
+testRunner.And("I have selected a Dataset to Update", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 321
+testRunner.Then("I am sucessfully redirected to the Update data source page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 322
+testRunner.And("the selected Dataset information is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 323
+testRunner.When("I update the Dataset Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 324
+testRunner.And("I add a Change note", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 325
+testRunner.And("I click the Update Dataset Cancel Link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 326
+testRunner.Then("I am redirected back to the Manage Datasets Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

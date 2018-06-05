@@ -59,6 +59,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.LinkText, Using = "Download")]
         public IWebElement manageDatasetsDownloadLink { get; set; }
 
+        [FindsBy(How = How.LinkText, Using = "Update")]
+        public IWebElement manageDatasetsUpdateLink { get; set; }
+
 
 
 

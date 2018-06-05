@@ -84,6 +84,7 @@
     <Compile Include="Create\CreateDataSourceMapping_Var_Yr.cs" />
     <Compile Include="Create\CreateDataSourceMapping.cs" />
     <Compile Include="Create\CreateNewSpecification_Var_Yr.cs.cs" />
+    <Compile Include="Create\ManageSpecificationCreateNewCalculationSpecification_Number.cs" />
     <Compile Include="Create\ValidateQATest_MissingFields.cs" />
     <Compile Include="Create\ValidateQATest.cs" />
     <Compile Include="Create\CreateNewQATest.cs" />
@@ -114,11 +115,13 @@
     <Compile Include="Pages\Manage Datasets\SelectedSpecificationDataSourcePage.cs" />
     <Compile Include="Pages\Manage Datasets\SelectSourceDatasetsPage.cs" />
     <Compile Include="Pages\Manage Datasets\SpecifyDatasetRelationshipsPage.cs" />
+    <Compile Include="Pages\Manage Datasets\UpdateDatasetPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateCalculationPage.cs" />
     <Compile Include="Pages\Manage Specification\CreatePolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateSpecificationPage.cs" />
     <Compile Include="Pages\Manage Specification\CreateSubPolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\Edit PolicyPage.cs" />
+    <Compile Include="Pages\Manage Specification\EditCalculationPage.cs" />
     <Compile Include="Pages\Manage Specification\EditSpecificationPage.cs" />
     <Compile Include="Pages\Manage Specification\EditSubPolicyPage.cs" />
     <Compile Include="Pages\Manage Specification\ManagePoliciesPage.cs" />

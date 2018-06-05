@@ -523,3 +523,83 @@ And click the Update Specification Button
 Then I am redirected back to the Manage Polices Page
 And the Specification is correctly updated
 And the Specification Funding Period has correctly updated
+
+@Workitem:49361 Driver
+Scenario: Verify Edit Calculation Specification option within Manage Policies Page
+Given I have created a new specification
+And I have created a new policy
+And I have created a new calculation specification
+When I click on the calculation specifcation within the Manage Policies Page
+Then I am redirected successfully to the Edit Calculation Specifcation Page
+
+@Workitem:49361 Driver
+Scenario: Validate Edit Calculation Specification Page when the Calculation Type is Funding
+Given I have successfully created a new Calculation Specification
+And I have navigated to the Edit Calculation Page
+Then the option to edit the Calculation Specification Name is displayed
+And the option to edit the Calculation Specification Description is displayed
+And the option to edit the Calculation Specification Policy or Sub Policy is displayed
+And the option to edit the Calculation Specification Calculation Type is displayed
+And the option to edit the Calculation Specification Allocation Line is displayed
+And an option to Save the Changes is displayed
+And an option to cancel the changes is displayed
+
+@Workitem:49361 Driver
+Scenario: Validate Edit Calculation Specification Page when the Calculation Type is Number
+Given I have successfully created a new Calculation Specification with Calculation Type of Number
+And I have navigated to the Edit Calculation Page
+Then the option to edit the Calculation Specification Name is displayed
+And the option to edit the Calculation Specification Description is displayed
+And the option to edit the Calculation Specification Policy or Sub Policy is displayed
+And the option to edit the Calculation Specification Calculation Type is displayed
+And an option to Save the Changes is displayed
+And an option to cancel the changes is displayed
+
+@Workitem:49361 Driver
+Scenario: Edit an existing Calculation Specification Name
+Given I have successfully created a new Calculation Specification
+And I have navigated to the Edit Calculation Page
+When I update the existing Calculation Specificaton Name
+Then I am redirected to the Manage Policies Page
+And the Calculation Specification Name has been successfully updated
+
+@Workitem:49361 Driver
+Scenario: Edit an existing Calculation Specification Description
+Given I have successfully created a new Calculation Specification
+And I have navigated to the Edit Calculation Page
+When I update the existing Calculation Specificaton Description
+Then I am redirected to the Manage Policies Page
+And the Calculation Specification Description has been successfully updated
+
+@Workitem:49361 Driver
+Scenario: Edit an existing Calculation Specifications Allocation Line where the Calculation Type is Funding
+Given I have successfully created a new Calculation Specification
+And I have navigated to the Edit Calculation Page
+When I update the existing Calculation Specificaton Allocation Line 
+Then I am redirected to the Manage Policies Page
+And the Calculation Specification has been successfully updated
+
+@Workitem:49361 Driver
+Scenario: Edit an existing Calculation Specifications Calculation Type
+Given I have successfully created a new Calculation Specification
+And I have navigated to the Edit Calculation Page
+When I update the existing Calculation Specificaton Calculation Type 
+Then I am redirected to the Manage Policies Page
+And the Calculation Specification has been successfully updated
+
+@Workitem:49361 Driver
+Scenario: Edit an existing Calculation Specifications Policy
+Given I have successfully created a new Calculation Specification
+And I then create an additional Policy for the Specification
+And I have navigated to the Edit Calculation Page
+When I update the existing Calculation Specificaton Associated Policy
+Then I am redirected to the Manage Policies Page
+And the Calculation Specification associated policy has been successfully updated
+
+@Workitem:49361 Driver
+Scenario: Cancel an Edit to an existing Calculation Specification
+Given I have successfully created a new Calculation Specification
+And I have navigated to the Edit Calculation Page
+When I update the existing Calculation Specificaton
+And select to Cancel the edit
+Then I am redirected to the Manage Policies Page

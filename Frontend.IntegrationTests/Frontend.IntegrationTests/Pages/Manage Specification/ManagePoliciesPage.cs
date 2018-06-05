@@ -59,6 +59,11 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.CssSelector, Using = "p.hero-text:nth-child(1)")]
         public IWebElement specificationFundingPeriod { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".notification-panel-text")]
+        public IWebElement editNotificationPanel { get; set; }
+
+        
+
 
 
 

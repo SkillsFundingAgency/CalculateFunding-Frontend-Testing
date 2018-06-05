@@ -289,3 +289,39 @@ And An option to download the datasource is displayed
 When I click the Download link for a Data Source
 Then The Download reddirect URL from Blogstorage is correctly generated
 And The HTTP Status Code is reurned as OK
+
+@Workitem:36846 Driver
+Scenario: Verify the Upload option on the Manage Datasets page
+Given I have navigated to the Manage Datasets page
+Then the page displays a list view of all data sets that have been uploaded
+And an option to update the datasource is displayed
+
+@Workitem:36846 Driver
+Scenario: View the Update data source page
+Given I have navigated to the Manage Datasets page
+When I click on the Update Link for a Dataset
+Then I am sucessfully redirected to the Update data source page
+
+@Workitem:36846 Driver
+Scenario: Verify the Update data source page
+Given I have navigated to the Manage Datasets page
+And I have selected a Dataset to Update
+Then I am sucessfully redirected to the Update data source page
+And the selected Dataset information is displayed correctly
+And an opion to update the Description is displayed
+And an option to add a Change note is displayed
+And a Browser for file button is displayed
+And an Update Dataset Button is displayed 
+And a Cancel change link is displayed
+
+@Workitem:36846 Driver
+Scenario: Successfully Cancel an Update to an Existing data source
+Given I have navigated to the Manage Datasets page
+And I have selected a Dataset to Update
+Then I am sucessfully redirected to the Update data source page
+And the selected Dataset information is displayed correctly
+When I update the Dataset Description
+And I add a Change note
+And I click the Update Dataset Cancel Link
+Then I am redirected back to the Manage Datasets Page
+

@@ -1899,6 +1899,263 @@ testRunner.And("the Specification Funding Period has correctly updated", ((strin
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify Edit Calculation Specification option within Manage Policies Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49361)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyEditCalculationSpecificationOptionWithinManagePoliciesPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Edit Calculation Specification option within Manage Policies Page", new string[] {
+                        "Workitem:49361",
+                        "Driver"});
+#line 528
+this.ScenarioSetup(scenarioInfo);
+#line 529
+testRunner.Given("I have created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 530
+testRunner.And("I have created a new policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 531
+testRunner.And("I have created a new calculation specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 532
+testRunner.When("I click on the calculation specifcation within the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 533
+testRunner.Then("I am redirected successfully to the Edit Calculation Specifcation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate Edit Calculation Specification Page when the Calculation Type is Funding" +
+            "")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49361)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateEditCalculationSpecificationPageWhenTheCalculationTypeIsFunding()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Edit Calculation Specification Page when the Calculation Type is Funding" +
+                    "", new string[] {
+                        "Workitem:49361",
+                        "Driver"});
+#line 536
+this.ScenarioSetup(scenarioInfo);
+#line 537
+testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 538
+testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 539
+testRunner.Then("the option to edit the Calculation Specification Name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 540
+testRunner.And("the option to edit the Calculation Specification Description is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 541
+testRunner.And("the option to edit the Calculation Specification Policy or Sub Policy is displaye" +
+                    "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 542
+testRunner.And("the option to edit the Calculation Specification Calculation Type is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 543
+testRunner.And("the option to edit the Calculation Specification Allocation Line is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 544
+testRunner.And("an option to Save the Changes is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 545
+testRunner.And("an option to cancel the changes is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate Edit Calculation Specification Page when the Calculation Type is Number")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49361)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateEditCalculationSpecificationPageWhenTheCalculationTypeIsNumber()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Edit Calculation Specification Page when the Calculation Type is Number", new string[] {
+                        "Workitem:49361",
+                        "Driver"});
+#line 548
+this.ScenarioSetup(scenarioInfo);
+#line 549
+testRunner.Given("I have successfully created a new Calculation Specification with Calculation Type" +
+                    " of Number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 550
+testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 551
+testRunner.Then("the option to edit the Calculation Specification Name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 552
+testRunner.And("the option to edit the Calculation Specification Description is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 553
+testRunner.And("the option to edit the Calculation Specification Policy or Sub Policy is displaye" +
+                    "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 554
+testRunner.And("the option to edit the Calculation Specification Calculation Type is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 555
+testRunner.And("an option to Save the Changes is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 556
+testRunner.And("an option to cancel the changes is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit an existing Calculation Specification Name")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49361)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditAnExistingCalculationSpecificationName()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit an existing Calculation Specification Name", new string[] {
+                        "Workitem:49361",
+                        "Driver"});
+#line 559
+this.ScenarioSetup(scenarioInfo);
+#line 560
+testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 561
+testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 562
+testRunner.When("I update the existing Calculation Specificaton Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 563
+testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 564
+testRunner.And("the Calculation Specification Name has been successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit an existing Calculation Specification Description")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49361)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditAnExistingCalculationSpecificationDescription()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit an existing Calculation Specification Description", new string[] {
+                        "Workitem:49361",
+                        "Driver"});
+#line 567
+this.ScenarioSetup(scenarioInfo);
+#line 568
+testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 569
+testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 570
+testRunner.When("I update the existing Calculation Specificaton Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 571
+testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 572
+testRunner.And("the Calculation Specification Description has been successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit an existing Calculation Specifications Allocation Line where the Calculation" +
+            " Type is Funding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49361)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditAnExistingCalculationSpecificationsAllocationLineWhereTheCalculationTypeIsFunding()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit an existing Calculation Specifications Allocation Line where the Calculation" +
+                    " Type is Funding", new string[] {
+                        "Workitem:49361",
+                        "Driver"});
+#line 575
+this.ScenarioSetup(scenarioInfo);
+#line 576
+testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 577
+testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 578
+testRunner.When("I update the existing Calculation Specificaton Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 579
+testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 580
+testRunner.And("the Calculation Specification has been successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit an existing Calculation Specifications Calculation Type")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49361)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditAnExistingCalculationSpecificationsCalculationType()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit an existing Calculation Specifications Calculation Type", new string[] {
+                        "Workitem:49361",
+                        "Driver"});
+#line 583
+this.ScenarioSetup(scenarioInfo);
+#line 584
+testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 585
+testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 586
+testRunner.When("I update the existing Calculation Specificaton Calculation Type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 587
+testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 588
+testRunner.And("the Calculation Specification has been successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit an existing Calculation Specifications Policy")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49361)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditAnExistingCalculationSpecificationsPolicy()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit an existing Calculation Specifications Policy", new string[] {
+                        "Workitem:49361",
+                        "Driver"});
+#line 591
+this.ScenarioSetup(scenarioInfo);
+#line 592
+testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 593
+testRunner.And("I then create an additional Policy for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 594
+testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 595
+testRunner.When("I update the existing Calculation Specificaton Associated Policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 596
+testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 597
+testRunner.And("the Calculation Specification associated policy has been successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Cancel an Edit to an existing Calculation Specification")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49361)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void CancelAnEditToAnExistingCalculationSpecification()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cancel an Edit to an existing Calculation Specification", new string[] {
+                        "Workitem:49361",
+                        "Driver"});
+#line 600
+this.ScenarioSetup(scenarioInfo);
+#line 601
+testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 602
+testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 603
+testRunner.When("I update the existing Calculation Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 604
+testRunner.And("select to Cancel the edit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 605
+testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

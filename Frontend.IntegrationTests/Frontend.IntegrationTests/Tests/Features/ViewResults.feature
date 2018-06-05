@@ -203,6 +203,7 @@ Examples:
 	 | AY2018191	|
 	 | FY2017181	|
 	 | FY2018191	|
+	 | AY2017181	|
 	 
 @Workitem:39520 Driver
 Scenario Outline: Change Current list of QA Tests by Specification

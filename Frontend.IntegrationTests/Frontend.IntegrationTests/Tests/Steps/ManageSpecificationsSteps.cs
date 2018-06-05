@@ -30,6 +30,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         EditSubPolicyPage editsubpolicypage = new EditSubPolicyPage();
         EditSpecificationPage editspecificationpage = new EditSpecificationPage();
         HomePage homepage = new HomePage();
+        EditCalculationPage editcalculationpage = new EditCalculationPage();
 
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
@@ -1360,12 +1361,12 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 }
                 else
                 {
-                    firstSelectEditPolicy.Should().NotBeNull("Edit Sub Policy Name has is not displayed correctly");
+                    firstSelectEditPolicy.Should().NotBeNull("Edit Sub Policy Description has is not displayed correctly");
                 }
             }
             else
             {
-                firstSelectEditPolicy.Should().NotBeNull("Edit Sub Policy Name has Failed");
+                firstSelectEditPolicy.Should().NotBeNull("Edit Sub Policy Description has Failed");
             }
         }
 
@@ -1620,6 +1621,309 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [Given(@"I have created a new policy")]
+        public void GivenIHaveCreatedANewPolicy()
+        {
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+        }
+
+        [Given(@"I have created a new calculation specification")]
+        public void GivenIHaveCreatedANewCalculationSpecification()
+        {
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+        }
+
+        [When(@"I click on the calculation specifcation within the Manage Policies Page")]
+        public void WhenIClickOnTheCalculationSpecifcationWithinTheManagePoliciesPage()
+        {
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+
+            IWebElement calcSpecCreated = Driver._driver.FindElement(By.LinkText(specCalcCreated));
+            calcSpecCreated.Should().NotBeNull();
+            string calcSpecText = calcSpecCreated.Text;
+            Console.WriteLine("Calculation Specification Selected to Edit: " + calcSpecText);
+            calcSpecCreated.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected successfully to the Edit Calculation Specifcation Page")]
+        public void ThenIAmRedirectedSuccessfullyToTheEditCalculationSpecifcationPage()
+        {
+            editcalculationpage.editCalculationName.Should().NotBeNull();
+        }
+
+        [Given(@"I have successfully created a new Calculation Specification")]
+        public void GivenIHaveSuccessfullyCreatedANewCalculationSpecification()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+
+        }
+
+        [Given(@"I have successfully created a new Calculation Specification with Calculation Type of Number")]
+        public void GivenIHaveSuccessfullyCreatedANewCalculationSpecificationWithCalculationTypeOfNumber()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewCalculationSpecification_Number.CreateANewSpecificationPolicy_Number();
+        }
+
+
+        [Given(@"I have navigated to the Edit Calculation Page")]
+        public void GivenIHaveNavigatedToTheEditCalculationPage()
+        {
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+
+            IWebElement calcSpecCreated = Driver._driver.FindElement(By.LinkText(specCalcCreated));
+            calcSpecCreated.Should().NotBeNull();
+            string calcSpecText = calcSpecCreated.Text;
+            Console.WriteLine("Calculation Specification Selected to Edit: " + calcSpecText);
+            calcSpecCreated.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the option to edit the Calculation Specification Name is displayed")]
+        public void ThenTheOptionToEditTheCalculationSpecificationNameIsDisplayed()
+        {
+            editcalculationpage.editCalculationName.Should().NotBeNull();
+        }
+
+        [Then(@"the option to edit the Calculation Specification Description is displayed")]
+        public void ThenTheOptionToEditTheCalculationSpecificationDescriptionIsDisplayed()
+        {
+            editcalculationpage.editCalculationDescription.Should().NotBeNull();
+        }
+
+        [Then(@"the option to edit the Calculation Specification Policy or Sub Policy is displayed")]
+        public void ThenTheOptionToEditTheCalculationSpecificationPolicyOrSubPolicyIsDisplayed()
+        {
+            editcalculationpage.editCalculationPolicy.Should().NotBeNull();
+        }
+
+        [Then(@"the option to edit the Calculation Specification Calculation Type is displayed")]
+        public void ThenTheOptionToEditTheCalculationSpecificationCalculationTypeIsDisplayed()
+        {
+            editcalculationpage.editCalculationCalculationType.Should().NotBeNull();
+        }
+
+        [Then(@"the option to edit the Calculation Specification Allocation Line is displayed")]
+        public void ThenTheOptionToEditTheCalculationSpecificationAllocationLineIsDisplayed()
+        {
+            editcalculationpage.editCalculationAllocationLine.Should().NotBeNull();
+        }
+
+        [Then(@"an option to Save the Changes is displayed")]
+        public void ThenAnOptionToSaveTheChangesIsDisplayed()
+        {
+            editcalculationpage.editCalculationSave.Should().NotBeNull();
+        }
+
+        [Then(@"an option to cancel the changes is displayed")]
+        public void ThenAnOptionToCancelTheChangesIsDisplayed()
+        {
+            editcalculationpage.editCalculationCancel.Should().NotBeNull();
+        }
+
+        [When(@"I update the existing Calculation Specificaton Name")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonName()
+        {
+            string newname = "Test Calculation Name Edit ";
+            var editSpecCalcName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["SpecCalcName"] = editSpecCalcName;
+
+            editcalculationpage.editCalculationName.Clear();
+            editcalculationpage.editCalculationName.SendKeys(editSpecCalcName);
+
+            editcalculationpage.editCalculationSave.Click();
+            Thread.Sleep(2000);            
+        }
+
+        [Then(@"the Calculation Specification Name has been successfully updated")]
+        public void ThenTheCalculationSpecificationNameHasBeenSuccessfullyUpdated()
+        {
+            var newspecCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcEdited = newspecCalcName.ToString();
+
+            IWebElement calcSpecCreated = Driver._driver.FindElement(By.LinkText(specCalcEdited));
+            calcSpecCreated.Should().NotBeNull();
+            string calcSpecText = calcSpecCreated.Text;
+            Console.WriteLine("The Calculation Specification has been successully updated to: " + calcSpecText);
+
+            managepoliciespage.editNotificationPanel.Should().NotBeNull();
+            string editnotification = managepoliciespage.editNotificationPanel.Text;
+            Console.WriteLine("Notification was displayed correctly to confirm the Edit with the message: " + editnotification);
+
+        }
+
+        [When(@"I update the existing Calculation Specificaton Description")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonDescription()
+        {
+            string descriptiontext = "This is an Edited Description for: ";
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+            string newdescription = descriptiontext + specCalcCreated;
+            ScenarioContext.Current["EditSpecCalcDesc"] = newdescription;
+
+            editcalculationpage.editCalculationDescription.Clear();
+            editcalculationpage.editCalculationDescription.SendKeys(newdescription);
+
+            editcalculationpage.editCalculationSave.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Calculation Specification Description has been successfully updated")]
+        public void ThenTheCalculationSpecificationDescriptionHasBeenSuccessfullyUpdated()
+        {
+            var newspecCalcDesc = ScenarioContext.Current["EditSpecCalcDesc"];
+            string specCalcDescEdited = newspecCalcDesc.ToString();
+
+            IWebElement policyList = managepoliciespage.PolicyList;
+            policyList.Should().NotBeNull();
+
+            var containerElements = policyList;
+            IWebElement firstSelectEditCalc = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("td"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+
+                        if (optionelement.Text.Contains(specCalcDescEdited))
+                        {
+                            {
+                                firstSelectEditCalc = optionelement;
+
+                                break;
+                            }
+                        }
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectEditCalc != null)
+                {
+                    string updatedDescription = firstSelectEditCalc.Text;
+                    Console.WriteLine("The Specification Calculation Description has been updated to: " + updatedDescription);
+
+                    managepoliciespage.editNotificationPanel.Should().NotBeNull();
+                    string editnotification = managepoliciespage.editNotificationPanel.Text;
+                    Console.WriteLine("Notification was displayed correctly to confirm the Edit with the message: " + editnotification);
+                }
+                else
+                {
+                    firstSelectEditCalc.Should().NotBeNull("Edit Specification Calculation Description has is not displayed correctly");
+                }
+            }
+            else
+            {
+                firstSelectEditCalc.Should().NotBeNull("Edit Specification Calculation Description has Failed");
+            }
+        }
+
+        [When(@"I update the existing Calculation Specificaton Allocation Line")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonAllocationLine()
+        {
+            var allocation = editcalculationpage.editCalculationAllocationLine;
+            var selectElement01 = new SelectElement(allocation);
+            selectElement01.SelectByValue("YPA07");
+
+            editcalculationpage.editCalculationSave.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Calculation Specification has been successfully updated")]
+        public void ThenTheCalculationSpecificationHasBeenSuccessfullyUpdated()
+        {
+            managepoliciespage.editNotificationPanel.Should().NotBeNull();
+            string editnotification = managepoliciespage.editNotificationPanel.Text;
+            Console.WriteLine("Notification was displayed correctly to confirm the Edit with the message: " + editnotification);
+        }
+
+        [When(@"I update the existing Calculation Specificaton Calculation Type")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonCalculationType()
+        {
+            var calctype = editcalculationpage.editCalculationCalculationType;
+            var selectElement = new SelectElement(calctype);
+            selectElement.SelectByValue("Number");
+
+            editcalculationpage.editCalculationSave.Click();
+            Thread.Sleep(2000);
+        }
+        
+        [When(@"I update the existing Calculation Specificaton Associated Policy")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonAssociatedPolicy()
+        {
+            var addSpecPolicyName = ScenarioContext.Current["AddSpecPolicyName"];
+            string addSpecPolicyCreated = addSpecPolicyName.ToString();
+
+            var containerElements = Driver._driver.FindElement(By.Id("EditCalculationViewModel-PolicyId"));
+            IWebElement firstSelectPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains(addSpecPolicyCreated))
+                        {
+                            {
+                                firstSelectPolicy = optionelement;
+                                break;
+                            }
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectPolicy != null)
+                {
+                    firstSelectPolicy.Click();
+                    string selectedPolicy = firstSelectPolicy.Text;
+                    Console.WriteLine("New Policy selected to Associate the Calculation to is: " + selectedPolicy);
+                    editcalculationpage.editCalculationSave.Click();
+                    Thread.Sleep(2000);
+                }
+                else
+                {
+                    firstSelectPolicy.Should().NotBeNull("No Policy exists that can be selected");
+                }
+            }
+            else
+            {
+                firstSelectPolicy.Should().NotBeNull("No Policy exists that can be selected");
+            }
+        }
+
+        [Then(@"the Calculation Specification associated policy has been successfully updated")]
+        public void ThenTheCalculationSpecificationAssociatedPolicyHasBeenSuccessfullyUpdated()
+        {
+            managepoliciespage.editNotificationPanel.Should().NotBeNull();
+            string editnotification = managepoliciespage.editNotificationPanel.Text;
+            Console.WriteLine("Notification was displayed correctly to confirm the Edit with the message: " + editnotification);
+        }
+
+        [When(@"I update the existing Calculation Specificaton")]
+        public void WhenIUpdateTheExistingCalculationSpecificaton()
+        {
+            string newname = "Test Calculation Name Edit ";
+            var editSpecCalcName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["SpecCalcName"] = editSpecCalcName;
+
+            editcalculationpage.editCalculationName.Clear();
+            editcalculationpage.editCalculationName.SendKeys(editSpecCalcName);
+        }
+
+        [When(@"select to Cancel the edit")]
+        public void WhenSelectToCancelTheEdit()
+        {
+            editcalculationpage.editCalculationCancel.Click();
+            Thread.Sleep(2000);
+        }
 
 
         [AfterScenario()]

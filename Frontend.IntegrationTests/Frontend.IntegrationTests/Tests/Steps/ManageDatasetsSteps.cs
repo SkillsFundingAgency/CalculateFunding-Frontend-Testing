@@ -29,6 +29,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
         SelectedSpecificationDataSourcePage selectedspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
         SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
+        UpdateDatasetPage updatedatasetpage = new UpdateDatasetPage();
 
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
@@ -927,6 +928,111 @@ namespace Frontend.IntegrationTests.Tests.Steps
             //Validation for this step is carried out within Actions.SelectManageDataPageDataSourceDownloadoption();
             //See the "File downloaded successfully. Filename = " Test Output row
         }
+
+        [Then(@"an option to update the datasource is displayed")]
+        public void ThenAnOptionToUpdateTheDatasourceIsDisplayed()
+        {
+            managedatasetpage.manageDatasetsUpdateLink.Should().NotBeNull();
+
+        }
+
+        [When(@"I click on the Update Link for a Dataset")]
+        public void WhenIClickOnTheUpdateLinkForADataset()
+        {
+            Thread.Sleep(2000);
+            Actions.SelectManageDataPageDataSourceUpdateOption();
+        }
+
+        [Then(@"I am sucessfully redirected to the Update data source page")]
+        public void ThenIAmSucessfullyRedirectedToTheUpdateDataSourcePage()
+        {
+            updatedatasetpage.updateDataSetDescription.Should().NotBeNull();
+        }
+
+        [Given(@"I have selected a Dataset to Update")]
+        public void GivenIHaveSelectedADatasetToUpdate()
+        {
+            Thread.Sleep(2000);
+            Actions.SelectManageDataPageDataSourceUpdateOption();
+        }
+
+        [Then(@"the selected Dataset information is displayed correctly")]
+        public void ThenTheSelectedDatasetInformationIsDisplayedCorrectly()
+        {
+            IWebElement datasetNameVersion = updatedatasetpage.updateDataSetNameVersion;
+            datasetNameVersion.Should().NotBeNull();
+            string datasetNameText = datasetNameVersion.Text;
+            Console.WriteLine("Dataset Selected to Update is: " + datasetNameText);
+            
+            IWebElement datasetUser = updatedatasetpage.updateDataSetUser;
+            datasetUser.Should().NotBeNull();
+            string datasetUserText = datasetUser.Text;
+            Console.WriteLine("Dataset Last Updated by: " + datasetUserText);
+
+            IWebElement datasetLastUpdate = updatedatasetpage.updateDataSetLastUpdated;
+            datasetLastUpdate.Should().NotBeNull();
+            string datasetLastDate = datasetLastUpdate.Text;
+            Console.WriteLine("Dataset Last Updated Date is: " + datasetLastDate);
+
+        }
+
+
+        [Then(@"an opion to update the Description is displayed")]
+        public void ThenAnOpionToUpdateTheDescriptionIsDisplayed()
+        {
+            updatedatasetpage.updateDataSetDescription.Should().NotBeNull();        }
+
+        [Then(@"an option to add a Change note is displayed")]
+        public void ThenAnOptionToAddAChangeNoteIsDisplayed()
+        {
+            updatedatasetpage.updateDataSetChangeNote.Should().NotBeNull();
+        }
+
+        [Then(@"a Browser for file button is displayed")]
+        public void ThenABrowserForFileButtonIsDisplayed()
+        {
+            updatedatasetpage.updateDataSetBrowseButton.Should().NotBeNull();
+        }
+
+        [Then(@"an Update Dataset Button is displayed")]
+        public void ThenAnUpdateDatasetButtonIsDisplayed()
+        {
+            updatedatasetpage.updateDataSetUpdateButton.Should().NotBeNull();
+        }
+
+        [Then(@"a Cancel change link is displayed")]
+        public void ThenACancelChangeLinkIsDisplayed()
+        {
+            updatedatasetpage.updateDataSetCancelLink.Should().NotBeNull();
+        }
+
+        [When(@"I update the Dataset Description")]
+        public void WhenIUpdateTheDatasetDescription()
+        {
+            updatedatasetpage.updateDataSetDescription.Clear();
+            updatedatasetpage.updateDataSetDescription.SendKeys("This is An Updated Dataset Description");
+        }
+
+        [When(@"I add a Change note")]
+        public void WhenIAddAChangeNote()
+        {
+            updatedatasetpage.updateDataSetChangeNote.Clear();
+            updatedatasetpage.updateDataSetChangeNote.SendKeys("This is An Updated Dataset Change note");
+        }
+
+        [When(@"I click the Update Dataset Cancel Link")]
+        public void WhenIClickTheUpdateDatasetCancelLink()
+        {
+            updatedatasetpage.updateDataSetCancelLink.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected back to the Manage Datasets Page")]
+        public void ThenIAmRedirectedBackToTheManageDatasetsPage()
+        {
+            managedatasetpage.manageDatasetsListView.Should().NotBeNull();
+        }
+
 
 
 
