@@ -11,7 +11,7 @@ Then I am redirected to the Manage Specification page
 And The Default Specification Year is displayed correctly
 And A list of Specifications is displayed for the default year
 
-@Workitem:35394 Driver
+@Workitem:35394 49352 Driver
 Scenario: Change Current list of Specifications by Year
 Given I have successfully navigated to the Manage Specification Page
 When I change the Select A Year drop down to a different year
@@ -603,3 +603,76 @@ And I have navigated to the Edit Calculation Page
 When I update the existing Calculation Specificaton
 And select to Cancel the edit
 Then I am redirected to the Manage Policies Page
+
+@Workitem:49352 Driver
+Scenario: Filter Specifications list by Funding Stream
+Given I have successfully navigated to the Manage Specification Page
+When I choose to filter the list by Funding Stream
+Then the list of specifications refreshes to display the filtered selection
+
+@Workitem:49352 Driver
+Scenario: Filter Specifications list by Status
+Given I have successfully navigated to the Manage Specification Page
+When I choose to filter the list by Status
+Then the list of specifications refreshes to display the filtered selection
+
+@Workitem:49352 Driver
+Scenario: Clear All Filters selected for the Specifications list
+Given I have successfully navigated to the Manage Specification Page
+And I choose to filter the list
+When I choose the Clear Filter option
+Then the list of specifications refreshes to display all the specifications available
+
+@Workitem:49352 Driver
+Scenario: Verify the Specifications list Column Headers
+Given I have successfully navigated to the Manage Specification Page
+Then the list of specifications is displayed
+And the following Headers are correctly displayed
+
+@Workitem:49352 Driver
+Scenario: Verify the Specifications list is displayed in descending order
+Given I have successfully navigated to the Manage Specification Page
+Then the list of specifications is displayed
+And the displayed in descending order by Last Edit Date
+
+@Workitem:49352 Driver
+Scenario: Verify the Specifications list Column Infomation
+Given I have successfully navigated to the Manage Specification Page
+Then the list of specifications is displayed
+And the following Headers are correctly displayed
+And the Information in each column is displayed correctly
+
+@Workitem:49352 Driver
+Scenario: Verify the Specifications list More Infomation is Displayed correctly
+Given I have successfully navigated to the Manage Specification Page
+When I click on the More Option in for a specific Specification
+Then the description of that specification is displayed
+And the funding stream associated with the specification is displayed
+And the funding period associated with the specification is displayed
+And there is an option to edit the specification displayed
+
+@Workitem:49356 Driver
+Scenario: Verify the Manage Policies List Column Headers
+Given I have successfully navigated to the Manage Policies Page
+Then the list of associated Polcies and Calculations are displayed
+And the following Specification related Headers are correctly displayed
+
+@Workitem:49356 Driver
+Scenario: Validate the Policy Data displayed within the Manage Policies List
+Given I have successfully navigated to the Manage Policies Page
+Then the list of associated Polcies and Calculations are displayed
+And the associated policies are displayed as rows in my table
+And the name of the policy is displayed
+And the description of the policy is displayed
+And the last edited date time for the policy is displayed
+And there is the ability to view more information about the policy
+
+@Workitem:49356 Driver
+Scenario: Validate the Calculation Data displayed within the Manage Policies List
+Given I have successfully navigated to the Manage Policies Page
+Then the list of associated Polcies and Calculations are displayed
+And the associated calculations are displayed as rows in my table
+And I am able to see the name of the calculation specifications
+And the description of the calculation specification is displayed
+And I am able to select to view more details about the calculations specification
+And the type of the calculation specification is displayed

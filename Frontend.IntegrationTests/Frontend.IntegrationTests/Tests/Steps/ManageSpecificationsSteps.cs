@@ -14,6 +14,7 @@ using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Bindings;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Frontend.IntegrationTests.Tests.Steps
 {
@@ -62,9 +63,15 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I change the Select A Year drop down to a different year")]
         public void WhenIChangeTheSelectAYearDropDownToADifferentYear()
         {
-            var selectYear = managespecficationpage.SelectYear;
-            var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("FY2017181");
+            IWebElement filtercontainer = managespecficationpage.SpecificationFilterContainer;
+            IWebElement fundingperiodfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingperiodfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string fundingperiodselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Period Filter Option selected = " + fundingperiodselected);
+            selectfilteroption.Click();
+            managespecficationpage.SearchSpecification.Click();
             Thread.Sleep(2000);
         }
 
@@ -1569,7 +1576,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         [Then(@"an Alert is displayed warning that no Funding Streams are associated to the specification")]
         public void ThenAnAlertIsDisplayedWarningThatNoFundingStreamsAreAssociatedToTheSpecification()
-        {           
+        {
             IWebElement noFundingStreamAlert = editspecificationpage.editSpecificationFundingStreamRemovedAlert;
             noFundingStreamAlert.Should().NotBeNull();
             string noFundingStreamAlertText = noFundingStreamAlert.Text;
@@ -1738,7 +1745,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             editcalculationpage.editCalculationName.SendKeys(editSpecCalcName);
 
             editcalculationpage.editCalculationSave.Click();
-            Thread.Sleep(2000);            
+            Thread.Sleep(2000);
         }
 
         [Then(@"the Calculation Specification Name has been successfully updated")]
@@ -1853,7 +1860,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             editcalculationpage.editCalculationSave.Click();
             Thread.Sleep(2000);
         }
-        
+
         [When(@"I update the existing Calculation Specificaton Associated Policy")]
         public void WhenIUpdateTheExistingCalculationSpecificatonAssociatedPolicy()
         {
@@ -1923,6 +1930,306 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             editcalculationpage.editCalculationCancel.Click();
             Thread.Sleep(2000);
+        }
+
+        [When(@"I choose to filter the list by Funding Stream")]
+        public void WhenIChooseToFilterTheListByFundingStream()
+        {
+            IWebElement totalListCount = managespecficationpage.SpecificationListTotalResultCount;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of specifications is: " + totalCount);
+
+            IWebElement filtercontainer = managespecficationpage.SpecificationFundingStreamsFilter;
+            IWebElement fundingsteamfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingsteamfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string fundingstreamselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Stream Filter Option selected = " + fundingstreamselected);
+            selectfilteroption.Click();
+            managespecficationpage.SearchSpecification.Click();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I choose to filter the list by Status")]
+        public void WhenIChooseToFilterTheListByStatus()
+        {
+            IWebElement totalListCount = managespecficationpage.SpecificationListTotalResultCount;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of specifications is: " + totalCount);
+
+            IWebElement filtercontainer = managespecficationpage.SpecificationStatusFilter;
+            IWebElement statusfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            statusfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string statusselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Stream Filter Option selected = " + statusselected);
+            selectfilteroption.Click();
+            managespecficationpage.SearchSpecification.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the list of specifications refreshes to display the filtered selection")]
+        public void ThenTheListOfSpecificationsRefreshesToDisplayTheFilteredSelection()
+        {
+            IWebElement totalListCount = managespecficationpage.SpecificationListTotalResultCount;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The filtered total count of specifications now is: " + totalCount);
+        }
+
+        [Given(@"I choose to filter the list")]
+        public void GivenIChooseToFilterTheList()
+        {
+            IWebElement filterstatuscontainer = managespecficationpage.SpecificationStatusFilter;
+            IWebElement statusfilter = filterstatuscontainer.FindElement(By.CssSelector("button"));
+            statusfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectstatusfilteroption = filterstatuscontainer.FindElement(By.CssSelector("label"));
+            string statusselected = selectstatusfilteroption.Text;
+            Console.WriteLine("Funding Stream Filter Option selected = " + statusselected);
+            selectstatusfilteroption.Click();
+            managespecficationpage.SearchSpecification.Click();
+            Thread.Sleep(2000);
+
+            IWebElement filterfundingstreamcontainer = managespecficationpage.SpecificationFundingStreamsFilter;
+            IWebElement fundingsteamfilter = filterfundingstreamcontainer.FindElement(By.CssSelector("button"));
+            fundingsteamfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilterstreamoption = filterfundingstreamcontainer.FindElement(By.CssSelector("label"));
+            string fundingstreamselected = selectfilterstreamoption.Text;
+            Console.WriteLine("Funding Stream Filter Option selected = " + fundingstreamselected);
+            selectfilterstreamoption.Click();
+            managespecficationpage.SearchSpecification.Click();
+            Thread.Sleep(2000);
+
+            IWebElement filterfundingperiodcontainer = managespecficationpage.SpecificationFilterContainer;
+            IWebElement fundingperiodfilter = filterfundingperiodcontainer.FindElement(By.CssSelector("button"));
+            fundingperiodfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filterfundingperiodcontainer.FindElement(By.CssSelector("label"));
+            string fundingperiodselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Period Filter Option selected = " + fundingperiodselected);
+            selectfilteroption.Click();
+            managespecficationpage.SearchSpecification.Click();
+            Thread.Sleep(2000);
+
+            IWebElement totalListCount = managespecficationpage.SpecificationListTotalResultCount;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The filtered total count of specifications is: " + totalCount);
+
+        }
+
+        [When(@"I choose the Clear Filter option")]
+        public void WhenIChooseTheClearFilterOption()
+        {
+            managespecficationpage.SpecificationClearFilter.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the list of specifications refreshes to display all the specifications available")]
+        public void ThenTheListOfSpecificationsRefreshesToDisplayAllTheSpecificationsAvailable()
+        {
+            IWebElement totalListCount = managespecficationpage.SpecificationListTotalResultCount;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of specifications is: " + totalCount);
+        }
+
+        [Then(@"the list of specifications is displayed")]
+        public void ThenTheListOfSpecificationsIsDisplayed()
+        {
+            managespecficationpage.SpecificationList.Should().NotBeNull();
+        }
+
+        [Then(@"the following Headers are correctly displayed")]
+        public void ThenTheFollowingHeadersAreCorrectlyDisplayed()
+        {
+            IWebElement specificationlistContainer = managespecficationpage.SpecificationList;
+            var propertyElements = specificationlistContainer.FindElements(By.CssSelector("th"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"the displayed in descending order by Last Edit Date")]
+        public void ThenTheDisplayedInDescendingOrderByLastEditDate()
+        {
+            IWebElement firstResultLastUpdated = managespecficationpage.SpecificationListFirstEditDate;
+            string firstResultUpdatedDate = firstResultLastUpdated.Text;
+            Console.WriteLine(firstResultUpdatedDate);
+            DateTime firstUpdatedDate = DateTime.ParseExact(firstResultUpdatedDate, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+            IWebElement secondResultLastUpdated = managespecficationpage.SpecificationListSecondEditDate;
+            string secondResultUpdatedDate = secondResultLastUpdated.Text;
+            Console.WriteLine(secondResultUpdatedDate);
+            DateTime secondUpdatedDate = DateTime.ParseExact(secondResultUpdatedDate, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+            firstUpdatedDate.Should().BeAfter(secondUpdatedDate, "Dataset List is Ordered Incorrectly");
+
+        }
+
+        [Then(@"the Information in each column is displayed correctly")]
+        public void ThenTheInformationInEachColumnIsDisplayedCorrectly()
+        {
+            IWebElement specificationlistContainer = managespecficationpage.SpecificationList;
+            //IWebElement specificationDetails = specificationlistContainer.FindElement(By.CssSelector("tr"));
+            var propertyElements = specificationlistContainer.FindElements(By.CssSelector("td"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                //currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [When(@"I click on the More Option in for a specific Specification")]
+        public void WhenIClickOnTheMoreOptionInForASpecificSpecification()
+        {
+            managespecficationpage.SpecificationListMoreOption.Click();
+            Thread.Sleep(1000);
+        }
+
+        [Then(@"the description of that specification is displayed")]
+        public void ThenTheDescriptionOfThatSpecificationIsDisplayed()
+        {
+            IWebElement specificationMoreContainer = managespecficationpage.SpecificationListExpandContainer;
+            //IWebElement specificationDetails = specificationlistContainer.FindElement(By.CssSelector("tr"));
+            var propertyElements = specificationMoreContainer.FindElements(By.CssSelector("div"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+
+        }
+
+        [Then(@"the funding stream associated with the specification is displayed")]
+        public void ThenTheFundingStreamAssociatedWithTheSpecificationIsDisplayed()
+        {
+            //Information is written to the Console Output as part of step definition "the description of that specification is displayed"
+        }
+
+        [Then(@"the funding period associated with the specification is displayed")]
+        public void ThenTheFundingPeriodAssociatedWithTheSpecificationIsDisplayed()
+        {
+            //Information is written to the Console Output as part of step definition "the description of that specification is displayed"
+        }
+
+        [Then(@"there is an option to edit the specification displayed")]
+        public void ThenThereIsAnOptionToEditTheSpecificationDisplayed()
+        {
+            //Information is written to the Console Output as part of step definition "the description of that specification is displayed"
+        }
+
+        [Then(@"the list of associated Polcies and Calculations are displayed")]
+        public void ThenTheListOfAssociatedPolciesAndCalculationsAreDisplayed()
+        {
+            managepoliciespage.PolicyList.Should().NotBeNull();
+        }
+
+        [Then(@"the following Specification related Headers are correctly displayed")]
+        public void ThenTheFollowingSpecificationRelatedHeadersAreCorrectlyDisplayed()
+        {
+            IWebElement specificationheaderlist = Driver._driver.FindElement(By.CssSelector("thead.table-primary-border"));
+            string headers = specificationheaderlist.Text;
+            Console.WriteLine("The Manage Policy List Headers Displayed are: " + headers);
+        }
+
+        [Then(@"the associated policies are displayed as rows in my table")]
+        public void ThenTheAssociatedPoliciesAreDisplayedAsRowsInMyTable()
+        {
+            IWebElement policycontainer = managepoliciespage.PolicyList;
+            var propertyElements = policycontainer.FindElements(By.CssSelector("tr.data-policy-container"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+
+        }
+
+        [Then(@"the name of the policy is displayed")]
+        public void ThenTheNameOfThePolicyIsDisplayed()
+        {
+
+        }
+
+        [Then(@"the description of the policy is displayed")]
+        public void ThenTheDescriptionOfThePolicyIsDisplayed()
+        {
+
+        }
+
+        [Then(@"the last edited date time for the policy is displayed")]
+        public void ThenTheLastEditedDateTimeForThePolicyIsDisplayed()
+        {
+
+        }
+
+        [Then(@"there is the ability to view more information about the policy")]
+        public void ThenThereIsTheAbilityToViewMoreInformationAboutThePolicy()
+        {
+
+        }
+
+        [Then(@"the associated calculations are displayed as rows in my table")]
+        public void ThenTheAssociatedCalculationsAreDisplayedAsRowsInMyTable()
+        {
+            IWebElement policycontainer = managepoliciespage.PolicyList;
+            var propertyElements = policycontainer.FindElements(By.CssSelector("tr.cr-table-primary-highlight:nth-child(3)"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                //currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"I am able to see the name of the calculation specifications")]
+        public void ThenIAmAbleToSeeTheNameOfTheCalculationSpecifications()
+        {
+
+        }
+
+        [Then(@"the description of the calculation specification is displayed")]
+        public void ThenTheDescriptionOfTheCalculationSpecificationIsDisplayed()
+        {
+
+        }
+
+        [Then(@"I am able to select to view more details about the calculations specification")]
+        public void ThenIAmAbleToSelectToViewMoreDetailsAboutTheCalculationsSpecification()
+        {
+
+        }
+
+        [Then(@"the type of the calculation specification is displayed")]
+        public void ThenTheTypeOfTheCalculationSpecificationIsDisplayed()
+        {
+
         }
 
 
