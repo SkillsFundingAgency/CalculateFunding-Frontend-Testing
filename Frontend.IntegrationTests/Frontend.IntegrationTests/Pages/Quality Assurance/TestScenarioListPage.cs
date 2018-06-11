@@ -26,7 +26,7 @@ namespace Frontend.IntegrationTests.Pages.Quality_Assurance
         [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > span:nth-child(3)")]
         public IWebElement testScenarioPageLastResultCount { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > strong:nth-child(4)")]
+        [FindsBy(How = How.CssSelector, Using = "#totalResultsCount")]
         public IWebElement testScenarioPageTotalResultCount { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "div.test-scenario-searchresult-container:nth-child(3)")]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using AutoFramework;
 using FluentAssertions;
+using Frontend.IntegrationTests.Helpers;
 using Frontend.IntegrationTests.Pages.Manage_Calculation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -36,8 +37,41 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I click on a calculation in the list")]
         public void WhenIClickOnACalculationInTheList()
         {
-            Assert.IsNotNull(managecalculationpage.FirstCalculationListed);
-            managecalculationpage.FirstCalculationListed.Click();
+            IWebElement calculationList = managecalculationpage.CalculationResultsList;
+            var containerElements = calculationList;
+            IWebElement firstSelectCalculation = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        firstSelectCalculation = optionelement;
+
+                        break;
+
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectCalculation != null)
+                {
+                    string selectedCalc = firstSelectCalculation.Text;
+                    Console.WriteLine("Calculation Selected: " + selectedCalc);
+                    firstSelectCalculation.Click();
+                    Thread.Sleep(2000);
+
+                }
+                else
+                {
+                    firstSelectCalculation.Should().NotBeNull("No Calculation can be selected from the List");
+                }
+            }
+            else
+            {
+                firstSelectCalculation.Should().NotBeNull("No Calculation exists");
+            }
         }
 
         [Then(@"I am navigated to the Edit Calculation screen")]
@@ -48,7 +82,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
 
         [When(@"there is greater than (.*) calculations")]
-        public void WhenThereIsGreaterThanCalculations(int NoOfCalcs)
+        public void WhenThereIsGreaterThanCalculations(int totalItemCount)
         {
             Thread.Sleep(4000);
             Assert.IsNotNull(managecalculationpage.CalculationsPageTotal);
@@ -56,9 +90,17 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
             IWebElement CalculationTotal = managecalculationpage.CalculationsTotalResults;
             string CalculationTotalValue = CalculationTotal.Text;
-            int CalculationTotalNo = int.Parse(CalculationTotalValue);
-            CalculationTotalNo.Should().BeGreaterThan(NoOfCalcs, "Less than 50 Calculations Displayed");
-            Thread.Sleep(2000);
+            int totalPageCount = int.Parse(CalculationTotalValue);
+
+            if (totalPageCount < totalItemCount)
+            {
+                Assert.Inconclusive("Only 1 page of results is displayed as the Total results returned is less than " + totalItemCount);
+
+            }
+            else
+            {
+                Console.WriteLine("The Total results returned is " + totalPageCount);
+            }
 
 
         }
@@ -430,9 +472,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I have edited the visual basic code")]
         public void WhenIHaveEditedTheVisualBasicCode()
         {
+            var randomvalue = TestDataNumericUtils.RandomNumerics(2);
+
             editcalculationspage.CalculationVBEditor.Should().NotBeNull();
             editcalculationspage.CalculationVBTextEditor.SendKeys(OpenQA.Selenium.Keys.Control + "A");
-            editcalculationspage.CalculationVBTextEditor.SendKeys("Return Decimal.MinValue + 1");
+            editcalculationspage.CalculationVBTextEditor.SendKeys("Return Decimal.MinValue + " + randomvalue);
             Thread.Sleep(2000);
         }
 
@@ -714,8 +758,67 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 Console.WriteLine("The following information was displayed correctly for each calculation: " + currentElement.Text);
             }
         }
-        
 
+        [When(@"I navigate to the Manage Calculations Page")]
+        public void WhenINavigateToTheManageCalculationsPage()
+        {
+            HomePage homepage = new HomePage();
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+
+            NavigateTo.ManagetheCalculation();
+            Thread.Sleep(4000);
+
+        }
+
+
+        [When(@"I choose to view the new Calculation I have created")]
+        public void WhenIChooseToviewTheNewCalculationIHaveCreated()
+        {
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+
+            Driver._driver.FindElement(By.LinkText(specCalcCreated)).Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am presented with the View Calculation Page")]
+        public void ThenIAmPresentedWithTheViewCalculationPage()
+        {
+            editcalculationspage.CalculationSpecName.Should().NotBeNull();
+        }
+
+        [Then(@"The option to Approve the Calculation is displayed correctly")]
+        public void ThenTheOptionToApproveTheCalculationIsDisplayedCorrectly()
+        {
+            editcalculationspage.ApproveCalculationContainer.Should().NotBeNull();
+        }
+
+        [When(@"I choose to mark the Calculation as Approved")]
+        public void WhenIChooseToMarkTheCalculationAsApproved()
+        {
+            IWebElement approveButton = Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(1) > span:nth-child(1)"));
+            approveButton.Should().NotBeNull();
+            string approveStatus = approveButton.Text;
+            approveStatus.Should().Be("Draft", "The Status of the Calculation is not Draft");
+            Console.WriteLine("The current Status of the selected Calculation is: " + approveStatus);
+            Thread.Sleep(2000);
+
+            Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(2)")).Click();
+            Driver._driver.FindElement(By.CssSelector(".dropdown-approved > a:nth-child(1)")).Click();
+            Thread.Sleep(2000);
+        }
+
+
+        [Then(@"the Calculation should be updated to show the status is Approved")]
+        public void ThenTheCalculationShouldBeUpdatedToShowTheStatusIsApproved()
+        {
+            IWebElement approveButton = Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(1) > span:nth-child(1)"));
+            approveButton.Should().NotBeNull();
+            string approveStatus = approveButton.Text;
+            approveStatus.Should().Be("Approved", "The Status of the Specification is not Draft");
+            Console.WriteLine("The New Status of the selected Specification is: " + approveStatus);
+        }
 
 
         [AfterScenario()]

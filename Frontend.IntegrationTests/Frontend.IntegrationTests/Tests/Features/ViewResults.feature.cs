@@ -901,6 +901,20 @@ this.ChangeCurrentListOfQATestsByYear("FY2018191", ((string[])(null)));
 #line hidden
         }
         
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Year: AY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "AY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "AY2017181")]
+        public virtual void ChangeCurrentListOfQATestsByYear_AY2017181()
+        {
+#line 196
+this.ChangeCurrentListOfQATestsByYear("AY2017181", ((string[])(null)));
+#line hidden
+        }
+        
         public virtual void ChangeCurrentListOfQATestsBySpecification(string specification, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -911,13 +925,13 @@ this.ChangeCurrentListOfQATestsByYear("FY2018191", ((string[])(null)));
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Change Current list of QA Tests by Specification", @__tags);
-#line 208
-this.ScenarioSetup(scenarioInfo);
 #line 209
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 210
-testRunner.When(string.Format("I change the selected QA Test specificaiton drop down to {0}", specification), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 211
+testRunner.When(string.Format("I change the selected QA Test specificaiton drop down to {0}", specification), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 212
 testRunner.Then("the list of QA Test Results refreshes to display the selected specifications QA T" +
                     "ests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -925,60 +939,58 @@ testRunner.Then("the list of QA Test Results refreshes to display the selected s
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: YP 201718 16-19 Learner Respons" +
-            "ive")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: Test Spec Name UPSZXG")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "YP 201718 16-19 Learner Responsive")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "YP 201718 16-19 Learner Responsive")]
-        public virtual void ChangeCurrentListOfQATestsBySpecification_YP20171816_19LearnerResponsive()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Test Spec Name UPSZXG")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "Test Spec Name UPSZXG")]
+        public virtual void ChangeCurrentListOfQATestsBySpecification_TestSpecNameUPSZXG()
         {
-#line 208
-this.ChangeCurrentListOfQATestsBySpecification("YP 201718 16-19 Learner Responsive", ((string[])(null)));
+#line 209
+this.ChangeCurrentListOfQATestsBySpecification("Test Spec Name UPSZXG", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: YP 201718 Academies 16-18")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: Test Spec Name OLKFZP")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "YP 201718 Academies 16-18")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "YP 201718 Academies 16-18")]
-        public virtual void ChangeCurrentListOfQATestsBySpecification_YP201718Academies16_18()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Test Spec Name OLKFZP")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "Test Spec Name OLKFZP")]
+        public virtual void ChangeCurrentListOfQATestsBySpecification_TestSpecNameOLKFZP()
         {
-#line 208
-this.ChangeCurrentListOfQATestsBySpecification("YP 201718 Academies 16-18", ((string[])(null)));
+#line 209
+this.ChangeCurrentListOfQATestsBySpecification("Test Spec Name OLKFZP", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: YP 201718 Non Formula Funded Ac" +
-            "tivity Academies")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: Test Spec Name N1CY9Z")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "YP 201718 Non Formula Funded Activity Academies")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "YP 201718 Non Formula Funded Activity Academies")]
-        public virtual void ChangeCurrentListOfQATestsBySpecification_YP201718NonFormulaFundedActivityAcademies()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Test Spec Name N1CY9Z")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "Test Spec Name N1CY9Z")]
+        public virtual void ChangeCurrentListOfQATestsBySpecification_TestSpecNameN1CY9Z()
         {
-#line 208
-this.ChangeCurrentListOfQATestsBySpecification("YP 201718 Non Formula Funded Activity Academies", ((string[])(null)));
+#line 209
+this.ChangeCurrentListOfQATestsBySpecification("Test Spec Name N1CY9Z", ((string[])(null)));
 #line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: YP 201718 School Sixth Form")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Change Current list of QA Tests by Specification: Test Spec Name GD8X7R")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "YP 201718 School Sixth Form")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "YP 201718 School Sixth Form")]
-        public virtual void ChangeCurrentListOfQATestsBySpecification_YP201718SchoolSixthForm()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Test Spec Name GD8X7R")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:specification", "Test Spec Name GD8X7R")]
+        public virtual void ChangeCurrentListOfQATestsBySpecification_TestSpecNameGD8X7R()
         {
-#line 208
-this.ChangeCurrentListOfQATestsBySpecification("YP 201718 School Sixth Form", ((string[])(null)));
+#line 209
+this.ChangeCurrentListOfQATestsBySpecification("Test Spec Name GD8X7R", ((string[])(null)));
 #line hidden
         }
         
@@ -992,13 +1004,13 @@ this.ChangeCurrentListOfQATestsBySpecification("YP 201718 School Sixth Form", ((
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to View the test results of all providers for a single test", new string[] {
                         "Workitem:39522",
                         "Driver"});
-#line 221
-this.ScenarioSetup(scenarioInfo);
 #line 222
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 223
-testRunner.When("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 224
+testRunner.When("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 225
 testRunner.Then("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1014,21 +1026,21 @@ testRunner.Then("I am redirected to the selected QA Test results for all provide
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View test results of all providers for a single test", new string[] {
                         "Workitem:39522",
                         "Driver"});
-#line 227
-this.ScenarioSetup(scenarioInfo);
 #line 228
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 229
-testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 230
-testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 231
-testRunner.Then("A Search Filter option is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 232
-testRunner.And("A Provider Type Filter drop Down is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("A Search Filter option is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 233
-testRunner.And("A Provider Sub Type Filter drop down is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("A Provider Type Filter drop Down is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 234
+testRunner.And("A Provider Sub Type Filter drop down is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 235
 testRunner.And("A Local Authority Filter drop down is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1044,23 +1056,23 @@ testRunner.And("A Local Authority Filter drop down is correctly displayed", ((st
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View test results of all providers for a single test Pagination", new string[] {
                         "Workitem:39522",
                         "Driver"});
-#line 237
-this.ScenarioSetup(scenarioInfo);
 #line 238
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 239
-testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 240
-testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 241
-testRunner.Then("the page lists up to the first 50 Providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 242
-testRunner.When("there are more than 50 Providers returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("the page lists up to the first 50 Providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 243
-testRunner.And("I click to navigate to the next page of 50 providers test results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("there are more than 50 Providers returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 244
-testRunner.Then("my page list view displays the next 50 test results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I click to navigate to the next page of 50 providers test results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 245
+testRunner.Then("my page list view displays the next 50 test results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 246
 testRunner.And("I am able to navigate to the previous page of 50 providers test results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1078,17 +1090,17 @@ testRunner.And("I am able to navigate to the previous page of 50 providers test 
                     "t page", new string[] {
                         "Workitem:39522",
                         "Driver"});
-#line 248
-this.ScenarioSetup(scenarioInfo);
 #line 249
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 250
-testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 251
-testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 252
-testRunner.Then("The name of the provider for the single test is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 253
+testRunner.Then("The name of the provider for the single test is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 254
 testRunner.And("all the relevant provider details for the single are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1106,17 +1118,17 @@ testRunner.And("all the relevant provider details for the single are displayed",
                     "gle test page", new string[] {
                         "Workitem:39522",
                         "Driver"});
-#line 256
-this.ScenarioSetup(scenarioInfo);
 #line 257
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 258
-testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 259
-testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 260
-testRunner.Then("The name of the provider for the single test is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 261
+testRunner.Then("The name of the provider for the single test is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 262
 testRunner.And("the QA Test Result for the provider is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1134,15 +1146,15 @@ testRunner.And("the QA Test Result for the provider is displayed", ((string)(nul
                     "ngle test page", new string[] {
                         "Workitem:39522",
                         "Driver"});
-#line 264
-this.ScenarioSetup(scenarioInfo);
 #line 265
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 266
-testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 267
-testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 268
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 269
 testRunner.Then("details of the Test selected are displayed on the page correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1160,17 +1172,17 @@ testRunner.Then("details of the Test selected are displayed on the page correctl
                     "st page", new string[] {
                         "Workitem:39522",
                         "Driver"});
-#line 271
-this.ScenarioSetup(scenarioInfo);
 #line 272
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 273
-testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 274
-testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 275
-testRunner.And("I decide to filter my results by using the search filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 276
+testRunner.And("I decide to filter my results by using the search filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 277
 testRunner.Then("the Provider Results list is refreshed to display only the providers that comply " +
                     "with the filter selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1189,17 +1201,17 @@ testRunner.Then("the Provider Results list is refreshed to display only the prov
                     " for a single test page", new string[] {
                         "Workitem:39522",
                         "Driver"});
-#line 279
-this.ScenarioSetup(scenarioInfo);
 #line 280
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 281
-testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 282
-testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 283
-testRunner.And("I decide to filter my results by using the Provider Type Filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 284
+testRunner.And("I decide to filter my results by using the Provider Type Filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 285
 testRunner.Then("the Provider Results list is refreshed to display only the providers that comply " +
                     "with the filter selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1218,17 +1230,17 @@ testRunner.Then("the Provider Results list is refreshed to display only the prov
                     "ders for a single test page", new string[] {
                         "Workitem:39522",
                         "Driver"});
-#line 287
-this.ScenarioSetup(scenarioInfo);
 #line 288
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 289
-testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 290
-testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 291
-testRunner.And("I decide to filter my results by using the Provider Sub Type Filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 292
+testRunner.And("I decide to filter my results by using the Provider Sub Type Filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 293
 testRunner.Then("the Provider Results list is refreshed to display only the providers that comply " +
                     "with the filter selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1247,17 +1259,17 @@ testRunner.Then("the Provider Results list is refreshed to display only the prov
                     "rs for a single test page", new string[] {
                         "Workitem:39522",
                         "Driver"});
-#line 295
-this.ScenarioSetup(scenarioInfo);
 #line 296
-testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 297
-testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 298
-testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 299
-testRunner.And("I decide to filter my results by using the Local Authority Filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 300
+testRunner.And("I decide to filter my results by using the Local Authority Filter", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 301
 testRunner.Then("the Provider Results list is refreshed to display only the providers that comply " +
                     "with the filter selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -1274,15 +1286,15 @@ testRunner.Then("the Provider Results list is refreshed to display only the prov
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the View provider results for an Individual Provider Page", new string[] {
                         "Workitem:39523",
                         "Driver"});
-#line 303
-this.ScenarioSetup(scenarioInfo);
 #line 304
-testRunner.Given("I have navigated to the Provider results for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 305
-testRunner.Then("a tab is displayed to show the Allocation Line results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Given("I have navigated to the Provider results for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 306
-testRunner.And("a tab is displayed to show the Calculation results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("a tab is displayed to show the Allocation Line results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 307
+testRunner.And("a tab is displayed to show the Calculation results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 308
 testRunner.And("a tab is displayed to show the Test results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1298,62 +1310,16 @@ testRunner.And("a tab is displayed to show the Test results", ((string)(null)), 
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View provider results for an Individual Provider Page", new string[] {
                         "Workitem:39523",
                         "Driver"});
-#line 310
-this.ScenarioSetup(scenarioInfo);
 #line 311
-testRunner.Given("I have navigated to the Provider results for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 312
-testRunner.Then("the drop down option to select an academic year is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 313
-testRunner.And("the drop down option to select a specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 314
-testRunner.And("the relevant provider information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Pa" +
-            "ssed")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassed()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Provider Test results for an Individual Provider with a result of Pa" +
-                    "ssed", new string[] {
-                        "Workitem:39523",
-                        "39517",
-                        "Driver"});
-#line 317
 this.ScenarioSetup(scenarioInfo);
-#line 318
-testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 319
-testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 320
-testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 321
-testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 322
-testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 323
-testRunner.And("I edit the New Calculation for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 324
-testRunner.And("I have created a New Test for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 325
-testRunner.And("I then select the appropriate Test from the View provider results list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 326
-testRunner.Then("I can select the Provider with a Passed Test Result from the View provider result" +
-                    "s for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 327
-testRunner.And("I can click on the Test Tab to view the Test result for the Individual Provider a" +
-                    "nd Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 328
-testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 329
-testRunner.And("the QA Test Results for the Provider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 312
+testRunner.Given("I have navigated to the Provider results for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 313
+testRunner.Then("the drop down option to select an academic year is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 314
+testRunner.And("the drop down option to select a specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 315
+testRunner.And("the relevant provider information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -1372,68 +1338,22 @@ testRunner.And("the QA Test Results for the Provider are displayed correctly", (
                         "Workitem:39523",
                         "39517",
                         "Driver"});
-#line 332
+#line 318
 this.ScenarioSetup(scenarioInfo);
-#line 333
+#line 319
 testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 334
+#line 320
 testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 335
+#line 321
 testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 336
+#line 322
 testRunner.Then("the Provider List of Test results for the selected QA Test is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 337
+#line 323
 testRunner.And("a Provider where the QA Test has Passed can be selected to display the specific Q" +
                     "A Test Result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 338
+#line 324
 testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 339
-testRunner.And("the QA Test Results for the Provider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Fa" +
-            "iled")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailed()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Provider Test results for an Individual Provider with a result of Fa" +
-                    "iled", new string[] {
-                        "Workitem:39523",
-                        "39517",
-                        "Driver"});
-#line 342
-this.ScenarioSetup(scenarioInfo);
-#line 343
-testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 344
-testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 345
-testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 346
-testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 347
-testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 348
-testRunner.And("I edit the New Calculation for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 349
-testRunner.And("I have created a New Test for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 350
-testRunner.And("I then select the appropriate Test from the View provider results list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 351
-testRunner.Then("I can select the Provider with a Failed Test Result from the View provider result" +
-                    "s for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 352
-testRunner.And("I can click on the Test Tab to view the Test result for the Individual Provider a" +
-                    "nd Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 353
-testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 354
+#line 325
 testRunner.And("the QA Test Results for the Provider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1453,25 +1373,241 @@ testRunner.And("the QA Test Results for the Provider are displayed correctly", (
                         "Workitem:39523",
                         "39517",
                         "Driver"});
-#line 357
+#line 328
 this.ScenarioSetup(scenarioInfo);
-#line 358
+#line 329
 testRunner.Given("I have navigated to the view all test results screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 359
+#line 330
 testRunner.And("I choose a QA Test from the displayed list of tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 360
+#line 331
 testRunner.When("I am redirected to the selected QA Test results for all providers page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 361
+#line 332
 testRunner.Then("the Provider List of Test results for the selected QA Test is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 362
+#line 333
 testRunner.And("a Provider where the QA Test has Failed can be selected to display the specific Q" +
                     "A Test Result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 363
+#line 334
 testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 364
+#line 335
 testRunner.And("the QA Test Results for the Provider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassedForEachAcademicYear(string year, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Workitem:39523",
+                    "39517",
+                    "Driver"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Provider Test results for an Individual Provider with a result of Pa" +
+                    "ssed for each Academic Year", @__tags);
+#line 338
+this.ScenarioSetup(scenarioInfo);
+#line 339
+testRunner.Given(string.Format("I have created a New Specification for {0}", year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 340
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 341
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 342
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 343
+testRunner.When(string.Format("I have specified a data Source Relationship for the Specification for {0}", year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 344
+testRunner.And("I edit the New Calculation for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 345
+testRunner.And("I have created a New Test for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 346
+testRunner.And("I then select the appropriate Test from the View provider results list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 347
+testRunner.Then("I can select the Provider with a Passed Test Result from the View provider result" +
+                    "s for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 348
+testRunner.And("I can click on the Test Tab to view the Test result for the Individual Provider a" +
+                    "nd Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 349
+testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 350
+testRunner.And("the QA Test Results for the Provider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Pa" +
+            "ssed for each Academic Year: AY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "AY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "AY2017181")]
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassedForEachAcademicYear_AY2017181()
+        {
+#line 338
+this.ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassedForEachAcademicYear("AY2017181", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Pa" +
+            "ssed for each Academic Year: AY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "AY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "AY2018191")]
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassedForEachAcademicYear_AY2018191()
+        {
+#line 338
+this.ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassedForEachAcademicYear("AY2018191", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Pa" +
+            "ssed for each Academic Year: FY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "FY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "FY2017181")]
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassedForEachAcademicYear_FY2017181()
+        {
+#line 338
+this.ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassedForEachAcademicYear("FY2017181", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Pa" +
+            "ssed for each Academic Year: FY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "FY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "FY2018191")]
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassedForEachAcademicYear_FY2018191()
+        {
+#line 338
+this.ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfPassedForEachAcademicYear("FY2018191", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailedForEachAcademicYear(string year, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Workitem:39523",
+                    "39517",
+                    "Driver"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Provider Test results for an Individual Provider with a result of Fa" +
+                    "iled for each Academic Year", @__tags);
+#line 360
+this.ScenarioSetup(scenarioInfo);
+#line 361
+testRunner.Given(string.Format("I have created a New Specification for {0}", year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 362
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 363
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 364
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 365
+testRunner.When(string.Format("I have specified a data Source Relationship for the Specification for {0}", year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 366
+testRunner.And("I edit the New Calculation for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 367
+testRunner.And("I have created a New Test for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 368
+testRunner.And("I then select the appropriate Test from the View provider results list page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 369
+testRunner.Then("I can select the Provider with a Failed Test Result from the View provider result" +
+                    "s for an Individual Provider Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 370
+testRunner.And("I can click on the Test Tab to view the Test result for the Individual Provider a" +
+                    "nd Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 371
+testRunner.And("the QA Test Coverage for the Provider is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 372
+testRunner.And("the QA Test Results for the Provider are displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Fa" +
+            "iled for each Academic Year: AY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "AY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "AY2017181")]
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailedForEachAcademicYear_AY2017181()
+        {
+#line 360
+this.ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailedForEachAcademicYear("AY2017181", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Fa" +
+            "iled for each Academic Year: AY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "AY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "AY2018191")]
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailedForEachAcademicYear_AY2018191()
+        {
+#line 360
+this.ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailedForEachAcademicYear("AY2018191", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Fa" +
+            "iled for each Academic Year: FY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "FY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "FY2017181")]
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailedForEachAcademicYear_FY2017181()
+        {
+#line 360
+this.ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailedForEachAcademicYear("FY2017181", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Provider Test results for an Individual Provider with a result of Fa" +
+            "iled for each Academic Year: FY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("39517")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "FY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "FY2018191")]
+        public virtual void ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailedForEachAcademicYear_FY2018191()
+        {
+#line 360
+this.ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailedForEachAcademicYear("FY2018191", ((string[])(null)));
+#line hidden
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
@@ -1484,15 +1620,15 @@ testRunner.And("the QA Test Results for the Provider are displayed correctly", (
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to View calculation results Page", new string[] {
                         "Workitem:48412",
                         "Driver"});
-#line 367
+#line 383
 this.ScenarioSetup(scenarioInfo);
-#line 368
+#line 384
 testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 369
+#line 385
 testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 370
+#line 386
 testRunner.And("I click on the View calculation results option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 371
+#line 387
 testRunner.Then("I am redirected to the View calculation results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1508,21 +1644,21 @@ testRunner.Then("I am redirected to the View calculation results Page", ((string
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View calculation results Page Filter options", new string[] {
                         "Workitem:48412",
                         "Driver"});
-#line 374
+#line 390
 this.ScenarioSetup(scenarioInfo);
-#line 375
+#line 391
 testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 376
+#line 392
 testRunner.Then("the Search option filter is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 377
+#line 393
 testRunner.And("the Allocation Line Dropdown option is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 378
+#line 394
 testRunner.And("the Funding Period Dropdown option is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 379
+#line 395
 testRunner.And("the Funding Stream Dropdown option is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 380
+#line 396
 testRunner.And("the Specificaiton Name Dropdown option is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 381
+#line 397
 testRunner.And("the Calculation Status Dropdown option is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1538,17 +1674,17 @@ testRunner.And("the Calculation Status Dropdown option is displayed correctly", 
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View calculation results Pagination options", new string[] {
                         "Workitem:48412",
                         "Driver"});
-#line 384
+#line 400
 this.ScenarioSetup(scenarioInfo);
-#line 385
+#line 401
 testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 386
+#line 402
 testRunner.And("I have over 50 calculations", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 387
+#line 403
 testRunner.When("I click to navigate to the next page of 50 calculations", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 388
+#line 404
 testRunner.Then("my list view displays the next 50 calculations", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 389
+#line 405
 testRunner.And("I am able to navigate to the previous page of 50 calculations", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1566,13 +1702,13 @@ testRunner.And("I am able to navigate to the previous page of 50 calculations", 
                     "ts Page", new string[] {
                         "Workitem:48412",
                         "Driver"});
-#line 392
+#line 408
 this.ScenarioSetup(scenarioInfo);
-#line 393
+#line 409
 testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 394
+#line 410
 testRunner.Then("a list of calculations is displayed with the correct column headers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 395
+#line 411
 testRunner.And("the appropriate calculation information is displayed in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1588,15 +1724,15 @@ testRunner.And("the appropriate calculation information is displayed in the list
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter the Displayed Calculation Results by Funding Period", new string[] {
                         "Workitem:48412",
                         "Driver"});
-#line 398
+#line 414
 this.ScenarioSetup(scenarioInfo);
-#line 399
+#line 415
 testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 400
+#line 416
 testRunner.When("I choose to filter the results by Funding Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 401
+#line 417
 testRunner.Then("the calculation results are updated accordingly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 402
+#line 418
 testRunner.And("the appropriate calculation information is displayed in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1612,15 +1748,15 @@ testRunner.And("the appropriate calculation information is displayed in the list
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter the Displayed Calculation Results by Funding Stream", new string[] {
                         "Workitem:48412",
                         "Driver"});
-#line 405
+#line 421
 this.ScenarioSetup(scenarioInfo);
-#line 406
+#line 422
 testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 407
+#line 423
 testRunner.When("I choose to filter the results by Funding Stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 408
+#line 424
 testRunner.Then("the calculation results are updated accordingly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 409
+#line 425
 testRunner.And("the appropriate calculation information is displayed in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1636,15 +1772,15 @@ testRunner.And("the appropriate calculation information is displayed in the list
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter the Displayed Calculation Results by Spec Name", new string[] {
                         "Workitem:48412",
                         "Driver"});
-#line 412
+#line 428
 this.ScenarioSetup(scenarioInfo);
-#line 413
+#line 429
 testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 414
+#line 430
 testRunner.When("I choose to filter the results by Spec Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 415
+#line 431
 testRunner.Then("the calculation results are updated accordingly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 416
+#line 432
 testRunner.And("the appropriate calculation information is displayed in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1660,15 +1796,15 @@ testRunner.And("the appropriate calculation information is displayed in the list
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter the Displayed Calculation Results by Calculation Status", new string[] {
                         "Workitem:48412",
                         "Driver"});
-#line 419
+#line 435
 this.ScenarioSetup(scenarioInfo);
-#line 420
+#line 436
 testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 421
+#line 437
 testRunner.When("I choose to filter the results by Calculation Status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 422
+#line 438
 testRunner.Then("the calculation results are updated accordingly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 423
+#line 439
 testRunner.And("the appropriate calculation information is displayed in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1684,15 +1820,15 @@ testRunner.And("the appropriate calculation information is displayed in the list
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter the Displayed Calculation Results by Allocation Line", new string[] {
                         "Workitem:48412",
                         "Driver"});
-#line 426
+#line 442
 this.ScenarioSetup(scenarioInfo);
-#line 427
+#line 443
 testRunner.Given("I have successfully navigated to the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 428
+#line 444
 testRunner.When("I choose to filter the results by Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 429
+#line 445
 testRunner.Then("the calculation results are updated accordingly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 430
+#line 446
 testRunner.And("the appropriate calculation information is displayed in the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

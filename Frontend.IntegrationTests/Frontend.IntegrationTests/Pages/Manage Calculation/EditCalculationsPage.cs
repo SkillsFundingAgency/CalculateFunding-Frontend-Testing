@@ -47,6 +47,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Calculation
         [FindsBy(How = How.CssSelector, Using = ".compiler-messages")]
         public IWebElement CalculationCompilierMessage { get; set; }
 
+        [FindsBy(How = How.Id, Using = "approve-button-container")]
+        public IWebElement ApproveCalculationContainer { get; set; }
+
 
 
 

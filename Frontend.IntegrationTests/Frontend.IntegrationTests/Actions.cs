@@ -494,6 +494,45 @@
             }
         }
 
+        public static void SelectSpecificationCreateQATestPage()
+        {
+            CreateQATestPage createqatestpage = new CreateQATestPage();
+
+            var containerElements = createqatestpage.createQATestSelectSpecification;
+            IWebElement firstSelectSpec = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains("Test Spec Name"))
+                        {
+
+                            firstSelectSpec = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectSpec != null)
+                {
+                    firstSelectSpec.Click();
+                }
+                else
+                {
+                    firstSelectSpec.Should().NotBeNull("No Policy exists that can be selected");
+                }
+            }
+            else
+            {
+                firstSelectSpec.Should().NotBeNull("No Policy exists that can be selected");
+            }
+        }
+
         public static void SelectSpecifiedSpecificationCreateQATestPage()
         {
             CreateQATestPage createqatestpage = new CreateQATestPage();
@@ -675,7 +714,9 @@
                     ScenarioContext.Current["QATestName"] = firsttestname;
                     firsttestname.Should().NotBeNullOrEmpty();
                     Console.WriteLine("QA Test searched for: " + firsttestname);
-                    viewqatestresultspage.viewQATestResultspageSearch.SendKeys(firsttestname);
+
+                    string testCreatedID = SelectFirstTest.Text.Replace("QA Test Name ", "");
+                    viewqatestresultspage.viewQATestResultspageSearch.SendKeys(testCreatedID);
                     viewqatestresultspage.viewQATestResultspageSearchButton.Click();
 
                 }
@@ -887,7 +928,49 @@
             }
         }
 
+        public static void SelectManageDataPageDataSourceUpdateOption()
+        {
+            ManageDatasetsPage managedatasetpage = new ManageDatasetsPage();
 
+            var containerElements = managedatasetpage.manageDatasetsListView;
+            IWebElement SelectFirstUpdatelink = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains("Update"))
+                        {
+
+                            SelectFirstUpdatelink = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstUpdatelink != null)
+                {
+                    SelectFirstUpdatelink.Click();
+                    Thread.Sleep(2000);
+                }
+                else
+                {
+                    SelectFirstUpdatelink.Should().NotBeNull("No Update link could be successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstUpdatelink.Should().NotBeNull("No Update link could be successfully selected");
+            }
+        }
     }
 }
+
+
+
+
 

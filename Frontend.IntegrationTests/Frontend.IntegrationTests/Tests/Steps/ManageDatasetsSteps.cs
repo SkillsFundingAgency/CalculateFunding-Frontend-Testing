@@ -19,6 +19,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
     [Binding]
     public class ManageDatasetsSteps
     {
+        HomePage homepage = new HomePage();
         ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
         ManageDatasetsPage managedatasetpage = new ManageDatasetsPage();
         ManageTheDataPage managethedatapage = new ManageTheDataPage();
@@ -28,6 +29,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
         SelectedSpecificationDataSourcePage selectedspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
         SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
+        UpdateDatasetPage updatedatasetpage = new UpdateDatasetPage();
 
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
@@ -156,6 +158,26 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             managedatasetpage.loadNewDatasetsButton.Should().NotBeNull();
         }
+
+        [When(@"More than (.*) Results are available")]
+        public void WhenMoreThanResultsAreAvailable(int totalItemCount)
+        {
+            IWebElement datasetTotal = managedatasetpage.manageDatasetsTotalResultCount;
+            string datasetTotalValue = datasetTotal.Text;
+            int totalPageCount = int.Parse(datasetTotalValue);
+
+            if (totalPageCount < totalItemCount)
+            {
+                Assert.Inconclusive("Only 1 page of results is displayed as the Total results returned is less than " + totalItemCount);
+
+            }
+            else
+            {
+                Console.WriteLine("The Total results returned is " + totalPageCount);
+            }
+
+        }
+
 
         [Then(@"I can navigate to a page of the next (.*) data sets")]
         public void ThenICanNavigateToAPageOfTheNextDataSets(int endResultListCount)
@@ -335,7 +357,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var datasetName = ScenarioContext.Current["DatasetSchemaName"];
             string datasetCreated = datasetName.ToString();
-            var datasetelements = Driver._driver.FindElements(By.CssSelector(".view-dataset .datasetschemaassigned-list-title-container span"));
+            var datasetelements = Driver._driver.FindElements(By.CssSelector(".dataset-assigned-list"));
             IWebElement createddataset = null;
             foreach (var element in datasetelements)
             {
@@ -606,6 +628,17 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
+        [Given(@"I have already created a Specification with the appropruiate dataset & schema associated")]
+        public void GivenIHaveAlreadyCreatedASpecificationWithTheAppropruiateDatasetSchemaAssociated()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
+            CreateDataSourceMapping.CreateADataSourceMapping();
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+        }
+
+
         [Given(@"I have navigated to a specification data relationships page where dataset relationships exist")]
         public void GivenIHaveNavigatedToASpecificationDataRelationshipsPageWhereDatasetRelationshipsExist()
         {
@@ -687,12 +720,21 @@ namespace Frontend.IntegrationTests.Tests.Steps
             //Console writeline in the previous class displays the required information as this info ont he page cannot be seperated out
         }
 
+        [Given(@"I have already created a Specification with the appropruiate dataset associated")]
+        public void GivenIHaveAlreadyCreatedASpecificationWithTheAppropruiateDatasetAssociated()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+        }
+
+
         [Given(@"I have navigated to the Choose data sources for specifications page where dataset relationships exist")]
         public void GivenIHaveNavigatedToTheChooseDataSourcesForSpecificationsPageWhereDatasetRelationshipsExist()
         {
             NavigateTo.SpecificationDataRelationshipsExistPage();
             Thread.Sleep(2000);
-
         }
 
         [When(@"I click on the Select Source Dataset option")]
@@ -873,8 +915,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Actions.SelectManageDataPageDataSourceDownloadoption();
         }
 
-        [Then(@"The Download reddirect URL from Blog storage is correctly genrated")]
-        public void ThenTheDownloadReddirectURLFromBlogStorageIsCorrectlyGenrated()
+        [Then(@"The Download reddirect URL from Blogstorage is correctly generated")]
+        public void ThenTheDownloadReddirectURLFromBlogstorageIsCorrectlyGenerated()
         {
             //Validation for this step is carried out within Actions.SelectManageDataPageDataSourceDownloadoption();
             //See redirected Blob URL in the Test Output row
@@ -886,6 +928,111 @@ namespace Frontend.IntegrationTests.Tests.Steps
             //Validation for this step is carried out within Actions.SelectManageDataPageDataSourceDownloadoption();
             //See the "File downloaded successfully. Filename = " Test Output row
         }
+
+        [Then(@"an option to update the datasource is displayed")]
+        public void ThenAnOptionToUpdateTheDatasourceIsDisplayed()
+        {
+            managedatasetpage.manageDatasetsUpdateLink.Should().NotBeNull();
+
+        }
+
+        [When(@"I click on the Update Link for a Dataset")]
+        public void WhenIClickOnTheUpdateLinkForADataset()
+        {
+            Thread.Sleep(2000);
+            Actions.SelectManageDataPageDataSourceUpdateOption();
+        }
+
+        [Then(@"I am sucessfully redirected to the Update data source page")]
+        public void ThenIAmSucessfullyRedirectedToTheUpdateDataSourcePage()
+        {
+            updatedatasetpage.updateDataSetDescription.Should().NotBeNull();
+        }
+
+        [Given(@"I have selected a Dataset to Update")]
+        public void GivenIHaveSelectedADatasetToUpdate()
+        {
+            Thread.Sleep(2000);
+            Actions.SelectManageDataPageDataSourceUpdateOption();
+        }
+
+        [Then(@"the selected Dataset information is displayed correctly")]
+        public void ThenTheSelectedDatasetInformationIsDisplayedCorrectly()
+        {
+            IWebElement datasetNameVersion = updatedatasetpage.updateDataSetNameVersion;
+            datasetNameVersion.Should().NotBeNull();
+            string datasetNameText = datasetNameVersion.Text;
+            Console.WriteLine("Dataset Selected to Update is: " + datasetNameText);
+            
+            IWebElement datasetUser = updatedatasetpage.updateDataSetUser;
+            datasetUser.Should().NotBeNull();
+            string datasetUserText = datasetUser.Text;
+            Console.WriteLine("Dataset Last Updated by: " + datasetUserText);
+
+            IWebElement datasetLastUpdate = updatedatasetpage.updateDataSetLastUpdated;
+            datasetLastUpdate.Should().NotBeNull();
+            string datasetLastDate = datasetLastUpdate.Text;
+            Console.WriteLine("Dataset Last Updated Date is: " + datasetLastDate);
+
+        }
+
+
+        [Then(@"an opion to update the Description is displayed")]
+        public void ThenAnOpionToUpdateTheDescriptionIsDisplayed()
+        {
+            updatedatasetpage.updateDataSetDescription.Should().NotBeNull();        }
+
+        [Then(@"an option to add a Change note is displayed")]
+        public void ThenAnOptionToAddAChangeNoteIsDisplayed()
+        {
+            updatedatasetpage.updateDataSetChangeNote.Should().NotBeNull();
+        }
+
+        [Then(@"a Browser for file button is displayed")]
+        public void ThenABrowserForFileButtonIsDisplayed()
+        {
+            updatedatasetpage.updateDataSetBrowseButton.Should().NotBeNull();
+        }
+
+        [Then(@"an Update Dataset Button is displayed")]
+        public void ThenAnUpdateDatasetButtonIsDisplayed()
+        {
+            updatedatasetpage.updateDataSetUpdateButton.Should().NotBeNull();
+        }
+
+        [Then(@"a Cancel change link is displayed")]
+        public void ThenACancelChangeLinkIsDisplayed()
+        {
+            updatedatasetpage.updateDataSetCancelLink.Should().NotBeNull();
+        }
+
+        [When(@"I update the Dataset Description")]
+        public void WhenIUpdateTheDatasetDescription()
+        {
+            updatedatasetpage.updateDataSetDescription.Clear();
+            updatedatasetpage.updateDataSetDescription.SendKeys("This is An Updated Dataset Description");
+        }
+
+        [When(@"I add a Change note")]
+        public void WhenIAddAChangeNote()
+        {
+            updatedatasetpage.updateDataSetChangeNote.Clear();
+            updatedatasetpage.updateDataSetChangeNote.SendKeys("This is An Updated Dataset Change note");
+        }
+
+        [When(@"I click the Update Dataset Cancel Link")]
+        public void WhenIClickTheUpdateDatasetCancelLink()
+        {
+            updatedatasetpage.updateDataSetCancelLink.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected back to the Manage Datasets Page")]
+        public void ThenIAmRedirectedBackToTheManageDatasetsPage()
+        {
+            managedatasetpage.manageDatasetsListView.Should().NotBeNull();
+        }
+
 
 
 

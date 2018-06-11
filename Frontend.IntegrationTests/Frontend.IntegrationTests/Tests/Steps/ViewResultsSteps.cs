@@ -27,7 +27,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ViewTestResultsAllProvidersSingleTest viewtestresultsallproviders = new ViewTestResultsAllProvidersSingleTest();
         ViewCalculationResultPage viewcalculationresultpage = new ViewCalculationResultPage();
 
-        public string searchtext = "Primary";
+        public string searchtext = "College";
         public string provider = "Academy";
 
         [When(@"I click on the View provider results option")]
@@ -682,13 +682,22 @@ namespace Frontend.IntegrationTests.Tests.Steps
         }
 
         [Given(@"I have over (.*) QA Tests displayed")]
-        public void GivenIHaveOverQATestsDisplayed(int totaltestresults)
+        public void GivenIHaveOverQATestsDisplayed(int totalItemCount)
         {
             IWebElement qatestresultcount = viewqatestresultspage.viewQATestResultspagetotalResults;
             string endPageResultCount = qatestresultcount.Text;
             int endPageCount = int.Parse(endPageResultCount);
-            endPageCount.Should().BeGreaterOrEqualTo(totaltestresults, "Less than 50 QA Test Results are available");
-            Console.WriteLine("Total Page Results Displayed is " + qatestresultcount.Text);
+
+            if (endPageCount < totalItemCount)
+            {
+                Assert.Inconclusive("Only 1 page of results is displayed as the Total results returned is less than " + totalItemCount);
+
+            }
+            else
+            {
+                Console.WriteLine("The Total results returned is " + endPageCount);
+            }
+
         }
 
         [When(@"I click to navigate to the next page of (.*) QA Test Results")]
@@ -790,7 +799,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             selectSpecification.Click();
             var selectElement = new SelectElement(selectSpecification);
             selectElement.SelectByText(specification);
-            Thread.Sleep(20000);
+            Thread.Sleep(5000);
         }
 
         [Then(@"the list of QA Test Results refreshes to display the selected specifications QA Tests")]
@@ -1129,11 +1138,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
         }
 
 
-
-        [Given(@"I have created a New Specification")]
-        public void GivenIHaveCreatedANewSpecification()
+        [Given(@"I have created a New Specification for (.*)")]
+        public void GivenIHaveCreatedANewSpecificationForAY(string year)
         {
-            CreateNewSpecification.CreateANewSpecification();
+            ScenarioContext.Current["SpecificationYear"] = year;
+            CreateNewSpecification_VarYr.CreateANewSpecification_VarYr();
         }
 
         [Given(@"I have created a New Policy for that Specification")]
@@ -1154,10 +1163,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
             ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
         }
 
-        [When(@"I have specified a data Source Relationship for the Specification")]
-        public void WhenIHaveSpecifiedADataSourceRelationshipForTheSpecification()
+        [When(@"I have specified a data Source Relationship for the Specification for (.*)")]
+        public void WhenIHaveSpecifiedADataSourceRelationshipForTheSpecificationForAY(string year)
         {
-            CreateDataSourceMapping.CreateADataSourceMapping();
+            ScenarioContext.Current["SpecificationYear"] = year;
+            CreateDataSourceMapping_VarYr.CreateADataSourceMapping_VarYr();
         }
 
         [When(@"I edit the New Calculation for that Specification")]

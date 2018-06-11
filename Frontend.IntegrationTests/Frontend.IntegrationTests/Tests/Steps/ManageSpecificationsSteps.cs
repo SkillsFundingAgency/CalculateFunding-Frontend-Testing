@@ -14,6 +14,7 @@ using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Bindings;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Frontend.IntegrationTests.Tests.Steps
 {
@@ -29,6 +30,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         EditPolicyPage editpolicypage = new EditPolicyPage();
         EditSubPolicyPage editsubpolicypage = new EditSubPolicyPage();
         EditSpecificationPage editspecificationpage = new EditSpecificationPage();
+        HomePage homepage = new HomePage();
+        EditCalculationPage editcalculationpage = new EditCalculationPage();
 
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
@@ -60,9 +63,15 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I change the Select A Year drop down to a different year")]
         public void WhenIChangeTheSelectAYearDropDownToADifferentYear()
         {
-            var selectYear = managespecficationpage.SelectYear;
-            var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("FY2017181");
+            IWebElement filtercontainer = managespecficationpage.SpecificationFilterContainer;
+            IWebElement fundingperiodfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingperiodfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string fundingperiodselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Period Filter Option selected = " + fundingperiodselected);
+            selectfilteroption.Click();
+            managespecficationpage.SearchSpecification.Click();
             Thread.Sleep(2000);
         }
 
@@ -110,6 +119,15 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Assert.IsNotNull(createcalculationpage.CalculationName);
             Thread.Sleep(2000);
         }
+
+        [Given(@"A Specification has been previously created with a Unique Name")]
+        public void GivenASpecificationHasBeenPreviouslyCreatedWithAUniqueName()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+        }
+
 
         [Given(@"I have successfully navigated to the Create Specification Page")]
         public void GivenIHaveSuccessfullyNavigatedToTheCreateSpecificationPage()
@@ -172,22 +190,24 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
             createspecificationpage.CancelSpecification.Click();
             Thread.Sleep(2000);
-
-
         }
 
         [When(@"I enter an Existing Specification Name")]
         public void WhenIEnterAnExistingSpecificationName()
         {
-            createspecificationpage.SpecName.SendKeys("Test");
-            Thread.Sleep(2000);
+            var specName = ScenarioContext.Current["SpecificationName"];
+            string specCreated = specName.ToString();
+
+            createspecificationpage.SpecName.SendKeys(specCreated);
+            Console.WriteLine("The Existing Specification Name entered was: " + specCreated);
         }
 
         [Then(@"A Unique Specification Name Error is Displayed")]
         public void ThenAUniqueSpecificationNameErrorIsDisplayed()
         {
             Assert.IsNotNull(createspecificationpage.SpecNameError);
-            Assert.IsNotNull(createspecificationpage.SpecNameErrorText.Text);
+            string specNameError = createspecificationpage.SpecNameError.Text;
+            Console.WriteLine("The following error message was correctly displayed: " + specNameError);
             Thread.Sleep(2000);
         }
 
@@ -204,15 +224,22 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             Thread.Sleep(1000);
             if (SpecFieldName == "Missing Spec Name")
-                Assert.AreEqual(error, createspecificationpage.SpecNameErrorText.Text);
+                Assert.AreEqual(error, createspecificationpage.SpecNameError.Text);
 
             else if (SpecFieldName == "Missing Spec Description")
-                Assert.AreEqual(error, createspecificationpage.SpecDescriptionErrorText.Text);
+                Assert.AreEqual(error, createspecificationpage.SpecDescriptionError.Text);
 
             else throw new InvalidOperationException("Unknown Field");
             Thread.Sleep(2000);
 
         }
+
+        [Given(@"I have previously created a new specification")]
+        public void GivenIHavePreviouslyCreatedANewSpecification()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+        }
+
 
         [When(@"I click to view an existing Specification")]
         public void WhenIClickToViewAnExistingSpecification()
@@ -246,6 +273,22 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [Given(@"I have successfully navigated to the Manage Policies Page for the new specification")]
+        public void GivenIHaveSuccessfullyNavigatedToTheManagePoliciesPageForTheNewSpecification()
+        {
+            var specName = ScenarioContext.Current["SpecificationName"];
+            string specCreated = specName.ToString();
+
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+            homepage.ManagetheSpecification.Click();
+            Thread.Sleep(2000);
+
+            Driver._driver.FindElement(By.LinkText(specCreated)).Click();
+            Thread.Sleep(2000);
+        }
+
+
         [When(@"I click on the Create Policy Button")]
         public void WhenIClickOnTheCreatePolicyButton()
         {
@@ -259,6 +302,23 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Assert.IsNotNull(createpolicypage.PolicyName);
             Thread.Sleep(1000);
         }
+
+        [Given(@"A Policy has been previously created with a Unique Policy Name")]
+        public void GivenAPolicyHasBeenPreviouslyCreatedWithAUniquePolicyName()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            Thread.Sleep(2000);
+        }
+
+        [Given(@"I have successfully navigated to the Create Policy Page for the previously created specification")]
+        public void GivenIHaveSuccessfullyNavigatedToTheCreatePolicyPageForThePreviouslyCreatedSpecification()
+        {
+            managepoliciespage.CreatePolicyButton.Click();
+            Thread.Sleep(2000);
+        }
+
+
 
         [Given(@"I have successfully navigated to the Create Policy Page")]
         public void GivenIHaveSuccessfullyNavigatedToTheCreatePolicyPage()
@@ -312,7 +372,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I enter an existing Policy Name")]
         public void WhenIEnterAnExistingPolicyName()
         {
-            createpolicypage.PolicyName.SendKeys("Test");
+            var specPolicyName = ScenarioContext.Current["SpecPolicyName"];
+            string specPolicyCreated = specPolicyName.ToString();
+
+            createpolicypage.PolicyName.SendKeys(specPolicyCreated);
+            Console.WriteLine("The Existing Policy Name entered was: " + specPolicyCreated);
         }
 
 
@@ -320,6 +384,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenAUniquePolicyNameErrorIsDisplayed()
         {
             Assert.IsNotNull(createpolicypage.PolicyNameErrorText.Text);
+            string policyNameError = createpolicypage.PolicyNameErrorText.Text;
+            Console.WriteLine("The following Error message was displayed: " + policyNameError);
             Thread.Sleep(2000);
         }
 
@@ -426,7 +492,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Assert.IsNotNull(managepoliciespage.CalculationList);
             var calculationName = ScenarioContext.Current["CalculationName"];
             string calculationCreated = calculationName.ToString();
-            var calcelements = Driver._driver.FindElements(By.CssSelector(".policy-list"));
+
+            var calcelements = Driver._driver.FindElements(By.CssSelector(".cf"));
             IWebElement createdcalculation = null;
             foreach (var element in calcelements)
             {
@@ -459,10 +526,29 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [Given(@"A Calculation Specification has been previously created with a Unique Name")]
+        public void GivenACalculationSpecificationHasBeenPreviouslyCreatedWithAUniqueName()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+        }
+
+        [Given(@"I have successfully navigated to the Create Calculation Specification Page")]
+        public void GivenIHaveSuccessfullyNavigatedToTheCreateCalculationSpecificationPage()
+        {
+            managepoliciespage.CreateCalculation.Click();
+            Thread.Sleep(2000);
+        }
+
         [When(@"I enter an Existing Calculation Name")]
         public void WhenIEnterAnExistingCalculationName()
         {
-            createcalculationpage.CalculationName.SendKeys("Test");
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+
+            createcalculationpage.CalculationName.SendKeys(specCalcCreated);
+            Console.WriteLine("The Existing Calculation Name entered was: " + specCalcCreated);
         }
 
 
@@ -470,6 +556,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenAUniqueCalculationNameErrorIsDisplayed()
         {
             Assert.IsNotNull(createcalculationpage.CalculationNameError.Text);
+            string calcSpecificationNameError = createcalculationpage.CalculationNameError.Text;
+            Console.WriteLine("The Following Error Message was displayed: " + calcSpecificationNameError);
             Thread.Sleep(2000);
         }
 
@@ -620,7 +708,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Assert.IsNotNull(managepoliciespage.SubPolicyList);
             var subPolicyName = ScenarioContext.Current["SubPolicyName"];
             string subPolicyCreated = subPolicyName.ToString();
-            var subpolicyelements = Driver._driver.FindElements(By.CssSelector(".policy-list"));
+
+            var subpolicyelements = Driver._driver.FindElements(By.CssSelector(".cf"));
             IWebElement createdsubpolicy = null;
             foreach (var element in subpolicyelements)
             {
@@ -654,10 +743,31 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [Given(@"A Sub Policy has been previously created with a Unique Name")]
+        public void GivenASubPolicyHasBeenPreviouslyCreatedWithAUniqueName()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewSubPolicy.CreateANewSpecificationSubPolicy();
+        }
+
+        [Given(@"I have successfully navigated to the Create Sub Policy Page for the same Specification")]
+        public void GivenIHaveSuccessfullyNavigatedToTheCreateSubPolicyPageForTheSameSpecification()
+        {
+            managepoliciespage.CreateSubPolicy.Click();
+            Thread.Sleep(2000);
+        }
+
+
+
         [When(@"I enter a Sub Policy Name that already exists")]
         public void WhenIEnterASubPolicyNameThatAlreadyExists()
         {
-            createsubpolicypage.SubPolicyName.SendKeys("test");
+            var specPolicyName = ScenarioContext.Current["SpecSubPolicyName"];
+            string specSubPolicyCreated = specPolicyName.ToString();
+
+            createsubpolicypage.SubPolicyName.SendKeys(specSubPolicyCreated);
+            Console.WriteLine("The Existing Sub Policy Name entered was: " + specSubPolicyCreated);
         }
 
 
@@ -665,6 +775,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenAUniqueSubPolicyNameErrorIsDisplayed()
         {
             Assert.IsNotNull(createsubpolicypage.SubPolicyMissingNameErrorText.Text);
+            string subPolicyNameError = createsubpolicypage.SubPolicyMissingNameErrorText.Text;
+            Console.WriteLine("THe following error was displayed: " + subPolicyNameError);
             Thread.Sleep(2000);
         }
 
@@ -813,6 +925,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement allocationError = createcalculationpage.CalculationAllocationError;
             allocationError.Should().NotBeNull();
             string allocationErrorText = allocationError.Text;
+            allocationError.Text.Should().Be("Select an allocation line", "Error Message is Incorrect");
             Console.WriteLine("The following Allocation Warning Message was displayed " + allocationErrorText);
         }
 
@@ -838,9 +951,10 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"A Unique Funding Stream Error is Displayed")]
         public void ThenAUniqueFundingStreamErrorIsDisplayed()
         {
-            IWebElement noFundingStream = createspecificationpage.SpecFundingStreamErrorText;
+            IWebElement noFundingStream = createspecificationpage.SpecFundingStreamError;
             noFundingStream.Should().NotBeNull();
             string noFundingStreamError = noFundingStream.Text;
+            noFundingStream.Text.Should().Be("Select at least one funding stream", "Correct Error Message is not displayed");
             Console.WriteLine("The following Funding Stream Warning Message was displayed " + noFundingStreamError);
         }
 
@@ -924,7 +1038,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("a"));
+                var options = containerElements.FindElements(By.TagName("i"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -965,6 +1079,12 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"the Manage Policies Policy List displays the Edit Sub Policy option")]
         public void ThenTheManagePoliciesPolicyListDisplaysTheEditSubPolicyOption()
         {
+            IWebElement editSubPolicy = Driver._driver.FindElement(By.CssSelector(".data-subpolicy-editlink-icon > i:nth-child(1)"));
+            editSubPolicy.Should().NotBeNull();
+            editSubPolicy.Click();
+            Thread.Sleep(2000);
+
+            /*
             IWebElement subpolicyList = managepoliciespage.SubPolicyList;
             subpolicyList.Should().NotBeNull();
 
@@ -972,7 +1092,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditSubPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("a"));
+                var options = containerElements.FindElements(By.TagName("i"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -1000,6 +1120,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             {
                 firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
             }
+            */
         }
 
         [Given(@"I have navigated to the Edit Policy Page")]
@@ -1051,7 +1172,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("h2"));
+                var options = containerElements.FindElements(By.TagName("span"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -1111,7 +1232,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("p"));
+                var options = containerElements.FindElements(By.TagName("td"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -1185,7 +1306,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditSubPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("h2"));
+                var options = containerElements.FindElements(By.TagName("span"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -1245,7 +1366,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement firstSelectEditPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("p"));
+                var options = containerElements.FindElements(By.TagName("td"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -1270,12 +1391,12 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 }
                 else
                 {
-                    firstSelectEditPolicy.Should().NotBeNull("Edit Sub Policy Name has is not displayed correctly");
+                    firstSelectEditPolicy.Should().NotBeNull("Edit Sub Policy Description has is not displayed correctly");
                 }
             }
             else
             {
-                firstSelectEditPolicy.Should().NotBeNull("Edit Sub Policy Name has Failed");
+                firstSelectEditPolicy.Should().NotBeNull("Edit Sub Policy Description has Failed");
             }
         }
 
@@ -1292,6 +1413,12 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement subpolicyList = managepoliciespage.SubPolicyList;
             subpolicyList.Should().NotBeNull();
 
+            IWebElement editSubPolicy = Driver._driver.FindElement(By.CssSelector(".data-subpolicy-editlink-icon > i:nth-child(1)"));
+            editSubPolicy.Should().NotBeNull();
+            editSubPolicy.Click();
+            Thread.Sleep(2000);
+
+            /*
             var containerElements = subpolicyList;
             IWebElement firstSelectEditSubPolicy = null;
             if (containerElements != null)
@@ -1324,6 +1451,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             {
                 firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
             }
+            */
         }
 
 
@@ -1471,7 +1599,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         [Then(@"an Alert is displayed warning that no Funding Streams are associated to the specification")]
         public void ThenAnAlertIsDisplayedWarningThatNoFundingStreamsAreAssociatedToTheSpecification()
-        {           
+        {
             IWebElement noFundingStreamAlert = editspecificationpage.editSpecificationFundingStreamRemovedAlert;
             noFundingStreamAlert.Should().NotBeNull();
             string noFundingStreamAlertText = noFundingStreamAlert.Text;
@@ -1522,6 +1650,771 @@ namespace Frontend.IntegrationTests.Tests.Steps
             editspecificationpage.editSpecificationCancelLink.Click();
             Thread.Sleep(2000);
         }
+
+        [Given(@"I have created a new policy")]
+        public void GivenIHaveCreatedANewPolicy()
+        {
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+        }
+
+        [Given(@"I have created a new calculation specification")]
+        public void GivenIHaveCreatedANewCalculationSpecification()
+        {
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+        }
+
+        [When(@"I click on the calculation specifcation within the Manage Policies Page")]
+        public void WhenIClickOnTheCalculationSpecifcationWithinTheManagePoliciesPage()
+        {
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+
+            IWebElement calcSpecCreated = Driver._driver.FindElement(By.LinkText(specCalcCreated));
+            calcSpecCreated.Should().NotBeNull();
+            string calcSpecText = calcSpecCreated.Text;
+            Console.WriteLine("Calculation Specification Selected to Edit: " + calcSpecText);
+            calcSpecCreated.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected successfully to the Edit Calculation Specifcation Page")]
+        public void ThenIAmRedirectedSuccessfullyToTheEditCalculationSpecifcationPage()
+        {
+            editcalculationpage.editCalculationName.Should().NotBeNull();
+        }
+
+        [Given(@"I have successfully created a new Calculation Specification")]
+        public void GivenIHaveSuccessfullyCreatedANewCalculationSpecification()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+
+        }
+
+        [Given(@"I have successfully created a new Calculation Specification with Calculation Type of Number")]
+        public void GivenIHaveSuccessfullyCreatedANewCalculationSpecificationWithCalculationTypeOfNumber()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewCalculationSpecification_Number.CreateANewSpecificationPolicy_Number();
+        }
+
+
+        [Given(@"I have navigated to the Edit Calculation Page")]
+        public void GivenIHaveNavigatedToTheEditCalculationPage()
+        {
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+
+            IWebElement calcSpecCreated = Driver._driver.FindElement(By.LinkText(specCalcCreated));
+            calcSpecCreated.Should().NotBeNull();
+            string calcSpecText = calcSpecCreated.Text;
+            Console.WriteLine("Calculation Specification Selected to Edit: " + calcSpecText);
+            calcSpecCreated.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the option to edit the Calculation Specification Name is displayed")]
+        public void ThenTheOptionToEditTheCalculationSpecificationNameIsDisplayed()
+        {
+            editcalculationpage.editCalculationName.Should().NotBeNull();
+        }
+
+        [Then(@"the option to edit the Calculation Specification Description is displayed")]
+        public void ThenTheOptionToEditTheCalculationSpecificationDescriptionIsDisplayed()
+        {
+            editcalculationpage.editCalculationDescription.Should().NotBeNull();
+        }
+
+        [Then(@"the option to edit the Calculation Specification Policy or Sub Policy is displayed")]
+        public void ThenTheOptionToEditTheCalculationSpecificationPolicyOrSubPolicyIsDisplayed()
+        {
+            editcalculationpage.editCalculationPolicy.Should().NotBeNull();
+        }
+
+        [Then(@"the option to edit the Calculation Specification Calculation Type is displayed")]
+        public void ThenTheOptionToEditTheCalculationSpecificationCalculationTypeIsDisplayed()
+        {
+            editcalculationpage.editCalculationCalculationType.Should().NotBeNull();
+        }
+
+        [Then(@"the option to edit the Calculation Specification Allocation Line is displayed")]
+        public void ThenTheOptionToEditTheCalculationSpecificationAllocationLineIsDisplayed()
+        {
+            editcalculationpage.editCalculationAllocationLine.Should().NotBeNull();
+        }
+
+        [Then(@"an option to Save the Changes is displayed")]
+        public void ThenAnOptionToSaveTheChangesIsDisplayed()
+        {
+            editcalculationpage.editCalculationSave.Should().NotBeNull();
+        }
+
+        [Then(@"an option to cancel the changes is displayed")]
+        public void ThenAnOptionToCancelTheChangesIsDisplayed()
+        {
+            editcalculationpage.editCalculationCancel.Should().NotBeNull();
+        }
+
+        [When(@"I update the existing Calculation Specificaton Name")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonName()
+        {
+            string newname = "Test Calculation Name Edit ";
+            var editSpecCalcName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["SpecCalcName"] = editSpecCalcName;
+
+            editcalculationpage.editCalculationName.Clear();
+            editcalculationpage.editCalculationName.SendKeys(editSpecCalcName);
+
+            editcalculationpage.editCalculationSave.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Calculation Specification Name has been successfully updated")]
+        public void ThenTheCalculationSpecificationNameHasBeenSuccessfullyUpdated()
+        {
+            var newspecCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcEdited = newspecCalcName.ToString();
+
+            IWebElement calcSpecCreated = Driver._driver.FindElement(By.LinkText(specCalcEdited));
+            calcSpecCreated.Should().NotBeNull();
+            string calcSpecText = calcSpecCreated.Text;
+            Console.WriteLine("The Calculation Specification has been successully updated to: " + calcSpecText);
+
+            managepoliciespage.editNotificationPanel.Should().NotBeNull();
+            string editnotification = managepoliciespage.editNotificationPanel.Text;
+            Console.WriteLine("Notification was displayed correctly to confirm the Edit with the message: " + editnotification);
+
+        }
+
+        [When(@"I update the existing Calculation Specificaton Description")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonDescription()
+        {
+            string descriptiontext = "This is an Edited Description for: ";
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+            string newdescription = descriptiontext + specCalcCreated;
+            ScenarioContext.Current["EditSpecCalcDesc"] = newdescription;
+
+            editcalculationpage.editCalculationDescription.Clear();
+            editcalculationpage.editCalculationDescription.SendKeys(newdescription);
+
+            editcalculationpage.editCalculationSave.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Calculation Specification Description has been successfully updated")]
+        public void ThenTheCalculationSpecificationDescriptionHasBeenSuccessfullyUpdated()
+        {
+            var newspecCalcDesc = ScenarioContext.Current["EditSpecCalcDesc"];
+            string specCalcDescEdited = newspecCalcDesc.ToString();
+
+            IWebElement policyList = managepoliciespage.PolicyList;
+            policyList.Should().NotBeNull();
+
+            var containerElements = policyList;
+            IWebElement firstSelectEditCalc = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("td"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+
+                        if (optionelement.Text.Contains(specCalcDescEdited))
+                        {
+                            {
+                                firstSelectEditCalc = optionelement;
+
+                                break;
+                            }
+                        }
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectEditCalc != null)
+                {
+                    string updatedDescription = firstSelectEditCalc.Text;
+                    Console.WriteLine("The Specification Calculation Description has been updated to: " + updatedDescription);
+
+                    managepoliciespage.editNotificationPanel.Should().NotBeNull();
+                    string editnotification = managepoliciespage.editNotificationPanel.Text;
+                    Console.WriteLine("Notification was displayed correctly to confirm the Edit with the message: " + editnotification);
+                }
+                else
+                {
+                    firstSelectEditCalc.Should().NotBeNull("Edit Specification Calculation Description has is not displayed correctly");
+                }
+            }
+            else
+            {
+                firstSelectEditCalc.Should().NotBeNull("Edit Specification Calculation Description has Failed");
+            }
+        }
+
+        [When(@"I update the existing Calculation Specificaton Allocation Line")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonAllocationLine()
+        {
+            var allocation = editcalculationpage.editCalculationAllocationLine;
+            var selectElement01 = new SelectElement(allocation);
+            selectElement01.SelectByValue("YPA07");
+
+            editcalculationpage.editCalculationSave.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Calculation Specification has been successfully updated")]
+        public void ThenTheCalculationSpecificationHasBeenSuccessfullyUpdated()
+        {
+            managepoliciespage.editNotificationPanel.Should().NotBeNull();
+            string editnotification = managepoliciespage.editNotificationPanel.Text;
+            Console.WriteLine("Notification was displayed correctly to confirm the Edit with the message: " + editnotification);
+        }
+
+        [When(@"I update the existing Calculation Specificaton Calculation Type")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonCalculationType()
+        {
+            var calctype = editcalculationpage.editCalculationCalculationType;
+            var selectElement = new SelectElement(calctype);
+            selectElement.SelectByValue("Number");
+
+            editcalculationpage.editCalculationSave.Click();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I update the existing Calculation Specificaton Associated Policy")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonAssociatedPolicy()
+        {
+            var addSpecPolicyName = ScenarioContext.Current["AddSpecPolicyName"];
+            string addSpecPolicyCreated = addSpecPolicyName.ToString();
+
+            var containerElements = Driver._driver.FindElement(By.Id("EditCalculationViewModel-PolicyId"));
+            IWebElement firstSelectPolicy = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains(addSpecPolicyCreated))
+                        {
+                            {
+                                firstSelectPolicy = optionelement;
+                                break;
+                            }
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (firstSelectPolicy != null)
+                {
+                    firstSelectPolicy.Click();
+                    string selectedPolicy = firstSelectPolicy.Text;
+                    Console.WriteLine("New Policy selected to Associate the Calculation to is: " + selectedPolicy);
+                    editcalculationpage.editCalculationSave.Click();
+                    Thread.Sleep(2000);
+                }
+                else
+                {
+                    firstSelectPolicy.Should().NotBeNull("No Policy exists that can be selected");
+                }
+            }
+            else
+            {
+                firstSelectPolicy.Should().NotBeNull("No Policy exists that can be selected");
+            }
+        }
+
+        [Then(@"the Calculation Specification associated policy has been successfully updated")]
+        public void ThenTheCalculationSpecificationAssociatedPolicyHasBeenSuccessfullyUpdated()
+        {
+            managepoliciespage.editNotificationPanel.Should().NotBeNull();
+            string editnotification = managepoliciespage.editNotificationPanel.Text;
+            Console.WriteLine("Notification was displayed correctly to confirm the Edit with the message: " + editnotification);
+        }
+
+        [When(@"I update the existing Calculation Specificaton")]
+        public void WhenIUpdateTheExistingCalculationSpecificaton()
+        {
+            string newname = "Test Calculation Name Edit ";
+            var editSpecCalcName = newname + TestDataUtils.RandomString(6);
+            ScenarioContext.Current["SpecCalcName"] = editSpecCalcName;
+
+            editcalculationpage.editCalculationName.Clear();
+            editcalculationpage.editCalculationName.SendKeys(editSpecCalcName);
+        }
+
+        [When(@"select to Cancel the edit")]
+        public void WhenSelectToCancelTheEdit()
+        {
+            editcalculationpage.editCalculationCancel.Click();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I choose to filter the list by Funding Stream")]
+        public void WhenIChooseToFilterTheListByFundingStream()
+        {
+            IWebElement totalListCount = managespecficationpage.SpecificationListTotalResultCount;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of specifications is: " + totalCount);
+
+            IWebElement filtercontainer = managespecficationpage.SpecificationFundingStreamsFilter;
+            IWebElement fundingsteamfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingsteamfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string fundingstreamselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Stream Filter Option selected = " + fundingstreamselected);
+            selectfilteroption.Click();
+            managespecficationpage.SearchSpecification.Click();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I choose to filter the list by Status")]
+        public void WhenIChooseToFilterTheListByStatus()
+        {
+            IWebElement totalListCount = managespecficationpage.SpecificationListTotalResultCount;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of specifications is: " + totalCount);
+
+            IWebElement filtercontainer = managespecficationpage.SpecificationStatusFilter;
+            IWebElement statusfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            statusfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string statusselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Stream Filter Option selected = " + statusselected);
+            selectfilteroption.Click();
+            managespecficationpage.SearchSpecification.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the list of specifications refreshes to display the filtered selection")]
+        public void ThenTheListOfSpecificationsRefreshesToDisplayTheFilteredSelection()
+        {
+            IWebElement totalListCount = managespecficationpage.SpecificationListTotalResultCount;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The filtered total count of specifications now is: " + totalCount);
+        }
+
+        [Given(@"I choose to filter the list")]
+        public void GivenIChooseToFilterTheList()
+        {
+            IWebElement filterstatuscontainer = managespecficationpage.SpecificationStatusFilter;
+            IWebElement statusfilter = filterstatuscontainer.FindElement(By.CssSelector("button"));
+            statusfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectstatusfilteroption = filterstatuscontainer.FindElement(By.CssSelector("label"));
+            string statusselected = selectstatusfilteroption.Text;
+            Console.WriteLine("Funding Stream Filter Option selected = " + statusselected);
+            selectstatusfilteroption.Click();
+            managespecficationpage.SearchSpecification.Click();
+            Thread.Sleep(2000);
+
+            IWebElement filterfundingstreamcontainer = managespecficationpage.SpecificationFundingStreamsFilter;
+            IWebElement fundingsteamfilter = filterfundingstreamcontainer.FindElement(By.CssSelector("button"));
+            fundingsteamfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilterstreamoption = filterfundingstreamcontainer.FindElement(By.CssSelector("label"));
+            string fundingstreamselected = selectfilterstreamoption.Text;
+            Console.WriteLine("Funding Stream Filter Option selected = " + fundingstreamselected);
+            selectfilterstreamoption.Click();
+            managespecficationpage.SearchSpecification.Click();
+            Thread.Sleep(2000);
+
+            IWebElement filterfundingperiodcontainer = managespecficationpage.SpecificationFilterContainer;
+            IWebElement fundingperiodfilter = filterfundingperiodcontainer.FindElement(By.CssSelector("button"));
+            fundingperiodfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filterfundingperiodcontainer.FindElement(By.CssSelector("label"));
+            string fundingperiodselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Period Filter Option selected = " + fundingperiodselected);
+            selectfilteroption.Click();
+            managespecficationpage.SearchSpecification.Click();
+            Thread.Sleep(2000);
+
+            IWebElement totalListCount = managespecficationpage.SpecificationListTotalResultCount;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The filtered total count of specifications is: " + totalCount);
+
+        }
+
+        [When(@"I choose the Clear Filter option")]
+        public void WhenIChooseTheClearFilterOption()
+        {
+            managespecficationpage.SpecificationClearFilter.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the list of specifications refreshes to display all the specifications available")]
+        public void ThenTheListOfSpecificationsRefreshesToDisplayAllTheSpecificationsAvailable()
+        {
+            IWebElement totalListCount = managespecficationpage.SpecificationListTotalResultCount;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of specifications is: " + totalCount);
+        }
+
+        [Then(@"the list of specifications is displayed")]
+        public void ThenTheListOfSpecificationsIsDisplayed()
+        {
+            managespecficationpage.SpecificationList.Should().NotBeNull();
+        }
+
+        [Then(@"the following Headers are correctly displayed")]
+        public void ThenTheFollowingHeadersAreCorrectlyDisplayed()
+        {
+            IWebElement specificationlistContainer = managespecficationpage.SpecificationList;
+            var propertyElements = specificationlistContainer.FindElements(By.CssSelector("th"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"the displayed in descending order by Last Edit Date")]
+        public void ThenTheDisplayedInDescendingOrderByLastEditDate()
+        {
+            IWebElement firstResultLastUpdated = managespecficationpage.SpecificationListFirstEditDate;
+            string firstResultUpdatedDate = firstResultLastUpdated.Text;
+            Console.WriteLine(firstResultUpdatedDate);
+            DateTime firstUpdatedDate = DateTime.ParseExact(firstResultUpdatedDate, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+            IWebElement secondResultLastUpdated = managespecficationpage.SpecificationListSecondEditDate;
+            string secondResultUpdatedDate = secondResultLastUpdated.Text;
+            Console.WriteLine(secondResultUpdatedDate);
+            DateTime secondUpdatedDate = DateTime.ParseExact(secondResultUpdatedDate, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
+            firstUpdatedDate.Should().BeAfter(secondUpdatedDate, "Dataset List is Ordered Incorrectly");
+
+        }
+
+        [Then(@"the Information in each column is displayed correctly")]
+        public void ThenTheInformationInEachColumnIsDisplayedCorrectly()
+        {
+            IWebElement specificationlistContainer = managespecficationpage.SpecificationList;
+            //IWebElement specificationDetails = specificationlistContainer.FindElement(By.CssSelector("tr"));
+            var propertyElements = specificationlistContainer.FindElements(By.CssSelector("td"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                //currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [When(@"I click on the More Option in for a specific Specification")]
+        public void WhenIClickOnTheMoreOptionInForASpecificSpecification()
+        {
+            managespecficationpage.SpecificationListMoreOption.Click();
+            Thread.Sleep(1000);
+        }
+
+        [Then(@"the description of that specification is displayed")]
+        public void ThenTheDescriptionOfThatSpecificationIsDisplayed()
+        {
+            IWebElement specificationMoreContainer = managespecficationpage.SpecificationListExpandContainer;
+            //IWebElement specificationDetails = specificationlistContainer.FindElement(By.CssSelector("tr"));
+            var propertyElements = specificationMoreContainer.FindElements(By.CssSelector("div"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+
+        }
+
+        [Then(@"the funding stream associated with the specification is displayed")]
+        public void ThenTheFundingStreamAssociatedWithTheSpecificationIsDisplayed()
+        {
+            //Information is written to the Console Output as part of step definition "the description of that specification is displayed"
+        }
+
+        [Then(@"the funding period associated with the specification is displayed")]
+        public void ThenTheFundingPeriodAssociatedWithTheSpecificationIsDisplayed()
+        {
+            //Information is written to the Console Output as part of step definition "the description of that specification is displayed"
+        }
+
+        [Then(@"there is an option to edit the specification displayed")]
+        public void ThenThereIsAnOptionToEditTheSpecificationDisplayed()
+        {
+            //Information is written to the Console Output as part of step definition "the description of that specification is displayed"
+        }
+
+        [Then(@"the list of associated Polcies and Calculations are displayed")]
+        public void ThenTheListOfAssociatedPolciesAndCalculationsAreDisplayed()
+        {
+            managepoliciespage.PolicyList.Should().NotBeNull();
+        }
+
+        [Then(@"the following Specification related Headers are correctly displayed")]
+        public void ThenTheFollowingSpecificationRelatedHeadersAreCorrectlyDisplayed()
+        {
+            IWebElement specificationheaderlist = Driver._driver.FindElement(By.CssSelector("thead.table-primary-border"));
+            string headers = specificationheaderlist.Text;
+            Console.WriteLine("The Manage Policy List Headers Displayed are: " + headers);
+        }
+
+        [Then(@"the associated policies are displayed as rows in my table")]
+        public void ThenTheAssociatedPoliciesAreDisplayedAsRowsInMyTable()
+        {
+            IWebElement policycontainer = managepoliciespage.PolicyList;
+            var propertyElements = policycontainer.FindElements(By.CssSelector("tr.data-policy-container"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+
+        }
+
+        [Then(@"the name of the policy is displayed")]
+        public void ThenTheNameOfThePolicyIsDisplayed()
+        {
+
+        }
+
+        [Then(@"the description of the policy is displayed")]
+        public void ThenTheDescriptionOfThePolicyIsDisplayed()
+        {
+
+        }
+
+        [Then(@"the last edited date time for the policy is displayed")]
+        public void ThenTheLastEditedDateTimeForThePolicyIsDisplayed()
+        {
+
+        }
+
+        [Then(@"there is the ability to view more information about the policy")]
+        public void ThenThereIsTheAbilityToViewMoreInformationAboutThePolicy()
+        {
+
+        }
+
+        [Then(@"the associated calculations are displayed as rows in my table")]
+        public void ThenTheAssociatedCalculationsAreDisplayedAsRowsInMyTable()
+        {
+            IWebElement policycontainer = managepoliciespage.PolicyList;
+            var propertyElements = policycontainer.FindElements(By.CssSelector("tr.cr-table-primary-highlight:nth-child(3)"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                //currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"I am able to see the name of the calculation specifications")]
+        public void ThenIAmAbleToSeeTheNameOfTheCalculationSpecifications()
+        {
+
+        }
+
+        [Then(@"the description of the calculation specification is displayed")]
+        public void ThenTheDescriptionOfTheCalculationSpecificationIsDisplayed()
+        {
+
+        }
+
+        [Then(@"I am able to select to view more details about the calculations specification")]
+        public void ThenIAmAbleToSelectToViewMoreDetailsAboutTheCalculationsSpecification()
+        {
+
+        }
+
+        [Then(@"the type of the calculation specification is displayed")]
+        public void ThenTheTypeOfTheCalculationSpecificationIsDisplayed()
+        {
+
+        }
+
+        [Given(@"the list of associated Polcies and Calculations are displayed")]
+        public void GivenTheListOfAssociatedPolciesAndCalculationsAreDisplayed()
+        {
+            managepoliciespage.PolicyList.Should().NotBeNull();
+        }
+
+        [Given(@"the associated policies are displayed as rows in my table")]
+        public void GivenTheAssociatedPoliciesAreDisplayedAsRowsInMyTable()
+        {
+            IWebElement policycontainer = managepoliciespage.PolicyList;
+            var propertyElements = policycontainer.FindElements(By.CssSelector("tr.data-policy-container"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [When(@"I click on the More drop down option")]
+        public void WhenIClickOnTheMoreDropDownOption()
+        {
+            managepoliciespage.firstMoreOption.Click();
+            Thread.Sleep(3000);
+        }
+
+        [Then(@"I can view the full policy description")]
+        public void ThenICanViewTheFullPolicyDescription()
+        {
+            IWebElement fullDescription = managepoliciespage.firstFullDescription;
+            string fullDescriptionText = fullDescription.Text;
+
+            Console.WriteLine("The Full Epxpanded Description is: " + fullDescriptionText);
+
+        }
+
+        [Given(@"the associated calculations are displayed as rows in my table")]
+        public void GivenTheAssociatedCalculationsAreDisplayedAsRowsInMyTable()
+        {
+            IWebElement policycontainer = managepoliciespage.PolicyList;
+            var propertyElements = policycontainer.FindElements(By.CssSelector("tr.cr-table-primary-highlight:nth-child(3)"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                //currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [When(@"I click on the Calculation More drop down option")]
+        public void WhenIClickOnTheCalculationMoreDropDownOption()
+        {
+            managepoliciespage.firstCalcMoreOption.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I can view the full Calculation description")]
+        public void ThenICanViewTheFullCalculationDescription()
+        {
+            IWebElement fullCalcDescription = managepoliciespage.firstCalcFullDescription;
+            string fullCalcDescText = fullCalcDescription.Text;
+            Console.WriteLine("The Full Epxpanded Description is: " + fullCalcDescText);
+        }
+
+        [When(@"I click on the Jump To Drop down")]
+        public void WhenIClickOnTheJumpToDropDown()
+        {
+            managepoliciespage.policyjump.Should().NotBeNull();
+            managepoliciespage.policyjump.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am able to select from all the available policies")]
+        public void ThenIAmAbleToSelectFromAllTheAvailablePolicies()
+        {
+            var addSpecPolicyName = ScenarioContext.Current["AddSpecPolicyName"];
+            string addSpecPolicyCreated = addSpecPolicyName.ToString();
+
+            var selectYear = managepoliciespage.policyjump;
+            var selectElement = new SelectElement(selectYear);
+            selectElement.SelectByText(addSpecPolicyCreated);
+            Thread.Sleep(2000);
+
+        }
+
+        [Then(@"jump to the displayed information for the selected policy")]
+        public void ThenJumpToTheDisplayedInformationForTheSelectedPolicy()
+        {
+            IWebElement JumpedTo = managepoliciespage.policyjump;
+            string selectedJumpto = JumpedTo.Text;
+
+            Console.WriteLine("Policy selected to Jump To was: " + selectedJumpto);
+        }
+
+        [When(@"I click the Expand All Link")]
+        public void WhenIClickTheExpandAllLink()
+        {
+            managepoliciespage.expandCollapseAll.Click();
+        }
+
+        [Then(@"All rows in the Policy List are expanded to display all additional information")]
+        public void ThenAllRowsInThePolicyListAreExpandedToDisplayAllAdditionalInformation()
+        {
+            IWebElement dataAction = managepoliciespage.expandCollapseAll;
+            string dataActionText = dataAction.Text;
+            dataActionText.Should().Be("Collapse all", "Expand All within the policy List has not been actioned");
+            Console.WriteLine("Option has updated correctly to " + dataActionText);
+        }
+
+        [Then(@"All rows in the Policy List are collapsed again")]
+        public void ThenAllRowsInThePolicyListAreCollapsedAgain()
+        {
+            IWebElement dataAction = managepoliciespage.expandCollapseAll;
+            string dataActionText = dataAction.Text;
+            dataActionText.Should().Be("Expand all", "Collapse All within the policy List has not been actioned");
+            Console.WriteLine("Option has updated correctly to " + dataActionText);
+        }
+
+        [Then(@"the Approve Specification option is correctly displayed")]
+        public void ThenTheApproveSpecificationOptionIsCorrectlyDisplayed()
+        {
+            IWebElement approveButton = Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(1) > span:nth-child(1)"));
+            approveButton.Should().NotBeNull();
+            string approveStatus = approveButton.Text;
+            approveStatus.Should().Be("Draft", "The Status of the Specification is not Draft");
+            Console.WriteLine("The current Status of the selected Specification is: " + approveStatus);
+        }
+
+
+        [When(@"I choose to mark the associated Specification as Approved")]
+        public void WhenIChooseToMarkTheAssociatedSpecificationAsApproved()
+        {
+            managepoliciespage.approveDropDown.Click();
+            IWebElement publishoptions = managepoliciespage.publishMenu;
+            publishoptions.Should().NotBeNull();
+
+            Driver._driver.FindElement(By.CssSelector(".dropdown-menu")).Click();
+            Thread.Sleep(2000);
+            
+
+        }
+
+        [Then(@"the Specification should be marked as approved")]
+        public void ThenTheSpecificationShouldBeMarkedAsApproved()
+        {
+            IWebElement approveButton = Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(1)"));
+            approveButton.Should().NotBeNull();
+            string approveStatus = approveButton.Text;
+            approveStatus.Should().Be("Approved", "The Status of the Specification is not Draft");
+            Console.WriteLine("The New Status of the selected Specification is: " + approveStatus);
+        }
+
 
 
 

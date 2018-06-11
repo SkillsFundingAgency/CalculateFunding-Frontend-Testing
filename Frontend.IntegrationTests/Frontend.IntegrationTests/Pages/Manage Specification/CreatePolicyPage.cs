@@ -28,10 +28,10 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.LinkText, Using = "Cancel")]
         public IWebElement CancelPolicy { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "You must give a description for the policy")]
+        [FindsBy(How = How.Id, Using = "validation-link-for-CreatePolicyViewModel-Description")]
         public IWebElement PolicyDescriptionErrorText { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "You must give a unique policy name")]
+        [FindsBy(How = How.Id, Using = "validation-link-for-CreatePolicyViewModel-Name")]
         public IWebElement PolicyNameErrorText { get; set; }
 
     }

@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using Frontend.IntegrationTests.Pages.View_Results;
 using Frontend.IntegrationTests.Pages.Quality_Assurance;
 using System;
+using TechTalk.SpecFlow;
 
 namespace Frontend.IntegrationTests
 {
@@ -208,14 +209,14 @@ namespace Frontend.IntegrationTests
 
             homepage.ManagetheData.Click();
             managethedatapage.specifyDataSetRelationshipLink.Click();
-            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container > div.specs-relationship-searchresult-container-item"));
+            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container .specs-relationship-searchresult-container-item"));
             IWebElement firstAnchorLink = null;
             foreach (var element in containerElements)
             {
-                var pElement = element.FindElement(By.TagName("p"));
+                var pElement = element.FindElement(By.CssSelector("p"));
                 if (pElement != null)
                 {
-                    if (pElement.Text.Contains("No data relationships exist"))
+                    if (pElement.Text.Contains("No data sources mapped to datasets"))
                     {
                         var anchorLink = element.FindElement(By.CssSelector("h2 > a"));
                         if (anchorLink != null)
@@ -243,17 +244,27 @@ namespace Frontend.IntegrationTests
             HomePage homepage = new HomePage();
             ManageTheDataPage managethedatapage = new ManageTheDataPage();
             MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
-
+            
             homepage.ManagetheData.Click();
             managethedatapage.specifyDataSetRelationshipLink.Click();
-            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container > div.specs-relationship-searchresult-container-item"));
+            Thread.Sleep(5000);
+
+            var specName = ScenarioContext.Current["SpecificationName"];
+            string specCreated = specName.ToString();
+            string specCreatedID = specName.ToString().Replace("Test Spec Name ", "");
+
+            mapdatasourcestodatasetspage.mapDataSourcesSearchTermField.SendKeys(specCreatedID);
+            mapdatasourcestodatasetspage.mapDataSourcesSearchTermButton.Click();
+            Thread.Sleep(2000);
+            
+            var containerElements = Driver._driver.FindElements(By.CssSelector("#dynamic-results-container .specs-relationship-searchresult-container-item"));
             IWebElement firstAnchorLink = null;
             foreach (var element in containerElements)
             {
-                var pElement = element.FindElement(By.TagName("p"));
+                var pElement = element.FindElement(By.CssSelector("p"));
                 if (pElement != null)
                 {
-                    if (Regex.IsMatch(pElement.Text, "\\d data relationships exist"))
+                    if (Regex.IsMatch(pElement.Text, "\\d data source mapped to dataset"))
                     {
                         var anchorLink = element.FindElement(By.CssSelector("h2 > a"));
                         if (anchorLink != null)
@@ -375,7 +386,7 @@ namespace Frontend.IntegrationTests
             IWebElement firstSelectEditPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("a"));
+                var options = containerElements.FindElements(By.TagName("i"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -419,7 +430,12 @@ namespace Frontend.IntegrationTests
             ManageSpecificationCreateNewSubPolicy.CreateANewSpecificationSubPolicy();
 
             Thread.Sleep(2000);
+            IWebElement editSubPolicy = Driver._driver.FindElement(By.CssSelector(".data-subpolicy-editlink-icon > i:nth-child(1)"));
+            editSubPolicy.Should().NotBeNull();
+            editSubPolicy.Click();
+            Thread.Sleep(2000);
 
+            /*
             IWebElement subpolicyList = managepoliciespage.SubPolicyList;
             subpolicyList.Should().NotBeNull();
 
@@ -427,7 +443,7 @@ namespace Frontend.IntegrationTests
             IWebElement firstSelectEditSubPolicy = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("a"));
+                var options = containerElements.FindElements(By.TagName("i"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -455,6 +471,7 @@ namespace Frontend.IntegrationTests
             {
                 firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
             }
+            */
         }
 
         public static void EditSpecificationPage()
