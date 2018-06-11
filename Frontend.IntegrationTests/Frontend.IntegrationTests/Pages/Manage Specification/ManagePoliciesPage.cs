@@ -59,7 +59,31 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "policy-jump")]
         public IWebElement policyjump { get; set; }
 
+        [FindsBy(How = How.Id, Using = "expandCollapseAll")]
+        public IWebElement expandCollapseAll { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = "tr.data-policy-container:nth-child(1) > td:nth-child(6) > i:nth-child(1)")]
+        public IWebElement firstMoreOption { get; set; }
+        
+        [FindsBy(How = How.CssSelector, Using = "tr.cr-table-primary-highlight:nth-child(2)")]
+        public IWebElement firstFullDescription { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "td.expander-trigger-cell:nth-child(7) > i:nth-child(1)")]
+        public IWebElement firstCalcMoreOption { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "tr.cr-table-primary-highlight:nth-child(4) > td:nth-child(2)")]
+        public IWebElement firstCalcFullDescription { get; set; }
+
+        [FindsBy(How = How.Id, Using = "approve-status")]
+        public IWebElement approveSpecification { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "button.btn:nth-child(2)")]
+        public IWebElement approveDropDown { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".dropdown-menu")]
+        public IWebElement publishMenu { get; set; }
+
+        
 
 
     }

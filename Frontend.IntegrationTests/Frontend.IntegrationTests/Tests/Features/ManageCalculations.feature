@@ -199,3 +199,21 @@ And the name of the Author of each version is displayed
 And The applicable code for both versions is displayed side by side
 And The Inline Code Editor option can be selected
 And The Back Link can be selected to return to the Previous Calculation Page
+
+@Workitem:50635 Driver
+Scenario: Validate Approve Calculation Option on the Edit Calculation Page
+Given I have previously created a new specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+When I navigate to the Manage Calculations Page
+And I choose to view the new Calculation I have created
+Then I am presented with the View Calculation Page 
+And The option to Approve the Calculation is displayed correctly
+
+@Workitem:50635 Driver
+Scenario: Verify that a Calculation can be marked as Approved
+Given A Calculation Specification has been previously created with a Unique Name
+When I navigate to the Manage Calculations Page
+And I choose to view the new Calculation I have created
+And I choose to mark the Calculation as Approved
+Then the Calculation should be updated to show the status is Approved

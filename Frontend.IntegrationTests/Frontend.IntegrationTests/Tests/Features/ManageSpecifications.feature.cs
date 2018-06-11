@@ -1221,7 +1221,7 @@ testRunner.Then("A Unique Allocation Error is Displayed", ((string)(null)), ((Te
 #line 310
 this.ScenarioSetup(scenarioInfo);
 #line 311
-testRunner.Given("I have created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 312
 testRunner.And("redirected to the Manage Specificaiton Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 313
@@ -1247,7 +1247,7 @@ testRunner.Then("No alert about provider datasets is displayed", ((string)(null)
 #line 317
 this.ScenarioSetup(scenarioInfo);
 #line 318
-testRunner.Given("I have created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 319
 testRunner.And("redirected to the Manage Specificaiton Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 320
@@ -1279,7 +1279,7 @@ testRunner.And("An Alert that No dataset has been set as provider data should be
 #line 327
 this.ScenarioSetup(scenarioInfo);
 #line 328
-testRunner.Given("I have created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 329
 testRunner.And("redirected to the Manage Specificaiton Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 330
@@ -1435,7 +1435,7 @@ testRunner.Then("the selected funding stream is removed from the new Specificati
 #line 380
 this.ScenarioSetup(scenarioInfo);
 #line 381
-testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 382
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 383
@@ -1457,7 +1457,7 @@ testRunner.Then("the Manage Policies Policy List displays the Edit Policy option
 #line 386
 this.ScenarioSetup(scenarioInfo);
 #line 387
-testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 388
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 389
@@ -1609,7 +1609,7 @@ testRunner.And("the Sub Policy Description is correctly updated", ((string)(null
 #line 432
 this.ScenarioSetup(scenarioInfo);
 #line 433
-testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 434
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 435
@@ -1667,7 +1667,7 @@ testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(nul
 #line 451
 this.ScenarioSetup(scenarioInfo);
 #line 452
-testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 453
 testRunner.And("I have navigated to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 454
@@ -2358,18 +2358,25 @@ testRunner.And("the following Specification related Headers are correctly displa
 #line 661
 this.ScenarioSetup(scenarioInfo);
 #line 662
-testRunner.Given("I have successfully navigated to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 663
-testRunner.Then("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 664
-testRunner.And("the associated policies are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 665
-testRunner.And("the name of the policy is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
+                    "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 666
-testRunner.And("the description of the policy is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 667
-testRunner.And("the last edited date time for the policy is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the associated policies are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 668
+testRunner.And("the name of the policy is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 669
+testRunner.And("the description of the policy is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 670
+testRunner.And("the last edited date time for the policy is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 671
 testRunner.And("there is the ability to view more information about the policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2385,22 +2392,257 @@ testRunner.And("there is the ability to view more information about the policy",
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Calculation Data displayed within the Manage Policies List", new string[] {
                         "Workitem:49356",
                         "Driver"});
-#line 671
-this.ScenarioSetup(scenarioInfo);
-#line 672
-testRunner.Given("I have successfully navigated to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 673
-testRunner.Then("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 674
-testRunner.And("the associated calculations are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 675
-testRunner.And("I am able to see the name of the calculation specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 676
-testRunner.And("the description of the calculation specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 677
-testRunner.And("I am able to select to view more details about the calculations specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 678
+testRunner.And("I then create an additional Policy for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 679
+testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
+                    "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 680
+testRunner.Then("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 681
+testRunner.And("the associated calculations are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 682
+testRunner.And("I am able to see the name of the calculation specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 683
+testRunner.And("the description of the calculation specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 684
+testRunner.And("I am able to select to view more details about the calculations specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 685
 testRunner.And("the type of the calculation specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Policy More option displays the Full Description within the Manage Pol" +
+            "icies List")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49356)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyThePolicyMoreOptionDisplaysTheFullDescriptionWithinTheManagePoliciesList()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Policy More option displays the Full Description within the Manage Pol" +
+                    "icies List", new string[] {
+                        "Workitem:49356",
+                        "Driver"});
+#line 688
+this.ScenarioSetup(scenarioInfo);
+#line 689
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 690
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 691
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 692
+testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
+                    "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 693
+testRunner.And("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 694
+testRunner.And("the associated policies are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 695
+testRunner.When("I click on the More drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 696
+testRunner.Then("I can view the full policy description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Calculation More option displays the Full Description within the Manag" +
+            "e Policies List")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49356)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheCalculationMoreOptionDisplaysTheFullDescriptionWithinTheManagePoliciesList()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Calculation More option displays the Full Description within the Manag" +
+                    "e Policies List", new string[] {
+                        "Workitem:49356",
+                        "Driver"});
+#line 699
+this.ScenarioSetup(scenarioInfo);
+#line 700
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 701
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 702
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 703
+testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
+                    "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 704
+testRunner.And("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 705
+testRunner.And("the associated calculations are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 706
+testRunner.When("I click on the Calculation More drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 707
+testRunner.Then("I can view the full Calculation description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Display a Policies information by selecting the Jump To option within the Manage " +
+            "Policies List")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49356)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void DisplayAPoliciesInformationBySelectingTheJumpToOptionWithinTheManagePoliciesList()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Display a Policies information by selecting the Jump To option within the Manage " +
+                    "Policies List", new string[] {
+                        "Workitem:49356",
+                        "Driver"});
+#line 710
+this.ScenarioSetup(scenarioInfo);
+#line 711
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 712
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 713
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 714
+testRunner.And("I then create an additional Policy for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 715
+testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
+                    "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 716
+testRunner.When("I click on the Jump To Drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 717
+testRunner.Then("I am able to select from all the available policies", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 718
+testRunner.And("jump to the displayed information for the selected policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Expand and Collapse All option for the Policy List on the Manage Polic" +
+            "ies Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49356)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheExpandAndCollapseAllOptionForThePolicyListOnTheManagePoliciesPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Expand and Collapse All option for the Policy List on the Manage Polic" +
+                    "ies Page", new string[] {
+                        "Workitem:49356",
+                        "Driver"});
+#line 721
+this.ScenarioSetup(scenarioInfo);
+#line 722
+testRunner.Given("I have successfully navigated to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 723
+testRunner.When("I click the Expand All Link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 724
+testRunner.Then("All rows in the Policy List are expanded to display all additional information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 725
+testRunner.When("I click the Expand All Link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 726
+testRunner.Then("All rows in the Policy List are collapsed again", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Approve Specification Option on the Manage Policies Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50078)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheApproveSpecificationOptionOnTheManagePoliciesPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Approve Specification Option on the Manage Policies Page", new string[] {
+                        "Workitem:50078",
+                        "Driver"});
+#line 729
+this.ScenarioSetup(scenarioInfo);
+#line 730
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 731
+testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
+                    "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 732
+testRunner.Then("the Approve Specification option is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify that a Specification with an associated Policy can be marked as Approved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50078)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyThatASpecificationWithAnAssociatedPolicyCanBeMarkedAsApproved()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Specification with an associated Policy can be marked as Approved", new string[] {
+                        "Workitem:50078",
+                        "Driver"});
+#line 735
+this.ScenarioSetup(scenarioInfo);
+#line 736
+testRunner.Given("A Policy has been previously created with a Unique Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 737
+testRunner.When("I choose to mark the associated Specification as Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 738
+testRunner.Then("the Specification should be marked as approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify that a Specification with an associated Calculation can be marked as Appro" +
+            "ved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50078)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyThatASpecificationWithAnAssociatedCalculationCanBeMarkedAsApproved()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Specification with an associated Calculation can be marked as Appro" +
+                    "ved", new string[] {
+                        "Workitem:50078",
+                        "Driver"});
+#line 741
+this.ScenarioSetup(scenarioInfo);
+#line 742
+testRunner.Given("A Calculation Specification has been previously created with a Unique Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 743
+testRunner.When("I choose to mark the associated Specification as Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 744
+testRunner.Then("the Specification should be marked as approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify that a Specification with an associated Sub Policy can be marked as Approv" +
+            "ed")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50078)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyThatASpecificationWithAnAssociatedSubPolicyCanBeMarkedAsApproved()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Specification with an associated Sub Policy can be marked as Approv" +
+                    "ed", new string[] {
+                        "Workitem:50078",
+                        "Driver"});
+#line 747
+this.ScenarioSetup(scenarioInfo);
+#line 748
+testRunner.Given("A Sub Policy has been previously created with a Unique Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 749
+testRunner.When("I choose to mark the associated Specification as Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 750
+testRunner.Then("the Specification should be marked as approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

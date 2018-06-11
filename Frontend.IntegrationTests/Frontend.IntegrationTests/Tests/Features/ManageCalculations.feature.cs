@@ -718,6 +718,62 @@ testRunner.And("The Back Link can be selected to return to the Previous Calculat
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate Approve Calculation Option on the Edit Calculation Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50635)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateApproveCalculationOptionOnTheEditCalculationPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Approve Calculation Option on the Edit Calculation Page", new string[] {
+                        "Workitem:50635",
+                        "Driver"});
+#line 204
+this.ScenarioSetup(scenarioInfo);
+#line 205
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 206
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 207
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 208
+testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 209
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 210
+testRunner.Then("I am presented with the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 211
+testRunner.And("The option to Approve the Calculation is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify that a Calculation can be marked as Approved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50635)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyThatACalculationCanBeMarkedAsApproved()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Calculation can be marked as Approved", new string[] {
+                        "Workitem:50635",
+                        "Driver"});
+#line 214
+this.ScenarioSetup(scenarioInfo);
+#line 215
+testRunner.Given("A Calculation Specification has been previously created with a Unique Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 216
+testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 217
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 218
+testRunner.And("I choose to mark the Calculation as Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 219
+testRunner.Then("the Calculation should be updated to show the status is Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -308,14 +308,14 @@ Then A Unique Allocation Error is Displayed
 
 @Workitem:40032 Driver
 Scenario: Create a New Specification and no alert about provider datasets is displayed
-Given I have created a new specification
+Given I have previously created a new specification
 And redirected to the Manage Specificaiton Page
 When I choose to view the datasets tab
 Then No alert about provider datasets is displayed
 
 @Workitem:40032 Driver
 Scenario: Create a New Specification and Dataset without marking as provider data should display an Alert
-Given I have created a new specification
+Given I have previously created a new specification
 And redirected to the Manage Specificaiton Page
 When I choose to view the datasets tab
 And I choose to create a new dataset without setting as Provider Data
@@ -325,7 +325,7 @@ And An Alert that No dataset has been set as provider data should be displayed
 
 @Workitem:40032 Driver
 Scenario: Create a New Specification and New Dataset marked as provider data set should not display an Alert
-Given I have created a new specification
+Given I have previously created a new specification
 And redirected to the Manage Specificaiton Page
 When I choose to view the datasets tab
 And I choose to create a new dataset set as Provider Data
@@ -378,13 +378,13 @@ Then the selected funding stream is removed from the new Specification
 
 @Workitem:49359 Driver
 Scenario: Verify Edit Policy Option within Manage Policies Page
-Given I have created a New Specification
+Given I have previously created a new specification
 And I have created a New Policy for that Specification
 Then the Manage Policies Policy List displays the Edit Policy option
 
 @Workitem:49360 Driver
 Scenario: Verify Edit Sub Policy Option within Manage Policies Page
-Given I have created a New Specification
+Given I have previously created a new specification
 And I have created a New Policy for that Specification
 And I have created a New Sub Policy for that Specification
 Then the Manage Policies Policy List displays the Edit Sub Policy option
@@ -430,7 +430,7 @@ And the Sub Policy Description is correctly updated
 
 @Workitem:49360 Driver
 Scenario: Successfully Edit an Existing Sub Policies Associated Policy
-Given I have created a New Specification
+Given I have previously created a new specification
 And I have created a New Policy for that Specification
 And I have created a New Sub Policy for that Specification
 And I then create an additional Policy for the Specification
@@ -449,7 +449,7 @@ Then I am redirected back to the Manage Polices Page
 
 @Workitem:49593 Driver
 Scenario: Verify Edit Specification Option within Manage Policies Page
-Given I have created a New Specification
+Given I have previously created a new specification
 And I have navigated to the Manage Policies Page
 Then the Manage Policies Policy List displays the Edit Specification option
 
@@ -659,7 +659,10 @@ And the following Specification related Headers are correctly displayed
 
 @Workitem:49356 Driver
 Scenario: Validate the Policy Data displayed within the Manage Policies List
-Given I have successfully navigated to the Manage Policies Page
+Given I have previously created a new specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I have successfully navigated to the Manage Policies Page for the new specification
 Then the list of associated Polcies and Calculations are displayed
 And the associated policies are displayed as rows in my table
 And the name of the policy is displayed
@@ -669,10 +672,79 @@ And there is the ability to view more information about the policy
 
 @Workitem:49356 Driver
 Scenario: Validate the Calculation Data displayed within the Manage Policies List
-Given I have successfully navigated to the Manage Policies Page
+Given I have previously created a new specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I then create an additional Policy for the Specification
+And I have successfully navigated to the Manage Policies Page for the new specification
 Then the list of associated Polcies and Calculations are displayed
 And the associated calculations are displayed as rows in my table
 And I am able to see the name of the calculation specifications
 And the description of the calculation specification is displayed
 And I am able to select to view more details about the calculations specification
 And the type of the calculation specification is displayed
+
+@Workitem:49356 Driver
+Scenario: Verify the Policy More option displays the Full Description within the Manage Policies List
+Given I have previously created a new specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I have successfully navigated to the Manage Policies Page for the new specification
+And the list of associated Polcies and Calculations are displayed
+And the associated policies are displayed as rows in my table
+When I click on the More drop down option
+Then I can view the full policy description
+
+@Workitem:49356 Driver
+Scenario: Verify the Calculation More option displays the Full Description within the Manage Policies List
+Given I have previously created a new specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I have successfully navigated to the Manage Policies Page for the new specification
+And the list of associated Polcies and Calculations are displayed
+And the associated calculations are displayed as rows in my table
+When I click on the Calculation More drop down option
+Then I can view the full Calculation description
+
+@Workitem:49356 Driver
+Scenario: Display a Policies information by selecting the Jump To option within the Manage Policies List
+Given I have previously created a new specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I then create an additional Policy for the Specification
+And I have successfully navigated to the Manage Policies Page for the new specification
+When I click on the Jump To Drop down
+Then I am able to select from all the available policies
+And jump to the displayed information for the selected policy
+
+@Workitem:49356 Driver
+Scenario: Verify the Expand and Collapse All option for the Policy List on the Manage Policies Page
+Given I have successfully navigated to the Manage Policies Page
+When I click the Expand All Link
+Then All rows in the Policy List are expanded to display all additional information
+When I click the Expand All Link
+Then All rows in the Policy List are collapsed again
+
+@Workitem:50078 Driver
+Scenario: Verify the Approve Specification Option on the Manage Policies Page
+Given I have previously created a new specification
+And I have successfully navigated to the Manage Policies Page for the new specification
+Then the Approve Specification option is correctly displayed
+
+@Workitem:50078 Driver
+Scenario: Verify that a Specification with an associated Policy can be marked as Approved
+Given A Policy has been previously created with a Unique Policy Name
+When I choose to mark the associated Specification as Approved
+Then the Specification should be marked as approved
+
+@Workitem:50078 Driver
+Scenario: Verify that a Specification with an associated Calculation can be marked as Approved
+Given A Calculation Specification has been previously created with a Unique Name
+When I choose to mark the associated Specification as Approved
+Then the Specification should be marked as approved
+
+@Workitem:50078 Driver
+Scenario: Verify that a Specification with an associated Sub Policy can be marked as Approved
+Given A Sub Policy has been previously created with a Unique Name
+When I choose to mark the associated Specification as Approved
+Then the Specification should be marked as approved

@@ -234,6 +234,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
+        [Given(@"I have previously created a new specification")]
+        public void GivenIHavePreviouslyCreatedANewSpecification()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+        }
+
+
         [When(@"I click to view an existing Specification")]
         public void WhenIClickToViewAnExistingSpecification()
         {
@@ -265,6 +272,22 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Assert.IsNotNull(managepoliciespage.CreatePolicyButton);
             Thread.Sleep(2000);
         }
+
+        [Given(@"I have successfully navigated to the Manage Policies Page for the new specification")]
+        public void GivenIHaveSuccessfullyNavigatedToTheManagePoliciesPageForTheNewSpecification()
+        {
+            var specName = ScenarioContext.Current["SpecificationName"];
+            string specCreated = specName.ToString();
+
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+            homepage.ManagetheSpecification.Click();
+            Thread.Sleep(2000);
+
+            Driver._driver.FindElement(By.LinkText(specCreated)).Click();
+            Thread.Sleep(2000);
+        }
+
 
         [When(@"I click on the Create Policy Button")]
         public void WhenIClickOnTheCreatePolicyButton()
@@ -2231,6 +2254,168 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
 
         }
+
+        [Given(@"the list of associated Polcies and Calculations are displayed")]
+        public void GivenTheListOfAssociatedPolciesAndCalculationsAreDisplayed()
+        {
+            managepoliciespage.PolicyList.Should().NotBeNull();
+        }
+
+        [Given(@"the associated policies are displayed as rows in my table")]
+        public void GivenTheAssociatedPoliciesAreDisplayedAsRowsInMyTable()
+        {
+            IWebElement policycontainer = managepoliciespage.PolicyList;
+            var propertyElements = policycontainer.FindElements(By.CssSelector("tr.data-policy-container"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [When(@"I click on the More drop down option")]
+        public void WhenIClickOnTheMoreDropDownOption()
+        {
+            managepoliciespage.firstMoreOption.Click();
+            Thread.Sleep(3000);
+        }
+
+        [Then(@"I can view the full policy description")]
+        public void ThenICanViewTheFullPolicyDescription()
+        {
+            IWebElement fullDescription = managepoliciespage.firstFullDescription;
+            string fullDescriptionText = fullDescription.Text;
+
+            Console.WriteLine("The Full Epxpanded Description is: " + fullDescriptionText);
+
+        }
+
+        [Given(@"the associated calculations are displayed as rows in my table")]
+        public void GivenTheAssociatedCalculationsAreDisplayedAsRowsInMyTable()
+        {
+            IWebElement policycontainer = managepoliciespage.PolicyList;
+            var propertyElements = policycontainer.FindElements(By.CssSelector("tr.cr-table-primary-highlight:nth-child(3)"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                //currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [When(@"I click on the Calculation More drop down option")]
+        public void WhenIClickOnTheCalculationMoreDropDownOption()
+        {
+            managepoliciespage.firstCalcMoreOption.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I can view the full Calculation description")]
+        public void ThenICanViewTheFullCalculationDescription()
+        {
+            IWebElement fullCalcDescription = managepoliciespage.firstCalcFullDescription;
+            string fullCalcDescText = fullCalcDescription.Text;
+            Console.WriteLine("The Full Epxpanded Description is: " + fullCalcDescText);
+        }
+
+        [When(@"I click on the Jump To Drop down")]
+        public void WhenIClickOnTheJumpToDropDown()
+        {
+            managepoliciespage.policyjump.Should().NotBeNull();
+            managepoliciespage.policyjump.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am able to select from all the available policies")]
+        public void ThenIAmAbleToSelectFromAllTheAvailablePolicies()
+        {
+            var addSpecPolicyName = ScenarioContext.Current["AddSpecPolicyName"];
+            string addSpecPolicyCreated = addSpecPolicyName.ToString();
+
+            var selectYear = managepoliciespage.policyjump;
+            var selectElement = new SelectElement(selectYear);
+            selectElement.SelectByText(addSpecPolicyCreated);
+            Thread.Sleep(2000);
+
+        }
+
+        [Then(@"jump to the displayed information for the selected policy")]
+        public void ThenJumpToTheDisplayedInformationForTheSelectedPolicy()
+        {
+            IWebElement JumpedTo = managepoliciespage.policyjump;
+            string selectedJumpto = JumpedTo.Text;
+
+            Console.WriteLine("Policy selected to Jump To was: " + selectedJumpto);
+        }
+
+        [When(@"I click the Expand All Link")]
+        public void WhenIClickTheExpandAllLink()
+        {
+            managepoliciespage.expandCollapseAll.Click();
+        }
+
+        [Then(@"All rows in the Policy List are expanded to display all additional information")]
+        public void ThenAllRowsInThePolicyListAreExpandedToDisplayAllAdditionalInformation()
+        {
+            IWebElement dataAction = managepoliciespage.expandCollapseAll;
+            string dataActionText = dataAction.Text;
+            dataActionText.Should().Be("Collapse all", "Expand All within the policy List has not been actioned");
+            Console.WriteLine("Option has updated correctly to " + dataActionText);
+        }
+
+        [Then(@"All rows in the Policy List are collapsed again")]
+        public void ThenAllRowsInThePolicyListAreCollapsedAgain()
+        {
+            IWebElement dataAction = managepoliciespage.expandCollapseAll;
+            string dataActionText = dataAction.Text;
+            dataActionText.Should().Be("Expand all", "Collapse All within the policy List has not been actioned");
+            Console.WriteLine("Option has updated correctly to " + dataActionText);
+        }
+
+        [Then(@"the Approve Specification option is correctly displayed")]
+        public void ThenTheApproveSpecificationOptionIsCorrectlyDisplayed()
+        {
+            IWebElement approveButton = Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(1) > span:nth-child(1)"));
+            approveButton.Should().NotBeNull();
+            string approveStatus = approveButton.Text;
+            approveStatus.Should().Be("Draft", "The Status of the Specification is not Draft");
+            Console.WriteLine("The current Status of the selected Specification is: " + approveStatus);
+        }
+
+
+        [When(@"I choose to mark the associated Specification as Approved")]
+        public void WhenIChooseToMarkTheAssociatedSpecificationAsApproved()
+        {
+            managepoliciespage.approveDropDown.Click();
+            IWebElement publishoptions = managepoliciespage.publishMenu;
+            publishoptions.Should().NotBeNull();
+
+            Driver._driver.FindElement(By.CssSelector(".dropdown-menu")).Click();
+            Thread.Sleep(2000);
+            
+
+        }
+
+        [Then(@"the Specification should be marked as approved")]
+        public void ThenTheSpecificationShouldBeMarkedAsApproved()
+        {
+            IWebElement approveButton = Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(1)"));
+            approveButton.Should().NotBeNull();
+            string approveStatus = approveButton.Text;
+            approveStatus.Should().Be("Approved", "The Status of the Specification is not Draft");
+            Console.WriteLine("The New Status of the selected Specification is: " + approveStatus);
+        }
+
+
 
 
         [AfterScenario()]

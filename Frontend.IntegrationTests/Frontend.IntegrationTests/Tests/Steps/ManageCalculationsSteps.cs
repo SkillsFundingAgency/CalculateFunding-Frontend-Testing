@@ -758,8 +758,67 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 Console.WriteLine("The following information was displayed correctly for each calculation: " + currentElement.Text);
             }
         }
-        
 
+        [When(@"I navigate to the Manage Calculations Page")]
+        public void WhenINavigateToTheManageCalculationsPage()
+        {
+            HomePage homepage = new HomePage();
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+
+            NavigateTo.ManagetheCalculation();
+            Thread.Sleep(4000);
+
+        }
+
+
+        [When(@"I choose to view the new Calculation I have created")]
+        public void WhenIChooseToviewTheNewCalculationIHaveCreated()
+        {
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+
+            Driver._driver.FindElement(By.LinkText(specCalcCreated)).Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am presented with the View Calculation Page")]
+        public void ThenIAmPresentedWithTheViewCalculationPage()
+        {
+            editcalculationspage.CalculationSpecName.Should().NotBeNull();
+        }
+
+        [Then(@"The option to Approve the Calculation is displayed correctly")]
+        public void ThenTheOptionToApproveTheCalculationIsDisplayedCorrectly()
+        {
+            editcalculationspage.ApproveCalculationContainer.Should().NotBeNull();
+        }
+
+        [When(@"I choose to mark the Calculation as Approved")]
+        public void WhenIChooseToMarkTheCalculationAsApproved()
+        {
+            IWebElement approveButton = Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(1) > span:nth-child(1)"));
+            approveButton.Should().NotBeNull();
+            string approveStatus = approveButton.Text;
+            approveStatus.Should().Be("Draft", "The Status of the Calculation is not Draft");
+            Console.WriteLine("The current Status of the selected Calculation is: " + approveStatus);
+            Thread.Sleep(2000);
+
+            Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(2)")).Click();
+            Driver._driver.FindElement(By.CssSelector(".dropdown-approved > a:nth-child(1)")).Click();
+            Thread.Sleep(2000);
+        }
+
+
+        [Then(@"the Calculation should be updated to show the status is Approved")]
+        public void ThenTheCalculationShouldBeUpdatedToShowTheStatusIsApproved()
+        {
+            IWebElement approveButton = Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(1) > span:nth-child(1)"));
+            approveButton.Should().NotBeNull();
+            string approveStatus = approveButton.Text;
+            approveStatus.Should().Be("Approved", "The Status of the Specification is not Draft");
+            Console.WriteLine("The New Status of the selected Specification is: " + approveStatus);
+        }
 
 
         [AfterScenario()]
