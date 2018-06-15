@@ -99,6 +99,7 @@
     <Compile Include="Driver.cs" />
     <Compile Include="Helpers\TestDataUtils.cs" />
     <Compile Include="NavigateTo.cs" />
+    <Compile Include="Pages\Approve funding\ApprovePublishFundingPage.cs" />
     <Compile Include="Pages\Approve funding\ChooseFundingSpecificationPage.cs" />
     <Compile Include="Pages\Home Page\ApprovalOptionsPage.cs" />
     <Compile Include="Pages\Home Page\HomePage.cs" />

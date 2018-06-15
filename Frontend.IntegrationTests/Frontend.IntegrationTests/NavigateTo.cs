@@ -499,7 +499,17 @@ namespace Frontend.IntegrationTests
             Thread.Sleep(2000);
         }
 
+        public static void ApprovePublishFundingage()
+        {
+            ApprovalOptionsPage approvaloptionspage = new ApprovalOptionsPage();
+            HomePage homepage = new HomePage();
+            ApprovePublishFundingPage approvepublishfundingpage = new ApprovePublishFundingPage();
 
+            homepage.Publishtheresults.Click();
+            Thread.Sleep(2000);
+            approvaloptionspage.ApprovePublishFunding.Click();
+            Thread.Sleep(2000);
+        }
     }
 }
 
