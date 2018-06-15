@@ -105,7 +105,7 @@ Then the Validate QA Test Button remains disabled
 
 @Workitem: 36667 Driver
 Scenario: Save a New QA Test script without a Test Name or Description
-Given I have created a New Specification
+Given I have previously created a new specification
 And I have created a New Policy for that Specification
 And I have created a New Calculation Specification for that Specification
 And I have create a New Dataset for that Specificaton
@@ -119,7 +119,7 @@ And an error message is displayed to to notify that a Test Description has not b
 
 @Workitem: 36667 Driver
 Scenario: Save a New Valid QA Test script
-Given I have created a New Specification
+Given I have previously created a new specification
 And I have created a New Policy for that Specification
 And I have created a New Calculation Specification for that Specification
 And I have create a New Dataset for that Specificaton
