@@ -13,6 +13,8 @@ using Frontend.IntegrationTests.Pages.View_Results;
 using Frontend.IntegrationTests.Pages.Quality_Assurance;
 using System;
 using TechTalk.SpecFlow;
+using Frontend.IntegrationTests.Pages.Home_Page;
+using Frontend.IntegrationTests.Pages.Approve_funding;
 
 namespace Frontend.IntegrationTests
 {
@@ -483,6 +485,18 @@ namespace Frontend.IntegrationTests
             managepoliciespage.editSpecification.Click();
             Thread.Sleep(2000);
 
+        }
+
+        public static void ChooseFundingSpecPage()
+        {
+            ApprovalOptionsPage approvaloptionspage = new ApprovalOptionsPage();
+            HomePage homepage = new HomePage();
+            ChooseFundingSpecificationPage choosefunidngspecificationpage = new ChooseFundingSpecificationPage();
+
+            homepage.Publishtheresults.Click();
+            Thread.Sleep(2000);
+            approvaloptionspage.ChooseFundingSpecification.Click();
+            Thread.Sleep(2000);
         }
 
 

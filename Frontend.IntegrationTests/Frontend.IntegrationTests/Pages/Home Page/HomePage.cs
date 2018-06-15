@@ -30,8 +30,15 @@ namespace Frontend.IntegrationTests
     [FindsBy(How = How.LinkText, Using = "View results")]
     public IWebElement ViewtheResults { get; set; }
 
-    [FindsBy(How = How.LinkText, Using = "Release funding")]
+    [FindsBy(How = How.LinkText, Using = "Approve funding")]
     public IWebElement Publishtheresults { get; set; }
+
+    [FindsBy(How = How.CssSelector, Using = ".govuk-beta-label > span:nth-child(2)")]
+    public IWebElement SurveyText { get; set; }
+
+    [FindsBy(How = How.LinkText, Using = "help us improve the service")]
+    public IWebElement SurveyLink { get; set; }
+
     }
 }
 
