@@ -38,10 +38,10 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.Id, Using = "dynamic-results-table-body")]
         public IWebElement viewcalculationPageCalculationResultsListContainer { get; set; }
 
-        [FindsBy(How = How.Id, Using = "startItemNumber")]
+        [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > span:nth-child(2)")]
         public IWebElement viewcalculationPageStartItemCount { get; set; }
 
-        [FindsBy(How = How.Id, Using = "endItemNumber")]
+        [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > span:nth-child(3)")]
         public IWebElement viewcalculationPageEndItemCount { get; set; }
 
         [FindsBy(How = How.Id, Using = "totalResultsCount")]

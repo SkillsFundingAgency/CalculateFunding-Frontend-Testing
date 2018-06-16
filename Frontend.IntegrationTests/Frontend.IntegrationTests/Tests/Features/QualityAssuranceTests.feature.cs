@@ -421,7 +421,7 @@ testRunner.Then("the Validate QA Test Button remains disabled", ((string)(null))
 #line 107
 this.ScenarioSetup(scenarioInfo);
 #line 108
-testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 109
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 110
@@ -462,7 +462,7 @@ testRunner.And("an error message is displayed to to notify that a Test Descripti
 #line 121
 this.ScenarioSetup(scenarioInfo);
 #line 122
-testRunner.Given("I have created a New Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 123
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 124

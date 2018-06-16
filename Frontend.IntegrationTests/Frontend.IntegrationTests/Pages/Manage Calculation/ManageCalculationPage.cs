@@ -44,7 +44,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Calculation
         [FindsBy(How = How.Id, Using = "endItemNumber")]
         public IWebElement CalculationsPageTotal { get; set; }
 
-        [FindsBy(How = How.Id, Using = "startItemNumber")]
+        [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > span:nth-child(2)")]
         public IWebElement CalculationsFirstResult { get; set; }
 
         [FindsBy(How = How.Id, Using = "dynamic-paging-container")]

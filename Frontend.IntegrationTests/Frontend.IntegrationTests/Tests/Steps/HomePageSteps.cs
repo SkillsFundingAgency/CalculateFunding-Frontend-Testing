@@ -14,6 +14,8 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Firefox;
 using TechTalk.SpecFlow;
 using Frontend.IntegrationTests.Pages.Quality_Assurance;
+using Frontend.IntegrationTests.Pages.Home_Page;
+using System.Linq;
 
 namespace Frontend.IntegrationTests
 {
@@ -27,6 +29,8 @@ namespace Frontend.IntegrationTests
         ViewProviderResultsPage viewproviderresultspage = new ViewProviderResultsPage();
         ViewResultsOptionsPage viewresultsoptionspage = new ViewResultsOptionsPage();
         TestScenarioListPage testscenariolistpage = new TestScenarioListPage();
+        ApprovalOptionsPage approvaloptionspage = new ApprovalOptionsPage();
+        HomePage homepage = new HomePage();
 
         [Given(@"I have successfully navigated to the Home Page")]
         public void IhavesuccessfullynavigatedtotheHomePage()
@@ -84,13 +88,61 @@ namespace Frontend.IntegrationTests
         }
 
 
-        [Then(@"I am redirected to the Publish the Results page")]
-        public void ThenIAmRedirectedToThePublishTheResultsPage()
+        [Then(@"I am redirected to the approval options page")]
+        public void ThenIAmRedirectedToTheApprovalOptionsPage()
         {
-            Thread.Sleep(1000);
-            Assert.IsTrue(Driver._driver.Title.Equals("Publish the Results - Calculate funding"));
-
+            approvaloptionspage.PageTitle.Should().NotBeNull();
+            string pagetitle = approvaloptionspage.PageTitle.Text;
+            Console.WriteLine(pagetitle);
         }
+
+        [Then(@"an option to select to Choose funding specification is displayed")]
+        public void ThenAnOptionToSelectToChooseFundingSpecificationIsDisplayed()
+        {
+            IWebElement fundingLink = approvaloptionspage.ChooseFundingSpecification;
+            fundingLink.Should().NotBeNull();
+            string linkText = fundingLink.Text;
+            Console.WriteLine("Link Text displayed is: " + linkText);
+        }
+
+        [Then(@"an option to select to Approve and publish funding is displayed")]
+        public void ThenAnOptionToSelectToApproveAndPublishFundingIsDisplayed()
+        {
+            IWebElement approvePublishLink = approvaloptionspage.ApprovePublishFunding;
+            approvePublishLink.Should().NotBeNull();
+            string linkText = approvePublishLink.Text;
+            Console.WriteLine("Link Text displayed is: " + linkText);
+        }
+
+        [Then(@"The Survey Text is displayed correctly on the page")]
+        public void ThenTheSurveyTextIsDisplayedCorrectlyOnThePage()
+        {
+            IWebElement surveyText = homepage.SurveyText;
+            surveyText.Should().NotBeNull();
+            string survey = surveyText.Text;
+            Console.WriteLine("The displayed Survey Text is: " + survey);
+        }
+
+        [Then(@"the link to the Survey form is displayed correctly")]
+        public void ThenTheLinkToTheSurveyFormIsDisplayedCorrectly()
+        {
+            IWebElement surveyLink = homepage.SurveyLink;
+            surveyLink.Should().NotBeNull();
+            string linkText = surveyLink.Text;
+            Console.WriteLine("The displayed Survey Link Text is: " + linkText);
+        }
+
+        [Then(@"the Link loads the correct Survey page")]
+        public void ThenTheLinkLoadsTheCorrectSurveyPage()
+        {
+            homepage.SurveyLink.Click();
+            Thread.Sleep(2000);
+            Driver._driver.SwitchTo().Window(Driver._driver.WindowHandles.Last());
+            string currentURL = Driver._driver.Url;
+            currentURL.Should().Be("https://www.smartsurvey.co.uk/s/cfsbeta/", "Surveyr URL was not loaded correctly");
+        }
+
+
 
         [AfterScenario()]
         public void FixtureTearDown()

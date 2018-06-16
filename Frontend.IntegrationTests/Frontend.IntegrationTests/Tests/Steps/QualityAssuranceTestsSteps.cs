@@ -638,6 +638,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
             testscenariolistpage.testScenarioPageCreateQATestButton.Should().NotBeNull();
         }
 
+        [When(@"I have specified a data Source Relationship for the Specification")]
+        public void WhenIHaveSpecifiedADataSourceRelationshipForTheSpecification()
+        {
+            CreateDataSourceMapping.CreateADataSourceMapping();
+        }
 
 
 

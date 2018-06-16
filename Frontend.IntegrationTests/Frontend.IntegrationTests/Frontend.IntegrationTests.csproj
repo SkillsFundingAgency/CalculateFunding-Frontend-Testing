@@ -99,6 +99,9 @@
     <Compile Include="Driver.cs" />
     <Compile Include="Helpers\TestDataUtils.cs" />
     <Compile Include="NavigateTo.cs" />
+    <Compile Include="Pages\Approve funding\ApprovePublishFundingPage.cs" />
+    <Compile Include="Pages\Approve funding\ChooseFundingSpecificationPage.cs" />
+    <Compile Include="Pages\Home Page\ApprovalOptionsPage.cs" />
     <Compile Include="Pages\Home Page\HomePage.cs" />
     <Compile Include="Pages\Home Page\ManageSpecificationPage.cs" />
     <Compile Include="Pages\Home Page\ManageTestsPage.cs" />
@@ -135,6 +138,11 @@
     <Compile Include="Pages\View Results\ViewQATestResultsPage.cs" />
     <Compile Include="Pages\View Results\ViewResultsOptionsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Features\ApproveFunding.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApproveFunding.feature</DependentUpon>
+    </Compile>
     <Compile Include="Tests\Features\HomePage.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,6 +173,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ViewResults.feature</DependentUpon>
     </Compile>
+    <Compile Include="Tests\Steps\ApproveFundingSteps.cs" />
     <Compile Include="Tests\Steps\HomePageSteps.cs" />
     <Compile Include="Tests\Steps\ManageCalculationsSteps.cs" />
     <Compile Include="Tests\Steps\ManageDatasetsSteps.cs" />
@@ -175,6 +184,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Tests\Features\ApproveFunding.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ApproveFunding.feature.cs</LastGenOutput>
+    </None>
     <None Include="Tests\Features\HomePage.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>HomePage.feature.cs</LastGenOutput>

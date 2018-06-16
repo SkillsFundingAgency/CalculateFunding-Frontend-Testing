@@ -65,7 +65,7 @@ Examples:
 	 | UKPRN						| 506960					|
 	 | URN							| 144331					|
 	 | EstablishmentNumber			| 10062846					|
-	 | ProviderName					| Aldington Primary School	|
+	 | ProviderName					| Aldington					|
 	 | PartialUPIN					| 677						|
 	 | PartialUKPRN					| 6960						|
 	 | PartialURN					| 44						|

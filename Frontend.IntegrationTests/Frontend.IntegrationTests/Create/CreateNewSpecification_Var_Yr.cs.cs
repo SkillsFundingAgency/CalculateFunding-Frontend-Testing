@@ -26,6 +26,7 @@
             ManageSpecificationPage managespecficationpage = new ManageSpecificationPage();
             CreateSpecificationPage createspecificationpage = new CreateSpecificationPage();
             CreateCalculationPage createcalculationpage = new CreateCalculationPage();
+            HomePage homepage = new HomePage();
 
             string newname = "Test Spec Name ";
             string descriptiontext = "This is a Description for: ";
@@ -51,7 +52,9 @@
             Thread.Sleep(2000);
 
             Assert.IsNotNull(managespecficationpage.SelectYear);
-            managespecficationpage.SearchSpecificationButton.Click();
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+            homepage.ManagetheSpecification.Click();
             Thread.Sleep(2000);
 
             var specName = ScenarioContext.Current["SpecificationName"];

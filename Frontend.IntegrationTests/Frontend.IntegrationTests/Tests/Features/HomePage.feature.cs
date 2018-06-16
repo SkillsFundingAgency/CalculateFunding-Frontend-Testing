@@ -95,11 +95,11 @@ namespace Frontend.IntegrationTests.Tests.Features
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
- testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
- testRunner.When("I select Specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I select Specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 8
- testRunner.Then("I am redirected to the Manage Specification page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I am redirected to the Manage Specification page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -117,11 +117,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 11
 this.ScenarioSetup(scenarioInfo);
 #line 12
- testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 13
- testRunner.When("I select Manage data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I select Manage data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
- testRunner.Then("I am redirected to the Manage Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I am redirected to the Manage Data page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -139,11 +139,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 17
 this.ScenarioSetup(scenarioInfo);
 #line 18
- testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 19
- testRunner.When("I select Quality assurance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I select Quality assurance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 20
- testRunner.Then("I am redirected to the Manage Tests page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I am redirected to the Manage Tests page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -161,11 +161,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 23
 this.ScenarioSetup(scenarioInfo);
 #line 24
- testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 25
- testRunner.When("I select Calculations", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I select Calculations", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 26
- testRunner.Then("I am redirected to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I am redirected to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -183,33 +183,63 @@ this.ScenarioSetup(scenarioInfo);
 #line 29
 this.ScenarioSetup(scenarioInfo);
 #line 30
- testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 31
- testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I select View results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 32
- testRunner.Then("I am redirected to the View the Results Options page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I am redirected to the View the Results Options page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select Publish the Results Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select Approve funding Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35383)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51061")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        public virtual void SelectPublishTheResultsPage()
+        public virtual void SelectApproveFundingPage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select Publish the Results Page", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select Approve funding Page", new string[] {
                         "workitem:35383",
+                        "51061",
                         "Driver"});
 #line 35
 this.ScenarioSetup(scenarioInfo);
 #line 36
- testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 37
- testRunner.When("I select Approve funding", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I select Approve funding", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 38
- testRunner.Then("I am redirected to the Publish the Results page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I am redirected to the approval options page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 39
+testRunner.And("an option to select to Choose funding specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 40
+testRunner.And("an option to select to Approve and publish funding is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the User Survey Details and Link")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(52590)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateTheUserSurveyDetailsAndLink()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the User Survey Details and Link", new string[] {
+                        "workitem:52590",
+                        "Driver"});
+#line 43
+this.ScenarioSetup(scenarioInfo);
+#line 44
+testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 45
+testRunner.Then("The Survey Text is displayed correctly on the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 46
+testRunner.And("the link to the Survey form is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
+testRunner.And("the Link loads the correct Survey page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
