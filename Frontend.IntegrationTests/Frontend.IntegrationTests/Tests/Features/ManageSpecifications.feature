@@ -25,13 +25,6 @@ And The selected Year has no specifications
 Then the list of specifications refreshes to display no visable specifications
 
 @Workitem:35384 Driver
-Scenario: Select to Create a New Specifications for a given Year
-Given I have successfully navigated to the Manage Specification Page
-And I have selected an academic year
-When I click on the Create a Specification Button
-Then I am redirected to the Create Specification Page
-
-@Workitem:35384 Driver
 Scenario: Create and Save a new Specification
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -77,7 +70,7 @@ Then A Unique Specification Name Error is Displayed
 @Workitem:35384 Driver
 Scenario: Create & Save an Incomplete Specification with no Funding Stream Selected
 Given I have successfully navigated to the Create Specification Page
-When I enter an Existing Specification Name
+When I enter a Name
 And I choose a specification Funding Period
 And I enter a Description
 And I click the Save button
@@ -97,13 +90,6 @@ Examples:
 	 | Missing Spec Name		|              | This is a Description | Enter a unique name	|
 	 | Missing Spec Description	| Test Spec 03 |                       | Enter a description	|
 
-
-@Workitem:35397 Driver
-Scenario: View Current List of Policies
-Given I have successfully navigated to the Manage Specification Page
-When I click to view an existing Specification
-Then I am redirected to the Manage Policies Page
-And A list of Policies is displayed
 
 @Workitem:35397 Driver
 Scenario: Select to Create a New Policy
@@ -205,7 +191,7 @@ Then A Unique Calculation Name Error is Displayed
 @Workitem:35401, 40012 Driver
 Scenario: Create and Save a new Calculation Specification without selecting a Calc Type
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
-When I enter an Existing Calculation Name
+When I enter a Calculation Name
 And I choose a Policy or sub policy
 And I enter a Calculation Description
 And I click the Save Calculation button

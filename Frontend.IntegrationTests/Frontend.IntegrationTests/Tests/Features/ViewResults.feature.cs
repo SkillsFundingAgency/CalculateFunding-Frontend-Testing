@@ -339,11 +339,11 @@ this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "ProviderName")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:SearchType", "ProviderName")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "Aldington Primary School")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:text", "Aldington")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation_ProviderName()
         {
 #line 56
-this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("ProviderName", "Aldington Primary School", ((string[])(null)));
+this.VerifyTheSearchOptionOnTheViewProviderResultsPageUsingSpecificInformation("ProviderName", "Aldington", ((string[])(null)));
 #line hidden
         }
         

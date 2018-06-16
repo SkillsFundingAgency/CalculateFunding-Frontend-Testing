@@ -364,7 +364,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement academicyeardropdown = viewproviderallocationspage.providerAllocationsPageAcademicYearDropDown;
             academicyeardropdown.Should().NotBeNull();
             academicyeardropdown.Displayed.Should().BeTrue();
-            IWebElement defaultyearselected = academicyeardropdown.FindElement(By.CssSelector("#PeriodId > option:nth-child(2)"));
+            IWebElement defaultyearselected = academicyeardropdown.FindElement(By.CssSelector("#FundingPeriodId > option:nth-child(2)"));
             defaultyearselected.Should().NotBeNull();
             string defaultyeardisplayed = defaultyearselected.Text;
             Console.WriteLine("The Default Year displayed is " + defaultyeardisplayed);
@@ -879,6 +879,19 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
             string totalPageResultCount = testresultsalltotalResultCount.Text;
             int totalPageCount = int.Parse(totalPageResultCount);
+            
+            if (totalPageCount < totalPageListCount)
+            {
+                Assert.Inconclusive("Only 1 page of results is displayed as the Total results returned is less than " + totalPageListCount);
+
+            }
+            else
+            {
+                Console.WriteLine("The Total results returned is " + totalPageCount);
+            }
+
+
+
             totalPageCount.Should().BeGreaterOrEqualTo(totalPageListCount, "Less than " + totalPageListCount + "Results are displayed on this Page");
             Console.WriteLine("The Total results returned is " + totalPageCount);
         }
@@ -1374,7 +1387,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Actions.PaginationSelectPage();
             Thread.Sleep(2000);
 
-            IWebElement calculationendResultCount = viewcalculationresultpage.viewcalculationPageTotalResultcount;
+            IWebElement calculationendResultCount = viewcalculationresultpage.viewcalculationPageEndItemCount;
             string totalPageResultCount = calculationendResultCount.Text;
             int totalPageCount = int.Parse(totalPageResultCount);
             totalPageCount.Should().BeLessOrEqualTo(endItemCount, "Less than " + endItemCount + "Results are displayed on this Page");
