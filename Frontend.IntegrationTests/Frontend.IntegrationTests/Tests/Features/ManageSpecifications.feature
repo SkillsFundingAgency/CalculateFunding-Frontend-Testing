@@ -330,6 +330,7 @@ And I click the Save button
 Then I am redirected to the Manage Specification Page
 And My new specification is correctly listed
 
+
 @Workitem:49358 Driver
 Scenario: Create and Save a new Specification with 5 Funding Streams selected
 Given I have successfully navigated to the Create Specification Page

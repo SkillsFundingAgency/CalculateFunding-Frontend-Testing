@@ -109,8 +109,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectFundingStream = choosefundingspecificationpage.chooseFundingSpecFundingStreamDropdown;
             var selectElement = new SelectElement(selectFundingStream);
-            selectElement.SelectByValue("YPLRA"); ;
-            Thread.Sleep(15000);
+            selectElement.SelectByValue("YPLRA");
+            Thread.Sleep(20000);
         }
         
         [Then(@"the list of approved or updated specifications is updated to display all the appropriate specifications")]
@@ -189,6 +189,18 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void GivenIHavePreviouslyApprovedASpecification()
         {
             CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
+            CreateDataSourceMapping.CreateADataSourceMapping();
+
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+            homepage.ManagetheSpecification.Click();
+            Thread.Sleep(2000);
+            var specName = ScenarioContext.Current["SpecificationName"];
+            string specCreated = specName.ToString();
+            Driver._driver.FindElement(By.LinkText(specCreated)).Click();
 
             IWebElement approveButton = Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(1) > span:nth-child(1)"));
             approveButton.Should().NotBeNull();
@@ -256,6 +268,18 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void GivenIHavePreviouslyUpdatedASpecification()
         {
             CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
+            CreateDataSourceMapping.CreateADataSourceMapping();
+
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+            homepage.ManagetheSpecification.Click();
+            Thread.Sleep(2000);
+            var specName = ScenarioContext.Current["SpecificationName"];
+            string specCreated = specName.ToString();
+            Driver._driver.FindElement(By.LinkText(specCreated)).Click();
 
             IWebElement approveButton = Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(1) > span:nth-child(1)"));
             approveButton.Should().NotBeNull();
@@ -338,6 +362,18 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             ScenarioContext.Current["SpecificationYear"] = year;
             CreateNewSpecification_VarYr.CreateANewSpecification_VarYr();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewProviderDataset.CreateANewProviderDataset();
+            CreateDataSourceMapping_VarYr.CreateADataSourceMapping_VarYr();
+
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+            homepage.ManagetheSpecification.Click();
+            Thread.Sleep(2000);
+            var specName = ScenarioContext.Current["SpecificationName"];
+            string specCreated = specName.ToString();
+            Driver._driver.FindElement(By.LinkText(specCreated)).Click();
 
             IWebElement approveButton = Driver._driver.FindElement(By.CssSelector("button.btn:nth-child(1) > span:nth-child(1)"));
             approveButton.Should().NotBeNull();
@@ -629,14 +665,76 @@ namespace Frontend.IntegrationTests.Tests.Steps
             approveButton.Enabled.Should().BeTrue();
         }
 
-        [Then(@"the Publish Button becomes Enabled")]
-        public void ThenThePublishButtonBecomesEnabled()
+        [Then(@"the Funding Stream information is correctly displayed")]
+        public void ThenTheFundingStreamInformationIsCorrectlyDisplayed()
         {
-            IWebElement publishButton = approvepublishfundingpage.approvePublishFundingPublish;
-            publishButton.Should().NotBeNull();
-            publishButton.Enabled.Should().BeTrue();
+            approvepublishfundingpage.approvePublishFundingFirstProviderFundingStreamInfoLineOne.Should().NotBeNull();
+            approvepublishfundingpage.approvePublishFundingFirstProviderFundingStreamInfoLineTwo.Should().NotBeNull();
+
+            IWebElement FundingStreamInfoLineOne = approvepublishfundingpage.approvePublishFundingFirstProviderFundingStreamInfoLineOne;
+            string FundingStreamInfoLineOneText = FundingStreamInfoLineOne.Text;
+            Console.WriteLine(FundingStreamInfoLineOneText);
+
+            IWebElement FundingStreamInfoLineTwo = approvepublishfundingpage.approvePublishFundingFirstProviderFundingStreamInfoLineTwo;
+            string FundingStreamInfoLineTwoText = FundingStreamInfoLineTwo.Text;
+            Console.WriteLine(FundingStreamInfoLineTwoText);
+
         }
 
+
+        [When(@"I Choose a Provider with a status of Held")]
+        public void WhenIChooseAProviderWithAStatusOfHeld()
+        {
+            var containerElements = Driver._driver.FindElements(By.CssSelector(".cf > tbody)"));
+            IWebElement firstHeldProvider = null;
+            foreach (var element in containerElements)
+            {
+                var aelement = element.FindElement(By.TagName("td"));
+                if (aelement != null)
+                {
+                    if (aelement.Text.Contains("Held"))
+                    {
+                        var anchorLink = element.FindElement(By.CssSelector("tr > td"));
+                        if (anchorLink != null)
+                        {
+                            var checkboxOption = element.FindElement(By.ClassName("target-checkbox-allocationline"));
+                            if (checkboxOption != null)
+                            {
+                                firstHeldProvider = checkboxOption;
+                                break;
+                            }
+                        }
+                    }
+
+                }
+                Thread.Sleep(1000);
+                if (firstHeldProvider != null)
+                {
+                    firstHeldProvider.Click();
+                }
+                else
+                {
+                    firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Held");
+                }
+            }
+        }
+
+        [When(@"I click on the Approve Button")]
+        public void WhenIClickOnTheApproveButton()
+        {
+            approvepublishfundingpage.approvePublishFundingApprove.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Provider is successfully approved including the associated Allocation Lines")]
+        public void ThenTheProviderIsSuccessfullyApprovedIncludingTheAssociatedAllocationLines()
+        {
+            IWebElement approveNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
+            approveNotification.Should().NotBeNull();
+            string approveSuccessfullyText = approveNotification.Text;
+
+            Console.WriteLine(approveSuccessfullyText);
+        }
 
 
         [AfterScenario()]

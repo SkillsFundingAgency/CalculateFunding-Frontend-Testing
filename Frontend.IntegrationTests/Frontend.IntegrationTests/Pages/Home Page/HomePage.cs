@@ -21,7 +21,7 @@ namespace Frontend.IntegrationTests
     [FindsBy(How = How.LinkText, Using = "Manage data")]
     public IWebElement ManagetheData { get; set; }
 
-    [FindsBy(How = How.LinkText, Using = "Quality assurance")]
+    [FindsBy(How = How.LinkText, Using = "Quality assurance tests")]
     public IWebElement ManagetheTests { get; set; }
 
     [FindsBy(How = How.LinkText, Using = "Calculations")]
@@ -30,7 +30,7 @@ namespace Frontend.IntegrationTests
     [FindsBy(How = How.LinkText, Using = "View results")]
     public IWebElement ViewtheResults { get; set; }
 
-    [FindsBy(How = How.LinkText, Using = "Approve funding")]
+    [FindsBy(How = How.LinkText, Using = "Funding approvals")]
     public IWebElement Publishtheresults { get; set; }
 
     [FindsBy(How = How.CssSelector, Using = ".govuk-beta-label > span:nth-child(2)")]

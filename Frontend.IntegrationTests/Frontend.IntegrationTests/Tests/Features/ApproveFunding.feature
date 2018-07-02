@@ -6,7 +6,7 @@ that I want to take forward as the funding methodology for a given funding perio
 @Workitem 51062 Driver
 Scenario: Navigate to the Choose Funding Specification Page
 Given I have successfully navigated to the Home Page
-When I select Approve funding
+When I select Funding approvals
 Then I am redirected to the approval options page
 When I click on the Choose Funidng Specification Option
 Then I am redirected to the Choose Funding Specification Page
@@ -80,7 +80,7 @@ Examples:
 @Workitem 51065 Driver
 Scenario: Navigate to the Approve and publish funding Page
 Given I have successfully navigated to the Home Page
-When I select Approve funding
+When I select Funding approvals
 Then I am redirected to the approval options page
 When I click on the Approve and publish funding Option
 Then I am redirected to the Approve and publish funding Page
@@ -128,4 +128,24 @@ And I choose a Choosen Specification from the dropdown
 And the Provider list updates to display all the provider information for the selected specification
 When I check the Select All tick box option
 Then the Approve Button becomes enabled
-And the Publish Button becomes Enabled
+
+@Workitem 51066 Driver
+Scenario: Expand a Provider to display the related Funding Streams
+Given I have navigated to the Approve and publish funding Page
+When I choose a Choosen Specification from the dropdown
+Then the Provider list updates to display all the provider information for the selected specification
+And an option to expand the Provider Information is displayed
+When I choose to expand the Provider information
+Then the Funding Stream information is correctly displayed
+
+@Workitem 51066 Driver
+Scenario: Select a Provider to mark as Approved
+Given I have navigated to the Approve and publish funding Page
+When I choose a Choosen Specification from the dropdown
+Then the Provider list updates to display all the provider information for the selected specification
+When I Choose a Provider with a status of Held
+Then the Approve Button becomes enabled
+When I click on the Approve Button
+Then the Provider is successfully approved including the associated Allocation Lines
+
+
