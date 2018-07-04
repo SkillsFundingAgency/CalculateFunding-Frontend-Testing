@@ -44,7 +44,7 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
         [FindsBy(How = How.CssSelector, Using = "tr.expander-trigger-container:nth-child(1) > td:nth-child(3)")]
         public IWebElement approvePublishFundingFirstProviderAllocStatusHeld { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "td.status-approved:nth-child(4)")]
+        [FindsBy(How = How.CssSelector, Using = "tr.expander-trigger-container:nth-child(1) > td:nth-child(4)")]
         public IWebElement approvePublishFundingFirstProviderAllocStatusApproved { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "tr.expander-trigger-container:nth-child(1) > td:nth-child(5)")]
@@ -62,7 +62,22 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
         [FindsBy(How = How.CssSelector, Using = "tr.expander-container:nth-child(2) > td:nth-child(1) > span:nth-child(3)")]
         public IWebElement approvePublishFundingFirstProviderQATestInfo { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = "tr.expander-container:nth-child(3)")]
+        public IWebElement approvePublishFundingFirstProviderFundingStreamInfoLineOne { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "tr.expander-container:nth-child(4)")]
+        public IWebElement approvePublishFundingFirstProviderFundingStreamInfoLineTwo { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".notification-panel-text")]
+        public IWebElement approvePublishFundingNotificationPanel { get; set; }
+
         
+
+
+
+
+
+
 
 
 

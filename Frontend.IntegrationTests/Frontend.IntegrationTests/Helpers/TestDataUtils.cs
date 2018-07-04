@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Frontend.IntegrationTests.Helpers
@@ -42,4 +43,32 @@ namespace Frontend.IntegrationTests.Helpers
 
     }
 
+    class TestRegexUtil
+
+    {
+        public static bool NumbersEqual(string exampleString)
+        {
+            Regex regex = new Regex(@"([\d]+)\/([\d]+)");
+
+            if (regex.IsMatch(exampleString))
+            {
+                string[] matches = regex.Split(exampleString);
+
+                string firstNumber = matches[1];
+                string secondNumber = matches[2];
+
+                if (firstNumber == secondNumber)
+                {
+                    Console.WriteLine("The numbers are the same");
+                    return true;
+                }
+
+
+            }
+            return false;
+        }
+    }
 }
+    
+
+
