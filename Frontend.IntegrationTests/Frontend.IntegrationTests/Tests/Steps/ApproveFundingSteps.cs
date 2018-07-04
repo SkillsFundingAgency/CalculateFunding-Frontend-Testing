@@ -38,7 +38,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             approvaloptionspage.ChooseFundingSpecification.Click();
             Thread.Sleep(2000);
         }
-        
+
         [Then(@"I am redirected to the Choose Funding Specification Page")]
         public void ThenIAmRedirectedToTheChooseFundingSpecificationPage()
         {
@@ -65,7 +65,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             string fundingPeriodDefault = fundingPeriodSelected.Text;
             Console.WriteLine("The Default Funding Period Displayed is: " + fundingPeriodDefault);
         }
-        
+
         [Then(@"an option to select a Funding Stream is displayed")]
         public void ThenAnOptionToSelectAFundingStreamIsDisplayed()
         {
@@ -112,7 +112,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             selectElement.SelectByValue("YPLRA");
             Thread.Sleep(20000);
         }
-        
+
         [Then(@"the list of approved or updated specifications is updated to display all the appropriate specifications")]
         public void ThenTheListOfApprovedOrUpdatedSpecificationsIsUpdatedToDisplayAllTheAppropriateSpecifications()
         {
@@ -182,7 +182,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             IWebElement chooseButton = choosefundingspecificationpage.chooseFundingSpecFirstActionButton;
             chooseButton.Should().NotBeNull();
-            
+
         }
 
         [Given(@"I have previously Approved a Specification")]
@@ -681,53 +681,53 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
-
-        [When(@"I Choose a Provider with a status of Held")]
-        public void WhenIChooseAProviderWithAStatusOfHeld()
+        [When(@"I Choose a Provider Allocation Line with a status of Held")]
+        public void WhenIChooseAProviderAllocationLineWithAStatusOfHeld()
         {
-            var containerElements = Driver._driver.FindElements(By.CssSelector(".cf > tbody)"));
-            IWebElement firstHeldProvider = null;
-            foreach (var element in containerElements)
-            {
-                var aelement = element.FindElement(By.TagName("td"));
-                if (aelement != null)
-                {
-                    if (aelement.Text.Contains("Held"))
-                    {
-                        var anchorLink = element.FindElement(By.CssSelector("tr > td"));
-                        if (anchorLink != null)
-                        {
-                            var checkboxOption = element.FindElement(By.ClassName("target-checkbox-allocationline"));
-                            if (checkboxOption != null)
-                            {
-                                firstHeldProvider = checkboxOption;
-                                break;
-                            }
-                        }
-                    }
-
-                }
-                Thread.Sleep(1000);
-                if (firstHeldProvider != null)
-                {
-                    firstHeldProvider.Click();
-                }
-                else
-                {
-                    firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Held");
-                }
-            }
+            Actions.ApproveFundingChooseProviderAllocationLineToApprove();
         }
 
         [When(@"I click on the Approve Button")]
         public void WhenIClickOnTheApproveButton()
         {
             approvepublishfundingpage.approvePublishFundingApprove.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
         }
 
-        [Then(@"the Provider is successfully approved including the associated Allocation Lines")]
-        public void ThenTheProviderIsSuccessfullyApprovedIncludingTheAssociatedAllocationLines()
+        [Then(@"the Provider Allocation Line is successfully approved")]
+        public void ThenTheProviderAllocationLineIsSuccessfullyApproved()
+        {
+            IWebElement approveNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
+            approveNotification.Should().NotBeNull();
+            string approveSuccessfullyText = approveNotification.Text;
+
+            Console.WriteLine(approveSuccessfullyText);
+        }
+
+        [When(@"I Choose a Provider Funding Stream with a status of Held")]
+        public void WhenIChooseAProviderFundingStreamWithAStatusOfHeld()
+        {
+            Actions.ApproveFundingChooseProviderFundingStreamToApprove();
+        }
+
+        [Then(@"the Provider Funding Stream is successfully approved")]
+        public void ThenTheProviderFundingStreamIsSuccessfullyApproved()
+        {
+            IWebElement approveNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
+            approveNotification.Should().NotBeNull();
+            string approveSuccessfullyText = approveNotification.Text;
+
+            Console.WriteLine(approveSuccessfullyText);
+        }
+
+        [When(@"I Choose a Provider with a status of Held")]
+        public void WhenIChooseAProviderWithAStatusOfHeld()
+        {
+            Actions.ApproveFundingChooseProviderToApprove();
+        }
+
+        [Then(@"the Provider is successfully approved")]
+        public void ThenTheProviderIsSuccessfullyApproved()
         {
             IWebElement approveNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
             approveNotification.Should().NotBeNull();

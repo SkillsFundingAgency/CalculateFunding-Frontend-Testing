@@ -585,14 +585,14 @@ testRunner.Then("the Funding Stream information is correctly displayed", ((strin
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a Provider to mark as Approved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a Provider Allocation Line to mark as Approved")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51066")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        public virtual void SelectAProviderToMarkAsApproved()
+        public virtual void SelectAProviderAllocationLineToMarkAsApproved()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider to mark as Approved", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider Allocation Line to mark as Approved", new string[] {
                         "Workitem",
                         "51066",
                         "Driver"});
@@ -606,13 +606,79 @@ testRunner.When("I choose a Choosen Specification from the dropdown", ((string)(
 testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
                     "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 146
-testRunner.When("I Choose a Provider with a status of Held", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I Choose a Provider Allocation Line with a status of Held", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 147
 testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 148
 testRunner.When("I click on the Approve Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 149
-testRunner.Then("the Provider is successfully approved including the associated Allocation Lines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("the Provider Allocation Line is successfully approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a Provider Funding Stream to mark as Approved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51066")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectAProviderFundingStreamToMarkAsApproved()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider Funding Stream to mark as Approved", new string[] {
+                        "Workitem",
+                        "51066",
+                        "Driver"});
+#line 152
+this.ScenarioSetup(scenarioInfo);
+#line 153
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 154
+testRunner.When("I choose a Choosen Specification from the dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 155
+testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
+                    "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 156
+testRunner.When("I Choose a Provider Funding Stream with a status of Held", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 157
+testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 158
+testRunner.When("I click on the Approve Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 159
+testRunner.Then("the Provider Funding Stream is successfully approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a Provider to mark as Approved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51066")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectAProviderToMarkAsApproved()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider to mark as Approved", new string[] {
+                        "Workitem",
+                        "51066",
+                        "Driver"});
+#line 162
+this.ScenarioSetup(scenarioInfo);
+#line 163
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 164
+testRunner.When("I choose a Choosen Specification from the dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 165
+testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
+                    "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 166
+testRunner.When("I Choose a Provider with a status of Held", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 167
+testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 168
+testRunner.When("I click on the Approve Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 169
+testRunner.Then("the Provider is successfully approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
