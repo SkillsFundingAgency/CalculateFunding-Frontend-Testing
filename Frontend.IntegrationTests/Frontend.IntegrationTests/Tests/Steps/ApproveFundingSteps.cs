@@ -691,7 +691,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void WhenIClickOnTheApproveButton()
         {
             approvepublishfundingpage.approvePublishFundingApprove.Click();
-            Thread.Sleep(4000);
+            Thread.Sleep(6000);
         }
 
         [Then(@"the Provider Allocation Line is successfully approved")]
@@ -734,6 +734,71 @@ namespace Frontend.IntegrationTests.Tests.Steps
             string approveSuccessfullyText = approveNotification.Text;
 
             Console.WriteLine(approveSuccessfullyText);
+        }
+
+        [When(@"I Choose a Provider Allocation Line with a status of Approved")]
+        public void WhenIChooseAProviderAllocationLineWithAStatusOfApproved()
+        {
+            Actions.ApproveFundingChooseProviderAllocationLineToPublished();
+        }
+
+        [Then(@"the Publish Button becomes enabled")]
+        public void ThenThePublishButtonBecomesEnabled()
+        {
+            IWebElement publishButton = approvepublishfundingpage.approvePublishFundingPublish;
+            publishButton.Should().NotBeNull();
+            publishButton.Enabled.Should().BeTrue();
+        }
+
+        [When(@"I click on the Publish Button")]
+        public void WhenIClickOnThePublishButton()
+        {
+            approvepublishfundingpage.approvePublishFundingPublish.Click();
+            Thread.Sleep(6000);
+        }
+
+
+
+        [Then(@"the Provider Allocation Line is successfully published")]
+        public void ThenTheProviderAllocationLineIsSuccessfullyPublished()
+        {
+            IWebElement publishNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
+            publishNotification.Should().NotBeNull();
+            string publishSuccessfullyText = publishNotification.Text;
+
+            Console.WriteLine(publishSuccessfullyText);
+        }
+
+        [When(@"I Choose a Provider Funding Stream with a status of Approved")]
+        public void WhenIChooseAProviderFundingStreamWithAStatusOfApproved()
+        {
+            Actions.ApproveFundingChooseProviderFundingStreamToPublish();
+        }
+
+        [Then(@"the Provider Funding Stream is successfully published")]
+        public void ThenTheProviderFundingStreamIsSuccessfullyPublished()
+        {
+            IWebElement publishNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
+            publishNotification.Should().NotBeNull();
+            string publishSuccessfullyText = publishNotification.Text;
+
+            Console.WriteLine(publishSuccessfullyText);
+        }
+
+        [When(@"I Choose a Provider with a status of Approved")]
+        public void WhenIChooseAProviderWithAStatusOfApproved()
+        {
+            Actions.ApproveFundingChooseProviderToPublish();
+        }
+
+        [Then(@"the Provider is successfully published")]
+        public void ThenTheProviderIsSuccessfullyPublished()
+        {
+            IWebElement publishNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
+            publishNotification.Should().NotBeNull();
+            string publishSuccessfullyText = publishNotification.Text;
+
+            Console.WriteLine(publishSuccessfullyText);
         }
 
 

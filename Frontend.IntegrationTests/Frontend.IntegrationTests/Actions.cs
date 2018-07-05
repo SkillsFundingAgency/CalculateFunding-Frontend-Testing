@@ -1053,6 +1053,91 @@
 
         }
 
+        public static void ApproveFundingChooseProviderAllocationLineToPublished()
+        {
+            var containerElements = Driver._driver.FindElements(By.CssSelector("table.cf tr"));
+            IWebElement firstHeldProvider = null;
+            IWebElement currentProvider = null;
+
+            foreach (var element in containerElements)
+            {
+                if (element.GetAttribute("class").Contains("data-provider-container"))
+                {
+                    if (currentProvider != null)
+                    {
+                        var previoustriggerelement = currentProvider.FindElement(By.CssSelector(".expander-trigger-cell"));
+                        if (previoustriggerelement != null)
+                        {
+                            previoustriggerelement.Click();
+                        }
+
+                    }
+
+                    currentProvider = element;
+
+                    var triggerelement = element.FindElement(By.CssSelector(".expander-trigger-cell"));
+                    if (triggerelement == null)
+                    {
+                        continue;
+                    }
+
+                    triggerelement.Click();
+                    Thread.Sleep(500);
+                    continue;
+
+                }
+
+                if (currentProvider == null)
+                {
+                    continue;
+                }
+
+
+                if (element.GetAttribute("class").Contains("data-allocationline-container"))
+                {
+                    IWebElement aelement = null;
+                    try
+                    {
+                        aelement = element.FindElement(By.CssSelector(".status-approved"));
+                    }
+                    catch (NoSuchElementException)
+                    {
+
+                    }
+
+
+                    if (aelement != null)
+                    {
+                        if (aelement.Text.Contains("Approved"))
+                        {
+                            var checkboxOption = element.FindElement(By.ClassName("target-checkbox-allocationline"));
+                            if (checkboxOption != null)
+                            {
+                                firstHeldProvider = checkboxOption;
+                                break;
+                            }
+
+                        }
+
+                    }
+
+                }
+            }
+
+            Thread.Sleep(1000);
+            if (firstHeldProvider != null)
+            {
+                firstHeldProvider.Click();
+                Thread.Sleep(2000);
+            }
+            else
+            {
+                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Approved");
+            }
+
+        }
+
+
         public static void ApproveFundingChooseProviderFundingStreamToApprove()
         {
             var containerElements = Driver._driver.FindElements(By.CssSelector("table.cf tr"));
@@ -1070,7 +1155,7 @@
                         {
                             previoustriggerelement.Click();
                         }
-                    
+
                     }
 
                     currentProvider = element;
@@ -1137,8 +1222,7 @@
 
         }
 
-
-        public static void ApproveFundingChooseProviderToApprove()
+        public static void ApproveFundingChooseProviderFundingStreamToPublish()
         {
             var containerElements = Driver._driver.FindElements(By.CssSelector("table.cf tr"));
             IWebElement firstHeldProvider = null;
@@ -1178,6 +1262,59 @@
                 }
 
 
+                if (element.GetAttribute("class").Contains("data-fundingstream-container"))
+                {
+                    IWebElement aelement = null;
+                    try
+                    {
+                        aelement = element.FindElement(By.CssSelector(".status-approved"));
+                    }
+                    catch (NoSuchElementException)
+                    {
+
+                    }
+
+
+                    if (aelement != null)
+                    {
+                        if (TestRegexUtil.NumbersEqual(aelement.Text))
+                        {
+                            var checkboxOption = element.FindElement(By.ClassName("target-checkbox-fundingstream"));
+                            if (checkboxOption != null)
+                            {
+                                firstHeldProvider = checkboxOption;
+                                break;
+                            }
+
+                        }
+
+                    }
+
+                }
+            }
+
+            Thread.Sleep(1000);
+            if (firstHeldProvider != null)
+            {
+                firstHeldProvider.Click();
+                Thread.Sleep(2000);
+            }
+            else
+            {
+                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Approved");
+            }
+
+        }
+
+
+        public static void ApproveFundingChooseProviderToApprove()
+        {
+            var containerElements = Driver._driver.FindElements(By.CssSelector("table.cf tr"));
+            IWebElement firstHeldProvider = null;
+
+
+            foreach (var element in containerElements)
+            {
                 if (element.GetAttribute("class").Contains("data-provider-container"))
                 {
                     IWebElement aelement = null;
@@ -1218,6 +1355,58 @@
             else
             {
                 firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Held");
+            }
+
+        }
+
+        public static void ApproveFundingChooseProviderToPublish()
+        {
+            var containerElements = Driver._driver.FindElements(By.CssSelector("table.cf tr"));
+            IWebElement firstHeldProvider = null;
+
+
+            foreach (var element in containerElements)
+            {
+                if (element.GetAttribute("class").Contains("data-provider-container"))
+                {
+                    IWebElement aelement = null;
+                    try
+                    {
+                        aelement = element.FindElement(By.CssSelector(".status-approved"));
+                    }
+                    catch (NoSuchElementException)
+                    {
+
+                    }
+
+
+                    if (aelement != null)
+                    {
+                        if (TestRegexUtil.NumbersEqual(aelement.Text))
+                        {
+                            var checkboxOption = element.FindElement(By.ClassName("target-checkbox-provider"));
+                            if (checkboxOption != null)
+                            {
+                                firstHeldProvider = checkboxOption;
+                                break;
+                            }
+
+                        }
+
+                    }
+
+                }
+            }
+
+            Thread.Sleep(1000);
+            if (firstHeldProvider != null)
+            {
+                firstHeldProvider.Click();
+                Thread.Sleep(2000);
+            }
+            else
+            {
+                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Approved");
             }
 
         }

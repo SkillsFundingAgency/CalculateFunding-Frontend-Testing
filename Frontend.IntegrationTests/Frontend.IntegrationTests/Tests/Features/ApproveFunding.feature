@@ -149,6 +149,16 @@ When I click on the Approve Button
 Then the Provider Allocation Line is successfully approved
 
 @Workitem 51066 Driver
+Scenario: Select a Provider Allocation Line to mark as Published
+Given I have navigated to the Approve and publish funding Page
+When I choose a Choosen Specification from the dropdown
+Then the Provider list updates to display all the provider information for the selected specification
+When I Choose a Provider Allocation Line with a status of Approved
+Then the Publish Button becomes enabled
+When I click on the Publish Button
+Then the Provider Allocation Line is successfully published
+
+@Workitem 51066 Driver
 Scenario: Select a Provider Funding Stream to mark as Approved
 Given I have navigated to the Approve and publish funding Page
 When I choose a Choosen Specification from the dropdown
@@ -159,6 +169,16 @@ When I click on the Approve Button
 Then the Provider Funding Stream is successfully approved
 
 @Workitem 51066 Driver
+Scenario: Select a Provider Funding Stream to mark as Published
+Given I have navigated to the Approve and publish funding Page
+When I choose a Choosen Specification from the dropdown
+Then the Provider list updates to display all the provider information for the selected specification
+When I Choose a Provider Funding Stream with a status of Approved
+Then the Publish Button becomes enabled
+When I click on the Publish Button
+Then the Provider Funding Stream is successfully published
+
+@Workitem 51066 Driver
 Scenario: Select a Provider to mark as Approved
 Given I have navigated to the Approve and publish funding Page
 When I choose a Choosen Specification from the dropdown
@@ -167,3 +187,15 @@ When I Choose a Provider with a status of Held
 Then the Approve Button becomes enabled
 When I click on the Approve Button
 Then the Provider is successfully approved
+
+@Workitem 51066 Driver
+Scenario: Select a Provider to mark as Published
+Given I have navigated to the Approve and publish funding Page
+When I choose a Choosen Specification from the dropdown
+Then the Provider list updates to display all the provider information for the selected specification
+When I Choose a Provider with a status of Approved
+Then the Publish Button becomes enabled
+When I click on the Publish Button
+Then the Provider is successfully published
+
+
