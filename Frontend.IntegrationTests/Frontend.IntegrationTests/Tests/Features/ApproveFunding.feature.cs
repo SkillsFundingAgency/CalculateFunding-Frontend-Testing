@@ -781,6 +781,168 @@ testRunner.Then("the Provider is successfully published", ((string)(null)), ((Te
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        public virtual void SelectTheChooseActionForAnApprovedSpecification(string year, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Workitem",
+                    "51064",
+                    "Driver"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the Choose Action for an Approved Specification", @__tags);
+#line 202
+this.ScenarioSetup(scenarioInfo);
+#line 203
+testRunner.Given(string.Format("I have previously Approved a Specification for a {0}", year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 204
+testRunner.And("I have navigated to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 205
+testRunner.When("I choose a funding stream from the drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 206
+testRunner.And(string.Format("I change the Funding Period selected to equal {0}", year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 207
+testRunner.And("I choose a Funding Stream added to the Approved Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 208
+testRunner.Then("the list of approved or updated specifications is updated to display all the appr" +
+                    "opriate specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 209
+testRunner.When("I click on the Choose Option Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 210
+testRunner.Then("I am redirected to the Confirmation to chose a specification for a funding stream" +
+                    " and period page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 211
+testRunner.And("I am presented with the name of the specification I have selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 212
+testRunner.And("I am presented with the funding period and the funding streams for the selected s" +
+                    "pecification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 213
+testRunner.And("I am presented with a message explaining the consequences if were to choose the s" +
+                    "elected specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 214
+testRunner.And("I am presented with an option choose the selected specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 215
+testRunner.And("I am presented with an option to cancel choosing the selected specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Choose Action for an Approved Specification: AY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "AY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "AY2017181")]
+        public virtual void SelectTheChooseActionForAnApprovedSpecification_AY2017181()
+        {
+#line 202
+this.SelectTheChooseActionForAnApprovedSpecification("AY2017181", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Choose Action for an Approved Specification: AY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "AY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "AY2018191")]
+        public virtual void SelectTheChooseActionForAnApprovedSpecification_AY2018191()
+        {
+#line 202
+this.SelectTheChooseActionForAnApprovedSpecification("AY2018191", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Choose Action for an Approved Specification: FY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "FY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "FY2017181")]
+        public virtual void SelectTheChooseActionForAnApprovedSpecification_FY2017181()
+        {
+#line 202
+this.SelectTheChooseActionForAnApprovedSpecification("FY2017181", ((string[])(null)));
+#line hidden
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Choose Action for an Approved Specification: FY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "FY2018191")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "FY2018191")]
+        public virtual void SelectTheChooseActionForAnApprovedSpecification_FY2018191()
+        {
+#line 202
+this.SelectTheChooseActionForAnApprovedSpecification("FY2018191", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void SelectTheBackOptionOnTheConfirmationToChoseASpecificationPage(string year, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Workitem",
+                    "51064",
+                    "Driver"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the Back option on the Confirmation to chose a specification page", @__tags);
+#line 225
+this.ScenarioSetup(scenarioInfo);
+#line 226
+testRunner.Given(string.Format("I have previously Approved a Specification for a {0}", year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 227
+testRunner.And("I have navigated to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 228
+testRunner.When("I choose a funding stream from the drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 229
+testRunner.And(string.Format("I change the Funding Period selected to equal {0}", year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 230
+testRunner.And("I choose a Funding Stream added to the Approved Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 231
+testRunner.Then("the list of approved or updated specifications is updated to display all the appr" +
+                    "opriate specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 232
+testRunner.When("I click on the Choose Option Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 233
+testRunner.Then("I am redirected to the Confirmation to chose a specification for a funding stream" +
+                    " and period page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 234
+testRunner.When("I click on the Back do not choose option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 235
+testRunner.Then("I am redirected to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Back option on the Confirmation to chose a specification page: AY20171" +
+            "81")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "AY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "AY2017181")]
+        public virtual void SelectTheBackOptionOnTheConfirmationToChoseASpecificationPage_AY2017181()
+        {
+#line 225
+this.SelectTheBackOptionOnTheConfirmationToChoseASpecificationPage("AY2017181", ((string[])(null)));
+#line hidden
+        }
     }
 }
 #pragma warning restore

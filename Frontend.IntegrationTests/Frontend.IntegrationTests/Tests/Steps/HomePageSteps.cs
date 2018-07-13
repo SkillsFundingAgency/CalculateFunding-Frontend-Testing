@@ -142,7 +142,37 @@ namespace Frontend.IntegrationTests
             currentURL.Should().Be("https://www.smartsurvey.co.uk/s/cfsbeta/", "Surveyr URL was not loaded correctly");
         }
 
+        [When(@"I update the URL to an incorrect end point")]
+        public void WhenIUpdateTheURLToAnIncorrectEndPoint()
+        {
+            Driver._driver.Navigate().GoToUrl("https://esfacfsftest-web.azurewebsites.net/spec");
+            Thread.Sleep(2000);
+        }
 
+        [Then(@"a Page Not Found error message is played")]
+        public void ThenAPageNotFoundErrorMessageIsPlayed()
+        {
+            string currentURL = Driver._driver.Url;
+            currentURL.Should().Be("https://esfacfsftest-web.azurewebsites.net/errors/404", "Page Not Found Error page was not returned");
+            IWebElement pageNotFoundError = Driver._driver.FindElement(By.CssSelector(".heading-large"));
+            string errorText = pageNotFoundError.Text;
+            Console.WriteLine("Error displayed: " + errorText);
+
+        }
+
+        [Then(@"a link is displayed to return to the Home page")]
+        public void ThenALinkIsDisplayedToReturnToTheHomePage()
+        {
+            IWebElement homePageLink = Driver._driver.FindElement(By.LinkText("visit the Calculate funding home page."));
+            homePageLink.Should().NotBeNull();
+        }
+
+        [Then(@"a link is displayed to log a Service Desk Incident")]
+        public void ThenALinkIsDisplayedToLogAServiceDeskIncident()
+        {
+            IWebElement logIncidentLink = Driver._driver.FindElement(By.LinkText("Log an incident"));
+            logIncidentLink.Should().NotBeNull();
+        }
 
         [AfterScenario()]
         public void FixtureTearDown()

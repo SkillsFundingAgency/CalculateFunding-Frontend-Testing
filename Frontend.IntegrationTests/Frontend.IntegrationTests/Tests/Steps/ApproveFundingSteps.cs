@@ -29,6 +29,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ApprovePublishFundingPage approvepublishfundingpage = new ApprovePublishFundingPage();
         ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
         EditSpecificationPage editspecificationpage = new EditSpecificationPage();
+        ConfirmChoosenSpecificationPage confirmchoosenspecificationpage = new ConfirmChoosenSpecificationPage();
 
 
 
@@ -799,6 +800,75 @@ namespace Frontend.IntegrationTests.Tests.Steps
             string publishSuccessfullyText = publishNotification.Text;
 
             Console.WriteLine(publishSuccessfullyText);
+        }
+
+        [When(@"I choose a Funding Stream added to the Approved Specification")]
+        public void WhenIChooseAFundingStreamAddedToTheApprovedSpecification()
+        {
+            var selectFundingStream = choosefundingspecificationpage.chooseFundingSpecFundingStreamDropdown;
+            var selectElement = new SelectElement(selectFundingStream);
+            selectElement.SelectByValue("YPLRP");
+
+            Thread.Sleep(10000);
+        }
+
+        [When(@"I click on the Choose Option Button")]
+        public void WhenIClickOnTheChooseOptionButton()
+        {
+            choosefundingspecificationpage.chooseFundingSpecFirstActionButton.Click();
+            Thread.Sleep(4000);
+        }
+
+        [Then(@"I am redirected to the Confirmation to chose a specification for a funding stream and period page")]
+        public void ThenIAmRedirectedToTheConfirmationToChoseASpecificationForAFundingStreamAndPeriodPage()
+        {
+            confirmchoosenspecificationpage.confirmChoosenSpecConfirmButton.Should().NotBeNull();
+        }
+
+        [Then(@"I am presented with the name of the specification I have selected")]
+        public void ThenIAmPresentedWithTheNameOfTheSpecificationIHaveSelected()
+        {
+            IWebElement specName = confirmchoosenspecificationpage.confirmChoosenSpecHeading;
+            specName.Should().NotBeNull();
+            string specNameText = specName.Text;
+            Console.WriteLine("The specification name displayed is: " + specNameText);
+        }
+
+        [Then(@"I am presented with the funding period and the funding streams for the selected specification")]
+        public void ThenIAmPresentedWithTheFundingPeriodAndTheFundingStreamsForTheSelectedSpecification()
+        {
+            IWebElement specFundingStreams = confirmchoosenspecificationpage.confirmChoosenSpecFundingStreams;
+            specFundingStreams.Should().NotBeNull();
+            string fundingStreamText = specFundingStreams.Text;
+            Console.WriteLine("The Funding Stream information displayed is: " + fundingStreamText);
+        }
+
+        [Then(@"I am presented with a message explaining the consequences if were to choose the selected specification")]
+        public void ThenIAmPresentedWithAMessageExplainingTheConsequencesIfWereToChooseTheSelectedSpecification()
+        {
+            IWebElement specWarning = confirmchoosenspecificationpage.confirmChoosenSpecWarningMessage;
+            specWarning.Should().NotBeNull();
+            string specWarningText = specWarning.Text;
+            Console.WriteLine("The following Warning Message is displayed : " + specWarningText);
+        }
+
+        [Then(@"I am presented with an option choose the selected specification")]
+        public void ThenIAmPresentedWithAnOptionChooseTheSelectedSpecification()
+        {
+            confirmchoosenspecificationpage.confirmChoosenSpecConfirmButton.Should().NotBeNull();
+        }
+
+        [Then(@"I am presented with an option to cancel choosing the selected specification")]
+        public void ThenIAmPresentedWithAnOptionToCancelChoosingTheSelectedSpecification()
+        {
+            confirmchoosenspecificationpage.confirmChoosenSpecBackButton.Should().NotBeNull();
+        }
+
+        [When(@"I click on the Back do not choose option")]
+        public void WhenIClickOnTheBackDoNotChooseOption()
+        {
+            confirmchoosenspecificationpage.confirmChoosenSpecBackButton.Click();
+            Thread.Sleep(2000);
         }
 
 

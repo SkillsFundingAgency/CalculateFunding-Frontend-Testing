@@ -45,3 +45,13 @@ Given I have successfully navigated to the Home Page
 Then The Survey Text is displayed correctly on the page
 And the link to the Survey form is displayed correctly
 And the Link loads the correct Survey page
+
+@workitem:52651 Driver
+Scenario: Validate 404 Error Page
+Given I have successfully navigated to the Home Page
+When I select Specifications
+Then I am redirected to the Manage Specification page
+When I update the URL to an incorrect end point
+Then a Page Not Found error message is played
+And a link is displayed to return to the Home page
+And a link is displayed to log a Service Desk Incident

@@ -1411,6 +1411,42 @@
 
         }
 
+        public static void CreateSpecificationChooseAllFundingStreams(string fundingStreams)
+        {
+            CreateSpecificationPage createspecificationpage = new CreateSpecificationPage();
+
+            SelectElement selectElement = new SelectElement(createspecificationpage.SpecFundingStreamOptionContainer);
+            var options = selectElement.Options;
+
+            int? maximumItems = null;
+            int parsedInt;
+            if (int.TryParse(fundingStreams, out parsedInt))
+            {
+                if (parsedInt > 0)
+                {
+                    maximumItems = parsedInt;
+                }
+            }
+
+            for (int i = 0; i < options.Count; i++)
+            {
+                if (maximumItems != null && maximumItems.HasValue && i >= maximumItems.Value)
+                {
+                    break;
+                }
+
+                IWebElement optionElement = options[i];
+                string optionElementText = optionElement.Text;
+                Console.WriteLine(optionElementText);
+
+                createspecificationpage.FundingStream.Click();
+                createspecificationpage.SpecFundingStreamTextField.SendKeys(OpenQA.Selenium.Keys.Shift + optionElementText);
+                Thread.Sleep(2000);
+                createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
+
+
+            }
+        }
     }
 }
 
