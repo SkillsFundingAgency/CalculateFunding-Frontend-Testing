@@ -54,9 +54,9 @@ namespace Frontend.IntegrationTests.Create
             Actions.SelectSpecifiedSpecificationCreateQATestPage();
             createqatestpage.createQATestDescription.Click();
             createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Control + "A");
-            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys("Given the dataset '" + datasetCreated + "' field 'R14 High Needs Students 19-24' is equal to 'Test'");
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys("Given the result for '" + specCalcCreated + "' is greater than '25'");
             createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys(OpenQA.Selenium.Keys.Enter);
-            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys("Then the result for '" + specCalcCreated + "' is equal to '10'");
+            createqatestpage.createQATestBuildMonacoEditorTextbox.SendKeys("Then the result for '" + specCalcCreated + "' is greater than '100'");
             Thread.Sleep(2000);
             createqatestpage.createQATestValidateQATestButton.Click();
             Thread.Sleep(6000);
