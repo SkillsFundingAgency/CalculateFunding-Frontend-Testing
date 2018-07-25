@@ -326,12 +326,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             choosedatasetrelationshippage.datasetSchemaRelationshipDescription.SendKeys(descriptiontext);
         }
 
-        [Given(@"I have ticked the Use as a list of values in calculations checkbox")]
-        public void GivenIHaveTickedTheUseAsAListOfValuesInCalculationsCheckbox()
-        {
-            choosedatasetrelationshippage.createDatasetusedInDataAggregation.Click();
-        }
-
         [Given(@"I have ticked the Set as provider data checkbox")]
         public void GivenIHaveTickedTheSetAsProviderDataCheckbox()
         {
@@ -493,7 +487,17 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement totalspecificationslisted = mapdatasourcestodatasetspage.mapDataSourcesTotalSpecificationsListed;
             string totallisted = totalspecificationslisted.Text;
             int totalnolisted = int.Parse(totallisted);
-            totalnolisted.Should().BeGreaterThan(NoOfSpecifications, "Less than " + NoOfSpecifications + " are displayed");
+
+            if (totalnolisted < NoOfSpecifications)
+            {
+                Assert.Inconclusive("Only 1 page of results is displayed as the Total results returned is less than " + NoOfSpecifications);
+
+            }
+            else
+            {
+                Console.WriteLine("The Total results returned is " + totalnolisted);
+            }
+
         }
 
         [Given(@"the list is in ascending alphabetical order")]

@@ -141,7 +141,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 18
 testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 19
-testRunner.When("I select Quality assurance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I select Quality assurance tests", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 20
 testRunner.Then("I am redirected to the Manage Tests page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -209,7 +209,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 36
 testRunner.Given("I have successfully navigated to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 37
-testRunner.When("I select Approve funding", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I select Funding approvals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 38
 testRunner.Then("I am redirected to the approval options page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 39

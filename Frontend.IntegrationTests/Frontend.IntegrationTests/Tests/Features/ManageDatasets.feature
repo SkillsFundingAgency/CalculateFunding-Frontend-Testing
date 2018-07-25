@@ -72,35 +72,12 @@ When I click the No Data Type Exists link
 Then I am redirected to the Choose Your Data page
 
 @Workitem:36845 Driver
-Scenario: Create and Save a Dataset Schema Relationship where Provider Data is Set and is used as a list of values in calculations
-Given I have navigated to the Choose Your Data page
-And I have selected a Dataset Schema to relate to the specification
-And I have entered a Dataset Schema Name
-And I have entered a Dataset Description
-And I have ticked the Use as a list of values in calculations checkbox
-And I have ticked the Set as provider data checkbox
-When I click the Save Dataset button
-Then I am redirected to a list view of dataset schema relationships for the specification
-And the new dataset is saved and displayed correctly
-
-@Workitem:36845 Driver
 Scenario: Create and Save a Dataset Schema Relationship where Provider Data is Set
 Given I have navigated to the Choose Your Data page
 And I have selected a Dataset Schema to relate to the specification
 And I have entered a Dataset Schema Name
 And I have entered a Dataset Description
 And I have ticked the Set as provider data checkbox
-When I click the Save Dataset button
-Then I am redirected to a list view of dataset schema relationships for the specification
-And the new dataset is saved and displayed correctly
-
-@Workitem:36845 Driver
-Scenario: Create and Save a Dataset Schema Relationship where the dataset is used as a list of values in calculations
-Given I have navigated to the Choose Your Data page
-And I have selected a Dataset Schema to relate to the specification
-And I have entered a Dataset Schema Name
-And I have entered a Dataset Description
-And I have ticked the Use as a list of values in calculations checkbox
 When I click the Save Dataset button
 Then I am redirected to a list view of dataset schema relationships for the specification
 And the new dataset is saved and displayed correctly

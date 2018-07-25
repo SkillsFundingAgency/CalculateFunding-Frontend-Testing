@@ -96,14 +96,6 @@ And I click the search button
 Then the list view of calculations updates to display only calculations that comply with the search term entered
 
 @Workitem:37014 Driver
-Scenario: Select To Filter the Calculations Page Using an Exact Calculation Name 
-Given I have navigated to the Manage Calculations page
-And No additional filter options have been selected
-When the text i enter into a search matches a calculation name exactly
-And I click the search button
-Then the list view of calculations updates to display the specfic search calculation only
-
-@Workitem:37014 Driver
 Scenario: Select To Filter the Calculations Page by the Search Option When Active Filters Are In Place
 Given I have navigated to the Manage Calculations page
 And ONE or MORE filter Options have previously been selected

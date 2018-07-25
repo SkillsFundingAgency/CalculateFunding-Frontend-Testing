@@ -25,7 +25,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.XPath, Using = "/html/body/main/div/div/div/form/p/button")]
         public IWebElement SavePolicy { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "Cancel")]
+        [FindsBy(How = How.LinkText, Using = "Back")]
         public IWebElement CancelPolicy { get; set; }
 
         [FindsBy(How = How.Id, Using = "validation-link-for-CreatePolicyViewModel-Description")]

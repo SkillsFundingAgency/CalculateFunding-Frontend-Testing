@@ -146,7 +146,7 @@
             managecalculationpage.CalculationSearchField.Clear();
             managecalculationpage.CalculationSearchField.SendKeys("Test");
             managecalculationpage.CalculationSearchButton.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(6000);
 
         }
 

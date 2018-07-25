@@ -14,7 +14,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.LinkText, Using = "Create policy")]
         public IWebElement CreatePolicyButton { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "Create sub policy")]
+        [FindsBy(How = How.LinkText, Using = "Create subpolicy")]
         public IWebElement CreateSubPolicy { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "Create calculation specification")]

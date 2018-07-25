@@ -31,7 +31,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             NavigateTo.ManagetheCalculation();
             Assert.IsNotNull(managecalculationpage.CalculationSearchField);
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
         }
 
         [When(@"I click on a calculation in the list")]
@@ -275,7 +275,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"the list view of calculations updates to display only calculations for the selected policy")]
         public void ThenTheListViewOfCalculationsUpdatesToDisplayOnlyCalculationsForTheSelectedPolicy()
         {
-            IWebElement CalculationTotal = Driver._driver.FindElement(By.XPath("/html/body/main/div/div/div[3]/div[1]/div[2]/strong"));
+            IWebElement CalculationTotal = Driver._driver.FindElement(By.CssSelector("#totalResultsCount"));
             string CalculationTotalValue = CalculationTotal.Text;
             CalculationTotalValue.Should().NotBeNullOrEmpty();
 
@@ -396,26 +396,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
-        [When(@"the text i enter into a search matches a calculation name exactly")]
-        public void WhenTheTextIEnterIntoASearchMatchesACalculationNameExactly()
-        {
-            IWebElement GetListedCalculation = Driver._driver.FindElement(By.CssSelector("#dynamic-results-table-body > tr:nth-child(1) > td:nth-child(1) > a:nth-child(1)"));
-            string GetListedCalculationText = GetListedCalculation.Text;
-            managecalculationpage.CalculationSearchField.Clear();
-            managecalculationpage.CalculationSearchField.SendKeys(GetListedCalculationText);
-            Thread.Sleep(5000);
-
-        }
-
-        [Then(@"the list view of calculations updates to display the specfic search calculation only")]
-        public void ThenTheListViewOfCalculationsUpdatesToDisplayTheSpecficSearchCalculationOnly()
-        {
-            IWebElement CalculationTotal = Driver._driver.FindElement(By.XPath("/html/body/main/div/div/div[3]/div[1]/div[2]/strong"));
-            string CalculationTotalValue = CalculationTotal.Text;
-            CalculationTotalValue.Should().NotBeEmpty();
-            Thread.Sleep(2000);
-        }
-
         [Then(@"the previously selected filter options")]
         public void ThenThePreviouslySelectedFilterOptions()
         {
@@ -509,7 +489,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"the results of the compilation is recorded in the output box")]
         public void ThenTheResultsOfTheCompilationIsRecordedInTheOutputBox()
         {
-            IWebElement ValidateCalculationCompile = Driver._driver.FindElement(By.CssSelector("#compiler-response > span:nth-child(1)"));
+            IWebElement ValidateCalculationCompile = Driver._driver.FindElement(By.Id("compiler-response"));
             string CalculationCompileResult = ValidateCalculationCompile.Text;
             CalculationCompileResult.Should().Equals("True");
             Console.WriteLine(CalculationCompileResult);

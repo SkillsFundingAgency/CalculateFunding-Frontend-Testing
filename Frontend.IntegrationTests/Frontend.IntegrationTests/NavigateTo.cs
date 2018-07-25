@@ -35,6 +35,7 @@ namespace Frontend.IntegrationTests
             ManageCalculationPage managecalculationpage = new ManageCalculationPage();
 
             homepage.ManagetheCalculations.Click();
+            Thread.Sleep(6000);
 
         }
 

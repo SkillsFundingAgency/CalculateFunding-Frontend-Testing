@@ -484,7 +484,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 {
                     if (optionelement != null)
                     {
-                        if (optionelement.Text.Contains("High Needs"))
+                        if (optionelement.Text.Contains("Test"))
                         {
 
                             SelectFirstSpec = optionelement;
