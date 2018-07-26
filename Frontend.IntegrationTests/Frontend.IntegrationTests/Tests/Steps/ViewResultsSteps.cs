@@ -598,7 +598,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             viewresultsoptionspage.viewResultsOptionsViewQATestResults.Should().NotBeNull();
             viewresultsoptionspage.viewResultsOptionsViewQATestResults.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(60000);
         }
 
         [Then(@"I am naviagted to the View QA test results page")]
@@ -788,18 +788,58 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement qatestresultcount = viewqatestresultspage.viewQATestResultspagetotalResults;
             string endPageResultCount = qatestresultcount.Text;
             int endPageCount = int.Parse(endPageResultCount);
-            endPageCount.Should().BeGreaterOrEqualTo(0, "The selected years results have not been returned correctly");
-            Console.WriteLine("The total results displayed on for the selected year is: " + endPageCount);
+
+            if (endPageCount < 1)
+            {
+                Assert.Inconclusive("No Test Results are available for the selected Year");
+
+            }
+            else
+            {
+                Console.WriteLine("The total results displayed on for the selected year is: " + endPageCount);
+            }
+
         }
 
-        [When(@"I change the selected QA Test specificaiton drop down to (.*)")]
-        public void WhenIChangeTheSelectedQATestSpecificaitonDropDownToYPLearnerResponsive(string specification)
+        [When(@"I choose a specification from the QA Test drop down Option")]
+        public void WhenIChooseASpecificationFromTheQATestDropDownOption()
         {
-            var selectSpecification = viewqatestresultspage.viewQATestResultspageSpecificationDropDown;
-            selectSpecification.Click();
-            var selectElement = new SelectElement(selectSpecification);
-            selectElement.SelectByText(specification);
-            Thread.Sleep(5000);
+            var containerElements = viewqatestresultspage.viewQATestResultspageSpecificationDropDown;
+            IWebElement SelectFirstSpec = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("option"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains("Test Spec Name"))
+                        {
+
+                            SelectFirstSpec = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstSpec != null)
+                {
+                    string specSelected = SelectFirstSpec.Text;
+                    Console.WriteLine("Specification Selected: " + specSelected);
+                    SelectFirstSpec.Click();
+                    Thread.Sleep(30000);
+                }
+                else
+                {
+                    SelectFirstSpec.Should().NotBeNull("No Specification could be successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstSpec.Should().NotBeNull("No Specification was available to select");
+            }
         }
 
         [Then(@"the list of QA Test Results refreshes to display the selected specifications QA Tests")]
@@ -808,8 +848,17 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement qatestresultcount = viewqatestresultspage.viewQATestResultspagetotalResults;
             string endPageResultCount = qatestresultcount.Text;
             int endPageCount = int.Parse(endPageResultCount);
-            endPageCount.Should().BeGreaterOrEqualTo(0, "The selected specifications results have not been returned correctly");
-            Console.WriteLine("The total results displayed on for the selected specification is: " + endPageCount);
+           
+            if (endPageCount < 1)
+            {
+                Assert.Inconclusive("No Test Results are available for the selected Specification");
+
+            }
+            else
+            {
+                Console.WriteLine("The total results displayed on for the selected specification is: " + endPageCount);
+            }
+
         }
 
         [When(@"I choose a QA Test from the displayed list of tests")]

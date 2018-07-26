@@ -35,7 +35,7 @@ namespace Frontend.IntegrationTests
             ManageCalculationPage managecalculationpage = new ManageCalculationPage();
 
             homepage.ManagetheCalculations.Click();
-            Thread.Sleep(6000);
+            Thread.Sleep(10000);
 
         }
 
@@ -338,7 +338,7 @@ namespace Frontend.IntegrationTests
 
             homepage.ViewtheResults.Click();
             viewresultsoptionspage.viewResultsOptionsViewQATestResults.Click();
-            Thread.Sleep(5000);
+            Thread.Sleep(60000);
         }
 
 
