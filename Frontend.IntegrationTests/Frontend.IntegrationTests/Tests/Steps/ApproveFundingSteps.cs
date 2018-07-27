@@ -815,9 +815,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I click on the Choose Option Button")]
         public void WhenIClickOnTheChooseOptionButton()
         {
-            //choosefundingspecificationpage.chooseFundingSpecFirstActionButton.Click();
-            //Thread.Sleep(4000);
-
             var containerElements = choosefundingspecificationpage.chooseFundingSpecTableBody;
             IWebElement SelectFirstChooseBtn = null;
             if (containerElements != null)
