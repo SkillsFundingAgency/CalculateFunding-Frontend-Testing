@@ -17,7 +17,7 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
         [FindsBy(How = How.LinkText, Using = "Back - do not choose")]
         public IWebElement confirmChoosenSpecBackButton { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".heading-large")]
+        [FindsBy(How = How.XPath, Using = "/html/body/section/div/div/div[1]/div/h1")]
         public IWebElement confirmChoosenSpecHeading { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".confirm-select-fundingstreams-container")]

@@ -236,6 +236,6 @@ Then I am redirected to the Choose Funding Specification Page
 
 Examples: 
 	 | year			|
-	 | AY2017181	|
+	 | FY2017181	|
 
 

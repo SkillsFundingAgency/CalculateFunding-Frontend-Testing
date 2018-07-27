@@ -251,7 +251,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 if (SelectCreatedSpec != null)
                 {
                     string approvedSpec = SelectCreatedSpec.Text;
-                    Console.WriteLine("THe Following Approved Specification was correctly displayed: " + approvedSpec);
+                    Console.WriteLine("The Following Approved Specification was correctly displayed: " + approvedSpec);
                     Thread.Sleep(2000);
                 }
                 else
@@ -484,7 +484,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 {
                     if (optionelement != null)
                     {
-                        if (optionelement.Text.Contains("Test"))
+                        if (optionelement.Text.Contains("Test Spec Name"))
                         {
 
                             SelectFirstSpec = optionelement;
@@ -616,7 +616,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 {
                     if (optionelement != null)
                     {
-                        if (optionelement.Text.Contains("High Needs"))
+                        if (optionelement.Text.Contains("Test Spec Name"))
                         {
 
                             SelectFirstSpec = optionelement;
@@ -815,8 +815,49 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I click on the Choose Option Button")]
         public void WhenIClickOnTheChooseOptionButton()
         {
-            choosefundingspecificationpage.chooseFundingSpecFirstActionButton.Click();
-            Thread.Sleep(4000);
+            //choosefundingspecificationpage.chooseFundingSpecFirstActionButton.Click();
+            //Thread.Sleep(4000);
+
+            var containerElements = choosefundingspecificationpage.chooseFundingSpecTableBody;
+            IWebElement SelectFirstChooseBtn = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("td a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        {
+                            if (optionelement.Text.Contains("Choose"))
+                            {
+
+                                SelectFirstChooseBtn = optionelement;
+
+                                break;
+                            }
+
+                        }
+
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstChooseBtn != null)
+                {
+                    SelectFirstChooseBtn.Enabled.Should().BeTrue();
+                    SelectFirstChooseBtn.Click();
+                    Thread.Sleep(5000);
+                }
+                else
+                {
+                    Assert.Inconclusive("No Option to Choose a Specification could be successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstChooseBtn.Should().NotBeNull("No Option to Choose a Specification was available to select");
+            }
+
         }
 
         [Then(@"I am redirected to the Confirmation to chose a specification for a funding stream and period page")]

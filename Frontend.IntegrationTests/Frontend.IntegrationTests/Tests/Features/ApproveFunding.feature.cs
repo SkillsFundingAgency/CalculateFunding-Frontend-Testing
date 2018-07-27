@@ -929,18 +929,18 @@ testRunner.Then("I am redirected to the Choose Funding Specification Page", ((st
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Back option on the Confirmation to chose a specification page: AY20171" +
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Back option on the Confirmation to chose a specification page: FY20171" +
             "81")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "AY2017181")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "AY2017181")]
-        public virtual void SelectTheBackOptionOnTheConfirmationToChoseASpecificationPage_AY2017181()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "FY2017181")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "FY2017181")]
+        public virtual void SelectTheBackOptionOnTheConfirmationToChoseASpecificationPage_FY2017181()
         {
 #line 225
-this.SelectTheBackOptionOnTheConfirmationToChoseASpecificationPage("AY2017181", ((string[])(null)));
+this.SelectTheBackOptionOnTheConfirmationToChoseASpecificationPage("FY2017181", ((string[])(null)));
 #line hidden
         }
     }

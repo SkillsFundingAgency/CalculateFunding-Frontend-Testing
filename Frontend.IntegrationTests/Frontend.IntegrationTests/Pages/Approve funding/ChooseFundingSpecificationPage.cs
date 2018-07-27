@@ -20,6 +20,9 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
         [FindsBy(How = How.CssSelector, Using = ".cf")]
         public IWebElement chooseFundingSpecContainer { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".cf > tbody:nth-child(2)")]
+        public IWebElement chooseFundingSpecTableBody { get; set; }
+
         [FindsBy(How = How.CssSelector, Using = ".noresults-panel")]
         public IWebElement chooseFundingSpecNoResultsPanel { get; set; }
 
@@ -49,9 +52,6 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
 
         [FindsBy(How = How.CssSelector, Using = ".cf > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(1) > div:nth-child(1)")]
         public IWebElement chooseFundingSpecFirstFundingStream { get; set; }
-
-        
-
 
 
 
