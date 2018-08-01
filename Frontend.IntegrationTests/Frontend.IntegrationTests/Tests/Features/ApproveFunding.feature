@@ -210,22 +210,18 @@ And I am presented with a message explaining the consequences if were to choose 
 And I am presented with an option choose the selected specification
 And I am presented with an option to cancel choosing the selected specification
 
-
 @Workitem 51064 Driver
-Scenario Outline: Select the Back option on the Confirmation to chose a specification page
-Given I have previously Approved a Specification for a <year>
-And I have navigated to the Choose Funding Specification Page
-When I choose a funding stream from the drop down option
-And I change the Funding Period selected to equal <year>
-And I choose a Funding Stream added to the Approved Specification
-Then the list of approved or updated specifications is updated to display all the appropriate specifications
-When I click on the Choose Option Button
+Scenario: Select the Back option on the Confirmation to chose a specification page
+Given I have navigated to the Choose Funding Specification Page
+When there is an availabe Funding Stream to Choose
+And I click on the selected Specification Choose Button
 Then I am redirected to the Confirmation to chose a specification for a funding stream and period page
 When I click on the Back do not choose option
 Then I am redirected to the Choose Funding Specification Page
 
-Examples: 
-	 | year			|
-	 | FY2017181	|
-
-
+@Workitem 51064 Driver
+Scenario: Select the View Funding Option for an Approved Specification
+Given I have navigated to the Choose Funding Specification Page
+When there is a previously Choosen Funding Stream available
+And I click on the selected Specification View Funding option
+Then I am redirected to the Approve and publish funding Page

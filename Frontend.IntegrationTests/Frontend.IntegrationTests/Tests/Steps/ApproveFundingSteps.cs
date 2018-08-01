@@ -913,132 +913,39 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"there is an availabe Funding Stream to Choose")]
         public void WhenThereIsAnAvailabeFundingStreamToChoose()
         {
-            string specificationId = null;
-            string fundingPeriodId = null;
-            string fundingStreamId = null;
+            Actions.FindAvailabeFundingStreamSpecificationToChoose();
 
-            bool foundChooseableFund = false;
-
-            IWebElement selectFundingPeriod = choosefundingspecificationpage.chooseFundingSpecFundingPeriodDropdown;
-            var selectElement = new SelectElement(selectFundingPeriod);
-            List<string> fundingPeriodValues = new List<string>();
-            fundingPeriodValues.AddRange(selectElement.Options.Select(s => s.GetAttribute("value")));
-            foreach (var optionValue in fundingPeriodValues)
-            {
-                //Console.WriteLine(optionValue);
-                selectElement.Options.Where(s => s.GetAttribute("value") == optionValue).FirstOrDefault().Click();
-                Thread.Sleep(20000);
-
-
-                IWebElement selectFundingStream = Driver._driver.FindElement(By.Id("fundingStream"));
-                List<string> propertyElementList = new List<string>();
-                foreach (IWebElement options in selectFundingStream.FindElements(By.TagName("option")))
-                {
-                    string fundingStreamOptionValue = options.GetAttribute("value");
-                    if (!string.IsNullOrWhiteSpace(fundingStreamOptionValue))
-                    {
-                        propertyElementList.Add(fundingStreamOptionValue);
-                    }
-                }
-
-                propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
-
-                foreach (var fundingStreamValue in propertyElementList)
-                {
-                    //IWebElement currentElement = propertyElementList[i];
-
-                    var fundingStreamElement = new SelectElement(choosefundingspecificationpage.chooseFundingSpecFundingStreamDropdown);
-                    IWebElement currentElement = fundingStreamElement.Options.Where(s => s.GetAttribute("value") == fundingStreamValue).FirstOrDefault();
-
-                    currentElement.Should().NotBeNull("element {0} is null", fundingStreamValue);
-
-                    if (string.IsNullOrWhiteSpace(currentElement.Text))
-                    {
-                        continue;
-                    }
-
-                    //string fundingStreamName = currentElement.Text;
-                    //Console.WriteLine(fundingStreamName);
-                    currentElement.Click();
-                    Thread.Sleep(20000);
-
-
-                    var containerElements = choosefundingspecificationpage.chooseFundingSpecTableBody;
-                    IWebElement SelectFirstChooseBtn = null;
-                    if (containerElements != null)
-                    {
-                        var options = containerElements.FindElements(By.TagName("td a"));
-                        foreach (var optionelement in options)
-                        {
-                            if (optionelement != null)
-                            {
-                                {
-                                    if (optionelement.Text.Contains("Choose"))
-                                    {
-
-                                        SelectFirstChooseBtn = optionelement;
-                                        foundChooseableFund = true;
-                                        fundingPeriodId = optionValue;
-                                        fundingStreamId = fundingStreamValue;
-
-                                        string selectedHrefValue = optionelement.GetAttribute("href");
-                                        var queryString = HttpUtility.ParseQueryString(selectedHrefValue);
-                                        specificationId = queryString["specificationId"];
-                                        break;
-                                    }
-
-                                }
-
-
-                            }
-
-
-                        }
-                    }
-
-                    if (foundChooseableFund)
-                    {
-                        break;
-
-                    }
-                }
-
-                if (foundChooseableFund)
-                {
-                    break;
-
-                }
-
-            }
-
-            if (foundChooseableFund)
-            {
-                ScenarioContext.Current["specificationId"] = specificationId;
-                ScenarioContext.Current["fundingPeriodId"] = fundingPeriodId;
-                ScenarioContext.Current["fundingStreamId"] = fundingStreamId;
-            }
-            else
-            {
-                Assert.Inconclusive("No Option to Choose a Specification could be successfully selected");
-
-            }
         }
 
         [When(@"I click on the selected Specification Choose Button")]
         public void WhenIClickOnTheSelectedSpecificationChooseButton()
         {
-            var specname = ScenarioContext.Current["specificationId"];
-            string specNameText = specname.ToString();
+            //var specname = ScenarioContext.Current["specificationId"];
+            //string specNameText = specname.ToString();
             var fundingperiodname = ScenarioContext.Current["fundingPeriodId"];
             string fundingPeriod = fundingperiodname.ToString();
             var fundingStream = ScenarioContext.Current["fundingStreamId"];
             string fundingStreamText = fundingStream.ToString();
 
-            Console.WriteLine($"Details of the Choosen Specification are: {specNameText} {fundingStreamText} {fundingPeriod}");
+            Console.WriteLine($"Details of the Choosen Specification are: {fundingStreamText} {fundingPeriod}");
             
             choosefundingspecificationpage.chooseFundingSpecFirstActionButton.Click();
             Thread.Sleep(5000);
         }
+
+        [When(@"there is a previously Choosen Funding Stream available")]
+        public void WhenThereIsAPreviouslyChoosenFundingStreamAvailable()
+        {
+            Actions.FindAvailabeFundingStreamSpecificationToViewFunding();
+        }
+
+        [When(@"I click on the selected Specification View Funding option")]
+        public void WhenIClickOnTheSelectedSpecificationViewFundingOption()
+        {
+            choosefundingspecificationpage.chooseFundingViewFundingLink.Click();
+            Thread.Sleep(5000);
+        }
+
 
 
         [AfterScenario()]
