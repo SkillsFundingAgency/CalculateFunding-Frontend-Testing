@@ -173,6 +173,17 @@ namespace Frontend.IntegrationTests
 
         }
 
+        public static void DownloadDataSchemasPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.downloadDataSchemasLink.Click();
+            Thread.Sleep(2000);
+
+        }
+
         public static void ViewResultsPage()
         {
             HomePage homepage = new HomePage();

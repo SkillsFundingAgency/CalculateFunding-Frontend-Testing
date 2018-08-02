@@ -23,6 +23,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.Id, Using = "mapDatasourcesToDatasetsDescription")]
         public IWebElement specifyDataSetRelationshipDescription { get; set; }
 
+        [FindsBy(How = How.LinkText, Using = "Download data schemas")]
+        public IWebElement downloadDataSchemasLink { get; set; }
+
 
 
 

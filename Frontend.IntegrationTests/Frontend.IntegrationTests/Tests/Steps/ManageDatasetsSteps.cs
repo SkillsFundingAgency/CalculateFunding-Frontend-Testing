@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -30,6 +31,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         SelectedSpecificationDataSourcePage selectedspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
         SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
         UpdateDatasetPage updatedatasetpage = new UpdateDatasetPage();
+        DownloadDataSchemasPage downloaddataschemapage = new DownloadDataSchemasPage();
 
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
@@ -967,7 +969,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             datasetNameVersion.Should().NotBeNull();
             string datasetNameText = datasetNameVersion.Text;
             Console.WriteLine("Dataset Selected to Update is: " + datasetNameText);
-            
+
             IWebElement datasetUser = updatedatasetpage.updateDataSetUser;
             datasetUser.Should().NotBeNull();
             string datasetUserText = datasetUser.Text;
@@ -984,7 +986,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"an opion to update the Description is displayed")]
         public void ThenAnOpionToUpdateTheDescriptionIsDisplayed()
         {
-            updatedatasetpage.updateDataSetDescription.Should().NotBeNull();        }
+            updatedatasetpage.updateDataSetDescription.Should().NotBeNull();
+        }
 
         [Then(@"an option to add a Change note is displayed")]
         public void ThenAnOptionToAddAChangeNoteIsDisplayed()
@@ -1036,6 +1039,185 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             managedatasetpage.manageDatasetsListView.Should().NotBeNull();
         }
+
+        [When(@"I choose the Download data schemas link")]
+        public void WhenIChooseTheDownloadDataSchemasLink()
+        {
+            managethedatapage.downloadDataSchemasLink.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am redirected to the Download data schemas Page")]
+        public void ThenIAmRedirectedToTheDownloadDataSchemasPage()
+        {
+            downloaddataschemapage.searchDataSchemaTemplateField.Should().NotBeNull();
+        }
+
+        [Given(@"I have navigated to the Download data schemas Page")]
+        public void GivenIHaveNavigatedToTheDownloadDataSchemasPage()
+        {
+            NavigateTo.DownloadDataSchemasPage();
+        }
+
+        [Then(@"I am presented with a search box to search data schemas by name")]
+        public void ThenIAmPresentedWithASearchBoxToSearchDataSchemasByName()
+        {
+            downloaddataschemapage.searchDataSchemaTemplateField.Should().NotBeNull();
+        }
+
+        [Then(@"I am presented with an option to download a template to request a new data schema")]
+        public void ThenIAmPresentedWithAnOptionToDownloadATemplateToRequestANewDataSchema()
+        {
+            downloaddataschemapage.downloadChangeRequestFormLink.Should().NotBeNull();
+        }
+
+        [Then(@"I am presented with a table listing all of the existing data schemas")]
+        public void ThenIAmPresentedWithATableListingAllOfTheExistingDataSchemas()
+        {
+            downloaddataschemapage.searchDataSchemaTemplateDatasetDefinitionsTable.Should().NotBeNull();
+            downloaddataschemapage.searchDataSchemaTemplateDatasetDefinitionsTableBody.Should().NotBeNull();
+        }
+
+        [Then(@"the table listing headers are displayed correctly")]
+        public void ThenTheTableListingHeadersAreDisplayedCorrectly()
+        {
+            IWebElement datacontainer = downloaddataschemapage.searchDataSchemaTemplateDatasetDefinitionsTable;
+            var propertyElements = datacontainer.FindElements(By.CssSelector("tr th"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+
+        }
+
+        [Then(@"the page is paginated to show only (.*) results on a single page")]
+        public void ThenThePageIsPaginatedToShowOnlyResultsOnASinglePage(int endResultListCount)
+        {
+            IWebElement endResultCount = downloaddataschemapage.searchDataSchemaTemplatePageCountEnd;
+            string endPageResultCount = endResultCount.Text;
+            int endPageCount = int.Parse(endPageResultCount);
+            endPageCount.Should().BeLessOrEqualTo(endResultListCount, "More than 50 Results are displayed on this Page");
+            Console.WriteLine("Total Page Results Displayed is " + endResultCount.Text);
+        }
+
+        [When(@"I choose to view more information for a data schema")]
+        public void WhenIChooseToViewMoreInformationForADataSchema()
+        {
+            var containerElements = downloaddataschemapage.searchDataSchemaTemplateDatasetDefinitionsTableBody;
+            IWebElement SelectMoreInfo = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("i"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains("keyboard_arrow_down"))
+                        {
+
+                            SelectMoreInfo = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectMoreInfo != null)
+                {
+                    SelectMoreInfo.Click();
+                    Thread.Sleep(2000);
+                }
+                else
+                {
+                    Assert.Inconclusive("No option to view additional information could be successfully selected");
+                }
+            }
+            else
+            {
+                SelectMoreInfo.Should().NotBeNull("No option to view additional information was available to select");
+            }
+        }
+
+        [Then(@"I am presented with the provider identifier and description")]
+        public void ThenIAmPresentedWithTheProviderIdentifierAndDescription()
+        {
+            var containerElements = downloaddataschemapage.searchDataSchemaTemplateDatasetDefinitionsTableBody;
+            IWebElement MoreInfo = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.CssSelector(".expander-container"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+
+                        MoreInfo = optionelement;
+
+                        break;
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (MoreInfo != null)
+                {
+                    string moreInfoText = MoreInfo.Text;
+                    Console.WriteLine("The Additional information Displayed is: " + moreInfoText);
+                }
+                else
+                {
+                    Assert.Inconclusive("No additional information was displayed successfully");
+                }
+            }
+            else
+            {
+                MoreInfo.Should().NotBeNull("No additional information was available");
+            }
+        }
+
+
+        [Then(@"I am presented with the Relevant information for the Template")]
+        public void ThenIAmPresentedWithTheRelevantInformationForTheTemplate()
+        {
+            var containerElements = downloaddataschemapage.searchDataSchemaTemplateDatasetDefinitionsTableBody;
+            IWebElement templateInfo = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.CssSelector("tr"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+
+                        templateInfo = optionelement;
+
+                        break;
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (templateInfo != null)
+                {
+                    string moreInfoText = templateInfo.Text;
+                    Console.WriteLine("The Template information Displayed is: " + moreInfoText);
+                }
+                else
+                {
+                    Assert.Inconclusive("No Template information was displayed successfully");
+                }
+            }
+            else
+            {
+                templateInfo.Should().NotBeNull("No Template information was available");
+            }
+        }
+
 
 
 
