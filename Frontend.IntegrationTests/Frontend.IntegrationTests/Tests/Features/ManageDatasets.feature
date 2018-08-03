@@ -72,35 +72,12 @@ When I click the No Data Type Exists link
 Then I am redirected to the Choose Your Data page
 
 @Workitem:36845 Driver
-Scenario: Create and Save a Dataset Schema Relationship where Provider Data is Set and is used as a list of values in calculations
-Given I have navigated to the Choose Your Data page
-And I have selected a Dataset Schema to relate to the specification
-And I have entered a Dataset Schema Name
-And I have entered a Dataset Description
-And I have ticked the Use as a list of values in calculations checkbox
-And I have ticked the Set as provider data checkbox
-When I click the Save Dataset button
-Then I am redirected to a list view of dataset schema relationships for the specification
-And the new dataset is saved and displayed correctly
-
-@Workitem:36845 Driver
 Scenario: Create and Save a Dataset Schema Relationship where Provider Data is Set
 Given I have navigated to the Choose Your Data page
 And I have selected a Dataset Schema to relate to the specification
 And I have entered a Dataset Schema Name
 And I have entered a Dataset Description
 And I have ticked the Set as provider data checkbox
-When I click the Save Dataset button
-Then I am redirected to a list view of dataset schema relationships for the specification
-And the new dataset is saved and displayed correctly
-
-@Workitem:36845 Driver
-Scenario: Create and Save a Dataset Schema Relationship where the dataset is used as a list of values in calculations
-Given I have navigated to the Choose Your Data page
-And I have selected a Dataset Schema to relate to the specification
-And I have entered a Dataset Schema Name
-And I have entered a Dataset Description
-And I have ticked the Use as a list of values in calculations checkbox
 When I click the Save Dataset button
 Then I am redirected to a list view of dataset schema relationships for the specification
 And the new dataset is saved and displayed correctly
@@ -325,3 +302,36 @@ And I add a Change note
 And I click the Update Dataset Cancel Link
 Then I am redirected back to the Manage Datasets Page
 
+@Workitem:54452 Driver
+Scenario: Select the Download data schemas Page
+Given I have navigated to the data management option from the service home page
+When I choose the Download data schemas link
+Then I am redirected to the Download data schemas Page
+
+@Workitem:54452 Driver
+Scenario: Verify the Download data schemas Page
+Given I have navigated to the Download data schemas Page
+Then I am presented with a search box to search data schemas by name
+And I am presented with an option to download a template to request a new data schema
+And I am presented with a table listing all of the existing data schemas
+And the page is paginated to show only 50 results on a single page
+And the table listing headers are displayed correctly
+
+@Workitem:54452 Driver
+Scenario: Validate the Information for a Data schema template
+Given I have navigated to the Download data schemas Page
+Then I am presented with the Relevant information for the Template
+
+@Workitem:54452 Driver
+Scenario: Validate the More Information option for a Data schema template
+Given I have navigated to the Download data schemas Page
+When I choose to view more information for a data schema
+Then I am presented with the provider identifier and description
+
+@Workitem:54453 Driver
+Scenario: Validate the Download option for a Data schema template
+Given I have navigated to the Download data schemas Page
+Then I am presented with the Relevant information for the Template
+When I click on the Download Data Schema Option
+Then The Download Data Schema reddirect URL from Blogstorage is correctly generated
+And The HTTP Status Code is returned for the Schema as OK

@@ -3,6 +3,7 @@
     using FluentAssertions;
     using Frontend.IntegrationTests.Helpers;
     using Frontend.IntegrationTests.Pages;
+    using Frontend.IntegrationTests.Pages.Approve_funding;
     using Frontend.IntegrationTests.Pages.Manage_Calculation;
     using Frontend.IntegrationTests.Pages.Manage_Datasets;
     using Frontend.IntegrationTests.Pages.Manage_Specification;
@@ -15,10 +16,12 @@
     using System.Collections.Generic;
     using System.Drawing.Imaging;
     using System.Linq;
+    using System.Web;
     using System.Net;
     using System.Net.Http;
     using System.Threading;
     using TechTalk.SpecFlow;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [Binding]
     public static class Actions
@@ -146,7 +149,7 @@
             managecalculationpage.CalculationSearchField.Clear();
             managecalculationpage.CalculationSearchField.SendKeys("Test");
             managecalculationpage.CalculationSearchButton.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(6000);
 
         }
 
@@ -1410,6 +1413,346 @@
             }
 
         }
+
+        public static void CreateSpecificationChooseAllFundingStreams(string fundingStreams)
+        {
+            CreateSpecificationPage createspecificationpage = new CreateSpecificationPage();
+
+            SelectElement selectElement = new SelectElement(createspecificationpage.SpecFundingStreamOptionContainer);
+            var options = selectElement.Options;
+
+            int? maximumItems = null;
+            int parsedInt;
+            if (int.TryParse(fundingStreams, out parsedInt))
+            {
+                if (parsedInt > 0)
+                {
+                    maximumItems = parsedInt;
+                }
+            }
+
+            for (int i = 0; i < options.Count; i++)
+            {
+                if (maximumItems != null && maximumItems.HasValue && i >= maximumItems.Value)
+                {
+                    break;
+                }
+
+                IWebElement optionElement = options[i];
+                string optionElementText = optionElement.Text;
+                Console.WriteLine(optionElementText);
+
+                createspecificationpage.FundingStream.Click();
+                createspecificationpage.SpecFundingStreamTextField.SendKeys(OpenQA.Selenium.Keys.Shift + optionElementText);
+                Thread.Sleep(2000);
+                createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
+
+
+            }
+        }
+
+        public static void FindAvailabeFundingStreamSpecificationToChoose()
+        {
+            ChooseFundingSpecificationPage choosefundingspecificationpage = new ChooseFundingSpecificationPage();
+
+            string specificationId = null;
+            string fundingPeriodId = null;
+            string fundingStreamId = null;
+
+            bool foundChooseableFund = false;
+
+            IWebElement selectFundingPeriod = choosefundingspecificationpage.chooseFundingSpecFundingPeriodDropdown;
+            var selectElement = new SelectElement(selectFundingPeriod);
+            List<string> fundingPeriodValues = new List<string>();
+            fundingPeriodValues.AddRange(selectElement.Options.Select(s => s.GetAttribute("value")));
+            foreach (var optionValue in fundingPeriodValues)
+            {
+                //Console.WriteLine(optionValue);
+                selectElement.Options.Where(s => s.GetAttribute("value") == optionValue).FirstOrDefault().Click();
+                Thread.Sleep(20000);
+
+
+                IWebElement selectFundingStream = Driver._driver.FindElement(By.Id("fundingStream"));
+                List<string> propertyElementList = new List<string>();
+                foreach (IWebElement options in selectFundingStream.FindElements(By.TagName("option")))
+                {
+                    string fundingStreamOptionValue = options.GetAttribute("value");
+                    if (!string.IsNullOrWhiteSpace(fundingStreamOptionValue))
+                    {
+                        propertyElementList.Add(fundingStreamOptionValue);
+                    }
+                }
+
+                propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+                foreach (var fundingStreamValue in propertyElementList)
+                {
+                    var fundingStreamElement = new SelectElement(choosefundingspecificationpage.chooseFundingSpecFundingStreamDropdown);
+                    IWebElement currentElement = fundingStreamElement.Options.Where(s => s.GetAttribute("value") == fundingStreamValue).FirstOrDefault();
+
+                    currentElement.Should().NotBeNull("element {0} is null", fundingStreamValue);
+
+                    if (string.IsNullOrWhiteSpace(currentElement.Text))
+                    {
+                        continue;
+                    }
+
+                    //string fundingStreamName = currentElement.Text;
+                    //Console.WriteLine(fundingStreamName);
+                    currentElement.Click();
+                    Thread.Sleep(20000);
+
+
+                    var containerElements = choosefundingspecificationpage.chooseFundingSpecTableBody;
+                    IWebElement SelectFirstChooseBtn = null;
+                    if (containerElements != null)
+                    {
+                        var options = containerElements.FindElements(By.TagName("td a"));
+                        foreach (var optionelement in options)
+                        {
+                            if (optionelement != null)
+                            {
+                                {
+                                    if (optionelement.Text.Contains("Choose"))
+                                    {
+
+                                        SelectFirstChooseBtn = optionelement;
+                                        foundChooseableFund = true;
+                                        fundingPeriodId = optionValue;
+                                        fundingStreamId = fundingStreamValue;
+
+                                        string selectedHrefValue = optionelement.GetAttribute("href");
+                                        var queryString = HttpUtility.ParseQueryString(selectedHrefValue);
+                                        specificationId = queryString["specificationId"];
+                                        Console.WriteLine(specificationId);
+
+                                        break;
+                                    }
+
+                                }
+
+
+                            }
+
+
+                        }
+                    }
+
+                    if (foundChooseableFund)
+                    {
+                        break;
+
+                    }
+                }
+
+                if (foundChooseableFund)
+                {
+                    break;
+
+                }
+
+            }
+
+            if (foundChooseableFund)
+            {
+                ScenarioContext.Current["specificationId"] = specificationId;
+                ScenarioContext.Current["fundingPeriodId"] = fundingPeriodId;
+                ScenarioContext.Current["fundingStreamId"] = fundingStreamId;
+            }
+            else
+            {
+                Assert.Inconclusive("No Option to Choose a Specification could be successfully selected");
+
+            }
+        }
+
+        public static void FindAvailabeFundingStreamSpecificationToViewFunding()
+        {
+            ChooseFundingSpecificationPage choosefundingspecificationpage = new ChooseFundingSpecificationPage();
+
+            string specificationId = null;
+            string fundingPeriodId = null;
+            string fundingStreamId = null;
+
+            bool foundChooseableFund = false;
+
+            IWebElement selectFundingPeriod = choosefundingspecificationpage.chooseFundingSpecFundingPeriodDropdown;
+            var selectElement = new SelectElement(selectFundingPeriod);
+            List<string> fundingPeriodValues = new List<string>();
+            fundingPeriodValues.AddRange(selectElement.Options.Select(s => s.GetAttribute("value")));
+            foreach (var optionValue in fundingPeriodValues)
+            {
+                //Console.WriteLine(optionValue);
+                selectElement.Options.Where(s => s.GetAttribute("value") == optionValue).FirstOrDefault().Click();
+                Thread.Sleep(20000);
+
+
+                IWebElement selectFundingStream = Driver._driver.FindElement(By.Id("fundingStream"));
+                List<string> propertyElementList = new List<string>();
+                foreach (IWebElement options in selectFundingStream.FindElements(By.TagName("option")))
+                {
+                    string fundingStreamOptionValue = options.GetAttribute("value");
+                    if (!string.IsNullOrWhiteSpace(fundingStreamOptionValue))
+                    {
+                        propertyElementList.Add(fundingStreamOptionValue);
+                    }
+                }
+
+                propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+                foreach (var fundingStreamValue in propertyElementList)
+                {
+                    var fundingStreamElement = new SelectElement(choosefundingspecificationpage.chooseFundingSpecFundingStreamDropdown);
+                    IWebElement currentElement = fundingStreamElement.Options.Where(s => s.GetAttribute("value") == fundingStreamValue).FirstOrDefault();
+
+                    currentElement.Should().NotBeNull("element {0} is null", fundingStreamValue);
+
+                    if (string.IsNullOrWhiteSpace(currentElement.Text))
+                    {
+                        continue;
+                    }
+
+                    //string fundingStreamName = currentElement.Text;
+                    //Console.WriteLine(fundingStreamName);
+                    currentElement.Click();
+                    Thread.Sleep(20000);
+
+
+                    var containerElements = choosefundingspecificationpage.chooseFundingSpecTableBody;
+                    IWebElement SelectFirstViewFunding = null;
+                    if (containerElements != null)
+                    {
+                        var options = containerElements.FindElements(By.TagName("td a"));
+                        foreach (var optionelement in options)
+                        {
+                            if (optionelement != null)
+                            {
+                                {
+                                    if (optionelement.Text.Contains("View funding"))
+                                    {
+
+                                        SelectFirstViewFunding = optionelement;
+                                        foundChooseableFund = true;
+                                        fundingPeriodId = optionValue;
+                                        fundingStreamId = fundingStreamValue;
+
+                                        string selectedHrefValue = optionelement.GetAttribute("href");
+                                        var queryString = HttpUtility.ParseQueryString(selectedHrefValue);
+                                        specificationId = queryString["specificationId"];
+                                        Console.WriteLine(specificationId);
+
+                                        break;
+                                    }
+
+                                }
+
+
+                            }
+
+
+                        }
+                    }
+
+                    if (foundChooseableFund)
+                    {
+                        break;
+
+                    }
+                }
+
+                if (foundChooseableFund)
+                {
+                    break;
+
+                }
+
+            }
+
+            if (foundChooseableFund)
+            {
+                ScenarioContext.Current["specificationId"] = specificationId;
+                ScenarioContext.Current["fundingPeriodId"] = fundingPeriodId;
+                ScenarioContext.Current["fundingStreamId"] = fundingStreamId;
+            }
+            else
+            {
+                Assert.Inconclusive("No Option to View Funding for a Specification could be successfully selected");
+
+            }
+        }
+
+
+        public static void DownloadDataSchemaDownloadOption()
+        {
+            DownloadDataSchemasPage downloaddataschemapage = new DownloadDataSchemasPage();
+
+            var containerElements = downloaddataschemapage.searchDataSchemaTemplateDatasetDefinitionsTableBody;
+            IWebElement SelectFirstDownloadlink = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains("cloud_download"))
+                        {
+
+                            SelectFirstDownloadlink = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstDownloadlink != null)
+                {
+                    var downloadurl = SelectFirstDownloadlink.GetAttribute("href");
+                    downloadurl.Should().NotBeNullOrWhiteSpace();
+
+                    HttpClientHandler httpClientHandler = new HttpClientHandler();
+                    httpClientHandler.AllowAutoRedirect = false;
+                    Uri redirectedBlobUrl;
+
+                    using (HttpClient client = new HttpClient(httpClientHandler))
+                    {
+                        client.BaseAddress = new Uri(Config.BaseURL);
+
+                        HttpResponseMessage response = client.GetAsync(downloadurl).Result;
+                        response.Should().NotBeNull();
+                        response.StatusCode.Should().Be(HttpStatusCode.Redirect);
+
+                        redirectedBlobUrl = response.Headers.Location;
+                        redirectedBlobUrl.AbsoluteUri.Should().NotBeNullOrWhiteSpace();
+                        Console.WriteLine("Redirected blob URL: {0}", redirectedBlobUrl);
+                    }
+
+                    using (HttpClient client = new HttpClient())
+                    {
+                        HttpResponseMessage downloadFileResponse = client.GetAsync(redirectedBlobUrl.AbsoluteUri).Result;
+
+                        downloadFileResponse.Should().NotBeNull();
+                        downloadFileResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+
+                        IEnumerable<string> filenameHeaders;
+                        downloadFileResponse.Headers.TryGetValues("x-ms-meta-filename", out filenameHeaders);
+                        string filename = filenameHeaders.FirstOrDefault();
+
+                        Console.WriteLine("File downloaded successfully. Filename = {0}", filename);
+                    }
+                }
+                else
+                {
+                    Assert.Inconclusive("No Download link could be successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstDownloadlink.Should().NotBeNull("No Download link could be successfully selected");
+            }
+        }
+
 
     }
 }

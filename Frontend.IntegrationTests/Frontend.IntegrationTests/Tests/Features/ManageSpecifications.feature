@@ -197,33 +197,36 @@ And I enter a Calculation Description
 And I click the Save Calculation button
 Then A Calculation Type Error is Displayed
 
-
 @Workitem:35401, 40012 Driver
 Scenario Outline: Create and Save an incomplete Funding Calculation Specification
-Given I have successfully navigated to the Create Calculation Specification for Policy Page
-And I have missed the calculation field <name> and <policy> and <type> and <allocation> and <description>
+Given I have previously created a new specification
+And I have created a New Policy for that Specification
+And I click the Create calculation specification
+And I have missed the calculation field <name> and <type> and <allocation> and <description>
+And I have correctly selected a Policy
 When I click the Save Calculation button
 Then the following Calculation Error should be displayed for FieldName '<CalculationFieldname>' and '<calcerror>'
 
 Examples: 
-	 | CalculationFieldname			 | name		| policy      | type    | allocation		  | description  | calcerror									   |
-	 | MissingCalcFundingName		 |			| Test		  | Funding | Additional Funding  | Error1       | Enter a unique name						|
-	 | MissingCalcFundingPolicy      | TestXYZ	|             | Funding | Additional Funding  | Error2       | Select a policy or Select a subpolicy    |
-	 | MissingCalcFundingDescription | TestXYZ	| Test		  | Funding | Additional Funding  |				 | Enter a description						|
-	 | MissingCalcFundingAllocation  | TestXYZ	| Test		  | Funding |					  |	Error3		 | Select an allocation line				|
+	 | CalculationFieldname			 | name		| type    | allocation			| description  | calcerror							   |
+	 | MissingCalcFundingName		 |			| Funding | Additional Funding  | Error1       | Enter a unique name				   |
+	 | MissingCalcFundingDescription | TestXYZ	| Funding | Additional Funding  |			   | Enter a description				   |
+	 | MissingCalcFundingAllocation  | TestXYZ	| Funding |						| Error3	   | Select an allocation line			   |
 
 @Workitem:35401, 40012 Driver
 Scenario Outline: Create and Save an incomplete Number Calculation Specification
-Given I have successfully navigated to the Create Calculation Specification for Policy Page
-And I have not completed the following calculation fields <name> and <policy> and <type> and <description>
+Given I have previously created a new specification
+And I have created a New Policy for that Specification
+And I click the Create calculation specification
+And I have not completed the following calculation fields <name> and <type> and <description>
+And I have correctly selected a Policy
 When I click the Save Calculation button
 Then the following Number Calculation Error should be displayed for FieldName '<CalculationFieldname>' and '<calcerror>'
 
 Examples: 
-	 | CalculationFieldname			| name		| policy      | type    | description  | calcerror								|
-	 | MissingCalcNumberName		|			| Test		  | Number	| Error1       | Enter a unique name					|
-	 | MissingCalcNumberPolicy      | TestXYZ	|             | Number	| Error2       | Select a policy or Select a subpolicy  |
-	 | MissingCalcNumberDescription | TestXYZ	| Test		  | Number	| 			   | Enter a description					|
+	 | CalculationFieldname			| name		| type		| description  | calcerror								|
+	 | MissingCalcNumberName		|			| Number	| Error1       | Enter a unique name					|
+	 | MissingCalcNumberDescription | TestXYZ	| Number	| 			   | Enter a description					|
 
 @Workitem:35402 Driver
 Scenario: Select to Create a Sub Policy

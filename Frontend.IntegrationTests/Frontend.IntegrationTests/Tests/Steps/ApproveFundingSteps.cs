@@ -17,6 +17,7 @@ using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
 using Frontend.IntegrationTests.Helpers;
+using System.Web;
 
 namespace Frontend.IntegrationTests.Tests.Steps
 {
@@ -29,6 +30,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ApprovePublishFundingPage approvepublishfundingpage = new ApprovePublishFundingPage();
         ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
         EditSpecificationPage editspecificationpage = new EditSpecificationPage();
+        ConfirmChoosenSpecificationPage confirmchoosenspecificationpage = new ConfirmChoosenSpecificationPage();
 
 
 
@@ -250,7 +252,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 if (SelectCreatedSpec != null)
                 {
                     string approvedSpec = SelectCreatedSpec.Text;
-                    Console.WriteLine("THe Following Approved Specification was correctly displayed: " + approvedSpec);
+                    Console.WriteLine("The Following Approved Specification was correctly displayed: " + approvedSpec);
                     Thread.Sleep(2000);
                 }
                 else
@@ -483,7 +485,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 {
                     if (optionelement != null)
                     {
-                        if (optionelement.Text.Contains("High Needs"))
+                        if (optionelement.Text.Contains("Test Spec Name"))
                         {
 
                             SelectFirstSpec = optionelement;
@@ -615,7 +617,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
                 {
                     if (optionelement != null)
                     {
-                        if (optionelement.Text.Contains("High Needs"))
+                        if (optionelement.Text.Contains("Test Spec Name"))
                         {
 
                             SelectFirstSpec = optionelement;
@@ -800,6 +802,150 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
             Console.WriteLine(publishSuccessfullyText);
         }
+
+        [When(@"I choose a Funding Stream added to the Approved Specification")]
+        public void WhenIChooseAFundingStreamAddedToTheApprovedSpecification()
+        {
+            var selectFundingStream = choosefundingspecificationpage.chooseFundingSpecFundingStreamDropdown;
+            var selectElement = new SelectElement(selectFundingStream);
+            selectElement.SelectByValue("YPLRP");
+
+            Thread.Sleep(10000);
+        }
+
+        [When(@"I click on the Choose Option Button")]
+        public void WhenIClickOnTheChooseOptionButton()
+        {
+            var containerElements = choosefundingspecificationpage.chooseFundingSpecTableBody;
+            IWebElement SelectFirstChooseBtn = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("td a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        {
+                            if (optionelement.Text.Contains("Choose"))
+                            {
+
+                                SelectFirstChooseBtn = optionelement;
+
+                                break;
+                            }
+
+                        }
+
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstChooseBtn != null)
+                {
+                    SelectFirstChooseBtn.Enabled.Should().BeTrue();
+                    SelectFirstChooseBtn.Click();
+                    Thread.Sleep(5000);
+                }
+                else
+                {
+                    Assert.Inconclusive("No Option to Choose a Specification could be successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstChooseBtn.Should().NotBeNull("No Option to Choose a Specification was available to select");
+            }
+
+        }
+
+        [Then(@"I am redirected to the Confirmation to chose a specification for a funding stream and period page")]
+        public void ThenIAmRedirectedToTheConfirmationToChoseASpecificationForAFundingStreamAndPeriodPage()
+        {
+            confirmchoosenspecificationpage.confirmChoosenSpecConfirmButton.Should().NotBeNull();
+        }
+
+        [Then(@"I am presented with the name of the specification I have selected")]
+        public void ThenIAmPresentedWithTheNameOfTheSpecificationIHaveSelected()
+        {
+            IWebElement specName = confirmchoosenspecificationpage.confirmChoosenSpecHeading;
+            specName.Should().NotBeNull();
+            string specNameText = specName.Text;
+            Console.WriteLine("The specification name displayed is: " + specNameText);
+        }
+
+        [Then(@"I am presented with the funding period and the funding streams for the selected specification")]
+        public void ThenIAmPresentedWithTheFundingPeriodAndTheFundingStreamsForTheSelectedSpecification()
+        {
+            IWebElement specFundingStreams = confirmchoosenspecificationpage.confirmChoosenSpecFundingStreams;
+            specFundingStreams.Should().NotBeNull();
+            string fundingStreamText = specFundingStreams.Text;
+            Console.WriteLine("The Funding Stream information displayed is: " + fundingStreamText);
+        }
+
+        [Then(@"I am presented with a message explaining the consequences if were to choose the selected specification")]
+        public void ThenIAmPresentedWithAMessageExplainingTheConsequencesIfWereToChooseTheSelectedSpecification()
+        {
+            IWebElement specWarning = confirmchoosenspecificationpage.confirmChoosenSpecWarningMessage;
+            specWarning.Should().NotBeNull();
+            string specWarningText = specWarning.Text;
+            Console.WriteLine("The following Warning Message is displayed : " + specWarningText);
+        }
+
+        [Then(@"I am presented with an option choose the selected specification")]
+        public void ThenIAmPresentedWithAnOptionChooseTheSelectedSpecification()
+        {
+            confirmchoosenspecificationpage.confirmChoosenSpecConfirmButton.Should().NotBeNull();
+        }
+
+        [Then(@"I am presented with an option to cancel choosing the selected specification")]
+        public void ThenIAmPresentedWithAnOptionToCancelChoosingTheSelectedSpecification()
+        {
+            confirmchoosenspecificationpage.confirmChoosenSpecBackButton.Should().NotBeNull();
+        }
+
+        [When(@"I click on the Back do not choose option")]
+        public void WhenIClickOnTheBackDoNotChooseOption()
+        {
+            confirmchoosenspecificationpage.confirmChoosenSpecBackButton.Click();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"there is an availabe Funding Stream to Choose")]
+        public void WhenThereIsAnAvailabeFundingStreamToChoose()
+        {
+            Actions.FindAvailabeFundingStreamSpecificationToChoose();
+
+        }
+
+        [When(@"I click on the selected Specification Choose Button")]
+        public void WhenIClickOnTheSelectedSpecificationChooseButton()
+        {
+            //var specname = ScenarioContext.Current["specificationId"];
+            //string specNameText = specname.ToString();
+            var fundingperiodname = ScenarioContext.Current["fundingPeriodId"];
+            string fundingPeriod = fundingperiodname.ToString();
+            var fundingStream = ScenarioContext.Current["fundingStreamId"];
+            string fundingStreamText = fundingStream.ToString();
+
+            Console.WriteLine($"Details of the Choosen Specification are: {fundingStreamText} {fundingPeriod}");
+            
+            choosefundingspecificationpage.chooseFundingSpecFirstActionButton.Click();
+            Thread.Sleep(5000);
+        }
+
+        [When(@"there is a previously Choosen Funding Stream available")]
+        public void WhenThereIsAPreviouslyChoosenFundingStreamAvailable()
+        {
+            Actions.FindAvailabeFundingStreamSpecificationToViewFunding();
+        }
+
+        [When(@"I click on the selected Specification View Funding option")]
+        public void WhenIClickOnTheSelectedSpecificationViewFundingOption()
+        {
+            choosefundingspecificationpage.chooseFundingViewFundingLink.Click();
+            Thread.Sleep(5000);
+        }
+
 
 
         [AfterScenario()]

@@ -781,6 +781,102 @@ testRunner.Then("the Provider is successfully published", ((string)(null)), ((Te
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Choose Action for an Approved Specification")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectTheChooseActionForAnApprovedSpecification()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the Choose Action for an Approved Specification", new string[] {
+                        "Workitem",
+                        "51064",
+                        "Driver"});
+#line 202
+this.ScenarioSetup(scenarioInfo);
+#line 203
+testRunner.Given("I have navigated to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 204
+testRunner.When("there is an availabe Funding Stream to Choose", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 205
+testRunner.And("I click on the selected Specification Choose Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 206
+testRunner.Then("I am redirected to the Confirmation to chose a specification for a funding stream" +
+                    " and period page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 207
+testRunner.And("I am presented with the name of the specification I have selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 208
+testRunner.And("I am presented with the funding period and the funding streams for the selected s" +
+                    "pecification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 209
+testRunner.And("I am presented with a message explaining the consequences if were to choose the s" +
+                    "elected specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 210
+testRunner.And("I am presented with an option choose the selected specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 211
+testRunner.And("I am presented with an option to cancel choosing the selected specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Back option on the Confirmation to chose a specification page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectTheBackOptionOnTheConfirmationToChoseASpecificationPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the Back option on the Confirmation to chose a specification page", new string[] {
+                        "Workitem",
+                        "51064",
+                        "Driver"});
+#line 214
+this.ScenarioSetup(scenarioInfo);
+#line 215
+testRunner.Given("I have navigated to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 216
+testRunner.When("there is an availabe Funding Stream to Choose", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 217
+testRunner.And("I click on the selected Specification Choose Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 218
+testRunner.Then("I am redirected to the Confirmation to chose a specification for a funding stream" +
+                    " and period page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 219
+testRunner.When("I click on the Back do not choose option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 220
+testRunner.Then("I am redirected to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the View Funding Option for an Approved Specification")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectTheViewFundingOptionForAnApprovedSpecification()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the View Funding Option for an Approved Specification", new string[] {
+                        "Workitem",
+                        "51064",
+                        "Driver"});
+#line 223
+this.ScenarioSetup(scenarioInfo);
+#line 224
+testRunner.Given("I have navigated to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 225
+testRunner.When("there is a previously Choosen Funding Stream available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 226
+testRunner.And("I click on the selected Specification View Funding option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 227
+testRunner.Then("I am redirected to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

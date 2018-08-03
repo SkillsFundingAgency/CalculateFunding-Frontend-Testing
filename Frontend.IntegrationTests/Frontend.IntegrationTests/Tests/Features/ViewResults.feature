@@ -64,12 +64,12 @@ Examples:
 	 | UPIN							| 506770					|
 	 | UKPRN						| 506960					|
 	 | URN							| 144331					|
-	 | EstablishmentNumber			| 10062846					|
+	 | EstablishmentNumber			| 10020219					|
 	 | ProviderName					| Aldington					|
-	 | PartialUPIN					| 677						|
-	 | PartialUKPRN					| 6960						|
-	 | PartialURN					| 44						|
-	 | PartialEstablishmentNumber	| 00628						|
+	 | PartialUPIN					| 138						|
+	 | PartialUKPRN					| 1004						|
+	 | PartialURN					| 125						|
+	 | PartialEstablishmentNumber	| 9366						|
 	 | PartialProviderName			| Alexandra					|
 
 
@@ -205,18 +205,12 @@ Examples:
 	 | FY2018191	|
 	 | AY2017181	|
 	 
-@Workitem:39520 Driver
-Scenario Outline: Change Current list of QA Tests by Specification
-Given I have navigated to the view all test results screen
-When I change the selected QA Test specificaiton drop down to <specification>
-Then the list of QA Test Results refreshes to display the selected specifications QA Tests
 
-Examples: 
-	 | specification         | 
-	 | Test Spec Name UPSZXG | 
-	 | Test Spec Name OLKFZP | 
-	 | Test Spec Name N1CY9Z | 
-	 | Test Spec Name GD8X7R |
+@Workitem:39520 Driver
+Scenario: Change Current list of QA Tests by Specification
+Given I have navigated to the view all test results screen
+When I choose a specification from the QA Test drop down Option
+Then the list of QA Test Results refreshes to display the selected specifications QA Tests
 
 @Workitem:39522 Driver
 Scenario: Navigate to View the test results of all providers for a single test

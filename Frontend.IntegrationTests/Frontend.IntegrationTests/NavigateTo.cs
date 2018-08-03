@@ -35,6 +35,7 @@ namespace Frontend.IntegrationTests
             ManageCalculationPage managecalculationpage = new ManageCalculationPage();
 
             homepage.ManagetheCalculations.Click();
+            Thread.Sleep(10000);
 
         }
 
@@ -169,6 +170,17 @@ namespace Frontend.IntegrationTests
             homepage.ManagetheSpecification.Click();
             managepecificationpage.SelectSpecification.Click();
             managepoliciespage.Createdatatyperelationship.Click();
+
+        }
+
+        public static void DownloadDataSchemasPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.downloadDataSchemasLink.Click();
+            Thread.Sleep(2000);
 
         }
 
@@ -337,7 +349,7 @@ namespace Frontend.IntegrationTests
 
             homepage.ViewtheResults.Click();
             viewresultsoptionspage.viewResultsOptionsViewQATestResults.Click();
-            Thread.Sleep(5000);
+            Thread.Sleep(60000);
         }
 
 

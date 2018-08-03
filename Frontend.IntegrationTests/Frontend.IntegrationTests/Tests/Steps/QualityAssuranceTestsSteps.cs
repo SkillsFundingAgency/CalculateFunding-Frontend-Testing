@@ -127,14 +127,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine("First Test Scenario Description displayed is " + scenariodescription);
         }
 
-        [Then(@"the current status of the test scenario is displayed")]
-        public void ThenTheCurrentStatusOfTheTestScenarioIsDisplayed()
-        {
-            IWebElement testscenariostatus = testscenariolistpage.testScenarioPageFirstTestScenarioStatus;
-            string scenariostatus = testscenariostatus.Text;
-            scenariostatus.Should().NotBeNull();
-            Console.WriteLine("First Test Scenario Status displayed is " + scenariostatus);
-        }
 
         [Then(@"the specification that the test is associated with is displayed")]
         public void ThenTheSpecificationThatTheTestIsAssociatedWithIsDisplayed()

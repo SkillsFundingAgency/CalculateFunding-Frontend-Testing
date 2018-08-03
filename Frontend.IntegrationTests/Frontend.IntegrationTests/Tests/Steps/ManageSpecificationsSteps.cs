@@ -570,14 +570,10 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
 
 
-        [Given(@"I have missed the calculation field (.*) and (.*) and (.*) and (.*) and (.*)")]
-        public void GivenIHaveMissedTheCalculationField(string name, string policy, string type, string allocation, string description)
+        [Given(@"I have missed the calculation field (.*) and (.*) and (.*) and (.*)")]
+        public void GivenIHaveMissedTheCalculationField(string name, string type, string allocation, string description)
         {
             createcalculationpage.CalculationName.SendKeys(name);
-
-            var policydropdown = createcalculationpage.SelectPolicy_SubPolicy;
-            var selectElement = new SelectElement(policydropdown);
-            selectElement.SelectByText(policy);
 
             var calctype = createcalculationpage.CalculationTypeDropDown;
             var selecttypeElement = new SelectElement(calctype);
@@ -592,14 +588,25 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
-        [Given(@"I have not completed the following calculation fields (.*) and (.*) and (.*) and (.*)")]
-        public void GivenIHaveNotCompletedTheFollowingCalculationFields(string name, string policy, string type, string description)
+        [Given(@"I have correctly selected a Policy")]
+        public void GivenIHaveCorrectlySelectedAPolicy()
+        {
+            Actions.CreateCalculationSpecificationpageSelectPolicyOrSubpolicyDropDown();
+        }
+
+
+        [Given(@"I click the Create calculation specification")]
+        public void GivenIClickTheCreateCalculationSpecification()
+        {
+            managepoliciespage.CreateCalculation.Click();
+            Thread.Sleep(2000);
+        }
+
+
+        [Given(@"I have not completed the following calculation fields (.*) and (.*) and (.*)")]
+        public void GivenIHaveNotCompletedTheFollowingCalculationFields(string name, string type, string description)
         {
             createcalculationpage.CalculationName.SendKeys(name);
-
-            var policydropdown = createcalculationpage.SelectPolicy_SubPolicy;
-            var selectElement = new SelectElement(policydropdown);
-            selectElement.SelectByText(policy);
 
             var calctype = createcalculationpage.CalculationTypeDropDown;
             var selecttypeElement = new SelectElement(calctype);
@@ -616,9 +623,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(1000);
             if (CalculationFieldname == "MissingCalcFundingName")
                 Assert.AreEqual(calcerror, createcalculationpage.CalculationNameError.Text);
-
-            else if (CalculationFieldname == "MissingCalcFundingPolicy")
-                Assert.AreEqual(calcerror, createcalculationpage.CalculationPolicyError.Text);
 
             else if (CalculationFieldname == "MissingCalcFundingAllocation")
                 Assert.AreEqual(calcerror, createcalculationpage.CalculationAllocationError.Text);

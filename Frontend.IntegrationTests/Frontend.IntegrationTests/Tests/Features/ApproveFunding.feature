@@ -198,4 +198,30 @@ Then the Publish Button becomes enabled
 When I click on the Publish Button
 Then the Provider is successfully published
 
+@Workitem 51064 Driver
+Scenario: Select the Choose Action for an Approved Specification
+Given I have navigated to the Choose Funding Specification Page
+When there is an availabe Funding Stream to Choose
+And I click on the selected Specification Choose Button
+Then I am redirected to the Confirmation to chose a specification for a funding stream and period page
+And I am presented with the name of the specification I have selected
+And I am presented with the funding period and the funding streams for the selected specification
+And I am presented with a message explaining the consequences if were to choose the selected specification
+And I am presented with an option choose the selected specification
+And I am presented with an option to cancel choosing the selected specification
 
+@Workitem 51064 Driver
+Scenario: Select the Back option on the Confirmation to chose a specification page
+Given I have navigated to the Choose Funding Specification Page
+When there is an availabe Funding Stream to Choose
+And I click on the selected Specification Choose Button
+Then I am redirected to the Confirmation to chose a specification for a funding stream and period page
+When I click on the Back do not choose option
+Then I am redirected to the Choose Funding Specification Page
+
+@Workitem 51064 Driver
+Scenario: Select the View Funding Option for an Approved Specification
+Given I have navigated to the Choose Funding Specification Page
+When there is a previously Choosen Funding Stream available
+And I click on the selected Specification View Funding option
+Then I am redirected to the Approve and publish funding Page

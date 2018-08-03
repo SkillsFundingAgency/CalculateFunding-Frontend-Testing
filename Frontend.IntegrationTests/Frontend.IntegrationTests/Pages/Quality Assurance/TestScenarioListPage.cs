@@ -47,7 +47,7 @@ namespace Frontend.IntegrationTests.Pages.Quality_Assurance
         [FindsBy(How = How.CssSelector, Using = "div.test-scenario-searchresult-container:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > span:nth-child(1) > strong:nth-child(1) > span:nth-child(1)")]
         public IWebElement testScenarioPageFirstTestScenarioStatus { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div.test-scenario-searchresult-container:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > span:nth-child(2) > strong:nth-child(1) > span:nth-child(1)")]
+        [FindsBy(How = How.CssSelector, Using = "#data-dynamic-scenarioContainer-0 > div:nth-child(3) > span:nth-child(1) > strong:nth-child(1) > span:nth-child(1)")]
         public IWebElement testScenarioPageFirstTestScenarioLastUpdated { get; set; }
 
 
