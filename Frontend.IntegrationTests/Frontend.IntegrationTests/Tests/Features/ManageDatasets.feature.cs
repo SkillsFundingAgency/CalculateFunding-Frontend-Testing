@@ -1197,6 +1197,32 @@ testRunner.Then("I am presented with the provider identifier and description", (
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Download option for a Data schema template")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(54453)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateTheDownloadOptionForADataSchemaTemplate()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Download option for a Data schema template", new string[] {
+                        "Workitem:54453",
+                        "Driver"});
+#line 332
+this.ScenarioSetup(scenarioInfo);
+#line 333
+testRunner.Given("I have navigated to the Download data schemas Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 334
+testRunner.Then("I am presented with the Relevant information for the Template", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 335
+testRunner.When("I click on the Download Data Schema Option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 336
+testRunner.Then("The Download Data Schema reddirect URL from Blogstorage is correctly generated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 337
+testRunner.And("The HTTP Status Code is returned for the Schema as OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

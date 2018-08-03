@@ -1218,6 +1218,25 @@ namespace Frontend.IntegrationTests.Tests.Steps
             }
         }
 
+        [When(@"I click on the Download Data Schema Option")]
+        public void WhenIClickOnTheDownloadDataSchemaOption()
+        {
+            Actions.DownloadDataSchemaDownloadOption();
+        }
+
+        [Then(@"The Download Data Schema reddirect URL from Blogstorage is correctly generated")]
+        public void ThenTheDownloadDataSchemaReddirectURLFromBlogstorageIsCorrectlyGenerated()
+        {
+            //Validation for this step is carried out within Actions.DownloadDataSchemaDownloadOption();
+            //See redirected Blob URL in the Test Output row
+        }
+
+        [Then(@"The HTTP Status Code is returned for the Schema as OK")]
+        public void ThenTheHTTPStatusCodeIsReturnedForTheSchemaAsOK()
+        {
+            //Validation for this step is carried out within Actions.DownloadDataSchemaDownloadOption();
+            //See the "File downloaded successfully. Filename = " Test Output row
+        }
 
 
 

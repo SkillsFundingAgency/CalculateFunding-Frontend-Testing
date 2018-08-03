@@ -327,3 +327,11 @@ Scenario: Validate the More Information option for a Data schema template
 Given I have navigated to the Download data schemas Page
 When I choose to view more information for a data schema
 Then I am presented with the provider identifier and description
+
+@Workitem:54453 Driver
+Scenario: Validate the Download option for a Data schema template
+Given I have navigated to the Download data schemas Page
+Then I am presented with the Relevant information for the Template
+When I click on the Download Data Schema Option
+Then The Download Data Schema reddirect URL from Blogstorage is correctly generated
+And The HTTP Status Code is returned for the Schema as OK

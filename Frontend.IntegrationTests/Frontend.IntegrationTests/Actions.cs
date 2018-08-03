@@ -1682,6 +1682,78 @@
         }
 
 
+        public static void DownloadDataSchemaDownloadOption()
+        {
+            DownloadDataSchemasPage downloaddataschemapage = new DownloadDataSchemasPage();
+
+            var containerElements = downloaddataschemapage.searchDataSchemaTemplateDatasetDefinitionsTableBody;
+            IWebElement SelectFirstDownloadlink = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.TagName("a"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+                        if (optionelement.Text.Contains("cloud_download"))
+                        {
+
+                            SelectFirstDownloadlink = optionelement;
+
+                            break;
+                        }
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (SelectFirstDownloadlink != null)
+                {
+                    var downloadurl = SelectFirstDownloadlink.GetAttribute("href");
+                    downloadurl.Should().NotBeNullOrWhiteSpace();
+
+                    HttpClientHandler httpClientHandler = new HttpClientHandler();
+                    httpClientHandler.AllowAutoRedirect = false;
+                    Uri redirectedBlobUrl;
+
+                    using (HttpClient client = new HttpClient(httpClientHandler))
+                    {
+                        client.BaseAddress = new Uri(Config.BaseURL);
+
+                        HttpResponseMessage response = client.GetAsync(downloadurl).Result;
+                        response.Should().NotBeNull();
+                        response.StatusCode.Should().Be(HttpStatusCode.Redirect);
+
+                        redirectedBlobUrl = response.Headers.Location;
+                        redirectedBlobUrl.AbsoluteUri.Should().NotBeNullOrWhiteSpace();
+                        Console.WriteLine("Redirected blob URL: {0}", redirectedBlobUrl);
+                    }
+
+                    using (HttpClient client = new HttpClient())
+                    {
+                        HttpResponseMessage downloadFileResponse = client.GetAsync(redirectedBlobUrl.AbsoluteUri).Result;
+
+                        downloadFileResponse.Should().NotBeNull();
+                        downloadFileResponse.StatusCode.Should().Be(HttpStatusCode.OK);
+
+                        IEnumerable<string> filenameHeaders;
+                        downloadFileResponse.Headers.TryGetValues("x-ms-meta-filename", out filenameHeaders);
+                        string filename = filenameHeaders.FirstOrDefault();
+
+                        Console.WriteLine("File downloaded successfully. Filename = {0}", filename);
+                    }
+                }
+                else
+                {
+                    Assert.Inconclusive("No Download link could be successfully selected");
+                }
+            }
+            else
+            {
+                SelectFirstDownloadlink.Should().NotBeNull("No Download link could be successfully selected");
+            }
+        }
+
+
     }
 }
 
