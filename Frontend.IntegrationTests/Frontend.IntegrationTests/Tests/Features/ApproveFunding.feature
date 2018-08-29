@@ -8,7 +8,7 @@ Scenario: Navigate to the Choose Funding Specification Page
 Given I have successfully navigated to the Home Page
 When I select Funding approvals
 Then I am redirected to the approval options page
-When I click on the Choose Funidng Specification Option
+When I click on the Choose Funding Specification Option
 Then I am redirected to the Choose Funding Specification Page
 
 @Workitem 51062 Driver
