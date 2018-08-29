@@ -22,6 +22,7 @@
     using System.Threading;
     using TechTalk.SpecFlow;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using OpenQA.Selenium.PhantomJS;
 
     [Binding]
     public static class Actions
@@ -40,6 +41,16 @@
 
         [BeforeScenario(new string[] { "Driver" })]
         public static void InitializeHomePage()
+        {
+            //Driver._driver = new FirefoxDriver();
+            //Driver._driver.Manage().Window.Maximize();
+            Driver._driver = new PhantomJSDriver();
+            Driver._driver.Navigate().GoToUrl(Config.BaseURL);
+            Driver.WaitForElementUpTo(Config.ElementsWaitingTimeout);
+        }
+
+        [BeforeScenario(new string[] { "FFDriver" })]
+        public static void InitializeFirefoxHomePage()
         {
             Driver._driver = new FirefoxDriver();
             Driver._driver.Manage().Window.Maximize();
