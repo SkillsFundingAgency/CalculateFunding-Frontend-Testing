@@ -31,7 +31,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
         EditSpecificationPage editspecificationpage = new EditSpecificationPage();
         ConfirmChoosenSpecificationPage confirmchoosenspecificationpage = new ConfirmChoosenSpecificationPage();
-
+        ConfirmApprovalPage confirmapprovalpage = new ConfirmApprovalPage();
+        ConfirmPublishPage confirmpublishpage = new ConfirmPublishPage();
 
 
         [When(@"I click on the Choose Funidng Specification Option")]
@@ -696,6 +697,19 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(6000);
         }
 
+        [Then(@"I am redirected to the Confirm Approval Page")]
+        public void ThenIAmRedirectedToTheConfirmApprovalPage()
+        {
+            confirmapprovalpage.confirmApprovalButton.Should().NotBeNull();
+        }
+
+        [When(@"I click on the Confirm Approval Button")]
+        public void WhenIClickOnTheConfirmApprovalButton()
+        {
+            confirmapprovalpage.confirmApprovalButton.Click();
+            Thread.Sleep(15000);
+        }
+
         [Then(@"the Provider Allocation Line is successfully approved")]
         public void ThenTheProviderAllocationLineIsSuccessfullyApproved()
         {
@@ -756,9 +770,21 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void WhenIClickOnThePublishButton()
         {
             approvepublishfundingpage.approvePublishFundingPublish.Click();
-            Thread.Sleep(6000);
+            Thread.Sleep(15000);
         }
 
+        [Then(@"I am redirected to the Confirm Publish Page")]
+        public void ThenIAmRedirectedToTheConfirmPublishPage()
+        {
+            confirmpublishpage.confirmPublishButton.Should().NotBeNull();
+        }
+
+        [When(@"I click on the Confirm Publish Button")]
+        public void WhenIClickOnTheConfirmPublishButton()
+        {
+            confirmpublishpage.confirmPublishButton.Click();
+            Thread.Sleep(6000);
+        }
 
 
         [Then(@"the Provider Allocation Line is successfully published")]
