@@ -51,8 +51,6 @@ Then there is a field displayed where I can name my test scenario
 And there is a field displayed where I can describe my test scenario
 And there is an option to select the specification my test is linked to
 And there is a monaco text editor field displayed
-And there is a disabled option to select to validate the test
-And the save option is disabled
 
 @Workitem: 36667 FFDriver
 Scenario: Enable Valiadate QA Test Button on the Create quality assurance test page

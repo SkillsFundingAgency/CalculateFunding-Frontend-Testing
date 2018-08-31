@@ -1215,12 +1215,12 @@ testRunner.And("No alert about provider datasets is displayed", ((string)(null))
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save a new Specification with 2 Funding Streams selected")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49358)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void CreateAndSaveANewSpecificationWith2FundingStreamsSelected()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a new Specification with 2 Funding Streams selected", new string[] {
                         "Workitem:49358",
-                        "Driver"});
+                        "FFDriver"});
 #line 326
 this.ScenarioSetup(scenarioInfo);
 #line 327
@@ -1311,12 +1311,12 @@ testRunner.And("My new specification is correctly listed", ((string)(null)), ((T
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create a new Specification with 2 Funding Streams selected then removed")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49358)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void CreateANewSpecificationWith2FundingStreamsSelectedThenRemoved()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new Specification with 2 Funding Streams selected then removed", new string[] {
                         "Workitem:49358",
-                        "Driver"});
+                        "FFDriver"});
 #line 360
 this.ScenarioSetup(scenarioInfo);
 #line 361
@@ -1645,12 +1645,12 @@ testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(nul
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Successfully Edit an Existing Specification Funding period")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49593)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void SuccessfullyEditAnExistingSpecificationFundingPeriod()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Specification Funding period", new string[] {
                         "Workitem:49593",
-                        "Driver"});
+                        "FFDriver"});
 #line 462
 this.ScenarioSetup(scenarioInfo);
 #line 463
@@ -1782,12 +1782,12 @@ testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(nul
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Successfully Edit an Existing Specification for All fields")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(49593)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void SuccessfullyEditAnExistingSpecificationForAllFields()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Specification for All fields", new string[] {
                         "Workitem:49593",
-                        "Driver"});
+                        "FFDriver"});
 #line 504
 this.ScenarioSetup(scenarioInfo);
 #line 505
@@ -2496,12 +2496,12 @@ testRunner.Then("the Approve Specification option is correctly displayed", ((str
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify that a Specification with an associated Policy can be marked as Approved")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50078)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void VerifyThatASpecificationWithAnAssociatedPolicyCanBeMarkedAsApproved()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Specification with an associated Policy can be marked as Approved", new string[] {
                         "Workitem:50078",
-                        "Driver"});
+                        "FFDriver"});
 #line 725
 this.ScenarioSetup(scenarioInfo);
 #line 726
@@ -2519,13 +2519,13 @@ testRunner.Then("the Specification should be marked as approved", ((string)(null
             "ved")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50078)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void VerifyThatASpecificationWithAnAssociatedCalculationCanBeMarkedAsApproved()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Specification with an associated Calculation can be marked as Appro" +
                     "ved", new string[] {
                         "Workitem:50078",
-                        "Driver"});
+                        "FFDriver"});
 #line 731
 this.ScenarioSetup(scenarioInfo);
 #line 732
@@ -2543,13 +2543,13 @@ testRunner.Then("the Specification should be marked as approved", ((string)(null
             "ed")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50078)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void VerifyThatASpecificationWithAnAssociatedSubPolicyCanBeMarkedAsApproved()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Specification with an associated Sub Policy can be marked as Approv" +
                     "ed", new string[] {
                         "Workitem:50078",
-                        "Driver"});
+                        "FFDriver"});
 #line 737
 this.ScenarioSetup(scenarioInfo);
 #line 738

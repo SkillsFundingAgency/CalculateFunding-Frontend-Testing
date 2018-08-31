@@ -322,7 +322,7 @@ And I am redirected to the DataSet page
 Then the new dataset has been saved and displayed correctly
 And No alert about provider datasets is displayed
 
-@Workitem:49358 Driver
+@Workitem:49358 FFDriver
 Scenario: Create and Save a new Specification with 2 Funding Streams selected
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -356,7 +356,7 @@ And I click the Save button
 Then I am redirected to the Manage Specification Page
 And My new specification is correctly listed
 
-@Workitem:49358 Driver
+@Workitem:49358 FFDriver
 Scenario: Create a new Specification with 2 Funding Streams selected then removed
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -458,7 +458,7 @@ When I update the Specification Description
 And click the Update Specification Button
 Then I am redirected back to the Manage Polices Page
 
-@Workitem:49593 Driver
+@Workitem:49593 FFDriver
 Scenario: Successfully Edit an Existing Specification Funding period
 Given I have navigated to the Edit Specification Page
 When I update the Specification Funding period
@@ -500,7 +500,7 @@ When I update the Specification Name
 And I click the Cancel option
 Then I am redirected back to the Manage Polices Page
 
-@Workitem:49593 Driver
+@Workitem:49593 FFDriver
 Scenario: Successfully Edit an Existing Specification for All fields
 Given I have navigated to the Edit Specification Page
 When I delete the existing Specification Funding stream
@@ -721,19 +721,19 @@ Given I have previously created a new specification
 And I have successfully navigated to the Manage Policies Page for the new specification
 Then the Approve Specification option is correctly displayed
 
-@Workitem:50078 Driver
+@Workitem:50078 FFDriver
 Scenario: Verify that a Specification with an associated Policy can be marked as Approved
 Given A Policy has been previously created with a Unique Policy Name
 When I choose to mark the associated Specification as Approved
 Then the Specification should be marked as approved
 
-@Workitem:50078 Driver
+@Workitem:50078 FFDriver
 Scenario: Verify that a Specification with an associated Calculation can be marked as Approved
 Given A Calculation Specification has been previously created with a Unique Name
 When I choose to mark the associated Specification as Approved
 Then the Specification should be marked as approved
 
-@Workitem:50078 Driver
+@Workitem:50078 FFDriver
 Scenario: Verify that a Specification with an associated Sub Policy can be marked as Approved
 Given A Sub Policy has been previously created with a Unique Name
 When I choose to mark the associated Specification as Approved
