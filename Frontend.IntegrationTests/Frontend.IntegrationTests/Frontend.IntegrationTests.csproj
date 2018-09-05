@@ -106,6 +106,7 @@
     <Compile Include="Pages\Approve funding\ConfirmChoosenSpecificationPage.cs" />
     <Compile Include="Pages\Approve funding\ConfirmPublishPage.cs" />
     <Compile Include="Pages\Home Page\ApprovalOptionsPage.cs" />
+    <Compile Include="Pages\Home Page\DfESignInPage.cs" />
     <Compile Include="Pages\Home Page\HomePage.cs" />
     <Compile Include="Pages\Home Page\ManageSpecificationPage.cs" />
     <Compile Include="Pages\Home Page\ManageTestsPage.cs" />
