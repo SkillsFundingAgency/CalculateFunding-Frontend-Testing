@@ -212,12 +212,12 @@ testRunner.And("the appropriate information is displayed for each calculation", 
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select to Filter the Calculations Page by Academic Year")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void SelectToFilterTheCalculationsPageByAcademicYear()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Filter the Calculations Page by Academic Year", new string[] {
                         "Workitem:36090",
-                        "Driver"});
+                        "FFDriver"});
 #line 45
 this.ScenarioSetup(scenarioInfo);
 #line 46
@@ -244,12 +244,12 @@ testRunner.And("the filter options are sorted in descending order by the count o
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select to Filter the Calculations Page by Funding Stream")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void SelectToFilterTheCalculationsPageByFundingStream()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Filter the Calculations Page by Funding Stream", new string[] {
                         "Workitem:36090",
-                        "Driver"});
+                        "FFDriver"});
 #line 56
 this.ScenarioSetup(scenarioInfo);
 #line 57
@@ -267,12 +267,12 @@ testRunner.Then("the list view of calculations updates to display only calculati
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select to Filter the Calculations Page by Policy Specification")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void SelectToFilterTheCalculationsPageByPolicySpecification()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Filter the Calculations Page by Policy Specification", new string[] {
                         "Workitem:36090",
-                        "Driver"});
+                        "FFDriver"});
 #line 62
 this.ScenarioSetup(scenarioInfo);
 #line 63
@@ -290,12 +290,12 @@ testRunner.Then("the list view of calculations updates to display only calculati
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select to Filter the Calculations Page by Status")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void SelectToFilterTheCalculationsPageByStatus()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Filter the Calculations Page by Status", new string[] {
                         "Workitem:36090",
-                        "Driver"});
+                        "FFDriver"});
 #line 68
 this.ScenarioSetup(scenarioInfo);
 #line 69
@@ -313,12 +313,12 @@ testRunner.Then("the list view of calculations updates to display only calculati
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select to Filter the Calculations Page by Allocation Line")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void SelectToFilterTheCalculationsPageByAllocationLine()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Filter the Calculations Page by Allocation Line", new string[] {
                         "Workitem:36090",
-                        "Driver"});
+                        "FFDriver"});
 #line 74
 this.ScenarioSetup(scenarioInfo);
 #line 75
@@ -336,12 +336,12 @@ testRunner.Then("the list view of calculations updates to display only calculati
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Deselect Filter options on the Calculations Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void DeselectFilterOptionsOnTheCalculationsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deselect Filter options on the Calculations Page", new string[] {
                         "Workitem:36090",
-                        "Driver"});
+                        "FFDriver"});
 #line 80
 this.ScenarioSetup(scenarioInfo);
 #line 81
@@ -396,13 +396,13 @@ testRunner.Then("the list view of calculations updates to display only calculati
             "re In Place")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37014)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void SelectToFilterTheCalculationsPageByTheSearchOptionWhenActiveFiltersAreInPlace()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select To Filter the Calculations Page by the Search Option When Active Filters A" +
                     "re In Place", new string[] {
                         "Workitem:37014",
-                        "Driver"});
+                        "FFDriver"});
 #line 99
 this.ScenarioSetup(scenarioInfo);
 #line 100
@@ -456,12 +456,12 @@ testRunner.And("The Save Calculation button is disabled", ((string)(null)), ((Te
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit and Build the Calculation Visual Basic Code")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35457)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void EditAndBuildTheCalculationVisualBasicCode()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit and Build the Calculation Visual Basic Code", new string[] {
                         "Workitem:35457",
-                        "Driver"});
+                        "FFDriver"});
 #line 118
 this.ScenarioSetup(scenarioInfo);
 #line 119
@@ -488,12 +488,12 @@ testRunner.And("the results of the compilation is recorded in the output box", (
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Incorrectly Edit and Build a Calculation")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35457)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void IncorrectlyEditAndBuildACalculation()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrectly Edit and Build a Calculation", new string[] {
                         "Workitem:35457",
-                        "Driver"});
+                        "FFDriver"});
 #line 129
 this.ScenarioSetup(scenarioInfo);
 #line 130
@@ -518,12 +518,12 @@ testRunner.And("the error result of the compilation is recorded in the output bo
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit and Save a New Calculation Version of the Code")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35457)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void EditAndSaveANewCalculationVersionOfTheCode()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit and Save a New Calculation Version of the Code", new string[] {
                         "Workitem:35457",
-                        "Driver"});
+                        "FFDriver"});
 #line 139
 this.ScenarioSetup(scenarioInfo);
 #line 140
@@ -613,13 +613,13 @@ testRunner.And("the list is sorted in descending order by Updated date", ((strin
             "s page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36088)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void SelectOnePreviousCalculationCodeVersionFromTheCompareCalculationVersionsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select One Previous Calculation Code Version from the Compare Calculation Version" +
                     "s page", new string[] {
                         "Workitem:36088",
-                        "Driver"});
+                        "FFDriver"});
 #line 171
 this.ScenarioSetup(scenarioInfo);
 #line 172
@@ -666,12 +666,12 @@ testRunner.Then("I am redirected to the Calculation Comparison page", ((string)(
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("View the Calculation Comparison Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36088)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void ViewTheCalculationComparisonPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View the Calculation Comparison Page", new string[] {
                         "Workitem:36088",
-                        "Driver"});
+                        "FFDriver"});
 #line 186
 this.ScenarioSetup(scenarioInfo);
 #line 187
@@ -726,12 +726,12 @@ testRunner.And("The option to Approve the Calculation is displayed correctly", (
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify that a Calculation can be marked as Approved")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50635)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
         public virtual void VerifyThatACalculationCanBeMarkedAsApproved()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Calculation can be marked as Approved", new string[] {
                         "Workitem:50635",
-                        "Driver"});
+                        "FFDriver"});
 #line 206
 this.ScenarioSetup(scenarioInfo);
 #line 207

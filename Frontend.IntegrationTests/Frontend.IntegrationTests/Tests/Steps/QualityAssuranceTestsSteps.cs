@@ -199,19 +199,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             createqatestpage.createQATestScenario.Should().NotBeNull();
         }
 
-        [Then(@"there is a disabled option to select to validate the test")]
-        public void ThenThereIsADisabledOptionToSelectToValidateTheTest()
-        {
-            createqatestpage.createQATestValidateQATestButton.Should().NotBeNull();
-            createqatestpage.createQATestValidateQATestButton.Enabled.Should().BeFalse();
-        }
-
-        [Then(@"the save option is disabled")]
-        public void ThenTheSaveOptionIsDisabled()
-        {
-            createqatestpage.createQATestCreateQATestButton.Enabled.Should().BeFalse();
-        }
-
         [When(@"I have choosen a specification from the drop down to link my test to")]
         public void WhenIHaveChoosenASpecificationFromTheDropDownToLinkMyTestTo()
         {

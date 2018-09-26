@@ -23,6 +23,7 @@
     using TechTalk.SpecFlow;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using OpenQA.Selenium.PhantomJS;
+    using Frontend.IntegrationTests.Pages.Home_Page;
 
     [Binding]
     public static class Actions
@@ -42,6 +43,8 @@
         [BeforeScenario(new string[] { "Driver" })]
         public static void InitializeHomePage()
         {
+            DfESignInPage dfesigninpage = new DfESignInPage();
+
             //Driver._driver = new FirefoxDriver();
             //Driver._driver.Manage().Window.Maximize();
             Driver._driver = new PhantomJSDriver();
@@ -52,6 +55,8 @@
         [BeforeScenario(new string[] { "FFDriver" })]
         public static void InitializeFirefoxHomePage()
         {
+            DfESignInPage dfesigninpage = new DfESignInPage();
+
             Driver._driver = new FirefoxDriver();
             Driver._driver.Manage().Window.Maximize();
             Driver._driver.Navigate().GoToUrl(Config.BaseURL);

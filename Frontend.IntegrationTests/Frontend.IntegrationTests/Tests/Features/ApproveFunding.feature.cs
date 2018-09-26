@@ -105,7 +105,7 @@ testRunner.When("I select Funding approvals", ((string)(null)), ((TechTalk.SpecF
 #line 10
 testRunner.Then("I am redirected to the approval options page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
-testRunner.When("I click on the Choose Funidng Specification Option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I click on the Choose Funding Specification Option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
 testRunner.Then("I am redirected to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

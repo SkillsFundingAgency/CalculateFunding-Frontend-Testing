@@ -53,7 +53,6 @@
             createspecificationpage.SaveSpecification.Click();
             Thread.Sleep(2000);
 
-            Assert.IsNotNull(managespecficationpage.SelectYear);
             homepage.Header.Click();
             Thread.Sleep(2000);
             homepage.ManagetheSpecification.Click();

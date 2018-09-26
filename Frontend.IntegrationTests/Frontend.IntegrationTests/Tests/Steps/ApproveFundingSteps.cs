@@ -35,7 +35,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ConfirmPublishPage confirmpublishpage = new ConfirmPublishPage();
 
 
-        [When(@"I click on the Choose Funidng Specification Option")]
+        [When(@"I click on the Choose Funding Specification Option")]
         public void WhenIClickOnTheChooseFunidngSpecificationOption()
         {
             approvaloptionspage.ChooseFundingSpecification.Click();

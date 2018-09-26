@@ -134,11 +134,11 @@ And the number of relationships that exist for that specification
 @Workitem:37469 Driver
 Scenario: Pagination for the Map Data Sources to Datasets Page 
 Given I have navigated to Map data sources to datasets page
-And I have over 20 spec results listed
+And I have over 50 spec results listed
 And the list is in ascending alphabetical order
 When I click to navigate to the next page of specifications
-Then my list view updates with up to the next set of 20 results
-And I am able to navigate to the previous page of 20 specs
+Then my list view updates with up to the next set of 50 results
+And I am able to navigate to the previous page of 50 specs
 
 @Workitem:37469 Driver
 Scenario: Search Specifications listed on the Map data sources to datasets page
