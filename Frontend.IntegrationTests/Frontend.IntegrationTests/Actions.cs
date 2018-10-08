@@ -11,6 +11,7 @@
     using Frontend.IntegrationTests.Pages.View_Results;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Firefox;
+    using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium.Support.UI;
     using System;
     using System.Collections.Generic;
@@ -36,31 +37,76 @@
         public static string Allocationlinevalue { get; set; }
         public static string Calculationstatusvalue { get; set; }
         public static string datasestinfo { get; set; }
-
+        public static string TestUserMe = "richard.wilson@education.gov.uk";
+        public static string TestPwMe = "Joanne1976$02";
 
 
 
         [BeforeScenario(new string[] { "Driver" })]
         public static void InitializeHomePage()
         {
-            DfESignInPage dfesigninpage = new DfESignInPage();
-
-            //Driver._driver = new FirefoxDriver();
-            //Driver._driver.Manage().Window.Maximize();
-            Driver._driver = new PhantomJSDriver();
+            Driver._driver = new ChromeDriver();
             Driver._driver.Navigate().GoToUrl(Config.BaseURL);
             Driver.WaitForElementUpTo(Config.ElementsWaitingTimeout);
+
+            MSDfESignInPage msdfesigninpage = new MSDfESignInPage();
+            DfESignInPage dfesigninpage = new DfESignInPage();
+
+            msdfesigninpage.msUserInput.Should().NotBeNull();
+            msdfesigninpage.msUserInput.SendKeys(TestUserMe);
+            msdfesigninpage.msUserNext.Click();
+            Thread.Sleep(6000);
+            dfesigninpage.userNameInput.Should().NotBeNull();
+            dfesigninpage.userNameInput.Clear();
+            dfesigninpage.userNameInput.SendKeys(TestUserMe);
+            dfesigninpage.passwordInput.SendKeys(TestPwMe);
+            dfesigninpage.submitButton.Click();
+            Thread.Sleep(6000);
         }
 
         [BeforeScenario(new string[] { "FFDriver" })]
         public static void InitializeFirefoxHomePage()
         {
-            DfESignInPage dfesigninpage = new DfESignInPage();
-
             Driver._driver = new FirefoxDriver();
             Driver._driver.Manage().Window.Maximize();
             Driver._driver.Navigate().GoToUrl(Config.BaseURL);
             Driver.WaitForElementUpTo(Config.ElementsWaitingTimeout);
+            
+        }
+
+        [BeforeScenario(new string[] { "ChromeDriver" })]
+        public static void InitializeChromeHomePage()
+        {
+            Driver._driver = new ChromeDriver();
+            Driver._driver.Navigate().GoToUrl(Config.BaseURL);
+            Driver.WaitForElementUpTo(Config.ElementsWaitingTimeout);
+        }
+
+        [BeforeScenario(new string[] { "PhantomDriver" })]
+        public static void InitializePhantomHomePage()
+        {
+            Driver._driver = new PhantomJSDriver();
+            Driver._driver.Navigate().GoToUrl(Config.BaseURL);
+            Driver.WaitForElementUpTo(Config.ElementsWaitingTimeout);
+
+        }
+
+        [BeforeScenario(new string[] { "DfELogIn" })]
+        public static void DfELogIn()
+        {
+            MSDfESignInPage msdfesigninpage = new MSDfESignInPage();
+            DfESignInPage dfesigninpage = new DfESignInPage();
+
+            msdfesigninpage.msUserInput.Should().NotBeNull();
+            msdfesigninpage.msUserInput.SendKeys(TestUserMe);
+            msdfesigninpage.msUserNext.Click();
+            Thread.Sleep(6000);
+            dfesigninpage.userNameInput.Should().NotBeNull();
+            dfesigninpage.userNameInput.Clear();
+            dfesigninpage.userNameInput.SendKeys(TestUserMe);
+            dfesigninpage.passwordInput.SendKeys(TestPwMe);
+            dfesigninpage.submitButton.Click();
+            Thread.Sleep(6000);
         }
 
         public static void TakeScreenshot(this IWebDriver driver, string prefix)
