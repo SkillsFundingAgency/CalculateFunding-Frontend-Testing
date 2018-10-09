@@ -33,7 +33,7 @@ namespace Frontend.IntegrationTests
         [FindsBy(How = How.LinkText, Using = "Funding approvals")]
         public IWebElement Publishtheresults { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".govuk-beta-label > span:nth-child(2)")]
+        [FindsBy(How = How.CssSelector, Using = ".govuk-beta-label > span:nth-child(1) > a:nth-child(1)")]
         public IWebElement SurveyText { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "help us improve the service")]

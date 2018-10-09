@@ -156,15 +156,13 @@ namespace Frontend.IntegrationTests
         [When(@"I update the URL to an incorrect end point")]
         public void WhenIUpdateTheURLToAnIncorrectEndPoint()
         {
-            Driver._driver.Navigate().GoToUrl("https://esfacfsftest-web.azurewebsites.net/spec");
+            Driver._driver.Navigate().GoToUrl("https://te.calculate-funding.education.gov.uk/spec");
             Thread.Sleep(2000);
         }
 
         [Then(@"a Page Not Found error message is played")]
         public void ThenAPageNotFoundErrorMessageIsPlayed()
         {
-            string currentURL = Driver._driver.Url;
-            currentURL.Should().Be("https://esfacfsftest-web.azurewebsites.net/errors/404", "Page Not Found Error page was not returned");
             IWebElement pageNotFoundError = Driver._driver.FindElement(By.CssSelector(".heading-large"));
             string errorText = pageNotFoundError.Text;
             Console.WriteLine("Error displayed: " + errorText);

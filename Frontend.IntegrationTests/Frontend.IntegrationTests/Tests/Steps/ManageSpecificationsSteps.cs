@@ -66,13 +66,12 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement filtercontainer = managespecficationpage.SpecificationFilterContainer;
             IWebElement fundingperiodfilter = filtercontainer.FindElement(By.CssSelector("button"));
             fundingperiodfilter.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
             IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
             string fundingperiodselected = selectfilteroption.Text;
             Console.WriteLine("Funding Period Filter Option selected = " + fundingperiodselected);
             selectfilteroption.Click();
-            managespecficationpage.SearchSpecification.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(6000);
         }
 
         [Then(@"the list of specifications refreshes to display the selected years specifications")]

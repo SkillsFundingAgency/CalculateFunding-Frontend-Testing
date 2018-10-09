@@ -2500,12 +2500,12 @@ testRunner.Then("the Approve Specification option is correctly displayed", ((str
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify that a Specification with an associated Policy can be marked as Approved")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50078)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void VerifyThatASpecificationWithAnAssociatedPolicyCanBeMarkedAsApproved()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Specification with an associated Policy can be marked as Approved", new string[] {
                         "Workitem:50078",
-                        "FFDriver"});
+                        "Driver"});
 #line 721
 this.ScenarioSetup(scenarioInfo);
 #line 722
@@ -2523,13 +2523,13 @@ testRunner.Then("the Specification should be marked as approved", ((string)(null
             "ved")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50078)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void VerifyThatASpecificationWithAnAssociatedCalculationCanBeMarkedAsApproved()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Specification with an associated Calculation can be marked as Appro" +
                     "ved", new string[] {
                         "Workitem:50078",
-                        "FFDriver"});
+                        "Driver"});
 #line 727
 this.ScenarioSetup(scenarioInfo);
 #line 728
@@ -2547,13 +2547,13 @@ testRunner.Then("the Specification should be marked as approved", ((string)(null
             "ed")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(50078)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("FFDriver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void VerifyThatASpecificationWithAnAssociatedSubPolicyCanBeMarkedAsApproved()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Specification with an associated Sub Policy can be marked as Approv" +
                     "ed", new string[] {
                         "Workitem:50078",
-                        "FFDriver"});
+                        "Driver"});
 #line 733
 this.ScenarioSetup(scenarioInfo);
 #line 734

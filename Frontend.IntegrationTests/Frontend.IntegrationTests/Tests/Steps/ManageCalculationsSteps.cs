@@ -557,7 +557,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"I am redirected to the Compare Calculation Versions page")]
         public void ThenIAmRedirectedToTheCompareCalculationVersionsPage()
         {
-            viewpreviouscalculationpage.ComparePreviousCalculationsButton.Should().NotBeNull();
+            viewpreviouscalculationpage.CalculationVersionAuthor.Should().NotBeNull();
             Thread.Sleep(2000);
         }
 

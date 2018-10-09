@@ -717,19 +717,19 @@ Given I have previously created a new specification
 And I have successfully navigated to the Manage Policies Page for the new specification
 Then the Approve Specification option is correctly displayed
 
-@Workitem:50078 FFDriver
+@Workitem:50078 Driver
 Scenario: Verify that a Specification with an associated Policy can be marked as Approved
 Given A Policy has been previously created with a Unique Policy Name
 When I choose to mark the associated Specification as Approved
 Then the Specification should be marked as approved
 
-@Workitem:50078 FFDriver
+@Workitem:50078 Driver
 Scenario: Verify that a Specification with an associated Calculation can be marked as Approved
 Given A Calculation Specification has been previously created with a Unique Name
 When I choose to mark the associated Specification as Approved
 Then the Specification should be marked as approved
 
-@Workitem:50078 FFDriver
+@Workitem:50078 Driver
 Scenario: Verify that a Specification with an associated Sub Policy can be marked as Approved
 Given A Sub Policy has been previously created with a Unique Name
 When I choose to mark the associated Specification as Approved
