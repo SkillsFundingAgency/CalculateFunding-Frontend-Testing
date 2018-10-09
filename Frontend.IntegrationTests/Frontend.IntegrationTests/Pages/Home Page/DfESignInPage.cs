@@ -19,5 +19,8 @@ namespace Frontend.IntegrationTests.Pages.Home_Page
 
         [FindsBy(How = How.Id, Using = "submitButton")]
         public IWebElement submitButton { get; set; }
+
+        [FindsBy(How = How.Id, Using = "errorText")]
+        public IWebElement loginError { get; set; }
     }
 }

@@ -55,3 +55,19 @@ When I update the URL to an incorrect end point
 Then a Page Not Found error message is played
 And a link is displayed to return to the Home page
 And a link is displayed to log a Service Desk Incident
+
+@workitem:53379 ChromeDriver
+Scenario: Log in using AD User Authentication
+Given I have successfully navigated to the Microsoft Login page
+When I enter valid User Log in details
+Then I am redirected to the Department for Education sign in page
+When I enter valid DfE User Credentials
+Then I am redirected to the Home Page
+
+@workitem:53379 ChromeDriver
+Scenario: Log in using Invalid AD User Authentication
+Given I have successfully navigated to the Microsoft Login page
+When I enter Invalid User Log in details
+Then I am redirected to the Department for Education sign in page
+When I enter Invalid DfE User Credentials
+Then an appropriate Incorrect user ID or passworderror message is displayed

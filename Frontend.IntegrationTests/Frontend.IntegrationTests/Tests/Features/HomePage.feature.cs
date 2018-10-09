@@ -273,6 +273,58 @@ testRunner.And("a link is displayed to log a Service Desk Incident", ((string)(n
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Log in using AD User Authentication")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(53379)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("ChromeDriver")]
+        public virtual void LogInUsingADUserAuthentication()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Log in using AD User Authentication", new string[] {
+                        "workitem:53379",
+                        "ChromeDriver"});
+#line 60
+this.ScenarioSetup(scenarioInfo);
+#line 61
+testRunner.Given("I have successfully navigated to the Microsoft Login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 62
+testRunner.When("I enter valid User Log in details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 63
+testRunner.Then("I am redirected to the Department for Education sign in page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 64
+testRunner.When("I enter valid DfE User Credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 65
+testRunner.Then("I am redirected to the Home Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Log in using Invalid AD User Authentication")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(53379)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("ChromeDriver")]
+        public virtual void LogInUsingInvalidADUserAuthentication()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Log in using Invalid AD User Authentication", new string[] {
+                        "workitem:53379",
+                        "ChromeDriver"});
+#line 68
+this.ScenarioSetup(scenarioInfo);
+#line 69
+testRunner.Given("I have successfully navigated to the Microsoft Login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 70
+testRunner.When("I enter Invalid User Log in details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 71
+testRunner.Then("I am redirected to the Department for Education sign in page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 72
+testRunner.When("I enter Invalid DfE User Credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 73
+testRunner.Then("an appropriate Incorrect user ID or passworderror message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
