@@ -5,7 +5,7 @@ So that I can review if the funding that has been calculated is as expected and 
 the funding a provider has been calculated across all of ESFA's allocation lines
 So that I can ensure the funding calculated for that provider is correct before publishing the allocation to the provider
 
-@Workitem:37466 Driver
+@Workitem:37466 Driver Smoke
 Scenario: Verify the View Provider Results Page Results list
 Given I have successfully navigated to the Home Page
 When I select View results
@@ -15,14 +15,14 @@ And the name of the provider is displayed
 And all the relevant provider details are displayed
 And the list is displayed by provider name in ascending order
 
-@Workitem:37466 Driver
+@Workitem:37466 Driver Smoke
 Scenario: Verify the View Provider Results Page Search and Filter Options
 Given I have navigated to the View Provider Results Page
 Then the list displays up to 50 providers per page
 And an option to filter by search is displayed
 And options are displayed to filter the results by specific fields
 
-@Workitem:37466 Driver
+@Workitem:37466 Driver Smoke
 Scenario: Verify the View Provider Results Page Pagination
 Given I have navigated to the View Provider Results Page
 And I have over 50 providers with results
@@ -39,13 +39,13 @@ Then my list view displays the next 200 results
 When I click the Previous option
 Then my list view displays the previous 200 results
 
-@Workitem:37466 Driver
+@Workitem:37466 Driver Smoke
 Scenario: Select a Provider from the View Provider Results Page
 Given I have navigated to the View Provider Results Page
 When I click a provider
 Then I am redirected to the View provider allocations page for the selected provider
 
-@Workitem:37468 Driver
+@Workitem:37468 Driver Smoke
 Scenario: Verify the Search option on the View Provider Results Page
 Given I have navigated to the View Provider Results Page
 When I enter text in the Search Provider field
@@ -81,7 +81,7 @@ When I enter text in the Search Provider field
 And click the Search Provider button
 Then the list of displayed providers refreshes to display only the providers that comply with the search text & filters selected
 
-@Workitem:37467 Driver
+@Workitem:37467 Driver Smoke
 Scenario: Select a Provider to display the Provider Allocation page
 Given I have navigated to the View Provider Results Page
 When I click on a listed provider
@@ -90,7 +90,7 @@ And the relevant provider information is displayed
 And a drop down option is displayed to select a year with the default year pre selected
 And a drop down option is displayed to select a specification where the default is blank
 
-@Workitem:37467 Driver
+@Workitem:37467 Driver Smoke
 Scenario: Verify the Provider Allocations Page tab options
 Given I have navigated to the View Provider Allocations Page
 Then the default view is the tab displaying the allocation lines
@@ -122,7 +122,7 @@ And I choose a specification from the drop down
 Then the results are updated according to the year and spec selected
 And I can see a list of Calculation names and the subtotals against the Calculation names
 
-@Workitem:37467 Driver
+@Workitem:37467 Driver Smoke
 Scenario: Verify the Provider Allocations Page Calculation tab
 Given I have navigated to the View Provider Allocations Page
 When I choose to view the Calculation Tab
@@ -147,7 +147,7 @@ Then I am navigated to a page displaying providers
 And the name of the provider is displayed
 And where a provider record has a 0 value the content No data found is displayed
 
-@Workitem:39519 Driver
+@Workitem:39519 Driver Smoke
 Scenario: Verify the View Results landing page
 Given I have successfully navigated to the Home Page
 When I select View results
@@ -156,7 +156,7 @@ And An option is displayed view the View provider results page
 And An option is displayed view the View QA test results page
 And An option is displayed view the View calculation results page
 
-@Workitem:39520 40039 Driver
+@Workitem:39520 40039 Driver Smoke
 Scenario: Navigate to the View QA test results Page
 Given I have successfully navigated to the Home Page
 When I select View results
@@ -164,7 +164,7 @@ Then I am presented the View Results landing page
 When I click on the View QA test results option
 Then I am naviagted to the View QA test results page
 
-@Workitem:39520 40039 Driver
+@Workitem:39520 40039 Driver Smoke
 Scenario: Verify the View QA test results Page
 Given I have navigated to the view all test results screen
 Then the Search QA Test option is displayed
@@ -172,7 +172,7 @@ And the Select Period drop down option is displayed
 And the Select Specification drop down option is displayed
 And a list of QA Test Results listed by Test is displayed with the correct column headers
 
-@Workitem:39520 40039 Driver
+@Workitem:39520 40039 Driver Smoke
 Scenario: Verify the QA test results displayed on the View QA Test Results Page
 Given I have navigated to the view all test results screen
 Then I am presented with a list of QA Test results
@@ -206,19 +206,19 @@ Examples:
 	 | AY2017181	|
 	 
 
-@Workitem:39520 Driver
+@Workitem:39520 Driver Smoke
 Scenario: Change Current list of QA Tests by Specification
 Given I have navigated to the view all test results screen
 When I choose a specification from the QA Test drop down Option
 Then the list of QA Test Results refreshes to display the selected specifications QA Tests
 
-@Workitem:39522 Driver
+@Workitem:39522 Driver Smoke
 Scenario: Navigate to View the test results of all providers for a single test
 Given I have navigated to the view all test results screen
 When I choose a QA Test from the displayed list of tests
 Then I am redirected to the selected QA Test results for all providers page
 
-@Workitem:39522 Driver
+@Workitem:39522 Driver Smoke
 Scenario: Verify the View test results of all providers for a single test
 Given I have navigated to the view all test results screen
 And I choose a QA Test from the displayed list of tests
@@ -255,7 +255,7 @@ When I am redirected to the selected QA Test results for all providers page
 Then The name of the provider for the single test is displayed
 And the QA Test Result for the provider is displayed
 
-@Workitem:39522 Driver
+@Workitem:39522 Driver Smoke
 Scenario: Validate Selected QA Test Info on the View test results of all providers for a single test page
 Given I have navigated to the view all test results screen
 And I choose a QA Test from the displayed list of tests
@@ -294,14 +294,14 @@ When I am redirected to the selected QA Test results for all providers page
 And I decide to filter my results by using the Local Authority Filter
 Then the Provider Results list is refreshed to display only the providers that comply with the filter selected
 
-@Workitem:39523 Driver
+@Workitem:39523 Driver Smoke
 Scenario: Navigate to the View provider results for an Individual Provider Page
 Given I have navigated to the Provider results for an Individual Provider Page
 Then a tab is displayed to show the Allocation Line results
 And a tab is displayed to show the Calculation results
 And a tab is displayed to show the Test results
 
-@Workitem:39523 Driver
+@Workitem:39523 Driver Smoke
 Scenario: Verify the View provider results for an Individual Provider Page
 Given I have navigated to the Provider results for an Individual Provider Page
 Then the drop down option to select an academic year is displayed
@@ -373,14 +373,14 @@ Examples:
 	 | FY2018191	|
 
 
-@Workitem:48412 Driver
+@Workitem:48412 Driver Smoke
 Scenario: Navigate to View calculation results Page
 Given I have successfully navigated to the Home Page
 When I select View results
 And I click on the View calculation results option
 Then I am redirected to the View calculation results Page
 
-@Workitem:48412 Driver
+@Workitem:48412 Driver Smoke
 Scenario: Verify the View calculation results Page Filter options
 Given I have successfully navigated to the View Calculation Page
 Then the Search option filter is displayed correctly
@@ -411,7 +411,7 @@ When I choose to filter the results by Funding Period
 Then the calculation results are updated accordingly
 And the appropriate calculation information is displayed in the list
 
-@Workitem:48412 Driver
+@Workitem:48412 Driver Smoke
 Scenario: Filter the Displayed Calculation Results by Funding Stream
 Given I have successfully navigated to the View Calculation Page
 When I choose to filter the results by Funding Stream

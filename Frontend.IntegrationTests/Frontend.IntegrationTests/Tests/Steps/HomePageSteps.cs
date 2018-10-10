@@ -53,7 +53,6 @@ namespace Frontend.IntegrationTests
         [When(@"I select (.*)")]
         public void Iselect(string LinkOption)
         {
-            //NavigateTo.ManagetheSpecfication();
             Driver._driver.FindElement(By.LinkText(LinkOption)).Click();
             Thread.Sleep(2000);
         }

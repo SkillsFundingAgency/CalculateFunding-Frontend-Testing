@@ -348,12 +348,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             Actions.SelectCalculationStatus();
             Thread.Sleep(2000);
-            Actions.SelectCalculationYear();
-            managecalculationpage.AcademicYearDropDownDefault.Should().Equals(Actions.PeriodTextValue);
-            managecalculationpage.CalculationStatusDropDownDefault.Should().Equals(Actions.Calculationstatusvalue);
-            Actions.CalculationTotalResult();
-            Console.WriteLine("The total number of calculations listed is " + Actions.CalculationTotalValue);
-            Thread.Sleep(2000);
 
         }
 

@@ -89,11 +89,13 @@ namespace Frontend.IntegrationTests.Tests.Features
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35473)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ViewCurrentListOfCalculations()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View Current list of Calculations", new string[] {
                         "Workitem:35473",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 8
 this.ScenarioSetup(scenarioInfo);
 #line 9
@@ -113,11 +115,13 @@ testRunner.And("the page lists the most recent calculations", ((string)(null)), 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35473)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ViewEditCalculationsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View Edit Calculations Page", new string[] {
                         "Workitem:35473",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line 16
@@ -135,11 +139,13 @@ testRunner.Then("I am navigated to the Edit Calculation screen", ((string)(null)
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35473)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void CurrentListOfCalculationsPagination()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Current list of Calculations Pagination", new string[] {
                         "Workitem:35473",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 21
 this.ScenarioSetup(scenarioInfo);
 #line 22
@@ -161,11 +167,13 @@ testRunner.Then("My list refreshes to display the selected page of calculations"
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheFilterOptionsOnTheCalculationsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Filter options on the Calculations Page", new string[] {
                         "Workitem:36090",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 29
 this.ScenarioSetup(scenarioInfo);
 #line 30
@@ -191,11 +199,13 @@ testRunner.And("the filters are defaulted to show all calculations that are spec
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheCalculationsResultsDisplayedOnTheCalculationsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Calculations Results Displayed on the Calculations Page", new string[] {
                         "Workitem:36090",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 39
 this.ScenarioSetup(scenarioInfo);
 #line 40
@@ -213,11 +223,13 @@ testRunner.And("the appropriate information is displayed for each calculation", 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void SelectToFilterTheCalculationsPageByAcademicYear()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Filter the Calculations Page by Academic Year", new string[] {
                         "Workitem:36090",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 45
 this.ScenarioSetup(scenarioInfo);
 #line 46
@@ -337,11 +349,13 @@ testRunner.Then("the list view of calculations updates to display only calculati
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36090)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void DeselectFilterOptionsOnTheCalculationsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deselect Filter options on the Calculations Page", new string[] {
                         "Workitem:36090",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 80
 this.ScenarioSetup(scenarioInfo);
 #line 81
@@ -369,11 +383,13 @@ testRunner.And("the filter options are sorted in descending order by the count o
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37014)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void SelectToFilterTheCalculationsPageByTheSearchOption()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select To Filter the Calculations Page by the Search Option", new string[] {
                         "Workitem:37014",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 91
 this.ScenarioSetup(scenarioInfo);
 #line 92
@@ -427,11 +443,13 @@ testRunner.And("the previously selected filter options", ((string)(null)), ((Tec
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35457)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheEditCalculationPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Edit Calculation Page", new string[] {
                         "Workitem:35457",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 108
 this.ScenarioSetup(scenarioInfo);
 #line 109
@@ -557,11 +575,13 @@ testRunner.And("a full audit record of my calculation is created", ((string)(nul
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35460)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheCompareCalculationVersionsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Compare Calculation Versions Page", new string[] {
                         "Workitem:35460",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 153
 this.ScenarioSetup(scenarioInfo);
 #line 154
@@ -640,12 +660,14 @@ testRunner.Then("The Compare Calculations button remains disabled", ((string)(nu
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36088)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void SelectTwoPreviousCalculationCodeVersionsFromTheCompareCalculationVersionsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select Two Previous Calculation Code Versions from the Compare Calculation Versio" +
                     "ns page", new string[] {
                         "Workitem:36088",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 178
 this.ScenarioSetup(scenarioInfo);
 #line 179

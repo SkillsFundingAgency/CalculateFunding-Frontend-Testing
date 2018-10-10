@@ -56,7 +56,7 @@ Then a Page Not Found error message is played
 And a link is displayed to return to the Home page
 And a link is displayed to log a Service Desk Incident
 
-@workitem:53379 ChromeDriver
+@workitem:53379 ChromeDriver Smoke
 Scenario: Log in using AD User Authentication
 Given I have successfully navigated to the Microsoft Login page
 When I enter valid User Log in details
@@ -71,3 +71,39 @@ When I enter Invalid User Log in details
 Then I am redirected to the Department for Education sign in page
 When I enter Invalid DfE User Credentials
 Then an appropriate Incorrect user ID or passworderror message is displayed
+
+@workitem:56627 Driver
+Scenario: Select The Specification Page from the Top Navigation
+Given I have successfully navigated to the Manage Specification Page
+When I select Specifications
+Then I am redirected to the Manage Specification page
+
+@workitem:56627 Driver
+Scenario: Select the Calculations Page from the Top Navigation
+Given I have successfully navigated to the Manage Specification Page
+When I select Calculations
+Then I am redirected to the Manage Calculations page
+
+@workitem:56627 Driver
+Scenario: Select the Manage data Page from the Top Navigation
+Given I have successfully navigated to the Manage Specification Page
+When I select Manage Data
+Then I am redirected to the Manage Data page
+
+@workitem:56627 Driver
+Scenario: Select the Quality assurance tests Page from the Top Navigation
+Given I have successfully navigated to the Manage Specification Page
+When I select Quality assurance tests
+Then I am redirected to the Manage Tests page
+
+@workitem:56627 Driver
+Scenario: Select the View results Page from the Top Navigation
+Given I have successfully navigated to the Manage Specification Page
+When I select View results
+Then I am redirected to the View the Results Options page
+
+@workitem:56627 Driver
+Scenario: Select the Funding approvals Page from the Top Navigation
+Given I have successfully navigated to the Manage Specification Page
+When I select Funding approvals
+Then I am redirected to the approval options page

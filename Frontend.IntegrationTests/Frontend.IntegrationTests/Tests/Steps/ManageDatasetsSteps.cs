@@ -107,19 +107,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             managedatasetpage.manageDatasetsListView.Should().NotBeNull();
         }
 
-        [Then(@"My list is in descending order from the most recent dataset")]
-        public void ThenMyListIsInDescendingOrderFromTheMostRecentDataset()
-        {
-            IWebElement firstResultLastUpdated = managedatasetpage.manageDatasetsFirstResultLastUpdated;
-            string firstResultUpdatedDate = firstResultLastUpdated.Text;
-            DateTime firstUpdatedDate = DateTime.ParseExact(firstResultUpdatedDate, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
-            IWebElement secondResultLastUpdated = managedatasetpage.manageDatasetsSecondResultLastUpdated;
-            string secondResultUpdatedDate = secondResultLastUpdated.Text;
-            DateTime secondUpdatedDate = DateTime.ParseExact(secondResultUpdatedDate, "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture);
-            firstUpdatedDate.Should().BeAfter(secondUpdatedDate, "Dataset List is Ordered Incorrectly");
-
-        }
-
         [Then(@"the dataset name is displayed")]
         public void ThenTheDatasetNameIsDisplayed()
         {
@@ -574,9 +561,17 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine("Inital results returned for the selected year was " + initaltotal);
             ManageDatasetsSteps.totalresults = initaltotal;
 
-            var selectYear = mapdatasourcestodatasetspage.mapDataSourcesSpecficationYearDropDown;
-            var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("FY2017181");
+            var newYear = Driver._driver.FindElements(By.CssSelector("option"));
+            IWebElement newYearSelected = newYear.LastOrDefault();
+
+            if (newYearSelected != null)
+            {
+                newYearSelected.Click();
+            }
+            else
+            {
+               Assert.Inconclusive("No additional Year is available to select");
+            }
             Thread.Sleep(2000);
         }
 

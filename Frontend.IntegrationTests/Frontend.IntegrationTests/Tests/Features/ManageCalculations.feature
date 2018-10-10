@@ -4,20 +4,20 @@
 	So that I can select the calculation I want to create OR edit as well as be able to view 
 	an audit history of a specific calculation
 
-@Workitem:35473 Driver
+@Workitem:35473 Driver Smoke
 Scenario: View Current list of Calculations
 Given I have successfully navigated to the Home Page
 When I select Calculations
 Then I am redirected to the Manage Calculations page
 And the page lists the most recent calculations
 
-@Workitem:35473 Driver
+@Workitem:35473 Driver Smoke
 Scenario: View Edit Calculations Page
 Given I have navigated to the Manage Calculations page
 When I click on a calculation in the list
 Then I am navigated to the Edit Calculation screen
 
-@Workitem:35473 Driver
+@Workitem:35473 Driver Smoke
 Scenario: Current list of Calculations Pagination
 Given I have navigated to the Manage Calculations page
 When there is greater than 50 calculations
@@ -25,7 +25,7 @@ Then The the correct pagination options are displayed
 When I click a pagination option
 Then My list refreshes to display the selected page of calculations
 
-@Workitem:36090 Driver
+@Workitem:36090 Driver Smoke
 Scenario: Verify the Filter options on the Calculations Page
 Given I have navigated to the Manage Calculations page
 Then I am presented a filter option to select ONE or MORE Year
@@ -35,13 +35,13 @@ And I am presented a filter option to select ONE or MORE policy
 And I am presented a filter option to select ONE or MORE allocation lines
 And the filters are defaulted to show all calculations that are specified
 
-@Workitem:36090 Driver
+@Workitem:36090 Driver Smoke
 Scenario: Verify the Calculations Results Displayed on the Calculations Page
 Given I have navigated to the Manage Calculations page
 Then I am presented with a list of Calculation results
 And the appropriate information is displayed for each calculation
 
-@Workitem:36090 Driver
+@Workitem:36090 Driver Smoke
 Scenario: Select to Filter the Calculations Page by Academic Year
 Given I have navigated to the Manage Calculations page
 And the filters are defaulted to show all calculations that are specified
@@ -76,7 +76,7 @@ Given I have navigated to the Manage Calculations page
 When I choose to filter my list by Allocation Lines
 Then the list view of calculations updates to display only calculations for the selected Allocation Lines
 
-@Workitem:36090 Driver
+@Workitem:36090 Driver Smoke
 Scenario: Deselect Filter options on the Calculations Page
 Given I have navigated to the Manage Calculations page
 And ONE or MORE filter Options have previously been selected
@@ -87,7 +87,7 @@ And a total count of all filtered results is displayed above the list of results
 And a count of the specific filter results is displayed
 And the filter options are sorted in descending order by the count of results
 
-@Workitem:37014 Driver
+@Workitem:37014 Driver Smoke
 Scenario: Select To Filter the Calculations Page by the Search Option
 Given I have navigated to the Manage Calculations page
 And No additional filter options have been selected
@@ -104,7 +104,7 @@ And I click the search button
 Then the list view of calculations updates to display only calculations that comply with the search term entered
 And the previously selected filter options
 
-@Workitem:35457 Driver
+@Workitem:35457 Driver Smoke
 Scenario: Verify the Edit Calculation Page
 Given I have navigated to the Manage Calculations page
 And I click on a calculation in the displayed list
@@ -149,7 +149,7 @@ And I click the Save Calculation button
 And I am returned to the manage calculation page
 And a full audit record of my calculation is created
 
-@Workitem:35460 Driver
+@Workitem:35460 Driver Smoke
 Scenario: Verify the Compare Calculation Versions Page
 Given I have navigated to the Manage Calculations page
 And I click on a calculation in the displayed list
@@ -174,7 +174,7 @@ And More than one version of code has been previously saved
 When I click only one version of the calculation code
 Then The Compare Calculations button remains disabled
 
-@Workitem:36088 Driver
+@Workitem:36088 Driver Smoke
 Scenario: Select Two Previous Calculation Code Versions from the Compare Calculation Versions page
 Given I have navigated to the Compare Calculation Versions page
 And More than one version of code has been previously saved

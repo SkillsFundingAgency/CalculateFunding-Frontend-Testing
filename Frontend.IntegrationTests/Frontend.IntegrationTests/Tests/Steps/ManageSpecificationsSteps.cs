@@ -1973,7 +1973,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             string fundingstreamselected = selectfilteroption.Text;
             Console.WriteLine("Funding Stream Filter Option selected = " + fundingstreamselected);
             selectfilteroption.Click();
-            managespecficationpage.SearchSpecification.Click();
             Thread.Sleep(2000);
         }
 
@@ -1992,8 +1991,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
             string statusselected = selectfilteroption.Text;
             Console.WriteLine("Funding Stream Filter Option selected = " + statusselected);
             selectfilteroption.Click();
-            managespecficationpage.SearchSpecification.Click();
             Thread.Sleep(2000);
+
         }
 
         [Then(@"the list of specifications refreshes to display the filtered selection")]
@@ -2015,30 +2014,10 @@ namespace Frontend.IntegrationTests.Tests.Steps
             string statusselected = selectstatusfilteroption.Text;
             Console.WriteLine("Funding Stream Filter Option selected = " + statusselected);
             selectstatusfilteroption.Click();
-            managespecficationpage.SearchSpecification.Click();
             Thread.Sleep(2000);
 
-            IWebElement filterfundingstreamcontainer = managespecficationpage.SpecificationFundingStreamsFilter;
-            IWebElement fundingsteamfilter = filterfundingstreamcontainer.FindElement(By.CssSelector("button"));
-            fundingsteamfilter.Click();
-            Thread.Sleep(2000);
-            IWebElement selectfilterstreamoption = filterfundingstreamcontainer.FindElement(By.CssSelector("label"));
-            string fundingstreamselected = selectfilterstreamoption.Text;
-            Console.WriteLine("Funding Stream Filter Option selected = " + fundingstreamselected);
-            selectfilterstreamoption.Click();
-            managespecficationpage.SearchSpecification.Click();
-            Thread.Sleep(2000);
-
-            IWebElement filterfundingperiodcontainer = managespecficationpage.SpecificationFilterContainer;
-            IWebElement fundingperiodfilter = filterfundingperiodcontainer.FindElement(By.CssSelector("button"));
-            fundingperiodfilter.Click();
-            Thread.Sleep(2000);
-            IWebElement selectfilteroption = filterfundingperiodcontainer.FindElement(By.CssSelector("label"));
-            string fundingperiodselected = selectfilteroption.Text;
-            Console.WriteLine("Funding Period Filter Option selected = " + fundingperiodselected);
-            selectfilteroption.Click();
-            managespecficationpage.SearchSpecification.Click();
-            Thread.Sleep(2000);
+            IWebElement openList = Driver._driver.FindElement(By.CssSelector(".open"));
+            openList.Click();
 
             IWebElement totalListCount = managespecficationpage.SpecificationListTotalResultCount;
             string totalCount = totalListCount.Text;
