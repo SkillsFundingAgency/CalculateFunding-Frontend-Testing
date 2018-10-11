@@ -40,7 +40,7 @@ namespace Frontend.IntegrationTests.Create
 
             var selectYear = mapdatasourcestodatasetpage.mapDataSourcesSpecficationYearDropDown;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("AY2017181");
+            selectElement.SelectByValue("1819");
             Thread.Sleep(2000);
 
             mapdatasourcestodatasetpage.mapDataSourcesSearchTermField.SendKeys(specCreatedID);

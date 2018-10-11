@@ -354,6 +354,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I deselect one or more filter options")]
         public void WhenIDeselectOneOrMoreFilterOptions()
         {
+            IWebElement fundingstatusfilter = Driver._driver.FindElement(By.CssSelector(".open"));
+            fundingstatusfilter.Click();
             managecalculationpage.RemoveCalculationFilter.Click();
             Thread.Sleep(5000);
         }
