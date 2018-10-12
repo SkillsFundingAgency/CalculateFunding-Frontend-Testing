@@ -511,7 +511,7 @@ namespace Frontend.IntegrationTests
             Thread.Sleep(2000);
         }
 
-        public static void ApprovePublishFundingage()
+        public static void ApprovePublishFundingSelectionPage()
         {
             ApprovalOptionsPage approvaloptionspage = new ApprovalOptionsPage();
             HomePage homepage = new HomePage();
@@ -522,6 +522,24 @@ namespace Frontend.IntegrationTests
             approvaloptionspage.ApprovePublishFunding.Click();
             Thread.Sleep(2000);
         }
+
+        public static void ApprovePublishFundingage()
+        {
+            ApprovalOptionsPage approvaloptionspage = new ApprovalOptionsPage();
+            HomePage homepage = new HomePage();
+            ApprovePublishSelectorPage approvepublishselectorpage = new ApprovePublishSelectorPage();
+            ApprovePublishFundingPage approvepublishfundingpage = new ApprovePublishFundingPage();
+
+            homepage.Publishtheresults.Click();
+            Thread.Sleep(2000);
+            approvaloptionspage.ApprovePublishFunding.Click();
+            Thread.Sleep(2000);
+            Actions.SelectSpecificationToApprovePublish();
+            approvepublishselectorpage.approvePublishSelectorViewFundingButton.Click();
+            Thread.Sleep(40000);
+        }
+
+
     }
 }
 

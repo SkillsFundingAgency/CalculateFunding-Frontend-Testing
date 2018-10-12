@@ -1819,6 +1819,24 @@
             }
         }
 
+        public static void SelectSpecificationToApprovePublish()
+        {
+            ApprovePublishSelectorPage approvepublishselectorpage = new ApprovePublishSelectorPage();
+
+            var selectYear = approvepublishselectorpage.approvePublishSelectorFundingPeriodDropdown;
+            var selectElement = new SelectElement(selectYear);
+            selectElement.SelectByText("2018/19");
+
+            var selectSpec = approvepublishselectorpage.approvePublishSelectorSpecificationDropdown;
+            var selectSpecElement = new SelectElement(selectSpec);
+            selectSpecElement.SelectByText("Rob Test Spec S and T 7");
+
+            var selectFunding = approvepublishselectorpage.approvePublishSelectorFundingStreamsDropdown;
+            var selectFundingElement = new SelectElement(selectFunding);
+            selectFundingElement.SelectByText("DSG Allocations");
+
+        }
+
 
     }
 }

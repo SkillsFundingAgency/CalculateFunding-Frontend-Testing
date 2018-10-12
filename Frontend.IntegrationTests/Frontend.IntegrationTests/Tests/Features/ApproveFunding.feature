@@ -78,7 +78,7 @@ Examples:
 	 | FY2018191	|
 
 
-@Workitem 57915 Driver
+@Workitem 57915 Driver Smoke
 Scenario: Navigate to the Approve and publish Specification Selection Page
 Given I have successfully navigated to the Home Page
 When I select Funding approvals
@@ -86,35 +86,31 @@ Then I am redirected to the approval options page
 When I click on the Approve and publish funding Option
 Then I am redirected to the Approve and Publish Specification Selection Page
 
-@Workitem 57915 Driver
+@Workitem 57915 Driver Smoke
 Scenario: Validate the Approve and publish Specification Selection Page
 Given I have successfully navigated to the Approve and publish Specification Selection Page
-Then A Dropdown option to select Select funding period
-And 
+Then the Dropdown option to select Select funding period is Displayed
+And the Dropdown option to select Select specification is Displayed
+And the Dropdown option to select Select funding stream is Displayed
+And the option to then view funding button is displayed
+And a warning is displayed that only one funding stream can be selected
 
-@Workitem 51065 Driver
-Scenario: Navigate to the Approve and publish funding Page
-Given I have successfully navigated to the Home Page
-When I select Funding approvals
-Then I am redirected to the approval options page
-When I click on the Approve and publish funding Option
+@Workitem 57915 51065 Driver Smoke
+Scenario: Select a Specification to Approve and Publish
+Given I have successfully navigated to the Approve and publish Specification Selection Page
+When I choose a Specifcation to View the Funding for
+And I click the View Funding Button
 Then I am redirected to the Approve and publish funding Page
 
-@Workitem 51065 Driver
+@Workitem 51065 Driver Smoke
 Scenario: Validate the Approve and publish funding Page
 Given I have navigated to the Approve and publish funding Page
 Then an Approve Button is displayed and is Disabled
 And a Publish Button is displayed and is Disabled
 And a Select All Providers Tick Box is Displayed
-And a message is displayed to state that a Specification needs to be selected
 
-@Workitem 51065 Driver
-Scenario: Validate the list of Provider Infomation for a Specification Headers
-Given I have navigated to the Approve and publish funding Page
-Then an empty list of Provider Infomation for a Specification is displayed with the appropriate headers
-
-@Workitem 51065 Driver
-Scenario: Select a Choosen Specification to then display the list of Provider Infomation
+@Workitem 51065 Driver Smoke
+Scenario: The list of Provider Infomation is displayed for the Choosen Specification 
 Given I have navigated to the Approve and publish funding Page
 Then the Provider list updates to display all the provider information for the selected specification
 And the Name of the provider for the specification is displayed
@@ -125,7 +121,7 @@ And the Allocation Line Status (Published) for the specification is displayed
 And the Allocation Line Status Last Updated date for the specification is displayed
 And the Specification Funding Amount for the specification is displayed
 
-@Workitem 51065 Driver
+@Workitem 51065 Driver Smoke
 Scenario: Expand a Provider to display the related QA Test Coverage Results
 Given I have navigated to the Approve and publish funding Page
 Then the Provider list updates to display all the provider information for the selected specification
@@ -136,7 +132,6 @@ Then the QA Test Coverage information is displayed
 @Workitem 51065 Driver
 Scenario: Select All Providers to Enable the Approve and Publish Options
 Given I have navigated to the Approve and publish funding Page
-And I choose a Choosen Specification from the dropdown
 And the Provider list updates to display all the provider information for the selected specification
 When I check the Select All tick box option
 Then the Approve Button becomes enabled
@@ -144,7 +139,6 @@ Then the Approve Button becomes enabled
 @Workitem 51066 Driver
 Scenario: Expand a Provider to display the related Funding Streams
 Given I have navigated to the Approve and publish funding Page
-When I choose a Choosen Specification from the dropdown
 Then the Provider list updates to display all the provider information for the selected specification
 And an option to expand the Provider Information is displayed
 When I choose to expand the Provider information
@@ -153,7 +147,6 @@ Then the Funding Stream information is correctly displayed
 @Workitem 51066 56069 57342 Driver
 Scenario: Select a Provider Allocation Line to mark as Approved
 Given I have navigated to the Approve and publish funding Page
-When I choose a Choosen Specification from the dropdown
 Then the Provider list updates to display all the provider information for the selected specification
 When I Choose a Provider Allocation Line with a status of Held
 Then the Approve Button becomes enabled
@@ -165,7 +158,6 @@ Then the Provider Allocation Line is successfully approved
 @Workitem 51066 56069 57342 Driver
 Scenario: Select a Provider Allocation Line to mark as Published
 Given I have navigated to the Approve and publish funding Page
-When I choose a Choosen Specification from the dropdown
 Then the Provider list updates to display all the provider information for the selected specification
 When I Choose a Provider Allocation Line with a status of Approved
 Then the Publish Button becomes enabled
@@ -177,7 +169,6 @@ Then the Provider Allocation Line is successfully published
 @Workitem 51066 56069 57342 Driver
 Scenario: Select a Provider Funding Stream to mark as Approved
 Given I have navigated to the Approve and publish funding Page
-When I choose a Choosen Specification from the dropdown
 Then the Provider list updates to display all the provider information for the selected specification
 When I Choose a Provider Funding Stream with a status of Held
 Then the Approve Button becomes enabled
@@ -189,7 +180,6 @@ Then the Provider Funding Stream is successfully approved
 @Workitem 51066 56069 57342 Driver
 Scenario: Select a Provider Funding Stream to mark as Published
 Given I have navigated to the Approve and publish funding Page
-When I choose a Choosen Specification from the dropdown
 Then the Provider list updates to display all the provider information for the selected specification
 When I Choose a Provider Funding Stream with a status of Approved
 Then the Publish Button becomes enabled
@@ -201,7 +191,6 @@ Then the Provider Funding Stream is successfully published
 @Workitem 51066 56069 57342 Driver
 Scenario: Select a Provider to mark as Approved
 Given I have navigated to the Approve and publish funding Page
-When I choose a Choosen Specification from the dropdown
 Then the Provider list updates to display all the provider information for the selected specification
 When I Choose a Provider with a status of Held
 Then the Approve Button becomes enabled
@@ -213,7 +202,6 @@ Then the Provider is successfully approved
 @Workitem 51066 56069 57342 Driver
 Scenario: Select a Provider to mark as Published
 Given I have navigated to the Approve and publish funding Page
-When I choose a Choosen Specification from the dropdown
 Then the Provider list updates to display all the provider information for the selected specification
 When I Choose a Provider with a status of Approved
 Then the Publish Button becomes enabled

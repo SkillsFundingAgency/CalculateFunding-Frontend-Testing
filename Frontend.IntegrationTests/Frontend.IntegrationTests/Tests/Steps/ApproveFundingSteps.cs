@@ -423,6 +423,58 @@ namespace Frontend.IntegrationTests.Tests.Steps
             approvepublishselectorpage.approvePublishSelectorFundingPeriodDropdown.Should().NotBeNull();
         }
 
+        [Given(@"I have successfully navigated to the Approve and publish Specification Selection Page")]
+        public void GivenIHaveSuccessfullyNavigatedToTheApproveAndPublishSpecificationSelectionPage()
+        {
+            NavigateTo.ApprovePublishFundingSelectionPage();
+        }
+
+        [Then(@"the Dropdown option to select Select funding period is Displayed")]
+        public void ThenTheDropdownOptionToSelectSelectFundingPeriodIsDisplayed()
+        {
+            approvepublishselectorpage.approvePublishSelectorFundingPeriodDropdown.Should().NotBeNull();
+        }
+
+        [Then(@"the Dropdown option to select Select specification is Displayed")]
+        public void ThenTheDropdownOptionToSelectSelectSpecificationIsDisplayed()
+        {
+            approvepublishselectorpage.approvePublishSelectorSpecificationDropdown.Should().NotBeNull();
+        }
+
+        [Then(@"the Dropdown option to select Select funding stream is Displayed")]
+        public void ThenTheDropdownOptionToSelectSelectFundingStreamIsDisplayed()
+        {
+            approvepublishselectorpage.approvePublishSelectorFundingStreamsDropdown.Should().NotBeNull();
+        }
+        
+        [Then(@"the option to then view funding button is displayed")]
+        public void ThenTheOptionToThenViewFundingButtonIsDisplayed()
+        {
+            approvepublishselectorpage.approvePublishSelectorViewFundingButton.Should().NotBeNull();
+        }
+
+        [Then(@"a warning is displayed that only one funding stream can be selected")]
+        public void ThenAWarningIsDisplayedThatOnlyOneFundingStreamCanBeSelected()
+        {
+            IWebElement warning = approvepublishselectorpage.approvePublishSelectorWarning;
+            warning.Should().NotBeNull();
+            string warningText = warning.Text;
+            Console.WriteLine(warningText);
+        }
+
+        [When(@"I choose a Specifcation to View the Funding for")]
+        public void WhenIChooseASpecifcationToViewTheFundingFor()
+        {
+            Actions.SelectSpecificationToApprovePublish();
+            
+        }
+
+        [When(@"I click the View Funding Button")]
+        public void WhenIClickTheViewFundingButton()
+        {
+            approvepublishselectorpage.approvePublishSelectorViewFundingButton.Click();
+            Thread.Sleep(10000);
+        }
 
 
         [Then(@"I am redirected to the Approve and publish funding Page")]
@@ -460,65 +512,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             approvepublishfundingpage.approvePublishFundingSelectAll.Should().NotBeNull();
         }
-
-        [Then(@"a message is displayed to state that a Specification needs to be selected")]
-        public void ThenAMessageIsDisplayedToStateThatASpecificationNeedsToBeSelected()
-        {
-            IWebElement noResults = approvepublishfundingpage.approvePublishFundingNoResultsPanel;
-            noResults.Should().NotBeNull();
-            string noResultsMessage = noResults.Text;
-            Console.WriteLine("The following No Results message was correctly displayed: " + noResultsMessage);
-        }
-
-        [Then(@"an empty list of Provider Infomation for a Specification is displayed with the appropriate headers")]
-        public void ThenAnEmptyListOfProviderInfomationForASpecificationIsDisplayedWithTheAppropriateHeaders()
-        {
-            IWebElement headers = approvepublishfundingpage.approvePublishFundingProviderHeaders;
-            string headerText = headers.Text;
-            Console.WriteLine("The Headers displayed for the table are: " + headerText);
-        }
-
-        [When(@"I choose a Choosen Specification from the dropdown")]
-        public void WhenIChooseAChoosenSpecificationFromTheDropdown()
-        {
-            var containerElements = approvepublishfundingpage.approvePublishFundingSpecDropdown;
-            IWebElement SelectFirstSpec = null;
-            if (containerElements != null)
-            {
-                var options = containerElements.FindElements(By.TagName("option"));
-                foreach (var optionelement in options)
-                {
-                    if (optionelement != null)
-                    {
-                        if (optionelement.Text.Contains("Test Spec Name"))
-                        {
-
-                            SelectFirstSpec = optionelement;
-
-                            break;
-                        }
-
-                    }
-                }
-                Thread.Sleep(1000);
-                if (SelectFirstSpec != null)
-                {
-                    string specSelected = SelectFirstSpec.Text;
-                    Console.WriteLine("Specification Selected: " + specSelected);
-                    SelectFirstSpec.Click();
-                    Thread.Sleep(5000);
-                }
-                else
-                {
-                    SelectFirstSpec.Should().NotBeNull("No Specification could be successfully selected");
-                }
-            }
-            else
-            {
-                SelectFirstSpec.Should().NotBeNull("No Specification was available to select");
-            }
-        }
-
+        
         [Then(@"the Provider list updates to display all the provider information for the selected specification")]
         public void ThenTheProviderListUpdatesToDisplayAllTheProviderInformationForTheSelectedSpecification()
         {
@@ -608,47 +602,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             qaTestInfo.Should().NotBeNull();
             string qaTestResults = qaTestInfo.Text;
             Console.WriteLine("The First Provder QA Test Coverage results are: " + qaTestResults);
-        }
-
-        [Given(@"I choose a Choosen Specification from the dropdown")]
-        public void GivenIChooseAChoosenSpecificationFromTheDropdown()
-        {
-            var containerElements = approvepublishfundingpage.approvePublishFundingSpecDropdown;
-            IWebElement SelectFirstSpec = null;
-            if (containerElements != null)
-            {
-                var options = containerElements.FindElements(By.TagName("option"));
-                foreach (var optionelement in options)
-                {
-                    if (optionelement != null)
-                    {
-                        if (optionelement.Text.Contains("Test Spec Name"))
-                        {
-
-                            SelectFirstSpec = optionelement;
-
-                            break;
-                        }
-
-                    }
-                }
-                Thread.Sleep(1000);
-                if (SelectFirstSpec != null)
-                {
-                    string specSelected = SelectFirstSpec.Text;
-                    Console.WriteLine("Specification Selected: " + specSelected);
-                    SelectFirstSpec.Click();
-                    Thread.Sleep(5000);
-                }
-                else
-                {
-                    SelectFirstSpec.Should().NotBeNull("No Specification could be successfully selected");
-                }
-            }
-            else
-            {
-                SelectFirstSpec.Should().NotBeNull("No Specification was available to select");
-            }
         }
 
         [Given(@"the Provider list updates to display all the provider information for the selected specification")]
