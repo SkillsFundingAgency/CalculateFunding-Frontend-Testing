@@ -3,7 +3,7 @@ As an overseer I need to be able to see the previously approved specifications w
 for a given funding period and funding stream so that I can make a decision to choose a specification 
 that I want to take forward as the funding methodology for a given funding period and funding stream.
 
-@Workitem 51062 Driver
+@Workitem 51062 Driver Smoke
 Scenario: Navigate to the Choose Funding Specification Page
 Given I have successfully navigated to the Home Page
 When I select Funding approvals
@@ -11,7 +11,7 @@ Then I am redirected to the approval options page
 When I click on the Choose Funding Specification Option
 Then I am redirected to the Choose Funding Specification Page
 
-@Workitem 51062 Driver
+@Workitem 51062 Driver Smoke
 Scenario: Validate the Choose Funding Specification Page Filter options
 Given I have navigated to the Choose Funding Specification Page
 Then an option to filter the results by Funding Period is displayed
@@ -19,12 +19,12 @@ And the default Period is selected
 And an option to select a Funding Stream is displayed
 And a message is displayed instructing the User to select a Funding Stream
 
-@Workitem 51062 Driver
+@Workitem 51062 Driver Smoke
 Scenario: Validate the list of approved or updated specifications Headers
 Given I have navigated to the Choose Funding Specification Page
 Then an empty list of approved or updated specifications is displayed with the appropriate headers
 
-@Workitem 51062 Driver
+@Workitem 51062 Driver Smoke
 Scenario: Select a Funding Stream to display the list of approved or updated specifications
 Given I have navigated to the Choose Funding Specification Page
 When I choose a funding stream from the drop down option
@@ -77,6 +77,21 @@ Examples:
 	 | FY2017181	|
 	 | FY2018191	|
 
+
+@Workitem 57915 Driver
+Scenario: Navigate to the Approve and publish Specification Selection Page
+Given I have successfully navigated to the Home Page
+When I select Funding approvals
+Then I am redirected to the approval options page
+When I click on the Approve and publish funding Option
+Then I am redirected to the Approve and Publish Specification Selection Page
+
+@Workitem 57915 Driver
+Scenario: Validate the Approve and publish Specification Selection Page
+Given I have successfully navigated to the Approve and publish Specification Selection Page
+Then A Dropdown option to select Select funding period
+And 
+
 @Workitem 51065 Driver
 Scenario: Navigate to the Approve and publish funding Page
 Given I have successfully navigated to the Home Page
@@ -88,8 +103,7 @@ Then I am redirected to the Approve and publish funding Page
 @Workitem 51065 Driver
 Scenario: Validate the Approve and publish funding Page
 Given I have navigated to the Approve and publish funding Page
-Then a dropdown option is displayed to select a Specification
-And an Approve Button is displayed and is Disabled
+Then an Approve Button is displayed and is Disabled
 And a Publish Button is displayed and is Disabled
 And a Select All Providers Tick Box is Displayed
 And a message is displayed to state that a Specification needs to be selected
@@ -102,7 +116,6 @@ Then an empty list of Provider Infomation for a Specification is displayed with 
 @Workitem 51065 Driver
 Scenario: Select a Choosen Specification to then display the list of Provider Infomation
 Given I have navigated to the Approve and publish funding Page
-When I choose a Choosen Specification from the dropdown
 Then the Provider list updates to display all the provider information for the selected specification
 And the Name of the provider for the specification is displayed
 And the UKPRN of the provider for the specification is displayed
@@ -115,7 +128,6 @@ And the Specification Funding Amount for the specification is displayed
 @Workitem 51065 Driver
 Scenario: Expand a Provider to display the related QA Test Coverage Results
 Given I have navigated to the Approve and publish funding Page
-When I choose a Choosen Specification from the dropdown
 Then the Provider list updates to display all the provider information for the selected specification
 And an option to expand the Provider Information is displayed
 When I choose to expand the Provider information

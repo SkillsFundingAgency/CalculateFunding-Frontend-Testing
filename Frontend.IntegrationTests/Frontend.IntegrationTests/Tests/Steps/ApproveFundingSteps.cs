@@ -33,7 +33,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         ConfirmChoosenSpecificationPage confirmchoosenspecificationpage = new ConfirmChoosenSpecificationPage();
         ConfirmApprovalPage confirmapprovalpage = new ConfirmApprovalPage();
         ConfirmPublishPage confirmpublishpage = new ConfirmPublishPage();
-
+        ApprovePublishSelectorPage approvepublishselectorpage = new ApprovePublishSelectorPage();
 
         [When(@"I click on the Choose Funding Specification Option")]
         public void WhenIClickOnTheChooseFunidngSpecificationOption()
@@ -416,10 +416,19 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+
+        [Then(@"I am redirected to the Approve and Publish Specification Selection Page")]
+        public void ThenIAmRedirectedToTheApproveAndPublishSpecificationSelectionPage()
+        {
+            approvepublishselectorpage.approvePublishSelectorFundingPeriodDropdown.Should().NotBeNull();
+        }
+
+
+
         [Then(@"I am redirected to the Approve and publish funding Page")]
         public void ThenIAmRedirectedToTheApproveAndPublishFundingPage()
         {
-            approvepublishfundingpage.approvePublishFundingSpecDropdown.Should().NotBeNull();
+            approvepublishfundingpage.approvePublishFundingApprove.Should().NotBeNull();
         }
 
         [Given(@"I have navigated to the Approve and publish funding Page")]
@@ -429,11 +438,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
-        [Then(@"a dropdown option is displayed to select a Specification")]
-        public void ThenADropdownOptionIsDisplayedToSelectASpecification()
-        {
-            approvepublishfundingpage.approvePublishFundingSpecDropdown.Should().NotBeNull();
-        }
 
         [Then(@"an Approve Button is displayed and is Disabled")]
         public void ThenAnApproveButtonIsDisplayedAndIsDisabled()
