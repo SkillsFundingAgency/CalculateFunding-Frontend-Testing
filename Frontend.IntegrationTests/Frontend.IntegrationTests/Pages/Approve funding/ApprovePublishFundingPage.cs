@@ -11,8 +11,8 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
             PageFactory.InitElements(Driver._driver, this);
         }
 
-        [FindsBy(How = How.Id, Using = "specificationId")]
-        public IWebElement approvePublishFundingSpecDropdown { get; set; }
+        [FindsBy(How = How.CssSelector, Using = ".refresh-btn")]
+        public IWebElement approvePublishFundingRefreshButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".noresults-panel")]
         public IWebElement approvePublishFundingNoResultsPanel { get; set; }
@@ -70,8 +70,13 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
 
         [FindsBy(How = How.CssSelector, Using = ".notification-panel-text")]
         public IWebElement approvePublishFundingNotificationPanel { get; set; }
-
         
+        [FindsBy(How = How.CssSelector, Using = "div.notification-panel-summary")]
+        public IWebElement approvePublishFundingRefreshNotificationPanel { get; set; }
+
+
+
+
 
 
 

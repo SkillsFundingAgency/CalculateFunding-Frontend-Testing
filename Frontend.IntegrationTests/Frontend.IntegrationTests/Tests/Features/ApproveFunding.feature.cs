@@ -480,6 +480,7 @@ testRunner.Then("I am redirected to the Approve and publish funding Page", ((str
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51065")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("57158")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ValidateTheApproveAndPublishFundingPage()
@@ -487,6 +488,7 @@ testRunner.Then("I am redirected to the Approve and publish funding Page", ((str
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Approve and publish funding Page", new string[] {
                         "Workitem",
                         "51065",
+                        "57158",
                         "Driver",
                         "Smoke"});
 #line 106
@@ -499,6 +501,8 @@ testRunner.Then("an Approve Button is displayed and is Disabled", ((string)(null
 testRunner.And("a Publish Button is displayed and is Disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 110
 testRunner.And("a Select All Providers Tick Box is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 111
+testRunner.And("a Refresh Funding Button is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -517,26 +521,26 @@ testRunner.And("a Select All Providers Tick Box is Displayed", ((string)(null)),
                         "51065",
                         "Driver",
                         "Smoke"});
-#line 113
-this.ScenarioSetup(scenarioInfo);
 #line 114
-testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 115
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 116
 testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
                     "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 116
-testRunner.And("the Name of the provider for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 117
-testRunner.And("the UKPRN of the provider for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the Name of the provider for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 118
-testRunner.And("the Allocation Line Status (Held) for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the UKPRN of the provider for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 119
-testRunner.And("the Allocation Line Status (Approved) for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the Allocation Line Status (Held) for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 120
-testRunner.And("the Allocation Line Status (Published) for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the Allocation Line Status (Approved) for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 121
-testRunner.And("the Allocation Line Status Last Updated date for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the Allocation Line Status (Published) for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 122
+testRunner.And("the Allocation Line Status Last Updated date for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 123
 testRunner.And("the Specification Funding Amount for the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -556,18 +560,18 @@ testRunner.And("the Specification Funding Amount for the specification is displa
                         "51065",
                         "Driver",
                         "Smoke"});
-#line 125
-this.ScenarioSetup(scenarioInfo);
 #line 126
-testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 127
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 128
 testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
                     "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 128
-testRunner.And("an option to expand the Provider Information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 129
-testRunner.When("I choose to expand the Provider information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("an option to expand the Provider Information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 130
+testRunner.When("I choose to expand the Provider information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 131
 testRunner.Then("the QA Test Coverage information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -585,16 +589,16 @@ testRunner.Then("the QA Test Coverage information is displayed", ((string)(null)
                         "Workitem",
                         "51065",
                         "Driver"});
-#line 133
-this.ScenarioSetup(scenarioInfo);
 #line 134
-testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 135
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 136
 testRunner.And("the Provider list updates to display all the provider information for the selecte" +
                     "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 136
-testRunner.When("I check the Select All tick box option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 137
+testRunner.When("I check the Select All tick box option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 138
 testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -612,18 +616,18 @@ testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTa
                         "Workitem",
                         "51066",
                         "Driver"});
-#line 140
-this.ScenarioSetup(scenarioInfo);
 #line 141
-testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 142
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 143
 testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
                     "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 143
-testRunner.And("an option to expand the Provider Information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 144
-testRunner.When("I choose to expand the Provider information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("an option to expand the Provider Information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 145
+testRunner.When("I choose to expand the Provider information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 146
 testRunner.Then("the Funding Stream information is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -645,24 +649,24 @@ testRunner.Then("the Funding Stream information is correctly displayed", ((strin
                         "56069",
                         "57342",
                         "Driver"});
-#line 148
-this.ScenarioSetup(scenarioInfo);
 #line 149
-testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 150
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 151
 testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
                     "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 151
-testRunner.When("I Choose a Provider Allocation Line with a status of Held", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 152
-testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I Choose a Provider Allocation Line with a status of Held", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 153
-testRunner.When("I click on the Approve Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 154
-testRunner.Then("I am redirected to the Confirm Approval Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I click on the Approve Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 155
-testRunner.When("I click on the Confirm Approval Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("I am redirected to the Confirm Approval Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 156
+testRunner.When("I click on the Confirm Approval Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 157
 testRunner.Then("the Provider Allocation Line is successfully approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -684,24 +688,24 @@ testRunner.Then("the Provider Allocation Line is successfully approved", ((strin
                         "56069",
                         "57342",
                         "Driver"});
-#line 159
-this.ScenarioSetup(scenarioInfo);
 #line 160
-testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 161
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 162
 testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
                     "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 162
-testRunner.When("I Choose a Provider Allocation Line with a status of Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 163
-testRunner.Then("the Publish Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I Choose a Provider Allocation Line with a status of Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 164
-testRunner.When("I click on the Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("the Publish Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 165
-testRunner.Then("I am redirected to the Confirm Publish Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I click on the Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 166
-testRunner.When("I click on the Confirm Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("I am redirected to the Confirm Publish Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 167
+testRunner.When("I click on the Confirm Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 168
 testRunner.Then("the Provider Allocation Line is successfully published", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -723,24 +727,24 @@ testRunner.Then("the Provider Allocation Line is successfully published", ((stri
                         "56069",
                         "57342",
                         "Driver"});
-#line 170
-this.ScenarioSetup(scenarioInfo);
 #line 171
-testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 172
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 173
 testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
                     "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 173
-testRunner.When("I Choose a Provider Funding Stream with a status of Held", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 174
-testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I Choose a Provider Funding Stream with a status of Held", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 175
-testRunner.When("I click on the Approve Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 176
-testRunner.Then("I am redirected to the Confirm Approval Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I click on the Approve Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 177
-testRunner.When("I click on the Confirm Approval Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("I am redirected to the Confirm Approval Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 178
+testRunner.When("I click on the Confirm Approval Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 179
 testRunner.Then("the Provider Funding Stream is successfully approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -762,24 +766,24 @@ testRunner.Then("the Provider Funding Stream is successfully approved", ((string
                         "56069",
                         "57342",
                         "Driver"});
-#line 181
-this.ScenarioSetup(scenarioInfo);
 #line 182
-testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 183
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 184
 testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
                     "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 184
-testRunner.When("I Choose a Provider Funding Stream with a status of Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 185
-testRunner.Then("the Publish Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I Choose a Provider Funding Stream with a status of Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 186
-testRunner.When("I click on the Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("the Publish Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 187
-testRunner.Then("I am redirected to the Confirm Publish Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I click on the Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 188
-testRunner.When("I click on the Confirm Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("I am redirected to the Confirm Publish Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 189
+testRunner.When("I click on the Confirm Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 190
 testRunner.Then("the Provider Funding Stream is successfully published", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -801,24 +805,24 @@ testRunner.Then("the Provider Funding Stream is successfully published", ((strin
                         "56069",
                         "57342",
                         "Driver"});
-#line 192
-this.ScenarioSetup(scenarioInfo);
 #line 193
-testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 194
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 195
 testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
                     "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 195
-testRunner.When("I Choose a Provider with a status of Held", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 196
-testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I Choose a Provider with a status of Held", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 197
-testRunner.When("I click on the Approve Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 198
-testRunner.Then("I am redirected to the Confirm Approval Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I click on the Approve Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 199
-testRunner.When("I click on the Confirm Approval Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("I am redirected to the Confirm Approval Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 200
+testRunner.When("I click on the Confirm Approval Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 201
 testRunner.Then("the Provider is successfully approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -840,25 +844,52 @@ testRunner.Then("the Provider is successfully approved", ((string)(null)), ((Tec
                         "56069",
                         "57342",
                         "Driver"});
-#line 203
-this.ScenarioSetup(scenarioInfo);
 #line 204
-testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 205
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 206
 testRunner.Then("the Provider list updates to display all the provider information for the selecte" +
                     "d specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 206
-testRunner.When("I Choose a Provider with a status of Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 207
-testRunner.Then("the Publish Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I Choose a Provider with a status of Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 208
-testRunner.When("I click on the Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("the Publish Button becomes enabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 209
-testRunner.Then("I am redirected to the Confirm Publish Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I click on the Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 210
-testRunner.When("I click on the Confirm Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Then("I am redirected to the Confirm Publish Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 211
+testRunner.When("I click on the Confirm Publish Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 212
 testRunner.Then("the Provider is successfully published", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Refresh Funding option on the Approve and publish funding Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("57158")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void SelectTheRefreshFundingOptionOnTheApproveAndPublishFundingPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the Refresh Funding option on the Approve and publish funding Page", new string[] {
+                        "Workitem",
+                        "57158",
+                        "Driver"});
+#line 215
+this.ScenarioSetup(scenarioInfo);
+#line 216
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 217
+testRunner.When("I click the Refresh Funding Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 218
+testRunner.Then("the approve and Published page refreshes the funding for all providers based on a" +
+                    "ny Calculation or data changes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 219
+testRunner.And("a Validation Update message is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -875,28 +906,28 @@ testRunner.Then("the Provider is successfully published", ((string)(null)), ((Te
                         "Workitem",
                         "51064",
                         "Driver"});
-#line 214
+#line 222
 this.ScenarioSetup(scenarioInfo);
-#line 215
+#line 223
 testRunner.Given("I have navigated to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 216
+#line 224
 testRunner.When("there is an availabe Funding Stream to Choose", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 217
+#line 225
 testRunner.And("I click on the selected Specification Choose Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 218
+#line 226
 testRunner.Then("I am redirected to the Confirmation to chose a specification for a funding stream" +
                     " and period page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 219
+#line 227
 testRunner.And("I am presented with the name of the specification I have selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 220
+#line 228
 testRunner.And("I am presented with the funding period and the funding streams for the selected s" +
                     "pecification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 221
+#line 229
 testRunner.And("I am presented with a message explaining the consequences if were to choose the s" +
                     "elected specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 222
+#line 230
 testRunner.And("I am presented with an option choose the selected specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 223
+#line 231
 testRunner.And("I am presented with an option to cancel choosing the selected specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -914,20 +945,20 @@ testRunner.And("I am presented with an option to cancel choosing the selected sp
                         "Workitem",
                         "51064",
                         "Driver"});
-#line 226
+#line 234
 this.ScenarioSetup(scenarioInfo);
-#line 227
+#line 235
 testRunner.Given("I have navigated to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 228
+#line 236
 testRunner.When("there is an availabe Funding Stream to Choose", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 229
+#line 237
 testRunner.And("I click on the selected Specification Choose Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 230
+#line 238
 testRunner.Then("I am redirected to the Confirmation to chose a specification for a funding stream" +
                     " and period page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 231
+#line 239
 testRunner.When("I click on the Back do not choose option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 232
+#line 240
 testRunner.Then("I am redirected to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -945,15 +976,15 @@ testRunner.Then("I am redirected to the Choose Funding Specification Page", ((st
                         "Workitem",
                         "51064",
                         "Driver"});
-#line 235
+#line 243
 this.ScenarioSetup(scenarioInfo);
-#line 236
+#line 244
 testRunner.Given("I have navigated to the Choose Funding Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 237
+#line 245
 testRunner.When("there is a previously Choosen Funding Stream available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 238
+#line 246
 testRunner.And("I click on the selected Specification View Funding option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 239
+#line 247
 testRunner.Then("I am redirected to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

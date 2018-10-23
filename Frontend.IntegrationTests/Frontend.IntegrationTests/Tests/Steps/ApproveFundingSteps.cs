@@ -512,7 +512,14 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             approvepublishfundingpage.approvePublishFundingSelectAll.Should().NotBeNull();
         }
-        
+
+        [Then(@"a Refresh Funding Button is displayed")]
+        public void ThenARefreshFundingButtonIsDisplayed()
+        {
+            approvepublishfundingpage.approvePublishFundingRefreshButton.Should().NotBeNull();
+        }
+
+
         [Then(@"the Provider list updates to display all the provider information for the selected specification")]
         public void ThenTheProviderListUpdatesToDisplayAllTheProviderInformationForTheSelectedSpecification()
         {
@@ -784,6 +791,28 @@ namespace Frontend.IntegrationTests.Tests.Steps
             string publishSuccessfullyText = publishNotification.Text;
 
             Console.WriteLine(publishSuccessfullyText);
+        }
+
+        [When(@"I click the Refresh Funding Button")]
+        public void WhenIClickTheRefreshFundingButton()
+        {
+            approvepublishfundingpage.approvePublishFundingRefreshButton.Should().NotBeNull();
+            approvepublishfundingpage.approvePublishFundingRefreshButton.Click();
+            Thread.Sleep(60000);
+        }
+
+        [Then(@"the approve and Published page refreshes the funding for all providers based on any Calculation or data changes")]
+        public void ThenTheApproveAndPublishedPageRefreshesTheFundingForAllProvidersBasedOnAnyCalculationOrDataChanges()
+        {
+            approvepublishfundingpage.approvePublishFundingRefreshNotificationPanel.Should().NotBeNull();
+        }
+
+        [Then(@"a Validation Update message is displayed correctly")]
+        public void ThenAValidationUpdateMessageIsDisplayedCorrectly()
+        {
+            IWebElement refreshUpdateNotification = approvepublishfundingpage.approvePublishFundingRefreshNotificationPanel;
+            string refreshUpdateText = refreshUpdateNotification.Text;
+            Console.WriteLine("Refresh Notification Text displayed: " + refreshUpdateText);
         }
 
         [When(@"I choose a Funding Stream added to the Approved Specification")]

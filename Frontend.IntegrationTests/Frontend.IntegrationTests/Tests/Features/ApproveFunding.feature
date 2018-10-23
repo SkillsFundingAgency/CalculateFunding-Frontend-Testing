@@ -102,12 +102,13 @@ When I choose a Specifcation to View the Funding for
 And I click the View Funding Button
 Then I am redirected to the Approve and publish funding Page
 
-@Workitem 51065 Driver Smoke
+@Workitem 51065 57158 Driver Smoke
 Scenario: Validate the Approve and publish funding Page
 Given I have navigated to the Approve and publish funding Page
 Then an Approve Button is displayed and is Disabled
 And a Publish Button is displayed and is Disabled
 And a Select All Providers Tick Box is Displayed
+And a Refresh Funding Button is displayed
 
 @Workitem 51065 Driver Smoke
 Scenario: The list of Provider Infomation is displayed for the Choosen Specification 
@@ -209,6 +210,13 @@ When I click on the Publish Button
 Then I am redirected to the Confirm Publish Page
 When I click on the Confirm Publish Button
 Then the Provider is successfully published
+
+@Workitem 57158 Driver
+Scenario: Select the Refresh Funding option on the Approve and publish funding Page
+Given I have navigated to the Approve and publish funding Page
+When I click the Refresh Funding Button
+Then the approve and Published page refreshes the funding for all providers based on any Calculation or data changes
+And a Validation Update message is displayed correctly
 
 @Workitem 51064 Driver
 Scenario: Select the Choose Action for an Approved Specification
