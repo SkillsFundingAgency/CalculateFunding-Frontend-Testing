@@ -1105,12 +1105,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I decide to filter my results by using the Provider Sub Type Filter")]
         public void WhenIDecideToFilterMyResultsByUsingTheProviderSubTypeFilter()
         {
-            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
-            string totalPageResultCount = testresultsalltotalResultCount.Text;
-            int totalPageCount = int.Parse(totalPageResultCount);
-            Console.WriteLine("The Total results returned is " + totalPageCount);
-            ScenarioContext.Current["totalResults"] = totalPageResultCount;
-
             IWebElement selectProviderSubDropdown = viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType;
             selectProviderSubDropdown.Click();
             var selectProviderSubOption = Driver._driver.FindElements(By.CssSelector(".open > ul > li"));
@@ -1134,13 +1128,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         [When(@"I decide to filter my results by using the Local Authority Filter")]
         public void WhenIDecideToFilterMyResultsByUsingTheLocalAuthorityFilter()
-        {
-            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
-            string totalPageResultCount = testresultsalltotalResultCount.Text;
-            int totalPageCount = int.Parse(totalPageResultCount);
-            Console.WriteLine("The Total results returned is " + totalPageCount);
-            ScenarioContext.Current["totalResults"] = totalPageResultCount;
-
+        {            
             IWebElement selectLocalAuthDropdown = viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType;
             selectLocalAuthDropdown.Click();
             var selectLocalAuthOption = Driver._driver.FindElements(By.CssSelector(".open > ul > li"));
@@ -1539,8 +1527,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine("Funding Stream Filter Option selected = " + providertypeselected);
             selectfilteroption.Click();
             Thread.Sleep(2000);
-            fundingstreamfilter.Click();
-            Thread.Sleep(2000);
+    
         }
 
         [When(@"I choose to filter the results by Spec Name")]

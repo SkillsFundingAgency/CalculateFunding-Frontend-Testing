@@ -31,18 +31,28 @@ namespace Frontend.IntegrationTests
         TestScenarioListPage testscenariolistpage = new TestScenarioListPage();
         ApprovalOptionsPage approvaloptionspage = new ApprovalOptionsPage();
         HomePage homepage = new HomePage();
+        MSDfESignInPage msdfesigninpage = new MSDfESignInPage();
+        DfESignInPage dfesigninpage = new DfESignInPage();
+
+        public static string TestUserMe = "richard.wilson@education.gov.uk";
+        public static string TestPwMe = "Joanne1976$02";
+        public static string InvalidUser = "invalid@education.gov.uk";
+        public static string InvalidPw = "passwordinvalid";
 
         [Given(@"I have successfully navigated to the Home Page")]
         public void IhavesuccessfullynavigatedtotheHomePage()
         {
             //Driver is initiated within the Feature Sceanrio
             Thread.Sleep(1000);
+            homepage.userContainer.Should().NotBeNull();
+            IWebElement user = homepage.userContainer;
+            string userName = user.Text;
+            Console.WriteLine("Successfully Logged in as User " + userName);
         }
 
         [When(@"I select (.*)")]
         public void Iselect(string LinkOption)
         {
-            //NavigateTo.ManagetheSpecfication();
             Driver._driver.FindElement(By.LinkText(LinkOption)).Click();
             Thread.Sleep(2000);
         }
@@ -145,15 +155,13 @@ namespace Frontend.IntegrationTests
         [When(@"I update the URL to an incorrect end point")]
         public void WhenIUpdateTheURLToAnIncorrectEndPoint()
         {
-            Driver._driver.Navigate().GoToUrl("https://esfacfsftest-web.azurewebsites.net/spec");
+            Driver._driver.Navigate().GoToUrl("https://te.calculate-funding.education.gov.uk/spec");
             Thread.Sleep(2000);
         }
 
         [Then(@"a Page Not Found error message is played")]
         public void ThenAPageNotFoundErrorMessageIsPlayed()
         {
-            string currentURL = Driver._driver.Url;
-            currentURL.Should().Be("https://esfacfsftest-web.azurewebsites.net/errors/404", "Page Not Found Error page was not returned");
             IWebElement pageNotFoundError = Driver._driver.FindElement(By.CssSelector(".heading-large"));
             string errorText = pageNotFoundError.Text;
             Console.WriteLine("Error displayed: " + errorText);
@@ -173,6 +181,76 @@ namespace Frontend.IntegrationTests
             IWebElement logIncidentLink = Driver._driver.FindElement(By.LinkText("Log an incident"));
             logIncidentLink.Should().NotBeNull();
         }
+
+        [Given(@"I have successfully navigated to the Microsoft Login page")]
+        public void GivenIHaveSuccessfullyNavigatedToTheMicrosoftLoginPage()
+        {
+            msdfesigninpage.msUserInput.Should().NotBeNull();
+        }
+
+        [When(@"I enter valid User Log in details")]
+        public void WhenIEnterValidUserLogInDetails()
+        {
+            msdfesigninpage.msUserInput.SendKeys(TestUserMe);
+            msdfesigninpage.msUserNext.Click();
+            Thread.Sleep(6000);
+            
+        }
+
+        [Then(@"I am redirected to the Department for Education sign in page")]
+        public void ThenIAmRedirectedToTheDepartmentForEducationSignInPage()
+        {
+            dfesigninpage.userNameInput.Should().NotBeNull();
+            
+        }
+
+        [When(@"I enter valid DfE User Credentials")]
+        public void WhenIEnterValidDfEUserCredentials()
+        {
+            dfesigninpage.userNameInput.Clear();
+            dfesigninpage.userNameInput.SendKeys(TestUserMe);
+            dfesigninpage.passwordInput.SendKeys(TestPwMe);
+            dfesigninpage.submitButton.Click();
+            Thread.Sleep(6000);
+        }
+
+        [Then(@"I am redirected to the Home Page")]
+        public void ThenIAmRedirectedToTheHomePage()
+        {
+            homepage.userContainer.Should().NotBeNull();
+            IWebElement user = homepage.userContainer;
+            string userName = user.Text;
+            Console.WriteLine("Successfully Logged in as User " + userName);
+        }
+
+        [When(@"I enter Invalid User Log in details")]
+        public void WhenIEnterInvalidUserLogInDetails()
+        {
+            msdfesigninpage.msUserInput.SendKeys(InvalidUser);
+            msdfesigninpage.msUserNext.Click();
+            Thread.Sleep(6000);
+        }
+
+        [When(@"I enter Invalid DfE User Credentials")]
+        public void WhenIEnterInvalidDfEUserCredentials()
+        {
+            dfesigninpage.userNameInput.Clear();
+            dfesigninpage.userNameInput.SendKeys(InvalidUser);
+            dfesigninpage.passwordInput.SendKeys(InvalidPw);
+            dfesigninpage.submitButton.Click();
+            Thread.Sleep(6000);
+        }
+
+        [Then(@"an appropriate Incorrect user ID or passworderror message is displayed")]
+        public void ThenAnAppropriateIncorrectUserIDOrPassworderrorMessageIsDisplayed()
+        {
+            IWebElement error = dfesigninpage.loginError;
+            error.Should().NotBeNull();
+            string errorText = error.Text;
+            Console.WriteLine(errorText);
+
+        }
+
 
         [AfterScenario()]
         public void FixtureTearDown()

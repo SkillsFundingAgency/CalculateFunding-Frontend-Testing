@@ -3,7 +3,7 @@
 	Specifications that have already been created as well as edit an existing 
 	specification OR create a new specification
 
-@Workitem:35394 Driver
+@Workitem:35394 Driver Smoke
 Scenario: View Current list of Specifications
 Given I have successfully navigated to the Home Page
 When I select Specifications
@@ -11,7 +11,7 @@ Then I am redirected to the Manage Specification page
 And The Default Specification Year is displayed correctly
 And A list of Specifications is displayed for the default year
 
-@Workitem:35394 49352 Driver
+@Workitem:35394 49352 Driver Smoke
 Scenario: Change Current list of Specifications by Year
 Given I have successfully navigated to the Manage Specification Page
 When I change the Select A Year drop down to a different year
@@ -318,7 +318,7 @@ And I am redirected to the DataSet page
 Then the new dataset has been saved and displayed correctly
 And No alert about provider datasets is displayed
 
-@Workitem:49358 58413 FFDriver
+@Workitem:49358 58413 Driver
 Scenario: Create and Save a new Specification with 2 Funding Streams selected
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -330,7 +330,7 @@ Then I am redirected to the Manage Policies Page
 And My new specification is correctly listed
 
 
-@Workitem:49358 58413 FFDriver
+@Workitem:49358 58413 Driver
 Scenario: Create and Save a new Specification with 5 Funding Streams selected
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -341,7 +341,7 @@ And I click the Save button
 Then I am redirected to the Manage Policies Page
 And My new specification is correctly listed
 
-@Workitem:49358 58413 FFDriver
+@Workitem:49358 58413 Driver
 Scenario: Create and Save a new Specification with ALL Funding Streams selected
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -352,7 +352,7 @@ And I click the Save button
 Then I am redirected to the Manage Policies Page
 And My new specification is correctly listed
 
-@Workitem:49358 FFDriver
+@Workitem:49358 Driver
 Scenario: Create a new Specification with 2 Funding Streams selected then removed
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -454,7 +454,7 @@ When I update the Specification Description
 And click the Update Specification Button
 Then I am redirected back to the Manage Polices Page
 
-@Workitem:49593 FFDriver
+@Workitem:49593 Driver
 Scenario: Successfully Edit an Existing Specification Funding period
 Given I have navigated to the Edit Specification Page
 When I update the Specification Funding period
@@ -496,7 +496,7 @@ When I update the Specification Name
 And I click the Cancel option
 Then I am redirected back to the Manage Polices Page
 
-@Workitem:49593 FFDriver
+@Workitem:49593 Driver
 Scenario: Successfully Edit an Existing Specification for All fields
 Given I have navigated to the Edit Specification Page
 When I delete the existing Specification Funding stream
@@ -590,7 +590,7 @@ When I update the existing Calculation Specificaton
 And select to Cancel the edit
 Then I am redirected to the Manage Policies Page
 
-@Workitem:49352 Driver
+@Workitem:49352 Driver Smoke
 Scenario: Filter Specifications list by Funding Stream
 Given I have successfully navigated to the Manage Specification Page
 When I choose to filter the list by Funding Stream
@@ -609,7 +609,7 @@ And I choose to filter the list
 When I choose the Clear Filter option
 Then the list of specifications refreshes to display all the specifications available
 
-@Workitem:49352 Driver
+@Workitem:49352 Driver Smoke
 Scenario: Verify the Specifications list Column Headers
 Given I have successfully navigated to the Manage Specification Page
 Then the list of specifications is displayed
@@ -621,14 +621,14 @@ Given I have successfully navigated to the Manage Specification Page
 Then the list of specifications is displayed
 And the displayed in descending order by Last Edit Date
 
-@Workitem:49352 Driver
+@Workitem:49352 Driver Smoke
 Scenario: Verify the Specifications list Column Infomation
 Given I have successfully navigated to the Manage Specification Page
 Then the list of specifications is displayed
 And the following Headers are correctly displayed
 And the Information in each column is displayed correctly
 
-@Workitem:49352 Driver
+@Workitem:49352 Driver Smoke
 Scenario: Verify the Specifications list More Infomation is Displayed correctly
 Given I have successfully navigated to the Manage Specification Page
 When I click on the More Option in for a specific Specification
@@ -637,7 +637,7 @@ And the funding stream associated with the specification is displayed
 And the funding period associated with the specification is displayed
 And there is an option to edit the specification displayed
 
-@Workitem:49356 Driver
+@Workitem:49356 Driver Smoke
 Scenario: Verify the Manage Policies List Column Headers
 Given I have successfully navigated to the Manage Policies Page
 Then the list of associated Polcies and Calculations are displayed
@@ -703,7 +703,7 @@ When I click on the Jump To Drop down
 Then I am able to select from all the available policies
 And jump to the displayed information for the selected policy
 
-@Workitem:49356 Driver
+@Workitem:49356 Driver Smoke
 Scenario: Verify the Expand and Collapse All option for the Policy List on the Manage Policies Page
 Given I have successfully navigated to the Manage Policies Page
 When I click the Expand All Link
@@ -717,19 +717,19 @@ Given I have previously created a new specification
 And I have successfully navigated to the Manage Policies Page for the new specification
 Then the Approve Specification option is correctly displayed
 
-@Workitem:50078 FFDriver
+@Workitem:50078 Driver
 Scenario: Verify that a Specification with an associated Policy can be marked as Approved
 Given A Policy has been previously created with a Unique Policy Name
 When I choose to mark the associated Specification as Approved
 Then the Specification should be marked as approved
 
-@Workitem:50078 FFDriver
+@Workitem:50078 Driver
 Scenario: Verify that a Specification with an associated Calculation can be marked as Approved
 Given A Calculation Specification has been previously created with a Unique Name
 When I choose to mark the associated Specification as Approved
 Then the Specification should be marked as approved
 
-@Workitem:50078 FFDriver
+@Workitem:50078 Driver
 Scenario: Verify that a Specification with an associated Sub Policy can be marked as Approved
 Given A Sub Policy has been previously created with a Unique Name
 When I choose to mark the associated Specification as Approved

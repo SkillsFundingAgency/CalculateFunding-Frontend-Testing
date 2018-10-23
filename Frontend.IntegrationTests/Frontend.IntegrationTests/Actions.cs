@@ -11,6 +11,7 @@
     using Frontend.IntegrationTests.Pages.View_Results;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Firefox;
+    using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium.Support.UI;
     using System;
     using System.Collections.Generic;
@@ -36,31 +37,76 @@
         public static string Allocationlinevalue { get; set; }
         public static string Calculationstatusvalue { get; set; }
         public static string datasestinfo { get; set; }
-
+        public static string TestUserMe = "richard.wilson@education.gov.uk";
+        public static string TestPwMe = "Joanne1976$02";
 
 
 
         [BeforeScenario(new string[] { "Driver" })]
         public static void InitializeHomePage()
         {
-            DfESignInPage dfesigninpage = new DfESignInPage();
-
-            //Driver._driver = new FirefoxDriver();
-            //Driver._driver.Manage().Window.Maximize();
-            Driver._driver = new PhantomJSDriver();
+            Driver._driver = new ChromeDriver();
             Driver._driver.Navigate().GoToUrl(Config.BaseURL);
             Driver.WaitForElementUpTo(Config.ElementsWaitingTimeout);
+
+            MSDfESignInPage msdfesigninpage = new MSDfESignInPage();
+            DfESignInPage dfesigninpage = new DfESignInPage();
+
+            msdfesigninpage.msUserInput.Should().NotBeNull();
+            msdfesigninpage.msUserInput.SendKeys(TestUserMe);
+            msdfesigninpage.msUserNext.Click();
+            Thread.Sleep(6000);
+            dfesigninpage.userNameInput.Should().NotBeNull();
+            dfesigninpage.userNameInput.Clear();
+            dfesigninpage.userNameInput.SendKeys(TestUserMe);
+            dfesigninpage.passwordInput.SendKeys(TestPwMe);
+            dfesigninpage.submitButton.Click();
+            Thread.Sleep(6000);
         }
 
         [BeforeScenario(new string[] { "FFDriver" })]
         public static void InitializeFirefoxHomePage()
         {
-            DfESignInPage dfesigninpage = new DfESignInPage();
-
             Driver._driver = new FirefoxDriver();
             Driver._driver.Manage().Window.Maximize();
             Driver._driver.Navigate().GoToUrl(Config.BaseURL);
             Driver.WaitForElementUpTo(Config.ElementsWaitingTimeout);
+            
+        }
+
+        [BeforeScenario(new string[] { "ChromeDriver" })]
+        public static void InitializeChromeHomePage()
+        {
+            Driver._driver = new ChromeDriver();
+            Driver._driver.Navigate().GoToUrl(Config.BaseURL);
+            Driver.WaitForElementUpTo(Config.ElementsWaitingTimeout);
+        }
+
+        [BeforeScenario(new string[] { "PhantomDriver" })]
+        public static void InitializePhantomHomePage()
+        {
+            Driver._driver = new PhantomJSDriver();
+            Driver._driver.Navigate().GoToUrl(Config.BaseURL);
+            Driver.WaitForElementUpTo(Config.ElementsWaitingTimeout);
+
+        }
+
+        [BeforeScenario(new string[] { "DfELogIn" })]
+        public static void DfELogIn()
+        {
+            MSDfESignInPage msdfesigninpage = new MSDfESignInPage();
+            DfESignInPage dfesigninpage = new DfESignInPage();
+
+            msdfesigninpage.msUserInput.Should().NotBeNull();
+            msdfesigninpage.msUserInput.SendKeys(TestUserMe);
+            msdfesigninpage.msUserNext.Click();
+            Thread.Sleep(6000);
+            dfesigninpage.userNameInput.Should().NotBeNull();
+            dfesigninpage.userNameInput.Clear();
+            dfesigninpage.userNameInput.SendKeys(TestUserMe);
+            dfesigninpage.passwordInput.SendKeys(TestPwMe);
+            dfesigninpage.submitButton.Click();
+            Thread.Sleep(6000);
         }
 
         public static void TakeScreenshot(this IWebDriver driver, string prefix)
@@ -85,64 +131,68 @@
         {
             ManageCalculationPage managecalculationpage = new ManageCalculationPage();
 
-            IWebElement academicyeardropdown = Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)"));
-            academicyeardropdown.Click();
-            Thread.Sleep(2000);
-            IWebElement Period = Driver._driver.FindElement(By.CssSelector(".open > ul:nth-child(2)"));
-            IWebElement Period1819 = Period.FindElement(By.TagName("input"));
-            PeriodTextValue = Period1819.Text;
-            Period1819.Click();
-            Thread.Sleep(2000);
-            managecalculationpage.CalculationSearchField.Click();
+            IWebElement filtercontainer = Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(1)"));
+            IWebElement fundingperiodfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingperiodfilter.Click();
+            Thread.Sleep(4000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string fundingperiodselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Period Filter Option selected = " + fundingperiodselected);
+            selectfilteroption.Click();
+            Thread.Sleep(6000);
 
         }
 
         public static void SelectCalculationFundingStream()
         {
-            Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)")).Click();
-            Thread.Sleep(2000);
-            IWebElement fundingstream = Driver._driver.FindElement(By.CssSelector(".open > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1) > label:nth-child(1) > input:nth-child(1)"));
-            Fundingstreamvalue = fundingstream.Text;
-            fundingstream.Click();
-            Thread.Sleep(2000);
-            Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)")).Click();
-
+            IWebElement filtercontainer = Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(2)"));
+            IWebElement fundingstreamfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingstreamfilter.Click();
+            Thread.Sleep(4000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string fundingstreamselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Stream Filter Option selected = " + fundingstreamselected);
+            selectfilteroption.Click();
+            Thread.Sleep(6000);
         }
 
         public static void SelectCalculationSpecification()
         {
-            Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(3) > div:nth-child(2) > button:nth-child(1)")).Click();
-            Thread.Sleep(2000);
-            IWebElement specification = Driver._driver.FindElement(By.CssSelector(".open > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1) > label:nth-child(1) > input:nth-child(1)"));
-            Specificationvalue = specification.Text;
-            specification.Click();
-            Thread.Sleep(2000);
-            Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(3) > div:nth-child(2) > button:nth-child(1)")).Click();
-
+            IWebElement filtercontainer = Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(3)"));
+            IWebElement fundingspecfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingspecfilter.Click();
+            Thread.Sleep(4000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string fundingspecselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Specification Filter Option selected = " + fundingspecselected);
+            selectfilteroption.Click();
+            Thread.Sleep(6000);
         }
 
         public static void SelectCalculationAllocationLine()
         {
-            Driver._driver.FindElement(By.CssSelector("#filter-container > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)")).Click();
-            Thread.Sleep(2000);
-            IWebElement allocationline = Driver._driver.FindElement(By.CssSelector(".open > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1) > label:nth-child(1) > input:nth-child(1)"));
-            Allocationlinevalue = allocationline.Text;
-            allocationline.Click();
-            Thread.Sleep(2000);
-            Driver._driver.FindElement(By.CssSelector("#filter-container > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)")).Click();
-
+            IWebElement filtercontainer = Driver._driver.FindElement(By.CssSelector("#filter-container > div:nth-child(2) > div:nth-child(2)"));
+            IWebElement fundingallocationfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingallocationfilter.Click();
+            Thread.Sleep(4000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string fundingallocationselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Specification Filter Option selected = " + fundingallocationselected);
+            selectfilteroption.Click();
+            Thread.Sleep(6000);
         }
 
         public static void SelectCalculationStatus()
         {
-            Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(4) > div:nth-child(2) > button:nth-child(1)")).Click();
-            Thread.Sleep(2000);
-            IWebElement calculationstatus = Driver._driver.FindElement(By.CssSelector(".open > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1) > label:nth-child(1) > input:nth-child(1)"));
-            Calculationstatusvalue = calculationstatus.Text;
-            calculationstatus.Click();
-            Thread.Sleep(2000);
-            Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(4) > div:nth-child(2) > button:nth-child(1)")).Click();
-
+            IWebElement filtercontainer = Driver._driver.FindElement(By.CssSelector("div.row:nth-child(4) > div:nth-child(4)"));
+            IWebElement fundingstatusfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            fundingstatusfilter.Click();
+            Thread.Sleep(4000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string fundingstatusselected = selectfilteroption.Text;
+            Console.WriteLine("Funding Specification Filter Option selected = " + fundingstatusselected);
+            selectfilteroption.Click();
+            Thread.Sleep(6000);
         }
 
         public static void ManageCalculationFiltersAreSetAsDefault()
@@ -1767,6 +1817,24 @@
             {
                 SelectFirstDownloadlink.Should().NotBeNull("No Download link could be successfully selected");
             }
+        }
+
+        public static void SelectSpecificationToApprovePublish()
+        {
+            ApprovePublishSelectorPage approvepublishselectorpage = new ApprovePublishSelectorPage();
+
+            var selectYear = approvepublishselectorpage.approvePublishSelectorFundingPeriodDropdown;
+            var selectElement = new SelectElement(selectYear);
+            selectElement.SelectByText("2018/19");
+
+            var selectSpec = approvepublishselectorpage.approvePublishSelectorSpecificationDropdown;
+            var selectSpecElement = new SelectElement(selectSpec);
+            selectSpecElement.SelectByText("Rob Test Spec S and T 7");
+
+            var selectFunding = approvepublishselectorpage.approvePublishSelectorFundingStreamsDropdown;
+            var selectFundingElement = new SelectElement(selectFunding);
+            selectFundingElement.SelectByText("DSG Allocations");
+
         }
 
 

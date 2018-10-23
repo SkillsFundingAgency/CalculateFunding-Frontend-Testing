@@ -1,7 +1,7 @@
 ﻿Feature: ManageDatasets
 	As a Data analyst I need to relate data sets to specifications So that there is control on the data that is used in the calculations and tests
 
-@Workitem:38307 Driver
+@Workitem:38307 Driver Smoke
 Scenario: View the Manage Data Landing page
 Given I have successfully navigated to the Home Page
 When I select Manage data
@@ -11,48 +11,47 @@ And a description of the Manage Datasets option
 And I am presented the Specify data source relationships option
 And a description of the Specify data source relationships option
 
-@Workitem:38307 Driver
+@Workitem:38307 Driver Smoke
 Scenario: Select the Manage Datsets page
 Given I have navigated to the data management option from the service home page
 When I click on the Manage data sets option
 Then I am presented with the Manage Datasets page
 
-@Workitem:38307 Driver
+@Workitem:38307 Driver Smoke
 Scenario: Select the Specify Data source Relationships page
 Given I have navigated to the data management option from the service home page
 When I click on the specify data source relationships option
 Then I am presented with the Specify data source relationships page
 
-@Workitem:37113 Driver
+@Workitem:37113 Driver Smoke
 Scenario: Verify the Manage Dataset List View
 Given I have navigated to the Manage Datasets page
 Then the page displays a list view of all data sets that have been uploaded
-And My list is in descending order from the most recent dataset
 And the dataset name is displayed
 And the datasets current status is displayed
 And the datasets last Updated date is displayed
 
-@Workitem:37113 Driver
+@Workitem:37113 Driver Smoke
 Scenario: Verify the Manage Dataset Result Counts
 Given I have navigated to the Manage Datasets page
 Then my list shows up to 50 data sets
 And a count of all data sets returned is displayed
 And a link to Load new datasets is displayed
 
-@Workitem:37113 Driver
+@Workitem:37113 Driver Smoke
 Scenario: Validate the Manage Dataset List View Pagination
 Given I have navigated to the Manage Datasets page
 When More than 50 Results are available
 Then I can navigate to a page of the next 50 data sets
 And I can navigate to a page of the previous 50 data sets
 
-@Workitem:37113 Driver
+@Workitem:37113 Driver Smoke
 Scenario: Select to Load a new Dataset
 Given I have navigated to the Manage Datasets page
 When I click the Load a New Dataset button
 Then I am navigated to the load New Dataset page
 
-@Workitem:36845 Driver
+@Workitem:36845 Driver Smoke
 Scenario: Verify the Dataset Schema Relationship page from the option link
 Given I have selected a valid specification from the Manage Specification page
 When I click the Create Dataset link
@@ -63,7 +62,7 @@ And the Dataset Description field is displayed
 And the Save Dataset Button is displayed
 And the Cancel Dataset Schema Relationship link is displayed
 
-@Workitem:36845 Driver
+@Workitem:36845 Driver Smoke
 Scenario: Verify the Dataset Schema Relationship page from the Data Type Tab
 Given I have selected a valid specification with no datasets associated
 When I click the Datasets Tab
@@ -115,13 +114,13 @@ Examples:
 | Missing Dataset Description	| High Needs   | Name    |                       | Enter a description	 |
 
 
-@Workitem:37469 Driver
+@Workitem:37469 Driver Smoke
 Scenario: Navigate to the Map Data Sources to Datasets Page
 Given I have navigated to the data management option from the service home page
 When I click the option to Map data sources to datasets
 Then I am presented with the Map data sources to datasets page
 
-@Workitem:37469 Driver
+@Workitem:37469 Driver Smoke
 Scenario: View the Map Data Sources to Datasets Page
 Given I have navigated to Map data sources to datasets page
 Then I can see an option to search for a specification
@@ -140,7 +139,7 @@ When I click to navigate to the next page of specifications
 Then my list view updates with up to the next set of 50 results
 And I am able to navigate to the previous page of 50 specs
 
-@Workitem:37469 Driver
+@Workitem:37469 Driver Smoke
 Scenario: Search Specifications listed on the Map data sources to datasets page
 Given I have navigated to Map data sources to datasets page
 When I enter text in the search specifications field
@@ -153,7 +152,7 @@ Given I have navigated to Map data sources to datasets page
 When I choose a different year from the dropdown option
 Then the list of results refreshes to display only the results that comply with the year selected
 
-@Workitem:37469 Driver
+@Workitem:37469 Driver Smoke
 Scenario: Select a Specific Specification from the Map data sources to datasets page
 Given I have navigated to Map data sources to datasets page
 When I click on a specification name
@@ -267,7 +266,7 @@ When I click the Download link for a Data Source
 Then The Download reddirect URL from Blogstorage is correctly generated
 And The HTTP Status Code is reurned as OK
 
-@Workitem:36846 Driver
+@Workitem:36846 Driver Smoke
 Scenario: Verify the Upload option on the Manage Datasets page
 Given I have navigated to the Manage Datasets page
 Then the page displays a list view of all data sets that have been uploaded
@@ -279,7 +278,7 @@ Given I have navigated to the Manage Datasets page
 When I click on the Update Link for a Dataset
 Then I am sucessfully redirected to the Update data source page
 
-@Workitem:36846 Driver
+@Workitem:36846 Driver Smoke
 Scenario: Verify the Update data source page
 Given I have navigated to the Manage Datasets page
 And I have selected a Dataset to Update
@@ -302,7 +301,7 @@ And I add a Change note
 And I click the Update Dataset Cancel Link
 Then I am redirected back to the Manage Datasets Page
 
-@Workitem:54452 Driver
+@Workitem:54452 Driver Smoke
 Scenario: Select the Download data schemas Page
 Given I have navigated to the data management option from the service home page
 When I choose the Download data schemas link
@@ -322,7 +321,7 @@ Scenario: Validate the Information for a Data schema template
 Given I have navigated to the Download data schemas Page
 Then I am presented with the Relevant information for the Template
 
-@Workitem:54452 Driver
+@Workitem:54452 Driver Smoke
 Scenario: Validate the More Information option for a Data schema template
 Given I have navigated to the Download data schemas Page
 When I choose to view more information for a data schema

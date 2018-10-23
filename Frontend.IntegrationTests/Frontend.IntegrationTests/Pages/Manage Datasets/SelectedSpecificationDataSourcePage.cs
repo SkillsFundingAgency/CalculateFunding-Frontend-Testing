@@ -32,7 +32,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.CssSelector, Using = "div.spec-rel-grey-back:nth-child(2) > p:nth-child(3)")]
         public IWebElement specificationFirstDatasetDescription { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "#top > main:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(1)")]
+        [FindsBy(How = How.Id, Using = "datasourceCount")]
         public IWebElement specificationDataSourceCount { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "Select source dataset")]

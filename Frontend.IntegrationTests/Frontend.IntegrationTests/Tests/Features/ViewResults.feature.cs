@@ -91,11 +91,13 @@ So that I can ensure the funding calculated for that provider is correct before 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37466)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheViewProviderResultsPageResultsList()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View Provider Results Page Results list", new string[] {
                         "Workitem:37466",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 9
 this.ScenarioSetup(scenarioInfo);
 #line 10
@@ -121,11 +123,13 @@ testRunner.And("the list is displayed by provider name in ascending order", ((st
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37466)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheViewProviderResultsPageSearchAndFilterOptions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View Provider Results Page Search and Filter Options", new string[] {
                         "Workitem:37466",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 19
 this.ScenarioSetup(scenarioInfo);
 #line 20
@@ -145,11 +149,13 @@ testRunner.And("options are displayed to filter the results by specific fields",
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37466)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheViewProviderResultsPagePagination()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View Provider Results Page Pagination", new string[] {
                         "Workitem:37466",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 26
 this.ScenarioSetup(scenarioInfo);
 #line 27
@@ -199,11 +205,13 @@ testRunner.Then("my list view displays the previous 200 results", ((string)(null
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37466)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void SelectAProviderFromTheViewProviderResultsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider from the View Provider Results Page", new string[] {
                         "Workitem:37466",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 43
 this.ScenarioSetup(scenarioInfo);
 #line 44
@@ -221,11 +229,13 @@ testRunner.Then("I am redirected to the View provider allocations page for the s
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37468)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheSearchOptionOnTheViewProviderResultsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Search option on the View Provider Results Page", new string[] {
                         "Workitem:37468",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 49
 this.ScenarioSetup(scenarioInfo);
 #line 50
@@ -461,11 +471,13 @@ testRunner.Then("the list of displayed providers refreshes to display only the p
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37467)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void SelectAProviderToDisplayTheProviderAllocationPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider to display the Provider Allocation page", new string[] {
                         "Workitem:37467",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 85
 this.ScenarioSetup(scenarioInfo);
 #line 86
@@ -491,11 +503,13 @@ testRunner.And("a drop down option is displayed to select a specification where 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37467)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheProviderAllocationsPageTabOptions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Provider Allocations Page tab options", new string[] {
                         "Workitem:37467",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 94
 this.ScenarioSetup(scenarioInfo);
 #line 95
@@ -602,11 +616,13 @@ testRunner.And("I can see a list of Calculation names and the subtotals against 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37467)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheProviderAllocationsPageCalculationTab()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Provider Allocations Page Calculation tab", new string[] {
                         "Workitem:37467",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 126
 this.ScenarioSetup(scenarioInfo);
 #line 127
@@ -685,11 +701,13 @@ testRunner.And("where a provider record has a 0 value the content No data found 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39519)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheViewResultsLandingPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View Results landing page", new string[] {
                         "Workitem:39519",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 151
 this.ScenarioSetup(scenarioInfo);
 #line 152
@@ -714,12 +732,14 @@ testRunner.And("An option is displayed view the View calculation results page", 
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40039")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void NavigateToTheViewQATestResultsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the View QA test results Page", new string[] {
                         "Workitem:39520",
                         "40039",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 160
 this.ScenarioSetup(scenarioInfo);
 #line 161
@@ -742,12 +762,14 @@ testRunner.Then("I am naviagted to the View QA test results page", ((string)(nul
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40039")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheViewQATestResultsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View QA test results Page", new string[] {
                         "Workitem:39520",
                         "40039",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 168
 this.ScenarioSetup(scenarioInfo);
 #line 169
@@ -771,12 +793,14 @@ testRunner.And("a list of QA Test Results listed by Test is displayed with the c
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40039")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheQATestResultsDisplayedOnTheViewQATestResultsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the QA test results displayed on the View QA Test Results Page", new string[] {
                         "Workitem:39520",
                         "40039",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 176
 this.ScenarioSetup(scenarioInfo);
 #line 177
@@ -920,11 +944,13 @@ this.ChangeCurrentListOfQATestsByYear("AY2017181", ((string[])(null)));
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39520)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ChangeCurrentListOfQATestsBySpecification()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Change Current list of QA Tests by Specification", new string[] {
                         "Workitem:39520",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 210
 this.ScenarioSetup(scenarioInfo);
 #line 211
@@ -943,11 +969,13 @@ testRunner.Then("the list of QA Test Results refreshes to display the selected s
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void NavigateToViewTheTestResultsOfAllProvidersForASingleTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to View the test results of all providers for a single test", new string[] {
                         "Workitem:39522",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 216
 this.ScenarioSetup(scenarioInfo);
 #line 217
@@ -965,11 +993,13 @@ testRunner.Then("I am redirected to the selected QA Test results for all provide
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheViewTestResultsOfAllProvidersForASingleTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View test results of all providers for a single test", new string[] {
                         "Workitem:39522",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 222
 this.ScenarioSetup(scenarioInfo);
 #line 223
@@ -1084,12 +1114,14 @@ testRunner.And("the QA Test Result for the provider is displayed", ((string)(nul
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39522)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ValidateSelectedQATestInfoOnTheViewTestResultsOfAllProvidersForASingleTestPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Selected QA Test Info on the View test results of all providers for a si" +
                     "ngle test page", new string[] {
                         "Workitem:39522",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 259
 this.ScenarioSetup(scenarioInfo);
 #line 260
@@ -1225,11 +1257,13 @@ testRunner.Then("the Provider Results list is refreshed to display only the prov
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void NavigateToTheViewProviderResultsForAnIndividualProviderPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the View provider results for an Individual Provider Page", new string[] {
                         "Workitem:39523",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 298
 this.ScenarioSetup(scenarioInfo);
 #line 299
@@ -1249,11 +1283,13 @@ testRunner.And("a tab is displayed to show the Test results", ((string)(null)), 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(39523)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheViewProviderResultsForAnIndividualProviderPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View provider results for an Individual Provider Page", new string[] {
                         "Workitem:39523",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 305
 this.ScenarioSetup(scenarioInfo);
 #line 306
@@ -1559,11 +1595,13 @@ this.ValidateTheProviderTestResultsForAnIndividualProviderWithAResultOfFailedFor
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(48412)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void NavigateToViewCalculationResultsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to View calculation results Page", new string[] {
                         "Workitem:48412",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 377
 this.ScenarioSetup(scenarioInfo);
 #line 378
@@ -1583,11 +1621,13 @@ testRunner.Then("I am redirected to the View calculation results Page", ((string
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(48412)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheViewCalculationResultsPageFilterOptions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View calculation results Page Filter options", new string[] {
                         "Workitem:48412",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 384
 this.ScenarioSetup(scenarioInfo);
 #line 385
@@ -1687,11 +1727,13 @@ testRunner.And("the appropriate calculation information is displayed in the list
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ViewResults")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(48412)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void FilterTheDisplayedCalculationResultsByFundingStream()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter the Displayed Calculation Results by Funding Stream", new string[] {
                         "Workitem:48412",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 415
 this.ScenarioSetup(scenarioInfo);
 #line 416

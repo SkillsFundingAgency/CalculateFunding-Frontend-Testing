@@ -42,7 +42,7 @@
             var selectYear = createspecificationpage.SpecFundingPeriod;
 
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("AY2017181");
+            selectElement.SelectByValue("1819");
             createspecificationpage.FundingStream.Click();
             createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
             Thread.Sleep(2000);

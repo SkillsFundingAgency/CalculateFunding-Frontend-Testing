@@ -348,18 +348,14 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             Actions.SelectCalculationStatus();
             Thread.Sleep(2000);
-            Actions.SelectCalculationYear();
-            managecalculationpage.AcademicYearDropDownDefault.Should().Equals(Actions.PeriodTextValue);
-            managecalculationpage.CalculationStatusDropDownDefault.Should().Equals(Actions.Calculationstatusvalue);
-            Actions.CalculationTotalResult();
-            Console.WriteLine("The total number of calculations listed is " + Actions.CalculationTotalValue);
-            Thread.Sleep(2000);
 
         }
 
         [When(@"I deselect one or more filter options")]
         public void WhenIDeselectOneOrMoreFilterOptions()
         {
+            IWebElement fundingstatusfilter = Driver._driver.FindElement(By.CssSelector(".open"));
+            fundingstatusfilter.Click();
             managecalculationpage.RemoveCalculationFilter.Click();
             Thread.Sleep(5000);
         }
@@ -557,7 +553,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"I am redirected to the Compare Calculation Versions page")]
         public void ThenIAmRedirectedToTheCompareCalculationVersionsPage()
         {
-            viewpreviouscalculationpage.ComparePreviousCalculationsButton.Should().NotBeNull();
+            viewpreviouscalculationpage.CalculationVersionAuthor.Should().NotBeNull();
             Thread.Sleep(2000);
         }
 
