@@ -1829,11 +1829,11 @@
 
             var selectSpec = approvepublishselectorpage.approvePublishSelectorSpecificationDropdown;
             var selectSpecElement = new SelectElement(selectSpec);
-            selectSpecElement.SelectByText("Rob Test Spec S and T 7");
+            selectSpecElement.SelectByText("Show and Tell 7");
 
             var selectFunding = approvepublishselectorpage.approvePublishSelectorFundingStreamsDropdown;
             var selectFundingElement = new SelectElement(selectFunding);
-            selectFundingElement.SelectByText("DSG Allocations");
+            selectFundingElement.SelectByText("16-19 Bursaries - all providers 11/12");
 
         }
 

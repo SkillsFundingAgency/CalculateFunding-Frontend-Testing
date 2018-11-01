@@ -72,11 +72,8 @@ And an option to Choose to Fund the Specification is displayed
 
 Examples: 
 	 | year			|
-	 | AY2017181	|
-	 | AY2018191	|
-	 | FY2017181	|
-	 | FY2018191	|
-
+	 | 1819			|
+	 | 1819DEV1		|
 
 @Workitem 57915 Driver Smoke
 Scenario: Navigate to the Approve and publish Specification Selection Page
