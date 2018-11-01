@@ -245,3 +245,43 @@ Given I have navigated to the Choose Funding Specification Page
 When there is a previously Choosen Funding Stream available
 And I click on the selected Specification View Funding option
 Then I am redirected to the Approve and publish funding Page
+
+@Workitem 56068 Driver
+Scenario: Verify the Approve & Publish Filter Options are displayed correctly
+Given I have navigated to the Approve and publish funding Page
+Then the Allocation Line Filter Option is Displayed correctly
+And the Provider Filter Option is Displayed correctly
+And the Local Authority Filter Option is Displayed correctly
+And the Status Filter Option is Displayed correctly
+And the Filter Option is Displayed
+
+@Workitem 56068 Driver
+Scenario: Filter the Approve & Publish Page by Allocation Line
+Given I have navigated to the Approve and publish funding Page
+And I choose to filter the Approve & Publish Provider List by Allocation Line
+Then the list of Providers refreshes to display the filtered selection
+
+@Workitem 56068 Driver
+Scenario: Filter the Approve & Publish Page by Provider Type
+Given I have navigated to the Approve and publish funding Page
+And I choose to filter the Approve & Publish Provider List by Provider Type
+Then the list of Providers refreshes to display the filtered selection
+
+@Workitem 56068 Driver
+Scenario: Filter the Approve & Publish Page by Local Authority
+Given I have navigated to the Approve and publish funding Page
+And I choose to filter the Approve & Publish Provider List by Local Authority
+Then the list of Providers refreshes to display the filtered selection
+
+@Workitem 56068 Driver
+Scenario: Filter the Approve & Publish Page by Status
+Given I have navigated to the Approve and publish funding Page
+And I choose to filter the Approve & Publish Provider List by Status
+Then the list of Providers refreshes to display the filtered selection
+
+@Workitem 56068 Driver
+Scenario: Clear selected Filters on the Approve & Publish Page
+Given I have navigated to the Approve and publish funding Page
+And I choose to filter the Approve & Publish Provider List by Status
+When I choose to Clear the selected Filters
+Then the selected filter is removed correctly

@@ -74,6 +74,24 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
         [FindsBy(How = How.CssSelector, Using = "div.notification-panel-summary")]
         public IWebElement approvePublishFundingRefreshNotificationPanel { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = "div.col-xs-2:nth-child(1) > div:nth-child(1) > div:nth-child(2)")]
+        public IWebElement approvePublishFundingAllocationFilter { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "div.col-xs-2:nth-child(2) > div:nth-child(1) > div:nth-child(2)")]
+        public IWebElement approvePublishFundingProviderFilter { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "div.col-xs-2:nth-child(3) > div:nth-child(1) > div:nth-child(2)")]
+        public IWebElement approvePublishFundingLocalAuthorityFilter { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "div.col-xs-2:nth-child(4) > div:nth-child(1) > div:nth-child(2)")]
+        public IWebElement approvePublishFundingStatusFilter { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "Clear filters")]
+        public IWebElement approvePublishFundingClearFilters { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "span.bold:nth-child(3)")]
+        public IWebElement approvePublishFundingTotalResults { get; set; }
+
 
 
 

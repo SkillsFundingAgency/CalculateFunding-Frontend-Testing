@@ -34,6 +34,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "validation-link-for-CreateSpecificationViewModel-Name")]
         public IWebElement SpecNameError { get; set; }
 
+        [FindsBy(How = How.Id, Using = "validation-link-for-Name")]
+        public IWebElement DuplicateSpecNameError { get; set; }
+
         [FindsBy(How = How.LinkText, Using = "You must give a unique specification name")]
         public IWebElement SpecNameErrorText { get; set; }
 

@@ -204,8 +204,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"A Unique Specification Name Error is Displayed")]
         public void ThenAUniqueSpecificationNameErrorIsDisplayed()
         {
-            Assert.IsNotNull(createspecificationpage.SpecNameError);
-            string specNameError = createspecificationpage.SpecNameError.Text;
+            Assert.IsNotNull(createspecificationpage.DuplicateSpecNameError);
+            string specNameError = createspecificationpage.DuplicateSpecNameError.Text;
             Console.WriteLine("The following error message was correctly displayed: " + specNameError);
             Thread.Sleep(2000);
         }
@@ -937,7 +937,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = createspecificationpage.SpecFundingPeriod;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("AY2017181");
+            selectElement.SelectByValue("1819DEV1");
             Thread.Sleep(2000);
         }
 
@@ -946,7 +946,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = createspecificationpage.SpecFundingPeriod;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("FY2017181");
+            selectElement.SelectByValue("1819DEV1");
             Thread.Sleep(2000);
         }
 
@@ -966,7 +966,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = createspecificationpage.SpecFundingPeriod;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("AY2017181");
+            selectElement.SelectByValue("1819");
             Thread.Sleep(2000);
         }
 
@@ -1086,44 +1086,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             editSubPolicy.Should().NotBeNull();
             editSubPolicy.Click();
             Thread.Sleep(2000);
-
-            /*
-            IWebElement subpolicyList = managepoliciespage.SubPolicyList;
-            subpolicyList.Should().NotBeNull();
-
-            var containerElements = subpolicyList;
-            IWebElement firstSelectEditSubPolicy = null;
-            if (containerElements != null)
-            {
-                var options = containerElements.FindElements(By.TagName("i"));
-                foreach (var optionelement in options)
-                {
-                    if (optionelement != null)
-                    {
-                        firstSelectEditSubPolicy = optionelement;
-
-                        break;
-
-
-                    }
-                }
-                Thread.Sleep(1000);
-                if (firstSelectEditSubPolicy != null)
-                {
-                    firstSelectEditSubPolicy.Click();
-                    Thread.Sleep(2000);
-                    editsubpolicypage.editSubPolicyName.Should().NotBeNull();
-                }
-                else
-                {
-                    firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exist for the Policy selected");
-                }
-            }
-            else
-            {
-                firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
-            }
-            */
         }
 
         [Given(@"I have navigated to the Edit Policy Page")]
@@ -1421,40 +1383,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             editSubPolicy.Click();
             Thread.Sleep(2000);
 
-            /*
-            var containerElements = subpolicyList;
-            IWebElement firstSelectEditSubPolicy = null;
-            if (containerElements != null)
-            {
-                var options = containerElements.FindElements(By.TagName("a"));
-                foreach (var optionelement in options)
-                {
-                    if (optionelement != null)
-                    {
-                        firstSelectEditSubPolicy = optionelement;
-
-                        break;
-
-
-                    }
-                }
-                Thread.Sleep(1000);
-                if (firstSelectEditSubPolicy != null)
-                {
-                    firstSelectEditSubPolicy.Click();
-                    Thread.Sleep(2000);
-                    editsubpolicypage.editSubPolicyName.Should().NotBeNull();
-                }
-                else
-                {
-                    firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exist for the Policy selected");
-                }
-            }
-            else
-            {
-                firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
-            }
-            */
         }
 
 
@@ -1578,7 +1506,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = editspecificationpage.editSpecificationFundingPeriodDropdown;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("FY2017181");
+            selectElement.SelectByValue("1819DEV1");
             Thread.Sleep(2000);
         }
 

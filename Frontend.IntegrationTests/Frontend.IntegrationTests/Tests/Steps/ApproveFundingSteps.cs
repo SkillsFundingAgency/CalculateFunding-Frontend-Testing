@@ -958,6 +958,137 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(5000);
         }
 
+        [Then(@"the Allocation Line Filter Option is Displayed correctly")]
+        public void ThenTheAllocationLineFilterOptionIsDisplayedCorrectly()
+        {
+            approvepublishfundingpage.approvePublishFundingAllocationFilter.Should().NotBeNull();
+        }
+
+        [Then(@"the Provider Filter Option is Displayed correctly")]
+        public void ThenTheProviderFilterOptionIsDisplayedCorrectly()
+        {
+            approvepublishfundingpage.approvePublishFundingProviderFilter.Should().NotBeNull();
+        }
+
+        [Then(@"the Local Authority Filter Option is Displayed correctly")]
+        public void ThenTheLocalAuthorityFilterOptionIsDisplayedCorrectly()
+        {
+            approvepublishfundingpage.approvePublishFundingLocalAuthorityFilter.Should().NotBeNull();
+        }
+
+        [Then(@"the Status Filter Option is Displayed correctly")]
+        public void ThenTheStatusFilterOptionIsDisplayedCorrectly()
+        {
+            approvepublishfundingpage.approvePublishFundingStatusFilter.Should().NotBeNull();
+        }
+
+        [Then(@"the Filter Option is Displayed")]
+        public void ThenTheFilterOptionIsDisplayed()
+        {
+            approvepublishfundingpage.approvePublishFundingClearFilters.Should().NotBeNull();
+        }
+
+        [Given(@"I choose to filter the Approve & Publish Provider List by Allocation Line")]
+        public void GivenIChooseToFilterTheApprovePublishProviderListByAllocationLine()
+        {
+            IWebElement totalListCount = approvepublishfundingpage.approvePublishFundingTotalResults;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of Providers is: " + totalCount);
+
+            IWebElement filtercontainer = approvepublishfundingpage.approvePublishFundingAllocationFilter;
+            IWebElement allocationfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            allocationfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string allocationselected = selectfilteroption.Text;
+            Console.WriteLine("Allocation Line Filter Option selected = " + allocationselected);
+            selectfilteroption.Click();
+            Thread.Sleep(10000);
+        }
+
+        [Then(@"the list of Providers refreshes to display the filtered selection")]
+        public void ThenTheListOfProvidersRefreshesToDisplayTheFilteredSelection()
+        {
+            IWebElement totalListCount = approvepublishfundingpage.approvePublishFundingTotalResults;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The filtered total count of Providers has been updated to : " + totalCount);
+        }
+
+        [Given(@"I choose to filter the Approve & Publish Provider List by Provider Type")]
+        public void GivenIChooseToFilterTheApprovePublishProviderListByProviderType()
+        {
+            IWebElement totalListCount = approvepublishfundingpage.approvePublishFundingTotalResults;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of Providers is: " + totalCount);
+
+            IWebElement filtercontainer = approvepublishfundingpage.approvePublishFundingProviderFilter;
+            IWebElement providerfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            providerfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string providerSelected = selectfilteroption.Text;
+            Console.WriteLine("Provider Type Filter Option selected = " + providerSelected);
+            selectfilteroption.Click();
+            Thread.Sleep(10000);
+        }
+
+        [Given(@"I choose to filter the Approve & Publish Provider List by Local Authority")]
+        public void GivenIChooseToFilterTheApprovePublishProviderListByLocalAuthority()
+        {
+            IWebElement totalListCount = approvepublishfundingpage.approvePublishFundingTotalResults;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of Providers is: " + totalCount);
+
+            IWebElement filtercontainer = approvepublishfundingpage.approvePublishFundingLocalAuthorityFilter;
+            IWebElement localauthfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            localauthfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string localauthSelected = selectfilteroption.Text;
+            Console.WriteLine("Local Authority Filter Option selected = " + localauthSelected);
+            selectfilteroption.Click();
+            Thread.Sleep(10000);
+        }
+
+        [Given(@"I choose to filter the Approve & Publish Provider List by Status")]
+        public void GivenIChooseToFilterTheApprovePublishProviderListByStatus()
+        {
+            IWebElement totalListCount = approvepublishfundingpage.approvePublishFundingTotalResults;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of Providers is: " + totalCount);
+
+            IWebElement filtercontainer = approvepublishfundingpage.approvePublishFundingStatusFilter;
+            IWebElement statusfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            statusfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string statusselected = selectfilteroption.Text;
+            Console.WriteLine("Status Filter Option selected = " + statusselected);
+            selectfilteroption.Click();
+            Thread.Sleep(10000);
+        }
+
+        [When(@"I choose to Clear the selected Filters")]
+        public void WhenIChooseToClearTheSelectedFilters()
+        {
+            IWebElement totalListCount = approvepublishfundingpage.approvePublishFundingTotalResults;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The filtered total count of Providers has been updated to : " + totalCount);
+
+            IWebElement clearFilters = approvepublishfundingpage.approvePublishFundingClearFilters;
+            clearFilters.Should().NotBeNull();
+            clearFilters.Click();
+            Thread.Sleep(10000);
+        }
+
+        [Then(@"the selected filter is removed correctly")]
+        public void ThenTheSelectedFilterIsRemovedCorrectly()
+        {
+            IWebElement totalListCount = approvepublishfundingpage.approvePublishFundingTotalResults;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of Providers is: " + totalCount);
+        }
+
 
 
         [AfterScenario()]

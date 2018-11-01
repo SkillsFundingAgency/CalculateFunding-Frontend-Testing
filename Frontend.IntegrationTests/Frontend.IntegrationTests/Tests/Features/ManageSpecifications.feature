@@ -327,8 +327,6 @@ And I choose a specification Funding Period
 And I choose 2 specification Funding Streams
 And I click the Save button
 Then I am redirected to the Manage Policies Page
-And My new specification is correctly listed
-
 
 @Workitem:49358 58413 Driver
 Scenario: Create and Save a new Specification with 5 Funding Streams selected
