@@ -224,7 +224,7 @@
             ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
 
             choosedatasetrelationshippage.selectDatasetSchemaDropDown.Click();
-            choosedatasetrelationshippage.selectDatasetSchemaDropDownTextSearch.SendKeys("High Needs Student Numbers");
+            choosedatasetrelationshippage.selectDatasetSchemaDropDownTextSearch.SendKeys("PE and Sport premium");
             choosedatasetrelationshippage.selectDatasetSchemaDropDown.SendKeys(OpenQA.Selenium.Keys.Enter);
 
             Thread.Sleep(2000);
