@@ -38,7 +38,7 @@
         public static string Calculationstatusvalue { get; set; }
         public static string datasestinfo { get; set; }
         public static string TestUserMe = "richard.wilson@education.gov.uk";
-        public static string TestPwMe = "Joanne1976$02";
+        public static string TestPwMe = "Joanne1976$03";
 
 
 

@@ -1,4 +1,5 @@
-﻿using CalculateFunding.Permissions.Clients.UsersClient.Models;
+﻿using AutoFramework;
+using CalculateFunding.Permissions.Clients.UsersClient.Models;
 using CalculateFunding.Permissions.Models;
 using Frontend.IntegrationTests.Helpers;
 using System;
@@ -28,6 +29,19 @@ namespace Frontend.IntegrationTests.Tests.Steps
             };
 
             helper.ApplyPermissions(userPermission).Wait();
+        }
+
+
+
+        [AfterScenario()]
+        public void FixtureTearDown()
+        {
+            if (Driver._driver != null)
+            {
+                Driver._driver.Quit();
+                Driver._driver.Dispose();
+            }
+
         }
 
     }
