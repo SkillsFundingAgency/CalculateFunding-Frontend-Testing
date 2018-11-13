@@ -1,10 +1,9 @@
-﻿using CalculateFunding.Common.Utility;
-using CalculateFunding.Frontend.Clients;
-using CalculateFunding.Frontend.Clients.CommonModels;
-using CalculateFunding.Frontend.Clients.UsersClient;
-using CalculateFunding.Frontend.Interfaces.ApiClient;
-using CalculateFunding.Permissions;
-using CalculateFunding.Permissions.Models;
+﻿using CalculateFunding.Common.ApiClient;
+using CalculateFunding.Common.ApiClient.Interfaces;
+using CalculateFunding.Common.ApiClient.Models;
+using CalculateFunding.Common.ApiClient.Users;
+using CalculateFunding.Common.Utility;
+using Frontend.IntegrationTests.Models;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -52,7 +51,12 @@ namespace Frontend.IntegrationTests.Helpers
             IUsersApiClient usersClient = GenerateUsersApiClient(logger, httpClientFactory, environmentConfiguration);
 
             PermissionService permissionService = new PermissionService(usersClient, logger);
-            await permissionService.ApplyPermissions(userPermissions);
+            var result = await permissionService.ApplyPermissions(userPermissions);
+            var failedRequests = result.Values.Where(r => r.StatusCode != System.Net.HttpStatusCode.OK);
+            if (failedRequests.Any())
+            {
+                throw new Exception($"Failed to Set Permissions on {failedRequests.Count()} Users");
+            }
         }
 
         private static IUsersApiClient GenerateUsersApiClient(ILogger logger, StaticHttpClientFactory httpClientFactory, EnvironmentConfiguration environmentConfiguration)
@@ -62,7 +66,7 @@ namespace Frontend.IntegrationTests.Helpers
                 HttpClient httpClient = new HttpClient();
                 httpClient.Timeout = new TimeSpan(0, 10, 0);
 
-                SetDefaultApiOptions(httpClient, new ApiOptions()
+                SetDefaultApiOptions(httpClient, new ApiClientConfigurationOptions()
                 {
                     ApiEndpoint = environmentConfiguration.UsersBaseUrl,
                     ApiKey = environmentConfiguration.ApiKey,
@@ -76,7 +80,7 @@ namespace Frontend.IntegrationTests.Helpers
             return new UsersApiClient(httpClientFactory, logger, null);
         }
 
-        private static void SetDefaultApiOptions(HttpClient httpClient, ApiOptions options)
+        private static void SetDefaultApiOptions(HttpClient httpClient, ApiClientConfigurationOptions options)
         {
             Guard.ArgumentNotNull(httpClient, nameof(httpClient));
             Guard.ArgumentNotNull(options, nameof(options));

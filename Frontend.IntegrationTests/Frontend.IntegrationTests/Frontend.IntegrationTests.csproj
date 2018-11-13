@@ -36,6 +36,12 @@
     <Reference Include="CalculateFunding.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CalculateFunding.Common.1.5.0\lib\netstandard2.0\CalculateFunding.Common.dll</HintPath>
     </Reference>
+    <Reference Include="CalculateFunding.Common.ApiClient, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CalculateFunding.Common.ApiClient.1.0.2\lib\netstandard2.0\CalculateFunding.Common.ApiClient.dll</HintPath>
+    </Reference>
+    <Reference Include="CalculateFunding.Common.ApiClient.Users, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CalculateFunding.Common.ApiClient.Users.1.0.2\lib\netstandard2.0\CalculateFunding.Common.ApiClient.Users.dll</HintPath>
+    </Reference>
     <Reference Include="FluentAssertions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentAssertions.5.0.0\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
@@ -82,7 +88,7 @@
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
-      <HintPath>..\packages\Serilog.2.5.0\lib\net46\Serilog.dll</HintPath>
+      <HintPath>..\packages\Serilog.2.7.1\lib\net46\Serilog.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.Sinks.Console, Version=3.1.1.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.Sinks.Console.3.1.1\lib\net45\Serilog.Sinks.Console.dll</HintPath>
@@ -160,7 +166,10 @@
     <Compile Include="Create\ManageSpecificationCreateNewSubPolicy.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Helpers\PermissionsHelper.cs" />
+    <Compile Include="Helpers\PermissionsService.cs" />
     <Compile Include="Helpers\TestDataUtils.cs" />
+    <Compile Include="Models\EnviromentConfiguration.cs" />
+    <Compile Include="Models\UserPermission.cs" />
     <Compile Include="NavigateTo.cs" />
     <Compile Include="Pages\Approve funding\ApprovePublishFundingPage.cs" />
     <Compile Include="Pages\Approve funding\ApprovePublishSelectorPage .cs" />
@@ -304,12 +313,6 @@
     <Content Include="phantomjs-license.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\source\repos\CalculateFunding-Permissions\CalculateFunding.Permissions\CalculateFunding.Permissions.csproj">
-      <Project>{ba042885-eb4c-4119-b7e1-3727cc69f722}</Project>
-      <Name>CalculateFunding.Permissions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

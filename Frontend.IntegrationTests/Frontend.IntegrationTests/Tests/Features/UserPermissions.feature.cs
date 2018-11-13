@@ -82,7 +82,7 @@ namespace Frontend.IntegrationTests.Tests.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void UpdatePermissions(string userId, string fundingStreamId, string[] exampleTags)
+        public virtual void UpdateALLPermissionsForASpecifiedUserToTrue(string userId, string fundingStreamId, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Workitem",
@@ -93,7 +93,7 @@ namespace Frontend.IntegrationTests.Tests.Features
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update Permissions", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update ALL Permissions for a Specified User to True", @__tags);
 #line 4
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -101,13 +101,40 @@ this.ScenarioSetup(scenarioInfo);
                         "Permission",
                         "Granted"});
             table1.AddRow(new string[] {
-                        "CanEditSpecification",
+                        "CanAdministerFundingStream",
                         "true"});
             table1.AddRow(new string[] {
                         "CanCreateSpecification",
                         "true"});
             table1.AddRow(new string[] {
-                        "CanEditCalculation",
+                        "CanEditSpecification",
+                        "true"});
+            table1.AddRow(new string[] {
+                        "CanApproveSpecification",
+                        "true"});
+            table1.AddRow(new string[] {
+                        "CanEditCalculations",
+                        "true"});
+            table1.AddRow(new string[] {
+                        "CanMapDatasets",
+                        "true"});
+            table1.AddRow(new string[] {
+                        "CanChooseFunding",
+                        "true"});
+            table1.AddRow(new string[] {
+                        "CanRefreshFunding",
+                        "true"});
+            table1.AddRow(new string[] {
+                        "CanApproveFunding",
+                        "true"});
+            table1.AddRow(new string[] {
+                        "CanPublishFunding",
+                        "true"});
+            table1.AddRow(new string[] {
+                        "CanCreateQaTests",
+                        "true"});
+            table1.AddRow(new string[] {
+                        "CanEditQaTests",
                         "true"});
 #line 5
 testRunner.Given(string.Format("the user \'{0}\' has the following permissions for Funding Stream \'{1}\'", userId, fundingStreamId), ((string)(null)), table1, "Given ");
@@ -116,7 +143,8 @@ testRunner.Given(string.Format("the user \'{0}\' has the following permissions f
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Update Permissions: 40a8a720-2817-430e-9be1-98d337fd01f4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Update ALL Permissions for a Specified User to True: 40a8a720-2817-430e-9be1-98d3" +
+            "37fd01f4")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "UserPermissions")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("62977")]
@@ -125,10 +153,179 @@ testRunner.Given(string.Format("the user \'{0}\' has the following permissions f
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "40a8a720-2817-430e-9be1-98d337fd01f4")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:userId", "40a8a720-2817-430e-9be1-98d337fd01f4")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:fundingStreamId", "PSG")]
-        public virtual void UpdatePermissions_40A8A720_2817_430E_9Be1_98D337Fd01F4()
+        public virtual void UpdateALLPermissionsForASpecifiedUserToTrue_40A8A720_2817_430E_9Be1_98D337Fd01F4()
         {
 #line 4
-this.UpdatePermissions("40a8a720-2817-430e-9be1-98d337fd01f4", "PSG", ((string[])(null)));
+this.UpdateALLPermissionsForASpecifiedUserToTrue("40a8a720-2817-430e-9be1-98d337fd01f4", "PSG", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void UpdatePermissionsForASpecifiedUserToEnableCreationOfANewSpecification(string userId, string fundingStreamId, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Workitem",
+                    "62977",
+                    "62987",
+                    "Driver"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update Permissions for a Specified User to Enable Creation of a New Specification" +
+                    "", @__tags);
+#line 26
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Permission",
+                        "Granted"});
+            table2.AddRow(new string[] {
+                        "CanAdministerFundingStream",
+                        "true"});
+            table2.AddRow(new string[] {
+                        "CanCreateSpecification",
+                        "true"});
+            table2.AddRow(new string[] {
+                        "CanEditSpecification",
+                        "true"});
+            table2.AddRow(new string[] {
+                        "CanApproveSpecification",
+                        "true"});
+            table2.AddRow(new string[] {
+                        "CanEditCalculations",
+                        "true"});
+            table2.AddRow(new string[] {
+                        "CanMapDatasets",
+                        "true"});
+            table2.AddRow(new string[] {
+                        "CanChooseFunding",
+                        "true"});
+            table2.AddRow(new string[] {
+                        "CanRefreshFunding",
+                        "true"});
+            table2.AddRow(new string[] {
+                        "CanApproveFunding",
+                        "true"});
+            table2.AddRow(new string[] {
+                        "CanPublishFunding",
+                        "true"});
+            table2.AddRow(new string[] {
+                        "CanCreateQaTests",
+                        "true"});
+            table2.AddRow(new string[] {
+                        "CanEditQaTests",
+                        "true"});
+#line 27
+testRunner.Given(string.Format("the user \'{0}\' has the following permissions for Funding Stream \'{1}\'", userId, fundingStreamId), ((string)(null)), table2, "Given ");
+#line 42
+testRunner.Then("I can successfully create a new Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Update Permissions for a Specified User to Enable Creation of a New Specification" +
+            ": 40a8a720-2817-430e-9be1-98d337fd01f4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "UserPermissions")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("62977")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("62987")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "40a8a720-2817-430e-9be1-98d337fd01f4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:userId", "40a8a720-2817-430e-9be1-98d337fd01f4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:fundingStreamId", "PSG")]
+        public virtual void UpdatePermissionsForASpecifiedUserToEnableCreationOfANewSpecification_40A8A720_2817_430E_9Be1_98D337Fd01F4()
+        {
+#line 26
+this.UpdatePermissionsForASpecifiedUserToEnableCreationOfANewSpecification("40a8a720-2817-430e-9be1-98d337fd01f4", "PSG", ((string[])(null)));
+#line hidden
+        }
+        
+        public virtual void UpdatePermissionsForASpecifiedUserToEnableEditSpecification(string userId, string fundingStreamId, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Workitem",
+                    "62977",
+                    "62987",
+                    "Driver"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update Permissions for a Specified User to Enable Edit Specification", @__tags);
+#line 50
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Permission",
+                        "Granted"});
+            table3.AddRow(new string[] {
+                        "CanAdministerFundingStream",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "CanCreateSpecification",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "CanEditSpecification",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "CanApproveSpecification",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "CanEditCalculations",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "CanMapDatasets",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "CanChooseFunding",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "CanRefreshFunding",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "CanApproveFunding",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "CanPublishFunding",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "CanCreateQaTests",
+                        "true"});
+            table3.AddRow(new string[] {
+                        "CanEditQaTests",
+                        "true"});
+#line 51
+testRunner.Given(string.Format("the user \'{0}\' has the following permissions for Funding Stream \'{1}\'", userId, fundingStreamId), ((string)(null)), table3, "Given ");
+#line 66
+testRunner.And("I have Navigated to the Edit Specifiction Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+testRunner.When("I update the Specification Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 68
+testRunner.And("click the Update Specification Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 69
+testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 70
+testRunner.And("the Specification is correctly updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Update Permissions for a Specified User to Enable Edit Specification: 40a8a720-28" +
+            "17-430e-9be1-98d337fd01f4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "UserPermissions")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("62977")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("62987")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "40a8a720-2817-430e-9be1-98d337fd01f4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:userId", "40a8a720-2817-430e-9be1-98d337fd01f4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:fundingStreamId", "PSG")]
+        public virtual void UpdatePermissionsForASpecifiedUserToEnableEditSpecification_40A8A720_2817_430E_9Be1_98D337Fd01F4()
+        {
+#line 50
+this.UpdatePermissionsForASpecifiedUserToEnableEditSpecification("40a8a720-2817-430e-9be1-98d337fd01f4", "PSG", ((string[])(null)));
 #line hidden
         }
     }

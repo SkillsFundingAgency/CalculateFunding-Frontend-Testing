@@ -1,14 +1,16 @@
 ﻿using AutoFramework;
-using CalculateFunding.Permissions.Clients.UsersClient.Models;
-using CalculateFunding.Permissions.Models;
 using Frontend.IntegrationTests.Helpers;
+using Frontend.IntegrationTests.Create;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using Frontend.IntegrationTests.Models;
+using CalculateFunding.Common.ApiClient.Users.Models;
 
 namespace Frontend.IntegrationTests.Tests.Steps
 {
@@ -31,6 +33,20 @@ namespace Frontend.IntegrationTests.Tests.Steps
             helper.ApplyPermissions(userPermission).Wait();
         }
 
+
+        [Then(@"I can successfully create a new Specification")]
+        public void ThenICanSuccessfullyCreateANewSpecification()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+        }
+
+        [Given(@"I have Navigated to the Edit Specifiction Page")]
+        public void GivenIHaveNavigatedToTheEditSpecifictionPage()
+        {
+            NavigateTo.EditSpecificationPage();
+        }
+
+        
 
 
         [AfterScenario()]

@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27309.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend.IntegrationTests", "Frontend.IntegrationTests\Frontend.IntegrationTests.csproj", "{BC211B98-0877-4894-95C4-C17B88938A50}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculateFunding.Permissions", "..\..\..\..\source\repos\CalculateFunding-Permissions\CalculateFunding.Permissions\CalculateFunding.Permissions.csproj", "{BA042885-EB4C-4119-B7E1-3727CC69F722}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{BC211B98-0877-4894-95C4-C17B88938A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC211B98-0877-4894-95C4-C17B88938A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC211B98-0877-4894-95C4-C17B88938A50}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA042885-EB4C-4119-B7E1-3727CC69F722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA042885-EB4C-4119-B7E1-3727CC69F722}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA042885-EB4C-4119-B7E1-3727CC69F722}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA042885-EB4C-4119-B7E1-3727CC69F722}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
