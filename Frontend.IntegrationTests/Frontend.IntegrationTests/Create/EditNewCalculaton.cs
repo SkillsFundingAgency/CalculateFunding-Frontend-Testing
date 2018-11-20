@@ -42,7 +42,7 @@ namespace Frontend.IntegrationTests.Create
             var datasetName = ScenarioContext.Current["DatasetSchemaName"];
             editcalculationspage.CalculationVBEditor.Should().NotBeNull();
             editcalculationspage.CalculationVBTextEditor.SendKeys(OpenQA.Selenium.Keys.Control + "A");
-            editcalculationspage.CalculationVBTextEditor.SendKeys("Return Datasets." + datasetName + ".HighNeedsStudents1619 + 100");
+            editcalculationspage.CalculationVBTextEditor.SendKeys("Return Datasets." + datasetName + ".FullTimeNumberOfPupilsInYearGroup1DualRegistrations + 10");
             Thread.Sleep(2000);
             editcalculationspage.BuildCalculationButton.Click();
             Thread.Sleep(10000);

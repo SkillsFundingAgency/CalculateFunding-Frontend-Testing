@@ -44,9 +44,38 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void GivenIHaveNavigatedToTheEditSpecifictionPage()
         {
             NavigateTo.EditSpecificationPage();
+            Thread.Sleep(2000);
         }
 
-        
+
+        [Then(@"I can successfully navigate to the Create Dataset page")]
+        public void ThenICanSuccessfullyNavigateToTheCreateDatasetPage()
+        {
+            NavigateTo.CreateDatasetPage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I can successfully navigate to the Create Policy page")]
+        public void ThenICanSuccessfullyNavigateToTheCreatePolicyPage()
+        {
+            NavigateTo.CreatePolicy();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I can successfully navigate to the Create Calculation Specificaton page")]
+        public void ThenICanSuccessfullyNavigateToTheCreateCalculationSpecificatonPage()
+        {
+            NavigateTo.CreateCalculation();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I can successfully navigate to the Create Sub Policy page")]
+        public void ThenICanSuccessfullyNavigateToTheCreateSubPolicyPage()
+        {
+            NavigateTo.CreateSubPolicy();
+            Thread.Sleep(2000);
+        }
+
 
 
         [AfterScenario()]
