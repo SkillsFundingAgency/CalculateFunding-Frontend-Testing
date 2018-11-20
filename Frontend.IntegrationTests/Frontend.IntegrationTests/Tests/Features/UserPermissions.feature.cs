@@ -143,20 +143,20 @@ testRunner.Given(string.Format("the user \'{0}\' has the following permissions f
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Update ALL Permissions for a Specified User to True: 1541b7d8-8e03-4be3-a114-d0d7" +
-            "2d168d4b")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Update ALL Permissions for a Specified User to True: 40a8a720-2817-430e-9be1-98d3" +
+            "37fd01f4")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "UserPermissions")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("62977")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("62987")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "1541b7d8-8e03-4be3-a114-d0d72d168d4b")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:userId", "1541b7d8-8e03-4be3-a114-d0d72d168d4b")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "40a8a720-2817-430e-9be1-98d337fd01f4")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:userId", "40a8a720-2817-430e-9be1-98d337fd01f4")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:fundingStreamId", "PSG")]
-        public virtual void UpdateALLPermissionsForASpecifiedUserToTrue_1541B7D8_8E03_4Be3_A114_D0D72D168D4B()
+        public virtual void UpdateALLPermissionsForASpecifiedUserToTrue_40A8A720_2817_430E_9Be1_98D337Fd01F4()
         {
 #line 4
-this.UpdateALLPermissionsForASpecifiedUserToTrue("1541b7d8-8e03-4be3-a114-d0d72d168d4b", "PSG", ((string[])(null)));
+this.UpdateALLPermissionsForASpecifiedUserToTrue("40a8a720-2817-430e-9be1-98d337fd01f4", "PSG", ((string[])(null)));
 #line hidden
         }
         

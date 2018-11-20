@@ -19,7 +19,7 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 
 Examples:
 | userId                               | fundingStreamId |
-| 1541b7d8-8e03-4be3-a114-d0d72d168d4b | PSG	         | 
+| 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             | 
 
 @Workitem 62977 62987 Driver
 Scenario Outline: Update Permissions for a Specified User to Enable Creation of a New Specification
@@ -42,7 +42,7 @@ Then I can successfully create a new Specification
 
 Examples:
 | userId                               | fundingStreamId |
-| 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             |
+| 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             | 
 
 
 @Workitem 62977 62987 Driver
