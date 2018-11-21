@@ -76,6 +76,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Thread.Sleep(2000);
         }
 
+        [Then(@"I have navigated to the Approve and publish funding Page")]
+        public void ThenIHaveNavigatedToTheApproveAndPublishFundingPage()
+        {
+            NavigateTo.ApprovePublishFundingage();
+            Thread.Sleep(2000);
+        }
+
 
 
         [AfterScenario()]

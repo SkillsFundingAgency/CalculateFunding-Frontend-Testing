@@ -42,7 +42,7 @@ Then I can successfully create a new Specification
 
 Examples:
 | userId                               | fundingStreamId |
-| 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             | 
+| 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             |
 
 
 @Workitem 62977 62987 Driver
@@ -303,5 +303,84 @@ Examples:
 | 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             |
 
 
+@Workitem 62977 62987 Driver
+Scenario Outline: Update Permissions for a Specified User to allow access to Refresh Funding
+Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
+| Permission                 | Granted | 
+| CanAdministerFundingStream | true    |
+| CanCreateSpecification     | true    |
+| CanEditSpecification       | true    |
+| CanApproveSpecification    | true    |
+| CanEditCalculations        | true    |
+| CanMapDatasets             | true    |
+| CanChooseFunding           | true    |
+| CanRefreshFunding          | true    |
+| CanApproveFunding          | true    |
+| CanPublishFunding          | true    |
+| CanCreateQaTests           | true    |
+| CanEditQaTests             | true    | 
 
+And I have navigated to the Approve and publish funding Page
+When I click the Refresh Funding Button
+Then the approve and Published page refreshes the funding for all providers based on any Calculation or data changes
+And a Validation Update message is displayed correctly
+
+Examples:
+| userId                               | fundingStreamId |
+| 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             |
+
+
+@Workitem 62977 62987 Driver
+Scenario Outline: Update Permissions for a Specified User to allow access to Approve Funding Stream
+Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
+| Permission                 | Granted | 
+| CanAdministerFundingStream | true    |
+| CanCreateSpecification     | true    |
+| CanEditSpecification       | true    |
+| CanApproveSpecification    | true    |
+| CanEditCalculations        | true    |
+| CanMapDatasets             | true    |
+| CanChooseFunding           | true    |
+| CanRefreshFunding          | true    |
+| CanApproveFunding          | true    |
+| CanPublishFunding          | true    |
+| CanCreateQaTests           | true    |
+| CanEditQaTests             | true    | 
+
+And I have navigated to the Approve and publish funding Page
+Then the Provider list updates to display all the provider information for the selected specification
+When I Choose a Provider with a status of Held
+Then the Approve Button becomes enabled
+
+Examples:
+| userId                               | fundingStreamId |
+| 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             |
+
+
+@Workitem 62977 62987 Driver
+Scenario Outline: Update Permissions for a Specified User to allow access to Publish Funding Stream
+Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
+| Permission                 | Granted | 
+| CanAdministerFundingStream | true    |
+| CanCreateSpecification     | true    |
+| CanEditSpecification       | true    |
+| CanApproveSpecification    | true    |
+| CanEditCalculations        | true    |
+| CanMapDatasets             | true    |
+| CanChooseFunding           | true    |
+| CanRefreshFunding          | true    |
+| CanApproveFunding          | true    |
+| CanPublishFunding          | true    |
+| CanCreateQaTests           | true    |
+| CanEditQaTests             | true    | 
+
+And I have navigated to the Approve and publish funding Page
+Then the Provider list updates to display all the provider information for the selected specification
+When I Choose a Provider with a status of Approved
+Then the Publish Button becomes enabled
+
+
+Examples:
+| userId                               | fundingStreamId |
+| 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             |
 

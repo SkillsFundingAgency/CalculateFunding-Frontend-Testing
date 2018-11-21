@@ -20,7 +20,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.LinkText, Using = "Create calculation specification")]
         public IWebElement CreateCalculation { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "Create dataset")]
+        [FindsBy(How = How.LinkText, Using = "No datasets exist, create a dataset")]
         public IWebElement Createdatatyperelationship { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".cf")]
@@ -83,7 +83,11 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.CssSelector, Using = ".dropdown-menu")]
         public IWebElement publishMenu { get; set; }
 
-        
+        [FindsBy(How = How.LinkText, Using = "View calculation code")]
+        public IWebElement viewCalculationLink { get; set; }
+
+        [FindsBy(How = How.LinkText, Using = "Map data source file to data set")]
+        public IWebElement viewMapDataSourceLink { get; set; }
 
 
     }

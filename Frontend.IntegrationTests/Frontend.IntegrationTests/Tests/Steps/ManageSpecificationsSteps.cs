@@ -2325,6 +2325,36 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine("The New Status of the selected Specification is: " + approveStatus);
         }
 
+        [Then(@"I the View calculation script link option is displayed")]
+        public void ThenITheViewCalculationScriptLinkOptionIsDisplayed()
+        {
+            managepoliciespage.viewCalculationLink.Should().NotBeNull();
+        }
+
+        [When(@"I click the View Calculation Code Link")]
+        public void WhenIClickTheViewCalculationCodeLink()
+        {
+            IWebElement viewCalculation = managepoliciespage.viewCalculationLink;
+            viewCalculation.Should().NotBeNull();
+            viewCalculation.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Map Data Source file to Dataset link is displayed correctly")]
+        public void ThenTheMapDataSourceFileToDatasetLinkIsDisplayedCorrectly()
+        {
+            managepoliciespage.viewMapDataSourceLink.Should().NotBeNull();
+        }
+
+        [When(@"I click on the Map Data Source File to Dataset link")]
+        public void WhenIClickOnTheMapDataSourceFileToDatasetLink()
+        {
+            IWebElement viewMapDataSourcePage = managepoliciespage.viewMapDataSourceLink;
+            viewMapDataSourcePage.Should().NotBeNull();
+            viewMapDataSourcePage.Click();
+            Thread.Sleep(2000);
+
+        }
 
 
 
