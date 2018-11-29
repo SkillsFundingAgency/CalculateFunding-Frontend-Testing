@@ -14,7 +14,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Calculation
         [FindsBy(How = How.Id, Using = "SearchTerm")]
         public IWebElement CalculationSearchField { get; set; }
 
-        [FindsBy(How = How.Id, Using = "filter-search-button-image")]
+        [FindsBy(How = How.CssSelector, Using = ".search-button")]
         public IWebElement CalculationSearchButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "dynamic-results-table-body")]
