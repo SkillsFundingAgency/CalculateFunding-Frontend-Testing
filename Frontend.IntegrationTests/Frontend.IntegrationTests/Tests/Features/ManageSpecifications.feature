@@ -300,7 +300,7 @@ Given I have previously created a new specification
 When I choose to view the datasets tab
 Then No alert about provider datasets is displayed
 
-@Workitem:40032 Driver
+@Workitem:40032 53711 Driver
 Scenario: Create a New Specification and Dataset without marking as provider data should display an Alert
 Given I have previously created a new specification
 When I choose to view the datasets tab
@@ -309,7 +309,7 @@ And I am redirected to the DataSet page
 Then the new dataset has been saved and displayed correctly
 And An Alert that No dataset has been set as provider data should be displayed
 
-@Workitem:40032 Driver
+@Workitem:40032 53711 Driver
 Scenario: Create a New Specification and New Dataset marked as provider data set should not display an Alert
 Given I have previously created a new specification
 When I choose to view the datasets tab
@@ -327,8 +327,6 @@ And I choose a specification Funding Period
 And I choose 2 specification Funding Streams
 And I click the Save button
 Then I am redirected to the Manage Policies Page
-And My new specification is correctly listed
-
 
 @Workitem:49358 58413 Driver
 Scenario: Create and Save a new Specification with 5 Funding Streams selected
@@ -734,3 +732,74 @@ Scenario: Verify that a Specification with an associated Sub Policy can be marke
 Given A Sub Policy has been previously created with a Unique Name
 When I choose to mark the associated Specification as Approved
 Then the Specification should be marked as approved
+
+@Workitem:56606 Driver
+Scenario: Verify the Calculation More option displays the View Calculation Code link within the Manage Policies List
+Given I have previously created a new specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I have successfully navigated to the Manage Policies Page for the new specification
+And the list of associated Polcies and Calculations are displayed
+And the associated calculations are displayed as rows in my table
+When I click on the Calculation More drop down option
+Then I the View calculation script link option is displayed
+
+@Workitem:56606 Driver
+Scenario: Select to view the Edit Calculation Page from the View Calculation Code link within the Manage Policies List
+Given I have previously created a new specification
+And I have created a New Policy for that Specification
+And I have created a New Calculation Specification for that Specification
+And I have successfully navigated to the Manage Policies Page for the new specification
+And the list of associated Polcies and Calculations are displayed
+And the associated calculations are displayed as rows in my table
+When I click on the Calculation More drop down option
+And I click the View Calculation Code Link
+Then I am redirected successfully to the Edit Calculation Specifcation Page
+
+@Workitem:63319 Driver
+Scenario: Verify a Specification with an existing Dataset displays a link to Map Data Source file to the Dataset
+Given I have previously created a new specification
+When I choose to view the datasets tab
+And I choose to create a new dataset set as Provider Data
+And I am redirected to the DataSet page
+Then the Map Data Source file to Dataset link is displayed correctly
+
+@Workitem:63319 Driver
+Scenario: Select to view the Map Data Source File page from the Map Data source file to Dataset link within the Specification Dataset Tab
+Given I have previously created a new specification
+When I choose to view the datasets tab
+And I choose to create a new dataset set as Provider Data
+And I am redirected to the DataSet page
+Then the Map Data Source file to Dataset link is displayed correctly
+When I click on the Map Data Source File to Dataset link
+Then I am redirected to a list view of dataset schema relationships for the specification
+
+@Workitem:53711 Driver
+Scenario: Verify the Specification Dataset Tab View where a dataset or datasets have been created
+Given I have previously created a new specification
+When I choose to view the datasets tab
+And I choose to create a new dataset set as Provider Data
+And I am redirected to the DataSet page
+Then the new dataset has been saved and displayed correctly
+And the dataset is displayed in a tabular layout
+And the Column Headers Dataset and Data schema are displayed
+And the option to expand the Dataset row to show more information is displayed
+
+@Workitem:53711 Driver
+Scenario: Verify the Specification Dataset Tab View correctly displays the Provider Data Icon
+Given I have previously created a new specification
+When I choose to view the datasets tab
+And I choose to create a new dataset set as Provider Data
+And I am redirected to the DataSet page
+Then the new dataset has been saved and displayed correctly
+And the Provider Data Set Icon is displayed correctly
+
+@Workitem:53711 Driver
+Scenario: Verify the Specification Dataset Tab View correctly displays the Expander Results Information
+Given I have previously created a new specification
+When I choose to view the datasets tab
+And I choose to create a new dataset set as Provider Data
+And I am redirected to the DataSet page
+Then the new dataset has been saved and displayed correctly
+When I click the option to Expand the Dataset Result Information
+Then the Additional dataset information is displayed

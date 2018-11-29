@@ -32,6 +32,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         EditSpecificationPage editspecificationpage = new EditSpecificationPage();
         HomePage homepage = new HomePage();
         EditCalculationPage editcalculationpage = new EditCalculationPage();
+        ViewSpecificationDatasets viewspecificationdatasets = new ViewSpecificationDatasets();
 
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
@@ -204,8 +205,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"A Unique Specification Name Error is Displayed")]
         public void ThenAUniqueSpecificationNameErrorIsDisplayed()
         {
-            Assert.IsNotNull(createspecificationpage.SpecNameError);
-            string specNameError = createspecificationpage.SpecNameError.Text;
+            Assert.IsNotNull(createspecificationpage.DuplicateSpecNameError);
+            string specNameError = createspecificationpage.DuplicateSpecNameError.Text;
             Console.WriteLine("The following error message was correctly displayed: " + specNameError);
             Thread.Sleep(2000);
         }
@@ -877,7 +878,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var datasetName = ScenarioContext.Current["DatasetSchemaName"];
             string datasetCreated = datasetName.ToString();
-            var datasetelements = Driver._driver.FindElements(By.CssSelector(".view-dataset .datasetschemaassigned-list-title-container span"));
+            var datasetelements = Driver._driver.FindElements(By.Id("static-results-table-body"));
             IWebElement createddataset = null;
             foreach (var element in datasetelements)
             {
@@ -937,7 +938,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = createspecificationpage.SpecFundingPeriod;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("AY2017181");
+            selectElement.SelectByValue("1819DEV1");
             Thread.Sleep(2000);
         }
 
@@ -946,7 +947,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = createspecificationpage.SpecFundingPeriod;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("FY2017181");
+            selectElement.SelectByValue("1819DEV1");
             Thread.Sleep(2000);
         }
 
@@ -966,7 +967,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = createspecificationpage.SpecFundingPeriod;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("AY2017181");
+            selectElement.SelectByValue("1819");
             Thread.Sleep(2000);
         }
 
@@ -1086,44 +1087,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             editSubPolicy.Should().NotBeNull();
             editSubPolicy.Click();
             Thread.Sleep(2000);
-
-            /*
-            IWebElement subpolicyList = managepoliciespage.SubPolicyList;
-            subpolicyList.Should().NotBeNull();
-
-            var containerElements = subpolicyList;
-            IWebElement firstSelectEditSubPolicy = null;
-            if (containerElements != null)
-            {
-                var options = containerElements.FindElements(By.TagName("i"));
-                foreach (var optionelement in options)
-                {
-                    if (optionelement != null)
-                    {
-                        firstSelectEditSubPolicy = optionelement;
-
-                        break;
-
-
-                    }
-                }
-                Thread.Sleep(1000);
-                if (firstSelectEditSubPolicy != null)
-                {
-                    firstSelectEditSubPolicy.Click();
-                    Thread.Sleep(2000);
-                    editsubpolicypage.editSubPolicyName.Should().NotBeNull();
-                }
-                else
-                {
-                    firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exist for the Policy selected");
-                }
-            }
-            else
-            {
-                firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
-            }
-            */
         }
 
         [Given(@"I have navigated to the Edit Policy Page")]
@@ -1421,40 +1384,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             editSubPolicy.Click();
             Thread.Sleep(2000);
 
-            /*
-            var containerElements = subpolicyList;
-            IWebElement firstSelectEditSubPolicy = null;
-            if (containerElements != null)
-            {
-                var options = containerElements.FindElements(By.TagName("a"));
-                foreach (var optionelement in options)
-                {
-                    if (optionelement != null)
-                    {
-                        firstSelectEditSubPolicy = optionelement;
-
-                        break;
-
-
-                    }
-                }
-                Thread.Sleep(1000);
-                if (firstSelectEditSubPolicy != null)
-                {
-                    firstSelectEditSubPolicy.Click();
-                    Thread.Sleep(2000);
-                    editsubpolicypage.editSubPolicyName.Should().NotBeNull();
-                }
-                else
-                {
-                    firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exist for the Policy selected");
-                }
-            }
-            else
-            {
-                firstSelectEditSubPolicy.Should().NotBeNull("No Edit Sub Policy Option exists");
-            }
-            */
         }
 
 
@@ -1578,7 +1507,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectYear = editspecificationpage.editSpecificationFundingPeriodDropdown;
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("FY2017181");
+            selectElement.SelectByValue("1819DEV1");
             Thread.Sleep(2000);
         }
 
@@ -2397,6 +2326,92 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine("The New Status of the selected Specification is: " + approveStatus);
         }
 
+        [Then(@"I the View calculation script link option is displayed")]
+        public void ThenITheViewCalculationScriptLinkOptionIsDisplayed()
+        {
+            managepoliciespage.viewCalculationLink.Should().NotBeNull();
+        }
+
+        [When(@"I click the View Calculation Code Link")]
+        public void WhenIClickTheViewCalculationCodeLink()
+        {
+            IWebElement viewCalculation = managepoliciespage.viewCalculationLink;
+            viewCalculation.Should().NotBeNull();
+            viewCalculation.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Map Data Source file to Dataset link is displayed correctly")]
+        public void ThenTheMapDataSourceFileToDatasetLinkIsDisplayedCorrectly()
+        {
+            managepoliciespage.viewMapDataSourceLink.Should().NotBeNull();
+        }
+
+        [When(@"I click on the Map Data Source File to Dataset link")]
+        public void WhenIClickOnTheMapDataSourceFileToDatasetLink()
+        {
+            IWebElement viewMapDataSourcePage = managepoliciespage.viewMapDataSourceLink;
+            viewMapDataSourcePage.Should().NotBeNull();
+            viewMapDataSourcePage.Click();
+            Thread.Sleep(2000);
+
+        }
+
+        [Then(@"the dataset is displayed in a tabular layout")]
+        public void ThenTheDatasetIsDisplayedInATabularLayout()
+        {
+            viewspecificationdatasets.datasetsTableContainer.Should().NotBeNull();
+        }
+
+        [Then(@"the Column Headers Dataset and Data schema are displayed")]
+        public void ThenTheColumnHeadersDatasetAndDataSchemaAreDisplayed()
+        {
+            IWebElement datasetcontainer = viewspecificationdatasets.datasetsTableContainer;
+            var propertyElements = datasetcontainer.FindElements(By.CssSelector("th"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"the option to expand the Dataset row to show more information is displayed")]
+        public void ThenTheOptionToExpandTheDatasetRowToShowMoreInformationIsDisplayed()
+        {
+            viewspecificationdatasets.datasetsResultsMoreInfoExpander.Should().NotBeNull();
+        }
+
+        [Then(@"the Provider Data Set Icon is displayed correctly")]
+        public void ThenTheProviderDataSetIconIsDisplayedCorrectly()
+        {
+            IWebElement providerDataAlert = viewspecificationdatasets.datasetsResultsProviderDataAlert;
+            providerDataAlert.Should().NotBeNull();
+            string providerAlertText = providerDataAlert.Text;
+            Console.WriteLine(providerAlertText);
+        }
+
+        [When(@"I click the option to Expand the Dataset Result Information")]
+        public void WhenIClickTheOptionToExpandTheDatasetResultInformation()
+        {
+            IWebElement datasetExpandInfo = viewspecificationdatasets.datasetsResultsMoreInfoExpander;
+            datasetExpandInfo.Should().NotBeNull();
+            datasetExpandInfo.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Additional dataset information is displayed")]
+        public void ThenTheAdditionalDatasetInformationIsDisplayed()
+        {
+            IWebElement expandedResultsInfo = viewspecificationdatasets.datasetsResultsExpanderResultsContainer;
+            expandedResultsInfo.Should().NotBeNull();
+            string expandedInfoText = expandedResultsInfo.Text;
+            Console.WriteLine("The information displayed in the expanded results container is " + expandedInfoText);
+        }
 
 
 

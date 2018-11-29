@@ -158,36 +158,51 @@ Given I have navigated to Map data sources to datasets page
 When I click on a specification name
 Then I am taken to the specification data relationships page for that specification
 
-@Workitem:38550 Driver
-Scenario: Select a Secification that has no dataset relationships associated
+@Workitem:38550 53791 Driver
+Scenario: Select a Specification that has no dataset relationships associated
 Given I have navigated to a specification data relationships page without any dataset relationships established
 Then a message declaring that no dataset relationships have been established is displayed
 And instructions on what steps are required to create the relationships is displayed
 
-@Workitem:38550 Driver
+@Workitem:38550 53791 Driver
 Scenario: Select a Specification that does have dataset relationships associated
 Given I have already created a Specification with the appropruiate dataset associated
 And I have navigated to a specification data relationships page where dataset relationships exist
 Then the count of data sources established is displayed
-And the Data schema name is displayed
-And the Data set name is displayed
-And the Data set description is displayed
+And A Summary Table of all the associated Specification Datasets is Displayed
+And the Table Headers Dataset and Mapped data source file are correctly Displayed
+And the newly created Data set name is displayed
+And the Provider Data indicator is displayed
+And the link to Map data source file is displayed
 
-@Workitem:38550 Driver
+@Workitem:38550 53791 Driver
 Scenario: Select a Specification that has a dataset relationships but no Data Schema associated
 Given I have already created a Specification with the appropruiate dataset associated
 And I have navigated to a specification data relationships page where dataset relationships exist
 When the data set data schema relationship does not have a data source associated
 Then I am provided with the option to select a data source
 
-@Workitem:38550 Driver
+@Workitem:38550 53791 Driver
 Scenario: Select a Specification that has a dataset relationships and a Data Schema associated
 Given I have already created a Specification with the appropruiate dataset & schema associated
 And I have navigated to a specification data relationships page where dataset relationships exist
 When the data set data schema relationship does have a data source associated
-Then the name of the data source is displayed
-And the version of the data source is displayed
-And an option to change the data source is displayed
+Then an option to change the data source is displayed
+And the newly created Data set name is displayed
+And the Provider Data indicator is displayed
+And the Mapped Data Source name is Displayed Correctly
+And an option to expand the Mapped Datasource to display additional information is displayed
+
+@Workitem:38550 53791 Driver
+Scenario: Expand the Information for a Dataset with a Data Schema associated
+Given I have already created a Specification with the appropruiate dataset & schema associated
+And I have navigated to a specification data relationships page where dataset relationships exist
+When the data set data schema relationship does have a data source associated
+Then an option to expand the Mapped Datasource to display additional information is displayed
+When I click on the option to expand the Mapped Data information
+Then the Expanded Information is correctly displayed
+And the Link to Change data source file is displayed
+And the Data Schema and Dataset description and Data source file version is displayed
 
 @Workitem:38338 Driver
 Scenario: Verify the Select Source Dataset Page
@@ -240,16 +255,17 @@ Then The change is saved
 And I redirected to the Specification data relationships page
 And the Specification data relationships page displayed a confirmation message for the change
 
-@Workitem:38338 Driver
+@Workitem:38338 53791 Driver
 Scenario: Change and Save a Dataset Source Selection to Dataset
 Given I have already created a Specification with the appropruiate dataset & schema associated
 And I have navigated to the Change source dataset
 When I click a different displayed datasets option
 And I have selected the new data source version
-When I click the Select source datasets Save button
+And I click the Select source datasets Save button
 Then The change is saved
 And I redirected to the Specification data relationships page
 And the Specification data relationships page displayed a confirmation message for the change
+And the Mapped Data Source name is Displayed Correctly
 
 @Workitem:47000 Driver
 Scenario: Verify Manage data sources Download data source option

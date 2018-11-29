@@ -535,6 +535,21 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
+        [When(@"I click on the Edit Calculation Back Link")]
+        public void WhenIClickOnTheEditCalculationBackLink()
+        {
+            editcalculationspage.BackCalculationLink.Should().NotBeNull();
+            editcalculationspage.BackCalculationLink.Click();
+        }
+
+        [When(@"I click the Leave Button in the Windows Dialog box")]
+        public void WhenIClickTheLeaveButtonInTheWindowsDialogBox()
+        {
+            IAlert alert = Driver._driver.SwitchTo().Alert();
+            alert.Accept();
+        }
+
+
         [Given(@"The Edit Calculation screen is displayed")]
         public void GivenTheEditCalculationScreenIsDisplayed()
         {

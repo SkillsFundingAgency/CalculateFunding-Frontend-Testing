@@ -38,7 +38,7 @@
         public static string Calculationstatusvalue { get; set; }
         public static string datasestinfo { get; set; }
         public static string TestUserMe = "richard.wilson@education.gov.uk";
-        public static string TestPwMe = "Joanne1976$02";
+        public static string TestPwMe = "Joanne1976$03";
 
 
 
@@ -224,68 +224,35 @@
             ChooseDatasetRelationshipPage choosedatasetrelationshippage = new ChooseDatasetRelationshipPage();
 
             choosedatasetrelationshippage.selectDatasetSchemaDropDown.Click();
-            choosedatasetrelationshippage.selectDatasetSchemaDropDownTextSearch.SendKeys("High Needs Student Numbers");
+            choosedatasetrelationshippage.selectDatasetSchemaDropDownTextSearch.SendKeys("PE and Sport premium");
             choosedatasetrelationshippage.selectDatasetSchemaDropDown.SendKeys(OpenQA.Selenium.Keys.Enter);
 
             Thread.Sleep(2000);
 
         }
 
-        public static void SelectSpecificationDataNoDataSchemaAssociated()
-        {
-            var containerElements = Driver._driver.FindElements(By.CssSelector("#top > main:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"));
-            IWebElement firstSelectSourceDatasetLink = null;
-            foreach (var element in containerElements)
-            {
-                var aelement = element.FindElement(By.TagName("a"));
-                if (aelement != null)
-                {
-                    if (aelement.Text.Contains("Select source dataset"))
-                    {
-                        {
-                            firstSelectSourceDatasetLink = aelement;
-                            break;
-                        }
-                    }
-
-                }
-                Thread.Sleep(1000);
-                if (firstSelectSourceDatasetLink != null)
-                {
-                    firstSelectSourceDatasetLink.Click();
-                }
-                else
-                {
-                    firstSelectSourceDatasetLink.Should().NotBeNull("Unable to find an item with no source dataset");
-                }
-            }
-        }
+       
 
         public static void SelectSpecificationDataDataSchemaExists()
         {
-            var containerElements = Driver._driver.FindElements(By.CssSelector("#top > main:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"));
+            var containerElements = Driver._driver.FindElements(By.CssSelector(".button-split-container"));
             IWebElement firstChangeSourceDatasetLink = null;
             foreach (var element in containerElements)
             {
                 var aelement = element.FindElement(By.TagName("a"));
                 if (aelement != null)
                 {
-                    if (aelement.Text.Contains("Change source dataset"))
+                    if (aelement.Text.Contains("edit"))
                     {
-                        var anchorLink = element.FindElement(By.CssSelector("p > a"));
-                        if (anchorLink != null)
-                        {
-                            firstChangeSourceDatasetLink = anchorLink;
+                            firstChangeSourceDatasetLink = aelement;
                             break;
-                        }
                     }
 
                 }
                 Thread.Sleep(1000);
                 if (firstChangeSourceDatasetLink != null)
                 {
-                    string datasestinfoline = firstChangeSourceDatasetLink.Text;
-                    datasestinfo = datasestinfoline;
+                    Console.WriteLine("Mapped Data Source Exists");
                 }
                 else
                 {
@@ -1829,11 +1796,11 @@
 
             var selectSpec = approvepublishselectorpage.approvePublishSelectorSpecificationDropdown;
             var selectSpecElement = new SelectElement(selectSpec);
-            selectSpecElement.SelectByText("Rob Test Spec S and T 7");
+            selectSpecElement.SelectByText("Show and Tell 7");
 
             var selectFunding = approvepublishselectorpage.approvePublishSelectorFundingStreamsDropdown;
             var selectFundingElement = new SelectElement(selectFunding);
-            selectFundingElement.SelectByText("DSG Allocations");
+            selectFundingElement.SelectByText("16-19 Bursaries - all providers 11/12");
 
         }
 

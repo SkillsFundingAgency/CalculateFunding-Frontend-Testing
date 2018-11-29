@@ -149,6 +149,16 @@ And I click the Save Calculation button
 And I am returned to the manage calculation page
 And a full audit record of my calculation is created
 
+@Workitem:35457 56928 Driver
+Scenario: Leave the Edit Calculation Page without saving your changes
+Given I have navigated to the Manage Calculations page
+And I click on a calculation in the displayed list
+When The Edit Calculation screen is displayed
+And I have edited the visual basic code
+And I click on the Edit Calculation Back Link
+And I click the Leave Button in the Windows Dialog box
+Then I am returned to the manage calculation page
+
 @Workitem:35460 Driver Smoke
 Scenario: Verify the Compare Calculation Versions Page
 Given I have navigated to the Manage Calculations page

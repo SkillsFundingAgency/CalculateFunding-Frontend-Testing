@@ -42,7 +42,7 @@ namespace Frontend.IntegrationTests.Create
 
             var allocation = createcalculationpage.CalculationAllocationLine;
             var selectElement01 = new SelectElement(allocation);
-            selectElement01.SelectByText("16-19 high level learners programme Funding");
+            selectElement01.SelectByText("16-19 Bursaries - all providers 11/12");
 
             createcalculationpage.SaveCalculation.Click();
             Thread.Sleep(2000);
