@@ -300,7 +300,7 @@ Given I have previously created a new specification
 When I choose to view the datasets tab
 Then No alert about provider datasets is displayed
 
-@Workitem:40032 Driver
+@Workitem:40032 53711 Driver
 Scenario: Create a New Specification and Dataset without marking as provider data should display an Alert
 Given I have previously created a new specification
 When I choose to view the datasets tab
@@ -309,7 +309,7 @@ And I am redirected to the DataSet page
 Then the new dataset has been saved and displayed correctly
 And An Alert that No dataset has been set as provider data should be displayed
 
-@Workitem:40032 Driver
+@Workitem:40032 53711 Driver
 Scenario: Create a New Specification and New Dataset marked as provider data set should not display an Alert
 Given I have previously created a new specification
 When I choose to view the datasets tab
@@ -773,3 +773,33 @@ And I am redirected to the DataSet page
 Then the Map Data Source file to Dataset link is displayed correctly
 When I click on the Map Data Source File to Dataset link
 Then I am redirected to a list view of dataset schema relationships for the specification
+
+@Workitem:53711 Driver
+Scenario: Verify the Specification Dataset Tab View where a dataset or datasets have been created
+Given I have previously created a new specification
+When I choose to view the datasets tab
+And I choose to create a new dataset set as Provider Data
+And I am redirected to the DataSet page
+Then the new dataset has been saved and displayed correctly
+And the dataset is displayed in a tabular layout
+And the Column Headers Dataset and Data schema are displayed
+And the option to expand the Dataset row to show more information is displayed
+
+@Workitem:53711 Driver
+Scenario: Verify the Specification Dataset Tab View correctly displays the Provider Data Icon
+Given I have previously created a new specification
+When I choose to view the datasets tab
+And I choose to create a new dataset set as Provider Data
+And I am redirected to the DataSet page
+Then the new dataset has been saved and displayed correctly
+And the Provider Data Set Icon is displayed correctly
+
+@Workitem:53711 Driver
+Scenario: Verify the Specification Dataset Tab View correctly displays the Expander Results Information
+Given I have previously created a new specification
+When I choose to view the datasets tab
+And I choose to create a new dataset set as Provider Data
+And I am redirected to the DataSet page
+Then the new dataset has been saved and displayed correctly
+When I click the option to Expand the Dataset Result Information
+Then the Additional dataset information is displayed

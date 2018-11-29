@@ -32,6 +32,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         EditSpecificationPage editspecificationpage = new EditSpecificationPage();
         HomePage homepage = new HomePage();
         EditCalculationPage editcalculationpage = new EditCalculationPage();
+        ViewSpecificationDatasets viewspecificationdatasets = new ViewSpecificationDatasets();
 
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
@@ -877,7 +878,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var datasetName = ScenarioContext.Current["DatasetSchemaName"];
             string datasetCreated = datasetName.ToString();
-            var datasetelements = Driver._driver.FindElements(By.CssSelector(".view-dataset .datasetschemaassigned-list-title-container span"));
+            var datasetelements = Driver._driver.FindElements(By.Id("static-results-table-body"));
             IWebElement createddataset = null;
             foreach (var element in datasetelements)
             {
@@ -2354,6 +2355,62 @@ namespace Frontend.IntegrationTests.Tests.Steps
             viewMapDataSourcePage.Click();
             Thread.Sleep(2000);
 
+        }
+
+        [Then(@"the dataset is displayed in a tabular layout")]
+        public void ThenTheDatasetIsDisplayedInATabularLayout()
+        {
+            viewspecificationdatasets.datasetsTableContainer.Should().NotBeNull();
+        }
+
+        [Then(@"the Column Headers Dataset and Data schema are displayed")]
+        public void ThenTheColumnHeadersDatasetAndDataSchemaAreDisplayed()
+        {
+            IWebElement datasetcontainer = viewspecificationdatasets.datasetsTableContainer;
+            var propertyElements = datasetcontainer.FindElements(By.CssSelector("th"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"the option to expand the Dataset row to show more information is displayed")]
+        public void ThenTheOptionToExpandTheDatasetRowToShowMoreInformationIsDisplayed()
+        {
+            viewspecificationdatasets.datasetsResultsMoreInfoExpander.Should().NotBeNull();
+        }
+
+        [Then(@"the Provider Data Set Icon is displayed correctly")]
+        public void ThenTheProviderDataSetIconIsDisplayedCorrectly()
+        {
+            IWebElement providerDataAlert = viewspecificationdatasets.datasetsResultsProviderDataAlert;
+            providerDataAlert.Should().NotBeNull();
+            string providerAlertText = providerDataAlert.Text;
+            Console.WriteLine(providerAlertText);
+        }
+
+        [When(@"I click the option to Expand the Dataset Result Information")]
+        public void WhenIClickTheOptionToExpandTheDatasetResultInformation()
+        {
+            IWebElement datasetExpandInfo = viewspecificationdatasets.datasetsResultsMoreInfoExpander;
+            datasetExpandInfo.Should().NotBeNull();
+            datasetExpandInfo.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Additional dataset information is displayed")]
+        public void ThenTheAdditionalDatasetInformationIsDisplayed()
+        {
+            IWebElement expandedResultsInfo = viewspecificationdatasets.datasetsResultsExpanderResultsContainer;
+            expandedResultsInfo.Should().NotBeNull();
+            string expandedInfoText = expandedResultsInfo.Text;
+            Console.WriteLine("The information displayed in the expanded results container is " + expandedInfoText);
         }
 
 

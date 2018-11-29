@@ -1158,12 +1158,14 @@ testRunner.Then("No alert about provider datasets is displayed", ((string)(null)
             "splay an Alert")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(40032)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("53711")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void CreateANewSpecificationAndDatasetWithoutMarkingAsProviderDataShouldDisplayAnAlert()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a New Specification and Dataset without marking as provider data should di" +
                     "splay an Alert", new string[] {
                         "Workitem:40032",
+                        "53711",
                         "Driver"});
 #line 304
 this.ScenarioSetup(scenarioInfo);
@@ -1188,12 +1190,14 @@ testRunner.And("An Alert that No dataset has been set as provider data should be
             " display an Alert")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(40032)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("53711")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void CreateANewSpecificationAndNewDatasetMarkedAsProviderDataSetShouldNotDisplayAnAlert()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a New Specification and New Dataset marked as provider data set should not" +
                     " display an Alert", new string[] {
                         "Workitem:40032",
+                        "53711",
                         "Driver"});
 #line 313
 this.ScenarioSetup(scenarioInfo);
@@ -2709,6 +2713,102 @@ testRunner.When("I click on the Map Data Source File to Dataset link", ((string)
 #line 775
 testRunner.Then("I am redirected to a list view of dataset schema relationships for the specificat" +
                     "ion", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Specification Dataset Tab View where a dataset or datasets have been c" +
+            "reated")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(53711)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheSpecificationDatasetTabViewWhereADatasetOrDatasetsHaveBeenCreated()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Specification Dataset Tab View where a dataset or datasets have been c" +
+                    "reated", new string[] {
+                        "Workitem:53711",
+                        "Driver"});
+#line 778
+this.ScenarioSetup(scenarioInfo);
+#line 779
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 780
+testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 781
+testRunner.And("I choose to create a new dataset set as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 782
+testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 783
+testRunner.Then("the new dataset has been saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 784
+testRunner.And("the dataset is displayed in a tabular layout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 785
+testRunner.And("the Column Headers Dataset and Data schema are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 786
+testRunner.And("the option to expand the Dataset row to show more information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Specification Dataset Tab View correctly displays the Provider Data Ic" +
+            "on")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(53711)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheSpecificationDatasetTabViewCorrectlyDisplaysTheProviderDataIcon()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Specification Dataset Tab View correctly displays the Provider Data Ic" +
+                    "on", new string[] {
+                        "Workitem:53711",
+                        "Driver"});
+#line 789
+this.ScenarioSetup(scenarioInfo);
+#line 790
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 791
+testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 792
+testRunner.And("I choose to create a new dataset set as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 793
+testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 794
+testRunner.Then("the new dataset has been saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 795
+testRunner.And("the Provider Data Set Icon is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Specification Dataset Tab View correctly displays the Expander Results" +
+            " Information")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(53711)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheSpecificationDatasetTabViewCorrectlyDisplaysTheExpanderResultsInformation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Specification Dataset Tab View correctly displays the Expander Results" +
+                    " Information", new string[] {
+                        "Workitem:53711",
+                        "Driver"});
+#line 798
+this.ScenarioSetup(scenarioInfo);
+#line 799
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 800
+testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 801
+testRunner.And("I choose to create a new dataset set as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 802
+testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 803
+testRunner.Then("the new dataset has been saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 804
+testRunner.When("I click the option to Expand the Dataset Result Information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 805
+testRunner.Then("the Additional dataset information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
