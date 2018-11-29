@@ -23,22 +23,16 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.Id, Using = "noDatasourceMappedHowToSteps")]
         public IWebElement specificationNoDataSourceMappedHowToSteps { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div.spec-rel-grey-back:nth-child(2) > h2:nth-child(1)")]
-        public IWebElement specificationFirstDataSourceSchemaName { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "div.spec-rel-grey-back:nth-child(2) > h4:nth-child(2)")]
+        [FindsBy(How = How.CssSelector, Using = ".dataset-name-holder")]
         public IWebElement specificationFirstDatasetName { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "div.spec-rel-grey-back:nth-child(2) > p:nth-child(3)")]
-        public IWebElement specificationFirstDatasetDescription { get; set; }
 
         [FindsBy(How = How.Id, Using = "datasourceCount")]
         public IWebElement specificationDataSourceCount { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "Select source dataset")]
+        [FindsBy(How = How.LinkText, Using = "Map data source file")]
         public IWebElement specificationDataSourceMissing { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "Change source dataset")]
+        [FindsBy(How = How.LinkText, Using = "Change data source file")]
         public IWebElement specificationChangeDataSource { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".alert")]
@@ -50,6 +44,29 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.Id, Using = "dismiss-link")]
         public IWebElement specificationDataSourceDismissAlert { get; set; }
 
+        [FindsBy(How = How.Id, Using = "datasets-table")]
+        public IWebElement specificationDataSourceDatasetTableContainer { get; set; }
+
+        [FindsBy(How = How.Id, Using = "dataset-header-column")]
+        public IWebElement specificationDataSourceDatasetTableDatasetHeader { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "#datasets-table > thead:nth-child(1) > tr:nth-child(1) > th:nth-child(2)")]
+        public IWebElement specificationDataSourceDatasetTableDataSourceHeader { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".dataset-isprovider-text")]
+        public IWebElement specificationDataSourceDatasetTableIsProviderData { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".button-split-icon")]
+        public IWebElement specificationDataSourceDatasetTableEditDataSource { get; set; }
+        
+        [FindsBy(How = How.CssSelector, Using = ".expander-trigger-cell")]
+        public IWebElement specificationDataSourceDatasetTableExpandInfo { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".button-split-container > span:nth-child(2)")]
+        public IWebElement specificationDataSourceDatasetTableMappedFileName { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".expander-container")]
+        public IWebElement specificationDataSourceDatasetTableDisplayExpandedInfo { get; set; }
         
 
 

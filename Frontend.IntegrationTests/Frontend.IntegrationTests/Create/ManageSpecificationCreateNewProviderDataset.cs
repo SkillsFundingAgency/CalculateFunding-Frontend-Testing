@@ -28,7 +28,7 @@ namespace Frontend.IntegrationTests.Create
 
             string newname = "TestDatasetName";
             string descriptiontext = "This is a Datset Description for: ";
-
+            managepoliciespage.datasetsTab.Click();
             managepoliciespage.Createdatatyperelationship.Should().NotBeNull();
             managepoliciespage.Createdatatyperelationship.Click();
             Thread.Sleep(2000);

@@ -656,17 +656,21 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine(dataSourceCountText);
         }
 
-        [Then(@"the Data schema name is displayed")]
-        public void ThenTheDataSchemaNameIsDisplayed()
+        [Then(@"A Summary Table of all the associated Specification Datasets is Displayed")]
+        public void ThenASummaryTableOfAllTheAssociatedSpecificationDatasetsIsDisplayed()
         {
-            selectedspecificationdatasourcepage.specificationFirstDataSourceSchemaName.Should().NotBeNull();
-            IWebElement dataSourceSchemaName = selectedspecificationdatasourcepage.specificationFirstDataSourceSchemaName;
-            string dataSourceSchemaNameText = dataSourceSchemaName.Text;
-            Console.WriteLine(dataSourceSchemaNameText);
+            selectedspecificationdatasourcepage.specificationDataSourceDatasetTableContainer.Should().NotBeNull();
         }
 
-        [Then(@"the Data set name is displayed")]
-        public void ThenTheDataSetNameIsDisplayed()
+        [Then(@"the Table Headers Dataset and Mapped data source file are correctly Displayed")]
+        public void ThenTheTableHeadersDatasetAndMappedDataSourceFileAreCorrectlyDisplayed()
+        {
+            selectedspecificationdatasourcepage.specificationDataSourceDatasetTableDatasetHeader.Should().NotBeNull();
+            selectedspecificationdatasourcepage.specificationDataSourceDatasetTableDataSourceHeader.Should().NotBeNull();
+        }
+
+        [Then(@"the newly created Data set name is displayed")]
+        public void ThenTheNewlyCreatedDataSetNameIsDisplayed()
         {
             selectedspecificationdatasourcepage.specificationFirstDatasetName.Should().NotBeNull();
             IWebElement datasetName = selectedspecificationdatasourcepage.specificationFirstDatasetName;
@@ -674,25 +678,32 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine(datasetNameText);
         }
 
-        [Then(@"the Data set description is displayed")]
-        public void ThenTheDataSetDescriptionIsDisplayed()
+        [Then(@"the Provider Data indicator is displayed")]
+        public void ThenTheProviderDataIndicatorIsDisplayed()
         {
-            selectedspecificationdatasourcepage.specificationFirstDatasetDescription.Should().NotBeNull();
-            IWebElement datasetDescription = selectedspecificationdatasourcepage.specificationFirstDatasetDescription;
-            string datasetDescriptionText = datasetDescription.Text;
-            Console.WriteLine(datasetDescriptionText);
+            IWebElement providerIndicator = selectedspecificationdatasourcepage.specificationDataSourceDatasetTableIsProviderData;
+            providerIndicator.Should().NotBeNull();
         }
+
+        [Then(@"the link to Map data source file is displayed")]
+        public void ThenTheLinkToMapDataSourceFileIsDisplayed()
+        {
+            selectedspecificationdatasourcepage.specificationDataSourceMissing.Should().NotBeNull();
+        }
+
 
         [When(@"the data set data schema relationship does not have a data source associated")]
         public void WhenTheDataSetDataSchemaRelationshipDoesNotHaveADataSourceAssociated()
         {
-            Actions.SelectSpecificationDataNoDataSchemaAssociated();
+           selectedspecificationdatasourcepage.specificationDataSourceMissing.Should().NotBeNull();
         }
 
         [Then(@"I am provided with the option to select a data source")]
         public void ThenIAmProvidedWithTheOptionToSelectADataSource()
         {
-            Console.WriteLine("The Select source dataset link is correctly displayed");
+            IWebElement mapDataSourceFile = selectedspecificationdatasourcepage.specificationDataSourceMissing;
+            string mapDataSourceLink = mapDataSourceFile.Text;
+            Console.WriteLine("The Map Data Source link " + mapDataSourceLink + " is correctly displayed");
         }
 
 
@@ -702,24 +713,65 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Actions.SelectSpecificationDataDataSchemaExists();
         }
 
-        [Then(@"the name of the data source is displayed")]
-        public void ThenTheNameOfTheDataSourceIsDisplayed()
-        {
-            Console.WriteLine(datasetinformation);
-
-        }
-
-        [Then(@"the version of the data source is displayed")]
-        public void ThenTheVersionOfTheDataSourceIsDisplayed()
-        {
-            //Console writeline in the previous class displays the required information as this info ont he page cannot be seperated out
-        }
-
         [Then(@"an option to change the data source is displayed")]
         public void ThenAnOptionToChangeTheDataSourceIsDisplayed()
         {
-            //Console writeline in the previous class displays the required information as this info ont he page cannot be seperated out
+            selectedspecificationdatasourcepage.specificationDataSourceDatasetTableEditDataSource.Should().NotBeNull();
         }
+
+        [Then(@"the Mapped Data Source name is Displayed Correctly")]
+        public void ThenTheMappedDataSourceNameIsDisplayedCorrectly()
+        {
+            IWebElement mappedSourceName = selectedspecificationdatasourcepage.specificationDataSourceDatasetTableMappedFileName;
+            mappedSourceName.Should().NotBeNull();
+            string mappedSourceFileText = mappedSourceName.Text;
+            Console.WriteLine("The Mapped Data Source File Name is " + mappedSourceFileText);
+        }
+
+
+        [Then(@"an option to expand the Mapped Datasource to display additional information is displayed")]
+        public void ThenAnOptionToExpandTheMappedDatasourceToDisplayAdditionalInformationIsDisplayed()
+        {
+            selectedspecificationdatasourcepage.specificationDataSourceDatasetTableExpandInfo.Should().NotBeNull();
+        }
+
+        [When(@"I click on the option to expand the Mapped Data information")]
+        public void WhenIClickOnTheOptionToExpandTheMappedDataInformation()
+        {
+            selectedspecificationdatasourcepage.specificationDataSourceDatasetTableExpandInfo.Click();
+        }
+
+        [Then(@"the Expanded Information is correctly displayed")]
+        public void ThenTheExpandedInformationIsCorrectlyDisplayed()
+        {
+            selectedspecificationdatasourcepage.specificationDataSourceDatasetTableDisplayExpandedInfo.Should().NotBeNull();
+        }
+
+        [Then(@"the Link to Change data source file is displayed")]
+        public void ThenTheLinkToChangeDataSourceFileIsDisplayed()
+        {
+            selectedspecificationdatasourcepage.specificationChangeDataSource.Should().NotBeNull();
+            string changeSourceFileLinkText = selectedspecificationdatasourcepage.specificationChangeDataSource.Text;
+            Console.WriteLine("LinkText " + changeSourceFileLinkText + "correctly displayed");
+        }
+
+        [Then(@"the Data Schema and Dataset description and Data source file version is displayed")]
+        public void ThenTheDataSchemaAndDatasetDescriptionAndDataSourceFileVersionIsDisplayed()
+        {
+            IWebElement expandedMappedDataSourceContainer = selectedspecificationdatasourcepage.specificationDataSourceDatasetTableDisplayExpandedInfo;
+            var propertyElements = expandedMappedDataSourceContainer.FindElements(By.CssSelector("span"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
 
         [Given(@"I have already created a Specification with the appropruiate dataset associated")]
         public void GivenIHaveAlreadyCreatedASpecificationWithTheAppropruiateDatasetAssociated()

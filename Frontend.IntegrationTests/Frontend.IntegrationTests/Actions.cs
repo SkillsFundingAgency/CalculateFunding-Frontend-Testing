@@ -231,61 +231,28 @@
 
         }
 
-        public static void SelectSpecificationDataNoDataSchemaAssociated()
-        {
-            var containerElements = Driver._driver.FindElements(By.CssSelector("#top > main:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"));
-            IWebElement firstSelectSourceDatasetLink = null;
-            foreach (var element in containerElements)
-            {
-                var aelement = element.FindElement(By.TagName("a"));
-                if (aelement != null)
-                {
-                    if (aelement.Text.Contains("Select source dataset"))
-                    {
-                        {
-                            firstSelectSourceDatasetLink = aelement;
-                            break;
-                        }
-                    }
-
-                }
-                Thread.Sleep(1000);
-                if (firstSelectSourceDatasetLink != null)
-                {
-                    firstSelectSourceDatasetLink.Click();
-                }
-                else
-                {
-                    firstSelectSourceDatasetLink.Should().NotBeNull("Unable to find an item with no source dataset");
-                }
-            }
-        }
+       
 
         public static void SelectSpecificationDataDataSchemaExists()
         {
-            var containerElements = Driver._driver.FindElements(By.CssSelector("#top > main:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)"));
+            var containerElements = Driver._driver.FindElements(By.CssSelector(".button-split-container"));
             IWebElement firstChangeSourceDatasetLink = null;
             foreach (var element in containerElements)
             {
                 var aelement = element.FindElement(By.TagName("a"));
                 if (aelement != null)
                 {
-                    if (aelement.Text.Contains("Change source dataset"))
+                    if (aelement.Text.Contains("edit"))
                     {
-                        var anchorLink = element.FindElement(By.CssSelector("p > a"));
-                        if (anchorLink != null)
-                        {
-                            firstChangeSourceDatasetLink = anchorLink;
+                            firstChangeSourceDatasetLink = aelement;
                             break;
-                        }
                     }
 
                 }
                 Thread.Sleep(1000);
                 if (firstChangeSourceDatasetLink != null)
                 {
-                    string datasestinfoline = firstChangeSourceDatasetLink.Text;
-                    datasestinfo = datasestinfoline;
+                    Console.WriteLine("Mapped Data Source Exists");
                 }
                 else
                 {

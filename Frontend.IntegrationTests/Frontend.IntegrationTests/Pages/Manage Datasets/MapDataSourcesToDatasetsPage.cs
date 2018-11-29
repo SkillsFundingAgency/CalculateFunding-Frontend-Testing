@@ -14,7 +14,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.Id, Using = "SearchTerm")]
         public IWebElement mapDataSourcesSearchTermField { get; set; }
 
-        [FindsBy(How = How.Id, Using = "filter-search-button-image")]
+        [FindsBy(How = How.CssSelector, Using = ".search-button")]
         public IWebElement mapDataSourcesSearchTermButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "select-spec-period")]

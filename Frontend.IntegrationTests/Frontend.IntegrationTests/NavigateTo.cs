@@ -318,6 +318,7 @@ namespace Frontend.IntegrationTests
             SelectedSpecificationDataSourcePage selectspecificationdatasourcepage = new SelectedSpecificationDataSourcePage();
 
             SpecificationDataRelationshipsExistPage();
+            selectspecificationdatasourcepage.specificationDataSourceDatasetTableExpandInfo.Click();
             selectspecificationdatasourcepage.specificationChangeDataSource.Click();
             Thread.Sleep(2000);
         }
