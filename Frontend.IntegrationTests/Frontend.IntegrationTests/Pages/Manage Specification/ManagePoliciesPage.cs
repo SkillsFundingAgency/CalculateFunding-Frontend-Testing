@@ -20,7 +20,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.LinkText, Using = "Create calculation specification")]
         public IWebElement CreateCalculation { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "No datasets exist, create a dataset")]
+        [FindsBy(How = How.LinkText, Using = "Create dataset")]
         public IWebElement Createdatatyperelationship { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".cf")]
