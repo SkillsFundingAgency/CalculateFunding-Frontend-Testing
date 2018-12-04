@@ -61,7 +61,7 @@ And I have navigated to the Choose Funding Specification Page
 When I choose a funding stream from the drop down option
 And I change the Funding Period selected to equal <year>
 Then the list of approved or updated specifications is updated to display all the appropriate specifications
-And The Name of the Approved or Updated specification is displayed
+And the specification marked as approved is displayed correctly
 And the Specificaton Funding Streams are displayed
 And the Specification Funding Value is displayed
 And the Specification Status is displayed
@@ -163,28 +163,6 @@ When I click on the Publish Button
 Then I am redirected to the Confirm Publish Page
 When I click on the Confirm Publish Button
 Then the Provider Allocation Line is successfully published
-
-@Workitem 51066 56069 57342 Driver
-Scenario: Select a Provider Funding Stream to mark as Approved
-Given I have navigated to the Approve and publish funding Page
-Then the Provider list updates to display all the provider information for the selected specification
-When I Choose a Provider Funding Stream with a status of Held
-Then the Approve Button becomes enabled
-When I click on the Approve Button
-Then I am redirected to the Confirm Approval Page
-When I click on the Confirm Approval Button
-Then the Provider Funding Stream is successfully approved
-
-@Workitem 51066 56069 57342 Driver
-Scenario: Select a Provider Funding Stream to mark as Published
-Given I have navigated to the Approve and publish funding Page
-Then the Provider list updates to display all the provider information for the selected specification
-When I Choose a Provider Funding Stream with a status of Approved
-Then the Publish Button becomes enabled
-When I click on the Publish Button
-Then I am redirected to the Confirm Publish Page
-When I click on the Confirm Publish Button
-Then the Provider Funding Stream is successfully published
 
 @Workitem 51066 56069 57342 Driver
 Scenario: Select a Provider to mark as Approved

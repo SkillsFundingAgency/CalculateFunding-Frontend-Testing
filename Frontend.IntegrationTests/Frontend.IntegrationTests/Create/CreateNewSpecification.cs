@@ -30,6 +30,7 @@
 
             string newname = "Test Spec Name ";
             string descriptiontext = "This is a Description for: ";
+            string fundingStreams = "all";
 
             NavigateTo.CreatetheSpecfication();
             Assert.IsNotNull(createcalculationpage.CalculationName);
@@ -43,8 +44,8 @@
 
             var selectElement = new SelectElement(selectYear);
             selectElement.SelectByValue("1819");
-            createspecificationpage.FundingStream.Click();
-            createspecificationpage.FundingStream.SendKeys(OpenQA.Selenium.Keys.Enter);
+            Actions.CreateSpecificationChooseAllFundingStreams(fundingStreams);
+            Thread.Sleep(2000);
             Thread.Sleep(2000);
             createspecificationpage.SaveSpecification.Click();
             Thread.Sleep(2000);

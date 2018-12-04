@@ -2,14 +2,10 @@
 using Frontend.IntegrationTests.Pages.Home_Page;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Threading;
 using AutoFramework;
 using FluentAssertions;
 using Frontend.IntegrationTests.Create;
-using Frontend.IntegrationTests.Pages;
-using Frontend.IntegrationTests.Pages.View_Results;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -17,7 +13,6 @@ using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
 using Frontend.IntegrationTests.Helpers;
-using System.Web;
 
 namespace Frontend.IntegrationTests.Tests.Steps
 {
@@ -112,7 +107,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectFundingStream = choosefundingspecificationpage.chooseFundingSpecFundingStreamDropdown;
             var selectElement = new SelectElement(selectFundingStream);
-            selectElement.SelectByValue("YPLRA");
+            selectElement.SelectByValue("PES");
             Thread.Sleep(20000);
         }
 
@@ -684,22 +679,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine(approveSuccessfullyText);
         }
 
-        [When(@"I Choose a Provider Funding Stream with a status of Held")]
-        public void WhenIChooseAProviderFundingStreamWithAStatusOfHeld()
-        {
-            Actions.ApproveFundingChooseProviderFundingStreamToApprove();
-        }
-
-        [Then(@"the Provider Funding Stream is successfully approved")]
-        public void ThenTheProviderFundingStreamIsSuccessfullyApproved()
-        {
-            IWebElement approveNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
-            approveNotification.Should().NotBeNull();
-            string approveSuccessfullyText = approveNotification.Text;
-
-            Console.WriteLine(approveSuccessfullyText);
-        }
-
         [When(@"I Choose a Provider with a status of Held")]
         public void WhenIChooseAProviderWithAStatusOfHeld()
         {
@@ -761,21 +740,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine(publishSuccessfullyText);
         }
 
-        [When(@"I Choose a Provider Funding Stream with a status of Approved")]
-        public void WhenIChooseAProviderFundingStreamWithAStatusOfApproved()
-        {
-            Actions.ApproveFundingChooseProviderFundingStreamToPublish();
-        }
-
-        [Then(@"the Provider Funding Stream is successfully published")]
-        public void ThenTheProviderFundingStreamIsSuccessfullyPublished()
-        {
-            IWebElement publishNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
-            publishNotification.Should().NotBeNull();
-            string publishSuccessfullyText = publishNotification.Text;
-
-            Console.WriteLine(publishSuccessfullyText);
-        }
 
         [When(@"I Choose a Provider with a status of Approved")]
         public void WhenIChooseAProviderWithAStatusOfApproved()
