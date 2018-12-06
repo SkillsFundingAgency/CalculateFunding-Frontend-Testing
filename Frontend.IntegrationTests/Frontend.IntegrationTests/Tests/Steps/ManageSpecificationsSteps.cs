@@ -468,7 +468,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var allocation = createcalculationpage.CalculationAllocationLine;
             var selectElement = new SelectElement(allocation);
-            selectElement.SelectByText("16-19 high level learners programme Funding");
+            selectElement.SelectByValue("YPM07");
         }
 
         [When(@"I enter a Calculation Description")]
@@ -1791,7 +1791,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var allocation = editcalculationpage.editCalculationAllocationLine;
             var selectElement01 = new SelectElement(allocation);
-            selectElement01.SelectByValue("YPA07");
+            selectElement01.SelectByValue("YPP01");
 
             editcalculationpage.editCalculationSave.Click();
             Thread.Sleep(2000);

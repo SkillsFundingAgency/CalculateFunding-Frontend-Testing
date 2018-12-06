@@ -225,11 +225,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
             var specName = ScenarioContext.Current["SpecificationName"];
             string specCreated = specName.ToString();
 
-            var containerElements = choosefundingspecificationpage.chooseFundingSpecContainer;
+            var containerElements = choosefundingspecificationpage.chooseFundingSpecTableBody;
             IWebElement SelectCreatedSpec = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("span"));
+                var options = containerElements.FindElements(By.TagName("td span"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -720,6 +720,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenIAmRedirectedToTheConfirmPublishPage()
         {
             confirmpublishpage.confirmPublishButton.Should().NotBeNull();
+            Thread.Sleep(6000);
         }
 
         [When(@"I click on the Confirm Publish Button")]

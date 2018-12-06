@@ -14,7 +14,7 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.Id, Using = "SearchTerm")]
         public IWebElement providerResultspageSearch { get; set; }
 
-        [FindsBy(How = How.Id, Using = "filter-search-button-image")]
+        [FindsBy(How = How.CssSelector, Using = ".search-button")]
         public IWebElement providerResultspageSearchButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "div.row:nth-child(4) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)")]
@@ -38,7 +38,7 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > span:nth-child(3)")]
         public IWebElement providerResultsPageLastResult { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > strong:nth-child(4)")]
+        [FindsBy(How = How.XPath, Using = "/html/body/main/div/div/div[3]/div[1]/div[2]/strong")]
         public IWebElement providerResultsPageTotalResult { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#dynamic-paging-container > a:nth-child(3)")]

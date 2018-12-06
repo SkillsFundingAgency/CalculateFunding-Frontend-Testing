@@ -171,7 +171,7 @@
 
         public static void SelectCalculationAllocationLine()
         {
-            IWebElement filtercontainer = Driver._driver.FindElement(By.CssSelector("#filter-container > div:nth-child(2) > div:nth-child(2)"));
+            IWebElement filtercontainer = Driver._driver.FindElement(By.CssSelector("#filter-container > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)"));
             IWebElement fundingallocationfilter = filtercontainer.FindElement(By.CssSelector("button"));
             fundingallocationfilter.Click();
             Thread.Sleep(4000);
@@ -406,12 +406,12 @@
                 }
                 else
                 {
-                    firstSelectSpecification.Should().NotBeNull("No Specifications exist for the academic year selected");
+                    Assert.Inconclusive("No Specifications exist for the academic year selected");
                 }
             }
             else
             {
-                firstSelectSpecification.Should().NotBeNull("No Specifications exist for the academic year selected");
+                firstSelectSpecification.Should().NotBeNull("No Specifications Could be Found");
             }
         }
 
@@ -898,7 +898,7 @@
                     }
                     else
                     {
-                        firstPassedProvider.Should().NotBeNull("No Provider has a result of Passed within this list of results");
+                        Assert.Inconclusive("No Provider has a result of Passed within this list of results");
                     }
                 }
                 else
@@ -955,7 +955,7 @@
                     }
                     else
                     {
-                        firstFailedProvider.Should().NotBeNull("No Provider has a result of Failed within this list of results");
+                        Assert.Inconclusive("No Provider has a result of Failed within this list of results");
                     }
                 }
                 else
@@ -1084,7 +1084,7 @@
             }
             else
             {
-                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Held");
+                Assert.Inconclusive("Unable to find a Provider with a Status of Held");
             }
 
         }
@@ -1168,7 +1168,7 @@
             }
             else
             {
-                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Approved");
+                Assert.Inconclusive("Unable to find a Provider with a Status of Approved");
             }
 
         }
@@ -1220,7 +1220,7 @@
             }
             else
             {
-                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Held");
+                Assert.Inconclusive("Unable to find a Provider with a Status of Held");
             }
 
         }
@@ -1272,7 +1272,7 @@
             }
             else
             {
-                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Approved");
+                Assert.Inconclusive("Unable to find a Provider with a Status of Approved");
             }
 
         }

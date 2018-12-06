@@ -350,7 +350,7 @@ namespace Frontend.IntegrationTests
 
             homepage.ViewtheResults.Click();
             viewresultsoptionspage.viewResultsOptionsViewQATestResults.Click();
-            Thread.Sleep(60000);
+            Thread.Sleep(30000);
         }
 
 

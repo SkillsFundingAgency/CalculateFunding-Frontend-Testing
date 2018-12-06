@@ -14,7 +14,7 @@ namespace Frontend.IntegrationTests.Pages.Quality_Assurance
         [FindsBy(How = How.Id, Using = "SearchTerm")]
         public IWebElement testScenarioPageSearchField { get; set; }
 
-        [FindsBy(How = How.Id, Using = "filter-search-button-image")]
+        [FindsBy(How = How.CssSelector, Using = ".search-button")]
         public IWebElement testScenarioPageSearchButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "createQATestButton")]

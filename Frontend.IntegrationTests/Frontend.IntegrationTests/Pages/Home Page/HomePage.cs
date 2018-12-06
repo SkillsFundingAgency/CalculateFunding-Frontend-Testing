@@ -39,7 +39,7 @@ namespace Frontend.IntegrationTests
         [FindsBy(How = How.LinkText, Using = "help us improve the service")]
         public IWebElement SurveyLink { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".user-container > span:nth-child(2)")]
+        [FindsBy(How = How.CssSelector, Using = ".user-container")]
         public IWebElement userContainer { get; set; }
 
     }

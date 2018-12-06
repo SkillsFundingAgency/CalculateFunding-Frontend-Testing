@@ -14,7 +14,7 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.Id, Using = "SearchTerm")]
         public IWebElement viewcalculationPageSearchField { get; set; }
 
-        [FindsBy(How = How.Id, Using = "filter-search-button-image")]
+        [FindsBy(How = How.CssSelector, Using = ".search-button")]
         public IWebElement viewcalculationPageSearchButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "div.row:nth-child(4) > div:nth-child(1) > div:nth-child(2)")]
@@ -26,7 +26,7 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.CssSelector, Using = "div.row:nth-child(4) > div:nth-child(3) > div:nth-child(2)")]
         public IWebElement viewcalculationPageSpecnameDropDown { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "#filter-container > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)")]
+        [FindsBy(How = How.CssSelector, Using = "#filter-container > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)")]
         public IWebElement viewcalculationPageAllocationLineDropDown { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "div.row:nth-child(4) > div:nth-child(4) > div:nth-child(2)")]

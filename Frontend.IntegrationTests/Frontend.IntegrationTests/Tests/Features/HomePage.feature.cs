@@ -278,13 +278,13 @@ testRunner.And("a link is displayed to log a Service Desk Incident", ((string)(n
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Log in using AD User Authentication")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(53379)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("ChromeDriver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void LogInUsingADUserAuthentication()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Log in using AD User Authentication", new string[] {
                         "workitem:53379",
-                        "ChromeDriver",
+                        "Driver",
                         "Smoke"});
 #line 60
 this.ScenarioSetup(scenarioInfo);
@@ -306,12 +306,12 @@ testRunner.Then("I am redirected to the Home Page", ((string)(null)), ((TechTalk
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Log in using Invalid AD User Authentication")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(53379)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("ChromeDriver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void LogInUsingInvalidADUserAuthentication()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Log in using Invalid AD User Authentication", new string[] {
                         "workitem:53379",
-                        "ChromeDriver"});
+                        "Driver"});
 #line 68
 this.ScenarioSetup(scenarioInfo);
 #line 69

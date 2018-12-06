@@ -61,7 +61,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "CreateSpecificationViewModel-FundingStreamIds")]
         public IWebElement SpecFundingStreamOptionContainer { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "li.select2-selection__choice:nth-child(1) > span:nth-child(1)")]
+        [FindsBy(How = How.CssSelector, Using = ".select2-selection__choice__remove")]
         public IWebElement SpecFundingStreamRemoveOption { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".select2-selection__choice")]

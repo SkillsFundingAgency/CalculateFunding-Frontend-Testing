@@ -50,7 +50,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"the list shows up to (.*) Test Scenarios")]
         public void ThenTheListShowsUpToTestScenarios(int totalpagecount)
         {
-            IWebElement testscenarioLastResultCount = testscenariolistpage.testScenarioPageTotalResultCount;
+            IWebElement testscenarioLastResultCount = testscenariolistpage.testScenarioPageLastResultCount;
             string testscenarioLastResult = testscenarioLastResultCount.Text;
             int totalpagescenariocount = int.Parse(testscenarioLastResult);
             totalpagescenariocount.Should().BeLessOrEqualTo(totalpagecount, "More than 50 Scenarios are displayed");

@@ -61,16 +61,14 @@ Then the list of displayed providers refreshes to display only the providers tha
 
 Examples: 
 	 | SearchType					| text						|
-	 | UPIN							| 506770					|
-	 | UKPRN						| 506960					|
-	 | URN							| 144331					|
-	 | EstablishmentNumber			| 10020219					|
-	 | ProviderName					| Aldington					|
-	 | PartialUPIN					| 138						|
+	 | UKPRN						| 10018028					|
+	 | URN							| 131816					|
+	 | EstablishmentNumber			| 9366529					|
+	 | ProviderName					| 3 Dimensions				|
 	 | PartialUKPRN					| 1004						|
 	 | PartialURN					| 125						|
 	 | PartialEstablishmentNumber	| 9366						|
-	 | PartialProviderName			| Alexandra					|
+	 | PartialProviderName			| Abacus					|
 
 
 @Workitem:37468 Driver
@@ -181,10 +179,10 @@ And the appropriate information is displayed for each QA Test
 @Workitem:39520 Driver
 Scenario: Verify the View QA test results Page Pagination
 Given I have navigated to the view all test results screen
-And I have over 50 QA Tests displayed
-When I click to navigate to the next page of 50 QA Test Results
-Then my list view updates to display the next set of 50 Results
-And I am able to navigate to the previous page of 50 Results
+And I have over 20 QA Tests displayed
+When I click to navigate to the next page of 20 QA Test Results
+Then my list view updates to display the next set of 20 Results
+And I am able to navigate to the previous page of 20 Results
 
 @Workitem:39520 Driver
 Scenario: Search Option to filter the View QA test results Page
@@ -199,12 +197,10 @@ When I change the selected QA Test period drop down to <year>
 Then the list of QA Test Results refreshes to display the selected years QA Tests
 
 Examples: 
-	 | year			|
-	 | AY2018191	|
-	 | FY2017181	|
-	 | FY2018191	|
-	 | AY2017181	|
-	 
+	 | year		|
+	 | 1819		|
+	 | 1819DEV1 |
+	 	 
 
 @Workitem:39520 Driver Smoke
 Scenario: Change Current list of QA Tests by Specification
@@ -344,11 +340,10 @@ And the QA Test Coverage for the Provider is displayed correctly
 And the QA Test Results for the Provider are displayed correctly
 
 Examples: 
-	 | year			|
-	 | AY2017181	|
-	 | AY2018191	|
-	 | FY2017181	|
-	 | FY2018191	|
+	 | year		|
+	 | 1819		|
+	 | 1819DEV1 |
+
 
 @Workitem:39523 39517 Driver
 Scenario Outline: Validate the Provider Test results for an Individual Provider with a result of Failed for each Academic Year
@@ -366,11 +361,9 @@ And the QA Test Coverage for the Provider is displayed correctly
 And the QA Test Results for the Provider are displayed correctly
 
 Examples: 
-	 | year			|
-	 | AY2017181	|
-	 | AY2018191	|
-	 | FY2017181	|
-	 | FY2018191	|
+	 | year		|
+	 | 1819		|
+	 | 1819DEV1 |
 
 
 @Workitem:48412 Driver Smoke
