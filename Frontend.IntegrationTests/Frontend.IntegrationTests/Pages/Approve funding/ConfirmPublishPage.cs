@@ -12,7 +12,7 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
             PageFactory.InitElements(Driver._driver, this);
         }
 
-        [FindsBy(How = How.Id, Using = "publish")]
+        [FindsBy(How = How.CssSelector, Using = ".confirmpublish-buttons > button:nth-child(1)")]
         public IWebElement confirmPublishButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".heading-large")]

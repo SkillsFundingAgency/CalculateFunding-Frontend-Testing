@@ -68,7 +68,7 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
         [FindsBy(How = How.CssSelector, Using = "tr.expander-container:nth-child(4)")]
         public IWebElement approvePublishFundingFirstProviderFundingStreamInfoLineTwo { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".notification-panel-text")]
+        [FindsBy(How = How.CssSelector, Using = "span.notification-panel-summary > span:nth-child(2)")]
         public IWebElement approvePublishFundingNotificationPanel { get; set; }
         
         [FindsBy(How = How.CssSelector, Using = "div.notification-panel-summary")]

@@ -39,14 +39,6 @@ And the Calculations approved is displayed
 And an option to Choose to Fund the Specification is displayed
 
 @Workitem 51062 Driver
-Scenario: Verify an Approved specifications is correctly displayed
-Given I have previously Approved a Specification
-And I have navigated to the Choose Funding Specification Page
-When I choose a funding stream from the drop down option
-Then the list of approved or updated specifications is updated to display all the appropriate specifications
-And the specification marked as approved is displayed correctly
-
-@Workitem 51062 Driver
 Scenario: Verify an Updated specifications is correctly displayed
 Given I have previously Updated a Specification
 And I have navigated to the Choose Funding Specification Page
@@ -146,7 +138,7 @@ Then the Funding Stream information is correctly displayed
 Scenario: Select a Provider Allocation Line to mark as Approved
 Given I have navigated to the Approve and publish funding Page
 Then the Provider list updates to display all the provider information for the selected specification
-When I Choose a Provider Allocation Line with a status of Held
+When I Choose a Provider Allocation Line with a status of Updated
 Then the Approve Button becomes enabled
 When I click on the Approve Button
 Then I am redirected to the Confirm Approval Page

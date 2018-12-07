@@ -1050,7 +1050,7 @@
                     IWebElement aelement = null;
                     try
                     {
-                        aelement = element.FindElement(By.CssSelector(".status-held"));
+                        aelement = element.FindElement(By.CssSelector(".status-updated"));
                     }
                     catch (NoSuchElementException)
                     {
@@ -1060,7 +1060,7 @@
 
                     if (aelement != null)
                     {
-                        if (aelement.Text.Contains("Held"))
+                        if (aelement.Text.Contains("Updated"))
                         {
                             var checkboxOption = element.FindElement(By.ClassName("target-checkbox-allocationline"));
                             if (checkboxOption != null)
@@ -1084,7 +1084,7 @@
             }
             else
             {
-                Assert.Inconclusive("Unable to find a Provider with a Status of Held");
+                Assert.Inconclusive("Unable to find a Provider Allocation Line to mark as Approved");
             }
 
         }
@@ -1168,7 +1168,7 @@
             }
             else
             {
-                Assert.Inconclusive("Unable to find a Provider with a Status of Approved");
+                Assert.Inconclusive("Unable to find a Provider Allocation Line to mark as Published");
             }
 
         }
@@ -1220,7 +1220,7 @@
             }
             else
             {
-                Assert.Inconclusive("Unable to find a Provider with a Status of Held");
+                Assert.Inconclusive("Unable to find a Provider to mark as Approved");
             }
 
         }
@@ -1272,7 +1272,7 @@
             }
             else
             {
-                Assert.Inconclusive("Unable to find a Provider with a Status of Approved");
+                Assert.Inconclusive("Unable to find a Provider Allocation Line to mark as Published");
             }
 
         }

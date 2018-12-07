@@ -11,7 +11,7 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
             PageFactory.InitElements(Driver._driver, this);
         }
 
-        [FindsBy(How = How.Id, Using = "approve")]
+        [FindsBy(How = How.CssSelector, Using = ".confirmapproval-buttons > button:nth-child(1)")]
         public IWebElement confirmApprovalButton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".heading-large")]

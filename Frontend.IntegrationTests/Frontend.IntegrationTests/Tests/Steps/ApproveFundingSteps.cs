@@ -107,7 +107,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectFundingStream = choosefundingspecificationpage.chooseFundingSpecFundingStreamDropdown;
             var selectElement = new SelectElement(selectFundingStream);
-            selectElement.SelectByValue("PES");
+            selectElement.SelectByValue("YPLRC");
             Thread.Sleep(20000);
         }
 
@@ -643,8 +643,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
-        [When(@"I Choose a Provider Allocation Line with a status of Held")]
-        public void WhenIChooseAProviderAllocationLineWithAStatusOfHeld()
+        [When(@"I Choose a Provider Allocation Line with a status of Updated")]
+        public void WhenIChooseAProviderAllocationLineWithAStatusOfUpdated()
         {
             Actions.ApproveFundingChooseProviderAllocationLineToApprove();
         }
@@ -720,12 +720,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenIAmRedirectedToTheConfirmPublishPage()
         {
             confirmpublishpage.confirmPublishButton.Should().NotBeNull();
-            Thread.Sleep(6000);
+            Thread.Sleep(4000);
         }
 
         [When(@"I click on the Confirm Publish Button")]
         public void WhenIClickOnTheConfirmPublishButton()
         {
+            confirmpublishpage.confirmPublishButton.Should().NotBeNull();
             confirmpublishpage.confirmPublishButton.Click();
             Thread.Sleep(6000);
         }
