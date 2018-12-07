@@ -279,13 +279,11 @@ testRunner.And("a link is displayed to log a Service Desk Incident", ((string)(n
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(53379)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void LogInUsingADUserAuthentication()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Log in using AD User Authentication", new string[] {
                         "workitem:53379",
-                        "Driver",
-                        "Smoke"});
+                        "Driver"});
 #line 60
 this.ScenarioSetup(scenarioInfo);
 #line 61

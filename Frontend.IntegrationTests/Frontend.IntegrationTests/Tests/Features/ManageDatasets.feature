@@ -31,21 +31,21 @@ And the dataset name is displayed
 And the datasets current status is displayed
 And the datasets last Updated date is displayed
 
-@Workitem:37113 Driver Smoke
+@Workitem:37113 Driver
 Scenario: Verify the Manage Dataset Result Counts
 Given I have navigated to the Manage Datasets page
 Then my list shows up to 50 data sets
 And a count of all data sets returned is displayed
 And a link to Load new datasets is displayed
 
-@Workitem:37113 Driver Smoke
+@Workitem:37113 Driver
 Scenario: Validate the Manage Dataset List View Pagination
 Given I have navigated to the Manage Datasets page
 When More than 50 Results are available
 Then I can navigate to a page of the next 50 data sets
 And I can navigate to a page of the previous 50 data sets
 
-@Workitem:37113 Driver Smoke
+@Workitem:37113 Driver
 Scenario: Select to Load a new Dataset
 Given I have navigated to the Manage Datasets page
 When I click the Load a New Dataset button
@@ -139,7 +139,7 @@ When I click to navigate to the next page of specifications
 Then my list view updates with up to the next set of 50 results
 And I am able to navigate to the previous page of 50 specs
 
-@Workitem:37469 Driver Smoke
+@Workitem:37469 Driver
 Scenario: Search Specifications listed on the Map data sources to datasets page
 Given I have navigated to Map data sources to datasets page
 When I enter text in the search specifications field
@@ -282,7 +282,7 @@ When I click the Download link for a Data Source
 Then The Download reddirect URL from Blogstorage is correctly generated
 And The HTTP Status Code is reurned as OK
 
-@Workitem:36846 Driver Smoke
+@Workitem:36846 Driver
 Scenario: Verify the Upload option on the Manage Datasets page
 Given I have navigated to the Manage Datasets page
 Then the page displays a list view of all data sets that have been uploaded
@@ -317,13 +317,13 @@ And I add a Change note
 And I click the Update Dataset Cancel Link
 Then I am redirected back to the Manage Datasets Page
 
-@Workitem:54452 Driver Smoke
+@Workitem:54452 Driver
 Scenario: Select the Download data schemas Page
 Given I have navigated to the data management option from the service home page
 When I choose the Download data schemas link
 Then I am redirected to the Download data schemas Page
 
-@Workitem:54452 Driver
+@Workitem:54452 Driver Smoke
 Scenario: Verify the Download data schemas Page
 Given I have navigated to the Download data schemas Page
 Then I am presented with a search box to search data schemas by name
@@ -337,7 +337,7 @@ Scenario: Validate the Information for a Data schema template
 Given I have navigated to the Download data schemas Page
 Then I am presented with the Relevant information for the Template
 
-@Workitem:54452 Driver Smoke
+@Workitem:54452 Driver
 Scenario: Validate the More Information option for a Data schema template
 Given I have navigated to the Download data schemas Page
 When I choose to view more information for a data schema

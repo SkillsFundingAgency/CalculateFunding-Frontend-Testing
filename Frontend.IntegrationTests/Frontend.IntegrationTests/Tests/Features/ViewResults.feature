@@ -15,14 +15,14 @@ And the name of the provider is displayed
 And all the relevant provider details are displayed
 And the list is displayed by provider name in ascending order
 
-@Workitem:37466 Driver Smoke
+@Workitem:37466 Driver
 Scenario: Verify the View Provider Results Page Search and Filter Options
 Given I have navigated to the View Provider Results Page
 Then the list displays up to 50 providers per page
 And an option to filter by search is displayed
 And options are displayed to filter the results by specific fields
 
-@Workitem:37466 Driver Smoke
+@Workitem:37466 Driver
 Scenario: Verify the View Provider Results Page Pagination
 Given I have navigated to the View Provider Results Page
 And I have over 50 providers with results
@@ -45,7 +45,7 @@ Given I have navigated to the View Provider Results Page
 When I click a provider
 Then I am redirected to the View provider allocations page for the selected provider
 
-@Workitem:37468 Driver Smoke
+@Workitem:37468 Driver
 Scenario: Verify the Search option on the View Provider Results Page
 Given I have navigated to the View Provider Results Page
 When I enter text in the Search Provider field
@@ -88,7 +88,7 @@ And the relevant provider information is displayed
 And a drop down option is displayed to select a year with the default year pre selected
 And a drop down option is displayed to select a specification where the default is blank
 
-@Workitem:37467 Driver Smoke
+@Workitem:37467 Driver
 Scenario: Verify the Provider Allocations Page tab options
 Given I have navigated to the View Provider Allocations Page
 Then the default view is the tab displaying the allocation lines
@@ -120,7 +120,7 @@ And I choose a specification from the drop down
 Then the results are updated according to the year and spec selected
 And I can see a list of Calculation names and the subtotals against the Calculation names
 
-@Workitem:37467 Driver Smoke
+@Workitem:37467 Driver
 Scenario: Verify the Provider Allocations Page Calculation tab
 Given I have navigated to the View Provider Allocations Page
 When I choose to view the Calculation Tab
@@ -170,7 +170,7 @@ And the Select Period drop down option is displayed
 And the Select Specification drop down option is displayed
 And a list of QA Test Results listed by Test is displayed with the correct column headers
 
-@Workitem:39520 40039 Driver Smoke
+@Workitem:39520 40039 Driver
 Scenario: Verify the QA test results displayed on the View QA Test Results Page
 Given I have navigated to the view all test results screen
 Then I am presented with a list of QA Test results
@@ -202,7 +202,7 @@ Examples:
 	 | 1819DEV1 |
 	 	 
 
-@Workitem:39520 Driver Smoke
+@Workitem:39520 Driver
 Scenario: Change Current list of QA Tests by Specification
 Given I have navigated to the view all test results screen
 When I choose a specification from the QA Test drop down Option
@@ -251,7 +251,7 @@ When I am redirected to the selected QA Test results for all providers page
 Then The name of the provider for the single test is displayed
 And the QA Test Result for the provider is displayed
 
-@Workitem:39522 Driver Smoke
+@Workitem:39522 Driver
 Scenario: Validate Selected QA Test Info on the View test results of all providers for a single test page
 Given I have navigated to the view all test results screen
 And I choose a QA Test from the displayed list of tests
@@ -290,14 +290,14 @@ When I am redirected to the selected QA Test results for all providers page
 And I decide to filter my results by using the Local Authority Filter
 Then the Provider Results list is refreshed to display only the providers that comply with the filter selected
 
-@Workitem:39523 Driver Smoke
+@Workitem:39523 Driver
 Scenario: Navigate to the View provider results for an Individual Provider Page
 Given I have navigated to the Provider results for an Individual Provider Page
 Then a tab is displayed to show the Allocation Line results
 And a tab is displayed to show the Calculation results
 And a tab is displayed to show the Test results
 
-@Workitem:39523 Driver Smoke
+@Workitem:39523 Driver
 Scenario: Verify the View provider results for an Individual Provider Page
 Given I have navigated to the Provider results for an Individual Provider Page
 Then the drop down option to select an academic year is displayed
@@ -404,7 +404,7 @@ When I choose to filter the results by Funding Period
 Then the calculation results are updated accordingly
 And the appropriate calculation information is displayed in the list
 
-@Workitem:48412 Driver Smoke
+@Workitem:48412 Driver
 Scenario: Filter the Displayed Calculation Results by Funding Stream
 Given I have successfully navigated to the View Calculation Page
 When I choose to filter the results by Funding Stream

@@ -56,7 +56,7 @@ Then a Page Not Found error message is played
 And a link is displayed to return to the Home page
 And a link is displayed to log a Service Desk Incident
 
-@workitem:53379 Driver Smoke
+@workitem:53379 Driver
 Scenario: Log in using AD User Authentication
 Given I have successfully navigated to the Microsoft Login page
 When I enter valid User Log in details
