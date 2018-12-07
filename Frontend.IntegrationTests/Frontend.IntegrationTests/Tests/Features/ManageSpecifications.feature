@@ -351,12 +351,12 @@ Then I am redirected to the Manage Policies Page
 And My new specification is correctly listed
 
 @Workitem:49358 Driver
-Scenario: Create a new Specification with 2 Funding Streams selected then removed
+Scenario: Create a new Specification with 5 Funding Streams selected then removed One
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
 And I enter a Description
 And I choose a specification Funding Period
-And I choose 2 specification Funding Streams
+And I choose 5 specification Funding Streams
 And I then select to remove a Funding Stream
 Then the selected funding stream is removed from the new Specification
 
@@ -497,10 +497,9 @@ Then I am redirected back to the Manage Polices Page
 @Workitem:49593 Driver
 Scenario: Successfully Edit an Existing Specification for All fields
 Given I have navigated to the Edit Specification Page
-When I delete the existing Specification Funding stream
+When I update the Specification Funding period
 Then an Alert is displayed warning that no Funding Streams are associated to the specification
-When I choose 2 New Funding Streams
-And I update the Specification Funding period
+When I delete the existing Specification Funding stream
 And I update the Specification Description
 And I update the Specification Name
 And click the Update Specification Button
