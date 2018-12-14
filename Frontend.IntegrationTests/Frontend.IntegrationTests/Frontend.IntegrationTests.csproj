@@ -152,6 +152,7 @@
     <Compile Include="Create\CreateDataSourceMapping_Var_Yr.cs" />
     <Compile Include="Create\CreateDataSourceMapping.cs" />
     <Compile Include="Create\CreateNewSpecification_Var_Yr.cs.cs" />
+    <Compile Include="Create\ManageSpecificationCreateNewCalculationSpecification_Baseline.cs" />
     <Compile Include="Create\ManageSpecificationCreateNewCalculationSpecification_Number.cs" />
     <Compile Include="Create\ValidateQATest_MissingFields.cs" />
     <Compile Include="Create\ValidateQATest.cs" />

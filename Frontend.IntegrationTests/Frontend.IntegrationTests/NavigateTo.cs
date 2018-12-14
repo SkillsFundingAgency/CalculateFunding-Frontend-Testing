@@ -79,8 +79,8 @@ namespace Frontend.IntegrationTests
             ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
             CreateCalculationPage createcalculationpage = new CreateCalculationPage();
 
-            homepage.ManagetheSpecification.Click();
-            managepecificationpage.SelectSpecification.Click();
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
             managepoliciespage.CreateCalculation.Click();
 
         }

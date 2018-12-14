@@ -165,6 +165,18 @@ And I click the Save Calculation button
 Then I am redirected to the Manage Policies Page
 And My new Calculation is correctly listed
 
+@Workitem:5429 Driver
+Scenario: Create and Save a new Calculation Specification with Calculation Type Baseline
+Given I have successfully navigated to the Create Calculation Specification for Policy Page
+When I enter a Calculation Name
+And I choose a Policy or sub policy
+And I choose baseline calculation type
+And I choose an Allocation Line
+And I enter a Calculation Description
+And I click the Save Calculation button
+Then I am redirected to the Manage Policies Page
+And My new Calculation is correctly listed
+
 @Workitem:35401, 40012 Driver
 Scenario: Create and Cancel a new Calculation Specification
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
@@ -535,6 +547,15 @@ Then the option to edit the Calculation Specification Name is displayed
 And the option to edit the Calculation Specification Description is displayed
 And the option to edit the Calculation Specification Policy or Sub Policy is displayed
 And the option to edit the Calculation Specification Calculation Type is displayed
+And an option to Save the Changes is displayed
+And an option to cancel the changes is displayed
+
+@Workitem:5429, 49361 Driver
+Scenario: Validate Edit Calculation Specification Page when the Calculation Type is Baseline
+Given I have successfully created a new Calculation Specification with Calculation Type of Baseline
+And I have navigated to the Edit Calculation Page
+Then the option to edit the Calculation Specification Name is displayed
+And the option to edit the Calculation Specification Description is displayed
 And an option to Save the Changes is displayed
 And an option to cancel the changes is displayed
 

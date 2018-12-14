@@ -463,6 +463,14 @@ namespace Frontend.IntegrationTests.Tests.Steps
             selectElement.SelectByValue("Number");
         }
 
+        [When(@"I choose baseline calculation type")]
+        public void WhenIChooseBaselineCalculationType()
+        {
+            var calctype = createcalculationpage.CalculationTypeDropDown;
+            var selectElement = new SelectElement(calctype);
+            selectElement.SelectByValue("Baseline");
+        }
+
         [When(@"I choose an Allocation Line")]
         public void WhenIChooseAnAllocationLine()
         {
@@ -1636,6 +1644,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
             ManageSpecificationCreateNewCalculationSpecification_Number.CreateANewSpecificationPolicy_Number();
         }
 
+        [Given(@"I have successfully created a new Calculation Specification with Calculation Type of Baseline")]
+        public void GivenIHaveSuccessfullyCreatedANewCalculationSpecificationWithCalculationTypeOfBaseline()
+        {
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewCalculationSpecification_Baseline.CreateANewSpecificationPolicy_Baseline();
+        }
 
         [Given(@"I have navigated to the Edit Calculation Page")]
         public void GivenIHaveNavigatedToTheEditCalculationPage()
@@ -2420,6 +2435,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             string expandedInfoText = expandedResultsInfo.Text;
             Console.WriteLine("The information displayed in the expanded results container is " + expandedInfoText);
         }
+
 
 
 
