@@ -16,9 +16,9 @@ using TechTalk.SpecFlow;
 namespace Frontend.IntegrationTests.Create
 {
     [Binding]
-    public static class ManageSpecificationCreateNewCalculationSpecification
+    public static class ManageSpecificationCreateNewCalculationSpecification_Baseline
     {
-        public static void CreateANewSpecificationPolicy()
+        public static void CreateANewSpecificationPolicy_Baseline()
 
         {
             CreateCalculationPage createcalculationpage = new CreateCalculationPage();
@@ -38,7 +38,7 @@ namespace Frontend.IntegrationTests.Create
 
             var calctype = createcalculationpage.CalculationTypeDropDown;
             var selectElement = new SelectElement(calctype);
-            selectElement.SelectByValue("Funding");
+            selectElement.SelectByValue("Baseline");
 
             var allocation = createcalculationpage.CalculationAllocationLine;
             var selectElement01 = new SelectElement(allocation);
@@ -46,9 +46,9 @@ namespace Frontend.IntegrationTests.Create
 
             createcalculationpage.SaveCalculation.Click();
             Thread.Sleep(2000);
-            var specCalcName = ScenarioContext.Current["SpecCalcName"];
-            string specCalcCreated = specCalcName.ToString();
-            Console.WriteLine(specCalcCreated + " has been created successfully");
+            var specCalcNumName = ScenarioContext.Current["SpecCalcName"];
+            string numSpecCalcCreated = specCalcNumName.ToString();
+            Console.WriteLine(numSpecCalcCreated + " has been created successfully");
             Thread.Sleep(5000);
 
         }

@@ -2,14 +2,10 @@
 using Frontend.IntegrationTests.Pages.Home_Page;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Threading;
 using AutoFramework;
 using FluentAssertions;
 using Frontend.IntegrationTests.Create;
-using Frontend.IntegrationTests.Pages;
-using Frontend.IntegrationTests.Pages.View_Results;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -17,7 +13,6 @@ using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 using Frontend.IntegrationTests.Pages.Manage_Specification;
 using Frontend.IntegrationTests.Helpers;
-using System.Web;
 
 namespace Frontend.IntegrationTests.Tests.Steps
 {
@@ -112,7 +107,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectFundingStream = choosefundingspecificationpage.chooseFundingSpecFundingStreamDropdown;
             var selectElement = new SelectElement(selectFundingStream);
-            selectElement.SelectByValue("YPLRA");
+            selectElement.SelectByValue("YPLRC");
             Thread.Sleep(20000);
         }
 
@@ -230,11 +225,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
             var specName = ScenarioContext.Current["SpecificationName"];
             string specCreated = specName.ToString();
 
-            var containerElements = choosefundingspecificationpage.chooseFundingSpecContainer;
+            var containerElements = choosefundingspecificationpage.chooseFundingSpecTableBody;
             IWebElement SelectCreatedSpec = null;
             if (containerElements != null)
             {
-                var options = containerElements.FindElements(By.TagName("span"));
+                var options = containerElements.FindElements(By.TagName("td span"));
                 foreach (var optionelement in options)
                 {
                     if (optionelement != null)
@@ -648,8 +643,8 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         }
 
-        [When(@"I Choose a Provider Allocation Line with a status of Held")]
-        public void WhenIChooseAProviderAllocationLineWithAStatusOfHeld()
+        [When(@"I Choose a Provider Allocation Line with a status of Updated")]
+        public void WhenIChooseAProviderAllocationLineWithAStatusOfUpdated()
         {
             Actions.ApproveFundingChooseProviderAllocationLineToApprove();
         }
@@ -676,22 +671,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         [Then(@"the Provider Allocation Line is successfully approved")]
         public void ThenTheProviderAllocationLineIsSuccessfullyApproved()
-        {
-            IWebElement approveNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
-            approveNotification.Should().NotBeNull();
-            string approveSuccessfullyText = approveNotification.Text;
-
-            Console.WriteLine(approveSuccessfullyText);
-        }
-
-        [When(@"I Choose a Provider Funding Stream with a status of Held")]
-        public void WhenIChooseAProviderFundingStreamWithAStatusOfHeld()
-        {
-            Actions.ApproveFundingChooseProviderFundingStreamToApprove();
-        }
-
-        [Then(@"the Provider Funding Stream is successfully approved")]
-        public void ThenTheProviderFundingStreamIsSuccessfullyApproved()
         {
             IWebElement approveNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
             approveNotification.Should().NotBeNull();
@@ -741,11 +720,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenIAmRedirectedToTheConfirmPublishPage()
         {
             confirmpublishpage.confirmPublishButton.Should().NotBeNull();
+            Thread.Sleep(4000);
         }
 
         [When(@"I click on the Confirm Publish Button")]
         public void WhenIClickOnTheConfirmPublishButton()
         {
+            confirmpublishpage.confirmPublishButton.Should().NotBeNull();
             confirmpublishpage.confirmPublishButton.Click();
             Thread.Sleep(6000);
         }
@@ -761,21 +742,6 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine(publishSuccessfullyText);
         }
 
-        [When(@"I Choose a Provider Funding Stream with a status of Approved")]
-        public void WhenIChooseAProviderFundingStreamWithAStatusOfApproved()
-        {
-            Actions.ApproveFundingChooseProviderFundingStreamToPublish();
-        }
-
-        [Then(@"the Provider Funding Stream is successfully published")]
-        public void ThenTheProviderFundingStreamIsSuccessfullyPublished()
-        {
-            IWebElement publishNotification = approvepublishfundingpage.approvePublishFundingNotificationPanel;
-            publishNotification.Should().NotBeNull();
-            string publishSuccessfullyText = publishNotification.Text;
-
-            Console.WriteLine(publishSuccessfullyText);
-        }
 
         [When(@"I Choose a Provider with a status of Approved")]
         public void WhenIChooseAProviderWithAStatusOfApproved()

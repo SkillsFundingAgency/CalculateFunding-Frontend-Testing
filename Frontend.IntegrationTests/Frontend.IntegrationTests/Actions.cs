@@ -171,7 +171,7 @@
 
         public static void SelectCalculationAllocationLine()
         {
-            IWebElement filtercontainer = Driver._driver.FindElement(By.CssSelector("#filter-container > div:nth-child(2) > div:nth-child(2)"));
+            IWebElement filtercontainer = Driver._driver.FindElement(By.CssSelector("#filter-container > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)"));
             IWebElement fundingallocationfilter = filtercontainer.FindElement(By.CssSelector("button"));
             fundingallocationfilter.Click();
             Thread.Sleep(4000);
@@ -406,12 +406,12 @@
                 }
                 else
                 {
-                    firstSelectSpecification.Should().NotBeNull("No Specifications exist for the academic year selected");
+                    Assert.Inconclusive("No Specifications exist for the academic year selected");
                 }
             }
             else
             {
-                firstSelectSpecification.Should().NotBeNull("No Specifications exist for the academic year selected");
+                firstSelectSpecification.Should().NotBeNull("No Specifications Could be Found");
             }
         }
 
@@ -898,7 +898,7 @@
                     }
                     else
                     {
-                        firstPassedProvider.Should().NotBeNull("No Provider has a result of Passed within this list of results");
+                        Assert.Inconclusive("No Provider has a result of Passed within this list of results");
                     }
                 }
                 else
@@ -955,7 +955,7 @@
                     }
                     else
                     {
-                        firstFailedProvider.Should().NotBeNull("No Provider has a result of Failed within this list of results");
+                        Assert.Inconclusive("No Provider has a result of Failed within this list of results");
                     }
                 }
                 else
@@ -1050,7 +1050,7 @@
                     IWebElement aelement = null;
                     try
                     {
-                        aelement = element.FindElement(By.CssSelector(".status-held"));
+                        aelement = element.FindElement(By.CssSelector(".status-updated"));
                     }
                     catch (NoSuchElementException)
                     {
@@ -1060,7 +1060,7 @@
 
                     if (aelement != null)
                     {
-                        if (aelement.Text.Contains("Held"))
+                        if (aelement.Text.Contains("Updated"))
                         {
                             var checkboxOption = element.FindElement(By.ClassName("target-checkbox-allocationline"));
                             if (checkboxOption != null)
@@ -1084,7 +1084,7 @@
             }
             else
             {
-                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Held");
+                Assert.Inconclusive("Unable to find a Provider Allocation Line to mark as Approved");
             }
 
         }
@@ -1168,180 +1168,10 @@
             }
             else
             {
-                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Approved");
+                Assert.Inconclusive("Unable to find a Provider Allocation Line to mark as Published");
             }
 
         }
-
-
-        public static void ApproveFundingChooseProviderFundingStreamToApprove()
-        {
-            var containerElements = Driver._driver.FindElements(By.CssSelector("table.cf tr"));
-            IWebElement firstHeldProvider = null;
-            IWebElement currentProvider = null;
-
-            foreach (var element in containerElements)
-            {
-                if (element.GetAttribute("class").Contains("data-provider-container"))
-                {
-                    if (currentProvider != null)
-                    {
-                        var previoustriggerelement = currentProvider.FindElement(By.CssSelector(".expander-trigger-cell"));
-                        if (previoustriggerelement != null)
-                        {
-                            previoustriggerelement.Click();
-                        }
-
-                    }
-
-                    currentProvider = element;
-
-                    var triggerelement = element.FindElement(By.CssSelector(".expander-trigger-cell"));
-                    if (triggerelement == null)
-                    {
-                        continue;
-                    }
-
-                    triggerelement.Click();
-                    Thread.Sleep(500);
-                    continue;
-
-                }
-
-                if (currentProvider == null)
-                {
-                    continue;
-                }
-
-
-                if (element.GetAttribute("class").Contains("data-fundingstream-container"))
-                {
-                    IWebElement aelement = null;
-                    try
-                    {
-                        aelement = element.FindElement(By.CssSelector(".status-held"));
-                    }
-                    catch (NoSuchElementException)
-                    {
-
-                    }
-
-
-                    if (aelement != null)
-                    {
-                        if (TestRegexUtil.NumbersEqual(aelement.Text))
-                        {
-                            var checkboxOption = element.FindElement(By.ClassName("target-checkbox-fundingstream"));
-                            if (checkboxOption != null)
-                            {
-                                firstHeldProvider = checkboxOption;
-                                break;
-                            }
-
-                        }
-
-                    }
-
-                }
-            }
-
-            Thread.Sleep(1000);
-            if (firstHeldProvider != null)
-            {
-                firstHeldProvider.Click();
-                Thread.Sleep(2000);
-            }
-            else
-            {
-                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Held");
-            }
-
-        }
-
-        public static void ApproveFundingChooseProviderFundingStreamToPublish()
-        {
-            var containerElements = Driver._driver.FindElements(By.CssSelector("table.cf tr"));
-            IWebElement firstHeldProvider = null;
-            IWebElement currentProvider = null;
-
-            foreach (var element in containerElements)
-            {
-                if (element.GetAttribute("class").Contains("data-provider-container"))
-                {
-                    if (currentProvider != null)
-                    {
-                        var previoustriggerelement = currentProvider.FindElement(By.CssSelector(".expander-trigger-cell"));
-                        if (previoustriggerelement != null)
-                        {
-                            previoustriggerelement.Click();
-                        }
-
-                    }
-
-                    currentProvider = element;
-
-                    var triggerelement = element.FindElement(By.CssSelector(".expander-trigger-cell"));
-                    if (triggerelement == null)
-                    {
-                        continue;
-                    }
-
-                    triggerelement.Click();
-                    Thread.Sleep(500);
-                    continue;
-
-                }
-
-                if (currentProvider == null)
-                {
-                    continue;
-                }
-
-
-                if (element.GetAttribute("class").Contains("data-fundingstream-container"))
-                {
-                    IWebElement aelement = null;
-                    try
-                    {
-                        aelement = element.FindElement(By.CssSelector(".status-approved"));
-                    }
-                    catch (NoSuchElementException)
-                    {
-
-                    }
-
-
-                    if (aelement != null)
-                    {
-                        if (TestRegexUtil.NumbersEqual(aelement.Text))
-                        {
-                            var checkboxOption = element.FindElement(By.ClassName("target-checkbox-fundingstream"));
-                            if (checkboxOption != null)
-                            {
-                                firstHeldProvider = checkboxOption;
-                                break;
-                            }
-
-                        }
-
-                    }
-
-                }
-            }
-
-            Thread.Sleep(1000);
-            if (firstHeldProvider != null)
-            {
-                firstHeldProvider.Click();
-                Thread.Sleep(2000);
-            }
-            else
-            {
-                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Approved");
-            }
-
-        }
-
 
         public static void ApproveFundingChooseProviderToApprove()
         {
@@ -1390,7 +1220,7 @@
             }
             else
             {
-                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Held");
+                Assert.Inconclusive("Unable to find a Provider to mark as Approved");
             }
 
         }
@@ -1442,7 +1272,7 @@
             }
             else
             {
-                firstHeldProvider.Should().NotBeNull("Unable to find a Provider with a Status of Approved");
+                Assert.Inconclusive("Unable to find a Provider Allocation Line to mark as Published");
             }
 
         }

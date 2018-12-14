@@ -319,28 +319,27 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I choose to filter my list by Allocation Lines")]
         public void WhenIChooseToFilterMyListByAllocationLines()
         {
-            Actions.CalculationTotalResult();
-            Console.WriteLine("The total number of calculations listed is " + Actions.CalculationTotalValue);
+            IWebElement calculationtotalResultCount = managecalculationpage.CalculationsTotalResults;
+            string totalPageResultCount = calculationtotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            ScenarioContext.Current["TotalResultCount"] = totalPageCount;
+            Console.WriteLine("The Total Number of Calculations displayed is: " + totalPageCount);
+
             Actions.SelectCalculationAllocationLine();
-            managecalculationpage.AllocationLineDropDownDefault.Should().Equals(Actions.Allocationlinevalue);
             Thread.Sleep(2000);
         }
 
         [Then(@"the list view of calculations updates to display only calculations for the selected Allocation Lines")]
         public void ThenTheListViewOfCalculationsUpdatesToDisplayOnlyCalculationsForTheSelectedAllocationLines()
         {
-            IWebElement CalculationTotal = Driver._driver.FindElement(By.XPath("/html/body/main/div/div/div[3]/div[1]/div[2]/strong"));
-            string CalculationTotalValue = CalculationTotal.Text;
-            CalculationTotalValue.Should().NotBeNullOrEmpty();
-
-            IWebElement selectedFiterOption = Driver._driver.FindElement(By.ClassName("filter-selected-item"));
-            string selectedFilter = selectedFiterOption.Text;
-            IWebElement AllocationLine = Driver._driver.FindElement(By.CssSelector("#filter-container > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)"));
-            string AllocationLineTextValue = AllocationLine.Text;
-            selectedFiterOption.Should().Equals(AllocationLineTextValue);
-
-            Actions.CalculationTotalResult();
-            Console.WriteLine("The new filtered total for the list of calculations is " + Actions.CalculationTotalValue);
+            IWebElement newcalculationtotalResultCount = managecalculationpage.CalculationsTotalResults;
+            string newtotalPageResultCount = newcalculationtotalResultCount.Text;
+            int newtotalPageCount = int.Parse(newtotalPageResultCount);
+            var unfilteredpagecount = ScenarioContext.Current["TotalResultCount"];
+            string unfilteredpagecountext = unfilteredpagecount.ToString();
+            int originalpagecount = int.Parse(unfilteredpagecountext);
+            newtotalPageCount.Should().BeLessOrEqualTo(originalpagecount, "there has been an error in filtering the results by Funding Period");
+            Console.WriteLine("The new Filtered Total of Calculations displayed is: " + newtotalPageCount);
         }
 
         [Given(@"ONE or MORE filter Options have previously been selected")]

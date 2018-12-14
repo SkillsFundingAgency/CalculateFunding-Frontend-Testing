@@ -67,11 +67,5 @@ namespace Frontend.IntegrationTests.Pages
         [FindsBy(How = How.CssSelector, Using = "#dynamic-results-table-body > tr:nth-child(3) > td:nth-child(2) > span:nth-child(1)")]
         public IWebElement SpecificationListSecondEditDate { get; set; }
 
-        
-
-
-
-
-
     }
 }

@@ -196,13 +196,11 @@ testRunner.And("the datasets last Updated date is displayed", ((string)(null)), 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37113)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheManageDatasetResultCounts()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Manage Dataset Result Counts", new string[] {
                         "Workitem:37113",
-                        "Driver",
-                        "Smoke"});
+                        "Driver"});
 #line 35
 this.ScenarioSetup(scenarioInfo);
 #line 36
@@ -222,13 +220,11 @@ testRunner.And("a link to Load new datasets is displayed", ((string)(null)), ((T
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37113)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ValidateTheManageDatasetListViewPagination()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Manage Dataset List View Pagination", new string[] {
                         "Workitem:37113",
-                        "Driver",
-                        "Smoke"});
+                        "Driver"});
 #line 42
 this.ScenarioSetup(scenarioInfo);
 #line 43
@@ -248,13 +244,11 @@ testRunner.And("I can navigate to a page of the previous 50 data sets", ((string
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37113)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void SelectToLoadANewDataset()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Load a new Dataset", new string[] {
                         "Workitem:37113",
-                        "Driver",
-                        "Smoke"});
+                        "Driver"});
 #line 49
 this.ScenarioSetup(scenarioInfo);
 #line 50
@@ -590,13 +584,11 @@ testRunner.And("I am able to navigate to the previous page of 50 specs", ((strin
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(37469)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void SearchSpecificationsListedOnTheMapDataSourcesToDatasetsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search Specifications listed on the Map data sources to datasets page", new string[] {
                         "Workitem:37469",
-                        "Driver",
-                        "Smoke"});
+                        "Driver"});
 #line 143
 this.ScenarioSetup(scenarioInfo);
 #line 144
@@ -1083,13 +1075,11 @@ testRunner.And("The HTTP Status Code is reurned as OK", ((string)(null)), ((Tech
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(36846)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheUploadOptionOnTheManageDatasetsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Upload option on the Manage Datasets page", new string[] {
                         "Workitem:36846",
-                        "Driver",
-                        "Smoke"});
+                        "Driver"});
 #line 286
 this.ScenarioSetup(scenarioInfo);
 #line 287
@@ -1197,13 +1187,11 @@ testRunner.Then("I am redirected back to the Manage Datasets Page", ((string)(nu
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(54452)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void SelectTheDownloadDataSchemasPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the Download data schemas Page", new string[] {
                         "Workitem:54452",
-                        "Driver",
-                        "Smoke"});
+                        "Driver"});
 #line 321
 this.ScenarioSetup(scenarioInfo);
 #line 322
@@ -1221,11 +1209,13 @@ testRunner.Then("I am redirected to the Download data schemas Page", ((string)(n
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(54452)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheDownloadDataSchemasPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Download data schemas Page", new string[] {
                         "Workitem:54452",
-                        "Driver"});
+                        "Driver",
+                        "Smoke"});
 #line 327
 this.ScenarioSetup(scenarioInfo);
 #line 328
@@ -1270,13 +1260,11 @@ testRunner.Then("I am presented with the Relevant information for the Template",
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(54452)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ValidateTheMoreInformationOptionForADataSchemaTemplate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the More Information option for a Data schema template", new string[] {
                         "Workitem:54452",
-                        "Driver",
-                        "Smoke"});
+                        "Driver"});
 #line 341
 this.ScenarioSetup(scenarioInfo);
 #line 342

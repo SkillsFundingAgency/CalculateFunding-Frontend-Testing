@@ -41,8 +41,10 @@ namespace Frontend.IntegrationTests.Create
             Thread.Sleep(2000);
             var datasetName = ScenarioContext.Current["DatasetSchemaName"];
             editcalculationspage.CalculationVBEditor.Should().NotBeNull();
-            editcalculationspage.CalculationVBTextEditor.SendKeys(OpenQA.Selenium.Keys.Control + "A");
-            editcalculationspage.CalculationVBTextEditor.SendKeys("Return Datasets." + datasetName + ".FullTimeNumberOfPupilsInYearGroup1DualRegistrations + 10");
+            editcalculationspage.CalculationVBTextEditor.SendKeys(Keys.Delete);
+            editcalculationspage.CalculationVBTextEditor.SendKeys(Keys.Shift + Keys.End);
+            Thread.Sleep(2000);
+            editcalculationspage.CalculationVBTextEditor.SendKeys("Return Datasets." + datasetName + ".FullSubtractTimeNumberOfPupilsInYearGroup1SubtractDualRegistrations + 10");
             Thread.Sleep(2000);
             editcalculationspage.BuildCalculationButton.Click();
             Thread.Sleep(10000);

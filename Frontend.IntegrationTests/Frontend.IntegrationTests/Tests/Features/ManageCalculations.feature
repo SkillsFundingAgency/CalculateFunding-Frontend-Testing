@@ -41,7 +41,7 @@ Given I have navigated to the Manage Calculations page
 Then I am presented with a list of Calculation results
 And the appropriate information is displayed for each calculation
 
-@Workitem:36090 Driver Smoke
+@Workitem:36090 Driver
 Scenario: Select to Filter the Calculations Page by Academic Year
 Given I have navigated to the Manage Calculations page
 And the filters are defaulted to show all calculations that are specified
@@ -76,7 +76,7 @@ Given I have navigated to the Manage Calculations page
 When I choose to filter my list by Allocation Lines
 Then the list view of calculations updates to display only calculations for the selected Allocation Lines
 
-@Workitem:36090 Driver Smoke
+@Workitem:36090 Driver
 Scenario: Deselect Filter options on the Calculations Page
 Given I have navigated to the Manage Calculations page
 And ONE or MORE filter Options have previously been selected
@@ -87,7 +87,7 @@ And a total count of all filtered results is displayed above the list of results
 And a count of the specific filter results is displayed
 And the filter options are sorted in descending order by the count of results
 
-@Workitem:37014 Driver Smoke
+@Workitem:37014 Driver
 Scenario: Select To Filter the Calculations Page by the Search Option
 Given I have navigated to the Manage Calculations page
 And No additional filter options have been selected

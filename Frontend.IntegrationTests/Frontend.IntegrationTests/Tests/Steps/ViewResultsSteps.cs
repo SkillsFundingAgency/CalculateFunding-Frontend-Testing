@@ -704,7 +704,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void WhenIClickToNavigateToTheNextPageOfQATestResults(int totaltestresults)
         {
             Actions.PaginationSelectPage();
-            Thread.Sleep(2000);
+            Thread.Sleep(40000);
         }
 
         [Then(@"my list view updates to display the next set of (.*) Results")]
@@ -713,7 +713,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement qatestresultfirstrecord = viewqatestresultspage.viewQATestResultspagestartItemNumber;
             string firstPageResultCount = qatestresultfirstrecord.Text;
             int firstPageCount = int.Parse(firstPageResultCount);
-            firstPageCount.Should().BeGreaterOrEqualTo(totaltestresults, "The next 50 Results have been displayed Incorrectly");
+            firstPageCount.Should().BeGreaterOrEqualTo(totaltestresults, "The next results set has been displayed Incorrectly");
             Console.WriteLine("First Page Results Displayed is " + qatestresultfirstrecord.Text);
         }
 
@@ -721,11 +721,11 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void ThenIAmAbleToNavigateToThePreviousPageOfResults(int totaltestresults)
         {
             Actions.PaginationSelectPage();
-            Thread.Sleep(2000);
+            Thread.Sleep(20000);
             IWebElement qatestresultcount = viewqatestresultspage.viewQATestResultspageendItemNumber;
             string endPageResultCount = qatestresultcount.Text;
             int endPageCount = int.Parse(endPageResultCount);
-            endPageCount.Should().BeLessOrEqualTo(totaltestresults, "The previous 50 Results have been displayed Incorrectly");
+            endPageCount.Should().BeLessOrEqualTo(totaltestresults, "The previous results set has been displayed Incorrectly");
             Console.WriteLine("Total Page Results Displayed is " + qatestresultcount.Text);
         }
 
@@ -779,7 +779,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             var selectYear = viewqatestresultspage.viewQATestResultspageYearDropDown;
             var selectElement = new SelectElement(selectYear);
             selectElement.SelectByValue(year);
-            Thread.Sleep(20000);
+            Thread.Sleep(40000);
         }
 
         [Then(@"the list of QA Test Results refreshes to display the selected years QA Tests")]
@@ -885,6 +885,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void WhenIAmRedirectedToTheSelectedQATestResultsForAllProvidersPage()
         {
             viewtestresultsallproviders.singleTestProviderResultsSearchField.Should().NotBeNull();
+            Thread.Sleep(20000);
         }
 
         [Then(@"A Search Filter option is correctly displayed")]
@@ -1054,7 +1055,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
             viewtestresultsallproviders.singleTestProviderResultsSearchField.SendKeys(searchtext);
             viewtestresultsallproviders.singleTestProviderResultsSearchButton.Click();
-            Thread.Sleep(5000);
+            Thread.Sleep(40000);
         }
 
 
@@ -1067,7 +1068,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
             string totalPageResultCount = testresultsalltotalResultCount.Text;
             int newTotalPageCount = int.Parse(totalPageResultCount);
-            newTotalPageCount.Should().BeLessOrEqualTo(initialTotalPageCount, "More than the initial unfiltered result count of " + initialTotalPageCount + " are being displayed on this Page");
+            newTotalPageCount.Should().BeLessOrEqualTo(initialTotalPageCount, "The total results displayed is greater than the unfiltered result total of " + initialTotalPageCount);
             Console.WriteLine("The New Filtered Total results returned is " + newTotalPageCount);
         }
 
@@ -1105,6 +1106,12 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [When(@"I decide to filter my results by using the Provider Sub Type Filter")]
         public void WhenIDecideToFilterMyResultsByUsingTheProviderSubTypeFilter()
         {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+            ScenarioContext.Current["totalResults"] = totalPageResultCount;
+
             IWebElement selectProviderSubDropdown = viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType;
             selectProviderSubDropdown.Click();
             var selectProviderSubOption = Driver._driver.FindElements(By.CssSelector(".open > ul > li"));
@@ -1128,7 +1135,13 @@ namespace Frontend.IntegrationTests.Tests.Steps
 
         [When(@"I decide to filter my results by using the Local Authority Filter")]
         public void WhenIDecideToFilterMyResultsByUsingTheLocalAuthorityFilter()
-        {            
+        {
+            IWebElement testresultsalltotalResultCount = viewtestresultsallproviders.singleTestProviderResultsProviderListTotalCount;
+            string totalPageResultCount = testresultsalltotalResultCount.Text;
+            int totalPageCount = int.Parse(totalPageResultCount);
+            Console.WriteLine("The Total results returned is " + totalPageCount);
+            ScenarioContext.Current["totalResults"] = totalPageResultCount;
+
             IWebElement selectLocalAuthDropdown = viewtestresultsallproviders.singleTestProviderResultsSelectProviderSubType;
             selectLocalAuthDropdown.Click();
             var selectLocalAuthOption = Driver._driver.FindElements(By.CssSelector(".open > ul > li"));

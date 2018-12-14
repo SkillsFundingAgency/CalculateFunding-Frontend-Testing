@@ -14,7 +14,7 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.Id, Using = "SearchTerm")]
         public IWebElement viewQATestResultspageSearch { get; set; }
 
-        [FindsBy(How = How.Id, Using = "filter-search-button-image")]
+        [FindsBy(How = How.CssSelector, Using = ".search-button")]
         public IWebElement viewQATestResultspageSearchButton { get; set; }
         
         [FindsBy(How = How.Id, Using = "FundingPeriodId")]
@@ -35,7 +35,7 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > span:nth-child(3)")]
         public IWebElement viewQATestResultspageendItemNumber { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > strong:nth-child(4)")]
+        [FindsBy(How = How.Id, Using = "totalResultsCount")]
         public IWebElement viewQATestResultspagetotalResults { get; set; }
 
 

@@ -22,6 +22,28 @@ Examples:
 | 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             | 
 
 @Workitem 62977 62987 Driver
+Scenario Outline: Update ALL Permissions for a Specified User to False
+Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
+| Permission                 | Granted |
+| CanAdministerFundingStream | false   |
+| CanCreateSpecification     | false   |
+| CanEditSpecification       | false   |
+| CanApproveSpecification    | false   |
+| CanEditCalculations        | false   |
+| CanMapDatasets             | false   |
+| CanChooseFunding           | false   |
+| CanRefreshFunding          | false   |
+| CanApproveFunding          | false   |
+| CanPublishFunding          | false   |
+| CanCreateQaTests           | false   |
+| CanEditQaTests             | false   | 
+
+Examples:
+| userId                               | fundingStreamId |
+| 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             | 
+
+
+@Workitem 62977 62987 Driver
 Scenario Outline: Update Permissions for a Specified User to Enable Creation of a New Specification
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -383,4 +405,5 @@ Then the Publish Button becomes enabled
 Examples:
 | userId                               | fundingStreamId |
 | 40a8a720-2817-430e-9be1-98d337fd01f4 | PSG             |
+
 

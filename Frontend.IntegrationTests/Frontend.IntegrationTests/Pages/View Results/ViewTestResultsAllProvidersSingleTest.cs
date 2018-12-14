@@ -32,7 +32,7 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.CssSelector, Using = "div.col-xs-12:nth-child(4) > div:nth-child(3)")]
         public IWebElement singleTestProviderResultsProviderResultsList { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "div.providers-searchresult-container:nth-child(1) > div:nth-child(1)")]
+        [FindsBy(How = How.CssSelector, Using = "div.providers-searchresult-container")]
         public IWebElement singleTestProviderResultsProviderResultsListContainer { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > span:nth-child(2)")]

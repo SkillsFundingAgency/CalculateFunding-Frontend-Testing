@@ -340,7 +340,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var datasetName = ScenarioContext.Current["DatasetSchemaName"];
             string datasetCreated = datasetName.ToString();
-            var datasetelements = Driver._driver.FindElements(By.CssSelector(".dataset-assigned-list"));
+            var datasetelements = Driver._driver.FindElements(By.Id("static-results-table-body"));
             IWebElement createddataset = null;
             foreach (var element in datasetelements)
             {

@@ -79,8 +79,8 @@ namespace Frontend.IntegrationTests
             ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
             CreateCalculationPage createcalculationpage = new CreateCalculationPage();
 
-            homepage.ManagetheSpecification.Click();
-            managepecificationpage.SelectSpecification.Click();
+            CreateNewSpecification.CreateANewSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
             managepoliciespage.CreateCalculation.Click();
 
         }
@@ -350,7 +350,7 @@ namespace Frontend.IntegrationTests
 
             homepage.ViewtheResults.Click();
             viewresultsoptionspage.viewResultsOptionsViewQATestResults.Click();
-            Thread.Sleep(60000);
+            Thread.Sleep(30000);
         }
 
 

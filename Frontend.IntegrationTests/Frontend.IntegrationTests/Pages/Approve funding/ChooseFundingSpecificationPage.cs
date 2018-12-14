@@ -20,7 +20,7 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
         [FindsBy(How = How.CssSelector, Using = ".cf")]
         public IWebElement chooseFundingSpecContainer { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".cf > tbody:nth-child(2)")]
+        [FindsBy(How = How.CssSelector, Using = ".cf > tbody")]
         public IWebElement chooseFundingSpecTableBody { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".noresults-panel")]
