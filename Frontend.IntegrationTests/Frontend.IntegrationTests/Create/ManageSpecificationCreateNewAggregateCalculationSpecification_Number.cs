@@ -16,20 +16,20 @@ using TechTalk.SpecFlow;
 namespace Frontend.IntegrationTests.Create
 {
     [Binding]
-    public static class ManageSpecificationCreateNewCalculationSpecification
+    public static class ManageSpecificationCreateNewAggregateCalculationSpecification_Number
     {
-        public static void CreateANewSpecificationPolicy()
+        public static void CreateANewAggregateCalculation_Number()
 
         {
             CreateCalculationPage createcalculationpage = new CreateCalculationPage();
             ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
             
 
-            string newname = "TestFundingCalculationName";
+            string newname = "TestAggCalculationName";
             string descriptiontext = "This is a Description for: ";
 
             var randomSpecCalcName = newname + TestDataUtils.RandomString(6);
-            ScenarioContext.Current["SpecCalcName"] = randomSpecCalcName;
+            ScenarioContext.Current["AggCalcName"] = randomSpecCalcName;
             managepoliciespage.CreateCalculation.Click();
             Thread.Sleep(2000);
             createcalculationpage.CalculationName.SendKeys(randomSpecCalcName);
@@ -38,17 +38,13 @@ namespace Frontend.IntegrationTests.Create
 
             var calctype = createcalculationpage.CalculationTypeDropDown;
             var selectElement = new SelectElement(calctype);
-            selectElement.SelectByValue("Funding");
-
-            var allocation = createcalculationpage.CalculationAllocationLine;
-            var selectElement01 = new SelectElement(allocation);
-            selectElement01.SelectByValue("YPM07");
+            selectElement.SelectByValue("Number");
 
             createcalculationpage.SaveCalculation.Click();
             Thread.Sleep(2000);
-            var specCalcName = ScenarioContext.Current["SpecCalcName"];
-            string specCalcCreated = specCalcName.ToString();
-            Console.WriteLine(specCalcCreated + " has been created successfully");
+            var aggCalcNumName = ScenarioContext.Current["AggCalcName"];
+            string aggCalcCreated = aggCalcNumName.ToString();
+            Console.WriteLine(aggCalcCreated + " has been created successfully");
             Thread.Sleep(5000);
 
         }

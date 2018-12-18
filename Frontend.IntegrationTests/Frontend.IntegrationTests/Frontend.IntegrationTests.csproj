@@ -151,8 +151,17 @@
     <Compile Include="Config.cs" />
     <Compile Include="Create\CreateDataSourceMapping_Var_Yr.cs" />
     <Compile Include="Create\CreateDataSourceMapping.cs" />
+    <Compile Include="Create\CreateNewPESportSpecification.cs" />
     <Compile Include="Create\CreateNewSpecification_Var_Yr.cs.cs" />
+    <Compile Include="Create\EditNewAggregateMinCalculaton.cs" />
+    <Compile Include="Create\EditNewAggregateMaxCalculaton.cs" />
+    <Compile Include="Create\EditNewAggregateAvgCalculaton.cs" />
+    <Compile Include="Create\EditNewAggregateSum2ndTierCalculaton.cs" />
+    <Compile Include="Create\EditNewAggregateSumCalculaton.cs" />
+    <Compile Include="Create\EditNewReturnValueCalculaton.cs" />
+    <Compile Include="Create\ManageSpecificationCreateAdditionalAggregateCalculationSpecification_Number.cs" />
     <Compile Include="Create\ManageSpecificationCreateNewCalculationSpecification_Baseline.cs" />
+    <Compile Include="Create\ManageSpecificationCreateNewAggregateCalculationSpecification_Number.cs" />
     <Compile Include="Create\ManageSpecificationCreateNewCalculationSpecification_Number.cs" />
     <Compile Include="Create\ValidateQATest_MissingFields.cs" />
     <Compile Include="Create\ValidateQATest.cs" />
@@ -212,6 +221,7 @@
     <Compile Include="Pages\Quality Assurance\CreateQATestPage.cs" />
     <Compile Include="Pages\Quality Assurance\EditQATestPage.cs" />
     <Compile Include="Pages\Quality Assurance\TestScenarioListPage.cs" />
+    <Compile Include="Pages\View Results\ViewCalculationProviderResults.cs" />
     <Compile Include="Pages\View Results\ViewCalculationResultPage.cs" />
     <Compile Include="Pages\View Results\ViewTestResultsAllProvidersSingleTest.cs" />
     <Compile Include="Pages\View Results\ViewProviderAllocationsPage.cs" />

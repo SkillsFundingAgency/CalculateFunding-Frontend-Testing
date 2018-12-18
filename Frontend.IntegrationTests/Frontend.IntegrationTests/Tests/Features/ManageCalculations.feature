@@ -219,3 +219,82 @@ When I navigate to the Manage Calculations Page
 And I choose to view the new Calculation I have created
 And I choose to mark the Calculation as Approved
 Then the Calculation should be updated to show the status is Approved
+
+@Workitem:5320 Driver
+Scenario: Validate an Aggregate Sum Function for calculation results in the calculation script
+Given I have previously created a new Pe & Sport Specification
+And I have created a New Policy for that Specification
+And I have created two new Number calculations ready to be aggregated
+And I have create a New Dataset for that Specificaton
+When I have specified a data Source Relationship for the Specification
+When I navigate to the Manage Calculations Page
+And I choose to view the new Calculation I have created
+And I edit the first calculation to return the value of 100
+And I choose to view the new Aggregate Calculation I have created
+And I edit the second calculation to Sum the first calculation
+And I navigate to the View Calculations Page
+And I open the Provider Results for the Aggregate Calculation
+Then The total value for each Provider is the Sum of the number of Providers multipled by the first calculations returned value
+
+@Workitem:5320 Driver
+Scenario: Validate an Aggregate Avg Function for calculation results in the calculation script
+Given I have previously created a new Pe & Sport Specification
+And I have created a New Policy for that Specification
+And I have created two new Number calculations ready to be aggregated
+And I have create a New Dataset for that Specificaton
+When I have specified a data Source Relationship for the Specification
+When I navigate to the Manage Calculations Page
+And I choose to view the new Calculation I have created
+And I edit the first calculation to return the value of 100
+And I choose to view the new Aggregate Calculation I have created
+And I edit the second calculation to Sum the first calculation and add the Avg
+And I navigate to the View Calculations Page
+And I open the Provider Results for the Aggregate Calculation
+Then The total value for each Provider is the Sum of the number of Providers multipled by the first calculations returned value plus the Average Amount
+
+@Workitem:5320 Driver
+Scenario: Validate an Aggregate Max Function for calculation results in the calculation script
+Given I have previously created a new Pe & Sport Specification
+And I have created a New Policy for that Specification
+And I have created two new Number calculations ready to be aggregated
+And I have create a New Dataset for that Specificaton
+When I have specified a data Source Relationship for the Specification
+When I navigate to the Manage Calculations Page
+And I choose to view the new Calculation I have created
+And I edit the first calculation to return the value of 100
+And I choose to view the new Aggregate Calculation I have created
+And I edit the second calculation to Sum the first calculation and add the Max
+And I navigate to the View Calculations Page
+And I open the Provider Results for the Aggregate Calculation
+Then The total value for each Provider is the Sum of the number of Providers multipled by the first calculations returned value plus the Max Amount
+
+@Workitem:5320 Driver
+Scenario: Validate an Aggregate Min Function for calculation results in the calculation script
+Given I have previously created a new Pe & Sport Specification
+And I have created a New Policy for that Specification
+And I have created two new Number calculations ready to be aggregated
+And I have create a New Dataset for that Specificaton
+When I have specified a data Source Relationship for the Specification
+When I navigate to the Manage Calculations Page
+And I choose to view the new Calculation I have created
+And I edit the first calculation to return the value of 100
+And I choose to view the new Aggregate Calculation I have created
+And I edit the second calculation to Sum the first calculation and add the Min
+And I navigate to the View Calculations Page
+And I open the Provider Results for the Aggregate Calculation
+Then The total value for each Provider is the Sum of the number of Providers multipled by the first calculations returned value plus the Min Amount
+
+@Workitem:5320 Driver
+Scenario: Validate the validation error when an Aggregate Function calculation calls another Aggregated Calculation
+Given I have previously created a new Pe & Sport Specification
+And I have created a New Policy for that Specification
+And I have created Three new Number calculations ready to be aggregated
+And I have create a New Dataset for that Specificaton
+When I have specified a data Source Relationship for the Specification
+When I navigate to the Manage Calculations Page
+And I choose to view the new Calculation I have created
+And I edit the first calculation to return the value of 100
+And I choose to view the new Aggregate Calculation I have created
+And I edit the second calculation to Sum the first calculation
+Then I choose to view the Additional Aggregate Calculation I have created
+And I edit the second calculation to Sum the second calculation an approriate error is displayed

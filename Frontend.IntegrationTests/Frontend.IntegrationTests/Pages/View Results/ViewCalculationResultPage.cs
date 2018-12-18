@@ -44,8 +44,11 @@ namespace Frontend.IntegrationTests.Pages.View_Results
         [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > span:nth-child(3)")]
         public IWebElement viewcalculationPageEndItemCount { get; set; }
 
-        [FindsBy(How = How.Id, Using = "totalResultsCount")]
+        [FindsBy(How = How.CssSelector, Using = "#dynamic-rownavigation-container > strong:nth-child(4)")]
         public IWebElement viewcalculationPageTotalResultcount { get; set; }
+
+
+        
 
     }
 }

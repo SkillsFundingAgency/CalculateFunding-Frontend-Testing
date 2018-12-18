@@ -795,6 +795,229 @@ testRunner.Then("the Calculation should be updated to show the status is Approve
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate an Aggregate Sum Function for calculation results in the calculation scr" +
+            "ipt")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(5320)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateAnAggregateSumFunctionForCalculationResultsInTheCalculationScript()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate an Aggregate Sum Function for calculation results in the calculation scr" +
+                    "ipt", new string[] {
+                        "Workitem:5320",
+                        "Driver"});
+#line 224
+this.ScenarioSetup(scenarioInfo);
+#line 225
+testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 226
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 227
+testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 228
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 229
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 230
+testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 231
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 232
+testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 233
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 234
+testRunner.And("I edit the second calculation to Sum the first calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 235
+testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 236
+testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 237
+testRunner.Then("The total value for each Provider is the Sum of the number of Providers multipled" +
+                    " by the first calculations returned value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate an Aggregate Avg Function for calculation results in the calculation scr" +
+            "ipt")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(5320)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateAnAggregateAvgFunctionForCalculationResultsInTheCalculationScript()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate an Aggregate Avg Function for calculation results in the calculation scr" +
+                    "ipt", new string[] {
+                        "Workitem:5320",
+                        "Driver"});
+#line 240
+this.ScenarioSetup(scenarioInfo);
+#line 241
+testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 242
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 243
+testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 244
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 245
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 246
+testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 247
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 248
+testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 249
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 250
+testRunner.And("I edit the second calculation to Sum the first calculation and add the Avg", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 251
+testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 252
+testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 253
+testRunner.Then("The total value for each Provider is the Sum of the number of Providers multipled" +
+                    " by the first calculations returned value plus the Average Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate an Aggregate Max Function for calculation results in the calculation scr" +
+            "ipt")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(5320)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateAnAggregateMaxFunctionForCalculationResultsInTheCalculationScript()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate an Aggregate Max Function for calculation results in the calculation scr" +
+                    "ipt", new string[] {
+                        "Workitem:5320",
+                        "Driver"});
+#line 256
+this.ScenarioSetup(scenarioInfo);
+#line 257
+testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 258
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 259
+testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 260
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 261
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 262
+testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 263
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 264
+testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 265
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 266
+testRunner.And("I edit the second calculation to Sum the first calculation and add the Max", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 267
+testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 268
+testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 269
+testRunner.Then("The total value for each Provider is the Sum of the number of Providers multipled" +
+                    " by the first calculations returned value plus the Max Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate an Aggregate Min Function for calculation results in the calculation scr" +
+            "ipt")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(5320)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateAnAggregateMinFunctionForCalculationResultsInTheCalculationScript()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate an Aggregate Min Function for calculation results in the calculation scr" +
+                    "ipt", new string[] {
+                        "Workitem:5320",
+                        "Driver"});
+#line 272
+this.ScenarioSetup(scenarioInfo);
+#line 273
+testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 274
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 275
+testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 276
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 277
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 278
+testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 279
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 280
+testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 281
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 282
+testRunner.And("I edit the second calculation to Sum the first calculation and add the Min", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 283
+testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 284
+testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 285
+testRunner.Then("The total value for each Provider is the Sum of the number of Providers multipled" +
+                    " by the first calculations returned value plus the Min Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the validation error when an Aggregate Function calculation calls anothe" +
+            "r Aggregated Calculation")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(5320)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateTheValidationErrorWhenAnAggregateFunctionCalculationCallsAnotherAggregatedCalculation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the validation error when an Aggregate Function calculation calls anothe" +
+                    "r Aggregated Calculation", new string[] {
+                        "Workitem:5320",
+                        "Driver"});
+#line 288
+this.ScenarioSetup(scenarioInfo);
+#line 289
+testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 290
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 291
+testRunner.And("I have created Three new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 292
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 293
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 294
+testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 295
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 296
+testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 297
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 298
+testRunner.And("I edit the second calculation to Sum the first calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 299
+testRunner.Then("I choose to view the Additional Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 300
+testRunner.And("I edit the second calculation to Sum the second calculation an approriate error i" +
+                    "s displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
