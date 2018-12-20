@@ -450,13 +450,22 @@ namespace Frontend.IntegrationTests.Tests.Steps
             editcalculationspage.SaveCalculationButton.GetAttribute("disabled");
         }
 
+        [Then(@"the Option to view the related Calculation Results is displayed")]
+        public void ThenTheOptionToViewTheRelatedCalculationResultsIsDisplayed()
+        {
+            editcalculationspage.ViewCalculationResultsLink.Should().NotBeNull();
+        }
+
+
         [When(@"I have edited the visual basic code")]
         public void WhenIHaveEditedTheVisualBasicCode()
         {
             var randomvalue = TestDataNumericUtils.RandomNumerics(2);
 
             editcalculationspage.CalculationVBEditor.Should().NotBeNull();
-            editcalculationspage.CalculationVBTextEditor.SendKeys(OpenQA.Selenium.Keys.Control + "A");
+            editcalculationspage.CalculationVBTextEditor.SendKeys(Keys.Delete);
+            editcalculationspage.CalculationVBTextEditor.SendKeys(Keys.Shift + Keys.End);
+            Thread.Sleep(2000);
             editcalculationspage.CalculationVBTextEditor.SendKeys("Return Decimal.MinValue + " + randomvalue);
             Thread.Sleep(2000);
         }
@@ -502,7 +511,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void WhenIHaveIncorrectlyEditedTheVisualBasicCode()
         {
             editcalculationspage.CalculationVBEditor.Should().NotBeNull();
-            editcalculationspage.CalculationVBTextEditor.SendKeys(OpenQA.Selenium.Keys.Control + "A");
+            editcalculationspage.CalculationVBTextEditor.SendKeys(Keys.Delete);
+            editcalculationspage.CalculationVBTextEditor.SendKeys(Keys.Shift + Keys.End);
+            Thread.Sleep(2000);
             editcalculationspage.CalculationVBTextEditor.SendKeys("Return Decimal.MinVa + 1");
             Thread.Sleep(2000);
         }
@@ -1038,6 +1049,19 @@ namespace Frontend.IntegrationTests.Tests.Steps
             EditNewAggregateSum2ndTierCalculaton.EditANewAggregateSum2ndTierCalculaton();
         }
 
+        [Then(@"the Option to view the related Calculation Results is available to select")]
+        public void ThenTheOptionToViewTheRelatedCalculationResultsIsAvailableToSelect()
+        {
+            editcalculationspage.ViewCalculationResultsLink.Should().NotBeNull();
+            editcalculationspage.ViewCalculationResultsLink.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am then redirtected to the Calculation Provider Results Page")]
+        public void ThenIAmThenRedirtectedToTheCalculationProviderResultsPage()
+        {
+            viewcalculationproviderresults.viewcalculationProviderTotalResultcount.Should().NotBeNull();
+        }
 
 
         [AfterScenario()]

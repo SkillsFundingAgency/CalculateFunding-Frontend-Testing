@@ -104,7 +104,7 @@ And I click the search button
 Then the list view of calculations updates to display only calculations that comply with the search term entered
 And the previously selected filter options
 
-@Workitem:35457 Driver Smoke
+@Workitem:35457, 5617 Driver Smoke
 Scenario: Verify the Edit Calculation Page
 Given I have navigated to the Manage Calculations page
 And I click on a calculation in the displayed list
@@ -113,6 +113,7 @@ Then The Name of the specification is displayed
 And The Description of the specification is displayed
 And The Build Calculation button is disabled
 And The Save Calculation button is disabled
+And the Option to view the related Calculation Results is displayed
 
 @Workitem:35457 Driver
 Scenario: Edit and Build the Calculation Visual Basic Code
@@ -227,7 +228,7 @@ And I have created a New Policy for that Specification
 And I have created two new Number calculations ready to be aggregated
 And I have create a New Dataset for that Specificaton
 When I have specified a data Source Relationship for the Specification
-When I navigate to the Manage Calculations Page
+And I navigate to the Manage Calculations Page
 And I choose to view the new Calculation I have created
 And I edit the first calculation to return the value of 100
 And I choose to view the new Aggregate Calculation I have created
@@ -243,7 +244,7 @@ And I have created a New Policy for that Specification
 And I have created two new Number calculations ready to be aggregated
 And I have create a New Dataset for that Specificaton
 When I have specified a data Source Relationship for the Specification
-When I navigate to the Manage Calculations Page
+And I navigate to the Manage Calculations Page
 And I choose to view the new Calculation I have created
 And I edit the first calculation to return the value of 100
 And I choose to view the new Aggregate Calculation I have created
@@ -259,7 +260,7 @@ And I have created a New Policy for that Specification
 And I have created two new Number calculations ready to be aggregated
 And I have create a New Dataset for that Specificaton
 When I have specified a data Source Relationship for the Specification
-When I navigate to the Manage Calculations Page
+And I navigate to the Manage Calculations Page
 And I choose to view the new Calculation I have created
 And I edit the first calculation to return the value of 100
 And I choose to view the new Aggregate Calculation I have created
@@ -275,7 +276,7 @@ And I have created a New Policy for that Specification
 And I have created two new Number calculations ready to be aggregated
 And I have create a New Dataset for that Specificaton
 When I have specified a data Source Relationship for the Specification
-When I navigate to the Manage Calculations Page
+And I navigate to the Manage Calculations Page
 And I choose to view the new Calculation I have created
 And I edit the first calculation to return the value of 100
 And I choose to view the new Aggregate Calculation I have created
@@ -291,10 +292,26 @@ And I have created a New Policy for that Specification
 And I have created Three new Number calculations ready to be aggregated
 And I have create a New Dataset for that Specificaton
 When I have specified a data Source Relationship for the Specification
-When I navigate to the Manage Calculations Page
+And I navigate to the Manage Calculations Page
 And I choose to view the new Calculation I have created
 And I edit the first calculation to return the value of 100
 And I choose to view the new Aggregate Calculation I have created
 And I edit the second calculation to Sum the first calculation
 Then I choose to view the Additional Aggregate Calculation I have created
 And I edit the second calculation to Sum the second calculation an approriate error is displayed
+
+@Workitem:5617 Driver
+Scenario: Verify the View Results Link within the Edit Calculation Page
+Given I have previously created a new Pe & Sport Specification
+And I have created a New Policy for that Specification
+And I have created two new Number calculations ready to be aggregated
+And I have create a New Dataset for that Specificaton
+When I have specified a data Source Relationship for the Specification
+And I navigate to the Manage Calculations Page
+And I choose to view the new Calculation I have created
+And I edit the first calculation to return the value of 100
+And I choose to view the new Aggregate Calculation I have created
+And I edit the second calculation to Sum the first calculation
+And I choose to view the new Aggregate Calculation I have created
+Then the Option to view the related Calculation Results is available to select
+And I am then redirtected to the Calculation Provider Results Page

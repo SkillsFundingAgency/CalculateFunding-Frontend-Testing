@@ -435,13 +435,14 @@ testRunner.And("the previously selected filter options", ((string)(null)), ((Tec
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Edit Calculation Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35457)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("5617")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheEditCalculationPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Edit Calculation Page", new string[] {
-                        "Workitem:35457",
+                        "Workitem:35457,",
+                        "5617",
                         "Driver",
                         "Smoke"});
 #line 108
@@ -460,6 +461,8 @@ testRunner.And("The Description of the specification is displayed", ((string)(nu
 testRunner.And("The Build Calculation button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 115
 testRunner.And("The Save Calculation button is disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 116
+testRunner.And("the Option to view the related Calculation Results is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -474,23 +477,23 @@ testRunner.And("The Save Calculation button is disabled", ((string)(null)), ((Te
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit and Build the Calculation Visual Basic Code", new string[] {
                         "Workitem:35457",
                         "Driver"});
-#line 118
-this.ScenarioSetup(scenarioInfo);
 #line 119
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 120
-testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 121
-testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 122
-testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 123
-testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 124
-testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 125
-testRunner.And("I am notified that my code has finished compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 126
+testRunner.And("I am notified that my code has finished compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 127
 testRunner.And("the results of the compilation is recorded in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -506,21 +509,21 @@ testRunner.And("the results of the compilation is recorded in the output box", (
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrectly Edit and Build a Calculation", new string[] {
                         "Workitem:35457",
                         "Driver"});
-#line 129
-this.ScenarioSetup(scenarioInfo);
 #line 130
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 131
-testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 132
-testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 133
-testRunner.And("I have incorrectly edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 134
-testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have incorrectly edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 135
-testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 136
+testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 137
 testRunner.And("the error result of the compilation is recorded in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -536,29 +539,29 @@ testRunner.And("the error result of the compilation is recorded in the output bo
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit and Save a New Calculation Version of the Code", new string[] {
                         "Workitem:35457",
                         "Driver"});
-#line 139
-this.ScenarioSetup(scenarioInfo);
 #line 140
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 141
-testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 142
-testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 143
-testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 144
-testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 145
-testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I click the Build Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 146
-testRunner.And("I am notified that my code has finished compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I am notified that my code is compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 147
-testRunner.And("the results of the compilation is recorded in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I am notified that my code has finished compiling in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 148
-testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the results of the compilation is recorded in the output box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 149
-testRunner.And("I am returned to the manage calculation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 150
+testRunner.And("I am returned to the manage calculation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 151
 testRunner.And("a full audit record of my calculation is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -576,21 +579,21 @@ testRunner.And("a full audit record of my calculation is created", ((string)(nul
                         "Workitem:35457",
                         "56928",
                         "Driver"});
-#line 153
-this.ScenarioSetup(scenarioInfo);
 #line 154
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 155
-testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 156
-testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 157
-testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 158
-testRunner.And("I click on the Edit Calculation Back Link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have edited the visual basic code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 159
-testRunner.And("I click the Leave Button in the Windows Dialog box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I click on the Edit Calculation Back Link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 160
+testRunner.And("I click the Leave Button in the Windows Dialog box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 161
 testRunner.Then("I am returned to the manage calculation page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -608,19 +611,19 @@ testRunner.Then("I am returned to the manage calculation page", ((string)(null))
                         "Workitem:35460",
                         "Driver",
                         "Smoke"});
-#line 163
-this.ScenarioSetup(scenarioInfo);
 #line 164
-testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 165
-testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the Manage Calculations page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 166
-testRunner.And("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I click on a calculation in the displayed list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 167
-testRunner.When("I click the View previous versions link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("The Edit Calculation screen is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 168
-testRunner.Then("I am redirected to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I click the View previous versions link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 169
+testRunner.Then("I am redirected to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 170
 testRunner.And("a list view of calculation versions is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -636,19 +639,19 @@ testRunner.And("a list view of calculation versions is displayed", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Compare Calculation Versions Page Calculation Information", new string[] {
                         "Workitem:35460",
                         "Driver"});
-#line 172
-this.ScenarioSetup(scenarioInfo);
 #line 173
-testRunner.Given("I have navigated to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 174
-testRunner.Then("I can see who created the calculation version as the Author", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Given("I have navigated to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 175
-testRunner.And("the date time the version was Created or Updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("I can see who created the calculation version as the Author", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 176
-testRunner.And("the calculation version number is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the date time the version was Created or Updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 177
-testRunner.And("the calculation status is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the calculation version number is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 178
+testRunner.And("the calculation status is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 179
 testRunner.And("the list is sorted in descending order by Updated date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -666,15 +669,15 @@ testRunner.And("the list is sorted in descending order by Updated date", ((strin
                     "s page", new string[] {
                         "Workitem:36088",
                         "Driver"});
-#line 181
-this.ScenarioSetup(scenarioInfo);
 #line 182
-testRunner.Given("I have navigated to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 183
-testRunner.And("More than one version of code has been previously saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 184
-testRunner.When("I click only one version of the calculation code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("More than one version of code has been previously saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 185
+testRunner.When("I click only one version of the calculation code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 186
 testRunner.Then("The Compare Calculations button remains disabled", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -694,17 +697,17 @@ testRunner.Then("The Compare Calculations button remains disabled", ((string)(nu
                         "Workitem:36088",
                         "Driver",
                         "Smoke"});
-#line 188
-this.ScenarioSetup(scenarioInfo);
 #line 189
-testRunner.Given("I have navigated to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 190
-testRunner.And("More than one version of code has been previously saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have navigated to the Compare Calculation Versions page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 191
-testRunner.When("I click to select two versions of the code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("More than one version of code has been previously saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 192
-testRunner.And("I click the Compare The Calculations button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I click to select two versions of the code", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 193
+testRunner.And("I click the Compare The Calculations button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 194
 testRunner.Then("I am redirected to the Calculation Comparison page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -720,21 +723,21 @@ testRunner.Then("I am redirected to the Calculation Comparison page", ((string)(
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View the Calculation Comparison Page", new string[] {
                         "Workitem:36088",
                         "Driver"});
-#line 196
-this.ScenarioSetup(scenarioInfo);
 #line 197
-testRunner.Given("I have navigated to the Calculation Comparison page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 198
-testRunner.Then("the status of each version is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Given("I have navigated to the Calculation Comparison page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 199
-testRunner.And("the date time each version was Created or Updated is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Then("the status of each version is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 200
-testRunner.And("the name of the Author of each version is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the date time each version was Created or Updated is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 201
-testRunner.And("The applicable code for both versions is displayed side by side", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the name of the Author of each version is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 202
-testRunner.And("The Inline Code Editor option can be selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("The applicable code for both versions is displayed side by side", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 203
+testRunner.And("The Inline Code Editor option can be selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 204
 testRunner.And("The Back Link can be selected to return to the Previous Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -750,21 +753,21 @@ testRunner.And("The Back Link can be selected to return to the Previous Calculat
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Approve Calculation Option on the Edit Calculation Page", new string[] {
                         "Workitem:50635",
                         "Driver"});
-#line 206
-this.ScenarioSetup(scenarioInfo);
 #line 207
-testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 208
-testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 209
-testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 210
-testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 211
-testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 212
-testRunner.Then("I am presented with the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 213
+testRunner.Then("I am presented with the View Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 214
 testRunner.And("The option to Approve the Calculation is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -780,17 +783,17 @@ testRunner.And("The option to Approve the Calculation is displayed correctly", (
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Calculation can be marked as Approved", new string[] {
                         "Workitem:50635",
                         "Driver"});
-#line 216
-this.ScenarioSetup(scenarioInfo);
 #line 217
-testRunner.Given("A Calculation Specification has been previously created with a Unique Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 218
-testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("A Calculation Specification has been previously created with a Unique Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 219
-testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 220
-testRunner.And("I choose to mark the Calculation as Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 221
+testRunner.And("I choose to mark the Calculation as Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 222
 testRunner.Then("the Calculation should be updated to show the status is Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -808,33 +811,33 @@ testRunner.Then("the Calculation should be updated to show the status is Approve
                     "ipt", new string[] {
                         "Workitem:5320",
                         "Driver"});
-#line 224
-this.ScenarioSetup(scenarioInfo);
 #line 225
-testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 226
-testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 227
-testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 228
-testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 229
-testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 230
-testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 231
-testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 232
-testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 233
-testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 234
-testRunner.And("I edit the second calculation to Sum the first calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 235
-testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I edit the second calculation to Sum the first calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 236
-testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 237
+testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 238
 testRunner.Then("The total value for each Provider is the Sum of the number of Providers multipled" +
                     " by the first calculations returned value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -853,33 +856,33 @@ testRunner.Then("The total value for each Provider is the Sum of the number of P
                     "ipt", new string[] {
                         "Workitem:5320",
                         "Driver"});
-#line 240
-this.ScenarioSetup(scenarioInfo);
 #line 241
-testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 242
-testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 243
-testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 244
-testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 245
-testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 246
-testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 247
-testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 248
-testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 249
-testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 250
-testRunner.And("I edit the second calculation to Sum the first calculation and add the Avg", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 251
-testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I edit the second calculation to Sum the first calculation and add the Avg", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 252
-testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 253
+testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 254
 testRunner.Then("The total value for each Provider is the Sum of the number of Providers multipled" +
                     " by the first calculations returned value plus the Average Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -898,33 +901,33 @@ testRunner.Then("The total value for each Provider is the Sum of the number of P
                     "ipt", new string[] {
                         "Workitem:5320",
                         "Driver"});
-#line 256
-this.ScenarioSetup(scenarioInfo);
 #line 257
-testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 258
-testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 259
-testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 260
-testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 261
-testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 262
-testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 263
-testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 264
-testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 265
-testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 266
-testRunner.And("I edit the second calculation to Sum the first calculation and add the Max", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 267
-testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I edit the second calculation to Sum the first calculation and add the Max", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 268
-testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 269
+testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 270
 testRunner.Then("The total value for each Provider is the Sum of the number of Providers multipled" +
                     " by the first calculations returned value plus the Max Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -943,33 +946,33 @@ testRunner.Then("The total value for each Provider is the Sum of the number of P
                     "ipt", new string[] {
                         "Workitem:5320",
                         "Driver"});
-#line 272
-this.ScenarioSetup(scenarioInfo);
 #line 273
-testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 274
-testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 275
-testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 276
-testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 277
-testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 278
-testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 279
-testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 280
-testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 281
-testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 282
-testRunner.And("I edit the second calculation to Sum the first calculation and add the Min", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 283
-testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I edit the second calculation to Sum the first calculation and add the Min", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 284
-testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I navigate to the View Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 285
+testRunner.And("I open the Provider Results for the Aggregate Calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 286
 testRunner.Then("The total value for each Provider is the Sum of the number of Providers multipled" +
                     " by the first calculations returned value plus the Min Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -988,33 +991,75 @@ testRunner.Then("The total value for each Provider is the Sum of the number of P
                     "r Aggregated Calculation", new string[] {
                         "Workitem:5320",
                         "Driver"});
-#line 288
-this.ScenarioSetup(scenarioInfo);
 #line 289
-testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 290
-testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 291
-testRunner.And("I have created Three new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 292
-testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I have created Three new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 293
-testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 294
-testRunner.When("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 295
-testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 296
-testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 297
-testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 298
-testRunner.And("I edit the second calculation to Sum the first calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 299
-testRunner.Then("I choose to view the Additional Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I edit the second calculation to Sum the first calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 300
+testRunner.Then("I choose to view the Additional Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 301
 testRunner.And("I edit the second calculation to Sum the second calculation an approriate error i" +
                     "s displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the View Results Link within the Edit Calculation Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageCalculations")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(5617)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheViewResultsLinkWithinTheEditCalculationPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View Results Link within the Edit Calculation Page", new string[] {
+                        "Workitem:5617",
+                        "Driver"});
+#line 304
+this.ScenarioSetup(scenarioInfo);
+#line 305
+testRunner.Given("I have previously created a new Pe & Sport Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 306
+testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 307
+testRunner.And("I have created two new Number calculations ready to be aggregated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 308
+testRunner.And("I have create a New Dataset for that Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 309
+testRunner.When("I have specified a data Source Relationship for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 310
+testRunner.And("I navigate to the Manage Calculations Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 311
+testRunner.And("I choose to view the new Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 312
+testRunner.And("I edit the first calculation to return the value of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 313
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 314
+testRunner.And("I edit the second calculation to Sum the first calculation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 315
+testRunner.And("I choose to view the new Aggregate Calculation I have created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 316
+testRunner.Then("the Option to view the related Calculation Results is available to select", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 317
+testRunner.And("I am then redirtected to the Calculation Provider Results Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
