@@ -461,7 +461,17 @@ namespace Frontend.IntegrationTests.Tests.Steps
             var calctype = createcalculationpage.CalculationTypeDropDown;
             var selectElement = new SelectElement(calctype);
             selectElement.SelectByValue("Number");
+            Thread.Sleep(2000);
         }
+
+        [When(@"I check the IsPublic tick box")]
+        public void WhenICheckTheIsPublicTickBox()
+        {
+            createcalculationpage.CalculationIsPublicCheckBox.Should().NotBeNull();
+            createcalculationpage.CalculationIsPublicCheckBox.Click();
+            Thread.Sleep(2000);
+        }
+
 
         [When(@"I choose baseline calculation type")]
         public void WhenIChooseBaselineCalculationType()
@@ -1834,6 +1844,23 @@ namespace Frontend.IntegrationTests.Tests.Steps
             editcalculationpage.editCalculationSave.Click();
             Thread.Sleep(2000);
         }
+
+        [When(@"I update the existing Calculation Specificaton Calculation Type to Number")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonCalculationTypeToNumber()
+        {
+            var calctype = editcalculationpage.editCalculationCalculationType;
+            var selectElement = new SelectElement(calctype);
+            selectElement.SelectByValue("Number");
+        }
+
+        [When(@"I click the Save Changes Button")]
+        public void WhenIClickTheSaveChangesButton()
+        {
+            editcalculationpage.editCalculationSave.Click();
+            Thread.Sleep(2000);
+        }
+
+
 
         [When(@"I update the existing Calculation Specificaton Associated Policy")]
         public void WhenIUpdateTheExistingCalculationSpecificatonAssociatedPolicy()

@@ -640,14 +640,19 @@ testRunner.And("My new Calculation is correctly listed", ((string)(null)), ((Tec
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save a new Calculation Specification with Calculation Type Baseline")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save a new Calculation Specification with Calculation Type Number with" +
+            " an Allocation Line selected")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(5429)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40012,")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("5598")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        public virtual void CreateAndSaveANewCalculationSpecificationWithCalculationTypeBaseline()
+        public virtual void CreateAndSaveANewCalculationSpecificationWithCalculationTypeNumberWithAnAllocationLineSelected()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a new Calculation Specification with Calculation Type Baseline", new string[] {
-                        "Workitem:5429",
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a new Calculation Specification with Calculation Type Number with" +
+                    " an Allocation Line selected", new string[] {
+                        "Workitem:35401,",
+                        "40012,",
+                        "5598",
                         "Driver"});
 #line 169
 this.ScenarioSetup(scenarioInfo);
@@ -659,16 +664,93 @@ testRunner.When("I enter a Calculation Name", ((string)(null)), ((TechTalk.SpecF
 #line 172
 testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 173
-testRunner.And("I choose baseline calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose Number calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 174
-testRunner.And("I choose an Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I check the IsPublic tick box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 175
-testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I choose an Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 176
-testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 177
-testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 178
+testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 179
+testRunner.And("My new Calculation is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save a new Calculation Specification with Calculation Type Number with" +
+            " no Allocation Line selected")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("40012,")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("5598")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void CreateAndSaveANewCalculationSpecificationWithCalculationTypeNumberWithNoAllocationLineSelected()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a new Calculation Specification with Calculation Type Number with" +
+                    " no Allocation Line selected", new string[] {
+                        "Workitem:35401,",
+                        "40012,",
+                        "5598",
+                        "Driver"});
+#line 182
+this.ScenarioSetup(scenarioInfo);
+#line 183
+testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
+                    "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 184
+testRunner.When("I enter a Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 185
+testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 186
+testRunner.And("I choose Number calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 187
+testRunner.And("I check the IsPublic tick box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 188
+testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 189
+testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 190
+testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 191
+testRunner.And("My new Calculation is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Create and Save a new Calculation Specification with Calculation Type Baseline")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(5429)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void CreateAndSaveANewCalculationSpecificationWithCalculationTypeBaseline()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a new Calculation Specification with Calculation Type Baseline", new string[] {
+                        "Workitem:5429",
+                        "Driver"});
+#line 194
+this.ScenarioSetup(scenarioInfo);
+#line 195
+testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
+                    "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 196
+testRunner.When("I enter a Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 197
+testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 198
+testRunner.And("I choose baseline calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 199
+testRunner.And("I choose an Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 200
+testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 201
+testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 202
+testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 203
 testRunner.And("My new Calculation is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -685,24 +767,24 @@ testRunner.And("My new Calculation is correctly listed", ((string)(null)), ((Tec
                         "Workitem:35401,",
                         "40012",
                         "Driver"});
-#line 181
+#line 206
 this.ScenarioSetup(scenarioInfo);
-#line 182
+#line 207
 testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
                     "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 183
+#line 208
 testRunner.When("I enter a Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 184
+#line 209
 testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 185
+#line 210
 testRunner.And("I choose funding calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 186
+#line 211
 testRunner.And("I choose an Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 187
+#line 212
 testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 188
+#line 213
 testRunner.And("I click the Cancel Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 189
+#line 214
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -719,25 +801,25 @@ testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)),
                         "Workitem:35401,",
                         "40012",
                         "Driver"});
-#line 192
+#line 217
 this.ScenarioSetup(scenarioInfo);
-#line 193
+#line 218
 testRunner.Given("A Calculation Specification has been previously created with a Unique Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 194
+#line 219
 testRunner.And("I have successfully navigated to the Create Calculation Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 195
+#line 220
 testRunner.When("I enter an Existing Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 196
+#line 221
 testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 197
+#line 222
 testRunner.And("I choose funding calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 198
+#line 223
 testRunner.And("I choose an Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 199
+#line 224
 testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 200
+#line 225
 testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 201
+#line 226
 testRunner.Then("A Unique Calculation Name Error is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -754,20 +836,20 @@ testRunner.Then("A Unique Calculation Name Error is Displayed", ((string)(null))
                         "Workitem:35401,",
                         "40012",
                         "Driver"});
-#line 204
+#line 229
 this.ScenarioSetup(scenarioInfo);
-#line 205
+#line 230
 testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
                     "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 206
+#line 231
 testRunner.When("I enter a Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 207
+#line 232
 testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 208
+#line 233
 testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 209
+#line 234
 testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 210
+#line 235
 testRunner.Then("A Calculation Type Error is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -784,21 +866,21 @@ testRunner.Then("A Calculation Type Error is Displayed", ((string)(null)), ((Tec
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incomplete Funding Calculation Specification", @__tags);
-#line 213
+#line 238
 this.ScenarioSetup(scenarioInfo);
-#line 214
+#line 239
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 215
+#line 240
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 216
+#line 241
 testRunner.And("I click the Create calculation specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 217
+#line 242
 testRunner.And(string.Format("I have missed the calculation field {0} and {1} and {2} and {3}", name, type, allocation, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 218
+#line 243
 testRunner.And("I have correctly selected a Policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 219
+#line 244
 testRunner.When("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 220
+#line 245
 testRunner.Then(string.Format("the following Calculation Error should be displayed for FieldName \'{0}\' and \'{1}\'" +
                         "", calculationFieldname, calcerror), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -820,7 +902,7 @@ testRunner.Then(string.Format("the following Calculation Error should be display
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "Enter a unique name")]
         public virtual void CreateAndSaveAnIncompleteFundingCalculationSpecification_MissingCalcFundingName()
         {
-#line 213
+#line 238
 this.CreateAndSaveAnIncompleteFundingCalculationSpecification("MissingCalcFundingName", "", "Funding", "Additional Funding", "Error1", "Enter a unique name", ((string[])(null)));
 #line hidden
         }
@@ -840,7 +922,7 @@ this.CreateAndSaveAnIncompleteFundingCalculationSpecification("MissingCalcFundin
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "Enter a description")]
         public virtual void CreateAndSaveAnIncompleteFundingCalculationSpecification_MissingCalcFundingDescription()
         {
-#line 213
+#line 238
 this.CreateAndSaveAnIncompleteFundingCalculationSpecification("MissingCalcFundingDescription", "TestXYZ", "Funding", "Additional Funding", "", "Enter a description", ((string[])(null)));
 #line hidden
         }
@@ -860,7 +942,7 @@ this.CreateAndSaveAnIncompleteFundingCalculationSpecification("MissingCalcFundin
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "Select an allocation line")]
         public virtual void CreateAndSaveAnIncompleteFundingCalculationSpecification_MissingCalcFundingAllocation()
         {
-#line 213
+#line 238
 this.CreateAndSaveAnIncompleteFundingCalculationSpecification("MissingCalcFundingAllocation", "TestXYZ", "Funding", "", "Error3", "Select an allocation line", ((string[])(null)));
 #line hidden
         }
@@ -876,21 +958,21 @@ this.CreateAndSaveAnIncompleteFundingCalculationSpecification("MissingCalcFundin
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incomplete Number Calculation Specification", @__tags);
-#line 229
+#line 254
 this.ScenarioSetup(scenarioInfo);
-#line 230
+#line 255
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 231
+#line 256
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 232
+#line 257
 testRunner.And("I click the Create calculation specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 233
+#line 258
 testRunner.And(string.Format("I have not completed the following calculation fields {0} and {1} and {2}", name, type, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 234
+#line 259
 testRunner.And("I have correctly selected a Policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 235
+#line 260
 testRunner.When("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 236
+#line 261
 testRunner.Then(string.Format("the following Number Calculation Error should be displayed for FieldName \'{0}\' an" +
                         "d \'{1}\'", calculationFieldname, calcerror), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -911,7 +993,7 @@ testRunner.Then(string.Format("the following Number Calculation Error should be 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "Enter a unique name")]
         public virtual void CreateAndSaveAnIncompleteNumberCalculationSpecification_MissingCalcNumberName()
         {
-#line 229
+#line 254
 this.CreateAndSaveAnIncompleteNumberCalculationSpecification("MissingCalcNumberName", "", "Number", "Error1", "Enter a unique name", ((string[])(null)));
 #line hidden
         }
@@ -930,7 +1012,7 @@ this.CreateAndSaveAnIncompleteNumberCalculationSpecification("MissingCalcNumberN
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:calcerror", "Enter a description")]
         public virtual void CreateAndSaveAnIncompleteNumberCalculationSpecification_MissingCalcNumberDescription()
         {
-#line 229
+#line 254
 this.CreateAndSaveAnIncompleteNumberCalculationSpecification("MissingCalcNumberDescription", "TestXYZ", "Number", "", "Enter a description", ((string[])(null)));
 #line hidden
         }
@@ -945,13 +1027,13 @@ this.CreateAndSaveAnIncompleteNumberCalculationSpecification("MissingCalcNumberD
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select to Create a Sub Policy", new string[] {
                         "Workitem:35402",
                         "Driver"});
-#line 244
+#line 269
 this.ScenarioSetup(scenarioInfo);
-#line 245
+#line 270
 testRunner.Given("I have successfully navigated to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 246
+#line 271
 testRunner.When("I click the select Create sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 247
+#line 272
 testRunner.Then("I am redirected to the Create a Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -967,21 +1049,21 @@ testRunner.Then("I am redirected to the Create a Sub Policy Page", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a new Sub Policy", new string[] {
                         "Workitem:35402",
                         "Driver"});
-#line 250
+#line 275
 this.ScenarioSetup(scenarioInfo);
-#line 251
+#line 276
 testRunner.Given("I have successfully navigated to the Create Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 252
+#line 277
 testRunner.When("I enter a Sub Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 253
+#line 278
 testRunner.And("I choose a Policy from the dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 254
+#line 279
 testRunner.And("I enter a Sub Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 255
+#line 280
 testRunner.And("I click the Save Sub Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 256
+#line 281
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 257
+#line 282
 testRunner.And("the new Sub Policy is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -997,19 +1079,19 @@ testRunner.And("the new Sub Policy is correctly listed", ((string)(null)), ((Tec
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Cancel a new Sub Policy", new string[] {
                         "Workitem:35402",
                         "Driver"});
-#line 260
+#line 285
 this.ScenarioSetup(scenarioInfo);
-#line 261
+#line 286
 testRunner.Given("I have successfully navigated to the Create Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 262
+#line 287
 testRunner.When("I enter a Sub Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 263
+#line 288
 testRunner.And("I choose a Policy from the dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 264
+#line 289
 testRunner.And("I enter a Sub Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 265
+#line 290
 testRunner.And("I click the Cancel Sub Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 266
+#line 291
 testRunner.Then("I am redirected to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1025,22 +1107,22 @@ testRunner.Then("I am redirected to the Manage Specification Page", ((string)(nu
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save a new Sub Policy with an Existing Name", new string[] {
                         "Workitem:35402",
                         "Driver"});
-#line 269
+#line 294
 this.ScenarioSetup(scenarioInfo);
-#line 270
+#line 295
 testRunner.Given("A Sub Policy has been previously created with a Unique Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 271
+#line 296
 testRunner.And("I have successfully navigated to the Create Sub Policy Page for the same Specific" +
                     "ation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 272
+#line 297
 testRunner.When("I enter a Sub Policy Name that already exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 273
+#line 298
 testRunner.And("I choose a Policy from the dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 274
+#line 299
 testRunner.And("I enter a Sub Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 275
+#line 300
 testRunner.And("I click the Save Sub Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 276
+#line 301
 testRunner.Then("A Unique Sub Policy Name Error is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1056,17 +1138,17 @@ testRunner.Then("A Unique Sub Policy Name Error is Displayed", ((string)(null)),
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incomplete Sub Policy", @__tags);
-#line 279
+#line 304
 this.ScenarioSetup(scenarioInfo);
-#line 280
+#line 305
 testRunner.Given("I have successfully navigated to the Create Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 281
+#line 306
 testRunner.And(string.Format("And I have missed the Sub Policy field {0} and {1}", name, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 282
+#line 307
 testRunner.And("I choose a Policy from the dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 283
+#line 308
 testRunner.When("I click the Save Sub Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 284
+#line 309
 testRunner.Then(string.Format("the following Sub Policy Error should be displayed for FieldName \'{0}\' and \'{1}\'", subPolicyFieldname, subpolicyerror), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1084,7 +1166,7 @@ testRunner.Then(string.Format("the following Sub Policy Error should be displaye
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:subpolicyerror", "Enter a name")]
         public virtual void CreateAndSaveAnIncompleteSubPolicy_SubPolicyNameMissing()
         {
-#line 279
+#line 304
 this.CreateAndSaveAnIncompleteSubPolicy("SubPolicyNameMissing", "", "Description", "Enter a name", ((string[])(null)));
 #line hidden
         }
@@ -1101,7 +1183,7 @@ this.CreateAndSaveAnIncompleteSubPolicy("SubPolicyNameMissing", "", "Description
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:subpolicyerror", "Enter a description")]
         public virtual void CreateAndSaveAnIncompleteSubPolicy_SubPolicyDescriptionMissing()
         {
-#line 279
+#line 304
 this.CreateAndSaveAnIncompleteSubPolicy("SubPolicyDescriptionMissing", "Test Spec 03", "", "Enter a description", ((string[])(null)));
 #line hidden
         }
@@ -1116,17 +1198,17 @@ this.CreateAndSaveAnIncompleteSubPolicy("SubPolicyDescriptionMissing", "Test Spe
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create and Save an incomplete Sub Policy without selecting a Policy", new string[] {
                         "Workitem:35402",
                         "Driver"});
-#line 292
+#line 317
 this.ScenarioSetup(scenarioInfo);
-#line 293
+#line 318
 testRunner.Given("I have successfully navigated to the Create Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 294
+#line 319
 testRunner.When("I enter a Sub Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 295
+#line 320
 testRunner.And("I enter a Sub Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 296
+#line 321
 testRunner.And("I click the Save Sub Policy button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 297
+#line 322
 testRunner.Then("a Sub Policy Missing Policy Error should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1145,22 +1227,22 @@ testRunner.Then("a Sub Policy Missing Policy Error should be displayed", ((strin
                         "Workitem:40075,",
                         "40012",
                         "Driver"});
-#line 300
+#line 325
 this.ScenarioSetup(scenarioInfo);
-#line 301
+#line 326
 testRunner.Given("I have successfully navigated to the Create Calculation Specification for Policy " +
                     "Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 302
+#line 327
 testRunner.When("I enter a Calculation Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 303
+#line 328
 testRunner.And("I choose a Policy or sub policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 304
+#line 329
 testRunner.And("I choose funding calculation type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 305
+#line 330
 testRunner.And("I enter a Calculation Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 306
+#line 331
 testRunner.And("I click the Save Calculation button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 307
+#line 332
 testRunner.Then("A Unique Allocation Error is Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1176,13 +1258,13 @@ testRunner.Then("A Unique Allocation Error is Displayed", ((string)(null)), ((Te
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a New Specification and no alert about provider datasets is displayed", new string[] {
                         "Workitem:40032",
                         "Driver"});
-#line 310
+#line 335
 this.ScenarioSetup(scenarioInfo);
-#line 311
+#line 336
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 312
+#line 337
 testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 313
+#line 338
 testRunner.Then("No alert about provider datasets is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1202,19 +1284,19 @@ testRunner.Then("No alert about provider datasets is displayed", ((string)(null)
                         "Workitem:40032",
                         "53711",
                         "Driver"});
-#line 316
+#line 341
 this.ScenarioSetup(scenarioInfo);
-#line 317
+#line 342
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 318
+#line 343
 testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 319
+#line 344
 testRunner.And("I choose to create a new dataset without setting as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 320
+#line 345
 testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 321
+#line 346
 testRunner.Then("the new dataset has been saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 322
+#line 347
 testRunner.And("An Alert that No dataset has been set as provider data should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1234,19 +1316,19 @@ testRunner.And("An Alert that No dataset has been set as provider data should be
                         "Workitem:40032",
                         "53711",
                         "Driver"});
-#line 325
+#line 350
 this.ScenarioSetup(scenarioInfo);
-#line 326
+#line 351
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 327
+#line 352
 testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 328
+#line 353
 testRunner.And("I choose to create a new dataset set as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 329
+#line 354
 testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 330
+#line 355
 testRunner.Then("the new dataset has been saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 331
+#line 356
 testRunner.And("No alert about provider datasets is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1264,21 +1346,21 @@ testRunner.And("No alert about provider datasets is displayed", ((string)(null))
                         "Workitem:49358",
                         "58413",
                         "Driver"});
-#line 334
+#line 359
 this.ScenarioSetup(scenarioInfo);
-#line 335
+#line 360
 testRunner.Given("I have successfully navigated to the Create Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 336
+#line 361
 testRunner.When("I enter a Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 337
+#line 362
 testRunner.And("I enter a Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 338
+#line 363
 testRunner.And("I choose a specification Funding Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 339
+#line 364
 testRunner.And("I choose 2 specification Funding Streams", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 340
+#line 365
 testRunner.And("I click the Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 341
+#line 366
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1296,23 +1378,23 @@ testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)),
                         "Workitem:49358",
                         "58413",
                         "Driver"});
-#line 344
+#line 369
 this.ScenarioSetup(scenarioInfo);
-#line 345
+#line 370
 testRunner.Given("I have successfully navigated to the Create Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 346
+#line 371
 testRunner.When("I enter a Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 347
+#line 372
 testRunner.And("I enter a Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 348
+#line 373
 testRunner.And("I choose a specification Funding Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 349
+#line 374
 testRunner.And("I choose 5 specification Funding Streams", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 350
+#line 375
 testRunner.And("I click the Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 351
+#line 376
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 352
+#line 377
 testRunner.And("My new specification is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1330,23 +1412,23 @@ testRunner.And("My new specification is correctly listed", ((string)(null)), ((T
                         "Workitem:49358",
                         "58413",
                         "Driver"});
-#line 355
+#line 380
 this.ScenarioSetup(scenarioInfo);
-#line 356
+#line 381
 testRunner.Given("I have successfully navigated to the Create Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 357
+#line 382
 testRunner.When("I enter a Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 358
+#line 383
 testRunner.And("I enter a Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 359
+#line 384
 testRunner.And("I choose a specification Funding Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 360
+#line 385
 testRunner.And("I choose All specification Funding Streams", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 361
+#line 386
 testRunner.And("I click the Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 362
+#line 387
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 363
+#line 388
 testRunner.And("My new specification is correctly listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1362,21 +1444,21 @@ testRunner.And("My new specification is correctly listed", ((string)(null)), ((T
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new Specification with 5 Funding Streams selected then removed One", new string[] {
                         "Workitem:49358",
                         "Driver"});
-#line 366
+#line 391
 this.ScenarioSetup(scenarioInfo);
-#line 367
+#line 392
 testRunner.Given("I have successfully navigated to the Create Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 368
+#line 393
 testRunner.When("I enter a Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 369
+#line 394
 testRunner.And("I enter a Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 370
+#line 395
 testRunner.And("I choose a specification Funding Period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 371
+#line 396
 testRunner.And("I choose 5 specification Funding Streams", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 372
+#line 397
 testRunner.And("I then select to remove a Funding Stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 373
+#line 398
 testRunner.Then("the selected funding stream is removed from the new Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1392,13 +1474,13 @@ testRunner.Then("the selected funding stream is removed from the new Specificati
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Edit Policy Option within Manage Policies Page", new string[] {
                         "Workitem:49359",
                         "Driver"});
-#line 376
+#line 401
 this.ScenarioSetup(scenarioInfo);
-#line 377
+#line 402
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 378
+#line 403
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 379
+#line 404
 testRunner.Then("the Manage Policies Policy List displays the Edit Policy option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1414,15 +1496,15 @@ testRunner.Then("the Manage Policies Policy List displays the Edit Policy option
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Edit Sub Policy Option within Manage Policies Page", new string[] {
                         "Workitem:49360",
                         "Driver"});
-#line 382
+#line 407
 this.ScenarioSetup(scenarioInfo);
-#line 383
+#line 408
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 384
+#line 409
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 385
+#line 410
 testRunner.And("I have created a New Sub Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 386
+#line 411
 testRunner.Then("the Manage Policies Policy List displays the Edit Sub Policy option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1438,17 +1520,17 @@ testRunner.Then("the Manage Policies Policy List displays the Edit Sub Policy op
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Policies Policy Name", new string[] {
                         "Workitem:49359",
                         "Driver"});
-#line 389
+#line 414
 this.ScenarioSetup(scenarioInfo);
-#line 390
+#line 415
 testRunner.Given("I have navigated to the Edit Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 391
+#line 416
 testRunner.When("I update the Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 392
+#line 417
 testRunner.And("click the Update Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 393
+#line 418
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 394
+#line 419
 testRunner.And("the Policy Name is correctly updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1464,17 +1546,17 @@ testRunner.And("the Policy Name is correctly updated", ((string)(null)), ((TechT
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Policies Policy Description", new string[] {
                         "Workitem:49359",
                         "Driver"});
-#line 397
+#line 422
 this.ScenarioSetup(scenarioInfo);
-#line 398
+#line 423
 testRunner.Given("I have navigated to the Edit Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 399
+#line 424
 testRunner.When("I update the Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 400
+#line 425
 testRunner.And("click the Update Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 401
+#line 426
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 402
+#line 427
 testRunner.And("the Policy Description is correctly updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1490,15 +1572,15 @@ testRunner.And("the Policy Description is correctly updated", ((string)(null)), 
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cancel an Edit to an Existing Policy", new string[] {
                         "Workitem:49359",
                         "Driver"});
-#line 405
+#line 430
 this.ScenarioSetup(scenarioInfo);
-#line 406
+#line 431
 testRunner.Given("I have navigated to the Edit Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 407
+#line 432
 testRunner.When("I update the Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 408
+#line 433
 testRunner.And("I choose to click the Back Link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 409
+#line 434
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1514,17 +1596,17 @@ testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Sub Policies Name", new string[] {
                         "Workitem:49360",
                         "Driver"});
-#line 412
+#line 437
 this.ScenarioSetup(scenarioInfo);
-#line 413
+#line 438
 testRunner.Given("I have navigated to the Edit Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 414
+#line 439
 testRunner.When("I update the Sub Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 415
+#line 440
 testRunner.And("click the Update Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 416
+#line 441
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 417
+#line 442
 testRunner.And("the Sub Policy Name is correctly updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1540,17 +1622,17 @@ testRunner.And("the Sub Policy Name is correctly updated", ((string)(null)), ((T
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Sub Policies Description", new string[] {
                         "Workitem:49360",
                         "Driver"});
-#line 420
+#line 445
 this.ScenarioSetup(scenarioInfo);
-#line 421
+#line 446
 testRunner.Given("I have navigated to the Edit Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 422
+#line 447
 testRunner.When("I update the Sub Policy Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 423
+#line 448
 testRunner.And("click the Update Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 424
+#line 449
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 425
+#line 450
 testRunner.And("the Sub Policy Description is correctly updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1566,25 +1648,25 @@ testRunner.And("the Sub Policy Description is correctly updated", ((string)(null
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Sub Policies Associated Policy", new string[] {
                         "Workitem:49360",
                         "Driver"});
-#line 428
+#line 453
 this.ScenarioSetup(scenarioInfo);
-#line 429
+#line 454
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 430
+#line 455
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 431
+#line 456
 testRunner.And("I have created a New Sub Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 432
+#line 457
 testRunner.And("I then create an additional Policy for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 433
+#line 458
 testRunner.And("I have selected to Edit the Sub Policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 434
+#line 459
 testRunner.When("I update the Sub Policies associated Policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 435
+#line 460
 testRunner.And("click the Update Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 436
+#line 461
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 437
+#line 462
 testRunner.And("the Sub Policy is shown as associated to the selected Policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1600,15 +1682,15 @@ testRunner.And("the Sub Policy is shown as associated to the selected Policy", (
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cancel an Edit to an Existing Sub Policy", new string[] {
                         "Workitem:49360",
                         "Driver"});
-#line 440
+#line 465
 this.ScenarioSetup(scenarioInfo);
-#line 441
+#line 466
 testRunner.Given("I have navigated to the Edit Sub Policy Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 442
+#line 467
 testRunner.When("I update the Sub Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 443
+#line 468
 testRunner.And("I choose to click the Back Link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 444
+#line 469
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1624,13 +1706,13 @@ testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Edit Specification Option within Manage Policies Page", new string[] {
                         "Workitem:49593",
                         "Driver"});
-#line 447
+#line 472
 this.ScenarioSetup(scenarioInfo);
-#line 448
+#line 473
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 449
+#line 474
 testRunner.And("I have navigated to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 450
+#line 475
 testRunner.Then("the Manage Policies Policy List displays the Edit Specification option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1646,17 +1728,17 @@ testRunner.Then("the Manage Policies Policy List displays the Edit Specification
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Specification Name", new string[] {
                         "Workitem:49593",
                         "Driver"});
-#line 453
+#line 478
 this.ScenarioSetup(scenarioInfo);
-#line 454
+#line 479
 testRunner.Given("I have navigated to the Edit Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 455
+#line 480
 testRunner.When("I update the Specification Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 456
+#line 481
 testRunner.And("click the Update Specification Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 457
+#line 482
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 458
+#line 483
 testRunner.And("the Specification is correctly updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1672,15 +1754,15 @@ testRunner.And("the Specification is correctly updated", ((string)(null)), ((Tec
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Specification Description", new string[] {
                         "Workitem:49593",
                         "Driver"});
-#line 461
+#line 486
 this.ScenarioSetup(scenarioInfo);
-#line 462
+#line 487
 testRunner.Given("I have navigated to the Edit Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 463
+#line 488
 testRunner.When("I update the Specification Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 464
+#line 489
 testRunner.And("click the Update Specification Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 465
+#line 490
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1696,17 +1778,17 @@ testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Specification Funding period", new string[] {
                         "Workitem:49593",
                         "Driver"});
-#line 468
+#line 493
 this.ScenarioSetup(scenarioInfo);
-#line 469
+#line 494
 testRunner.Given("I have navigated to the Edit Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 470
+#line 495
 testRunner.When("I update the Specification Funding period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 471
+#line 496
 testRunner.And("click the Update Specification Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 472
+#line 497
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 473
+#line 498
 testRunner.And("the Specification Funding Period has correctly updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1722,20 +1804,20 @@ testRunner.And("the Specification Funding Period has correctly updated", ((strin
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Specification Funding stream", new string[] {
                         "Workitem:49593",
                         "Driver"});
-#line 476
+#line 501
 this.ScenarioSetup(scenarioInfo);
-#line 477
+#line 502
 testRunner.Given("I have navigated to the Edit Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 478
+#line 503
 testRunner.When("I delete the existing Specification Funding stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 479
+#line 504
 testRunner.Then("an Alert is displayed warning that no Funding Streams are associated to the speci" +
                     "fication", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 480
+#line 505
 testRunner.When("I choose 2 New Funding Streams", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 481
+#line 506
 testRunner.And("click the Update Specification Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 482
+#line 507
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1751,20 +1833,20 @@ testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Specification for Multiple Funding streams", new string[] {
                         "Workitem:49593",
                         "Driver"});
-#line 485
+#line 510
 this.ScenarioSetup(scenarioInfo);
-#line 486
+#line 511
 testRunner.Given("I have navigated to the Edit Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 487
+#line 512
 testRunner.When("I delete the existing Specification Funding stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 488
+#line 513
 testRunner.Then("an Alert is displayed warning that no Funding Streams are associated to the speci" +
                     "fication", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 489
+#line 514
 testRunner.When("I choose 5 New Funding Streams", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 490
+#line 515
 testRunner.And("click the Update Specification Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 491
+#line 516
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1780,20 +1862,20 @@ testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Specification for All Funding streams", new string[] {
                         "Workitem:49593",
                         "Driver"});
-#line 494
+#line 519
 this.ScenarioSetup(scenarioInfo);
-#line 495
+#line 520
 testRunner.Given("I have navigated to the Edit Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 496
+#line 521
 testRunner.When("I delete the existing Specification Funding stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 497
+#line 522
 testRunner.Then("an Alert is displayed warning that no Funding Streams are associated to the speci" +
                     "fication", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 498
+#line 523
 testRunner.When("I choose All New Funding Streams", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 499
+#line 524
 testRunner.And("click the Update Specification Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 500
+#line 525
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1809,15 +1891,15 @@ testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cancel an Edit to an Existing Specification", new string[] {
                         "Workitem:49593",
                         "Driver"});
-#line 503
+#line 528
 this.ScenarioSetup(scenarioInfo);
-#line 504
+#line 529
 testRunner.Given("I have navigated to the Edit Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 505
+#line 530
 testRunner.When("I update the Specification Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 506
+#line 531
 testRunner.And("I click the Cancel option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 507
+#line 532
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1833,28 +1915,28 @@ testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully Edit an Existing Specification for All fields", new string[] {
                         "Workitem:49593",
                         "Driver"});
-#line 510
+#line 535
 this.ScenarioSetup(scenarioInfo);
-#line 511
+#line 536
 testRunner.Given("I have navigated to the Edit Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 512
+#line 537
 testRunner.When("I update the Specification Funding period", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 513
+#line 538
 testRunner.Then("an Alert is displayed warning that no Funding Streams are associated to the speci" +
                     "fication", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 514
+#line 539
 testRunner.When("I delete the existing Specification Funding stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 515
+#line 540
 testRunner.And("I update the Specification Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 516
+#line 541
 testRunner.And("I update the Specification Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 517
+#line 542
 testRunner.And("click the Update Specification Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 518
+#line 543
 testRunner.Then("I am redirected back to the Manage Polices Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 519
+#line 544
 testRunner.And("the Specification is correctly updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 520
+#line 545
 testRunner.And("the Specification Funding Period has correctly updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1870,17 +1952,17 @@ testRunner.And("the Specification Funding Period has correctly updated", ((strin
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Edit Calculation Specification option within Manage Policies Page", new string[] {
                         "Workitem:49361",
                         "Driver"});
-#line 523
+#line 548
 this.ScenarioSetup(scenarioInfo);
-#line 524
+#line 549
 testRunner.Given("I have created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 525
+#line 550
 testRunner.And("I have created a new policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 526
+#line 551
 testRunner.And("I have created a new calculation specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 527
+#line 552
 testRunner.When("I click on the calculation specifcation within the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 528
+#line 553
 testRunner.Then("I am redirected successfully to the Edit Calculation Specifcation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1898,26 +1980,26 @@ testRunner.Then("I am redirected successfully to the Edit Calculation Specifcati
                     "", new string[] {
                         "Workitem:49361",
                         "Driver"});
-#line 531
+#line 556
 this.ScenarioSetup(scenarioInfo);
-#line 532
+#line 557
 testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 533
+#line 558
 testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 534
+#line 559
 testRunner.Then("the option to edit the Calculation Specification Name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 535
+#line 560
 testRunner.And("the option to edit the Calculation Specification Description is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 536
+#line 561
 testRunner.And("the option to edit the Calculation Specification Policy or Sub Policy is displaye" +
                     "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 537
+#line 562
 testRunner.And("the option to edit the Calculation Specification Calculation Type is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 538
+#line 563
 testRunner.And("the option to edit the Calculation Specification Allocation Line is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 539
+#line 564
 testRunner.And("an option to Save the Changes is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 540
+#line 565
 testRunner.And("an option to cancel the changes is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1933,25 +2015,25 @@ testRunner.And("an option to cancel the changes is displayed", ((string)(null)),
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate Edit Calculation Specification Page when the Calculation Type is Number", new string[] {
                         "Workitem:49361",
                         "Driver"});
-#line 543
+#line 568
 this.ScenarioSetup(scenarioInfo);
-#line 544
+#line 569
 testRunner.Given("I have successfully created a new Calculation Specification with Calculation Type" +
                     " of Number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 545
+#line 570
 testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 546
+#line 571
 testRunner.Then("the option to edit the Calculation Specification Name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 547
+#line 572
 testRunner.And("the option to edit the Calculation Specification Description is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 548
+#line 573
 testRunner.And("the option to edit the Calculation Specification Policy or Sub Policy is displaye" +
                     "d", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 549
+#line 574
 testRunner.And("the option to edit the Calculation Specification Calculation Type is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 550
+#line 575
 testRunner.And("an option to Save the Changes is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 551
+#line 576
 testRunner.And("an option to cancel the changes is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1970,20 +2052,20 @@ testRunner.And("an option to cancel the changes is displayed", ((string)(null)),
                         "Workitem:5429,",
                         "49361",
                         "Driver"});
-#line 554
+#line 579
 this.ScenarioSetup(scenarioInfo);
-#line 555
+#line 580
 testRunner.Given("I have successfully created a new Calculation Specification with Calculation Type" +
                     " of Baseline", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 556
+#line 581
 testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 557
+#line 582
 testRunner.Then("the option to edit the Calculation Specification Name is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 558
+#line 583
 testRunner.And("the option to edit the Calculation Specification Description is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 559
+#line 584
 testRunner.And("an option to Save the Changes is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 560
+#line 585
 testRunner.And("an option to cancel the changes is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1999,17 +2081,17 @@ testRunner.And("an option to cancel the changes is displayed", ((string)(null)),
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit an existing Calculation Specification Name", new string[] {
                         "Workitem:49361",
                         "Driver"});
-#line 563
+#line 588
 this.ScenarioSetup(scenarioInfo);
-#line 564
+#line 589
 testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 565
+#line 590
 testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 566
+#line 591
 testRunner.When("I update the existing Calculation Specificaton Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 567
+#line 592
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 568
+#line 593
 testRunner.And("the Calculation Specification Name has been successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2025,17 +2107,17 @@ testRunner.And("the Calculation Specification Name has been successfully updated
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit an existing Calculation Specification Description", new string[] {
                         "Workitem:49361",
                         "Driver"});
-#line 571
+#line 596
 this.ScenarioSetup(scenarioInfo);
-#line 572
+#line 597
 testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 573
+#line 598
 testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 574
+#line 599
 testRunner.When("I update the existing Calculation Specificaton Description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 575
+#line 600
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 576
+#line 601
 testRunner.And("the Calculation Specification Description has been successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2053,17 +2135,17 @@ testRunner.And("the Calculation Specification Description has been successfully 
                     " Type is Funding", new string[] {
                         "Workitem:49361",
                         "Driver"});
-#line 579
+#line 604
 this.ScenarioSetup(scenarioInfo);
-#line 580
+#line 605
 testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 581
+#line 606
 testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 582
+#line 607
 testRunner.When("I update the existing Calculation Specificaton Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 583
+#line 608
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 584
+#line 609
 testRunner.And("the Calculation Specification has been successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2079,17 +2161,52 @@ testRunner.And("the Calculation Specification has been successfully updated", ((
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit an existing Calculation Specifications Calculation Type", new string[] {
                         "Workitem:49361",
                         "Driver"});
-#line 587
+#line 612
 this.ScenarioSetup(scenarioInfo);
-#line 588
+#line 613
 testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 589
+#line 614
 testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 590
+#line 615
 testRunner.When("I update the existing Calculation Specificaton Calculation Type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 591
+#line 616
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 592
+#line 617
+testRunner.And("the Calculation Specification has been successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit an existing Calculation Specifications Calculation Type to Number and select" +
+            " an allocation line")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageSpecifications")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("5598")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void EditAnExistingCalculationSpecificationsCalculationTypeToNumberAndSelectAnAllocationLine()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit an existing Calculation Specifications Calculation Type to Number and select" +
+                    " an allocation line", new string[] {
+                        "Workitem:49361,",
+                        "5598",
+                        "Driver"});
+#line 620
+this.ScenarioSetup(scenarioInfo);
+#line 621
+testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 622
+testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 623
+testRunner.When("I update the existing Calculation Specificaton Calculation Type to Number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 624
+testRunner.And("I check the IsPublic tick box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 625
+testRunner.And("I choose an Allocation Line", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 626
+testRunner.And("I click the Save Changes Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 627
+testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 628
 testRunner.And("the Calculation Specification has been successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2105,19 +2222,19 @@ testRunner.And("the Calculation Specification has been successfully updated", ((
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit an existing Calculation Specifications Policy", new string[] {
                         "Workitem:49361",
                         "Driver"});
-#line 595
+#line 631
 this.ScenarioSetup(scenarioInfo);
-#line 596
+#line 632
 testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 597
+#line 633
 testRunner.And("I then create an additional Policy for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 598
+#line 634
 testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 599
+#line 635
 testRunner.When("I update the existing Calculation Specificaton Associated Policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 600
+#line 636
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 601
+#line 637
 testRunner.And("the Calculation Specification associated policy has been successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2133,17 +2250,17 @@ testRunner.And("the Calculation Specification associated policy has been success
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cancel an Edit to an existing Calculation Specification", new string[] {
                         "Workitem:49361",
                         "Driver"});
-#line 604
+#line 640
 this.ScenarioSetup(scenarioInfo);
-#line 605
+#line 641
 testRunner.Given("I have successfully created a new Calculation Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 606
+#line 642
 testRunner.And("I have navigated to the Edit Calculation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 607
+#line 643
 testRunner.When("I update the existing Calculation Specificaton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 608
+#line 644
 testRunner.And("select to Cancel the edit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 609
+#line 645
 testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2161,13 +2278,13 @@ testRunner.Then("I am redirected to the Manage Policies Page", ((string)(null)),
                         "Workitem:49352",
                         "Driver",
                         "Smoke"});
-#line 612
+#line 648
 this.ScenarioSetup(scenarioInfo);
-#line 613
+#line 649
 testRunner.Given("I have successfully navigated to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 614
+#line 650
 testRunner.When("I choose to filter the list by Funding Stream", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 615
+#line 651
 testRunner.Then("the list of specifications refreshes to display the filtered selection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2183,13 +2300,13 @@ testRunner.Then("the list of specifications refreshes to display the filtered se
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter Specifications list by Status", new string[] {
                         "Workitem:49352",
                         "Driver"});
-#line 618
+#line 654
 this.ScenarioSetup(scenarioInfo);
-#line 619
+#line 655
 testRunner.Given("I have successfully navigated to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 620
+#line 656
 testRunner.When("I choose to filter the list by Status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 621
+#line 657
 testRunner.Then("the list of specifications refreshes to display the filtered selection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2205,15 +2322,15 @@ testRunner.Then("the list of specifications refreshes to display the filtered se
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Clear All Filters selected for the Specifications list", new string[] {
                         "Workitem:49352",
                         "Driver"});
-#line 624
+#line 660
 this.ScenarioSetup(scenarioInfo);
-#line 625
+#line 661
 testRunner.Given("I have successfully navigated to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 626
+#line 662
 testRunner.And("I choose to filter the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 627
+#line 663
 testRunner.When("I choose the Clear Filter option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 628
+#line 664
 testRunner.Then("the list of specifications refreshes to display all the specifications available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2231,13 +2348,13 @@ testRunner.Then("the list of specifications refreshes to display all the specifi
                         "Workitem:49352",
                         "Driver",
                         "Smoke"});
-#line 631
+#line 667
 this.ScenarioSetup(scenarioInfo);
-#line 632
+#line 668
 testRunner.Given("I have successfully navigated to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 633
+#line 669
 testRunner.Then("the list of specifications is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 634
+#line 670
 testRunner.And("the following Headers are correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2253,13 +2370,13 @@ testRunner.And("the following Headers are correctly displayed", ((string)(null))
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Specifications list is displayed in descending order", new string[] {
                         "Workitem:49352",
                         "Driver"});
-#line 637
+#line 673
 this.ScenarioSetup(scenarioInfo);
-#line 638
+#line 674
 testRunner.Given("I have successfully navigated to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 639
+#line 675
 testRunner.Then("the list of specifications is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 640
+#line 676
 testRunner.And("the displayed in descending order by Last Edit Date", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2277,15 +2394,15 @@ testRunner.And("the displayed in descending order by Last Edit Date", ((string)(
                         "Workitem:49352",
                         "Driver",
                         "Smoke"});
-#line 643
+#line 679
 this.ScenarioSetup(scenarioInfo);
-#line 644
+#line 680
 testRunner.Given("I have successfully navigated to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 645
+#line 681
 testRunner.Then("the list of specifications is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 646
+#line 682
 testRunner.And("the following Headers are correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 647
+#line 683
 testRunner.And("the Information in each column is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2303,19 +2420,19 @@ testRunner.And("the Information in each column is displayed correctly", ((string
                         "Workitem:49352",
                         "Driver",
                         "Smoke"});
-#line 650
+#line 686
 this.ScenarioSetup(scenarioInfo);
-#line 651
+#line 687
 testRunner.Given("I have successfully navigated to the Manage Specification Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 652
+#line 688
 testRunner.When("I click on the More Option in for a specific Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 653
+#line 689
 testRunner.Then("the description of that specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 654
+#line 690
 testRunner.And("the funding stream associated with the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 655
+#line 691
 testRunner.And("the funding period associated with the specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 656
+#line 692
 testRunner.And("there is an option to edit the specification displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2333,13 +2450,13 @@ testRunner.And("there is an option to edit the specification displayed", ((strin
                         "Workitem:49356",
                         "Driver",
                         "Smoke"});
-#line 659
+#line 695
 this.ScenarioSetup(scenarioInfo);
-#line 660
+#line 696
 testRunner.Given("I have successfully navigated to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 661
+#line 697
 testRunner.Then("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 662
+#line 698
 testRunner.And("the following Specification related Headers are correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2355,28 +2472,28 @@ testRunner.And("the following Specification related Headers are correctly displa
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Policy Data displayed within the Manage Policies List", new string[] {
                         "Workitem:49356",
                         "Driver"});
-#line 665
+#line 701
 this.ScenarioSetup(scenarioInfo);
-#line 666
+#line 702
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 667
+#line 703
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 668
+#line 704
 testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 669
+#line 705
 testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
                     "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 670
+#line 706
 testRunner.Then("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 671
+#line 707
 testRunner.And("the associated policies are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 672
+#line 708
 testRunner.And("the name of the policy is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 673
+#line 709
 testRunner.And("the description of the policy is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 674
+#line 710
 testRunner.And("the last edited date time for the policy is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 675
+#line 711
 testRunner.And("there is the ability to view more information about the policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2392,30 +2509,30 @@ testRunner.And("there is the ability to view more information about the policy",
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Calculation Data displayed within the Manage Policies List", new string[] {
                         "Workitem:49356",
                         "Driver"});
-#line 678
+#line 714
 this.ScenarioSetup(scenarioInfo);
-#line 679
+#line 715
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 680
+#line 716
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 681
+#line 717
 testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 682
+#line 718
 testRunner.And("I then create an additional Policy for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 683
+#line 719
 testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
                     "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 684
+#line 720
 testRunner.Then("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 685
+#line 721
 testRunner.And("the associated calculations are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 686
+#line 722
 testRunner.And("I am able to see the name of the calculation specifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 687
+#line 723
 testRunner.And("the description of the calculation specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 688
+#line 724
 testRunner.And("I am able to select to view more details about the calculations specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 689
+#line 725
 testRunner.And("the type of the calculation specification is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2433,24 +2550,24 @@ testRunner.And("the type of the calculation specification is displayed", ((strin
                     "icies List", new string[] {
                         "Workitem:49356",
                         "Driver"});
-#line 692
+#line 728
 this.ScenarioSetup(scenarioInfo);
-#line 693
+#line 729
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 694
+#line 730
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 695
+#line 731
 testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 696
+#line 732
 testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
                     "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 697
+#line 733
 testRunner.And("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 698
+#line 734
 testRunner.And("the associated policies are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 699
+#line 735
 testRunner.When("I click on the More drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 700
+#line 736
 testRunner.Then("I can view the full policy description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2468,24 +2585,24 @@ testRunner.Then("I can view the full policy description", ((string)(null)), ((Te
                     "e Policies List", new string[] {
                         "Workitem:49356",
                         "Driver"});
-#line 703
+#line 739
 this.ScenarioSetup(scenarioInfo);
-#line 704
+#line 740
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 705
+#line 741
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 706
+#line 742
 testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 707
+#line 743
 testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
                     "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 708
+#line 744
 testRunner.And("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 709
+#line 745
 testRunner.And("the associated calculations are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 710
+#line 746
 testRunner.When("I click on the Calculation More drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 711
+#line 747
 testRunner.Then("I can view the full Calculation description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2503,24 +2620,24 @@ testRunner.Then("I can view the full Calculation description", ((string)(null)),
                     "Policies List", new string[] {
                         "Workitem:49356",
                         "Driver"});
-#line 714
+#line 750
 this.ScenarioSetup(scenarioInfo);
-#line 715
+#line 751
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 716
+#line 752
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 717
+#line 753
 testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 718
+#line 754
 testRunner.And("I then create an additional Policy for the Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 719
+#line 755
 testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
                     "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 720
+#line 756
 testRunner.When("I click on the Jump To Drop down", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 721
+#line 757
 testRunner.Then("I am able to select from all the available policies", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 722
+#line 758
 testRunner.And("jump to the displayed information for the selected policy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2540,17 +2657,17 @@ testRunner.And("jump to the displayed information for the selected policy", ((st
                         "Workitem:49356",
                         "Driver",
                         "Smoke"});
-#line 725
+#line 761
 this.ScenarioSetup(scenarioInfo);
-#line 726
+#line 762
 testRunner.Given("I have successfully navigated to the Manage Policies Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 727
+#line 763
 testRunner.When("I click the Expand All Link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 728
+#line 764
 testRunner.Then("All rows in the Policy List are expanded to display all additional information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 729
+#line 765
 testRunner.When("I click the Expand All Link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 730
+#line 766
 testRunner.Then("All rows in the Policy List are collapsed again", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2566,14 +2683,14 @@ testRunner.Then("All rows in the Policy List are collapsed again", ((string)(nul
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Approve Specification Option on the Manage Policies Page", new string[] {
                         "Workitem:50078",
                         "Driver"});
-#line 733
+#line 769
 this.ScenarioSetup(scenarioInfo);
-#line 734
+#line 770
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 735
+#line 771
 testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
                     "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 736
+#line 772
 testRunner.Then("the Approve Specification option is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2589,13 +2706,13 @@ testRunner.Then("the Approve Specification option is correctly displayed", ((str
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a Specification with an associated Policy can be marked as Approved", new string[] {
                         "Workitem:50078",
                         "Driver"});
-#line 739
+#line 775
 this.ScenarioSetup(scenarioInfo);
-#line 740
+#line 776
 testRunner.Given("A Policy has been previously created with a Unique Policy Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 741
+#line 777
 testRunner.When("I choose to mark the associated Specification as Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 742
+#line 778
 testRunner.Then("the Specification should be marked as approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2613,13 +2730,13 @@ testRunner.Then("the Specification should be marked as approved", ((string)(null
                     "ved", new string[] {
                         "Workitem:50078",
                         "Driver"});
-#line 745
+#line 781
 this.ScenarioSetup(scenarioInfo);
-#line 746
+#line 782
 testRunner.Given("A Calculation Specification has been previously created with a Unique Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 747
+#line 783
 testRunner.When("I choose to mark the associated Specification as Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 748
+#line 784
 testRunner.Then("the Specification should be marked as approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2637,13 +2754,13 @@ testRunner.Then("the Specification should be marked as approved", ((string)(null
                     "ed", new string[] {
                         "Workitem:50078",
                         "Driver"});
-#line 751
+#line 787
 this.ScenarioSetup(scenarioInfo);
-#line 752
+#line 788
 testRunner.Given("A Sub Policy has been previously created with a Unique Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 753
+#line 789
 testRunner.When("I choose to mark the associated Specification as Approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 754
+#line 790
 testRunner.Then("the Specification should be marked as approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2661,24 +2778,24 @@ testRunner.Then("the Specification should be marked as approved", ((string)(null
                     " the Manage Policies List", new string[] {
                         "Workitem:56606",
                         "Driver"});
-#line 757
+#line 793
 this.ScenarioSetup(scenarioInfo);
-#line 758
+#line 794
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 759
+#line 795
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 760
+#line 796
 testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 761
+#line 797
 testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
                     "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 762
+#line 798
 testRunner.And("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 763
+#line 799
 testRunner.And("the associated calculations are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 764
+#line 800
 testRunner.When("I click on the Calculation More drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 765
+#line 801
 testRunner.Then("I the View calculation script link option is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2696,26 +2813,26 @@ testRunner.Then("I the View calculation script link option is displayed", ((stri
                     "in the Manage Policies List", new string[] {
                         "Workitem:56606",
                         "Driver"});
-#line 768
+#line 804
 this.ScenarioSetup(scenarioInfo);
-#line 769
+#line 805
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 770
+#line 806
 testRunner.And("I have created a New Policy for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 771
+#line 807
 testRunner.And("I have created a New Calculation Specification for that Specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 772
+#line 808
 testRunner.And("I have successfully navigated to the Manage Policies Page for the new specificati" +
                     "on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 773
+#line 809
 testRunner.And("the list of associated Polcies and Calculations are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 774
+#line 810
 testRunner.And("the associated calculations are displayed as rows in my table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 775
+#line 811
 testRunner.When("I click on the Calculation More drop down option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 776
+#line 812
 testRunner.And("I click the View Calculation Code Link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 777
+#line 813
 testRunner.Then("I am redirected successfully to the Edit Calculation Specifcation Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2733,17 +2850,17 @@ testRunner.Then("I am redirected successfully to the Edit Calculation Specifcati
                     "e file to the Dataset", new string[] {
                         "Workitem:63319",
                         "Driver"});
-#line 780
+#line 816
 this.ScenarioSetup(scenarioInfo);
-#line 781
+#line 817
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 782
+#line 818
 testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 783
+#line 819
 testRunner.And("I choose to create a new dataset set as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 784
+#line 820
 testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 785
+#line 821
 testRunner.Then("the Map Data Source file to Dataset link is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2761,21 +2878,21 @@ testRunner.Then("the Map Data Source file to Dataset link is displayed correctly
                     "aset link within the Specification Dataset Tab", new string[] {
                         "Workitem:63319",
                         "Driver"});
-#line 788
+#line 824
 this.ScenarioSetup(scenarioInfo);
-#line 789
+#line 825
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 790
+#line 826
 testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 791
+#line 827
 testRunner.And("I choose to create a new dataset set as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 792
+#line 828
 testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 793
+#line 829
 testRunner.Then("the Map Data Source file to Dataset link is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 794
+#line 830
 testRunner.When("I click on the Map Data Source File to Dataset link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 795
+#line 831
 testRunner.Then("I am redirected to a list view of dataset schema relationships for the specificat" +
                     "ion", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -2794,23 +2911,23 @@ testRunner.Then("I am redirected to a list view of dataset schema relationships 
                     "reated", new string[] {
                         "Workitem:53711",
                         "Driver"});
-#line 798
+#line 834
 this.ScenarioSetup(scenarioInfo);
-#line 799
+#line 835
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 800
+#line 836
 testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 801
+#line 837
 testRunner.And("I choose to create a new dataset set as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 802
+#line 838
 testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 803
+#line 839
 testRunner.Then("the new dataset has been saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 804
+#line 840
 testRunner.And("the dataset is displayed in a tabular layout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 805
+#line 841
 testRunner.And("the Column Headers Dataset and Data schema are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 806
+#line 842
 testRunner.And("the option to expand the Dataset row to show more information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2828,19 +2945,19 @@ testRunner.And("the option to expand the Dataset row to show more information is
                     "on", new string[] {
                         "Workitem:53711",
                         "Driver"});
-#line 809
+#line 845
 this.ScenarioSetup(scenarioInfo);
-#line 810
+#line 846
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 811
+#line 847
 testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 812
+#line 848
 testRunner.And("I choose to create a new dataset set as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 813
+#line 849
 testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 814
+#line 850
 testRunner.Then("the new dataset has been saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 815
+#line 851
 testRunner.And("the Provider Data Set Icon is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -2858,21 +2975,21 @@ testRunner.And("the Provider Data Set Icon is displayed correctly", ((string)(nu
                     " Information", new string[] {
                         "Workitem:53711",
                         "Driver"});
-#line 818
+#line 854
 this.ScenarioSetup(scenarioInfo);
-#line 819
+#line 855
 testRunner.Given("I have previously created a new specification", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 820
+#line 856
 testRunner.When("I choose to view the datasets tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 821
+#line 857
 testRunner.And("I choose to create a new dataset set as Provider Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 822
+#line 858
 testRunner.And("I am redirected to the DataSet page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 823
+#line 859
 testRunner.Then("the new dataset has been saved and displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 824
+#line 860
 testRunner.When("I click the option to Expand the Dataset Result Information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 825
+#line 861
 testRunner.Then("the Additional dataset information is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
