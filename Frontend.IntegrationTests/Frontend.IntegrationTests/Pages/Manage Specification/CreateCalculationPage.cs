@@ -47,6 +47,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "CalculationTypes")]
         public IWebElement CalculationTypeDropDown { get; set; }
 
+        [FindsBy(How = How.Id, Using = "ispublic")]
+        public IWebElement CalculationIsPublicCheckBox { get; set; }
+
 
     }
 }

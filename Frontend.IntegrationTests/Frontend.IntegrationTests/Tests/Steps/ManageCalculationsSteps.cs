@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading;
 using AutoFramework;
 using FluentAssertions;
+using Frontend.IntegrationTests.Create;
 using Frontend.IntegrationTests.Helpers;
 using Frontend.IntegrationTests.Pages.Manage_Calculation;
+using Frontend.IntegrationTests.Pages.View_Results;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 //using OpenQA.Selenium.PhantomJS;
@@ -19,6 +22,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         EditCalculationsPage editcalculationspage = new EditCalculationsPage();
         ViewPreviousCalculationsPage viewpreviouscalculationpage = new ViewPreviousCalculationsPage();
         CompareCalculationsPage comparecalculationspage = new CompareCalculationsPage();
+        HomePage homepage = new HomePage();
+        ViewCalculationResultPage viewcalculationresultpage = new ViewCalculationResultPage();
+        ViewCalculationProviderResults viewcalculationproviderresults = new ViewCalculationProviderResults();
 
         [Then(@"the page lists the most recent calculations")]
         public void ThenThePageListsTheMostRecentCalculations()
@@ -444,13 +450,22 @@ namespace Frontend.IntegrationTests.Tests.Steps
             editcalculationspage.SaveCalculationButton.GetAttribute("disabled");
         }
 
+        [Then(@"the Option to view the related Calculation Results is displayed")]
+        public void ThenTheOptionToViewTheRelatedCalculationResultsIsDisplayed()
+        {
+            editcalculationspage.ViewCalculationResultsLink.Should().NotBeNull();
+        }
+
+
         [When(@"I have edited the visual basic code")]
         public void WhenIHaveEditedTheVisualBasicCode()
         {
             var randomvalue = TestDataNumericUtils.RandomNumerics(2);
 
             editcalculationspage.CalculationVBEditor.Should().NotBeNull();
-            editcalculationspage.CalculationVBTextEditor.SendKeys(OpenQA.Selenium.Keys.Control + "A");
+            editcalculationspage.CalculationVBTextEditor.SendKeys(Keys.Delete);
+            editcalculationspage.CalculationVBTextEditor.SendKeys(Keys.Shift + Keys.End);
+            Thread.Sleep(2000);
             editcalculationspage.CalculationVBTextEditor.SendKeys("Return Decimal.MinValue + " + randomvalue);
             Thread.Sleep(2000);
         }
@@ -496,7 +511,9 @@ namespace Frontend.IntegrationTests.Tests.Steps
         public void WhenIHaveIncorrectlyEditedTheVisualBasicCode()
         {
             editcalculationspage.CalculationVBEditor.Should().NotBeNull();
-            editcalculationspage.CalculationVBTextEditor.SendKeys(OpenQA.Selenium.Keys.Control + "A");
+            editcalculationspage.CalculationVBTextEditor.SendKeys(Keys.Delete);
+            editcalculationspage.CalculationVBTextEditor.SendKeys(Keys.Shift + Keys.End);
+            Thread.Sleep(2000);
             editcalculationspage.CalculationVBTextEditor.SendKeys("Return Decimal.MinVa + 1");
             Thread.Sleep(2000);
         }
@@ -808,6 +825,242 @@ namespace Frontend.IntegrationTests.Tests.Steps
             string approveStatus = approveButton.Text;
             approveStatus.Should().Be("Approved", "The Status of the Specification is not Draft");
             Console.WriteLine("The New Status of the selected Specification is: " + approveStatus);
+        }
+
+        [Given(@"I have previously created a new Pe & Sport Specification")]
+        public void GivenIHavePreviouslyCreatedANewPeSportSpecification()
+        {
+            CreateNewPESportSpecification.CreateANewPESportSpecification();
+        }
+
+        [Given(@"I have created two new Number calculations ready to be aggregated")]
+        public void GivenIHaveCreatedTwoNewNumberCalculationsReadyToBeAggregated()
+        {
+            ManageSpecificationCreateNewCalculationSpecification_Number.CreateANewSpecificationPolicy_Number();
+            ManageSpecificationCreateNewAggregateCalculationSpecification_Number.CreateANewAggregateCalculation_Number();
+        }
+
+        [When(@"I edit the first calculation to return the value of (.*)")]
+        public void WhenIEditTheFirstCalculationToReturnTheValueOf(int returnValue)
+        {
+            var calcValue = returnValue;
+            ScenarioContext.Current["returnCalcValue"] = calcValue;
+            EditNewReturnValueCalculaton.EditANewReturnValueOnlyCalculaton();
+        }
+
+        [When(@"I choose to view the new Aggregate Calculation I have created")]
+        public void WhenIChooseToViewTheNewAggregateCalculationIHaveCreated()
+        {
+            var aggCalcNumName = ScenarioContext.Current["AggCalcName"];
+            string aggCalcCreated = aggCalcNumName.ToString();
+
+            Driver._driver.FindElement(By.LinkText(aggCalcCreated)).Click();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I edit the second calculation to Sum the first calculation")]
+        public void WhenIEditTheSecondCalculationToSumTheFirstCalculation()
+        {
+            EditNewAggregateSumCalculaton.EditANewAggregateSumCalculaton();
+        }
+
+        [When(@"I navigate to the View Calculations Page")]
+        public void WhenINavigateToTheViewCalculationsPage()
+        {
+            homepage.Header.Click();
+            Thread.Sleep(2000);
+            NavigateTo.ViewCalculationResultsPage();
+        }
+
+        [When(@"I open the Provider Results for the Aggregate Calculation")]
+        public void WhenIOpenTheProviderResultsForTheAggregateCalculation()
+        {
+            var aggCalcNumName = ScenarioContext.Current["AggCalcName"];
+            string aggCalcCreated = aggCalcNumName.ToString();
+
+            Driver._driver.FindElement(By.LinkText(aggCalcCreated)).Click();
+            Thread.Sleep(10000);
+        }
+
+        [Then(@"The total value for each Provider is the Sum of the number of Providers multipled by the first calculations returned value")]
+        public void ThenTheTotalValueForEachProviderIsTheSumOfTheNumberOfProvidersMultipledByTheFirstCalculationsReturnedValue()
+        {
+            var providerTotal = viewcalculationproviderresults.viewcalculationProviderTotalResultcount;
+            string providerTotalText = providerTotal.Text;
+            int providerInt = Convert.ToInt32(providerTotalText);
+            Console.Write("The Total number of Providers is: " + providerInt + " ");
+
+            var providerTotalValue = viewcalculationproviderresults.viewcalculationFirstProviderTotalValue;
+            string providerValueText = providerTotalValue.Text;
+            int providerValueInt = int.Parse(providerValueText, NumberStyles.AllowThousands);
+            Console.Write("The Total Value for each Providers is: " + providerValueInt + " ");
+
+            var calcValue = ScenarioContext.Current["returnCalcValue"];
+            string returnValue = calcValue.ToString();
+            int returnValueInt = Convert.ToInt32(returnValue);
+            Console.Write("The Return Value from the First Calculation is: " + returnValueInt + " ");
+
+            int calcTotalValue = returnValueInt * providerInt;
+            
+            if (calcTotalValue.Equals(providerValueInt))
+            {
+                Console.WriteLine("The Total Value Displayed for each Provider of " + providerValueInt + " is Correct for the Aggregated Sum of " + providerInt + " Providers multiplied by the Calculation Return Value of " + returnValueInt);
+            }
+
+            else
+            {
+                Console.WriteLine("The Total Value for each Provider is incorrect");
+            }
+
+        }
+
+        [When(@"I edit the second calculation to Sum the first calculation and add the Avg")]
+        public void WhenIEditTheSecondCalculationToSumTheFirstCalculationAndAddTheAvg()
+        {
+            EditNewAggregateAvgCalculaton.EditANewAggregateAvgCalculaton();
+        }
+
+        [Then(@"The total value for each Provider is the Sum of the number of Providers multipled by the first calculations returned value plus the Average Amount")]
+        public void ThenTheTotalValueForEachProviderIsTheSumOfTheNumberOfProvidersMultipledByTheFirstCalculationsReturnedValuePlusTheAverageAmount()
+        {
+            var providerTotal = viewcalculationproviderresults.viewcalculationProviderTotalResultcount;
+            string providerTotalText = providerTotal.Text;
+            int providerInt = Convert.ToInt32(providerTotalText);
+            Console.Write("The Total number of Providers is: " + providerInt + " ");
+
+            var providerTotalValue = viewcalculationproviderresults.viewcalculationFirstProviderTotalValue;
+            string providerValueText = providerTotalValue.Text;
+            int providerValueInt = int.Parse(providerValueText, NumberStyles.AllowThousands);
+            Console.Write("The Total Value for each Providers is: " + providerValueInt + " ");
+
+            var calcValue = ScenarioContext.Current["returnCalcValue"];
+            string returnValue = calcValue.ToString();
+            int returnValueInt = Convert.ToInt32(returnValue);
+            Console.Write("The Return Value from the First Calculation is: " + returnValueInt + " ");
+
+            int calcTotalValue = returnValueInt * providerInt + returnValueInt;
+
+            if (calcTotalValue.Equals(providerValueInt))
+            {
+                Console.WriteLine("The Total Value Displayed for each Provider of " + providerValueInt + " is Correct for the Aggregated Sum of " + providerInt + " Providers multiplied by the Calculation Return Value of " + returnValueInt + " plus the Avg Calculation Return Value");
+            }
+
+            else
+            {
+                Console.WriteLine("The Total Value for each Provider is incorrect");
+            }
+        }
+
+        [When(@"I edit the second calculation to Sum the first calculation and add the Max")]
+        public void WhenIEditTheSecondCalculationToSumTheFirstCalculationAndAddTheMax()
+        {
+            EditNewAggregateMaxCalculaton.EditANewAggregateMaxCalculaton();
+        }
+
+        [Then(@"The total value for each Provider is the Sum of the number of Providers multipled by the first calculations returned value plus the Max Amount")]
+        public void ThenTheTotalValueForEachProviderIsTheSumOfTheNumberOfProvidersMultipledByTheFirstCalculationsReturnedValuePlusTheMaxAmount()
+        {
+            var providerTotal = viewcalculationproviderresults.viewcalculationProviderTotalResultcount;
+            string providerTotalText = providerTotal.Text;
+            int providerInt = Convert.ToInt32(providerTotalText);
+            Console.Write("The Total number of Providers is: " + providerInt + " ");
+
+            var providerTotalValue = viewcalculationproviderresults.viewcalculationFirstProviderTotalValue;
+            string providerValueText = providerTotalValue.Text;
+            int providerValueInt = int.Parse(providerValueText, NumberStyles.AllowThousands);
+            Console.Write("The Total Value for each Providers is: " + providerValueInt + " ");
+
+            var calcValue = ScenarioContext.Current["returnCalcValue"];
+            string returnValue = calcValue.ToString();
+            int returnValueInt = Convert.ToInt32(returnValue);
+            Console.Write("The Return Value from the First Calculation is: " + returnValueInt + " ");
+
+            int calcTotalValue = returnValueInt * providerInt + returnValueInt;
+
+            if (calcTotalValue.Equals(providerValueInt))
+            {
+                Console.WriteLine("The Total Value Displayed for each Provider of " + providerValueInt + " is Correct for the Aggregated Sum of " + providerInt + " Providers multiplied by the Calculation Return Value of " + returnValueInt + " plus the Max Calculation Value");
+            }
+
+            else
+            {
+                Console.WriteLine("The Total Value for each Provider is incorrect");
+            }
+        }
+
+        [When(@"I edit the second calculation to Sum the first calculation and add the Min")]
+        public void WhenIEditTheSecondCalculationToSumTheFirstCalculationAndAddTheMin()
+        {
+            EditNewAggregateMinCalculaton.EditANewAggregateMinCalculaton();
+        }
+
+        [Then(@"The total value for each Provider is the Sum of the number of Providers multipled by the first calculations returned value plus the Min Amount")]
+        public void ThenTheTotalValueForEachProviderIsTheSumOfTheNumberOfProvidersMultipledByTheFirstCalculationsReturnedValuePlusTheMinAmount()
+        {
+            var providerTotal = viewcalculationproviderresults.viewcalculationProviderTotalResultcount;
+            string providerTotalText = providerTotal.Text;
+            int providerInt = Convert.ToInt32(providerTotalText);
+            Console.Write("The Total number of Providers is: " + providerInt + " ");
+
+            var providerTotalValue = viewcalculationproviderresults.viewcalculationFirstProviderTotalValue;
+            string providerValueText = providerTotalValue.Text;
+            int providerValueInt = int.Parse(providerValueText, NumberStyles.AllowThousands);
+            Console.Write("The Total Value for each Providers is: " + providerValueInt + " ");
+
+            var calcValue = ScenarioContext.Current["returnCalcValue"];
+            string returnValue = calcValue.ToString();
+            int returnValueInt = Convert.ToInt32(returnValue);
+            Console.Write("The Return Value from the First Calculation is: " + returnValueInt + " ");
+
+            int calcTotalValue = returnValueInt * providerInt + returnValueInt;
+
+            if (calcTotalValue.Equals(providerValueInt))
+            {
+                Console.WriteLine("The Total Value Displayed for each Provider of " + providerValueInt + " is Correct for the Aggregated Sum of " + providerInt + " Providers multiplied by the Calculation Return Value of " + returnValueInt + " plus the Min Calculation Return Value");
+            }
+
+            else
+            {
+                Console.WriteLine("The Total Value for each Provider is incorrect");
+            }
+        }
+
+        [Given(@"I have created Three new Number calculations ready to be aggregated")]
+        public void GivenIHaveCreatedThreeNewNumberCalculationsReadyToBeAggregated()
+        {
+            ManageSpecificationCreateNewCalculationSpecification_Number.CreateANewSpecificationPolicy_Number();
+            ManageSpecificationCreateNewAggregateCalculationSpecification_Number.CreateANewAggregateCalculation_Number();
+            ManageSpecificationCreateAdditionalAggregateCalculationSpecification_Number.CreateAnAdditionalAggregateCalculation_Number();
+        }
+
+        [Then(@"I choose to view the Additional Aggregate Calculation I have created")]
+        public void ThenIChooseToViewTheAdditionalAggregateCalculationIHaveCreated()
+        {
+            var aggCalcNumName = ScenarioContext.Current["AddAggCalcName"];
+            string addAggCalcCreated = aggCalcNumName.ToString();
+
+            Driver._driver.FindElement(By.LinkText(addAggCalcCreated)).Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I edit the second calculation to Sum the second calculation an approriate error is displayed")]
+        public void ThenIEditTheSecondCalculationToSumTheSecondCalculationAnApproriateErrorIsDisplayed()
+        {
+            EditNewAggregateSum2ndTierCalculaton.EditANewAggregateSum2ndTierCalculaton();
+        }
+
+        [Then(@"the Option to view the related Calculation Results is available to select")]
+        public void ThenTheOptionToViewTheRelatedCalculationResultsIsAvailableToSelect()
+        {
+            editcalculationspage.ViewCalculationResultsLink.Should().NotBeNull();
+            editcalculationspage.ViewCalculationResultsLink.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am then redirtected to the Calculation Provider Results Page")]
+        public void ThenIAmThenRedirtectedToTheCalculationProviderResultsPage()
+        {
+            viewcalculationproviderresults.viewcalculationProviderTotalResultcount.Should().NotBeNull();
         }
 
 

@@ -38,7 +38,7 @@
         public static string Calculationstatusvalue { get; set; }
         public static string datasestinfo { get; set; }
         public static string TestUserMe = "richard.wilson@education.gov.uk";
-        public static string TestPwMe = "Joanne1976$03";
+        public static string TestPwMe = "Tinkerbell74";
 
 
 
@@ -978,7 +978,7 @@
                 {
                     if (optionelement != null)
                     {
-                        if (optionelement.Text.Contains("Update"))
+                        if (optionelement.Text.Contains("edit"))
                         {
 
                             SelectFirstUpdatelink = optionelement;

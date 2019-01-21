@@ -25,7 +25,7 @@ namespace Frontend.IntegrationTests.Create
             ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
             
 
-            string newname = "Test Calculation Name ";
+            string newname = "TestBaselineCalculationName";
             string descriptiontext = "This is a Description for: ";
 
             var randomSpecCalcName = newname + TestDataUtils.RandomString(6);

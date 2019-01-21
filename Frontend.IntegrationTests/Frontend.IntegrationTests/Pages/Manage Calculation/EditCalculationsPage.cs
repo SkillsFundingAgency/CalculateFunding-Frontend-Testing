@@ -41,7 +41,7 @@ namespace Frontend.IntegrationTests.Pages.Manage_Calculation
         [FindsBy(How = How.CssSelector, Using = ".ff")]
         public IWebElement CalculationVBEditor { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "/html/body/main/div/div/div/div[1]/div/div[1]/textarea")]
+        [FindsBy(How = How.XPath, Using = "/html/body/main/div/div[2]/div[1]/div/div[2]/div/div[1]/textarea")]
         public IWebElement CalculationVBTextEditor { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".compiler-messages")]
@@ -49,6 +49,10 @@ namespace Frontend.IntegrationTests.Pages.Manage_Calculation
 
         [FindsBy(How = How.Id, Using = "approve-button-container")]
         public IWebElement ApproveCalculationContainer { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".edit-calculation-view-provider-link-container > a:nth-child(1)")]
+        public IWebElement ViewCalculationResultsLink { get; set; }
+     
 
 
 

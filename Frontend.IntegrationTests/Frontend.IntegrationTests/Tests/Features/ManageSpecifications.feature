@@ -165,6 +165,31 @@ And I click the Save Calculation button
 Then I am redirected to the Manage Policies Page
 And My new Calculation is correctly listed
 
+@Workitem:35401, 40012, 5598 Driver
+Scenario: Create and Save a new Calculation Specification with Calculation Type Number with an Allocation Line selected
+Given I have successfully navigated to the Create Calculation Specification for Policy Page
+When I enter a Calculation Name
+And I choose a Policy or sub policy
+And I choose Number calculation type
+And I check the IsPublic tick box
+And I choose an Allocation Line
+And I enter a Calculation Description
+And I click the Save Calculation button
+Then I am redirected to the Manage Policies Page
+And My new Calculation is correctly listed
+
+@Workitem:35401, 40012, 5598 Driver
+Scenario: Create and Save a new Calculation Specification with Calculation Type Number with no Allocation Line selected
+Given I have successfully navigated to the Create Calculation Specification for Policy Page
+When I enter a Calculation Name
+And I choose a Policy or sub policy
+And I choose Number calculation type
+And I check the IsPublic tick box
+And I enter a Calculation Description
+And I click the Save Calculation button
+Then I am redirected to the Manage Policies Page
+And My new Calculation is correctly listed
+
 @Workitem:5429 Driver
 Scenario: Create and Save a new Calculation Specification with Calculation Type Baseline
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
@@ -588,6 +613,17 @@ Scenario: Edit an existing Calculation Specifications Calculation Type
 Given I have successfully created a new Calculation Specification
 And I have navigated to the Edit Calculation Page
 When I update the existing Calculation Specificaton Calculation Type 
+Then I am redirected to the Manage Policies Page
+And the Calculation Specification has been successfully updated
+
+@Workitem:49361, 5598 Driver
+Scenario: Edit an existing Calculation Specifications Calculation Type to Number and select an allocation line
+Given I have successfully created a new Calculation Specification
+And I have navigated to the Edit Calculation Page
+When I update the existing Calculation Specificaton Calculation Type to Number
+And I check the IsPublic tick box
+And I choose an Allocation Line
+And I click the Save Changes Button
 Then I am redirected to the Manage Policies Page
 And the Calculation Specification has been successfully updated
 
