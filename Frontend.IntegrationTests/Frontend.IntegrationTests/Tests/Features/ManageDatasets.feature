@@ -350,3 +350,18 @@ Then I am presented with the Relevant information for the Template
 When I click on the Download Data Schema Option
 Then The Download Data Schema reddirect URL from Blogstorage is correctly generated
 And The HTTP Status Code is returned for the Schema as OK
+
+@Workitem:6140 Driver
+Scenario: Validate the Manage data source files page
+Given I have navigated to the Manage Datasets page
+Then the Data Source File Name is displayed
+And the Last Updated Date is displayed correctly
+And an option to Edit the Datasource is available
+And an option to Download the Data Source is available
+And an option to expand the Data sources Information is available
+
+@Workitem:6140 Driver
+Scenario: Verify the Expanded Data Source information on the Manage data source files page
+Given I have navigated to the Manage Datasets page
+When I click the expand Data Source Option
+Then the Expanded Additional Data Source Information is correctly displayed

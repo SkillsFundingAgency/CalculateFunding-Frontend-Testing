@@ -1285,6 +1285,57 @@ namespace Frontend.IntegrationTests.Tests.Steps
             //See the "File downloaded successfully. Filename = " Test Output row
         }
 
+        [Then(@"the Data Source File Name is displayed")]
+        public void ThenTheDataSourceFileNameIsDisplayed()
+        {
+            IWebElement firstDatasourceName = managedatasetpage.firstDatasourceName;
+            firstDatasourceName.Should().NotBeNull();
+            string datasourceName = firstDatasourceName.Text;
+            Console.WriteLine("Datasource Name displayed is: " + datasourceName);
+        }
+
+        [Then(@"the Last Updated Date is displayed correctly")]
+        public void ThenTheLastUpdatedDateIsDisplayedCorrectly()
+        {
+            IWebElement firstDatasourceUpdatedDate = managedatasetpage.firstDatasourceUpdatedDate;
+            firstDatasourceUpdatedDate.Should().NotBeNull();
+            string datasourceDate = firstDatasourceUpdatedDate.Text;
+            Console.WriteLine("Datasource Last Updated Date displayed is: " + datasourceDate);
+        }
+
+        [Then(@"an option to Edit the Datasource is available")]
+        public void ThenAnOptionToEditTheDatasourceIsAvailable()
+        {
+            managedatasetpage.firstDatasourceEditOption.Should().NotBeNull();
+        }
+
+        [Then(@"an option to Download the Data Source is available")]
+        public void ThenAnOptionToDownloadTheDataSourceIsAvailable()
+        {
+            managedatasetpage.firstDatasourceDownloadOption.Should().NotBeNull();
+        }
+
+        [Then(@"an option to expand the Data sources Information is available")]
+        public void ThenAnOptionToExpandTheDataSourcesInformationIsAvailable()
+        {
+            managedatasetpage.firstDatasourceExpandOption.Should().NotBeNull();
+        }
+
+        [When(@"I click the expand Data Source Option")]
+        public void WhenIClickTheExpandDataSourceOption()
+        {
+            managedatasetpage.firstDatasourceExpandOption.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Expanded Additional Data Source Information is correctly displayed")]
+        public void ThenTheExpandedAdditionalDataSourceInformationIsCorrectlyDisplayed()
+        {
+            IWebElement datasourceAdditionalInfo = managedatasetpage.firstDatasourceExpandedInfo;
+            string additionalInfoText = datasourceAdditionalInfo.Text;
+            Console.WriteLine("Additonal Information Displayed is: " + additionalInfoText);
+        }
+
 
 
 
