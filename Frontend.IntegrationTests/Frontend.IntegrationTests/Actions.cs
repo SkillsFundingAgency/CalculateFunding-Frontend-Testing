@@ -39,7 +39,8 @@
         public static string datasestinfo { get; set; }
         public static string TestUserMe = "richard.wilson@education.gov.uk";
         public static string TestPwMe = "Tinkerbell74";
-
+        public static string TestUser = "T.CFSSYSADMINUSER@education.gov.uk";
+        public static string TestPw = "Kh8n9Lpa";
 
 
         [BeforeScenario(new string[] { "Driver" })]
@@ -60,6 +61,28 @@
             dfesigninpage.userNameInput.Clear();
             dfesigninpage.userNameInput.SendKeys(TestUserMe);
             dfesigninpage.passwordInput.SendKeys(TestPwMe);
+            dfesigninpage.submitButton.Click();
+            Thread.Sleep(6000);
+        }
+
+        [BeforeScenario(new string[] { "Driver_TestUser" })]
+        public static void InitializeHomePageTestUser()
+        {
+            Driver._driver = new ChromeDriver();
+            Driver._driver.Navigate().GoToUrl(Config.BaseURL);
+            Driver.WaitForElementUpTo(Config.ElementsWaitingTimeout);
+
+            MSDfESignInPage msdfesigninpage = new MSDfESignInPage();
+            DfESignInPage dfesigninpage = new DfESignInPage();
+
+            msdfesigninpage.msUserInput.Should().NotBeNull();
+            msdfesigninpage.msUserInput.SendKeys(TestUser);
+            msdfesigninpage.msUserNext.Click();
+            Thread.Sleep(6000);
+            dfesigninpage.userNameInput.Should().NotBeNull();
+            dfesigninpage.userNameInput.Clear();
+            dfesigninpage.userNameInput.SendKeys(TestUser);
+            dfesigninpage.passwordInput.SendKeys(TestPw);
             dfesigninpage.submitButton.Click();
             Thread.Sleep(6000);
         }
@@ -1633,7 +1656,6 @@
             selectFundingElement.SelectByText("16-19 Bursaries - all providers 11/12");
 
         }
-
 
     }
 }

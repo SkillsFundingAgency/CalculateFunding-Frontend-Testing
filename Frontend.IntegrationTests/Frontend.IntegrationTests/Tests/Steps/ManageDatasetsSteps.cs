@@ -939,9 +939,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"an option to download the datasource is displayed")]
         public void ThenAnOptionToDownloadTheDatasourceIsDisplayed()
         {
-            var downloadlinks = Driver._driver.FindElements(By.LinkText("Download"));
-            IWebElement downloadoption = downloadlinks.FirstOrDefault();
-            downloadoption.Should().NotBeNull();
+            managedatasetpage.firstDatasourceDownloadOption.Should().NotBeNull();
         }
 
         [Given(@"The page displays a list view of all data sets that have been uploaded")]
@@ -953,9 +951,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Given(@"An option to download the datasource is displayed")]
         public void GivenAnOptionToDownloadTheDatasourceIsDisplayed()
         {
-            var downloadlinks = Driver._driver.FindElements(By.LinkText("Download"));
-            IWebElement downloadoption = downloadlinks.FirstOrDefault();
-            downloadoption.Should().NotBeNull();
+            managedatasetpage.firstDatasourceDownloadOption.Should().NotBeNull();
             Thread.Sleep(2000);
         }
 

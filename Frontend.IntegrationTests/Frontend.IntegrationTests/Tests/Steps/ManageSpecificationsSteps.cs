@@ -237,7 +237,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Given(@"I have previously created a new specification")]
         public void GivenIHavePreviouslyCreatedANewSpecification()
         {
-            CreateNewSpecification.CreateANewSpecification();
+            CreateNewPESportSpecification.CreateANewPESportSpecification();
         }
 
 
@@ -486,7 +486,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var allocation = createcalculationpage.CalculationAllocationLine;
             var selectElement = new SelectElement(allocation);
-            selectElement.SelectByValue("YPM07");
+            selectElement.SelectByValue("PES01");
         }
 
         [When(@"I enter a Calculation Description")]
@@ -547,7 +547,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Given(@"A Calculation Specification has been previously created with a Unique Name")]
         public void GivenACalculationSpecificationHasBeenPreviouslyCreatedWithAUniqueName()
         {
-            CreateNewSpecification.CreateANewSpecification();
+            CreateNewPESportSpecification.CreateANewPESportSpecification();
             ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
             ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
         }
