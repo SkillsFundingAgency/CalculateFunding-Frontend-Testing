@@ -555,6 +555,22 @@ namespace Frontend.IntegrationTests
             Thread.Sleep(40000);
         }
 
+        public static void DataSourceHistorygage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+            ManageDatasetsPage managedatasetpage = new ManageDatasetsPage();
+            DatasetHistoryPage datahistorypage = new DatasetHistoryPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.manageDataSetsLink.Click();
+            managedatasetpage.firstDatasourceExpandOption.Click();
+            Thread.Sleep(2000);
+            IWebElement viewDataSourceVersionLink = managedatasetpage.viewDataSourceHistoryLink;
+            viewDataSourceVersionLink.Click();
+            Thread.Sleep(2000);
+        }
+
 
     }
 }

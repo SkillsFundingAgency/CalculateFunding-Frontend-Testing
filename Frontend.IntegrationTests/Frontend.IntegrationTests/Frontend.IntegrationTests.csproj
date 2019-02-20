@@ -199,6 +199,7 @@
     <Compile Include="Pages\Manage Calculation\EditCalculationsPage.cs" />
     <Compile Include="Pages\Manage Calculation\ManageCalculationPage.cs" />
     <Compile Include="Pages\Manage Datasets\ChooseDatasetRelationshipPage.cs" />
+    <Compile Include="Pages\Manage Datasets\DatasetHistoryPage.cs" />
     <Compile Include="Pages\Manage Datasets\DownloadDataSchemasPage.cs" />
     <Compile Include="Pages\Manage Datasets\LoadNewDatasetPage.cs" />
     <Compile Include="Pages\Manage Datasets\ManageDatasetsPage.cs" />

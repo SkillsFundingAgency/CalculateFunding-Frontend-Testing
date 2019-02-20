@@ -77,8 +77,11 @@ namespace Frontend.IntegrationTests.Pages.Manage_Datasets
         [FindsBy(How = How.CssSelector, Using = "#dynamic-results-table-body > tr:nth-child(1) > td:nth-child(4) > i:nth-child(1)")]
         public IWebElement firstDatasourceExpandOption { get; set; }
 
-                [FindsBy(How = How.CssSelector, Using = "tr.expander-container:nth-child(2) > td:nth-child(1)")]
+        [FindsBy(How = How.CssSelector, Using = "tr.expander-container:nth-child(2) > td:nth-child(1)")]
         public IWebElement firstDatasourceExpandedInfo { get; set; }
+        
+        [FindsBy(How = How.LinkText, Using = "View all data source versions")]
+        public IWebElement viewDataSourceHistoryLink { get; set; }
 
 
     }

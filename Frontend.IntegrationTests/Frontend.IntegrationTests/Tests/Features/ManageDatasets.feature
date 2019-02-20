@@ -365,3 +365,33 @@ Scenario: Verify the Expanded Data Source information on the Manage data source 
 Given I have navigated to the Manage Datasets page
 When I click the expand Data Source Option
 Then the Expanded Additional Data Source Information is correctly displayed
+
+@Workitem:6164 Driver
+Scenario: Verify the View all data source versions link on the Manage data source files page
+Given I have navigated to the Manage Datasets page
+When I click the expand Data Source Option
+Then the link View all data source versions is displayed correctly
+
+@Workitem:6164 Driver
+Scenario: Validate the View all data source versions link on the Manage data source files page
+Given I have navigated to the Manage Datasets page
+When I click the expand Data Source Option
+And I click on the View all data source versions link
+Then I am navigated to a new page showing all of the data source versions
+
+@Workitem:6164 Driver
+Scenario: Verify the Data Source History Page
+Given I have navigated to the Data Source History Page
+Then the Data Source Name is displayed correctly
+And the Data Source Description is displayed correctly
+And the Data Source Schema is displayed correctly
+
+@Workitem:6164 Driver
+Scenario: Validate the Data Source History Table Data
+Given I have navigated to the Data Source History Page
+Then the table of data source history is displayed correctly
+And each version of the data source is shown correctly
+And a download link is correctly displayed for the historic data source
+
+
+
