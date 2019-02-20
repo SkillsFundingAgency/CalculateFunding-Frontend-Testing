@@ -107,7 +107,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var selectFundingStream = choosefundingspecificationpage.chooseFundingSpecFundingStreamDropdown;
             var selectElement = new SelectElement(selectFundingStream);
-            selectElement.SelectByValue("YPLRC");
+            selectElement.SelectByValue("PSG");
             Thread.Sleep(20000);
         }
 

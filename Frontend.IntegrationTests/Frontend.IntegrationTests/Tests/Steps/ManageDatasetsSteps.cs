@@ -32,6 +32,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         SelectSourceDatasetsPage selectsourcedatasetspage = new SelectSourceDatasetsPage();
         UpdateDatasetPage updatedatasetpage = new UpdateDatasetPage();
         DownloadDataSchemasPage downloaddataschemapage = new DownloadDataSchemasPage();
+        DatasetHistoryPage datahistorypage = new DatasetHistoryPage();
 
         public string newname = "Test Name ";
         public string descriptiontext = "This is a Description";
@@ -939,9 +940,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Then(@"an option to download the datasource is displayed")]
         public void ThenAnOptionToDownloadTheDatasourceIsDisplayed()
         {
-            var downloadlinks = Driver._driver.FindElements(By.LinkText("Download"));
-            IWebElement downloadoption = downloadlinks.FirstOrDefault();
-            downloadoption.Should().NotBeNull();
+            managedatasetpage.firstDatasourceDownloadOption.Should().NotBeNull();
         }
 
         [Given(@"The page displays a list view of all data sets that have been uploaded")]
@@ -953,9 +952,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Given(@"An option to download the datasource is displayed")]
         public void GivenAnOptionToDownloadTheDatasourceIsDisplayed()
         {
-            var downloadlinks = Driver._driver.FindElements(By.LinkText("Download"));
-            IWebElement downloadoption = downloadlinks.FirstOrDefault();
-            downloadoption.Should().NotBeNull();
+            managedatasetpage.firstDatasourceDownloadOption.Should().NotBeNull();
             Thread.Sleep(2000);
         }
 
@@ -1334,6 +1331,123 @@ namespace Frontend.IntegrationTests.Tests.Steps
             IWebElement datasourceAdditionalInfo = managedatasetpage.firstDatasourceExpandedInfo;
             string additionalInfoText = datasourceAdditionalInfo.Text;
             Console.WriteLine("Additonal Information Displayed is: " + additionalInfoText);
+        }
+
+        [Then(@"the link View all data source versions is displayed correctly")]
+        public void ThenTheLinkViewAllDataSourceVersionsIsDisplayedCorrectly()
+        {
+            IWebElement viewDataSourceVersionLink = managedatasetpage.viewDataSourceHistoryLink;
+            viewDataSourceVersionLink.Should().NotBeNull();
+        }
+
+        [When(@"I click on the View all data source versions link")]
+        public void WhenIClickOnTheViewAllDataSourceVersionsLink()
+        {
+            IWebElement viewDataSourceVersionLink = managedatasetpage.viewDataSourceHistoryLink;
+            viewDataSourceVersionLink.Click();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"I am navigated to a new page showing all of the data source versions")]
+        public void ThenIAmNavigatedToANewPageShowingAllOfTheDataSourceVersions()
+        {
+            datahistorypage.datasethistoryTableContainer.Should().NotBeNull();
+        }
+
+        [Given(@"I have navigated to the Data Source History Page")]
+        public void GivenIHaveNavigatedToTheDataSourceHistoryPage()
+        {
+            NavigateTo.DataSourceHistorygage();
+            Thread.Sleep(2000);
+        }
+
+        [Then(@"the Data Source Name is displayed correctly")]
+        public void ThenTheDataSourceNameIsDisplayedCorrectly()
+        {
+            IWebElement dataSourceName = datahistorypage.datasethistoryName;
+            string dataSourceNameText = dataSourceName.Text;
+            Console.WriteLine("Data Source Selected is: " + dataSourceNameText);
+        }
+
+        [Then(@"the Data Source Description is displayed correctly")]
+        public void ThenTheDataSourceDescriptionIsDisplayedCorrectly()
+        {
+            IWebElement dataSourceDesc = datahistorypage.datasethistoryDescription;
+            string dataSourceDescText = dataSourceDesc.Text;
+            Console.WriteLine("Data Source Description is: " + dataSourceDescText);
+        }
+
+        [Then(@"the Data Source Schema is displayed correctly")]
+        public void ThenTheDataSourceSchemaIsDisplayedCorrectly()
+        {
+            IWebElement dataSourceSchema = datahistorypage.datasethistoryDataSchema;
+            string dataSourceSchemaText = dataSourceSchema.Text;
+            Console.WriteLine("Data Source Schema is: " + dataSourceSchemaText);
+        }
+
+        [Then(@"the table of data source history is displayed correctly")]
+        public void ThenTheTableOfDataSourceHistoryIsDisplayedCorrectly()
+        {
+            IWebElement datacontainer = datahistorypage.datasethistoryTableContainer;
+            var propertyElements = datacontainer.FindElements(By.CssSelector("th"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                currentElement.Text.Should().NotBeNullOrEmpty("value element {0} does not contain value", i);
+                Console.WriteLine(currentElement.Text);
+            }
+
+        }
+
+        [Then(@"each version of the data source is shown correctly")]
+        public void ThenEachVersionOfTheDataSourceIsShownCorrectly()
+        {
+            IWebElement datacontainer = datahistorypage.datasethistoryTableContainer;
+            var propertyElements = datacontainer.FindElements(By.CssSelector("td"));
+            List<IWebElement> propertyElementList = new List<IWebElement>(propertyElements);
+            propertyElementList.Should().HaveCountGreaterThan(0, "Return elements expected");
+
+            for (int i = 0; i < propertyElementList.Count; i++)
+            {
+                IWebElement currentElement = propertyElementList[i];
+                currentElement.Should().NotBeNull("element {0} is null", i);
+                Console.WriteLine(currentElement.Text);
+            }
+        }
+
+        [Then(@"a download link is correctly displayed for the historic data source")]
+        public void ThenADownloadLinkIsCorrectlyDisplayedForTheHistoricDataSource()
+        {
+            var containerElements = datahistorypage.datasethistoryTableContainer;
+            IWebElement downloadoption = null;
+            if (containerElements != null)
+            {
+                var options = containerElements.FindElements(By.CssSelector("i"));
+                foreach (var optionelement in options)
+                {
+                    if (optionelement != null)
+                    {
+
+                        downloadoption = optionelement;
+
+                        break;
+
+                    }
+                }
+                Thread.Sleep(1000);
+                if (downloadoption != null)
+                {
+                    Console.WriteLine("The Download option is correctly Displayed");
+                }
+                else
+                {
+                    Assert.Inconclusive("No The Download option is displayed");
+                }
+            }
         }
 
 

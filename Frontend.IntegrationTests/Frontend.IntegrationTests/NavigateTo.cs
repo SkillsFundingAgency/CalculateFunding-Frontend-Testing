@@ -79,7 +79,7 @@ namespace Frontend.IntegrationTests
             ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
             CreateCalculationPage createcalculationpage = new CreateCalculationPage();
 
-            CreateNewSpecification.CreateANewSpecification();
+            CreateNewPESportSpecification.CreateANewPESportSpecification();
             ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
             managepoliciespage.CreateCalculation.Click();
 
@@ -213,6 +213,21 @@ namespace Frontend.IntegrationTests
 
         }
 
+        public static void SpecificationRelationshipsPage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+            MapDataSourcesToDatasetsPage mapdatasourcestodatasetspage = new MapDataSourcesToDatasetsPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.specifyDataSetRelationshipLink.Click();
+            Thread.Sleep(2000);
+            mapdatasourcestodatasetspage.mapDataSourcesFirstSpecificationName.Click();
+            Thread.Sleep(2000);
+            Driver._driver.FindElement(By.LinkText("Map data source file")).Click();
+            Thread.Sleep(2000);
+
+        }
 
 
         public static void SpecificationDataNoRelationshipsPage()
@@ -493,7 +508,7 @@ namespace Frontend.IntegrationTests
         {
             ManagePoliciesPage managepoliciespage = new ManagePoliciesPage();
 
-            CreateNewSpecification.CreateANewSpecification();
+            CreateNewPESportSpecification.CreateANewPESportSpecification();
             managepoliciespage.editSpecification.Should().NotBeNull();
             managepoliciespage.editSpecification.Click();
             Thread.Sleep(2000);
@@ -538,6 +553,22 @@ namespace Frontend.IntegrationTests
             Actions.SelectSpecificationToApprovePublish();
             approvepublishselectorpage.approvePublishSelectorViewFundingButton.Click();
             Thread.Sleep(40000);
+        }
+
+        public static void DataSourceHistorygage()
+        {
+            HomePage homepage = new HomePage();
+            ManageTheDataPage managethedatapage = new ManageTheDataPage();
+            ManageDatasetsPage managedatasetpage = new ManageDatasetsPage();
+            DatasetHistoryPage datahistorypage = new DatasetHistoryPage();
+
+            homepage.ManagetheData.Click();
+            managethedatapage.manageDataSetsLink.Click();
+            managedatasetpage.firstDatasourceExpandOption.Click();
+            Thread.Sleep(2000);
+            IWebElement viewDataSourceVersionLink = managedatasetpage.viewDataSourceHistoryLink;
+            viewDataSourceVersionLink.Click();
+            Thread.Sleep(2000);
         }
 
 

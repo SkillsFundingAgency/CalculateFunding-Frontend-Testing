@@ -1352,6 +1352,104 @@ testRunner.Then("the Expanded Additional Data Source Information is correctly di
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the View all data source versions link on the Manage data source files pag" +
+            "e")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(6164)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheViewAllDataSourceVersionsLinkOnTheManageDataSourceFilesPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the View all data source versions link on the Manage data source files pag" +
+                    "e", new string[] {
+                        "Workitem:6164",
+                        "Driver"});
+#line 370
+this.ScenarioSetup(scenarioInfo);
+#line 371
+testRunner.Given("I have navigated to the Manage Datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 372
+testRunner.When("I click the expand Data Source Option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 373
+testRunner.Then("the link View all data source versions is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the View all data source versions link on the Manage data source files p" +
+            "age")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(6164)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateTheViewAllDataSourceVersionsLinkOnTheManageDataSourceFilesPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the View all data source versions link on the Manage data source files p" +
+                    "age", new string[] {
+                        "Workitem:6164",
+                        "Driver"});
+#line 376
+this.ScenarioSetup(scenarioInfo);
+#line 377
+testRunner.Given("I have navigated to the Manage Datasets page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 378
+testRunner.When("I click the expand Data Source Option", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 379
+testRunner.And("I click on the View all data source versions link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 380
+testRunner.Then("I am navigated to a new page showing all of the data source versions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Data Source History Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(6164)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheDataSourceHistoryPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Data Source History Page", new string[] {
+                        "Workitem:6164",
+                        "Driver"});
+#line 383
+this.ScenarioSetup(scenarioInfo);
+#line 384
+testRunner.Given("I have navigated to the Data Source History Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 385
+testRunner.Then("the Data Source Name is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 386
+testRunner.And("the Data Source Description is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 387
+testRunner.And("the Data Source Schema is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Data Source History Table Data")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ManageDatasets")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(6164)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateTheDataSourceHistoryTableData()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Data Source History Table Data", new string[] {
+                        "Workitem:6164",
+                        "Driver"});
+#line 390
+this.ScenarioSetup(scenarioInfo);
+#line 391
+testRunner.Given("I have navigated to the Data Source History Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 392
+testRunner.Then("the table of data source history is displayed correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 393
+testRunner.And("each version of the data source is shown correctly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 394
+testRunner.And("a download link is correctly displayed for the historic data source", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
