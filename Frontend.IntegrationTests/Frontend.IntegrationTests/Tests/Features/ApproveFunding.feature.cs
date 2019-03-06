@@ -1002,6 +1002,31 @@ testRunner.Then("the selected filter is removed correctly", ((string)(null)), ((
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Dynamic Funding Total on the Approve & Publish Page")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("9131")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void ValidateTheDynamicFundingTotalOnTheApprovePublishPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Dynamic Funding Total on the Approve & Publish Page", new string[] {
+                        "Workitem",
+                        "9131",
+                        "Driver"});
+#line 257
+this.ScenarioSetup(scenarioInfo);
+#line 258
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 259
+testRunner.Then("the Dynamic Funding Total for the filtered items is correctly Displayed in Sterli" +
+                    "ng", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 260
+testRunner.And("the heading text is correctly displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

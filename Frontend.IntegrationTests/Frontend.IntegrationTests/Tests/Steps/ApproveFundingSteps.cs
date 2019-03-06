@@ -1055,6 +1055,26 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine("The unfiltered total count of Providers is: " + totalCount);
         }
 
+        [Then(@"the Dynamic Funding Total for the filtered items is correctly Displayed in Sterling")]
+        public void ThenTheDynamicFundingTotalForTheFilteredItemsIsCorrectlyDisplayedInSterling()
+        {
+            IWebElement dynamicFundingTotal = approvepublishfundingpage.approvePublishFundingDynamicTotalValue;
+            string dynamicFundingTotalText = dynamicFundingTotal.Text;
+            Console.WriteLine("The Funding Total for the Filtered Items displayed is: " + dynamicFundingTotalText);
+        }
+
+        [Then(@"the heading text is correctly displayed")]
+        public void ThenTheHeadingTextIsCorrectlyDisplayed()
+        {
+            IWebElement dynamicFundingHeader1 = approvepublishfundingpage.approvePublishFundingDynamicTotalHeading1;
+            IWebElement dynamicFundingHeader2 = approvepublishfundingpage.approvePublishFundingDynamicTotalHeading2;
+            IWebElement dynamicFundingTotal = approvepublishfundingpage.approvePublishFundingDynamicTotalValue;
+            string dynamicFundingHeader1Text = dynamicFundingHeader1.Text;
+            string dynamicFundingHeader2Text = dynamicFundingHeader2.Text;
+            string dynamicFundingTotalText = dynamicFundingTotal.Text;
+            Console.WriteLine(dynamicFundingHeader1Text + " " + dynamicFundingTotalText + " " + dynamicFundingHeader2Text);
+        }
+
 
 
         [AfterScenario()]

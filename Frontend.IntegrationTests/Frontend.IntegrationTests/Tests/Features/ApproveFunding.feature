@@ -252,3 +252,9 @@ Given I have navigated to the Approve and publish funding Page
 And I choose to filter the Approve & Publish Provider List by Status
 When I choose to Clear the selected Filters
 Then the selected filter is removed correctly
+
+@Workitem 9131 Driver
+Scenario: Validate the Dynamic Funding Total on the Approve & Publish Page
+Given I have navigated to the Approve and publish funding Page
+Then the Dynamic Funding Total for the filtered items is correctly Displayed in Sterling
+And the heading text is correctly displayed
