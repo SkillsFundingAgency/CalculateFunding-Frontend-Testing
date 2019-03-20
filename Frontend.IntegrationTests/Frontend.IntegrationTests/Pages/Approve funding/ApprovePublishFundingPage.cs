@@ -101,6 +101,9 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
         [FindsBy(How = How.CssSelector, Using = ".funding-total-amount")]
         public IWebElement approvePublishFundingDynamicTotalValue { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".funding-total-amount > span:nth-child(1)")]
+        public IWebElement ApprovePublishFundingDynamicTotalAmt { get; set; }
+
 
 
 

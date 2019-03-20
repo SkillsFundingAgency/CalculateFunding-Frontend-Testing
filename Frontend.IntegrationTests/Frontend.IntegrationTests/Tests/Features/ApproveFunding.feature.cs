@@ -1027,6 +1027,35 @@ testRunner.And("the heading text is correctly displayed", ((string)(null)), ((Te
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Dynamic Funding Total is updated when the Approve & Publish results ar" +
+            "e filtered")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("9131")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
+        public virtual void VerifyTheDynamicFundingTotalIsUpdatedWhenTheApprovePublishResultsAreFiltered()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Dynamic Funding Total is updated when the Approve & Publish results ar" +
+                    "e filtered", new string[] {
+                        "Workitem",
+                        "9131",
+                        "Driver"});
+#line 263
+this.ScenarioSetup(scenarioInfo);
+#line 264
+testRunner.Given("I have navigated to the Approve and publish funding Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 265
+testRunner.And("the Dynamic Funding Total for the filtered items is correctly Displayed in Sterli" +
+                    "ng", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 266
+testRunner.When("I choose to filter the Approve & Publish Provider List by Local Authority", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 267
+testRunner.Then("the Updated Dynamic Funding Total for the filtered items is correctly Displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
