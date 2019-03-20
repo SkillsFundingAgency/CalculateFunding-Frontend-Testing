@@ -42,7 +42,7 @@ namespace Frontend.IntegrationTests.Create
 
             var allocation = createcalculationpage.CalculationAllocationLine;
             var selectElement01 = new SelectElement(allocation);
-            selectElement01.SelectByValue("YPM07");
+            selectElement01.SelectByValue("PSG-003");
 
             createcalculationpage.SaveCalculation.Click();
             Thread.Sleep(2000);

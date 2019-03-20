@@ -225,6 +225,18 @@ And I enter a Calculation Description
 And I click the Save Calculation button
 Then A Unique Calculation Name Error is Displayed
 
+@Workitem:12552 Driver
+Scenario: Create and Save a new Calculation Specification with an Existing Calculation Functional Name
+Given A Calculation Specification has been previously created with a Unique Name
+And I have successfully navigated to the Create Calculation Specification Page
+When I enter an Existing Calculation Function Name
+And I choose a Policy or sub policy
+And I choose funding calculation type
+And I choose an Allocation Line
+And I enter a Calculation Description
+And I click the Save Calculation button
+Then A Calculation source code name already exists Error is Displayed
+
 @Workitem:35401, 40012 Driver
 Scenario: Create and Save a new Calculation Specification without selecting a Calc Type
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
@@ -591,6 +603,13 @@ And I have navigated to the Edit Calculation Page
 When I update the existing Calculation Specificaton Name
 Then I am redirected to the Manage Policies Page
 And the Calculation Specification Name has been successfully updated
+
+@Workitem:12552 Driver
+Scenario: Edit an existing Calculation Specification with an Existing Calculation Functional Name
+Given I have successfully created a new Specification with two Calculation Specifications
+And I have navigated to the Edit Calculation Page for one of those calculations
+When I update the existing Calculation Specificaton Name to an existing Calculation Function Name
+Then An Edit Calculation source code name already exists Error is Displayed
 
 @Workitem:49361 Driver
 Scenario: Edit an existing Calculation Specification Description

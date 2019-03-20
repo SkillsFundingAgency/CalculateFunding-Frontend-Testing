@@ -37,6 +37,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "AllocationLines")]
         public IWebElement editCalculationAllocationLine { get; set; }
 
+        [FindsBy(How = How.Id, Using = "validation-link-for-Name")]
+        public IWebElement editCalculationDuplicateFunctionalCalcName { get; set; }
+
 
 
     }

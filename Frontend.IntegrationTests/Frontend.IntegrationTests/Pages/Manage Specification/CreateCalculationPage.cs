@@ -32,6 +32,9 @@ namespace Frontend.IntegrationTests.Pages.Manage_Specification
         [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-Name")]
         public IWebElement CalculationNameError { get; set; }
 
+        [FindsBy(How = How.Id, Using = "validation-link-for-Name")]
+        public IWebElement CalculationFunctionNameError { get; set; }
+
         [FindsBy(How = How.Id, Using = "validation-link-for-CreateCalculationViewModel-PolicyId")]
         public IWebElement CalculationPolicyError { get; set; }
 
