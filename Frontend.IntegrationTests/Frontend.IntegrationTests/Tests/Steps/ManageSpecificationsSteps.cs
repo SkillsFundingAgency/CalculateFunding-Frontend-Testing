@@ -486,7 +486,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         {
             var allocation = createcalculationpage.CalculationAllocationLine;
             var selectElement = new SelectElement(allocation);
-            selectElement.SelectByValue("PES01");
+            selectElement.SelectByValue("PSG-003");
         }
 
         [When(@"I enter a Calculation Description")]
@@ -569,15 +569,35 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine("The Existing Calculation Name entered was: " + specCalcCreated);
         }
 
+        [When(@"I enter an Existing Calculation Function Name")]
+        public void WhenIEnterAnExistingCalculationFunctionName()
+        {
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
 
+            createcalculationpage.CalculationName.SendKeys("**** " + specCalcCreated + " ****");
+            Console.WriteLine("The Calculation Name entered was: " + specCalcCreated);
+        }
+
+               
         [Then(@"A Unique Calculation Name Error is Displayed")]
         public void ThenAUniqueCalculationNameErrorIsDisplayed()
         {
-            Assert.IsNotNull(createcalculationpage.CalculationNameError.Text);
-            string calcSpecificationNameError = createcalculationpage.CalculationNameError.Text;
+            IWebElement uniqueNameExistsError = createcalculationpage.CalculationNameError;
+            string calcSpecificationNameError = uniqueNameExistsError.Text;
             Console.WriteLine("The Following Error Message was displayed: " + calcSpecificationNameError);
             Thread.Sleep(2000);
         }
+
+        [Then(@"A Calculation source code name already exists Error is Displayed")]
+        public void ThenACalculationSourceCodeNameAlreadyExistsErrorIsDisplayed()
+        {
+            IWebElement sourceCodeNameExistsError = createcalculationpage.CalculationFunctionNameError;
+            string calcFunctionNameError = sourceCodeNameExistsError.Text;
+            Console.WriteLine("The Following Error Message was displayed: " + calcFunctionNameError);
+            Thread.Sleep(2000);
+        }
+
 
         [Then(@"A Calculation Type Error is Displayed")]
         public void ThenACalculationTypeErrorIsDisplayed()
@@ -1640,7 +1660,7 @@ namespace Frontend.IntegrationTests.Tests.Steps
         [Given(@"I have successfully created a new Calculation Specification")]
         public void GivenIHaveSuccessfullyCreatedANewCalculationSpecification()
         {
-            CreateNewSpecification.CreateANewSpecification();
+            CreateNewPESportSpecification.CreateANewPESportSpecification();
             ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
             ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
 
@@ -2461,6 +2481,53 @@ namespace Frontend.IntegrationTests.Tests.Steps
             expandedResultsInfo.Should().NotBeNull();
             string expandedInfoText = expandedResultsInfo.Text;
             Console.WriteLine("The information displayed in the expanded results container is " + expandedInfoText);
+        }
+
+        [Given(@"I have successfully created a new Specification with two Calculation Specifications")]
+        public void GivenIHaveSuccessfullyCreatedANewSpecificationWithTwoCalculationSpecifications()
+        {
+            CreateNewPESportSpecification.CreateANewPESportSpecification();
+            ManageSpecificationCreateNewPolicy.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateNewCalculationSpecification.CreateANewSpecificationPolicy();
+            ManageSpecificationCreateAdditionalAggregateCalculationSpecification_Number.CreateAnAdditionalAggregateCalculation_Number();
+        }
+
+        [Given(@"I have navigated to the Edit Calculation Page for one of those calculations")]
+        public void GivenIHaveNavigatedToTheEditCalculationPageForOneofThoseCalculations()
+        {
+            var specCalcName = ScenarioContext.Current["AddAggCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+
+            IWebElement calcSpecCreated = Driver._driver.FindElement(By.LinkText(specCalcCreated));
+            calcSpecCreated.Should().NotBeNull();
+            string calcSpecText = calcSpecCreated.Text;
+            Console.WriteLine("Calculation Specification Selected to Edit: " + calcSpecText);
+            calcSpecCreated.Click();
+            Thread.Sleep(2000);
+        }
+
+        [When(@"I update the existing Calculation Specificaton Name to an existing Calculation Function Name")]
+        public void WhenIUpdateTheExistingCalculationSpecificatonNameToAnExistingCalculationFunctionName()
+        {
+            var specCalcName = ScenarioContext.Current["SpecCalcName"];
+            string specCalcCreated = specCalcName.ToString();
+
+            editcalculationpage.editCalculationName.Clear();
+            editcalculationpage.editCalculationName.SendKeys("**** " + specCalcCreated + " ****");
+            Thread.Sleep(2000);
+
+            editcalculationpage.editCalculationSave.Click();
+            Thread.Sleep(2000);
+
+        }
+
+        [Then(@"An Edit Calculation source code name already exists Error is Displayed")]
+        public void ThenAnEditCalculationSourceCodeNameAlreadyExistsErrorIsDisplayed()
+        {
+            IWebElement sourceCodeNameExistsError = editcalculationpage.editCalculationDuplicateFunctionalCalcName;
+            string calcFunctionNameError = sourceCodeNameExistsError.Text;
+            Console.WriteLine("The Following Error Message was displayed: " + calcFunctionNameError);
+            Thread.Sleep(2000);
         }
 
 
