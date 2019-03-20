@@ -92,6 +92,18 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
         [FindsBy(How = How.CssSelector, Using = "span.bold:nth-child(3)")]
         public IWebElement approvePublishFundingTotalResults { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = "div.funding-total-text:nth-child(1)")]
+        public IWebElement approvePublishFundingDynamicTotalHeading1 { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "div.funding-total-text:nth-child(3)")]
+        public IWebElement approvePublishFundingDynamicTotalHeading2 { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".funding-total-amount")]
+        public IWebElement approvePublishFundingDynamicTotalValue { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = ".funding-total-amount > span:nth-child(1)")]
+        public IWebElement ApprovePublishFundingDynamicTotalAmt { get; set; }
+
 
 
 

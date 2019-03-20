@@ -1055,6 +1055,76 @@ namespace Frontend.IntegrationTests.Tests.Steps
             Console.WriteLine("The unfiltered total count of Providers is: " + totalCount);
         }
 
+        [Then(@"the Dynamic Funding Total for the filtered items is correctly Displayed in Sterling")]
+        public void ThenTheDynamicFundingTotalForTheFilteredItemsIsCorrectlyDisplayedInSterling()
+        {
+            IWebElement dynamicFundingTotal = approvepublishfundingpage.approvePublishFundingDynamicTotalValue;
+            string dynamicFundingTotalText = dynamicFundingTotal.Text;
+            Console.WriteLine("The Funding Total for the Filtered Items displayed is: " + dynamicFundingTotalText);
+        }
+
+        [Then(@"the heading text is correctly displayed")]
+        public void ThenTheHeadingTextIsCorrectlyDisplayed()
+        {
+            IWebElement dynamicFundingHeader1 = approvepublishfundingpage.approvePublishFundingDynamicTotalHeading1;
+            IWebElement dynamicFundingHeader2 = approvepublishfundingpage.approvePublishFundingDynamicTotalHeading2;
+            IWebElement dynamicFundingTotal = approvepublishfundingpage.approvePublishFundingDynamicTotalValue;
+            string dynamicFundingHeader1Text = dynamicFundingHeader1.Text;
+            string dynamicFundingHeader2Text = dynamicFundingHeader2.Text;
+            string dynamicFundingTotalText = dynamicFundingTotal.Text;
+            Console.WriteLine(dynamicFundingHeader1Text + " " + dynamicFundingTotalText + " " + dynamicFundingHeader2Text);
+        }
+
+        [Given(@"the Dynamic Funding Total for the filtered items is correctly Displayed in Sterling")]
+        public void GivenTheDynamicFundingTotalForTheFilteredItemsIsCorrectlyDisplayedInSterling()
+        {
+            IWebElement dynamicFundingTotal = approvepublishfundingpage.ApprovePublishFundingDynamicTotalAmt;
+            string dynamicFundingTotalText = dynamicFundingTotal.Text;
+            decimal dynamicFundingTotalValue = Convert.ToDecimal(dynamicFundingTotalText);
+            ScenarioContext.Current["unfilteredFundingTotal"] = dynamicFundingTotalValue;
+            Console.WriteLine("The Funding Total for the Filtered Items displayed is: £" + dynamicFundingTotalText);
+        }
+
+        [When(@"I choose to filter the Approve & Publish Provider List by Local Authority")]
+        public void WhenIChooseToFilterTheApprovePublishProviderListByLocalAuthority()
+        {
+            IWebElement totalListCount = approvepublishfundingpage.approvePublishFundingTotalResults;
+            string totalCount = totalListCount.Text;
+            Console.WriteLine("The unfiltered total count of Providers is: " + totalCount);
+
+            IWebElement filtercontainer = approvepublishfundingpage.approvePublishFundingLocalAuthorityFilter;
+            IWebElement localauthfilter = filtercontainer.FindElement(By.CssSelector("button"));
+            localauthfilter.Click();
+            Thread.Sleep(2000);
+            IWebElement selectfilteroption = filtercontainer.FindElement(By.CssSelector("label"));
+            string localauthSelected = selectfilteroption.Text;
+            Console.WriteLine("Local Authority Filter Option selected = " + localauthSelected);
+            selectfilteroption.Click();
+            Thread.Sleep(10000);
+        }
+
+        [Then(@"the Updated Dynamic Funding Total for the filtered items is correctly Displayed")]
+        public void ThenTheUpdatedDynamicFundingTotalForTheFilteredItemsIsCorrectlyDisplayed()
+        {
+            IWebElement dynamicFundingTotal = approvepublishfundingpage.ApprovePublishFundingDynamicTotalAmt;
+            string dynamicFundingTotalText = dynamicFundingTotal.Text;
+            decimal updatedDynamicFundingTotalValue = decimal.Parse(dynamicFundingTotalText);
+
+            var unfilteredFunding = ScenarioContext.Current["unfilteredFundingTotal"];
+            decimal unfilteredFundingValue = Convert.ToDecimal(unfilteredFunding);
+
+            if (updatedDynamicFundingTotalValue < unfilteredFundingValue)
+            {
+                Console.WriteLine("The Funding Total for the Filtered Items displayed is: £" + dynamicFundingTotalText);
+            }
+            else
+            {
+                Assert.Inconclusive("Dynamic Funding Value displayed is incorrect");
+            }
+           
+        }
+
+
 
 
         [AfterScenario()]

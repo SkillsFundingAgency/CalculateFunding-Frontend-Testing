@@ -552,7 +552,7 @@ namespace Frontend.IntegrationTests
             Thread.Sleep(2000);
             Actions.SelectSpecificationToApprovePublish();
             approvepublishselectorpage.approvePublishSelectorViewFundingButton.Click();
-            Thread.Sleep(40000);
+            Thread.Sleep(20000);
         }
 
         public static void DataSourceHistorygage()
