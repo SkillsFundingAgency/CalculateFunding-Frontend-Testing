@@ -16,6 +16,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 Examples:
 | userId                               | fundingStreamId |
@@ -25,18 +28,21 @@ Examples:
 Scenario Outline: Update ALL Permissions for a Specified User to False
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
-| CanAdministerFundingStream | false   |
-| CanCreateSpecification     | false   |
-| CanEditSpecification       | false   |
-| CanApproveSpecification    | false   |
-| CanEditCalculations        | false   |
-| CanMapDatasets             | false   |
-| CanChooseFunding           | false   |
-| CanRefreshFunding          | false   |
-| CanApproveFunding          | false   |
-| CanPublishFunding          | false   |
-| CanCreateQaTests           | false   |
-| CanEditQaTests             | false   | 
+| CanAdministerFundingStream | true    |
+| CanCreateSpecification     | true    |
+| CanEditSpecification       | true    |
+| CanApproveSpecification    | true    |
+| CanEditCalculations        | true    |
+| CanMapDatasets             | true    |
+| CanChooseFunding           | true    |
+| CanRefreshFunding          | true    |
+| CanApproveFunding          | true    |
+| CanPublishFunding          | true    |
+| CanCreateQaTests           | true    |
+| CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 Examples:
 | userId                               | fundingStreamId |
@@ -59,6 +65,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 Then I can successfully create a new Specification
 
@@ -83,6 +92,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 And I have Navigated to the Edit Specifiction Page
 When I update the Specification Name
@@ -111,6 +123,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 Then I can successfully navigate to the Create Dataset page
 
@@ -134,6 +149,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 Then I can successfully navigate to the Create Policy page
 
@@ -146,7 +164,7 @@ Scenario Outline: Update Permissions for a Specified User to Enable Create Calcu
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
 | CanAdministerFundingStream | true    |
-| CanCreateSpecification     | true    | 
+| CanCreateSpecification     | true    |
 | CanEditSpecification       | true    |
 | CanApproveSpecification    | true    |
 | CanEditCalculations        | true    |
@@ -157,6 +175,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 Then I can successfully navigate to the Create Calculation Specificaton page
 
@@ -180,6 +201,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 Then I can successfully navigate to the Create Sub Policy page
 
@@ -203,6 +227,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 And A Policy has been previously created with a Unique Policy Name
 When I choose to mark the associated Specification as Approved
@@ -228,6 +255,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 And I have navigated to the Manage Calculations page
 And I click on a calculation in the displayed list
@@ -254,6 +284,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 And I have already created a Specification with the appropruiate dataset & schema associated
 And I have navigated to a specification data relationships page where dataset relationships exist
@@ -282,6 +315,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 And I have previously created a new specification
 And I have created a New Policy for that Specification
@@ -313,6 +349,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 And I have successfully navigated to the Edit quality assurance test page
 When I update the existing Test Name
@@ -341,6 +380,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 And I have navigated to the Approve and publish funding Page
 When I click the Refresh Funding Button
@@ -368,6 +410,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 And I have navigated to the Approve and publish funding Page
 Then the Provider list updates to display all the provider information for the selected specification
@@ -395,6 +440,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | true    |
 | CanCreateQaTests           | true    |
 | CanEditQaTests             | true    | 
+| CanDeleteSpecification     | true    | 
+| CanDeleteCalculations      | true    | 
+| CanDeleteQaTests           | true    | 
 
 And I have navigated to the Approve and publish funding Page
 Then the Provider list updates to display all the provider information for the selected specification
@@ -422,6 +470,10 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | false   |
 | CanCreateQaTests           | false   |
 | CanEditQaTests             | false   | 
+| CanDeleteSpecification     | false   | 
+| CanDeleteCalculations      | false   | 
+| CanDeleteQaTests           | false   | 
+
 
 And I have navigated to the Manage Calculations page
 When I click on a calculation in the list
@@ -449,6 +501,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | false   |
 | CanCreateQaTests           | false   |
 | CanEditQaTests             | false   | 
+| CanDeleteSpecification     | false   | 
+| CanDeleteCalculations      | false   | 
+| CanDeleteQaTests           | false   | 
 
 And I have successfully navigated to the Create Specification Page
 Then A Notification is diplayed to inform the user they do not have permission for this action
@@ -474,6 +529,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | false   |
 | CanCreateQaTests           | false   |
 | CanEditQaTests             | false   | 
+| CanDeleteSpecification     | false   | 
+| CanDeleteCalculations      | false   | 
+| CanDeleteQaTests           | false   | 
 
 And I have successfully navigated to the Manage Policies Page
 When I click on the Create Policy Button
@@ -501,6 +559,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | false   |
 | CanCreateQaTests           | false   |
 | CanEditQaTests             | false   | 
+| CanDeleteSpecification     | false   | 
+| CanDeleteCalculations      | false   | 
+| CanDeleteQaTests           | false   | 
 
 And I have navigated to the Edit Specification Page
 Then A Notification is diplayed to inform the user they do not have permission for this action
@@ -526,6 +587,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | false   |
 | CanCreateQaTests           | false   |
 | CanEditQaTests             | false   | 
+| CanDeleteSpecification     | false   | 
+| CanDeleteCalculations      | false   | 
+| CanDeleteQaTests           | false   | 
 
 And I have successfully navigated to the Manage Policies Page
 When I click on the Create Dataset Button
@@ -552,6 +616,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | false   |
 | CanCreateQaTests           | false   |
 | CanEditQaTests             | false   | 
+| CanDeleteSpecification     | false   | 
+| CanDeleteCalculations      | false   | 
+| CanDeleteQaTests           | false   | 
 
 And I have navigated to Map data sources to datasets page
 When I click on a specification name
@@ -578,6 +645,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | false   |
 | CanCreateQaTests           | false   |
 | CanEditQaTests             | false   | 
+| CanDeleteSpecification     | false   | 
+| CanDeleteCalculations      | false   | 
+| CanDeleteQaTests           | false   | 
 
 Given I have navigated to the specification data relationships page
 Then A Notification is diplayed to inform the user they do not have permission for this action
@@ -603,6 +673,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | false   |
 | CanCreateQaTests           | false   |
 | CanEditQaTests             | false   | 
+| CanDeleteSpecification     | false   | 
+| CanDeleteCalculations      | false   | 
+| CanDeleteQaTests           | false   | 
 
 And I have successfully navigated to the Create quality assurance test page
 Then A Notification is diplayed to inform the user they do not have permission for this action
@@ -628,6 +701,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | false   |
 | CanCreateQaTests           | false   |
 | CanEditQaTests             | false   | 
+| CanDeleteSpecification     | false   | 
+| CanDeleteCalculations      | false   | 
+| CanDeleteQaTests           | false   | 
 
 And I have successfully navigated to the Quality Assurance Test Scenario List Page
 When I choose to select an Existing QA Test from the list displayed
@@ -655,6 +731,9 @@ Given the user '<userId>' has the following permissions for Funding Stream '<fun
 | CanPublishFunding          | false   |
 | CanCreateQaTests           | false   |
 | CanEditQaTests             | false   | 
+| CanDeleteSpecification     | false   | 
+| CanDeleteCalculations      | false   | 
+| CanDeleteQaTests           | false   | 
 
 Given I have navigated to the Approve and publish funding Page for PE and Sport Specification
 Then A Notification is diplayed to inform the user they do not have permission for this action
