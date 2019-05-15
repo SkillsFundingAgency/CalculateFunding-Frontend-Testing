@@ -85,12 +85,12 @@ namespace Frontend.IntegrationTests.Tests.Features
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select Manage The Specification Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35383)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(6508)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectManageTheSpecificationPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select Manage The Specification Page", new string[] {
-                        "workitem:35383",
+                        "workitem:6508",
                         "Driver"});
 #line 5
 this.ScenarioSetup(scenarioInfo);
@@ -107,12 +107,12 @@ testRunner.Then("I am redirected to the Manage Specification page", ((string)(nu
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select Manage The Data Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35383)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(6508)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectManageTheDataPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select Manage The Data Page", new string[] {
-                        "workitem:35383",
+                        "workitem:6508",
                         "Driver"});
 #line 11
 this.ScenarioSetup(scenarioInfo);
@@ -129,12 +129,12 @@ testRunner.Then("I am redirected to the Manage Data page", ((string)(null)), ((T
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select Manage The Tests Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35383)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(6508)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectManageTheTestsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select Manage The Tests Page", new string[] {
-                        "workitem:35383",
+                        "workitem:6508",
                         "Driver"});
 #line 17
 this.ScenarioSetup(scenarioInfo);
@@ -151,12 +151,12 @@ testRunner.Then("I am redirected to the Manage Tests page", ((string)(null)), ((
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select Manage The Calculation Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35383)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(6508)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectManageTheCalculationPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select Manage The Calculation Page", new string[] {
-                        "workitem:35383",
+                        "workitem:6508",
                         "Driver"});
 #line 23
 this.ScenarioSetup(scenarioInfo);
@@ -173,12 +173,12 @@ testRunner.Then("I am redirected to the Manage Calculations page", ((string)(nul
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select View the Results Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35383)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(6508)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectViewTheResultsPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select View the Results Page", new string[] {
-                        "workitem:35383",
+                        "workitem:6508",
                         "Driver"});
 #line 29
 this.ScenarioSetup(scenarioInfo);
@@ -195,13 +195,13 @@ testRunner.Then("I am redirected to the View the Results Options page", ((string
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select Approve funding Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Home Page Navigation")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(35383)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.WorkItemAttribute(6508)]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51061")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectApproveFundingPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select Approve funding Page", new string[] {
-                        "workitem:35383",
+                        "workitem:6508",
                         "51061",
                         "Driver"});
 #line 35

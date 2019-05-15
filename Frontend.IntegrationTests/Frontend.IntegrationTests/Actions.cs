@@ -38,7 +38,7 @@
         public static string Calculationstatusvalue { get; set; }
         public static string datasestinfo { get; set; }
         public static string TestUserMe = "richard.wilson@education.gov.uk";
-        public static string TestPwMe = "Joanne1976$10";
+        public static string TestPwMe = "Tinkerbell74$10";
         public static string TestUser = "T.CFSSYSADMINUSER@education.gov.uk";
         public static string TestPw = "Kh8n9Lpa";
 
@@ -62,6 +62,8 @@
             dfesigninpage.userNameInput.SendKeys(TestUserMe);
             dfesigninpage.passwordInput.SendKeys(TestPwMe);
             dfesigninpage.submitButton.Click();
+            Thread.Sleep(4000);
+            dfesigninpage.yesyStaySignIn.SendKeys(OpenQA.Selenium.Keys.Enter);
             Thread.Sleep(6000);
         }
 

@@ -22,5 +22,10 @@ namespace Frontend.IntegrationTests.Pages.Home_Page
 
         [FindsBy(How = How.Id, Using = "errorText")]
         public IWebElement loginError { get; set; }
+
+        [FindsBy(How = How.Id, Using = "idSIButton9")]
+        public IWebElement yesyStaySignIn { get; set; }
+
+
     }
 }
