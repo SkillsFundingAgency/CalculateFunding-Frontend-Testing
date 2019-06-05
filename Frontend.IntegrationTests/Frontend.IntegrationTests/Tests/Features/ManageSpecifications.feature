@@ -3,7 +3,7 @@
 	Specifications that have already been created as well as edit an existing 
 	specification OR create a new specification
 
-@Workitem:35394 Driver Smoke
+@Workitem:6527 Driver Smoke
 Scenario: View Current list of Specifications
 Given I have successfully navigated to the Home Page
 When I select Specifications
@@ -11,20 +11,20 @@ Then I am redirected to the Manage Specification page
 And The Default Specification Year is displayed correctly
 And A list of Specifications is displayed for the default year
 
-@Workitem:35394 49352 Driver Smoke
+@Workitem:6527 6604 Driver Smoke
 Scenario: Change Current list of Specifications by Year
 Given I have successfully navigated to the Manage Specification Page
 When I change the Select A Year drop down to a different year
 Then the list of specifications refreshes to display the selected years specifications
 
-@Workitem:35394 Driver
+@Workitem:6527 Driver
 Scenario: No Specifications for a given Year
 Given I have successfully navigated to the Manage Specification Page
 When I change the Select A Year drop down to a different year
 And The selected Year has no specifications
 Then the list of specifications refreshes to display no visable specifications
 
-@Workitem:35384 58413 Driver
+@Workitem:6518 7781 Driver
 Scenario: Create and Save a new Specification
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -35,7 +35,7 @@ And I click the Save button
 Then I am redirected to the Manage Policies Page
 And My new specification is correctly listed
 
-@Workitem:35384 58413 Driver
+@Workitem:6518 7781 Driver
 Scenario: Create and Save a new Specification selecting a different Funding Period
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -46,7 +46,7 @@ And I click the Save button
 Then I am redirected to the Manage Policies Page
 And My new specification is correctly listed
 
-@Workitem:35384 Driver
+@Workitem:6518 Driver
 Scenario: Create and Cancel a new Specification
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -56,7 +56,7 @@ And I choose a specification Funding Stream
 And I click the Cancel button
 Then I am redirected to the Manage Specification Page
 
-@Workitem:35384 Driver
+@Workitem:6518 Driver
 Scenario: Create a new Specification with an Existing Specification Name
 Given A Specification has been previously created with a Unique Name
 And I have successfully navigated to the Create Specification Page
@@ -67,7 +67,7 @@ And I choose a specification Funding Stream
 And I click the Save button
 Then A Unique Specification Name Error is Displayed
 
-@Workitem:35384 Driver
+@Workitem:6518 Driver
 Scenario: Create & Save an Incomplete Specification with no Funding Stream Selected
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -76,7 +76,7 @@ And I enter a Description
 And I click the Save button
 Then A Unique Funding Stream Error is Displayed
 
-@Workitem:35384 Driver
+@Workitem:6518 Driver
 Scenario Outline: Create and Save an incomplete Specification
 Given I have successfully navigated to the Create Specification Page
 And I have missed the field <name> and <description>
@@ -91,13 +91,13 @@ Examples:
 	 | Missing Spec Description	| Test Spec 03 |                       | Enter a description	|
 
 
-@Workitem:35397 Driver
+@Workitem:6531 Driver
 Scenario: Select to Create a New Policy
 Given I have successfully navigated to the Manage Policies Page
 When I click on the Create Policy Button
 Then I am redirected to the Create Policy Page
 	
-@Workitem:35397 Driver
+@Workitem:6531 Driver
 Scenario: Create and Save a new Policy
 Given I have successfully navigated to the Create Policy Page
 When I enter a Policy Name
@@ -106,7 +106,7 @@ And I click the Save Policy button
 Then I am redirected to the Manage Policies Page
 And My new policy is correctly listed
 
-@Workitem:35397 Driver
+@Workitem:6531 Driver
 Scenario: Create and Cancel a new Policy
 Given I have successfully navigated to the Create Policy Page
 When I enter a Policy Name
@@ -114,7 +114,7 @@ And I enter a Policy Description
 And I click the Cancel Policy Button
 Then I am redirected to the Manage Policies Page
 
-@Workitem:35397 Driver
+@Workitem:6531 Driver
 Scenario: Create and Save a new Policy with an Existing Specification Name
 Given A Policy has been previously created with a Unique Policy Name
 And I have successfully navigated to the Create Policy Page for the previously created specification
@@ -123,7 +123,7 @@ And I enter a Policy Description
 And I click the Save Policy button
 Then A Unique Policy Name Error is Displayed
 
-@Workitem:35397 Driver
+@Workitem:6531 Driver
 Scenario Outline: Create and Save an incomplete Policy
 Given I have successfully navigated to the Create Policy Page
 And I have missed the policy field <name> and <description>
@@ -136,13 +136,13 @@ Then the following Policy Error should be displayed for FieldName '<policyfieldn
 	 | Missing Description | Policy Name |                       | Enter a description |
 
 
-@Workitem:35401 Driver
+@Workitem:6539 Driver
 Scenario: Select to Create Calculation Specification
 Given I have successfully navigated to the Manage Policies Page
 When I click the Create calculation specification
 Then I am redirected to the Create Calculation Specification for Policy Page
 
-@Workitem:35401, 40012 Driver
+@Workitem:6539, 7714 Driver
 Scenario: Create and Save a new Calculation Specification with Calculation Type Funding
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
 When I enter a Calculation Name
@@ -154,7 +154,7 @@ And I click the Save Calculation button
 Then I am redirected to the Manage Policies Page
 And My new Calculation is correctly listed
 
-@Workitem:35401, 40012 Driver
+@Workitem:6539, 7714 Driver
 Scenario: Create and Save a new Calculation Specification with Calculation Type Number
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
 When I enter a Calculation Name
@@ -165,7 +165,7 @@ And I click the Save Calculation button
 Then I am redirected to the Manage Policies Page
 And My new Calculation is correctly listed
 
-@Workitem:35401, 40012, 5598 Driver
+@Workitem:6539, 7714, 5598 Driver
 Scenario: Create and Save a new Calculation Specification with Calculation Type Number with an Allocation Line selected
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
 When I enter a Calculation Name
@@ -178,7 +178,7 @@ And I click the Save Calculation button
 Then I am redirected to the Manage Policies Page
 And My new Calculation is correctly listed
 
-@Workitem:35401, 40012, 5598 Driver
+@Workitem:6539, 7714, 5598 Driver
 Scenario: Create and Save a new Calculation Specification with Calculation Type Number with no Allocation Line selected
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
 When I enter a Calculation Name
@@ -202,7 +202,7 @@ And I click the Save Calculation button
 Then I am redirected to the Manage Policies Page
 And My new Calculation is correctly listed
 
-@Workitem:35401, 40012 Driver
+@Workitem:6539, 7714 Driver
 Scenario: Create and Cancel a new Calculation Specification
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
 When I enter a Calculation Name
@@ -213,7 +213,7 @@ And I enter a Calculation Description
 And I click the Cancel Calculation button
 Then I am redirected to the Manage Policies Page
 
-@Workitem:35401, 40012 Driver
+@Workitem:6539, 7714 Driver
 Scenario: Create and Save a new Calculation Specification with an Existing Name
 Given A Calculation Specification has been previously created with a Unique Name
 And I have successfully navigated to the Create Calculation Specification Page
@@ -237,7 +237,7 @@ And I enter a Calculation Description
 And I click the Save Calculation button
 Then A Calculation source code name already exists Error is Displayed
 
-@Workitem:35401, 40012 Driver
+@Workitem:6539, 7714 Driver
 Scenario: Create and Save a new Calculation Specification without selecting a Calc Type
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
 When I enter a Calculation Name
@@ -246,7 +246,7 @@ And I enter a Calculation Description
 And I click the Save Calculation button
 Then A Calculation Type Error is Displayed
 
-@Workitem:35401, 40012 Driver
+@Workitem:6539, 7714 Driver
 Scenario Outline: Create and Save an incomplete Funding Calculation Specification
 Given I have previously created a new specification
 And I have created a New Policy for that Specification
@@ -262,7 +262,7 @@ Examples:
 	 | MissingCalcFundingDescription | TestXYZ	| Funding | Additional Funding  |			   | Enter a description				   |
 	 | MissingCalcFundingAllocation  | TestXYZ	| Funding |						| Error3	   | Select an allocation line			   |
 
-@Workitem:35401, 40012 Driver
+@Workitem:6539, 7714 Driver
 Scenario Outline: Create and Save an incomplete Number Calculation Specification
 Given I have previously created a new specification
 And I have created a New Policy for that Specification
@@ -333,7 +333,7 @@ And I enter a Sub Policy Description
 And I click the Save Sub Policy button
 Then a Sub Policy Missing Policy Error should be displayed
 
-@Workitem:40075, 40012 Driver
+@Workitem:40075, 7714 Driver
 Scenario: Create and Save a new Calculation Specification without selecting an Allocation Line
 Given I have successfully navigated to the Create Calculation Specification for Policy Page
 When I enter a Calculation Name
@@ -349,7 +349,7 @@ Given I have previously created a new specification
 When I choose to view the datasets tab
 Then No alert about provider datasets is displayed
 
-@Workitem:40032 53711 Driver
+@Workitem:40032 7889 Driver
 Scenario: Create a New Specification and Dataset without marking as provider data should display an Alert
 Given I have previously created a new specification
 When I choose to view the datasets tab
@@ -358,7 +358,7 @@ And I am redirected to the DataSet page
 Then the new dataset has been saved and displayed correctly
 And An Alert that No dataset has been set as provider data should be displayed
 
-@Workitem:40032 53711 Driver
+@Workitem:40032 7889 Driver
 Scenario: Create a New Specification and New Dataset marked as provider data set should not display an Alert
 Given I have previously created a new specification
 When I choose to view the datasets tab
@@ -367,7 +367,7 @@ And I am redirected to the DataSet page
 Then the new dataset has been saved and displayed correctly
 And No alert about provider datasets is displayed
 
-@Workitem:49358 58413 Driver
+@Workitem:49358 7781 Driver
 Scenario: Create and Save a new Specification with 2 Funding Streams selected
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -377,7 +377,7 @@ And I choose 2 specification Funding Streams
 And I click the Save button
 Then I am redirected to the Manage Policies Page
 
-@Workitem:49358 58413 Driver
+@Workitem:49358 7781 Driver
 Scenario: Create and Save a new Specification with 5 Funding Streams selected
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -388,7 +388,7 @@ And I click the Save button
 Then I am redirected to the Manage Policies Page
 And My new specification is correctly listed
 
-@Workitem:49358 58413 Driver
+@Workitem:49358 7781 Driver
 Scenario: Create and Save a new Specification with ALL Funding Streams selected
 Given I have successfully navigated to the Create Specification Page
 When I enter a Name
@@ -556,7 +556,7 @@ Then I am redirected back to the Manage Polices Page
 And the Specification is correctly updated
 And the Specification Funding Period has correctly updated
 
-@Workitem:49361 Driver
+@Workitem:6572 Driver
 Scenario: Verify Edit Calculation Specification option within Manage Policies Page
 Given I have created a new specification
 And I have created a new policy
@@ -564,7 +564,7 @@ And I have created a new calculation specification
 When I click on the calculation specifcation within the Manage Policies Page
 Then I am redirected successfully to the Edit Calculation Specifcation Page
 
-@Workitem:49361 Driver
+@Workitem:6572 Driver
 Scenario: Validate Edit Calculation Specification Page when the Calculation Type is Funding
 Given I have successfully created a new Calculation Specification
 And I have navigated to the Edit Calculation Page
@@ -576,7 +576,7 @@ And the option to edit the Calculation Specification Allocation Line is displaye
 And an option to Save the Changes is displayed
 And an option to cancel the changes is displayed
 
-@Workitem:49361 Driver
+@Workitem:6572 Driver
 Scenario: Validate Edit Calculation Specification Page when the Calculation Type is Number
 Given I have successfully created a new Calculation Specification with Calculation Type of Number
 And I have navigated to the Edit Calculation Page
@@ -587,7 +587,7 @@ And the option to edit the Calculation Specification Calculation Type is display
 And an option to Save the Changes is displayed
 And an option to cancel the changes is displayed
 
-@Workitem:5429, 49361 Driver
+@Workitem:5429, 6572 Driver
 Scenario: Validate Edit Calculation Specification Page when the Calculation Type is Baseline
 Given I have successfully created a new Calculation Specification with Calculation Type of Baseline
 And I have navigated to the Edit Calculation Page
@@ -596,7 +596,7 @@ And the option to edit the Calculation Specification Description is displayed
 And an option to Save the Changes is displayed
 And an option to cancel the changes is displayed
 
-@Workitem:49361 Driver
+@Workitem:6572 Driver
 Scenario: Edit an existing Calculation Specification Name
 Given I have successfully created a new Calculation Specification
 And I have navigated to the Edit Calculation Page
@@ -611,7 +611,7 @@ And I have navigated to the Edit Calculation Page for one of those calculations
 When I update the existing Calculation Specificaton Name to an existing Calculation Function Name
 Then An Edit Calculation source code name already exists Error is Displayed
 
-@Workitem:49361 Driver
+@Workitem:6572 Driver
 Scenario: Edit an existing Calculation Specification Description
 Given I have successfully created a new Calculation Specification
 And I have navigated to the Edit Calculation Page
@@ -619,7 +619,7 @@ When I update the existing Calculation Specificaton Description
 Then I am redirected to the Manage Policies Page
 And the Calculation Specification Description has been successfully updated
 
-@Workitem:49361 Driver
+@Workitem:6572 Driver
 Scenario: Edit an existing Calculation Specifications Allocation Line where the Calculation Type is Funding
 Given I have successfully created a new Calculation Specification
 And I have navigated to the Edit Calculation Page
@@ -627,7 +627,7 @@ When I update the existing Calculation Specificaton Allocation Line
 Then I am redirected to the Manage Policies Page
 And the Calculation Specification has been successfully updated
 
-@Workitem:49361 Driver
+@Workitem:6572 Driver
 Scenario: Edit an existing Calculation Specifications Calculation Type
 Given I have successfully created a new Calculation Specification
 And I have navigated to the Edit Calculation Page
@@ -635,7 +635,7 @@ When I update the existing Calculation Specificaton Calculation Type
 Then I am redirected to the Manage Policies Page
 And the Calculation Specification has been successfully updated
 
-@Workitem:49361, 5598 Driver
+@Workitem:6572, 5598 Driver
 Scenario: Edit an existing Calculation Specifications Calculation Type to Number and select an allocation line
 Given I have successfully created a new Calculation Specification
 And I have navigated to the Edit Calculation Page
@@ -646,7 +646,7 @@ And I click the Save Changes Button
 Then I am redirected to the Manage Policies Page
 And the Calculation Specification has been successfully updated
 
-@Workitem:49361 Driver
+@Workitem:6572 Driver
 Scenario: Edit an existing Calculation Specifications Policy
 Given I have successfully created a new Calculation Specification
 And I then create an additional Policy for the Specification
@@ -655,7 +655,7 @@ When I update the existing Calculation Specificaton Associated Policy
 Then I am redirected to the Manage Policies Page
 And the Calculation Specification associated policy has been successfully updated
 
-@Workitem:49361 Driver
+@Workitem:6572 Driver
 Scenario: Cancel an Edit to an existing Calculation Specification
 Given I have successfully created a new Calculation Specification
 And I have navigated to the Edit Calculation Page
@@ -663,45 +663,45 @@ When I update the existing Calculation Specificaton
 And select to Cancel the edit
 Then I am redirected to the Manage Policies Page
 
-@Workitem:49352 Driver Smoke
+@Workitem:6604 Driver Smoke
 Scenario: Filter Specifications list by Funding Stream
 Given I have successfully navigated to the Manage Specification Page
 When I choose to filter the list by Funding Stream
 Then the list of specifications refreshes to display the filtered selection
 
-@Workitem:49352 Driver
+@Workitem:6604 Driver
 Scenario: Filter Specifications list by Status
 Given I have successfully navigated to the Manage Specification Page
 When I choose to filter the list by Status
 Then the list of specifications refreshes to display the filtered selection
 
-@Workitem:49352 Driver
+@Workitem:6604 Driver
 Scenario: Clear All Filters selected for the Specifications list
 Given I have successfully navigated to the Manage Specification Page
 And I choose to filter the list
 When I choose the Clear Filter option
 Then the list of specifications refreshes to display all the specifications available
 
-@Workitem:49352 Driver Smoke
+@Workitem:6604 Driver Smoke
 Scenario: Verify the Specifications list Column Headers
 Given I have successfully navigated to the Manage Specification Page
 Then the list of specifications is displayed
 And the following Headers are correctly displayed
 
-@Workitem:49352 Driver
+@Workitem:6604 Driver
 Scenario: Verify the Specifications list is displayed in descending order
 Given I have successfully navigated to the Manage Specification Page
 Then the list of specifications is displayed
 And the displayed in descending order by Last Edit Date
 
-@Workitem:49352 Driver Smoke
+@Workitem:6604 Driver Smoke
 Scenario: Verify the Specifications list Column Infomation
 Given I have successfully navigated to the Manage Specification Page
 Then the list of specifications is displayed
 And the following Headers are correctly displayed
 And the Information in each column is displayed correctly
 
-@Workitem:49352 Driver Smoke
+@Workitem:6604 Driver Smoke
 Scenario: Verify the Specifications list More Infomation is Displayed correctly
 Given I have successfully navigated to the Manage Specification Page
 When I click on the More Option in for a specific Specification
@@ -710,13 +710,13 @@ And the funding stream associated with the specification is displayed
 And the funding period associated with the specification is displayed
 And there is an option to edit the specification displayed
 
-@Workitem:49356 Driver Smoke
+@Workitem:6612 Driver Smoke
 Scenario: Verify the Manage Policies List Column Headers
 Given I have successfully navigated to the Manage Policies Page
 Then the list of associated Polcies and Calculations are displayed
 And the following Specification related Headers are correctly displayed
 
-@Workitem:49356 Driver
+@Workitem:6612 Driver
 Scenario: Validate the Policy Data displayed within the Manage Policies List
 Given I have previously created a new specification
 And I have created a New Policy for that Specification
@@ -729,7 +729,7 @@ And the description of the policy is displayed
 And the last edited date time for the policy is displayed
 And there is the ability to view more information about the policy
 
-@Workitem:49356 Driver
+@Workitem:6612 Driver
 Scenario: Validate the Calculation Data displayed within the Manage Policies List
 Given I have previously created a new specification
 And I have created a New Policy for that Specification
@@ -743,7 +743,7 @@ And the description of the calculation specification is displayed
 And I am able to select to view more details about the calculations specification
 And the type of the calculation specification is displayed
 
-@Workitem:49356 Driver
+@Workitem:6612 Driver
 Scenario: Verify the Policy More option displays the Full Description within the Manage Policies List
 Given I have previously created a new specification
 And I have created a New Policy for that Specification
@@ -754,7 +754,7 @@ And the associated policies are displayed as rows in my table
 When I click on the More drop down option
 Then I can view the full policy description
 
-@Workitem:49356 Driver
+@Workitem:6612 Driver
 Scenario: Verify the Calculation More option displays the Full Description within the Manage Policies List
 Given I have previously created a new specification
 And I have created a New Policy for that Specification
@@ -765,7 +765,7 @@ And the associated calculations are displayed as rows in my table
 When I click on the Calculation More drop down option
 Then I can view the full Calculation description
 
-@Workitem:49356 Driver
+@Workitem:6612 Driver
 Scenario: Display a Policies information by selecting the Jump To option within the Manage Policies List
 Given I have previously created a new specification
 And I have created a New Policy for that Specification
@@ -776,7 +776,7 @@ When I click on the Jump To Drop down
 Then I am able to select from all the available policies
 And jump to the displayed information for the selected policy
 
-@Workitem:49356 Driver Smoke
+@Workitem:6612 Driver Smoke
 Scenario: Verify the Expand and Collapse All option for the Policy List on the Manage Policies Page
 Given I have successfully navigated to the Manage Policies Page
 When I click the Expand All Link
@@ -784,31 +784,31 @@ Then All rows in the Policy List are expanded to display all additional informat
 When I click the Expand All Link
 Then All rows in the Policy List are collapsed again
 
-@Workitem:50078 Driver
+@Workitem:6620 Driver
 Scenario: Verify the Approve Specification Option on the Manage Policies Page
 Given I have previously created a new specification
 And I have successfully navigated to the Manage Policies Page for the new specification
 Then the Approve Specification option is correctly displayed
 
-@Workitem:50078 Driver
+@Workitem:6620 Driver
 Scenario: Verify that a Specification with an associated Policy can be marked as Approved
 Given A Policy has been previously created with a Unique Policy Name
 When I choose to mark the associated Specification as Approved
 Then the Specification should be marked as approved
 
-@Workitem:50078 Driver
+@Workitem:6620 Driver
 Scenario: Verify that a Specification with an associated Calculation can be marked as Approved
 Given A Calculation Specification has been previously created with a Unique Name
 When I choose to mark the associated Specification as Approved
 Then the Specification should be marked as approved
 
-@Workitem:50078 Driver
+@Workitem:6620 Driver
 Scenario: Verify that a Specification with an associated Sub Policy can be marked as Approved
 Given A Sub Policy has been previously created with a Unique Name
 When I choose to mark the associated Specification as Approved
 Then the Specification should be marked as approved
 
-@Workitem:56606 Driver
+@Workitem:7896 Driver
 Scenario: Verify the Calculation More option displays the View Calculation Code link within the Manage Policies List
 Given I have previously created a new specification
 And I have created a New Policy for that Specification
@@ -819,7 +819,7 @@ And the associated calculations are displayed as rows in my table
 When I click on the Calculation More drop down option
 Then I the View calculation script link option is displayed
 
-@Workitem:56606 Driver
+@Workitem:7896 Driver
 Scenario: Select to view the Edit Calculation Page from the View Calculation Code link within the Manage Policies List
 Given I have previously created a new specification
 And I have created a New Policy for that Specification
@@ -831,7 +831,7 @@ When I click on the Calculation More drop down option
 And I click the View Calculation Code Link
 Then I am redirected successfully to the Edit Calculation Specifcation Page
 
-@Workitem:63319 Driver
+@Workitem:7901 Driver
 Scenario: Verify a Specification with an existing Dataset displays a link to Map Data Source file to the Dataset
 Given I have previously created a new specification
 When I choose to view the datasets tab
@@ -839,7 +839,7 @@ And I choose to create a new dataset set as Provider Data
 And I am redirected to the DataSet page
 Then the Map Data Source file to Dataset link is displayed correctly
 
-@Workitem:63319 Driver
+@Workitem:7901 Driver
 Scenario: Select to view the Map Data Source File page from the Map Data source file to Dataset link within the Specification Dataset Tab
 Given I have previously created a new specification
 When I choose to view the datasets tab
@@ -849,7 +849,7 @@ Then the Map Data Source file to Dataset link is displayed correctly
 When I click on the Map Data Source File to Dataset link
 Then I am redirected to a list view of dataset schema relationships for the specification
 
-@Workitem:53711 Driver
+@Workitem:7889 Driver
 Scenario: Verify the Specification Dataset Tab View where a dataset or datasets have been created
 Given I have previously created a new specification
 When I choose to view the datasets tab
@@ -860,7 +860,7 @@ And the dataset is displayed in a tabular layout
 And the Column Headers Dataset and Data schema are displayed
 And the option to expand the Dataset row to show more information is displayed
 
-@Workitem:53711 Driver
+@Workitem:7889 Driver
 Scenario: Verify the Specification Dataset Tab View correctly displays the Provider Data Icon
 Given I have previously created a new specification
 When I choose to view the datasets tab
@@ -869,7 +869,7 @@ And I am redirected to the DataSet page
 Then the new dataset has been saved and displayed correctly
 And the Provider Data Set Icon is displayed correctly
 
-@Workitem:53711 Driver
+@Workitem:7889 Driver
 Scenario: Verify the Specification Dataset Tab View correctly displays the Expander Results Information
 Given I have previously created a new specification
 When I choose to view the datasets tab
