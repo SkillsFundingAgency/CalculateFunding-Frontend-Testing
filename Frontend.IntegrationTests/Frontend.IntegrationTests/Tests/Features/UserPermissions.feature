@@ -1,6 +1,6 @@
 ﻿Feature: UserPermissions
 	
-@Workitem 62977 62987 Driver_TestUser
+@Workitem 62987 Driver_TestUser
 Scenario Outline: Update ALL Permissions for a Specified User to True
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -24,7 +24,7 @@ Examples:
 | userId                               | fundingStreamId |
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem 62987 Driver_TestUser
 Scenario Outline: Update ALL Permissions for a Specified User to False
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -49,7 +49,7 @@ Examples:
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to Enable Creation of a New Specification
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -76,7 +76,7 @@ Examples:
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to Enable Edit Specification
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -107,7 +107,7 @@ Examples:
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to Enable Create Dataset Access
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -133,7 +133,7 @@ Examples:
 | userId                               | fundingStreamId |
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to Enable Create Specification Policy Access
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -159,7 +159,7 @@ Examples:
 | userId                               | fundingStreamId |
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to Enable Create Calculation Specification Access
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -185,7 +185,7 @@ Examples:
 | userId                               | fundingStreamId |
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to Enable Create Sub Policy Access
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -211,7 +211,7 @@ Examples:
 | userId                               | fundingStreamId |
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to Enable Specification Approval Access
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -239,7 +239,7 @@ Examples:
 | userId                               | fundingStreamId |
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to allow access to Edit a Calculation
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -268,7 +268,7 @@ Examples:
 | userId                               | fundingStreamId |
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to allow access to Select data source page
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -299,7 +299,7 @@ Examples:
 | userId                               | fundingStreamId |
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to allow access to Create a QA Test
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -333,7 +333,7 @@ Examples:
 | userId                               | fundingStreamId |
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to allow access to Edit a QA Test
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted |
@@ -364,7 +364,7 @@ Examples:
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to allow access to Refresh Funding
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted | 
@@ -394,7 +394,7 @@ Examples:
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to allow access to Approve Funding Stream
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted | 
@@ -424,7 +424,7 @@ Examples:
 | 515afc96-c2c7-4d66-b62b-364b5619e359 | PSG             |
 
 
-@Workitem 62977 62987 Driver_TestUser
+@Workitem  62987 Driver_TestUser
 Scenario Outline: Update Permissions for a Specified User to allow access to Publish Funding Stream
 Given the user '<userId>' has the following permissions for Funding Stream '<fundingStreamId>'
 | Permission                 | Granted | 

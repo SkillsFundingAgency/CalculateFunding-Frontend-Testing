@@ -87,14 +87,14 @@ namespace Frontend.IntegrationTests.Tests.Features
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Quality Assurance Test Scenario List Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36666")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7674")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheQualityAssuranceTestScenarioListPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Quality Assurance Test Scenario List Page", new string[] {
                         "Workitem:",
-                        "36666",
+                        "7674",
                         "Driver",
                         "Smoke"});
 #line 6
@@ -116,14 +116,14 @@ testRunner.And("an option to create a new QA Test is displayed", ((string)(null)
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Quality Assurance Test Scenario List Page Counts")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36666")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7674")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheQualityAssuranceTestScenarioListPageCounts()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Quality Assurance Test Scenario List Page Counts", new string[] {
                         "Workitem:",
-                        "36666",
+                        "7674",
                         "Driver",
                         "Smoke"});
 #line 14
@@ -145,14 +145,14 @@ testRunner.And("the total Test Scenario Count is displayed", ((string)(null)), (
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Quality Assurance Test Scenario List Page Pagination")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36666")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7674")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheQualityAssuranceTestScenarioListPagePagination()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Quality Assurance Test Scenario List Page Pagination", new string[] {
                         "Workitem:",
-                        "36666",
+                        "7674",
                         "Driver",
                         "Smoke"});
 #line 22
@@ -178,14 +178,14 @@ testRunner.And("I am able to navigate to the previous page of 50 test scenarios"
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify Listed Test Scenario Information")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36666")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7674")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyListedTestScenarioInformation()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify Listed Test Scenario Information", new string[] {
                         "Workitem:",
-                        "36666",
+                        "7674",
                         "Driver",
                         "Smoke"});
 #line 32
@@ -211,14 +211,14 @@ testRunner.And("the date time the test scenario was last updated is displayed", 
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("View the Quality Assurance Create quality assurance test page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7720")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ViewTheQualityAssuranceCreateQualityAssuranceTestPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View the Quality Assurance Create quality assurance test page", new string[] {
                         "Workitem:",
-                        "36667",
+                        "7720",
                         "Driver",
                         "Smoke"});
 #line 42
@@ -236,14 +236,14 @@ testRunner.Then("I am redirected to the Create quality assurance test page", ((s
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Quality Assurance Create quality assurance test page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7720")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void VerifyTheQualityAssuranceCreateQualityAssuranceTestPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Quality Assurance Create quality assurance test page", new string[] {
                         "Workitem:",
-                        "36667",
+                        "7720",
                         "Driver",
                         "Smoke"});
 #line 48
@@ -265,13 +265,13 @@ testRunner.And("there is a monaco text editor field displayed", ((string)(null))
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Enable Valiadate QA Test Button on the Create quality assurance test page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7720")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void EnableValiadateQATestButtonOnTheCreateQualityAssuranceTestPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Enable Valiadate QA Test Button on the Create quality assurance test page", new string[] {
                         "Workitem:",
-                        "36667",
+                        "7720",
                         "Driver"});
 #line 56
 this.ScenarioSetup(scenarioInfo);
@@ -294,16 +294,14 @@ testRunner.Then("the Valiadate QA Test Button should be Enabled", ((string)(null
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Valiadate New QA Test script on the Create quality assurance test page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7720")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ValiadateNewQATestScriptOnTheCreateQualityAssuranceTestPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valiadate New QA Test script on the Create quality assurance test page", new string[] {
                         "Workitem:",
-                        "36667",
-                        "Driver",
-                        "Smoke"});
+                        "7720",
+                        "Driver"});
 #line 65
 this.ScenarioSetup(scenarioInfo);
 #line 66
@@ -331,13 +329,13 @@ testRunner.And("I am notified that the code being verified is complete", ((strin
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Valiadate an incorrect QA Test script on the Create quality assurance test page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7720")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void ValiadateAnIncorrectQATestScriptOnTheCreateQualityAssuranceTestPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valiadate an incorrect QA Test script on the Create quality assurance test page", new string[] {
                         "Workitem:",
-                        "36667",
+                        "7720",
                         "Driver"});
 #line 77
 this.ScenarioSetup(scenarioInfo);
@@ -362,13 +360,13 @@ testRunner.And("the save option remains disabled", ((string)(null)), ((TechTalk.
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Valiadate a New QA Test script without a Test Name or Description")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7720")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void ValiadateANewQATestScriptWithoutATestNameOrDescription()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valiadate a New QA Test script without a Test Name or Description", new string[] {
                         "Workitem:",
-                        "36667",
+                        "7720",
                         "Driver"});
 #line 87
 this.ScenarioSetup(scenarioInfo);
@@ -393,13 +391,13 @@ testRunner.And("I am notified that the code being verified is complete", ((strin
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Valiadate New QA Test script without a specification selected")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7720")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void ValiadateNewQATestScriptWithoutASpecificationSelected()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Valiadate New QA Test script without a specification selected", new string[] {
                         "Workitem:",
-                        "36667",
+                        "7720",
                         "Driver"});
 #line 97
 this.ScenarioSetup(scenarioInfo);
@@ -418,13 +416,13 @@ testRunner.Then("the Validate QA Test Button remains disabled", ((string)(null))
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Save a New QA Test script without a Test Name or Description")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7720")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SaveANewQATestScriptWithoutATestNameOrDescription()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save a New QA Test script without a Test Name or Description", new string[] {
                         "Workitem:",
-                        "36667",
+                        "7720",
                         "Driver"});
 #line 104
 this.ScenarioSetup(scenarioInfo);
@@ -459,13 +457,13 @@ testRunner.And("an error message is displayed to to notify that a Test Descripti
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Save a New Valid QA Test script")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36667")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7720")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SaveANewValidQATestScript()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Save a New Valid QA Test script", new string[] {
                         "Workitem:",
-                        "36667",
+                        "7720",
                         "Driver"});
 #line 118
 this.ScenarioSetup(scenarioInfo);
@@ -496,14 +494,14 @@ testRunner.Then("I am redirected to the Edit quality assurance test page", ((str
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("View the Edit quality assurance test page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7840")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ViewTheEditQualityAssuranceTestPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View the Edit quality assurance test page", new string[] {
                         "Workitem:",
-                        "36691",
+                        "7840",
                         "Driver",
                         "Smoke"});
 #line 131
@@ -529,13 +527,13 @@ testRunner.And("the existing QA Test code is displayed in the Monaco Text Editor
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit the Name of an Existing quality assurance test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7840")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void EditTheNameOfAnExistingQualityAssuranceTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit the Name of an Existing quality assurance test", new string[] {
                         "Workitem:",
-                        "36691",
+                        "7840",
                         "Driver"});
 #line 141
 this.ScenarioSetup(scenarioInfo);
@@ -556,13 +554,13 @@ testRunner.And("I am presented with confirmation of the change", ((string)(null)
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit the Description of an Existing quality assurance test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7840")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void EditTheDescriptionOfAnExistingQualityAssuranceTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit the Description of an Existing quality assurance test", new string[] {
                         "Workitem:",
-                        "36691",
+                        "7840",
                         "Driver"});
 #line 149
 this.ScenarioSetup(scenarioInfo);
@@ -583,13 +581,13 @@ testRunner.And("I am presented with confirmation of the change", ((string)(null)
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit the Test for an Existing quality assurance test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7840")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void EditTheTestForAnExistingQualityAssuranceTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit the Test for an Existing quality assurance test", new string[] {
                         "Workitem:",
-                        "36691",
+                        "7840",
                         "Driver"});
 #line 157
 this.ScenarioSetup(scenarioInfo);
@@ -610,13 +608,13 @@ testRunner.Then("I am presented with confirmation of the change", ((string)(null
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Edit the Test Incorrectly for an Existing quality assurance test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7840")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void EditTheTestIncorrectlyForAnExistingQualityAssuranceTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit the Test Incorrectly for an Existing quality assurance test", new string[] {
                         "Workitem:",
-                        "36691",
+                        "7840",
                         "Driver"});
 #line 165
 this.ScenarioSetup(scenarioInfo);
@@ -635,13 +633,13 @@ testRunner.Then("I am presented with a failed validation message", ((string)(nul
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Incorrectly Edit the Name of an Existing quality assurance test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7840")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void IncorrectlyEditTheNameOfAnExistingQualityAssuranceTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrectly Edit the Name of an Existing quality assurance test", new string[] {
                         "Workitem:",
-                        "36691",
+                        "7840",
                         "Driver"});
 #line 172
 this.ScenarioSetup(scenarioInfo);
@@ -660,13 +658,13 @@ testRunner.Then("An Enter a unique name Error is displayed", ((string)(null)), (
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Incorrectly Edit the Description of an Existing quality assurance test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7840")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void IncorrectlyEditTheDescriptionOfAnExistingQualityAssuranceTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Incorrectly Edit the Description of an Existing quality assurance test", new string[] {
                         "Workitem:",
-                        "36691",
+                        "7840",
                         "Driver"});
 #line 179
 this.ScenarioSetup(scenarioInfo);
@@ -685,13 +683,13 @@ testRunner.Then("An Enter a description Error is displayed", ((string)(null)), (
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Cancel an Edit to an Existing quality assurance test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Quality Assurance Tests")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("36691")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7840")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void CancelAnEditToAnExistingQualityAssuranceTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cancel an Edit to an Existing quality assurance test", new string[] {
                         "Workitem:",
-                        "36691",
+                        "7840",
                         "Driver"});
 #line 186
 this.ScenarioSetup(scenarioInfo);

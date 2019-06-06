@@ -88,14 +88,14 @@ that I want to take forward as the funding methodology for a given funding perio
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Navigate to the Choose Funding Specification Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51062")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6632")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void NavigateToTheChooseFundingSpecificationPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the Choose Funding Specification Page", new string[] {
                         "Workitem",
-                        "51062",
+                        "6632",
                         "Driver",
                         "Smoke"});
 #line 7
@@ -118,14 +118,14 @@ testRunner.Then("I am redirected to the Choose Funding Specification Page", ((st
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Choose Funding Specification Page Filter options")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51062")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6632")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ValidateTheChooseFundingSpecificationPageFilterOptions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Choose Funding Specification Page Filter options", new string[] {
                         "Workitem",
-                        "51062",
+                        "6632",
                         "Driver",
                         "Smoke"});
 #line 15
@@ -148,14 +148,14 @@ testRunner.And("a message is displayed instructing the User to select a Funding 
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the list of approved or updated specifications Headers")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51062")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6632")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ValidateTheListOfApprovedOrUpdatedSpecificationsHeaders()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the list of approved or updated specifications Headers", new string[] {
                         "Workitem",
-                        "51062",
+                        "6632",
                         "Driver",
                         "Smoke"});
 #line 23
@@ -174,7 +174,7 @@ testRunner.Then("an empty list of approved or updated specifications is displaye
             "")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51062")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6632")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void SelectAFundingStreamToDisplayTheListOfApprovedOrUpdatedSpecifications()
@@ -182,7 +182,7 @@ testRunner.Then("an empty list of approved or updated specifications is displaye
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Funding Stream to display the list of approved or updated specifications" +
                     "", new string[] {
                         "Workitem",
-                        "51062",
+                        "6632",
                         "Driver",
                         "Smoke"});
 #line 28
@@ -218,13 +218,13 @@ testRunner.And("an option to Choose to Fund the Specification is displayed", ((s
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify an Updated specifications is correctly displayed")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51062")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6632")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void VerifyAnUpdatedSpecificationsIsCorrectlyDisplayed()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify an Updated specifications is correctly displayed", new string[] {
                         "Workitem",
-                        "51062",
+                        "6632",
                         "Driver"});
 #line 42
 this.ScenarioSetup(scenarioInfo);
@@ -247,7 +247,7 @@ testRunner.And("the specification marked as updated is displayed correctly", ((s
         {
             string[] @__tags = new string[] {
                     "Workitem",
-                    "51062",
+                    "6632",
                     "Driver"};
             if ((exampleTags != null))
             {
@@ -293,7 +293,7 @@ testRunner.And("an option to Choose to Fund the Specification is displayed", ((s
             "roved or updated specifications: 1819")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51062")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6632")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "1819")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "1819")]
@@ -309,7 +309,7 @@ this.SelectAFundingStreamForADifferentFundingPeriodToDisplayTheListOfApprovedOrU
             "roved or updated specifications: 1819DEV1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51062")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6632")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "1819DEV1")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:year", "1819DEV1")]
@@ -324,14 +324,14 @@ this.SelectAFundingStreamForADifferentFundingPeriodToDisplayTheListOfApprovedOrU
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Navigate to the Approve and publish Specification Selection Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("57915")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("8007")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void NavigateToTheApproveAndPublishSpecificationSelectionPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the Approve and publish Specification Selection Page", new string[] {
                         "Workitem",
-                        "57915",
+                        "8007",
                         "Driver",
                         "Smoke"});
 #line 71
@@ -354,14 +354,14 @@ testRunner.Then("I am redirected to the Approve and Publish Specification Select
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Approve and publish Specification Selection Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("57915")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("8007")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ValidateTheApproveAndPublishSpecificationSelectionPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Approve and publish Specification Selection Page", new string[] {
                         "Workitem",
-                        "57915",
+                        "8007",
                         "Driver",
                         "Smoke"});
 #line 79
@@ -387,7 +387,7 @@ testRunner.And("a warning is displayed that only one funding stream can be selec
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a Specification to Approve and Publish")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("57915")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("8007")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51065")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
@@ -395,7 +395,7 @@ testRunner.And("a warning is displayed that only one funding stream can be selec
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Specification to Approve and Publish", new string[] {
                         "Workitem",
-                        "57915",
+                        "8007",
                         "51065",
                         "Driver",
                         "Smoke"});
@@ -418,16 +418,16 @@ testRunner.Then("I am redirected to the Approve and publish funding Page", ((str
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Validate the Approve and publish funding Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51065")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("57158")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6649")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7986")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ValidateTheApproveAndPublishFundingPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate the Approve and publish funding Page", new string[] {
                         "Workitem",
-                        "51065",
-                        "57158",
+                        "6649",
+                        "7986",
                         "Driver",
                         "Smoke"});
 #line 95
@@ -450,14 +450,14 @@ testRunner.And("a Refresh Funding Button is displayed", ((string)(null)), ((Tech
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("The list of Provider Infomation is displayed for the Choosen Specification")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51065")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6649")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void TheListOfProviderInfomationIsDisplayedForTheChoosenSpecification()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The list of Provider Infomation is displayed for the Choosen Specification", new string[] {
                         "Workitem",
-                        "51065",
+                        "6649",
                         "Driver",
                         "Smoke"});
 #line 103
@@ -489,14 +489,14 @@ testRunner.And("the Specification Funding Amount for the specification is displa
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Expand a Provider to display the related QA Test Coverage Results")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51065")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6649")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Smoke")]
         public virtual void ExpandAProviderToDisplayTheRelatedQATestCoverageResults()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Expand a Provider to display the related QA Test Coverage Results", new string[] {
                         "Workitem",
-                        "51065",
+                        "6649",
                         "Driver",
                         "Smoke"});
 #line 115
@@ -520,13 +520,13 @@ testRunner.Then("the QA Test Coverage information is displayed", ((string)(null)
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select All Providers to Enable the Approve and Publish Options")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51065")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6649")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectAllProvidersToEnableTheApproveAndPublishOptions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select All Providers to Enable the Approve and Publish Options", new string[] {
                         "Workitem",
-                        "51065",
+                        "6649",
                         "Driver"});
 #line 123
 this.ScenarioSetup(scenarioInfo);
@@ -547,13 +547,13 @@ testRunner.Then("the Approve Button becomes enabled", ((string)(null)), ((TechTa
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Expand a Provider to display the related Funding Streams")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51066")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6655")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void ExpandAProviderToDisplayTheRelatedFundingStreams()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Expand a Provider to display the related Funding Streams", new string[] {
                         "Workitem",
-                        "51066",
+                        "6655",
                         "Driver"});
 #line 130
 this.ScenarioSetup(scenarioInfo);
@@ -576,17 +576,17 @@ testRunner.Then("the Funding Stream information is correctly displayed", ((strin
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a Provider Allocation Line to mark as Approved")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51066")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("56069")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("57342")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6655")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7779")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7780")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectAProviderAllocationLineToMarkAsApproved()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider Allocation Line to mark as Approved", new string[] {
                         "Workitem",
-                        "51066",
-                        "56069",
-                        "57342",
+                        "6655",
+                        "7779",
+                        "7780",
                         "Driver"});
 #line 138
 this.ScenarioSetup(scenarioInfo);
@@ -615,17 +615,17 @@ testRunner.Then("the Provider Allocation Line is successfully approved", ((strin
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a Provider Allocation Line to mark as Published")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51066")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("56069")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("57342")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6655")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7779")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7780")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectAProviderAllocationLineToMarkAsPublished()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider Allocation Line to mark as Published", new string[] {
                         "Workitem",
-                        "51066",
-                        "56069",
-                        "57342",
+                        "6655",
+                        "7779",
+                        "7780",
                         "Driver"});
 #line 149
 this.ScenarioSetup(scenarioInfo);
@@ -654,17 +654,17 @@ testRunner.Then("the Provider Allocation Line is successfully published", ((stri
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a Provider to mark as Approved")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51066")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("56069")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("57342")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6655")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7779")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7780")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectAProviderToMarkAsApproved()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider to mark as Approved", new string[] {
                         "Workitem",
-                        "51066",
-                        "56069",
-                        "57342",
+                        "6655",
+                        "7779",
+                        "7780",
                         "Driver"});
 #line 160
 this.ScenarioSetup(scenarioInfo);
@@ -693,17 +693,17 @@ testRunner.Then("the Provider is successfully approved", ((string)(null)), ((Tec
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select a Provider to mark as Published")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51066")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("56069")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("57342")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6655")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7779")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7780")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectAProviderToMarkAsPublished()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a Provider to mark as Published", new string[] {
                         "Workitem",
-                        "51066",
-                        "56069",
-                        "57342",
+                        "6655",
+                        "7779",
+                        "7780",
                         "Driver"});
 #line 171
 this.ScenarioSetup(scenarioInfo);
@@ -732,13 +732,13 @@ testRunner.Then("the Provider is successfully published", ((string)(null)), ((Te
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Refresh Funding option on the Approve and publish funding Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("57158")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("7986")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectTheRefreshFundingOptionOnTheApproveAndPublishFundingPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the Refresh Funding option on the Approve and publish funding Page", new string[] {
                         "Workitem",
-                        "57158",
+                        "7986",
                         "Driver"});
 #line 182
 this.ScenarioSetup(scenarioInfo);
@@ -759,13 +759,13 @@ testRunner.And("a Validation Update message is displayed correctly", ((string)(n
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Choose Action for an Approved Specification")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6640")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectTheChooseActionForAnApprovedSpecification()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the Choose Action for an Approved Specification", new string[] {
                         "Workitem",
-                        "51064",
+                        "6640",
                         "Driver"});
 #line 189
 this.ScenarioSetup(scenarioInfo);
@@ -798,13 +798,13 @@ testRunner.And("I am presented with an option to cancel choosing the selected sp
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the Back option on the Confirmation to chose a specification page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6640")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectTheBackOptionOnTheConfirmationToChoseASpecificationPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the Back option on the Confirmation to chose a specification page", new string[] {
                         "Workitem",
-                        "51064",
+                        "6640",
                         "Driver"});
 #line 201
 this.ScenarioSetup(scenarioInfo);
@@ -829,13 +829,13 @@ testRunner.Then("I am redirected to the Choose Funding Specification Page", ((st
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Select the View Funding Option for an Approved Specification")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("51064")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("6640")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void SelectTheViewFundingOptionForAnApprovedSpecification()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select the View Funding Option for an Approved Specification", new string[] {
                         "Workitem",
-                        "51064",
+                        "6640",
                         "Driver"});
 #line 210
 this.ScenarioSetup(scenarioInfo);
@@ -855,13 +855,13 @@ testRunner.Then("I am redirected to the Approve and publish funding Page", ((str
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Verify the Approve & Publish Filter Options are displayed correctly")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("56068")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("8221")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void VerifyTheApprovePublishFilterOptionsAreDisplayedCorrectly()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Approve & Publish Filter Options are displayed correctly", new string[] {
                         "Workitem",
-                        "56068",
+                        "8221",
                         "Driver"});
 #line 217
 this.ScenarioSetup(scenarioInfo);
@@ -885,13 +885,13 @@ testRunner.And("the Filter Option is Displayed", ((string)(null)), ((TechTalk.Sp
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Filter the Approve & Publish Page by Allocation Line")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("56068")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("8221")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void FilterTheApprovePublishPageByAllocationLine()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter the Approve & Publish Page by Allocation Line", new string[] {
                         "Workitem",
-                        "56068",
+                        "8221",
                         "Driver"});
 #line 226
 this.ScenarioSetup(scenarioInfo);
@@ -909,13 +909,13 @@ testRunner.Then("the list of Providers refreshes to display the filtered selecti
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Filter the Approve & Publish Page by Provider Type")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("56068")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("8221")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void FilterTheApprovePublishPageByProviderType()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter the Approve & Publish Page by Provider Type", new string[] {
                         "Workitem",
-                        "56068",
+                        "8221",
                         "Driver"});
 #line 232
 this.ScenarioSetup(scenarioInfo);
@@ -933,13 +933,13 @@ testRunner.Then("the list of Providers refreshes to display the filtered selecti
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Filter the Approve & Publish Page by Local Authority")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("56068")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("8221")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void FilterTheApprovePublishPageByLocalAuthority()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter the Approve & Publish Page by Local Authority", new string[] {
                         "Workitem",
-                        "56068",
+                        "8221",
                         "Driver"});
 #line 238
 this.ScenarioSetup(scenarioInfo);
@@ -957,13 +957,13 @@ testRunner.Then("the list of Providers refreshes to display the filtered selecti
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Filter the Approve & Publish Page by Status")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("56068")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("8221")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void FilterTheApprovePublishPageByStatus()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter the Approve & Publish Page by Status", new string[] {
                         "Workitem",
-                        "56068",
+                        "8221",
                         "Driver"});
 #line 244
 this.ScenarioSetup(scenarioInfo);
@@ -981,13 +981,13 @@ testRunner.Then("the list of Providers refreshes to display the filtered selecti
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Clear selected Filters on the Approve & Publish Page")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ApproveFunding")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Workitem")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("56068")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("8221")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("Driver")]
         public virtual void ClearSelectedFiltersOnTheApprovePublishPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Clear selected Filters on the Approve & Publish Page", new string[] {
                         "Workitem",
-                        "56068",
+                        "8221",
                         "Driver"});
 #line 250
 this.ScenarioSetup(scenarioInfo);
