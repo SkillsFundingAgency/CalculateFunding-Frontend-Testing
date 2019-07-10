@@ -644,8 +644,16 @@ namespace Frontend.IntegrationTests.Tests.Steps
             var versionNumber = viewpreviouscalculationpage.CalculationVersionId;
             string versionId = versionNumber.Text;
             int calculationVersionId = int.Parse(versionId);
-            calculationVersionId.Should().BeGreaterOrEqualTo(2, "There is only One current version of this Calculation");
-            Thread.Sleep(2000);
+            
+            if (calculationVersionId < 2)
+            {
+                Assert.Inconclusive("There is only One current version of this Calculation");
+            }
+            else
+            {
+                Thread.Sleep(2000);
+            }
+
         }
 
         [When(@"I click only one version of the calculation code")]

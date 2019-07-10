@@ -43,7 +43,7 @@
             var selectYear = createspecificationpage.SpecFundingPeriod;
 
             var selectElement = new SelectElement(selectYear);
-            selectElement.SelectByValue("1819");
+            selectElement.SelectByValue("1920");
             Actions.CreateSpecificationChooseAllFundingStreams(fundingStreams);
             Thread.Sleep(2000);
             Thread.Sleep(2000);
