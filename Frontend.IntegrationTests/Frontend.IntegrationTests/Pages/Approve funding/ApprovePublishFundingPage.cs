@@ -35,7 +35,7 @@ namespace Frontend.IntegrationTests.Pages.Approve_funding
         [FindsBy(How = How.CssSelector, Using = "tr.expander-trigger-container:nth-child(1)")]
         public IWebElement approvePublishFundingFirstProviderRow { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "tr.expander-trigger-container:nth-child(1) > td:nth-child(1) > label:nth-child(2)")]
+        [FindsBy(How = How.CssSelector, Using = "tr.expander-trigger-container:nth-child(1) > td:nth-child(1) > a:nth-child(2)")]
         public IWebElement approvePublishFundingFirstProviderName { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "tr.expander-trigger-container:nth-child(1) > td:nth-child(2)")]

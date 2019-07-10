@@ -185,7 +185,7 @@ And More than one version of code has been previously saved
 When I click only one version of the calculation code
 Then The Compare Calculations button remains disabled
 
-@Workitem:6682 Driver Smoke
+@Workitem:6682 Driver
 Scenario: Select Two Previous Calculation Code Versions from the Compare Calculation Versions page
 Given I have navigated to the Compare Calculation Versions page
 And More than one version of code has been previously saved
