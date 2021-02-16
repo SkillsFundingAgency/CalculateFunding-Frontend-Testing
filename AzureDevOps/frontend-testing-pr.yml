@@ -1,0 +1,49 @@
+name: $(Rev:r)
+
+pool:
+  vmImage: windows-2019
+
+resources:
+  repositories:
+  - repository: self
+
+trigger: none
+
+variables:
+ - name: releaseconfiguration
+   value: 'release'
+ - name: DOTNET_SKIP_FIRST_TIME_EXPERIENCE
+   value: true
+ - name: DOTNET_CLI_TELEMETRY_OPTOUT 
+   value: true
+ - group: 'Dotnet Core SDK Version'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk $(DotnetCoreSdkVersion)'
+  inputs:
+    version: '$(DotnetCoreSdkVersion)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet restore for Frontend Testing'
+  inputs:
+    command: 'restore'
+    projects: Frontend.IntegrationTests/Frontend.IntegrationTests.sln
+    feedsToUse: 'select'
+    vstsFeed: 'ecf37bc0-472b-47bf-91e3-6774809fd194'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test for Frontend Testing'
+  inputs:
+    command: test
+    projects: Frontend.IntegrationTests/Frontend.IntegrationTestsTests.*Tests/*.csproj
+    arguments: '--configuration $(releaseconfiguration) /p:AssemblyVersion=$(Build.BuildNumber)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish for Frontend Testing'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: 'Frontend.IntegrationTests/Frontend.IntegrationTests/Frontend.IntegrationTests.csproj'
+    arguments: '--configuration $(releaseconfiguration) /p:AssemblyVersion=$(Build.BuildNumber)'
+    zipAfterPublish: false
